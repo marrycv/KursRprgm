@@ -1,0 +1,367 @@
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center; 
+  width: 100%; 
+  color: red; 
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programering i R
+========================================================
+transition: rotate
+## Föreläsning 1: Introduktion
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+Avdelningen för statistik, 
+Linköpings universitet
+
+
+Föreläsning 1: Innehåll 
+========================================================
+- Kursens upplägg och praktisk information
+- R, R-Studio och vetenskaplig programmering
+- Vad är R och R-Studio?
+- Introduktion till programering i R
+  - R som miniräknare 
+  - Variabler
+  - Numeriska vektorer
+- Att söka hjälp 
+- Inför datalaborationer
+
+
+Kursens upplägg och praktisk information
+========================================================
+type: section
+
+
+Kursens mål
+========================================================
+incremental: true
+
+Information om kursen finns i **[[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_detail_print_sv.lasso?&ID=2017074)**. Denna kan sammanfattas till:
+
+- Mål 0. Bli bekväma med datorer
+- Mål 1. Tänka som en programmerare. Ställa upp problemet rätt. Struktur.
+- Mål 2. Skriva en (mindre) programkod.
+- Mål 3. Bli bekväma med R. Förstå hur du kan använda R i ditt framtida statistiska arbete.
+- Mål 4. Ha kul!
+
+
+Kursens delar
+========================================================
+incremental: true
+### Kursen består av två delar:
+- *Del 1:* Grundläggande programering
+- *Del 2:* Analys, datumhantering, strängar/regexp, paket och grafik
+  
+### Varje vecka:
+
+- En föreläsning (med uppföljning av förra labben)
+- En ~~obligatorisk~~ datorlaboration 
+- 4 timmar lärarledd laboration + **många timmar eget arbete**
+- Inlämning **varje fredag kl. 23.59** via LISAM
+
+Del 1: Grundläggande programering
+========================================================
+incremental: false
+
+- Grunderna för programmering i R
+- Fyra föreläsningar
+- Fyra labbar
+- Labbarna görs **en och en**
+- *Lärare:* Måns Magnusson ([mans.magnusson@liu.se](mailto:mans.magnusson@liu.se))
+
+Del 2: Analys, datumhantering, strängar/regexp, paket och grafik
+========================================================
+incremental: false
+
+- Statistisk analys med R
+- Fyra föreläsningar
+- Fyra labbar
+- Labbarna görs genom **parprogrammering**
+- *Lärare:* Josef Wilzén ([josef.wilzen@liu.se](mailto:josef.wilzen@liu.se))
+
+
+Kursens viktigaste moment: 
+========================================================
+
+![alt text](images/Bart.gif)
+
+~~Eget arbete med labbarna!~~
+
+Praktisk information
+========================================================
+
+## Kursens hemsida 
+Hemsidan innehåller bland annat schema, föreläsningar m.m. och finns [[här]](http://www.ida.liu.se/~732G33/).  
+
+## Kurskod: 
+**732G33**
+
+## Programvara
+För denna kurs krävs [R](http://www.r-project.org/) och [R-Studio](http://www.rstudio.com/).
+
+**Ta gärna med er R och R-Studio på en egen dator till föreläsningarna**
+
+
+Kurslitteratur
+========================================================
+
+## Kursboken
+Kursboken *A first course in statistical programming with R*.  Finns gratis som PDF [[ladda ned]](http://site.iugaza.edu.ps/biqelan/files/2010/09/Braun-W.J.-Murdoch-D.J.-A-First-Course-in-Statistical-Programming-with-R-CUP-2007ISBN-0521872650175s.pdf)
+
+## Artiklar 
+- *Best practices for scientific computing* [[ladda ned]](http://arxiv.org/abs/1210.0530)
+- *Dates and Times Made Easy with* ```lubridate``` [[ladda ned]](http://www.jstatsoft.org/v40/i03/paper)
+- ```stringr```: *modern, consistent string processing* [[ladda ned]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf)
+
+Kurslitteratur II
+========================================================
+## Videoföreläsningar
+- Google Developers (GD) videomaterial [[här]](http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w)
+- Roger Pengs föreläsningar (RP) [[här]](http://www.youtube.com/user/rdpeng/videos)
+
+## R Reference card v.2
+Ett par sidor med viktiga funktioner i R. [[ladda ned]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
+
+
+Examination
+========================================================
+## Datalabbar
+- Är ~~obligatoriska~~.
+- 80 % rätt för godkänt.
+
+## Examen
+- Datortentamen i datasal
+- *Hjälpmedel:* Kursboken och R reference card v.2 (digitalt)
+
+
+Datorn, programering och R
+========================================================
+type: section
+
+Datorns delar
+========================================================
+![Datorns delar](http://www.bubblews.com/assets/images/news/911238892_1364462242.jpg)
+
+R och datorn
+========================================================
+- En bra minnesregel är:
+  - Hårddisk = I bokhyllan
+  - Internminne (RAM) = På skrivbordet
+
+> **R arbetar på skrivbordet**
+
+
+Vad är programering?
+========================================================
+incremental: true
+- Instruera en dator att utföra uppgifter
+- Mjukvaruutveckling / vetenskaplig programmering
+- Lågnivåspråk / Högnivåspråk 
+- Kompilerande / Intepreterande språk
+
+Varför programera?
+========================================================
+incremental: true
+- Hantera (stora och komplexa) data
+- Replikerbarhet i analyser
+- Utföra komplexa beräkningar
+- Utföra och automatisera (tråkiga) rutinuppgifter
+- Effektivt användande av tid
+
+
+Vad är R?
+========================================================
+- Populäraste programmeringsspråket för statistiker
+- Bygger på öppen källkod (gratis och transparent)
+- Många utvecklare - stor och (extremt snabb) funktionalitet
+- Finns för Windows, Mac och Linux
+- Högnivåspråk (enkelt)
+- SAS och SPSS fortfarande större på arbetsmarknaden  
+(R beräknas gå om under 2014)
+- Mer information i videon "Overview and Background"
+
+
+Ett exempel på ett program
+========================================================
+incremental: true
+Vi skriva ett program som utgår från talet 7 och skriver sedan de följande 3 udda talen på skärmen.  
+Programmet avslutas med meddelandet ’Klar!’.
+
+I R ser det ut på följande sätt
+
+```{r,echo=TRUE,eval=FALSE}
+talet <- 7
+for (i in 1:3) {
+  talet <- talet + 2 
+  print(talet)
+}
+print("Klar!")
+```
+
+Resultatet
+========================================================
+Kör vi koden i R får vi följande resultat:
+
+```{r,echo=FALSE,eval=TRUE}
+talet <- 7
+for (i in 1:3) {
+  talet <- talet + 2 
+  print(talet)
+}
+print("Klart!")
+```
+
+
+Introduktion till programering i R
+========================================================
+type: section
+
+Installation av R och R-Studio
+========================================================
+## R
+1. Gå till [http://www.r-project.org/](http://www.r-project.org/)
+2. Download, Packages > CRAN > Sweden > Swedish University Computer Network
+3. Välj ditt operativsystem, ladda ned och installera R
+
+## R-Studio
+1. Gå till [http://www.rstudio.com/](http://www.rstudio.com/)
+2. Powerful IDE for R > Download now > Download RStudio Desktop
+3. Välj ditt operativsystem, ladda ned och installera R-Studio
+
+
+Demo 01: Delarna i R och R-Studio
+====================================
+## Demonstration av:
+- Delarna i R och R-Studio
+- Skriva och spara r-filer
+- Att hitta demofilerna på GitHub
+
+Fil för demonstration finns [[här]](code/demo_F1_01.r)
+
+Variabler och vektorer i R
+====================================
+- Variabler är ett sätt att "spara" värden
+- Vektorer i R är en samling (1 +) element av samma typ (ex. heltal).  
+Jämför med vektor i linjär algebra.
+- Vektorer skapas (enklast) med ```c()``` 
+- Det går att komma åt enskilda element i en vektor med ```[ ]```  (slicing)
+Exempel:
+```{r, eval=TRUE}
+testScore <- c(7,15,20,23,1.2)
+testScore[3]
+```
+
+Vektoraritmetik
+====================================
+- Operationer sker elementvis
+```{r, eval=TRUE}
+testScore <- c(7,15,20,23,1.2)
+testScore * 2
+```
+- Recycling: Vektorer återanvänds om de har olika längd
+```{r, eval=TRUE}
+x <- c(5,2,1)
+y <- c(7,4)
+y + x
+```
+
+
+Demo 01: Variabler och vektorer
+====================================
+## Demonstration av:
+- Enkla beräkningar
+- Enkla funktioner
+- Speciella tal i R
+- Skapa, slicea och räkna med vektorer
+- Hjälpen i R
+
+Fil för demonstration finns [[här]](code/demo_F1_02.r)
+
+
+
+Att söka hjälp
+====================================
+incremental: true
+- Hjälpen i R 
+- Google, Google, Google
+- Stack overflow / R help
+- Sök på engelska
+- Sök / studera på felmeddelandet från R
+```{r,echo=FALSE,eval=TRUE}
+cat("Error in eval(expr, envir, enclos) : object 'x' not found")
+```
+- Mer information i videon "How to get Help"
+
+Datorlaborationer
+========================================================
+- Titta igenom labben innan labbtillfällena.
+- Labbar utgår från en labbfil (med tester)
+- Samtliga uppgifter ska lämnas in som funktioner
+- Labbarna lämnas in via LISAM
+- Labbar automaträttas, således är det minsta fel kommer ni få minuspoäng
+- Deadlines och filer finns på kurshemsidan.
+
+
+Introduktion till funktioner i R
+========================================================
+En funktion i R består av:
+- ett funktionsnamn (ex. ```f```)
+- en funktionsdefinition - ```function()```
+- 0 eller flera argument / invärden (ex. ```x``` och ```y```)
+- "curly bracers" ```{}```
+- programkod / funktionen (ex. ```x+y```)
+- utvärdet från funktionen (ex. ```f(3,2)``` = **5** )
+
+
+Exempel på funktion
+========================================================
+```{r,echo=TRUE,eval=TRUE}
+f <- function(x, y){
+  # Här skriver vi vad funktionen ska göra:
+  resultat <- x + y
+  # Returnera värdet av funktionen
+  return(resultat)
+}
+
+f(x = 3, y = 2)
+```
+
+Att tänka på om funktioner
+========================================================
+- Funktioner s.k. "local enviroment" innebär att:  
+"Det som sker i funktionen, stannar i funktionen"
+- Funktionen måste "köras" / skickas till R console innan den fungerar
+- När ```return()``` anropas, avslutas funktionen
+
+Demo 02: Introduktion till funktioner
+========================================================
+## Demonstration av:
+- Skapa en egen enkel funktion med och utan argument
+- Använda ```print()``` och ```cat()``` i funktioner
+- Local enviroment
+
+Fil för demonstration finns [[här]](demonstration/demo_01.R)

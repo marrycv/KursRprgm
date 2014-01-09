@@ -110,6 +110,5 @@ Här finns YouTube - klipp om att installera R och R-Studio på [windows](http:/
 
 ##### Tidigare tentor
 ***
-För mer information om regler vid examination, se fliken Eximination. 
 Tidigare tentor finns att tillgå [här](https://github.com/MansMeg/KursRprgm/tree/master/OldExams).
 

@@ -34,7 +34,6 @@ Kursen består av 8 block, ett block per vecka. Varje block innehåller följade
 - *A First Course in Statistical Programming with R* av Braun och Murdoch (BM). Boken går att köpa på Akademibokandeln på campus Valla. Lösningar till uppgifterna i boken går att ladda ner [här](http://www.stats.uwo.ca/faculty/braun/other.php).
 - *stringr: modern, consistent string processing* av Hadley Wickham (HW). Artikeln finns att ladda ned [här](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf).
 - *Dates and Times Made Easy with lubridate* av Garrett Grolemund och Hadley Wickham (GGHW). Artikeln finns att ladda ned [här](http://www.jstatsoft.org/v40/i03/paper).
-- *Best practices for scientific computing* av Greg Wilson et. al. Denna artikel finns tillgänglig [här](http://arxiv.org/abs/1210.0530).
 
 ##### Extramaterial
 ***
@@ -45,6 +44,7 @@ Utöver kurslitteraturen kommer följande extramaterial att användas:
 
 ###### Referenslitteratur
 - *The Art of R Programming* av Norman Matloff. Denna bok är **inte** obligatorisk men kan användas för fördjupning.
+- *Best practices for scientific computing* av Greg Wilson et. al. Denna artikel finns tillgänglig [här](http://arxiv.org/abs/1210.0530).
 
 ##### Föreläsningar
 Kursen innehåller åtta föreläsningar. Nedan finns föreläsningar, demo-filer, läsanvisningar och extramaterial för kursen:

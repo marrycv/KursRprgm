@@ -1,0 +1,1252 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}%The first page setting
+\fancypagestyle{plain}
+{%
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[L]{
+    LINK\"OPING UNIVERSITY\\
+    Avdelningen för Statistik\\
+    Institutionen för datavetenskap
+  }
+  \fancyhead[R]{Programming i R}
+}
+%The remaining pages
+
+\fancyhead[RO,LE]{}
+\fancyhead[C]{Programming i R}
+\fancyhead[LO,RE]{}
+
+ 
+\end_preamble
+\use_default_options false
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language swedish
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Datorlaboration 4
+\end_layout
+
+\begin_layout Author
+Måns Magnusson
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Global options
+\end_layout
+
+\begin_layout Plain Layout
+
+opts_chunk$set(comment='') 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Intro.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Datorlaboration
+\end_layout
+
+\begin_layout Section
+Mer om funktioner
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Inluppg.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Sourca in facit.
+\end_layout
+
+\begin_layout Plain Layout
+
+source("/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk
+ programmering i R/RCourse2014/KursRprgmTeacher/Labs/Solutions/LabSolutions.R")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Svenska personnummer
+\end_layout
+
+\begin_layout Standard
+I Sverige har samtliga medborgare personnummer som de behåller livet ut
+ och som används för identifikation.
+ Personnummret består av tre delar, födelsedatum, födelsenummer och en kontrolls
+iffra.
+ Som standard anges personnummer på följande sätt 
+\family typewriter
+ÅÅÅÅMMDDNNNK
+\family default
+ där 
+\family typewriter
+ÅÅÅÅ
+\family default
+ är födelseåret, 
+\family typewriter
+MM
+\family default
+ födelsemånaden, 
+\family typewriter
+DD
+\family default
+ födelsedagen, 
+\family typewriter
+NNN
+\family default
+ födelsenumret och 
+\family typewriter
+K
+\family default
+ kontrollsiffran.
+\end_layout
+
+\begin_layout Standard
+Kontrollsiffran beräknas baserat på de övriga siffrorna i personnummret
+ vilket gör att det är möjligt att kontrollera om ett personnummer är korrekt
+ eller inte.
+ Det är också möjligt att utifrån ett personnummer beräkna ålder och kön
+ (samt för vissa även födelseort, men det spelar ingen roll i denna uppgift).
+ 
+\end_layout
+
+\begin_layout Standard
+Detaljerna om för hur kön och kontrollsiffran beräknas finns i Skatteverkets
+ broschyr SKV 704 
+\begin_inset CommandInset href
+LatexCommand href
+name "[PDF]"
+target "http://www.skatteverket.se/download/18.1e6d5f87115319ffba380001857/1285595720207/70408.pdf"
+
+\end_inset
+
+.
+ Läs igenom denna broschyr innan du gör uppgiften nedan.
+\end_layout
+
+\begin_layout Standard
+Exempel på personnummer som kan användas för att testa dina funktioner finns
+ dels i broschyren från Skatteverket och dels på Wikipedia (sökord: “Personnumme
+r i Sverige”).
+ Du kan självklart även testa med ditt eget personnummer om du vill.
+\end_layout
+
+\begin_layout Standard
+Syftet med denna uppgifter att skapa flera mindre funktioner och sedan kombinera
+ ihop dessa funktioner till en större mer komplex funktion.
+\end_layout
+
+\begin_layout Standard
+Det vi vill ha i slutändan är en funktion som tar en vektor med personnummer
+ på olika format.
+ Funktionen ska sedan returnera ett dataset med den information som finns
+ i personnummret (med undantag för födelselän).
+ Vi tar det dock i flera steg, med flera olika funktioner som utför olika
+ steg.
+ De stegen vi kommer göra är: 
+\end_layout
+
+\begin_layout Enumerate
+Skapa en funktion för att konvertera personnummer till ett standardformat
+ som vi kan arbeta med vidare.
+\end_layout
+
+\begin_layout Enumerate
+Skapa en funktion för att kontrollera kontrollsiffran i ett personnummer.
+\end_layout
+
+\begin_layout Enumerate
+Skapa en funktion för att kontrollera om personnummret är ett samordningsnummer.
+\end_layout
+
+\begin_layout Enumerate
+Skapa en funktion för att ta fram uppgift om kön från ett personnummer.
+\end_layout
+
+\begin_layout Enumerate
+Skapa en funktion för att ta fram uppgifter om ålder från ett personnummer
+ och ett givet datum.
+\end_layout
+
+\begin_layout Enumerate
+Skapa en funktion som sätter samman funktionerna ovan till en funktion,
+ som tar en vektor av personnummer som input och returnerar ett dataset
+ med personnummer och övrig information.
+\end_layout
+
+\begin_layout Subsection*
+Uppgift 1: 
+\family typewriter
+pnrFormat()
+\end_layout
+
+\begin_layout Standard
+Personnummer förekommer i många olika format i vanliga dataanalyser.
+ De format funktionen ska kunna hantera är 
+\family typewriter
+ÅÅMMDD-NNNK
+\family default
+, 
+\family typewriter
+ÅÅMMDDNNNK
+\family default
+ och 
+\family typewriter
+ÅÅÅÅMMDDNNNK
+\family default
+.
+ Vi hoppar över personnummer på formen 
+\family typewriter
+ÅÅMMDD+NNNK
+\family default
+.
+ I R kan dessutom personnummer förekomma både som numeriska variabler faktorvari
+abler och som textvariabler.
+ Vår funktion ska klara samtliga dessa fall.
+\end_layout
+
+\begin_layout Standard
+Funktionen ska kunna ta ett personnummer på ett godtyckligt format och returnera
+ personnummret som ett textelement med följande format: 
+\family typewriter
+ÅÅÅÅMMDDNNNK
+\end_layout
+
+\begin_layout Standard
+Ett förslag på de steg som kan ingå är:
+\end_layout
+
+\begin_layout Enumerate
+Konvertera numeriska och faktorvariabler till text.
+\end_layout
+
+\begin_layout Enumerate
+Använd en villkorssats för att hantera de tre olika formaten ovan [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+nchar()
+\family default
+]
+\end_layout
+
+\begin_layout Standard
+Här är textexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "640823-3234" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrFormat(pnr) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- 6408233234 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrFormat(pnr) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "198112189876" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrFormat(pnr) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Uppgift 2: 
+\family typewriter
+pnrCtrl()
+\end_layout
+
+\begin_layout Standard
+Nästa steg i funktionen är att kontrollera om ett personnummer är korrekt
+ eller inte.
+ För att beräkna en kontrollsiffra används den så kallade Luhn-algoritmen,
+ mer information finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://sv.wikipedia.org/wiki/Luhn-algoritmen"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ Vi ska skapa en funktion som använder Luhn-algoritmen för att testa om
+ ett personnummer är korrekt eller inte.
+ Fördelen nu är att vi vet exakt på vilket format personnummren kommer att
+ vara eftersom vi kommer använda funktionen 
+\family typewriter
+pnrFormat()
+\family default
+ innan vi anropar 
+\family typewriter
+pnrCtrl()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Funktionen ska ta argumentet 
+\family typewriter
+pnr
+\family default
+ och returnera 
+\family typewriter
+TRUE
+\family default
+ eller 
+\family typewriter
+FALSE
+\family default
+ beroende på om personnummret är korrekt eller inte.
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
+Dela upp personnummret så respektive siffra blir ett eget element.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+strsplit()
+\family default
+ och 
+\family typewriter
+unlist()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Konvertera de uppdelade siffrorna till ett numeriskt format.
+\end_layout
+
+\begin_layout Enumerate
+Den vektor av de enskilda siffrorna i personnummret kan nu användas i Luhn
+ - algoritmen.
+ Det enklaste sättet är att multiplicera personnummrets vektor med en beräknings
+vektor av 0:or 1:or och 2:or på det sätt som beräkningen specificeras av
+ Luhn-algoritmen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Obs!
+\series default
+ Skatteverkets beräkning görs inte på hela personnummret som returnerades
+ av 
+\family typewriter
+pnrFormat()
+\family default
+, de delar som inte ska räknas kan sättas till 0 i beräkningsvektorn.
+\end_layout
+
+\begin_layout Enumerate
+Nästa steg är att summera alla värden i vektorn ovan.
+ Tänk på att tal större än 9 ska räknas som summan av tiotalssiffran och
+ entalssiffran.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+%%
+\family default
+ och 
+\family typewriter
+%/%
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Summera värdena på vektorn som beräknades i 4 ovan.
+ Plocka ut entalssiffran och dra denna entalssiffra från 10.
+ Du har nu räknat ut kontrollsiffran.
+ Puh!
+\end_layout
+
+\begin_layout Enumerate
+Testa om den uträknade kontrollsiffran är samma som kontrollsiffran i personnumm
+ret.
+\end_layout
+
+\begin_layout Standard
+Här är ett testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "196408233234" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrCtrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "190101010101" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrCtrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "198112189876" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrCtrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "190303030303" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrCtrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Uppgift 3: 
+\family typewriter
+pnrSex()
+\end_layout
+
+\begin_layout Standard
+I denna uppgift ska vi från ett personnummer räkna ut det juridiska könet.
+ Som framgår i skattebroschyren ska detta räknas ut genom att undersöka
+ om den näst sista siffran i personnummret är jämt (kvinna) eller udda (man).
+ Detta är vad som definierar en persons juridiska kön.
+ 
+\end_layout
+
+\begin_layout Standard
+Skapa nu en funktion du kallar 
+\family typewriter
+pnrSex()
+\family default
+.
+ Denna funktion ska ta ett personnummer och returnera en persons kön som
+ ett textelement, 
+\family typewriter
+M
+\family default
+ för man och 
+\family typewriter
+K
+\family default
+ för kvinna.
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
+Plocka ut den näst sista siffran i personnumret.
+\end_layout
+
+\begin_layout Enumerate
+Konvertera denna siffra till numeriskt format och testa om siffran är jämn
+ (returnera 
+\family typewriter
+K
+\family default
+) eller udda (returnera 
+\family typewriter
+M
+\family default
+)
+\end_layout
+
+\begin_layout Standard
+Här är testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "196408233234" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrSex(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "190202020202" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrSex(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Uppgift 4: 
+\family typewriter
+pnrSamordn()
+\end_layout
+
+\begin_layout Standard
+Vissa personer som inte är svenska medborgare kan få ett svenskt samordningsnumm
+er som fungerar på samma sätt som personnummer.
+ Då får man ett så kallad samordningsnummer.
+ Den enda skillnaden är att att talet 60 har lagts till personnummrets födelseda
+tum.
+ 
+\end_layout
+
+\begin_layout Standard
+Skapa en funktion du kallar 
+\family typewriter
+pnrSamordn()
+\family default
+ som tar ett personnummer på formatet genererat av funktionen 
+\family typewriter
+pnrFormat()
+\family default
+ och returnerar 
+\family typewriter
+TRUE
+\family default
+ om det är ett samordningsnummer och 
+\family typewriter
+FALSE
+\family default
+ annars.
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
+Plocka ut födelsedatumet ur personnummret.
+\end_layout
+
+\begin_layout Enumerate
+Konvertera datumet till ett numeriskt värde och pröva om detta värde är
+ större än 60.
+\end_layout
+
+\begin_layout Standard
+Här är testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "196408233234" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrSamordn(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "198112789876" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrSamordn(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "198112189876" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrSamordn(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Uppgift 5: 
+\family typewriter
+pnrAge()
+\end_layout
+
+\begin_layout Standard
+Sist ska vi baserat på dels ett personnummer och dels ett datum beräkna
+ åldern för personen vid detta datum.
+ Skapa en funktion du kallar 
+\family typewriter
+pnrAge()
+\family default
+ tar argumentet 
+\family typewriter
+pnr
+\family default
+ och argumentet 
+\family typewriter
+date
+\family default
+.
+ Argumentet date ska ha följande textformat: 
+\family typewriter
+ÅÅÅÅ-MM-DD
+\family default
+.
+ Om datumet inte är på detta format ska funktionen stoppas och returnera
+ följande felmeddelande:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Incorrect date format: Correct format should be YYYY-MM-DD.
+\end_layout
+
+\begin_layout Standard
+Om inget datum anges av användaren ska den första januari under innevarande
+ år användas som datum.
+ 
+\end_layout
+
+\begin_layout Standard
+Funktionen ska om 
+\family typewriter
+date
+\family default
+ är korrekt returnera personens ålder i ett numeriskt format.
+\end_layout
+
+\begin_layout Standard
+Observera att senare i kursen kommer vi lära oss paketet 
+\family typewriter
+lubridate
+\family default
+ som är betydligt bättre och enklare för att hantera datum och tid.
+ 
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
+Ange ett defaultvärde för argumentet date som inte är aktuellt, ex.
+ 
+\family typewriter
+NA
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Om date har defaultvärdet, sätt datumvärdet till dagens datum.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+is.NA()
+\family default
+, 
+\family typewriter
+Sys.Date()
+\family default
+ och 
+\family typewriter
+paste()
+\family default
+] 
+\end_layout
+
+\begin_layout Enumerate
+Testa om datumformatet är korrekt.
+ Gör följande kontroller [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+all()
+\family default
+]:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Är 
+\family typewriter
+YYYY
+\family default
+, 
+\family typewriter
+MM
+\family default
+ och 
+\family typewriter
+DD
+\family default
+ siffror.
+ Detta kan kontrolleras genom att konvertera till numeriskt värde.
+ Är det då inte siffror blir värdet 
+\family typewriter
+NA
+\family default
+.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+is.na()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Är 
+\family typewriter
+MM
+\family default
+ större än 0 och mindre än 13.
+\end_layout
+
+\begin_layout Enumerate
+Är 
+\family typewriter
+DD
+\family default
+ större än 0 och mindre än 32.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Om datumformatet är är inkorrekt stoppa funktionen och returnera felmeddelandet
+ ovan.
+\end_layout
+
+\begin_layout Enumerate
+Räkna ut skillnaden i hela år mellan datumets årtal personnummrets årtal.
+\end_layout
+
+\begin_layout Enumerate
+Pröva om månad och dag är större (senare) för 
+\family typewriter
+date
+\family default
+ än för 
+\family typewriter
+pnr
+\family default
+.
+ Om så är fallet dra av ett år från årtalsberäkningen ovan och returnera
+ åldern.
+\end_layout
+
+\begin_layout Standard
+Här är testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "196408233234" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrAge(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrAge(pnr, date = "2010-10-10")
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "198112189876" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrAge(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrAge(pnr,date = "Hejbaberiba")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Uppgift 6: 
+\family typewriter
+pnrInfo()
+\end_layout
+
+\begin_layout Standard
+Nu har vi skapat ett antal funktioner för att beräkna olika delar av personnummr
+et.
+ Nu ska vi sätta ihop dessa funktioner till en enda funktion som baserat
+ på en vektor av personnummer returnerar en 
+\family typewriter
+data.frame
+\family default
+ följande variabler:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+pnr
+\family default
+: personnummret i textformat, 
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+correct
+\family default
+: information om personnummret är korrekt,
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+samordn
+\family default
+: om personnummret är ett samordningsnummer 
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+sex
+\family default
+: kön och 
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+age
+\family default
+: ålder i år 
+\end_layout
+
+\begin_layout Standard
+Det ska också vara möjligt att skicka vidare datum till funktionen 
+\family typewriter
+pnrAge()
+\family default
+, men om inget skickas med ska defaultvärdet i 
+\family typewriter
+pnrAge()
+\family default
+ användas.
+ 
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
+Formatera om alla personnummer i inputvektorn till standardformatet med
+ 
+\family typewriter
+pnrFormat()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Räkna ut vilka personnummer som är korrekta personnummer med 
+\family typewriter
+pnrCtrl()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+pnrSamordn()
+\family default
+ för att skapa en vektor över vilka personnummer som är samordningsnummer.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+pnrSex()
+\family default
+ för att räkna ut könet för respektive personnummer.
+\end_layout
+
+\begin_layout Enumerate
+Dra av 6 från första siffran i födelsedatumet för de personnummer som är
+ samordningsnummer.
+ Du kan antingen göra detta direkt i 
+\family typewriter
+pnrInfo()
+\family default
+ eller skapa en till egen funktion som gör just detta.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+pnrAge()
+\family default
+ för att beräkna åldern för respektive personnummer.
+\end_layout
+
+\begin_layout Enumerate
+Sätt samman dessa resultat till den 
+\family typewriter
+data.frame
+\family default
+ som ska returneras.
+\end_layout
+
+\begin_layout Standard
+Här är testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- c("196408233234", "640883-3234","198112189876")
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrInfo(pnr) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrInfo(pnr, date = "2000-06-01") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Nu är du klar! 
+\end_layout
+
+\end_body
+\end_document

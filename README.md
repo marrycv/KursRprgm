@@ -43,11 +43,13 @@ Kursen består av 8 block, ett block per vecka. Varje block innehåller följade
 ##### Extramaterial
 ***
 Utöver kurslitteraturen kommer följande extramaterial att användas:
+
 - *R reference card v.2* av Matt Baggot. Detta referenskort med viktiga funktioner är det hjälpmedel tillåts vid examen. Referenskortet kan laddas ned [här](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
 - Google developers R videos (GD) [här](http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP)
 - Roger Pengs R videos (RP) [här](http://www.youtube.com/user/rdpeng/videos)
 
 ###### Referenslitteratur
+
 - *The Art of R Programming* av Norman Matloff. Denna bok är **inte** obligatorisk men kan användas för fördjupning.
 - *Best practices for scientific computing* av Greg Wilson et. al. Denna artikel finns tillgänglig [här](http://arxiv.org/abs/1210.0530).
 

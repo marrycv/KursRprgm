@@ -1,5 +1,4 @@
-Kurs i R programmering
-=========
+### Kurs i R programmering
 
 ##### Målgrupp
 ***

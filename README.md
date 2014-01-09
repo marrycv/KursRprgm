@@ -106,6 +106,7 @@ Kursen innehåller åtta datorlaborationer. Dessa laborationer är **obligatoris
 ##### Ladda ned och installera R 
 ***
 Det är en fördel att ladda ned och installera R och R-Studio på sin egen dator:
+
 - Ladda ner och installera R [här](http://ftp.sunet.se/pub/lang/CRAN/)
 - Ladda ner och installera R-Studio [här](http://rstudio.org/)
 

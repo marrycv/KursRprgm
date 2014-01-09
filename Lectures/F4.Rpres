@@ -1,0 +1,80 @@
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center; 
+  width: 100%; 
+  color: red; 
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programering i R
+========================================================
+transition: rotate
+## Föreläsning 4: Funktioner m.m
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+Avdelningen för statistik, 
+Linköpings universitet
+
+Föreläsning 3: Innehåll 
+========================================================
+- Uppföljning av labb 3
+- Mer om funktioner
+- "Scoping" rules
+- *apply-funktioner
+- Bra och effektiv programmering
+- Debugging
+
+
+Mer om funktioner
+========================================================
+type: section
+
+
+Kort repetition
+========================================================
+
+
+Mer om funktioner
+========================================================
+- defaultvärden i funktioner med =
+- Anropa och skapa funktioner i funktioner
+- Använda ...
+- Assertions
+- Mäta tiden en funktion tar för att köras
+
+
+Scoping rules i R
+========================================================
+type: section
+
+
+*apply - funktioner
+========================================================
+type: section
+
+
+*apply - funktioner
+========================================================
+

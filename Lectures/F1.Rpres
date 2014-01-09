@@ -76,12 +76,12 @@ incremental: true
 - *Del 1:* Grundläggande programering
 - *Del 2:* Analys, datumhantering, strängar/regexp, paket och grafik
   
-### Varje vecka:
+### Varje vecka (block):
 
 - En föreläsning (med uppföljning av förra labben)
 - En ~~obligatorisk~~ datorlaboration 
 - 4 timmar lärarledd laboration + **många timmar eget arbete**
-- Inlämning **varje fredag kl. 23.59** via LISAM
+- Inlämning **varje fredag kl. 18.00** via LISAM
 
 Del 1: Grundläggande programering
 ========================================================
@@ -130,14 +130,14 @@ Kurslitteratur
 ========================================================
 
 ## Kursboken
-Kursboken *A first course in statistical programming with R*.  Finns gratis som PDF [[ladda ned]](http://site.iugaza.edu.ps/biqelan/files/2010/09/Braun-W.J.-Murdoch-D.J.-A-First-Course-in-Statistical-Programming-with-R-CUP-2007ISBN-0521872650175s.pdf)
+Kursboken *A first course in statistical programming with R* av Braun och Murdoch.
 
 ## Artiklar 
-- *Best practices for scientific computing* [[ladda ned]](http://arxiv.org/abs/1210.0530)
 - *Dates and Times Made Easy with* ```lubridate``` [[ladda ned]](http://www.jstatsoft.org/v40/i03/paper)
 - ```stringr```: *modern, consistent string processing* [[ladda ned]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf)
+- *Best practices for scientific computing* [[ladda ned]](http://arxiv.org/abs/1210.0530)
 
-Kurslitteratur II
+Kurslitteratur II: Extramaterial
 ========================================================
 ## Videoföreläsningar
 - Google Developers (GD) videomaterial [[här]](http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w)
@@ -155,7 +155,7 @@ Examination
 
 ## Examen
 - Datortentamen i datasal
-- *Hjälpmedel:* Kursboken och R reference card v.2 (digitalt)
+- *Hjälpmedel:* R reference card v.2 (digitalt)
 
 
 Datorn, programering och R
@@ -172,7 +172,7 @@ R och datorn
   - Hårddisk = I bokhyllan
   - Internminne (RAM) = På skrivbordet
 
-> **R arbetar på skrivbordet**
+**R arbetar på i internminnet (skrivbordet)**
 
 
 Vad är programering?
@@ -197,12 +197,12 @@ Vad är R?
 ========================================================
 - Populäraste programmeringsspråket för statistiker
 - Bygger på öppen källkod (gratis och transparent)
-- Många utvecklare - stor och (extremt snabb) funktionalitet
+- Många utvecklare - stor funktionalitet
 - Finns för Windows, Mac och Linux
-- Högnivåspråk (enkelt)
+- Högnivåspråk (enklare)
 - SAS och SPSS fortfarande större på arbetsmarknaden  
 (R beräknas gå om under 2014)
-- Mer information i videon "Overview and Background"
+- Mer information i RP:s video "Overview and Background"
 
 
 Ett exempel på ett program
@@ -260,13 +260,13 @@ Demo 01: Delarna i R och R-Studio
 - Skriva och spara r-filer
 - Att hitta demofilerna på GitHub
 
-Fil för demonstration finns [[här]](code/demo_F1_01.r)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_00.R)
 
 Variabler och vektorer i R
 ====================================
 - Variabler är ett sätt att "spara" värden
 - Vektorer i R är en samling (1 +) element av samma typ (ex. heltal).  
-Jämför med vektor i linjär algebra.
+- Jämför med vektorer i linjär algebra.
 - Vektorer skapas (enklast) med ```c()``` 
 - Det går att komma åt enskilda element i en vektor med ```[ ]```  (slicing)
 Exempel:
@@ -275,7 +275,7 @@ testScore <- c(7,15,20,23,1.2)
 testScore[3]
 ```
 
-Vektoraritmetik
+Vektorberäkningar
 ====================================
 - Operationer sker elementvis
 ```{r, eval=TRUE}
@@ -299,7 +299,7 @@ Demo 01: Variabler och vektorer
 - Skapa, slicea och räkna med vektorer
 - Hjälpen i R
 
-Fil för demonstration finns [[här]](code/demo_F1_02.r)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_01.R)
 
 
 
@@ -314,7 +314,7 @@ incremental: true
 ```{r,echo=FALSE,eval=TRUE}
 cat("Error in eval(expr, envir, enclos) : object 'x' not found")
 ```
-- Mer information i videon "How to get Help"
+- Mer information i RP:s video "How to get Help"
 
 Datorlaborationer
 ========================================================
@@ -322,7 +322,7 @@ Datorlaborationer
 - Labbar utgår från en labbfil (med tester)
 - Samtliga uppgifter ska lämnas in som funktioner
 - Labbarna lämnas in via LISAM
-- Labbar automaträttas, således är det minsta fel kommer ni få minuspoäng
+- Labbar automaträttas, således minsta fel ger minuspoäng
 - Deadlines och filer finns på kurshemsidan.
 
 
@@ -364,4 +364,4 @@ Demo 02: Introduktion till funktioner
 - Använda ```print()``` och ```cat()``` i funktioner
 - Local enviroment
 
-Fil för demonstration finns [[här]](demonstration/demo_01.R)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_01.R)

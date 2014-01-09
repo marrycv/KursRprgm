@@ -149,7 +149,7 @@ Demo 06: Villkorssatser
 - Villkorssatser
 - Villkorssatser i funktioner
 
-Fil för demonstration finns [[här]](demonstration/demo_01.R)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_06.R)
 
 
 Loopar
@@ -207,7 +207,7 @@ for ( index in 1:length(vektor) ) {
 Nästlade loopar (nested loops)
 ========================================================
 - Om vi vill loopa i flera dimensioner
-- Delas upp i"Inre" och "yttre" loop
+- Delas upp i "Inre" och "yttre" loop
 
 ```{r, eval=TRUE}
 A <- matrix(1:4, nrow = 2)
@@ -333,3 +333,4 @@ Demo 07: Loopar
 - kontrollstrukturer för loopar
 - ```stop()``` och ```warning()```
 
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_07.R)

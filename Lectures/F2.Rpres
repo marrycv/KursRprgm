@@ -32,7 +32,7 @@
 Programering i R
 ========================================================
 transition: rotate
-## Föreläsning 1: Introduktion
+## Föreläsning 2: Logik, datatyper och I/O
 ### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 Avdelningen för statistik, 
 Linköpings universitet
@@ -40,7 +40,7 @@ Linköpings universitet
 Föreläsning 2: Innehåll 
 ========================================================
 - Uppföljning av labb 1
-- Atomära klasser
+- Variabeltyper
 - Logik i R
 - Datastrukturer
   - Vektorer
@@ -50,22 +50,22 @@ Föreläsning 2: Innehåll
   - Att studera datatyper i R
 - Input och output (I/O) i R
 
-Klasser (atomära)
+Variabeltyper
 ========================================================
 type: section
 
-Atomära klasser
+Variabeltyper
 ========================================================
 - Olika typer av värden på variabler, ex:
   - Heltal, Numeriska värden, Textsträngar
-- Kallas för (atomära) klasser
+- Kallas för atomära klasser
 - För att undersöka vilken klass en variabel har används: ```typeof()```
-- För att konvertera mellan klasser används ```as.``` - funktioner (finns för alla atomära klasser). Ex:
+- För att konvertera mellan klasser används ```as.``` - funktioner (finns för alla variabeltyper). Ex:
 ```{r}
 as.character(1:5)
 ```
 
-Atomära klasser, översikt
+Variabeltyper, översikt
 ========================================================
 
 Beskrivning | Synonymer | ```typeof()``` | Exempel i R
@@ -85,7 +85,7 @@ Kort om logik
 ========================================================
 - Logiska värden är centralt i programmering och statistik
 - De logiska värdena i R är ```TRUE, FALSE, NA```
-- Logiska värden är en egen variabeltyp (värden, vektorer, matriser)
+- Logiska värden är en egen variabeltyp (med värden, vektorer, matriser)
 
 
 Kort om logik II
@@ -154,7 +154,7 @@ incremental: true
 (FALSE & !TRUE) | xor(FALSE,TRUE)
 ````
 
-Demo: Logiska operatorer
+Demo 03: Logiska operatorer
 ========================================================
 ## Demonstration av:
 - Logiska vektorer
@@ -162,7 +162,7 @@ Demo: Logiska operatorer
 - Slicing med logiska vektorer
 - Logiska operatorer
 
-Fil för demonstration finns [[här]](code)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_03.R)
 
 
 Datastrukturer
@@ -196,7 +196,6 @@ Faktorvariabel
 - Skapar dummyvariabler automatiskt vid analyser
 - Sparar minnesutrymme  (jmf. med textvektorer)
 - Textvektorer konverteras enkelt med ```factor()```  
-**OBS!** ```levels``` och ```labels``` måste ha samma ordning
 - Textdata som läses in i R konverteras till ```factor``` om inte ```stringsAsFactors = FALSE```
 
 ```{r}
@@ -213,7 +212,7 @@ Matriser
 - Tvådimensionell (men alla element är samma variabeltyp)  
 Ex. logiska, numeriska, text
 - Skapas med ```matrix()```
-- Vanliga operatorer sker elementvis
+- Vanliga operatorer (som ```* + / %%```) sker elementvis
 - Matrisoperatorer  
 Ex. ```%*%```, ```t()```, ```solve()```  
 - "Slicing" sker både rader och kolumner med ```[ , ]```
@@ -283,7 +282,7 @@ Demo 04: Datastrukturer
 - Listor
 - Studera R-objekt
 
-Fil för demonstration finns [[här]](code)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_04.R)
 
 Input och output (I/O) i R
 ========================================================
@@ -320,7 +319,7 @@ För att läsa in data finns:
 - ```.Rdata```-filer: ```load()```
 - För övriga datakällor finns separata paket:
 
-| Paket | Filer |
+| R-Paket | Filtyp |
 | --- | --- |  
 | ```XLconnect``` | Excel-filer (mer information finns [här](http://rwiki.sciviews.org/doku.php?id=tips%3adata-io%3ams_windows&s=excel)) |
 | ```foreign``` | Filer från Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka |
@@ -343,6 +342,5 @@ Demo 05: Filhantering, Input och Output (I/O)
 - R working directory
 - Läsa in ```.csv``` - filer
 - Skriva ```.csv``` - filer
-- Skriva output till en fil med ```sink()```
 
-Fil för demonstration finns [[här]](code)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_05.R)

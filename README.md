@@ -11,6 +11,7 @@ Syftet med denna kurs är att introducera enklare programmeringstekniker med sä
 ##### Innehåll
 ***
 Kursen kommer behandla statistiskt programmering i R. Kursen ger en introduktion till bland annat:
+
 - Installera och använda R / R-Studio.
 - Att använda hjälpen i R / R-studio.
 - Importera och exportera data
@@ -26,14 +27,18 @@ Kursen kommer behandla statistiskt programmering i R. Kursen ger en introduktion
 ##### Undervisningsformer
 ***
 Kursen består av 8 block, ett block per vecka. Varje block innehåller följade delar:
+
 - **Föreläsning, F** . Föreläsningen introducerar nya koncept och lägger grunden för datorlaborationen. Till varje föreläsning finns läsanvisningar till kursboken och ev. extramaterial.
 - **Datorlaboration, D.** Denna del är den viktigaste delen av kursen. Vid laborationerna kommer ni att programmera och lära er lösa problem med och i R.
 
+
 ##### Kurslitteratur
 ***
+
 - *A First Course in Statistical Programming with R* av Braun och Murdoch (BM). Boken går att köpa på Akademibokandeln på campus Valla. Lösningar till uppgifterna i boken går att ladda ner [här](http://www.stats.uwo.ca/faculty/braun/other.php).
 - *stringr: modern, consistent string processing* av Hadley Wickham (HW). Artikeln finns att ladda ned [här](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf).
 - *Dates and Times Made Easy with lubridate* av Garrett Grolemund och Hadley Wickham (GGHW). Artikeln finns att ladda ned [här](http://www.jstatsoft.org/v40/i03/paper).
+
 
 ##### Extramaterial
 ***
@@ -49,7 +54,7 @@ Utöver kurslitteraturen kommer följande extramaterial att användas:
 ##### Föreläsningar
 Kursen innehåller åtta föreläsningar. Nedan finns föreläsningar, demo-filer, läsanvisningar och extramaterial för kursen:
 
-| **Block**  | *Föreläsning*  | *Demofiler* |
+| **Block**  | Föreläsning  | Demofiler |
 | --- | --- | --- |
 | **F1** | [HTML](http://www.ida.liu.se/~732G33/lectures/F1.html)  | [demo00.R](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_00.R), [demo01.R](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_01.R), [demo02.R](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_00.R) |
 | **F2** | [HTML](http://www.ida.liu.se/~732G33/lectures/F2.html)  | [demo03.R](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_03.R), [demo04.R](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_04.R), [demo05.R](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_05.R), [Apple.Rdata](https://github.com/MansMeg/KursRprgm/raw/master/Demonstrations/Apple.RData), [Apple.csv](https://github.com/MansMeg/KursRprgm/raw/master/Demonstrations/Apple.csv), [Apple.txt](https://github.com/MansMeg/KursRprgm/raw/master/Demonstrations/Apple.txt)|
@@ -87,7 +92,7 @@ Kursen innehåller åtta föreläsningar. Nedan finns föreläsningar, demo-file
 ***
 Kursen innehåller åtta datorlaborationer. Dessa laborationer är **obligatoriska**.  
 
-| **Block**  | *Labbinstruktion* | *Filer* |
+| **Block**  | Labbinstruktion | Filer |
 | --- | --- | --- |
 | **D1** | [PDF](https://github.com/MansMeg/KursRprgm/raw/master/Labs/Documents/D1.pdf) | [R-mall](https://raw.github.com/MansMeg/KursRprgm/master/Labs/Files/LabD1.R) |
 | **D2** | [PDF](https://github.com/MansMeg/KursRprgm/raw/master/Labs/Documents/D2.pdf) | [R-mall](https://raw.github.com/MansMeg/KursRprgm/master/Labs/Files/LabD2.R), [Filer](https://raw.github.com/MansMeg/KursRprgm/master/Labs/DataFiles/) |
@@ -104,7 +109,7 @@ Det är en fördel att ladda ned och installera R och R-Studio på sin egen dato
 - Ladda ner och installera R [här](http://ftp.sunet.se/pub/lang/CRAN/)
 - Ladda ner och installera R-Studio [här](http://rstudio.org/)
 
-Här finns YouTube - klipp om att installera R och R-Studio på [windows](http://www.youtube.com/watch?v=MFfRQuQKGYg), [mac](http://www.youtube.com/watch?v=WJDrYUqNrHg) och [Linux/Ubuntu](http://www.youtube.com/watch?v=P8wx4HY9me0)
+Här finns YouTube - klipp om att installera R och R-Studio på [Windows](http://www.youtube.com/watch?v=MFfRQuQKGYg), [Mac OS X](http://www.youtube.com/watch?v=WJDrYUqNrHg) och [Linux/Ubuntu](http://www.youtube.com/watch?v=P8wx4HY9me0)
 
 
 ##### Tidigare tentor

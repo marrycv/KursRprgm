@@ -224,7 +224,7 @@ source("/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Section
 Svenska personnummer
 \end_layout
 
@@ -333,7 +333,7 @@ Skapa en funktion som sätter samman funktionerna ovan till en funktion,
  med personnummer och övrig information.
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Uppgift 1: 
 \family typewriter
 pnrFormat()
@@ -444,7 +444,7 @@ pnrFormat(pnr)
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Uppgift 2: 
 \family typewriter
 pnrCtrl()
@@ -641,7 +641,7 @@ pnrCtrl(pnr)
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Uppgift 3: 
 \family typewriter
 pnrSex()
@@ -737,7 +737,7 @@ pnrSex(pnr)
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Uppgift 4: 
 \family typewriter
 pnrSamordn()
@@ -838,7 +838,7 @@ pnrSamordn(pnr)
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Uppgift 5: 
 \family typewriter
 pnrAge()
@@ -1071,7 +1071,7 @@ pnrAge(pnr,date = "Hejbaberiba")
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Uppgift 6: 
 \family typewriter
 pnrInfo()
@@ -1230,6 +1230,127 @@ pnrInfo(pnr)
 \begin_layout Plain Layout
 
 pnrInfo(pnr, date = "2000-06-01") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tävlingsuppgift (ej obligatorisk): Optimera 
+\family typewriter
+pnrInfo()
+\end_layout
+
+\begin_layout Standard
+För de studenter som vill och är intresserade kan pröva att optimera funktionen
+ 
+\family typewriter
+pnrInfo()
+\family default
+ för så snabb beräkningshastighet som möjligt.
+ Generellt sett ska optimering av kod endast göras efter att den koden fungerar
+ som den ska.
+ Eller som en av datorvetenskapens giganter, 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Donald Knuth"
+target "http://en.wikipedia.org/wiki/Donald_Knuth"
+
+\end_inset
+
+
+\series default
+\color inherit
+, har uttryckt det: 
+\end_layout
+
+\begin_layout Quote
+Premature optimization is the root of all evil.
+\end_layout
+
+\begin_layout Standard
+Om du vill delta i tävlingen skapar du en ny R - fil med ditt slutliga förslag
+ 
+\family typewriter
+pnrInfoSnabbast()
+\family default
+.
+ Kontrollera att den fungerar med testexemplet.
+ Vinnaren är den med den snabbaste 
+\series bold
+fungerande
+\series default
+ funktionen.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Obs!
+\series default
+ Du måste lämna in den vanliga labben också.
+\end_layout
+
+\begin_layout Standard
+Generellt i R kan man tänka på följande om man vill optimera beräkningshastighet
+en för en funktion:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+for
+\family default
+ loopar är långsammare än 
+\family typewriter
+*apply
+\family default
+-funktioner.
+\end_layout
+
+\begin_layout Enumerate
+det går snabbare om man först skapar en datastruktur och sedan fyller den
+ med värden än att skapa en ny datastruktur i varje iteration.
+\end_layout
+
+\begin_layout Standard
+Det finns säkert en massa andra sätt! Pröva och testa hur du effektivisera
+ koden med
+\family typewriter
+ system.time()
+\family default
+.
+ Här är ett exempel på hur ni kan pröva hur snabba era funktioner är:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+testSpeed <- sample(c("196408233234", "640883-3234","198112189876"), size=1000,
+ replace=TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+system.time(pnrInfo(testSpeed))
 \end_layout
 
 \begin_layout Plain Layout

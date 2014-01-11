@@ -215,7 +215,6 @@ minMean(c(1,3,NA,5), na.rm = TRUE)
 ```
 
 
-
 God (vetenskaplig) programmering
 ========================================================
 type: section
@@ -337,4 +336,14 @@ Mäta körtid i R
 ```{r}
 system.time(expr=mean(rep(c(1,2),1000000)))
 ```
+
+Demo 08: Mer om funkioner
+====================================
+## Demonstration av:
+- Mer om funktioner
+- Lokala, globala miljöer
+- Sökvägar och namespaces
+- ```lapply``` 
+
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08.R)
 

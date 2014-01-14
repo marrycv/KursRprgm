@@ -78,8 +78,8 @@ Ett förslag på hur du kan angripa problemet är att:
 \end_layout
 
 \begin_layout Enumerate
-Lös uppgiften (interaktivt) med vanlig kod direkt i R-Studio (precis som
- i datorlaborationen ovan).
+Lös uppgiften med vanlig kod direkt i R-Studio (precis som i datorlaborationen
+ ovan) utan att skapa en funktion.
 \end_layout
 
 \begin_layout Enumerate
@@ -87,7 +87,8 @@ Testa att du får samma resultat som testexemplen.
 \end_layout
 
 \begin_layout Enumerate
-Implementera koden du skrivit i inlämningsfilen som en funktion.
+Implementera koden du skrivit i 1.
+ ovan som en funktion.
 \end_layout
 
 \begin_layout Enumerate
@@ -97,7 +98,6 @@ Testa att du får samma resultat som i testexemplen, nu med funktionen.
 \begin_layout Standard
 Varje uppgift kan ge flera poäng så även om du inte lyckas med alla delar
  i en funktion kan du få poäng.
- Det viktigaste är att funktionen fungerar och returerar ett värde.
 \end_layout
 
 \end_body

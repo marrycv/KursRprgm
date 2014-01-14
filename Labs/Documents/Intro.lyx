@@ -90,7 +90,8 @@ en och en
 \end_layout
 
 \begin_layout Itemize
-Det är tillåtet att diskutera med andra, men att plagiera är 
+Det är tillåtet att diskutera med andra, men att plagiera eller skriva kod
+ åt varandra är 
 \series bold
 inte tillåtet
 \series default
@@ -132,15 +133,8 @@ Innan du lämnar in laborationen:
 
 \begin_deeper
 \begin_layout Enumerate
-Starta om R-Studio eller rensa 
-\begin_inset Quotes eld
-\end_inset
-
-Global enviroment
-\begin_inset Quotes erd
-\end_inset
-
- med 
+Starta om R-Studio eller rensa den globala miljön (Global environment) med
+ 
 \family typewriter
 rm(list = ls())
 \family default

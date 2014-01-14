@@ -12,16 +12,16 @@ leapYear <- function(years){
 
 
 # Testa: 
-my_test_years <- c("1900", "1984", "1997", "2000", "2001") 
-myResult <- leapYear(years = my_test_years) 
+# > my_test_years <- c("1900", "1984", "1997", "2000", "2001") 
+# > myResult <- leapYear(years = my_test_years) 
 
-str(myResult) 
+# > str(myResult) 
 # Korrekt resultat: 
 # 'data.frame':  5 obs. of  2 variables:
 #   $ years   : num  1900 1984 1997 2000 2001
 #   $ leapYear: logi  FALSE TRUE FALSE TRUE FALSE
 
-myResult 
+# > myResult 
 # Korrekt resultat: 
 #   years leapYear
 # 1  1900    FALSE
@@ -38,23 +38,26 @@ matrixTrace <- function(X){
 }
 
 # Testa:
-A <- matrix(2:5, nrow=2)
-matrixTrace(X = A)
+# > A <- matrix(2:5, nrow=2)
+# > matrixTrace(X = A)
 # Korrekt resultat: [1] 7
 
-B <- matrix(1:9, nrow=3)
-matrixTrace(X = B)
+# > B <- matrix(1:9, nrow=3)
+# > matrixTrace(X = B)
 # Korrekt resultat: [1] 15
 
 
 # Uppgift 3: Snabbanalys av aktier ----
+
+
 fastAnalysis <- function(file, period_length){
   # Skriv din kod här
 }
 
 # Testa:
-myList1 <- fastAnalysis(file=file,period_length=5) 
-str(myList1)
+# > appleFil <- "/" # Ange sökväg till var du har filen Apple.csv
+# > myList1 <- fastAnalysis(file = appleFil, period_length = 5) 
+# > str(myList1)
 # Korrekt resultat:
 # List of 4
 #  $ total_spridning: num 11.8
@@ -62,8 +65,8 @@ str(myList1)
 #  $ slutpris_upp   : logi FALSE
 #  $ datum          : chr [1:2] "2012-01-24" "2012-01-18"
 
-myList2 <- fastAnalysis(file=file,period_length=10) 
-str(myList2)
+# > myList2 <- fastAnalysis(file = appleFil, period_length = 10) 
+# > str(myList2)
 # List of 4
 #  $ total_spridning: num 12.7
 #  $ medel_slutpris : num 424

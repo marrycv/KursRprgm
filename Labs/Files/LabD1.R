@@ -11,7 +11,7 @@ uppgift1 <- function(){
 }
 
 # Testa: 
-uppgift1()
+# > uppgift1()
 # Korrekt resultat: [1] 1.099 62.903  0.866
 
 
@@ -22,9 +22,9 @@ uppgift2 <- function(vektor){
 }
 
 # Testa:
-uppgift2(vektor = c(3, 1, 12, 2, 4))
+# > uppgift2(vektor = c(3, 1, 12, 2, 4))
 # Korrekt resultat: [1] 12
-uppgift2(vektor = c(3, 1, 12))
+# > uppgift2(vektor = c(3, 1, 12))
 # Korrekt resultat: [1] 36
 
 
@@ -35,9 +35,9 @@ uppgift3 <- function(a, b){
 }
 
 # Testa:
-uppgift3(a = c(3, 1, 12, 2, 4), b = c(1, 2, 3, 4, 5))
+# > uppgift3(a = c(3, 1, 12, 2, 4), b = c(1, 2, 3, 4, 5))
 # Korrekt resultat: [1] 69
-uppgift3(a = c(-1, 3), b = c(-3, -1))
+# > uppgift3(a = c(-1, 3), b = c(-3, -1))
 # Korrekt resultat: [1] 0
 
 
@@ -48,7 +48,7 @@ uppgift4 <- function(namn){
 }
 
 # Testa:
-uppgift4(namn = "Luke")
+# > uppgift4(namn = "Luke")
 # Korrekt resultat: Luke, I am your father.
 
 
@@ -59,8 +59,8 @@ uppgift5 <- function(N){
 }
 
 # Testa:
-uppgift5(N = 2)
+# > uppgift5(N = 2)
 # Korrekt resultat: [1] 2.5
-uppgift5(N = 4)
+# > uppgift5(N = 4)
 # Korrekt resultat: [1] 2.708
 

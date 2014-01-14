@@ -120,6 +120,11 @@ opts_chunk$set(comment='')
 
 \begin_layout Plain Layout
 
+options(digits = 5)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -297,7 +302,11 @@ sqrt(abs(-3)^2-3)
 
 \begin_layout Enumerate
 Pröva att gör beräkningarna med variabler istället.
- [
+ Får du samma resultat? 
+\begin_inset Newline newline
+\end_inset
+
+[
 \series bold
 Tips:
 \series default
@@ -309,7 +318,16 @@ Enviroment
 \begin_inset Quotes erd
 \end_inset
 
--fliken i R-Studio.]:
+-fliken i R-Studio.
+ I äldre versioner av R-Studio kan fliken heta 
+\begin_inset Quotes eld
+\end_inset
+
+Workspace
+\begin_inset Quotes erd
+\end_inset
+
+.]:
 \begin_inset Newline newline
 \end_inset
 
@@ -350,10 +368,6 @@ c
 \end_inset
 
 
-\end_layout
-
-\begin_layout Enumerate
-Får du samma resultat som under ovan?
 \end_layout
 
 \begin_layout Enumerate
@@ -629,11 +643,11 @@ Tips:
 \family typewriter
 help(ls)
 \family default
- och 
+, 
 \family typewriter
 help(rm)
 \family default
-]
+ eller i R-Studio: Markera funktionen och tryck F1]
 \end_layout
 
 \begin_layout Section
@@ -937,17 +951,73 @@ Tips:
 \end_layout
 
 \begin_layout Enumerate
-Vad är det för typ av vektor? [
-\series bold
-Tips:
-\series default
- 
+Pröva att plocka ut följande element med 
 \family typewriter
-?mode
+[ ]
 \family default
-] 
+ ur 
+\family typewriter
+myVar
+\family default
+5:
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Det första elementet
+\end_layout
+
+\begin_layout Enumerate
+Det näst sista elementet
+\end_layout
+
+\begin_layout Enumerate
+Pröva att använda 
+\family typewriter
+length() 
+\family default
+för att plocka ut det sista elementet
+\end_layout
+
+\begin_layout Enumerate
+Plocka ut alla element utom det första och sista
+\begin_inset Newline newline
+\end_inset
+
+Exempel:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+myVar5[3]
+\end_layout
+
+\begin_layout Plain Layout
+
+myVar5[-3]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Gör följande beräkningar:
 \begin_inset Newline newline
@@ -1710,7 +1780,7 @@ status open
 \begin_layout Plain Layout
 
 source("/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk
- programmering i R/Temp/KursRprgmTeacher/Labs/Solutions/LabSolutions.R")
+ programmering i R/RCourse2014/KursRprgmTeacher/Labs/Solutions/LabSolutions.R")
 \end_layout
 
 \begin_layout Plain Layout
@@ -1874,7 +1944,21 @@ b
 \begin_inset Newline newline
 \end_inset
 
-Mer information om skalärprodukten finns här.
+Mer information om skalärprodukten finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "http://sv.wikipedia.org/wiki/Skal%C3%A4rprodukt"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -1919,10 +2003,23 @@ uppgift4
 \family typewriter
 \color black
 [namn], I am your father.
+
 \family default
 \color inherit
-, där [namn] ersätts med det värdet på argumentet namn.
- (OBS! använd 
+ där [namn] ersätts med värdet på argumentet 
+\family typewriter
+namn
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Obs!
+\series default
+ använd 
 \family typewriter
 \color black
 cat()
@@ -1934,16 +2031,25 @@ cat()
 return()
 \family default
 \color inherit
-) [
-\series bold
-Tips!
-\series default
+ och tänk på att resultatet ska bli exakt detsamma som nedan för full poäng
  
+\begin_inset Newline newline
+\end_inset
+
+[
+\series bold
+Tips! 
+\series default
+argumentet 
 \family typewriter
 \color black
 sep
 \family default
 \color inherit
+ i 
+\family typewriter
+cat()
+\family default
 ] 
 \begin_inset Newline newline
 \end_inset
@@ -2028,11 +2134,11 @@ N
 \series bold
 Tips!
 \series default
- för att få 
+ för att få ut 
 \begin_inset Formula $e$
 \end_inset
 
- i R, använd 
+ med ett antal decimaler i R, använd 
 \family typewriter
 \color black
 exp(1)

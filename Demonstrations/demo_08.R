@@ -67,6 +67,12 @@ f()
 sd
 # har na.rm = FALSE som standard
 
+# Skapa dolda funktioner
+hej<-function(x) x^2
+.hej<-function(x) x^2
+ls()
+
+tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=mean)
 
 # Globala och lokala miljöer i R ----
 # Varje funktion som arbetar arbetar i en egen lokal miljö
@@ -124,7 +130,7 @@ ny(3)
 
 # MEN: Sökordningen börjar där funktionen definieras!
 
-# Ett utförligt exempel
+# Ett mer utförligt exempel
 # I h1() är g1() definierad i den globala miljön,
 # därför börjas sökningen av y där först
 y <- 5
@@ -150,10 +156,6 @@ h2(3)
 # Vi kan se var en funktion är definierad med environment
 environment(h2)
 environment(base::factor)
-
-# ...
-# Vi har sett att vi kan använda funktioner enkelt i andra funktioner
-# Ibland vill vi skicka med kod till 
 
 # Kort om assignment ----
 # <- kan användas överallt för att assigna i den aktuella miljön
@@ -228,21 +230,23 @@ lapply(X = myList, FUN = mean)
 lapply(X = myList, FUN = mean, na.rm = TRUE)
 lapply(X = myList, FUN = quantile, probs = seq(0, 1, 0.5), na.rm = TRUE)
 
-
 # Exempel på tapply
 # Denna funktion används ofta för att loopa över index, ex. medel i subgrupper
 # Ett alternativ (wrapper) är funktionen aggregate
 data(ChickWeight)
+
 # Om vi vill använda en funktion per grupp, exempelvis diet görs följande
 tapply(X = ChickWeight$weight, INDEX= ChickWeight$Diet, FUN= mean)
 tapply(X = ChickWeight$weight, INDEX= ChickWeight$Diet, FUN= quantile)
 tapply(X = ChickWeight$weight, INDEX= ChickWeight$Diet, FUN= quantile, probs = seq(0,1,0.1))
 
+
+
 # Detta är extremt effektivt och används mycket i praktiken!
 
 
 # Mäta körtid i R ----
-system.time(expr=mean( rep(1:4, 1000)))
-system.time(expr=mean( rep(1:4, 1000000)))
-system.time(expr=mean( rep(1:4, 100000000)))
+system.time(expr=mean(rep(1:4, 1000)))
+system.time(expr=mean(rep(1:4, 1000000)))
+system.time(expr=mean(rep(1:4, 100000000)))
 

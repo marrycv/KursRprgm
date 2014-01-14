@@ -173,6 +173,1070 @@ Datorlaboration
 Mer om funktioner
 \end_layout
 
+\begin_layout Enumerate
+Skapa följande funktion i R med både 
+\family typewriter
+{}
+\family default
+ och 
+\family typewriter
+return()
+\family default
+:
+\begin_inset Formula 
+\[
+f(x,y)=x^{2}+y^{2}+z^{2}-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vilken är den fria variabeln? Studera funktionen på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+f
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skapa funktionen igen men gör det med en enda rad kod utan 
+\family typewriter
+{}
+\family default
+ eller 
+\family typewriter
+return()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Pröva lite olika värden på 
+\family typewriter
+x
+\family default
+ och 
+\family typewriter
+y
+\family default
+.
+ Pröva att använda argumentnamnen och byt ordning på 
+\family typewriter
+x
+\family default
+ och 
+\family typewriter
+y
+\family default
+ i funktionsanropet.
+ Eftersom 
+\family typewriter
+z
+\family default
+ inte är definierad, kommer funktionen inte fungera om du inte sätter 
+\family typewriter
+z
+\family default
+ till något värde.
+ Pröva funktionen både före och efter du satt 
+\family typewriter
+z
+\family default
+ till ett godtyckligt värde.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+f
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva nu att beräkna följande integral.
+ Börja med att definiera funktionen och använd sedan funktionen 
+\family typewriter
+integrate()
+\family default
+.
+\begin_inset Formula 
+\[
+\int_{0}^{3}\frac{1}{3}x^{2}dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva nu att integrera en exponentialfördelnings täthetsfunktion med 
+\begin_inset Formula $E(X)=1$
+\end_inset
+
+ mellan 0 och 1:
+\begin_inset Formula 
+\[
+\int_{0}^{1}f_{X}(x)dx
+\]
+
+\end_inset
+
+D.v.s.
+ vilken sannolikhetsmassa finns mellan 0 och en exponentialfördelnings medelvärd
+e.
+ 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Här"
+target "http://en.wikipedia.org/wiki/Exponential_distribution"
+
+\end_inset
+
+
+\series default
+\color inherit
+ finns exponentialfördelningens täthetsfunktion.
+ 
+\series bold
+Obs!
+\series default
+ 
+\begin_inset Formula $E(X)=\frac{1}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Gör om uppgift oven, men använd lägg till argumentet 
+\family typewriter
+lambda
+\family default
+ i funktionen som integreras.
+ Sätt argumentet 
+\family typewriter
+lambda
+\family default
+ till 1 som standard.
+ Prova om du får samma resultat som ovan.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Pröva att använda din nya genom att numeriskt integrera följande funktion
+ där 
+\begin_inset Formula $f_{X}(x)$
+\end_inset
+
+ är en exponentialfunktion med 
+\begin_inset Formula $E(X)=5$
+\end_inset
+
+.
+ I funktionen 
+\family typewriter
+integrate()
+\family default
+ finns 
+\family typewriter
+...
+
+\family default
+ för godtyckliga argument som ska skickas till din funktion.
+ Pröva att på så sätt ändra värdet på 
+\family typewriter
+lambda
+\family default
+ när du integrerar numeriskt.
+\begin_inset Formula 
+\[
+\int_{0}^{5}f_{X}(x)dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Globala och lokala miljöer i R
+\end_layout
+
+\begin_layout Enumerate
+Skapa följande funktion och pröva denna kod: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+c <- function(x,y){
+\end_layout
+
+\begin_layout Plain Layout
+
+	x + y
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Den funktion vi brukar använda för att skapa vektorer kallas också 
+\family typewriter
+c()
+\family default
+.
+ Vilken funktion är det som används om du anropar funktionen 
+\family typewriter
+c
+\family default
+ nu? 
+\end_layout
+
+\begin_layout Enumerate
+R följer en given sökväg för när funktionen 
+\family typewriter
+c
+\family default
+ anropas.
+ Studera hur sökvägen ser ut med search().
+ För att titta i vilken namespace den funktion du just skapat ligger pröva
+ funktionen 
+\family typewriter
+environment()
+\family default
+.
+ För att ta reda på var den gamla funktionen (för att skapa en vektor) ligger,
+ titta i hjälpen efter 
+\family typewriter
+c
+\family default
+.
+ Högst upp till vänster ska det stå i vilken namespace funktionen ligger.
+ Är den namespace där din skapade funktion ligger tidigare i R:s sökväg
+ än den gamla 
+\family typewriter
+c
+\family default
+-funktionen?
+\end_layout
+
+\begin_layout Enumerate
+Pröva nu att anropa den gamla c-funktionen med hjälp av 
+\family typewriter
+::
+\family default
+ direkt från den namespace den gamla funktionen 
+\family typewriter
+c
+\family default
+ ligger i.
+\end_layout
+
+\begin_layout Enumerate
+Ta nu bort din 
+\family typewriter
+c
+\family default
+ - funktion med 
+\family typewriter
+rm(c)
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Skapa nu följande funktionen nedan.
+ Vilken variabel är en så kallad fri variabel?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+f <- function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+	(x + y)^2 - 1
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva först att använda funktionen utan att ge 
+\family typewriter
+y
+\family default
+ ett värde (eller om den finns i global enviroment, ta bort den).
+ Fungerar funktionen 
+\family typewriter
+f
+\family default
+? Pröva att ge variabeln 
+\family typewriter
+y
+\family default
+ ett värde.
+ Fungerar funktionen nu?
+\end_layout
+
+\begin_layout Enumerate
+R söker efter värden på fria variabler på samma sätt som R söker efter funktione
+r när ett funktionsnamn anropas.
+ Dock påbörjar sökningen efter fria variabler i den miljö där funktionen
+ är definierad.
+ Skapa koden nedan, vad gör funktionen?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 5
+\end_layout
+
+\begin_layout Plain Layout
+
+g <- function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+  y <- 10
+\end_layout
+
+\begin_layout Plain Layout
+
+  # f here
+\end_layout
+
+\begin_layout Plain Layout
+
+  print(environment(f))
+\end_layout
+
+\begin_layout Plain Layout
+
+  output <- f(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+  return(output)
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva att istället definiera funktionen 
+\family typewriter
+f
+\family default
+ inne i funktionen som markerats med en kommentar.
+ Vad blir skillnaden om du nu kör 
+\family typewriter
+g()
+\family default
+?
+\end_layout
+
+\begin_layout Enumerate
+Prova att använda funktionen 
+\family typewriter
+assign()
+\family default
+ för att göra följande operation:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+svar <- 42
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva att med 
+\family typewriter
+assign()
+\family default
+ skapa variablerna 
+\family typewriter
+svar1
+\family default
+, 
+\family typewriter
+svar2
+\family default
+, 
+\family typewriter
+svar3
+\family default
+, ..., 
+\family typewriter
+svar10
+\family default
+ med en 
+\family typewriter
+for
+\family default
+ loop.
+ Varje svar (1 till 10) ska vara 42.
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu skapa en funktion du kallar 
+\family typewriter
+minianalys()
+\family default
+ som tar en godtycklig numerisk vektor och skriver ut vektorns medelvärde,
+ standardavvikelse och kvantiler till skärmen.
+ Pröva funktionen på vektorerna nedan: [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+quantile()
+\family default
+] 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+utanNA <- 1:100
+\end_layout
+
+\begin_layout Plain Layout
+
+medNA <- c(rep(NA,10),11:100)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Samtliga de funktioner inne i 
+\family typewriter
+minianalys()
+\family default
+ kan ta argumentet na.rm för att rensa bort NA innan beräkningar görs.
+ Använd ellipsis-argumentet 
+\family typewriter
+...
+
+\family default
+ för att möjliggöra att 
+\begin_inset Quotes eld
+\end_inset
+
+skicka vidare
+\begin_inset Quotes erd
+\end_inset
+
+ argumentet 
+\family typewriter
+na.rm
+\family default
+ till funktionerna inne i 
+\family typewriter
+minianalys()
+\family default
+.
+ Pröva sedan vektorerna ovan men med argumentet 
+\family typewriter
+na.rm = TRUE
+\family default
+ i 
+\family typewriter
+minianalys()
+\family default
+.
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+*apply
+\family default
+ funktioner
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu använda så kallade de så kallade 
+\family typewriter
+*apply
+\family default
+-funktionerna i R.
+ Dessa funktioner används istället för loopar.
+ De är ofta betydligt mycket snabbare att beräkna än loopar.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med funktionen 
+\family typewriter
+tapply()
+\family default
+.
+ 
+\family typewriter
+tapply()
+\family default
+ används för att använda en funktion per grupp (över en så kallad 
+\begin_inset Quotes eld
+\end_inset
+
+Ragged array
+\begin_inset Quotes erd
+\end_inset
+
+ eller vektorer av olika längd).
+ Detta är ofta av intresse i praktiken.
+ Vi börjar med att läsa in datsetet 
+\family typewriter
+ChickWeight
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data(ChickWeight)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu pröva 
+\family typewriter
+tapply()
+\family default
+ som har argumenten 
+\family typewriter
+X
+\family default
+, 
+\family typewriter
+INDEX
+\family default
+, 
+\family typewriter
+FUN
+\family default
+ och 
+\family typewriter
+simplify
+\family default
+.
+ 
+\family typewriter
+X
+\family default
+ anger variabeln (eller datasetet) vi vill använda funktionen på, 
+\family typewriter
+INDEX
+\family default
+ anger vilken gruppvariabel som ska användas och FUN anger vilken funktion
+ som ska användas per grupp.
+ Ett exempel på hur vi kan beräkna den genomsnittliga vikten per kyckling
+ ser ut på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva att på ett liknande sätt beräkna standardavvikelsen för varje kyckling
+ samt antalet observationer (längden av vektorn) och kvantilerna med 
+\family typewriter
+quantile()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Pröva nu att skicka argument till quantile för att räkna ut percentiler
+ för varje kyckling.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+*apply
+\family default
+-funktioner är särskilt smidiga att använda tillsammans med anonyma funktioner.
+ Pröva koden nedan.
+ Vad gör den?
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:*apply-funktioner-är-särskilt"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=function(x) x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva att på liknande sätt skapa en funktion som räknar ut skillnaden mellan
+ det första värdet och det sista värdet för varje kyckling med en anonym
+ funktion.
+\end_layout
+
+\begin_layout Enumerate
+Pröva nu att göra om uppgiften ovan, men i 
+\family typewriter
+tapply()
+\family default
+ ange 
+\family typewriter
+simplify = TRUE
+\family default
+.
+ Vad är skillnaden?
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu studera 
+\family typewriter
+lapply()
+\family default
+.
+ 
+\family typewriter
+lapply()
+\family default
+ använder en funktion 
+\family typewriter
+FUN
+\family default
+ på varje element i en lista 
+\family typewriter
+X
+\family default
+.
+ Kör koden nedan: Vad har du skapat för lista?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+myList <- split(x = ChickWeight, f = ChickWeight$Diet)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Räkna ut medelvärde, varians och percentiler för varje weight i varje element
+ i 
+\family typewriter
+myList
+\family default
+ med 
+\family typewriter
+lapply()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Skapa nu en funktion som kan ta ett dataset för en kyckling och räknar ut
+ skillnaden i vikt mellan tidpunkt 0 och tidpunkt 10, om värden saknas för
+ tidpunkt 0 eller 10 ska 
+\family typewriter
+NA
+\family default
+ returneras.
+ Använd denna funktion tillsammans med 
+\family typewriter
+lapply()
+\family default
+ för att beräkna den skillnaden mellan tidpunkt 0 och 10 för alla kycklingar.
+\end_layout
+
+\begin_layout Section
+Minitillämpning: Fakultetsfunktion
+\end_layout
+
+\begin_layout Standard
+Fakultet är definierat på följande sätt:
+\begin_inset Formula 
+\[
+n!=\prod_{i=1}^{n}k
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skriv en funktion 
+\family typewriter
+MyFactorial()
+\family default
+ med en for-loop som beräknar fakulteten för godtyckligt 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Pröva din funktion med följande nummer 
+\begin_inset Formula $n=1,10,100.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Skriv en liknande funktion 
+\family typewriter
+MyFactorial2()
+\family default
+ som istället använder en while-loop och pröva din funktion med följande
+ nummer 
+\begin_inset Formula $n=1,10,100$
+\end_inset
+
+.
+ Dubbelkolla att du får samma resultat som i uppgift 1) ovan.
+\end_layout
+
+\begin_layout Enumerate
+Skriv en tredje funktion 
+\family typewriter
+MyFactorial3()
+\family default
+ utan men med 
+\family typewriter
+prod()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Kör din funktion 
+\family typewriter
+MyFactorial(150)
+\family default
+ 5000 gånger och undersök hur lång tid hela körningen tar med 
+\family typewriter
+system.time()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Upprepa uppgift ovan med 
+\family typewriter
+MyFactorial2()
+\family default
+ och 
+\family typewriter
+MyFactorial3()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Vilket av de tre sätten att beräkna fakulteten är snabbast (effektivast)?
+ Varför tror du?
+\end_layout
+
+\begin_layout Enumerate
+Vad händer om du prövar 
+\family typewriter
+MyFactorial(500)
+\family default
+? 
+\end_layout
+
+\begin_layout Enumerate
+Notera att 
+\begin_inset Formula 
+\[
+\log(n!)=\sum_{i=1}^{n}\log(i)
+\]
+
+\end_inset
+
+Ändra din funktion 
+\family typewriter
+MyFactorial()
+\family default
+ och lägg till ett extra argument 
+\family typewriter
+log
+\family default
+ så att när 
+\family typewriter
+log = TRUE
+\family default
+ returneras logaritmen av fakulteten och när 
+\family typewriter
+log = FALSE
+\family default
+ returneras den vanliga fakulteten.
+ Sätt värdet TRUE som defaultvärde.
+\end_layout
+
+\begin_layout Enumerate
+Vad händer om du kör 
+\family typewriter
+MyFactorial(500)
+\family default
+? Om du kör 
+\family typewriter
+MyFactorial(500, log = FALSE)
+\family default
+?
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset

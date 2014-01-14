@@ -334,6 +334,7 @@ En funktion i R består av:
 - 0 eller flera argument / invärden (ex. ```x``` och ```y```)
 - "curly bracers" ```{}```
 - programkod / funktionen (ex. ```x+y```)
+- returnera värde (ex. ```return()```)
 - utvärdet från funktionen (ex. ```f(3,2)``` = **5** )
 
 

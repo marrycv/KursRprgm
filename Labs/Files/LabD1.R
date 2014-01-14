@@ -1,8 +1,9 @@
 #### Programmering i R ####
 #### Inlämning, Datalaboration 1 ####
 
-Namn <- "Age ditt namn här"
-LiuId <- "Age ditt LIU-ID här"
+Namn  #Ange ditt namn här, ex Namn <- "Alice Walker"
+LiuId  # Ange ditt namn här, ex LiuId <- "aliwa"
+
 
 # Uppgift 1 ----
 uppgift1 <- function(){

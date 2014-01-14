@@ -1,8 +1,8 @@
 #### Programmering i R ####
 #### Inlämning, Datalaboration 3 ####
 
-Namn <- "Age ditt namn här"
-LiuId <- "Age ditt LIU-ID här"
+Namn  #Ange ditt namn här, ex Namn <- "Alice Walker"
+LiuId  # Ange ditt namn här, ex LiuId <- "aliwa"
 
 
 # Uppgift 1: BMI ----

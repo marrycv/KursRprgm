@@ -26,11 +26,16 @@ pnrSamordn <- function(pnr) {
 }
 
 # Uppgift 5 : pnrAge() ----
+pnrDate <- function(date = NA) {
+  # Skriv din kod här
+}
+
+# Uppgift 6 : pnrAge() ----
 pnrAge <- function(pnr, date) {
   # Skriv din kod här
 }
 
-# Uppgift 6 : pnrInfo() ----
+# Uppgift 7 : pnrInfo() ----
 pnrInfo <- function(pnr,...){
   # Skriv din kod här
 }

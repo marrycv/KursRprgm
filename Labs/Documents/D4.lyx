@@ -1387,6 +1387,10 @@ Skapa en funktion för att ta fram uppgift om kön från ett personnummer.
 \end_layout
 
 \begin_layout Enumerate
+Kontrollera/skapa ett datum att beräkna ålder från.
+\end_layout
+
+\begin_layout Enumerate
 Skapa en funktion för att ta fram uppgifter om ålder från ett personnummer
  och ett givet datum.
 \end_layout
@@ -1905,21 +1909,17 @@ pnrSamordn(pnr)
 \begin_layout Subsection
 Uppgift 5: 
 \family typewriter
-pnrAge()
+pnrDate()
 \end_layout
 
 \begin_layout Standard
-Sist ska vi baserat på dels ett personnummer och dels ett datum beräkna
- åldern för personen vid detta datum.
+Vi ska i denna funktion skapa ett datum för att senare beräkna åldern för
+ olika individer.
  Skapa en funktion du kallar 
 \family typewriter
-pnrAge()
+pnrDate()
 \family default
- tar argumentet 
-\family typewriter
-pnr
-\family default
- och argumentet 
+ som tar argumentet 
 \family typewriter
 date
 \family default
@@ -1933,24 +1933,16 @@ date
  följande felmeddelande:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Quote
 
 \family typewriter
 Incorrect date format: Correct format should be YYYY-MM-DD.
 \end_layout
 
 \begin_layout Standard
-Om inget datum anges av användaren ska den första januari under innevarande
- år användas som datum.
+Om inget datum anges av användaren ska den 31 december under föregående
+ år returneras som datum.
  
-\end_layout
-
-\begin_layout Standard
-Funktionen ska om 
-\family typewriter
-date
-\family default
- är korrekt returnera personens ålder i ett numeriskt format.
 \end_layout
 
 \begin_layout Standard
@@ -1958,7 +1950,8 @@ Observera att senare i kursen kommer vi lära oss paketet
 \family typewriter
 lubridate
 \family default
- som är betydligt bättre och enklare för att hantera datum och tid.
+ som är betydligt bättre och enklare för att hantera och kontrollera datum
+ och tid.
  
 \end_layout
 
@@ -1976,7 +1969,7 @@ NA
 \end_layout
 
 \begin_layout Enumerate
-Om date har defaultvärdet, sätt datumvärdet till dagens datum.
+Om date har defaultvärdet, sätt datumvärdet den 31 december föregående år.
  [
 \series bold
 Tips!
@@ -2065,6 +2058,83 @@ Om datumformatet är är inkorrekt stoppa funktionen och returnera felmeddelande
 \end_layout
 
 \begin_layout Enumerate
+Annars, returnera datumet på korrekt format.
+\end_layout
+
+\begin_layout Standard
+Här är testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrDate("2010-10-10")
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrDate()
+\end_layout
+
+\begin_layout Plain Layout
+
+pnrDate("Hejbaberiba")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Uppgift 6: 
+\family typewriter
+pnrAge()
+\end_layout
+
+\begin_layout Standard
+Sist ska vi baserat på dels ett personnummer och dels ett datum beräkna
+ åldern för personen vid detta datum.
+ Skapa en funktion du kallar 
+\family typewriter
+pnrAge()
+\family default
+ tar argumentet 
+\family typewriter
+pnr
+\family default
+ och argumentet 
+\family typewriter
+date
+\family default
+.
+ Argumentet date ska ha följande textformat: 
+\family typewriter
+ÅÅÅÅ-MM-DD
+\family default
+.
+ Du kan utgå från att formatet är på detta sätt då pnrDate() kommer anropas
+ innan denna funktion.
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
 Räkna ut skillnaden i hela år mellan datumets årtal personnummrets årtal.
 \end_layout
 
@@ -2102,11 +2172,6 @@ pnr <- "196408233234"
 
 \begin_layout Plain Layout
 
-pnrAge(pnr)
-\end_layout
-
-\begin_layout Plain Layout
-
 pnrAge(pnr, date = "2010-10-10")
 \end_layout
 
@@ -2117,12 +2182,7 @@ pnr <- "198112189876"
 
 \begin_layout Plain Layout
 
-pnrAge(pnr)
-\end_layout
-
-\begin_layout Plain Layout
-
-pnrAge(pnr,date = "Hejbaberiba")
+pnrAge(pnr, date = "2014-12-31")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2195,18 +2255,40 @@ age
 \begin_layout Standard
 Det ska också vara möjligt att skicka vidare datum till funktionen 
 \family typewriter
-pnrAge()
+pnrDate()
 \family default
 , men om inget skickas med ska defaultvärdet i 
 \family typewriter
-pnrAge()
+pnrDate()
 \family default
  användas.
  
 \end_layout
 
 \begin_layout Standard
+Funktionen ska dessutom generera följande meddelande med 
+\family typewriter
+message()
+\family default
+:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+The age has been calculated at [DATUM].
+\end_layout
+
+\begin_layout Standard
 Ett förslag på hur funktionen kan implementeras är följande:
+\end_layout
+
+\begin_layout Enumerate
+Kontrollera/skapa ett korrekt datum för att beräkna ålder med 
+\family typewriter
+pnrDate()
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2258,6 +2340,14 @@ Använd
 pnrAge()
 \family default
  för att beräkna åldern för respektive personnummer.
+\end_layout
+
+\begin_layout Enumerate
+Skriv ut meddelandet ovan med 
+\family typewriter
+message()
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2408,7 +2498,7 @@ status open
 
 \begin_layout Plain Layout
 
-testSpeed <- sample(c("196408233234", "640883-3234","198112189876"), size=1000,
+testSpeed <- sample(c("196408233234", "640883-3234","198112189876"), size=10000,
  replace=TRUE) 
 \end_layout
 

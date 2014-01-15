@@ -2511,7 +2511,7 @@ status open
 \begin_layout Plain Layout
 
 source("/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk
- programmering i R/Temp/KursRprgmTeacher/Labs/Solutions/LabSolutions.R")
+ programmering i R/RCourse2014/KursRprgmTeacher/Labs/Solutions/LabSolutions.R")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2935,7 +2935,7 @@ status open
 
 \begin_layout Plain Layout
 
-appleFil <- "Apple.csv"
+appleFil <- "AppleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout

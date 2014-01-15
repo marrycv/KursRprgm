@@ -1580,7 +1580,7 @@ costs<-c(70, 75, 58, 62, 140, 90, 70)
 
 \begin_layout Plain Layout
 
-mittDataSet$costs <- costs  
+minVecka$costs <- costs  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1733,15 +1733,19 @@ study_hours <- c(2, rep(4, 3), 6, 0, 0)
 \begin_layout Enumerate
 Skapa en lista med vektorerna 
 \family typewriter
-myWeekdays
+study
 \family default
 , 
 \family typewriter
 hours
 \family default
+, 
+\family typewriter
+job
+\family default
  och 
 \family typewriter
-tasks
+free
 \family default
  och döp den till 
 \family typewriter
@@ -2885,7 +2889,7 @@ medel_slutpris
 \family typewriter
 slutpris_upp
 \family default
- (ett numeriskt element) är ett logiskt värde som anger 
+ (ett logiskt element) är ett logiskt värde som anger 
 \family typewriter
 TRUE
 \family default

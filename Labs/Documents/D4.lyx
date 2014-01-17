@@ -1222,7 +1222,11 @@ log = TRUE
 log = FALSE
 \family default
  returneras den vanliga fakulteten.
- Sätt värdet TRUE som defaultvärde.
+ Sätt värdet 
+\family typewriter
+TRUE
+\family default
+ som defaultvärde.
 \end_layout
 
 \begin_layout Enumerate
@@ -1401,6 +1405,23 @@ Skapa en funktion som sätter samman funktionerna ovan till en funktion,
  med personnummer och övrig information.
 \end_layout
 
+\begin_layout Standard
+Följande funktioner kommer vara mycket användbara i denna uppgift: 
+\family typewriter
+paste()
+\family default
+, 
+\family typewriter
+substr()
+\family default
+ och 
+\family typewriter
+Sys.Date()
+\family default
+.
+ Kolla upp dessa funktioner innan du sätter igång.
+\end_layout
+
 \begin_layout Subsection
 Uppgift 1: 
 \family typewriter
@@ -1427,6 +1448,7 @@ Personnummer förekommer i många olika format i vanliga dataanalyser.
 ÅÅMMDD+NNNK
 \family default
 .
+ Detta innebär att vi antar att alla personnummer är yngre än 100 år gamla.
  I R kan dessutom personnummer förekomma både som numeriska variabler faktorvari
 abler och som textvariabler.
  Vår funktion ska klara samtliga dessa fall.
@@ -1484,7 +1506,7 @@ pnrFormat(pnr)
 
 \begin_layout Plain Layout
 
-pnr <- 6408233234 
+pnr <- 1311310324
 \end_layout
 
 \begin_layout Plain Layout
@@ -1816,7 +1838,16 @@ Vissa personer som inte är svenska medborgare kan få ett svenskt samordningsnu
 er som fungerar på samma sätt som personnummer.
  Då får man ett så kallad samordningsnummer.
  Den enda skillnaden är att att talet 60 har lagts till personnummrets födelseda
-tum.
+tum (d.v.s.
+ 
+\family typewriter
+DD
+\family default
+ i 
+\family typewriter
+ÅÅÅÅMMDD
+\family default
+).
  
 \end_layout
 
@@ -1976,7 +2007,7 @@ Tips!
 \series default
  
 \family typewriter
-is.NA()
+is.na()
 \family default
 , 
 \family typewriter
@@ -2006,7 +2037,7 @@ all()
 \begin_layout Enumerate
 Är 
 \family typewriter
-YYYY
+ÅÅÅÅ
 \family default
 , 
 \family typewriter

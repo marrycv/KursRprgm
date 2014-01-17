@@ -268,7 +268,7 @@ if(x < 0){
 
 \begin_layout Plain Layout
 
-	print("Positivt x")
+	print("Negativt x")
 \end_layout
 
 \begin_layout Plain Layout
@@ -1356,7 +1356,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE>>=
+<<eval=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -1371,12 +1371,12 @@ for (i in 1:10) {
 
 \begin_layout Plain Layout
 
-  if( x < 10 ) { break() }
+  if( x > 5 ) break 
 \end_layout
 
 \begin_layout Plain Layout
 
-  print("x is less than 10")
+  print("x is less than 5")
 \end_layout
 
 \begin_layout Plain Layout
@@ -1509,7 +1509,7 @@ bodyWeight
 och returnera värdet.
  Om 
 \family typewriter
-bodyLength
+bodyHeight
 \family default
  och/eller 
 \family typewriter

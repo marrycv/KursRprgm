@@ -2126,8 +2126,11 @@ date
 ÅÅÅÅ-MM-DD
 \family default
 .
- Du kan utgå från att formatet är på detta sätt då pnrDate() kommer anropas
- innan denna funktion.
+ Du kan utgå från att formatet är på detta sätt då 
+\family typewriter
+pnrDate()
+\family default
+ kommer anropas innan denna funktion.
 \end_layout
 
 \begin_layout Standard
@@ -2136,20 +2139,21 @@ Ett förslag på hur funktionen kan implementeras är följande:
 
 \begin_layout Enumerate
 Räkna ut skillnaden i hela år mellan datumets årtal personnummrets årtal.
+ D.v.s hur gammal personen är den 31 december.
 \end_layout
 
 \begin_layout Enumerate
 Pröva om månad och dag är större (senare) för 
 \family typewriter
-date
+pnr
 \family default
  än för 
 \family typewriter
-pnr
+date
 \family default
 .
- Om så är fallet dra av ett år från årtalsberäkningen ovan och returnera
- åldern.
+ Om så är fallet dra av ett år från årtalsberäkningen ovan (personen har
+ ännu inte fyllt år) och returnera åldern vid det givna datumet.
 \end_layout
 
 \begin_layout Standard
@@ -2196,7 +2200,7 @@ pnrAge(pnr, date = "2014-12-31")
 \end_layout
 
 \begin_layout Subsection
-Uppgift 6: 
+Uppgift 7: 
 \family typewriter
 pnrInfo()
 \end_layout

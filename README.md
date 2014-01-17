@@ -91,6 +91,8 @@ Kursen innehåller åtta föreläsningar. Nedan finns föreläsningar, demo-file
 
 Kursen innehåller åtta datorlaborationer. Dessa laborationer är **obligatoriska**.  
 
+**Obs!** För att ladda ner filerna från github, högerklicka på knappen Raw och välj "Spara länk som...".
+
 | **Block**  | *Labbinstruktion* | *Filer* |
 | --- | --- | --- |
 | **D1** | [PDF](https://github.com/MansMeg/KursRprgm/raw/master/Labs/Documents/D1.pdf) | [R-mall](https://raw.github.com/MansMeg/KursRprgm/master/Labs/Files/LabD1.R) |

@@ -29,7 +29,7 @@ knitr
 \end_modules
 \maintain_unincluded_children false
 \language swedish
-\language_package none
+\language_package default
 \inputencoding auto
 \fontencoding default
 \font_roman default
@@ -178,7 +178,9 @@ Logiska vektorer
 \end_layout
 
 \begin_layout Enumerate
-Skapa följande logiska vektor i R: TRUE FALSE FALSE
+Skapa följande logiska vektor i R: 
+\family typewriter
+TRUE FALSE FALSE
 \end_layout
 
 \begin_layout Enumerate
@@ -223,7 +225,11 @@ rep()
 
 \begin_deeper
 \begin_layout Enumerate
+
+\family typewriter
 TRUE TRUE TRUE TRUE FALSE FALSE FALSE FALSE 
+\family default
+
 \begin_inset CommandInset label
 LatexCommand label
 name "enu:TRUE-TRUE-TRUE"
@@ -234,7 +240,11 @@ name "enu:TRUE-TRUE-TRUE"
 \end_layout
 
 \begin_layout Enumerate
-TRUE FALSE TRUE FALSE TRUE FALSE TRUE FALSE 
+
+\family typewriter
+TRUE FALSE TRUE FALSE TRUE FALSE TRUE FALSE
+\family default
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "enu:TRUE-FALSE-TRUE"
@@ -304,8 +314,7 @@ c
 \family typewriter
 d
 \family default
-.
- 
+ på följande sätt: 
 \begin_inset Newline newline
 \end_inset
 
@@ -464,8 +473,7 @@ c
 \family typewriter
 d
 \family default
-.
- 
+ på följande sätt:
 \begin_inset CommandInset label
 LatexCommand label
 name "enu:Skapa-nu-vektorerna"
@@ -577,7 +585,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=TRUE>>=
+<<prompt=TRUE, eval=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -725,7 +733,7 @@ Givet vektorn
 \family typewriter
 w <- seq(5,10,1.2)
 \family default
- .
+.
  Använd 
 \family typewriter
 rep()
@@ -768,10 +776,6 @@ ny_w
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 @
 \end_layout
 
@@ -785,7 +789,7 @@ Beräkna
 \family typewriter
 log(ny_w)
 \family default
-, avunda till 2 decimaler.
+ och avunda till 2 decimaler.
  Avrunda även nedåt till närmsta heltal.
  
 \begin_inset Newline newline
@@ -811,7 +815,11 @@ Kontrollera om elementen i sekvensen
 \family typewriter
 ny_w
 \family default
- uppfyller följande villkor: (Svaret blir alltså en logisk vektor.)
+ uppfyller följande villkor: 
+\begin_inset Newline newline
+\end_inset
+
+(Svaret blir alltså en logisk vektor.)
 \begin_inset CommandInset label
 LatexCommand label
 name "enu:Kontrollera-om-elementen"
@@ -861,7 +869,7 @@ reference "enu:Kontrollera-om-elementen"
 
 \begin_deeper
 \begin_layout Enumerate
-Välj ut dessa element med den logiska vektorn
+Välj ut dessa element med en logisk vektor
 \end_layout
 
 \begin_layout Enumerate
@@ -874,7 +882,7 @@ which()
 \begin_layout Enumerate
 Skapa följande vektor (
 \series bold
-obs!
+Obs!
 \series default
  du kommer får en varning av R):
 \begin_inset CommandInset label
@@ -961,7 +969,15 @@ NaN
 \family typewriter
 NA
 \family default
-, hur gör du då? 
+, hur gör du då? [
+\series bold
+Tips!
+\series default
+ Använd den logiska operatorn för 
+\series bold
+icke
+\series default
+]
 \end_layout
 
 \begin_layout Enumerate
@@ -1123,6 +1139,240 @@ as.logical(z)
 
 \end_layout
 
+\begin_layout Subsection
+Ändra enskilda element i en vektor
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Ändra-enskilda-element"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skapa vektorn 
+\family typewriter
+w <- seq(1, 10, 0.5)
+\family default
+.
+ Detta bör ge följande vektor:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- seq(1, 7, 0.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+w
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ändra det sjätte elementet i vektorn med 
+\family typewriter
+[]
+\family default
+ till 7 på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+w[6] <- 7
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ändra nu de tre första elementen till 6, 1, 4 på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+w[1:3] <- c(6, 1, 4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Eller w[c(1, 2, 3)] <- c(6, 1, 4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ändra nu det två sista elementet till 12 och 13.
+ Du borde då få följande vektor:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo = FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+w[(length(w)-1):length(w)] <- c(12, 13) 
+\end_layout
+
+\begin_layout Plain Layout
+
+w
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Det går också att använda en logisk vektor för att göra ändringar.
+ Exempelvis kan alla element mindre än 5 ändras till 2.5 på detta sätt:
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:logiskVekt"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo = TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+logisk <- w < 3
+\end_layout
+
+\begin_layout Plain Layout
+
+w[logisk] <- 2
+\end_layout
+
+\begin_layout Plain Layout
+
+w
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill du ta bort ett eller flera element från en vektor använder du (precis
+ som i föregående laboration) minustecknet och skriver över vektorn.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo = TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- w[-(3:4)] 
+\end_layout
+
+\begin_layout Plain Layout
+
+w
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Matriser
 \end_layout
@@ -1139,7 +1389,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE>>=
+<<eval=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -1291,6 +1541,63 @@ Tips!
 \end_layout
 
 \begin_layout Enumerate
+Pröva att välja ut följande delar ur matrisen på samma sätt som 4 ovan:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Elementen (4, 4) och (2, 1)
+\end_layout
+
+\begin_layout Enumerate
+Rad 1
+\end_layout
+
+\begin_layout Enumerate
+Kolumn 4
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ändra nu följande enskilda värden, rader och kolumner i 
+\family typewriter
+storMat
+\family default
+ till 0.
+ 
+\begin_inset Newline newline
+\end_inset
+
+[
+\series bold
+Tips!
+\series default
+ Använd slicing och ändra på ett liknande sätt som du gjorde med vektorer
+ i 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Ändra-enskilda-element"
+
+\end_inset
+
+.]
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Elementen (4, 4) och (2, 1)
+\end_layout
+
+\begin_layout Enumerate
+Rad 1
+\end_layout
+
+\begin_layout Enumerate
+Kolumn 4
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
 Nu ska vissa värden i matrisen 
 \family typewriter
 storMat
@@ -1302,11 +1609,22 @@ storMat
 NA
 \family default
 .
- [
+\begin_inset Newline newline
+\end_inset
+
+[
 \series bold
 Tips!
 \series default
- Gör detta i flera steg]
+ Gör detta i flera steg och använd relationsoperatorer på ett liknande sätt
+ som i 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Ändra-enskilda-element"
+
+\end_inset
+
+.]
 \end_layout
 
 \begin_layout Enumerate
@@ -1382,6 +1700,89 @@ length()
 .
 \end_layout
 
+\begin_layout Enumerate
+För att göra om en matris till en vektor används 
+\family typewriter
+as.vector()
+\family default
+.
+ Pröva funktionen på 
+\family typewriter
+radMat
+\family default
+ ovan.
+\end_layout
+
+\begin_layout Enumerate
+För att ta bort rader eller kolumner från en matris används minustecknet.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+kolMat[-5,] 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Om vi tar bort allt så bara en rad- eller kolumnmatris kvarstår reduceras
+ detta till en vektor.
+ Detta kan undvikas med argumentet 
+\family typewriter
+drop = FALSE
+\family default
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+kolMat[,-1]
+\end_layout
+
+\begin_layout Plain Layout
+
+kolMat[,-1 , drop = FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 
 \family typewriter
@@ -1409,7 +1810,7 @@ hours
 \family typewriter
 tasks
 \family default
-:
+ på följande sätt:
 \begin_inset Newline newline
 \end_inset
 
@@ -1419,7 +1820,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<echo=FALSE>>=
+<<echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -1459,7 +1860,13 @@ tasks<-factor(tasks)
 
 \begin_layout Plain Layout
 
-data.frame(myWeekdays=myWeekdays,hours=hours,tasks=tasks)  
+minVecka <- data.frame(myWeekdays = myWeekdays, hours = hours, tasks = tasks)
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+minVecka
 \end_layout
 
 \begin_layout Plain Layout
@@ -1570,7 +1977,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE>>=
+<<eval=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -1678,6 +2085,51 @@ första
 andra
 \series default
  veckan.
+\end_layout
+
+\begin_layout Enumerate
+Att ta bort rader från en data.frame görs på samma sätt som med en matris.
+ Dock kan även enskilda variabler tas bort på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minVecka
+\end_layout
+
+\begin_layout Plain Layout
+
+minVecka <- minVecka[-2, ]
+\end_layout
+
+\begin_layout Plain Layout
+
+minVecka$costs <- NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+minVecka
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1799,7 +2251,7 @@ str()
 \begin_layout Enumerate
 Undersök hur mycket minne listan använder med 
 \family typewriter
-?object.size()
+object.size()
 \family default
 .
  
@@ -1906,7 +2358,7 @@ $
 \end_layout
 
 \begin_layout Enumerate
-Välj det första och andra listelementet från 
+Pröva att välja det första och andra listelementet från 
 \family typewriter
 weekPlan
 \family default
@@ -1922,11 +2374,12 @@ Radera note från listan
 \family typewriter
 weekPlan
 \family default
- [
-\series bold
-Tips!
-\series default
- Tänk på hur du tar bort element från en vektor)
+ (Detta kan göras på samma sätt som vi tar bort element från en vektor eller
+ som vi tar bort variabler från en 
+\family typewriter
+data.frame
+\family default
+).
 \end_layout
 
 \begin_layout Section
@@ -2569,7 +3022,7 @@ years
 \end_layout
 
 \begin_layout Enumerate
-Använd den numeriska vektorn för att testa om varje givet är är ett skottår.
+Använd den numeriska vektorn för att testa om varje givet år är ett skottår.
  Generera en logisk vektor som är 
 \family typewriter
 TRUE
@@ -2659,6 +3112,21 @@ Diagonalmatriser och en matris spår (även kallad
 trace
 \series default
 ) är viktigt inom den linjära algebran.
+ Mer information finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "http://en.wikipedia.org/wiki/Trace_(linear_algebra)"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
  Vi ska nu skapa en funktion för att beräkna en matris spår.
  Funktionen ska kallas 
 \family typewriter

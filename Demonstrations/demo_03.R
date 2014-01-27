@@ -44,6 +44,7 @@ numerisk_vektor[which(logisk_vektor)]
 # Relationsoperatorerna är ett sätt att skapa logiska vektorer enkelt.
 # De vanligaste relationsoperatorerna är: ==, >=, <=, !=, <, >, %in%
 numerisk_vektor <- c(3, 6, 1, 5, 2)
+numerisk_vektor
 numerisk_vektor == 3
 numerisk_vektor >= 2
 numerisk_vektor < 1
@@ -83,7 +84,7 @@ x <- c(-2, 88, 10, 9, 10,-100)
 x[x > 0 & x < 100]
 
 # Exempel: Vi vill välja ut tal som är positiva och delbara med 4
-x[x > 0 | x %% 4 == 0]
+x[x > 0 & x %% 4 == 0]
 
 # Exempel: Vi vill välja ut alla tal som som inte finns i vektorn 1:10
 x[! x %in% 1:10 ]

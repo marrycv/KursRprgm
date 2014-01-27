@@ -6,3 +6,6 @@ F*.md
 README.html
 *.lyx~
 *.lyx#
+*.html
+F*_files
+F*-figure

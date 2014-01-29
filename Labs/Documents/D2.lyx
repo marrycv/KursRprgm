@@ -1926,7 +1926,7 @@ str()
 \begin_layout Enumerate
 Funktionerna 
 \family typewriter
-dims()
+dim()
 \family default
 ,
 \family typewriter
@@ -3168,10 +3168,6 @@ Tips!
 \series default
  
 \family typewriter
-diag()
-\family default
-, 
-\family typewriter
 upper.tri()
 \family default
 , 
@@ -3183,6 +3179,14 @@ lower.tri()
 
 \begin_layout Enumerate
 Gör om matrisen till en vektor och summera värdena.
+\end_layout
+
+\begin_layout Standard
+Ett annat sätt är att använda funktionen 
+\family typewriter
+diag()
+\family default
+.
 \end_layout
 
 \begin_layout Standard

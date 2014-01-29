@@ -44,7 +44,7 @@ appleData <- read.csv(file = minCSV)
 # Först anges objektet som ska skrivas ut (ska vara en data.frame), sedan filnamnet
 # Om bara ett filnamn anges hamnar filen i working directory
 dir()
-write.csv2(appleData, file = "appleData.csv")
+write.csv(appleData, file = "appleData.csv")
 dir()
 
 # I bakgrunden används write.table() för inställningar

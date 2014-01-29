@@ -4,7 +4,7 @@
 
 
 # Konvertera mellan olika atomära klasser / modes ----
-char <- c("Hej", "på", "dej!", "TRUE")
+char <- c("Hej", "på", "dej!", "TRUE", "1")
 num <- 0:3
 logi <- num > 2
 
@@ -30,14 +30,20 @@ as.logical(num)
 minFaktor <- factor(x=c(1,3,3,1,2), labels=c("A", "B", "C"), levels=c(1, 2, 3))
 minFaktor
 
+as.numeric(minFaktor)
+as.character(minFaktor)
+
+
 # Om vi vill ändra vilket värde som har vilket value ändrar vi levels
 minFaktor <- factor(x=c(1,3,3,1,2), labels=c("A", "B", "C"), levels=c(2, 1, 3))
 minFaktor
+
 # Observera skillnaden mot en textvektor
 as.character(minFaktor) # Skillnaden är "" och Levels: nedtill
 
 # Vi kan skapa faktorvariabler direkt från textvektorer
-minFaktor <- factor(c("B", "C", "C", "B", "A"))
+text <- c("B", "C", "C", "B", "A")
+minFaktor <- factor(text)
 # Labels (och levels) bygger då på en alfabetisk ordning
 
 # Att skapa faktorer är också ett sätt att hantera stora data 
@@ -73,11 +79,11 @@ C
 # Det finns numeriska (integer och real), logiska och textmatriser
 textMat <- matrix(data = c("Hej", "på", "dej", "!"), ncol = 2)
 textMat
-mode(textMat)
+typeof(textMat)
 
 logiMat <- matrix(data = c(TRUE, FALSE, TRUE, TRUE), ncol = 2)
 logiMat
-mode(logiMat)
+typeof(logiMat)
 
 # Det går att skapa en vektor av matrisen igen.
 as.vector(C)
@@ -100,7 +106,7 @@ A != B
 
 # Matrisoperatorer  
 # Matrismultiplikation 
-A %*% B 
+A %*% B
 # Tronsponering
 t(A)
 # Matrisinvers
@@ -117,6 +123,9 @@ B[1, ]
 
 # Samma för kolumner
 B[ , 1]
+
+#
+B[ , 1, drop = FALSE]
 
 # Ändra element i en matris kan göras med index:
 B[1, 2] <- 10
@@ -150,6 +159,7 @@ minData <-
   data.frame(vikt=c(58,78,98),
              namn=c("Lisa","Kim","Max"), 
              rik=c(TRUE,FALSE,FALSE))
+minData$namn
 
 # I R-studio går det att "titta" på datasetet under "Enviroment"
 # Observera att namn har blivit en faktorvariabel.
@@ -160,7 +170,7 @@ minData <-
              namn=c("Lisa","Kim","Max"), 
              rik=c(TRUE,FALSE,FALSE),
              stringsAsFactors=FALSE)
-
+minData$namn
 
 # Läsa in dataset som kommer med R ----
 # För att se vilka dataset som finns:
@@ -210,12 +220,11 @@ faithful[faithful$waiting > 50 & faithful[["eruptions"]] < 2, ]
 # Skapa nya variabler i data.frame ----
 # För att lägga till / skapa en ny variabel i en data.frame används $ eller within()
 # Med $ 
-faithful$wait_by_erupt <- faithful$waiting / faithful[[""]]
+faithful$wait_by_erupt <- faithful$waiting / faithful[["eruptions"]]
 # Med within()
 faithful <- within(faithful, erupt_by_wait <- eruptions / waiting)
 
 # $ är mycket smidigt i R-Studio med tabbkomplettering
-
 
 
 # Listor ----

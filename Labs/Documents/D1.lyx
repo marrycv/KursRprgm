@@ -1827,7 +1827,7 @@ utan argument
 \begin_inset Newline newline
 \end_inset
 
-I exemplet nedan har värdena avrundats till två decimaler.
+I exemplet nedan har värdena avrundats till två eller tre decimaler.
  Observera att för att funktionen ge full poäng ska resultatet stämma med
  fler decimaler.
 \begin_inset Newline newline
@@ -1880,6 +1880,10 @@ vektor
 \color inherit
 .
  
+\series bold
+3p
+\series default
+
 \begin_inset Newline newline
 \end_inset
 
@@ -1932,7 +1936,12 @@ b
 \family default
 \color inherit
 .
- Skalärprodukten beräknas på följande sätt: 
+ Skalärprodukten beräknas på följande sätt.
+ 
+\series bold
+3p
+\series default
+ 
 \begin_inset Formula 
 \[
 \mathbf{a}\cdot\mathbf{b}=\sum_{i=1}^{n}a_{i}b_{i}=a_{1}b_{1}+a_{2}b_{2}+\dots+a_{n}b_{n}
@@ -2012,6 +2021,10 @@ namn
 \family default
 .
  
+\series bold
+3p
+\series default
+
 \begin_inset Newline newline
 \end_inset
 
@@ -2130,7 +2143,15 @@ N
 \end_inset
 
  till och med fjärde decimalen.
- [
+ 
+\series bold
+3p
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+[
 \series bold
 Tips!
 \series default

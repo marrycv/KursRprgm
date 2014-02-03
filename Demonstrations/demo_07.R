@@ -1,9 +1,9 @@
-#### Demo 07: Loopar####
+#### Demo 07: Loopar ####
 #### Författare: Måns Magnusson
 
 # for - loopar ----
 # En for - loop loopar över en godtycklig vektor
-vektor <- c("a", "b", "c")
+vektor <- c("a", "b", "c", "d")
 for ( element in vektor ) { 
   print(element) 
 }
@@ -32,9 +32,10 @@ A <- matrix(1:9, nrow = 3)
 A
 for (i in 1:nrow(A)){
   for (j in 1:ncol(A)){
-   print(A[i,j]) 
+    print(A[i,j]) 
   }  
 }
+
 # Och omvänd ordning
 for (j in 1:ncol(A)){
   for (i in 1:nrow(A)){
@@ -66,7 +67,7 @@ while ( x > 1 ){
 x <- 1
 for (i in 2:9){
   x <- c(x, i^2) # Detta steg utvärderas i varje iteration
-  if( i %% 3 == 0) { next } # Om i är delbart med 3 börjar loopen om från början
+  if( i %% 3 == 0) { next() } # Om i är delbart med 3 börjar loopen om från början
   print(x) # Detta utvärderas därför bara då i är udda
 }
 x # Hela loopen körs
@@ -110,9 +111,10 @@ for (i in 1:5){
 
 # stop() kan vara aktuellt om exempelvis något värde inte är definierat
 # och beräkningar tar lång tid
-divisionStop <- function(x,y){
-  if (y == 0) {stop("Division med noll är inte definierat")}
-  return( x / y )  
+divisionStop <- function(x, y){
+  if (y == 0) {stop("Division med noll är inte definierat!")}
+  ret <- x / y
+  return( ret )  
 }
 divisionStop(4,5)
 divisionStop(4,0)
@@ -121,16 +123,19 @@ divisionStop(4,0)
 # warning() används på ett liknande sätt, men då vi inte vill avbryta funktionen
 divisionWarn <- function(x,y){
   if (y == 0) {warning("Division med noll är inte definierat")}
-  return( x / y )  
+  ret <- x / y
+  return( ret )  
 }
 divisionWarn(4,0)
 
 # Varningar samlas och presenteras i slutet
-flera_y <- c(0,3,1,2,0,0,1,2)
+flera_y <- c(0, 3, 1, 2, 0, 0, 1, 2)
 for (y in flera_y){
-  print(divisionWarn(4,y))
+  print(divisionWarn(4, y))
 }
+
+# Dölja varningar
+suppressWarnings(divisionWarn(4, 0))
 
 # Vi kan skriva ut varningarna igen om vi vill 
 warnings()
-

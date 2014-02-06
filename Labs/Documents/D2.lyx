@@ -3256,7 +3256,7 @@ fastAnalysis()
 \family default
  med argumentet 
 \family typewriter
-file
+filePath
 \family default
  och 
 \family typewriter
@@ -3273,7 +3273,7 @@ Funktionen ska läsa in en
 \family default
  - fil som anges av argumentet 
 \family typewriter
-file
+filePath
 \family default
  och returnera en lista med de namngivna listelementen 
 \family typewriter
@@ -3300,8 +3300,11 @@ Exempel på hur du kan implementera funktionen:
 \end_layout
 
 \begin_layout Enumerate
-Läs in data (csv) med argumentet file (file innehåller både filnamn och
- sökväg).
+Läs in data (csv) med argumentet 
+\family typewriter
+filePath
+\family default
+ (innehåller både filnamn och sökväg).
  Använd funktionen 
 \family typewriter
 read.csv()
@@ -3316,6 +3319,19 @@ Tips!
 stringsAsFactors
 \family default
  innebär att datumvariablerna blir en faktorvariabel].
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Obs!
+\series default
+ 
+\family typewriter
+filePath
+\family default
+ ska bara innehålla sökvägen till filen, filen ska läsas in inne i funktionen.
 \end_layout
 
 \begin_layout Enumerate
@@ -3407,7 +3423,37 @@ status open
 
 \begin_layout Plain Layout
 
-appleFil <- "AppleTest.csv"
+appleFilePath <- "C:/minRkurs/filer/AppleTest.csv"
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+appleFilePath <- tempfile(pattern="AppleCSV",fileext=".csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+download.file("https://raw.github.com/MansMeg/KursRprgm/master/Labs/DataFiles/Apple
+Test.csv", destfile = appleFilePath, method = "curl") 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3431,7 +3477,7 @@ status open
 
 \begin_layout Plain Layout
 
-myList1 <- fastAnalysis(file=appleFil,period_length=5)  
+myList1 <- fastAnalysis(filePath = appleFilePath, period_length=5)  
 \end_layout
 
 \begin_layout Plain Layout
@@ -3441,7 +3487,7 @@ str(myList1)
 
 \begin_layout Plain Layout
 
-myList2 <- fastAnalysis(file=appleFil,period_length=10)
+myList2 <- fastAnalysis(filePath = appleFilePath, period_length=10)
 \end_layout
 
 \begin_layout Plain Layout

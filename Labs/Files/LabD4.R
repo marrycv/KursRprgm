@@ -1,8 +1,10 @@
 #### Programmering i R ####
 #### Inlämning, Datalaboration 3 ####
 
-Namn  #Ange ditt namn här, ex Namn <- "Alice Walker"
-LiuId  # Ange ditt namn här, ex LiuId <- "aliwa"
+# Ange ditt namn här, ex Namn <- "Alice Walker"
+Namn <- "Mitt namn (ex. Måns Magnusson)"
+# Ange ditt LiU-ID här, ex LiuId <- "aliwa123"
+LiuId  <- "Mitt LiuId (ex. manma97)"
 
 
 # Uppgift 1 : pnrFormat() ----

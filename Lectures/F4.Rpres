@@ -123,19 +123,37 @@ f(3)
 f()
 ```
 
+Demo 08a: Allmänt om funktioner
+========================================================
+- Mer om funktioner
+
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08a.R)
+
 
 Globala och lokala miljöer i R
 ========================================================
 type: sub-section
+
+
+Globala miljöer, lokala miljöer och namespaces
+========================================================
+incremental: true
+
+R består av ett antal miljöer där objekt kan definieras/skapas
+
+- Den global miljön 
+- Lokala miljöer (inne i funktioner)
+- Namespaces
+
 
 Hur vet R vad vi menar?
 ========================================================
 incremental: true
 - Hur kopplar R ihop en symbol med ett objekt? (ex. ```mean``` med funktionen ```mean```)
 - R har en söklista som gås igenom:
-  1. Lokala miljöer (inne i funktioner) -> söker vidare "uppåt" till:
+  1. Lokala miljöer (söker vidare "uppåt" till)
   2. Den global miljön (Global enviroment)
-  3. Vidare i ordning i laddade ```namespaces```
+  3. Vidare i den ordning ```namespaces``` är laddade
 
 Fria variabler
 ========================================================
@@ -146,7 +164,7 @@ incremental: true
 f <- function(x) x + y
 ```
 
-> Objektet/värdet för "fria" variabler undersöks i den miljö funktionen var definierad.
+> Objektet/värdet för "fria" variabler undersöks i den miljö funktionen var definierad/skapad.
 
 - Sedan söker R på samma sätt som i förra sliden
 
@@ -175,12 +193,6 @@ incremental: true
 - Se R:s söklista: ```search()```
 - Se var en funktion skapats: ```enviroment()```
 - Anropa en funktion i en given namespace/miljö: ```::```
-- Lite om tilldelningsoperatorer (assignment)
-  - grunden är ```assign()```
-  - ```<-``` : tilldela i aktuell miljö 
-  - ```<<-``` : tilldela direkt till global 
-  - ```=``` : tilldela i global miljö (endast)
-
 
 Exempel på search()
 ========================================================
@@ -197,6 +209,17 @@ environment(f)
 environment(base::mean)
 ```
 
+Lite mer om att skapa objekt
+========================================================
+incremental: true
+
+Att skapa / definiera objekt kallas att tilldela (assign)
+
+- grunden är ```assign()```
+- ```<-``` : tilldela i aktuell miljö 
+- ```<<-``` : tilldela direkt till global 
+- ```=``` : Kan användas, men avråds från (minska förvirring i funktioner)
+
 
 Funktioner i funktioner
 ========================================================
@@ -205,17 +228,30 @@ Funktioner i funktioner
   - Var ska funktionen definieras/skapas? - om vi har fria variabler 
   - Skicka information inom funktioner
 
+
 Skicka information inom funktioner
 ========================================================
-- Kan göras genon att ta argument hela vägen
-- Detta görs med "ellipsis"-symbolen ```...```
-- Detta läggs in som ett argument i funktionen, ex. ```data.frame()```
-- Sedan används ```...``` där dessa godtyckliga argument ska skickas
+- Kan göras genon att "skicka vidare" argument hela vägen
+- Detta görs med "ellipsis" - symbolen ```...```
+- Detta läggs in som ett argument i funktionen, ex. ```minFun <- function(...)```
+- Sedan används ```...``` där dessa godtyckliga argument ska
 
 ```{r}
-minMean <- function(...){ print(mean(...))}
+minMean <- function(...){ 
+  print(mean(...))
+}
 minMean(c(1,3,NA,5), na.rm = TRUE)
 ```
+
+
+Demo 08b: Miljöer och namespaces
+========================================================
+- Miljöer
+- Fria variabler
+- Tilldelning (assign)
+- Ellipsis (...)
+
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08b.R)
 
 
 God (vetenskaplig) programmering
@@ -307,6 +343,7 @@ incremental: true
   - hantera komplexa programmeringsproblem
 - Använd issue-trackers (överkurs)
 
+
 *apply-functioner
 ========================================================
 type: section
@@ -340,13 +377,11 @@ Mäta körtid i R
 system.time(expr=mean(rep(c(1,2),1000000)))
 ```
 
-Demo 08: Mer om funkioner
+Demo 08c: *apply och körtid
 ====================================
 ## Demonstration av:
-- Mer om funktioner
-- Lokala, globala miljöer
-- Sökvägar och namespaces
-- ```lapply``` 
+- ```*apply``` 
+- körtid i R 
 
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08.R)
+Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08c.R)
 

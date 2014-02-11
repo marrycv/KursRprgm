@@ -41,6 +41,7 @@ f(y = 2, x = 3)
 # Funktioner är som vanliga objekt:
 # Vi kan titta på funktioner
 f
+
 # Spara
 save(f,file="minFunktion.Rdata")
 rm(list=ls())
@@ -56,6 +57,7 @@ integrate(SquareFunction, lower = 0, upper = 1)
 # Vi behöver inte först spara ned funktionen om vi vill 
 # använda den som argument
 integrate(function(x) x^2 , lower = 0, upper = 1)
+
 # Eftersom funktionen inte har något namn, 
 # kallas detta för en anonym funktion
 
@@ -63,15 +65,14 @@ integrate(function(x) x^2 , lower = 0, upper = 1)
 # Ibland vill vi att en funktion ska ha ett standardvärde för
 # ett argument.
 f <- function(x = 10) x^2 - 3
-f(3)
+f(10)
 f()
 # Detta är ett enkelt sätt att styra funktioner, ex:
 sd
 # har na.rm = FALSE som standard
 
 # Skapa dolda funktioner
-hej<-function(x) x^2
+hej <- function(x) x^2
 .hej<-function(x) x^2
 ls()
-
 

@@ -1,0 +1,234 @@
+
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center;
+  width: 100%;
+  color: red;
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programmering i R
+========================================================
+transition: rotate
+## Föreläsning 5: Paket,grafik och statistik
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+
+Avdelningen för statistik,
+Linköpings universitet
+
+R-programmering - del 2:
+========================================================
+
+- Del 1: grunderna i programmeringsteknik och R-syntax
+- Del 2, olika tillämpliningar:
+  - Grafik och statistik
+  - Paket (= extra funktioner)
+  - Datum
+  - Texthantering och regular expression 
+  - Linjär algebra i R
+  
+R-programmering - del 2:
+========================================================
+
+- Labbarna görs nu i par
+- Parprogrammering:
+  - Turas om att sitta vid tagentbordet
+  - Den som inte kodar är engagerad i koden och problemet 
+  - Byter person varje halvtimme
+  - Viktigt att kommentera koden 
+
+Dagens föreläsning:
+========================================================
+
+- Feedback
+- Grafik
+  - Högnivå-plottar
+  - Lågnivå-plottar
+- Grundläggande statistik
+- Objekt, klasser, generiska funktioner
+- Paket
+
+Feedback:
+========================================================
+
+Labb 3: Kommentarer och frågor
+
+Enkel grafik: Högnivåplottar
+========================================================
+- ```plot()``` - kan plotta många olika objekt: 
+  - ```plot(x=,y=)```, ger en scatterplot, här är x och y vektorer som ger x- och y-koordinater
+  - ```plot(X)```- om X en matris så plottas de två första variablerna mot variablerna mot varndra
+  - ```plot(X)```, om X en data.frame så skapas en matrix-plot
+  - Vanliga argument: "```type=```","```main=```", "```xlab=```,"```ylab=```","```xlim=```,"```ylim=```", "```col=```"
+  
+Exempel: plot()
+========================================================  
+```{r,}
+x<-1:20
+y<-x^2
+plot(x,y,main="Min första plot", type="l")
+```
+
+  
+Enkel grafik: Högnivåplottar
+========================================================
+- ```hist(x=,breaks=,freq=)``` ger ett histogram, 
+  - "```x```"- numerisk vektor 
+  - "```breaks=```"- antal bins, default är att variationsområdet delas in i $log_{2}(n)+1$ interval
+  - "```freq=FALSE"```- realtiva frekvenser.  
+- ```barplot()``` ger stapeldiagram
+- ```boxplot()``` ger boxplot
+- ```pie()``` ger en piechart
+
+Kolla i hjälpen hur funktionerna anropas.
+
+Nu demo_09: Del 1
+
+
+Lågnivåplottar
+========================================================
+Addera till redan existerande plot:
+- points(x, y, ...)
+- lines(x, y) adds line segments
+- abline(a, b,h,v, ...) lägger till räta linjer
+- legend(x, y, legend, ...) - lägger till en legend.
+
+Lågnivåplottar
+========================================================
+Addera olika figurer mm till en plot:
+- polygon(x, y, ...) -lägger till en polygon
+- symbols(x, y, ...) - lägger till symboler
+- segments(x0, y0, x1, y1, ...) - ritar en begränsad linje
+- arrows(x0, y0, x1, y1) - lägger till pilar
+
+Lågnivåplottar
+========================================================
+- ```par()```, har många argument (se hjälpen):
+  - ```mfrow=c(2,3)``` - skapar subplots, här 2 rader och tre kolumner
+  - ```mfg=c(2,1)``` - ritar in nästa plot i position: rad 2 och kolumn 1
+  - ```cex=``` - ändrar textstorlek
+  - ```lty=``` - bestämmer linjetyp 
+  - ```lwd=``` - bestämmer hur bred linjen ska vara
+  - ```pch=``` - bestämmer symbol till punktplottar
+- Sätta tillbaka till default-värden: ```dev.off()```
+
+Resurser på nätet
+========================================================
+- För färger, symboler, mer om par() mm kolla **[[här]](http://www.statmethods.net/advgraphs/parameters.html)**.  
+- Kontroll av axlar, texter mm kolla **[[här]](http://www.statmethods.net/advgraphs/axes.html)**.  
+- Mer om plottar **[[här]](http://ww2.coastal.edu/kingw/statistics/R-tutorials/graphs.html)** (en del är överkurs på denna sida)
+- Sök på google om du vill göra någon specifik plot eller ändra någon speciell del av din graf: använd engelska sökord
+
+  
+Mer om plottar:
+========================================================  
+- ```locator(n=)``` - ger koordinaterna i en eller flera punkter i plotten
+- ```curve(expr, from =, to =, n = )``` - plottar en matematisk funktion 
+- ```image()``` - skapar en heatmap för en matris
+- ```contour()``` - skapar en kontur-plot
+
+Nu demo_09: Del 2
+
+Beskrivande statistik i R:
+========================================================  
+- ```max()```, ```min()```, ```sum()```
+- Centralmått: ```mean()```, ```median()```
+- Sprindningsmått: ```sd()```, ```var()```, ```cov()```, ```cor()```, ```quantile()```, ```range()```
+- ```summary(object=)``` - om object är en numerisk vector/matris ges olika mått (mer om ```summary()``` senare)
+
+Beskrivande statistik i R:
+======================================================== 
+- För statistk över kolumner/rader i data:
+  - ```colMeans()``` eller ```colSums()``` 
+  - ```rowMeans()``` eller ```rowSums()```
+- Frekvenstabeller:
+  - ```table()```: tar en eller flera faktorer som argument och skapar frekvenstabeller
+  - ```tabulate()```
+  - ```levels()```: ger de olika nivåerna på en faktorvariabel
+- apply-funktioner: mycket användbara för beskrivande statistik
+
+
+apply-funktioner
+======================================================== 
+Generellt tar ett objekt ```X``` och applicerar funktionen ```FUN``` över någon dimension i X
+- ```apply(X, MARGIN, FUN, ...) ```: ```X``` - en matris(array), ```FUN```-vald funktion, ```MARGIN```- vald dimension (2=kolumnvis)
+- ```lapply(X, FUN, ...)```: X-lista, ouput-lista, applicerar ```FUN``` på varje element i X
+- ```sapply(X, FUN, ...)```: variant av ```lapply``` som försöker returnera en vector/matris istället för lista
+
+apply-funktioner 
+======================================================== 
+- ```replicate(n, expr, simplify = "array")```: variant av ```sapply``` för upprepade beräkningar (ofta i samband med slumptal)
+- ```by(data, INDICES, FUN, ...)```: variant av ```tapply```, för data.frames, ```data``` grupperas enligt faktorn ```INDICES``` och ```FUN``` aplliceras på varje grupp 
+- ```aggregate(x, by, FUN,...)```: liknar ```by()```, funkar för data.frames och tidsserier
+
+Nu demo_10 del 1
+
+
+
+Objekt i R
+========================================================
+Allt är objekt i R, olika typer:
+- Vector objects (vektor/matris/array)
+- List objects (lista/data.frame)
+- Symbol objects: Namnet på ett objekt i R är vanligen symbol
+- Function objects (funktioner): 
+- NULL object: markerar frånvaro av object
+
+
+Attribut och klasser
+========================================================
+- attributes: Alla objekt (utom NULL) kan ha attribut
+  - Names: namnet på objektet 
+  - Dimensions: en vanlig ```vektor``` saknar dimensions, men matriser har två dimensioner. 
+  - Dimnames: namnen på dimensionerna
+  - Classes (klasser): En klass ```ger mer egenskaper``` till objekten, och utgör grunden för de generiska funktionerna/metoderna. Klasser är ```mer abstrakta``` än objekt. Funktionen: ```class()```
+  
+
+Undersöka objekt 
+========================================================
+- funktionerna "```is.```" och "```as.```", ex:
+  - ```is.vector()```, ```as.list()```, ```is.symbol()```, ```as.name()```, ```is.function()```
+- ```class()``` - ger objektets klass
+- ```names()```, ```attributes()``` - ger namn och attribut
+- ```str()``` - ger underliggande strukturen av ett objekt
+- ```unclass()```
+
+  
+Generiska funktioner
+========================================================
+- Generisk = "allmäna"
+- Exempel: ```print()```, ```summary()```, ```plot()```, ```str()``
+  - Kolla på Roger Pengs video "The str function"
+- Dessa funktioner utför olika saker beroende på vilken klass ett objekt har. Detta gör dem mycket användbara.
+
+  
+Generiska funktioner: exempel
+========================================================  
+- ```plot()```:
+  - Det finns många plot()-funktioner, några exempel: ```plot.density()```, ```plot.ecdf()``` och ```plot.lm()``` , om du har ett objekt ```X``` av klass ```lm``` R anropa ```plot.lm()``` om du kör ```plot(X)```
+  - Testa att skriva "```plot```" i R tryck på tab när markören är i slutet av ordet eller ```methods(plot)```   
+  
+Nu demo_10 del 2  

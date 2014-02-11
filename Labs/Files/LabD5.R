@@ -4,7 +4,7 @@
 #--------------------------------------------------------------------
 
 # Ange gruppnummer här
-GruppNr "Mitt gruppnummer (ex. 4)"
+GruppNr <- "Mitt gruppnummer (ex. 4)"
 # Ange namnen här för alla i gruppen, ex Namn <-c( "Alice Walker","Gustav Vasa")
 Namn <- c("Mitt namn (ex. Måns Magnusson)", "Mitt namn (ex. Josef Wilzén)")
 # Ange Liu-ID här för alla i gruppen, ex LiuId <- c("aliwa432","gusva204")

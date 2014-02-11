@@ -10,7 +10,7 @@ Namn <- c("Mitt namn (ex. Måns Magnusson)", "Mitt namn (ex. Josef Wilzén)")
 # Ange Liu-ID här för alla i gruppen, ex LiuId <- c("aliwa432","gusva204")
 LiuId  <- c("Mitt LiuId (ex. manma97)", "Mitt LiuId (ex. joswi128)")
 
-
+#
 
 #--------------------------------------------------------------------
 # Uppgift: Beskrivande statistik

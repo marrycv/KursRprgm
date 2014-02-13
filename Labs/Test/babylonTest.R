@@ -1,6 +1,10 @@
 ### Assignment : babylon() ###
+babylon <- function(){}
 
+class(babylon)
 test_that("Assignment: babylon()", {
+  expect_that(babylon, is_a("function"),
+              info = "Fel: babylon är inte en funktion.")
   expect_that(all(names(formals(babylon)) %in% c("x", "init", "tol")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.list(babylon(x=2, init=1.5, tol=0.01)), condition=is_true(),

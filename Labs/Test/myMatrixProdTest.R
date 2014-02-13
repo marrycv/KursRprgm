@@ -10,6 +10,8 @@ test_that("Assignment: myMatrixProd()", {
   testMatA4 <- matrix(2:9, nrow = 2, ncol = 4)
   testMatB4 <- t(testMatA4)
 
+  expect_that(myMatrixProd, is_a("function"),
+              info = "Fel: bmi är inte en funktion.")
   expect_that(all(names(formals(myMatrixProd)) %in% c("A","B")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.matrix(myMatrixProd(A=testMatA1, B=testMatB1)), condition=is_true(),

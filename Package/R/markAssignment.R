@@ -1,22 +1,18 @@
-#' @title checkAssignment
+#' @title markAssignment
 #' 
-#' @name checkAssignment
+#' @name markAssignment
 #' 
-#' @description Check / mark a given assignment for errors.
+#' @description Check / mark given assignment(s) for errors.
 #' 
-#' @param assignment The assignment to mark / check. Can be a vector of multiple assignments.
-#' @param file The path to the file with the suggested solution.
+#' @param assignments The assignment(s) to mark / check. Can be a vector of multiple assignments.
+#' @param filePath The path to the file with the suggested solution.
 #' 
-#' @details The function will check and correct the assignment. 
-#' 
-#' 
-#' @example 
-#' 
+#' @details The function will mark the assignment given in  
 #' 
 #' @export
 
 
-checkAssignment <- function(assignments, filePath=file.choose(), ...){
+markAssignment <- function(assignments, filePath=file.choose()){
   # Assertions
   stopifnot(file.exists(filePath), is.character(assignments))
     
@@ -53,13 +49,11 @@ checkAssignment <- function(assignments, filePath=file.choose(), ...){
   unlink(tempImage)
 }
 
-
-
 .sourceTest <- function(path, assignments){
   stopifnot(is.character(path), is.character(assignments))
   
   # Try to source the code
-  res <- try(source(path,echo=FALSE,local=TRUE))
+  res <- try(source(path, echo=FALSE, local=TRUE, encoding="latin1"))
   if(class(res) == "try-error") stop("The file couln't be read without error.")
 
   # Check for objects
@@ -76,16 +70,21 @@ checkAssignment <- function(assignments, filePath=file.choose(), ...){
 
 
 
-.testTask <- function(task){
+.testTask <- function(task, cache = FALSE){
   require(testthat)
   require(devtools)
 
   gitHubPath <- "https://raw.github.com/MansMeg/KursRprgm/master/Labs/Test/"
-  cache <- FALSE # Should the files from GitHub be stored temporarily?  
+
+  cachedFile <- dir(tempdir())[which(grepl(paste("Test",toupper(task),sep=""), dir(tempdir())))]
+  if(length(cachedFile) == 1 & cache){
+    testFile <- paste(tempdir(), "/", cachedFile, sep="")
+  } else {
+    testFile <- tempfile(pattern=paste("Test",toupper(task),sep=""), fileext=".R")
+    download.file(url=paste(gitHubPath, task, "Test.R", sep=""), 
+                  destfile=testFile, method="curl", quiet=TRUE)
+  }
   
-  testFile <- tempfile(task, fileext=".R")
-  download.file(url=paste(gitHubPath, task, "Test.R", sep=""), 
-                destfile=testFile, method="curl", quiet=TRUE)
   testResult <- test_file(testFile)
   if(!cache) unlink(testFile)
 }

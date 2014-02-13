@@ -7,7 +7,7 @@ test_that("Assignment: babylon()", {
               info = "Fel: babylon är inte en funktion.")
   expect_that(all(names(formals(babylon)) %in% c("x", "init", "tol")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(is.list(babylon(x=2, init=1.5, tol=0.01)), condition=is_true(),
+  expect_that(babylon(x=2, init=1.5, tol=0.01), is_a("list"),
               info = "Fel: Funktionen returnerar inte en lista.")
   expect_that(all(names(babylon(x=2, init=1.5, tol=0.01)) %in% c("iter", "rot")), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en med rätt namngivna element.")

@@ -1,7 +1,5 @@
 ### Assignment : babylon() ###
-babylon <- function(){}
 
-class(babylon)
 test_that("Assignment: babylon()", {
   expect_that(babylon, is_a("function"),
               info = "Fel: babylon är inte en funktion.")

@@ -1,0 +1,9 @@
+Package: LabTestsRprgm
+Type: Package
+Title: Package to test student assignments.
+Version: 0.1
+Date: 2014-02-12
+Author: Måns Magnusson
+Maintainer: Måns Magnusson <mans.magnusson@liu.se>
+Description: Package to help students in the course R programming to test their lab functions or code.
+License: LGPL

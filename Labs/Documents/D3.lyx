@@ -1569,6 +1569,16 @@ bmi(bodyWeight = 95, bodyHeight = 1.98)
 
 \begin_layout Plain Layout
 
+myBMI <- bmi(bodyWeight = 95, bodyHeight = 1.98)
+\end_layout
+
+\begin_layout Plain Layout
+
+myBMI
+\end_layout
+
+\begin_layout Plain Layout
+
 bmi(bodyWeight = 74, bodyHeight = -1.83)
 \end_layout
 
@@ -1580,6 +1590,11 @@ bmi(bodyWeight = 0, bodyHeight = 1.63)
 \begin_layout Plain Layout
 
 bmi(bodyWeight = -73, bodyHeight = 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressWarnings(bmi(bodyWeight = -73, bodyHeight = 0))
 \end_layout
 
 \begin_layout Plain Layout
@@ -1873,6 +1888,16 @@ babylon(x = 3, init = 2, tol = 0.000001)
 \begin_layout Plain Layout
 
 sqrt(3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+babylon(x = 15, init = 1.5, tol = 0.01) 
+\end_layout
+
+\begin_layout Plain Layout
+
+sqrt(15)
 \end_layout
 
 \begin_layout Plain Layout

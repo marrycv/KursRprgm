@@ -13,6 +13,8 @@ test_that("Assignment: babylon()", {
               info = "Fel: Approximationen är felaktig för x = 2, init = 1.5 och tol = 0.01.")
   expect_equal(babylon(x=2, init=1.5, tol=0.01)$iter, 2,
                info = "Fel: Antalet iterationer är felaktig för x = 2, init = 1.5 och tol = 0.01.")  
+  expect_that(babylon(x=2, init=1.5, tol=0.01)$rot == sqrt(2), is_false(),
+               info = "Fel: Ingen approximation gjorde, utan det exakta värdet används.")  
   expect_equal(babylon(x=15, init=1.5, tol=0.01)$rot, 3.872, tolerance = .01,
                info = "Fel: Approximationen är felaktig för x = 15, init = 1.5 och tol = 0.01.")
   expect_equal(babylon(x=15, init=1.5, tol=0.01)$iter, 5,

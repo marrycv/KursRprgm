@@ -1852,6 +1852,11 @@ DD
 \end_layout
 
 \begin_layout Standard
+Exempelvis en person som är född 19640823 får följande första siffror i
+ personnumret: 19640863.
+\end_layout
+
+\begin_layout Standard
 Skapa en funktion du kallar 
 \family typewriter
 pnrSamordn()

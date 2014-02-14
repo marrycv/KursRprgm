@@ -14,7 +14,7 @@ test_that("Assignment: leapYear()", {
   expect_that(dim(leapYear(years=test_years)), 
               is_equivalent_to(c(length(test_years),2)), 
               info="Kommentar: Funktionen leapYear() returnerar fel dimensioner (kolumner och/eller rader)")
-  expect_that(all(colnames(leapYear(years=test_years)) %in% c("years","leapYear")), is_true()  
+  expect_that(all(colnames(leapYear(years=test_years)) %in% c("years","leapYear")), is_true(),
               info="Fel: Funktionen returnerar fel variabelnamn.")
   expect_that(unlist(lapply(leapYear(years=test_years),class)), 
               is_equivalent_to(c("numeric","logical")), 

@@ -1,4 +1,4 @@
-### Assignment : pnrCtrl ###
+### Assignment : pnrSex ###
 
 test_that("Kontroll av pnrSex.", {
   cat("pnrCtrl : ")

@@ -18,7 +18,6 @@
 
 
 markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir = NULL){
-  require(stats)
   
   # Assertions
   stopifnot(file.exists(dirPath),
@@ -59,6 +58,7 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
   for (fileToMark in filesToMark){
     rm(list=ls(envir=.GlobalEnv), 
        envir=.GlobalEnv)
+    LiuId <- NA
     source(file = paste(dirPath, fileToMark, sep=""), local = .GlobalEnv, encoding="latin1")
     if(!is.null(sinkToDir)) sink(file=paste(sinkToDir, LiuId, ".txt", sep=""))    
     cat("Filename:",fileToMark,"\n")

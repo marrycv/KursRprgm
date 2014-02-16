@@ -17,7 +17,7 @@ markAssignment <- function(assignments, filePath=file.choose()){
   stopifnot(file.exists(filePath), is.character(assignments))
     
   # Check to see the filenames at the githubRepo
-  # Implement later
+  .checkTestFiles(assignments)
 
   # Check if it is possible to source the file 
   # and that the file contains the assignments to test
@@ -71,8 +71,6 @@ markAssignment <- function(assignments, filePath=file.choose()){
 
 
 .testTask <- function(task, cache = FALSE){
-  require(testthat)
-  require(devtools)
 
   gitHubPath <- "https://raw.github.com/MansMeg/KursRprgm/master/Labs/Test/"
 
@@ -87,4 +85,31 @@ markAssignment <- function(assignments, filePath=file.choose()){
   
   testResult <- test_file(testFile)
   if(!cache) unlink(testFile)
+}
+
+
+.checkTestFiles <- function(assignments){
+
+  # Download content of testfolder if needed
+  tempFileNo <- which(grepl(pattern="myTestFolderContent", x=dir(tempdir())))
+  if(length(tempFileNo) == 0){
+    tempFile <- tempfile("myTestFolderContent")
+    testFolder <- 
+      GET("https://api.github.com/repos/MansMeg/KursRprgm/contents/Labs/Test/", 
+          user_agent("LabTests"))
+    tests <- unlist(lapply(X=content(testFolder), FUN=function(X) X$name))
+    tests <- unlist(strsplit(tests,split="Test.R"))
+    save(tests,file=tempFile)
+  } else {
+    load(file=paste(tempdir(), dir(tempdir())[tempFileNo], sep="/"))
+  }
+  
+  # Stop if assignments don't exist
+  missing <- which(!(assignments %in% tests))
+  if(length(missing) != 0) {
+    stop (paste("The following assignments do not exist:", 
+                paste(assignments[missing], collapse=", ")),
+          call.=FALSE)
+  }
+  return(invisible(NULL))
 }

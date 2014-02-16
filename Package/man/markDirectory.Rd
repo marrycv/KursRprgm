@@ -11,8 +11,8 @@
 
   \item{dirPath}{The path to the directori}
 
-  \item{testFilesDir}{a folder with test files (other than
-  github) Not implemented}
+  \item{testFilesDir}{a folder with test files (testfiles
+  must end with 'Test.R')}
 
   \item{sinkToDir}{a folder where to sink student comments}
 }

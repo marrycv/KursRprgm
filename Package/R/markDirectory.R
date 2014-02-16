@@ -6,7 +6,7 @@
 #' 
 #' @param assignments The assignment(s) to mark / check. Can be a vector of multiple assignments.
 #' @param dirPath The path to the directori
-#' @param testFilesDir a folder with test files (other than github) Not implemented
+#' @param testFilesDir a folder with test files (testfiles must end with 'Test.R')
 #' @param sinkToDir a folder where to sink student comments
 #' 
 #' @details The function will mark the assignment given in \code{assignments}. 

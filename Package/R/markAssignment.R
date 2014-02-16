@@ -70,38 +70,46 @@ markAssignment <- function(assignments, filePath=file.choose()){
 
 
 
-.testTask <- function(task, cache = FALSE){
+.testTask <- function(task, testfolder = NULL, cache = FALSE){
 
-  gitHubPath <- "https://raw.github.com/MansMeg/KursRprgm/master/Labs/Test/"
-
-  cachedFile <- dir(tempdir())[which(grepl(paste("Test",toupper(task),sep=""), dir(tempdir())))]
-  if(length(cachedFile) == 1 & cache){
-    testFile <- paste(tempdir(), "/", cachedFile, sep="")
+  if(is.null(testfolder)){
+    gitHubPath <- "https://raw.github.com/MansMeg/KursRprgm/master/Labs/Test/"
+    cachedFile <- dir(tempdir())[which(grepl(paste("Test",toupper(task),sep=""), dir(tempdir())))]
+    if(length(cachedFile) == 1 & cache){
+      testFile <- paste(tempdir(), "/", cachedFile, sep="")
+    } else {
+      testFile <- tempfile(pattern=paste("Test",toupper(task),sep=""), fileext=".R")
+      download.file(url=paste(gitHubPath, task, "Test.R", sep=""), 
+                    destfile=testFile, method="curl", quiet=TRUE)
+    }
   } else {
-    testFile <- tempfile(pattern=paste("Test",toupper(task),sep=""), fileext=".R")
-    download.file(url=paste(gitHubPath, task, "Test.R", sep=""), 
-                  destfile=testFile, method="curl", quiet=TRUE)
+    testFile <- paste(testfolder, "/", task, "Test.R", sep = "")
   }
   
   testResult <- test_file(testFile)
-  if(!cache) unlink(testFile)
+  
+  if(!cache & is.null(testfolder)) unlink(testFile)
 }
 
 
-.checkTestFiles <- function(assignments){
+.checkTestFiles <- function(assignments, testfolder = NULL){
 
   # Download content of testfolder if needed
-  tempFileNo <- which(grepl(pattern="myTestFolderContent", x=dir(tempdir())))
-  if(length(tempFileNo) == 0){
-    tempFile <- tempfile("myTestFolderContent")
-    testFolder <- 
-      GET("https://api.github.com/repos/MansMeg/KursRprgm/contents/Labs/Test/", 
-          user_agent("LabTests"))
-    tests <- unlist(lapply(X=content(testFolder), FUN=function(X) X$name))
-    tests <- unlist(strsplit(tests,split="Test.R"))
-    save(tests,file=tempFile)
+  if (is.null(testfolder)){
+    tempFileNo <- which(grepl(pattern="myTestFolderContent", x=dir(tempdir())))
+    if(length(tempFileNo) == 0){
+      tempFile <- tempfile("myTestFolderContent")
+      testFolder <- 
+        GET("https://api.github.com/repos/MansMeg/KursRprgm/contents/Labs/Test/", 
+            user_agent("LabTests"))
+      tests <- unlist(lapply(X=content(testFolder), FUN=function(X) X$name))
+      tests <- unlist(strsplit(tests,split="Test.R"))
+      save(tests,file=tempFile)
+    } else {
+      load(file=paste(tempdir(), dir(tempdir())[tempFileNo], sep="/"))
+    }
   } else {
-    load(file=paste(tempdir(), dir(tempdir())[tempFileNo], sep="/"))
+    tests <- unlist(strsplit(dir(testfolder), split="Test.R"))
   }
   
   # Stop if assignments don't exist
@@ -113,3 +121,5 @@ markAssignment <- function(assignments, filePath=file.choose()){
   }
   return(invisible(NULL))
 }
+
+# testfolder <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk programmering i R/RCourse2014/KursRprgm/Labs/Test"

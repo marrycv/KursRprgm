@@ -24,6 +24,9 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
             is.null(sinkToDir) || file.exists(sinkToDir), 
             is.null(testFilesDir) || file.exists(testFilesDir))
   
+  # Check to see the filenames at the githubRepo
+  .checkTestFiles(assignments)
+  
   # Save Image and clean Global enviroment
   tempImage <- tempfile(pattern="image",fileext=".Rdata")
   save(list=ls(envir=.GlobalEnv), file=tempImage)

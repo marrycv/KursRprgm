@@ -18,6 +18,8 @@
 
 
 markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir = NULL){
+  require(stats)
+  
   # Assertions
   stopifnot(file.exists(dirPath),
             is.null(sinkToDir) || file.exists(sinkToDir), 

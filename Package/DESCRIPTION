@@ -9,7 +9,8 @@ Description: Package to help students in the course R programming to test their
     lab functions or code.
 Depends:
     testthat,
-    devtools
+    devtools,
+    stats
 License: AGPL-3
 Collate:
     'LabTestsRprgm.R'

@@ -5,7 +5,7 @@ test_that("Kontroll av uppgift1.", {
               info = "Fel: uppgift1 är inte en funktion.")
   expect_that(is.numeric(uppgift1()), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en numerisk vektor.")
-  expect_equal(length(uppgift1(), 3,
+  expect_equal(length(uppgift1()), 3,
               info = "Fel: Funktionen returnerar inte en vektor av längd 3.")
   expect_that(log(3) %in% uppgift1(), is_true(), 
               info="Kommentar: ln(3) saknas / är fel")

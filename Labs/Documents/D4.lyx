@@ -2372,6 +2372,12 @@ Dra av 6 från första siffran i födelsedatumet för de personnummer som är
 pnrInfo()
 \family default
  eller skapa en till egen funktion som gör just detta.
+ Syftet med detta är att inte samordningsnummer ska ställa till problem
+ när vi räknar ut åldern med 
+\family typewriter
+pnrAge()
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate

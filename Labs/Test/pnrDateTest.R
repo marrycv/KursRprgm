@@ -8,11 +8,11 @@ test_that("Kontroll av pnrDate.", {
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.character(pnrDate(as.character(Sys.Date()))), condition=is_true(),
               info = "Fel: Funktionen returnerar inte ett textelement.")
-  expect_that(pnrDate("2012-01-23"), "2012-01-23",
-              info = "Fel: Funktionen returnerar inte ett korrket datum.")
-  expect_equal(pnrDate(), "2013-12-31",sep=""),
+  expect_equal(pnrDate(date="2012-01-23"), "2012-01-23",
+              info = "Fel: Funktionen returnerar inte ett korrekt datum.")
+  expect_equal(pnrDate(), "2013-12-31",
               info = "Fel: Ska returnera 2013-12-31.")
-  expect_error(pnrDate("has"), 
+  expect_error(pnrDate(date="has"), 
                info = "Fel: Funktionen stoppas inte om fel format anges.")
   expect_error(pnrDate("has"), "Incorrect date format",
                info = "Fel: Funktionen genererar inte ett korrekt felmeddelande.")

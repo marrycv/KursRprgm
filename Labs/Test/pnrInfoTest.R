@@ -19,12 +19,18 @@ test_that("Kontroll av pnrInfo.", {
   expect_that(all(dim(pnrInfo(pnr = "196408233234", date="2012-12-01")) == c(1, 5)),
               condition=is_true(),
               info = "Fel: Funktionen returnerar inte en data.frame med rätt antal rader och kolumner.")  
+  expect_equal(is.logical(pnrInfo(pnr = "198112189876", date="2012-12-18")$correct), TRUE,
+               info = "Fel: correct är inte en logisk variabel.")
   expect_equal(pnrInfo(pnr = "198112189876", date="2012-12-18")$correct, TRUE,
                info = "Fel: Returnerar fel värde för correct.")
+  expect_equal(is.logical(pnrInfo(pnr = "198112189876", date="2012-12-18")$samordn), TRUE,
+               info = "Fel: samordn är inte en logisk variabel.")
   expect_equal(pnrInfo(pnr = "198112189876", date="2012-12-18")$samordn, FALSE,
                info = "Fel: Returnerar fel värde för samordn.")  
   expect_equal(as.character(pnrInfo(pnr = "198112189876", date="2012-12-18")$sex), "M",
                info = "Fel: Returnerar fel värde för sex.")  
+  expect_equal(is.numeric(pnrInfo(pnr = "198112189876", date="2012-12-18")$age), TRUE,
+               info = "Fel: age är inte en numerisk variabel.")
   expect_equal(pnrInfo(pnr = "198112189876", date="2012-12-18")$age, 31,
-               info = "Fel: Returnerar fel värde för age.")  
+               info = "Fel: Returnerar fel värde för age.")
 })

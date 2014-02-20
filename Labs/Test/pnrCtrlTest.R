@@ -1,7 +1,6 @@
 ### Assignment : pnrCtrl ###
 
 test_that("Kontroll av pnrCtrl.", {
-  cat("pnrCtrl : ")
   expect_that(pnrCtrl, is_a("function"),
               info = "Fel: pnrCtrl är inte en funktion.")
   expect_that(all(names(formals(pnrCtrl)) %in% c("pnr")), condition=is_true(),

@@ -1,7 +1,6 @@
 ### Assignment : pnrFormat ###
 
 test_that("Kontroll av inlämningsfil.", {
-  cat("pnrFormat : ")
   expect_that(pnrFormat, is_a("function"),
               info = "Fel: pnrFormat är inte en funktion.")
   expect_that(all(names(formals(pnrFormat)) %in% c("pnr")), condition=is_true(),

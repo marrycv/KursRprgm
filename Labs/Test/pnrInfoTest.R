@@ -1,7 +1,6 @@
 ### Assignment : pnrInfo ###
 
 test_that("Kontroll av pnrInfo.", {
-  cat("pnrInfo : ")
   expect_that(pnrInfo, is_a("function"),
               info = "Fel: pnrInfo är inte en funktion.")
   expect_that(all(names(formals(pnrInfo)) %in% c("pnr", "...", "date")), condition=is_true(),

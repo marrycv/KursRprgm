@@ -8,8 +8,11 @@ test_that("Kontroll av pnrInfo.", {
   expect_that(is.data.frame(pnrInfo(pnr = "196408233234", date="2012-12-01")), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en data.frame.")
   expect_message(pnrInfo(pnr = "196408233234", date="2012-12-01"), 
-                 "The age has been calculated at 2012-12-01",
+                 "The age has been calculated at",
               info = "Fel: Funktionen returnerar inte ett meddelande om datum för åldersberäkning.")
+  expect_message(pnrInfo(pnr = "196408233234", date="2012-12-01"), 
+                 "2012-12-01",
+                 info = "Fel: Funktionen returnerar inte ett meddelande om datum för åldersberäkning (fel datum).")
   expect_that(all(colnames(pnrInfo(pnr = "196408233234", date="2012-12-01")) %in%
               c("pnr", "correct", "samordn", "sex", "age")), condition=is_true(),
               info = "Fel: Funktionen returnerar inte korrekta variabelnamn.")

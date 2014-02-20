@@ -1,7 +1,6 @@
 ### Assignment : pnrSex ###
 
 test_that("Kontroll av pnrSex.", {
-  cat("pnrCtrl : ")
   expect_that(pnrSex, is_a("function"),
               info = "Fel: pnrSex är inte en funktion.")
   expect_that(all(names(formals(pnrSex)) %in% c("pnr")), condition=is_true(),

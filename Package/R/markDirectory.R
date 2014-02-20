@@ -44,7 +44,7 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
     res <- 
       try(expr=suppressWarnings(
         .sourceTest(path = paste(dirPath, fileToMark, sep=""),
-                    assignments = assignments)), silent=TRUE)
+                    assignments = c(assignments,"Namn", "LiuId"))), silent=TRUE)
     if(class(res)=="try-error") {
       message("ERROR\n")
       errors <- TRUE
@@ -57,14 +57,16 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
     return(invisible(NULL))  
   }
 
-  # Test the functions
+  # Test the functions fileToMark <- filesToMark[1]
   for (fileToMark in filesToMark){
+    cat(fileToMark, "\n")
     rm(list=ls(envir=.GlobalEnv), 
        envir=.GlobalEnv)
-    LiuId <- NA
     source(file = paste(dirPath, fileToMark, sep=""), local = .GlobalEnv, encoding="latin1")
     if(!is.null(sinkToDir)) sink(file=paste(sinkToDir, LiuId, ".txt", sep=""))    
     cat("Filename:",fileToMark,"\n")
+    cat("Namn:", Namn,"\n")
+    cat("LiuID:",LiuId,"\n")
     # Test functions
     try(.testTask("general", cache=TRUE))
   

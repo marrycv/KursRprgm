@@ -53,7 +53,13 @@ markAssignment <- function(assignments, filePath=file.choose()){
   stopifnot(is.character(path), is.character(assignments))
   
   # Try to source the code
-  res <- try(source(path, echo=FALSE, local=TRUE, encoding="latin1"))
+  res <- try(
+    suppressMessages(
+      suppressWarnings(
+        source(path, echo=FALSE, local=TRUE, encoding="latin1")
+        )
+      )
+    )
   if(class(res) == "try-error") stop("The file couln't be read without error.")
 
   # Check for objects

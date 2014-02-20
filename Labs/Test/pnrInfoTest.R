@@ -4,7 +4,7 @@ test_that("Kontroll av pnrInfo.", {
   cat("pnrInfo : ")
   expect_that(pnrInfo, is_a("function"),
               info = "Fel: pnrInfo är inte en funktion.")
-  expect_that(all(names(formals(pnrInfo)) %in% c("pnr", "...")), condition=is_true(),
+  expect_that(all(names(formals(pnrInfo)) %in% c("pnr", "...", "date")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.data.frame(pnrInfo(pnr = "196408233234", date="2012-12-01")), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en data.frame.")
@@ -13,7 +13,7 @@ test_that("Kontroll av pnrInfo.", {
               info = "Fel: Funktionen returnerar inte ett meddelande om datum för åldersberäkning.")
   expect_that(all(colnames(pnrInfo(pnr = "196408233234", date="2012-12-01")) %in%
               c("pnr", "correct", "samordn", "sex", "age")), condition=is_true(),
-              info = "Fel: Funktionen returnerar inte en data.frame.")
+              info = "Fel: Funktionen returnerar inte korrekta variabelnamn.")
   expect_that(all(dim(pnrInfo(pnr = "196408233234", date="2012-12-01")) == c(1, 5)),
               condition=is_true(),
               info = "Fel: Funktionen returnerar inte en data.frame med rätt antal rader och kolumner.")  

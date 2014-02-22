@@ -60,10 +60,11 @@ markAssignment <- function(assignments, filePath=file.choose()){
         )
       )
     )
-  if(class(res) == "try-error") stop("The file couln't be read without error.")
+  if(class(res) == "try-error") stop("The file couln't be read without error.", call.=FALSE)
 
   # Check for objects
-  if(!all(assignments %in% ls())) stop("The assignment(s) does not exist in the file.")
+  inFile <- assignments %in% ls()
+  if(!all(inFile)) stop(paste("The assignment(s)", paste(assignments[!inFile], collapse=", ") ,"does not exist in the file."), call.=FALSE)
   
   # Warning - objects that are in the sourcefile but not an assignment
   redundantObjects <- ls()[which(!ls() %in% assignments)]

@@ -46,7 +46,7 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
         .sourceTest(path = paste(dirPath, fileToMark, sep=""),
                     assignments = c(assignments,"Namn", "LiuId"))), silent=TRUE)
     if(class(res)=="try-error") {
-      message("ERROR\n")
+      message(res[1])
       errors <- TRUE
     } else {
       cat(" : OK\n")

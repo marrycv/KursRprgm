@@ -8,12 +8,10 @@ library()
 installed.packages()
 
 # Installera ett paket:
-installed.packages("MASS")
+install.packages("MASS")
 
 # ladda in:
 library(MASS)
-
-
 
 # Om du inte har rättigheter att skriva till hårddisken där paketen installeras som standard
 # kan du behöva specificera argumentet "lib=" till en plats där du har skrivrättgiheter
@@ -24,6 +22,7 @@ library(MASS)
 # Ex:
 installed.packages("MASS", lib="sökvägen till min mapp")
 library(MASS, lib="sökvägen till min mapp")
+
 
 # läs i ett dataset:
 data(longley)
@@ -46,8 +45,10 @@ search()
 # funktioner i MASS:
 ls("package:MASS")
 
+?loadedNamespaces()
 loadedNamespaces()
 
+?citation()
 citation()
 
 

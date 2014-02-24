@@ -9,7 +9,7 @@
 
 # skapa en slumpsekvens med 0/1
 ?rbinom
-a<-rbinom(30,1,0.3)
+a<-rbinom(300,1,0.3)
 print(a)
 mean(a)
 
@@ -96,6 +96,7 @@ myTest<-t.test(x=vol,mu=20,conf.level=0.95)
 print(myTest)
 class(myTest)
 str(myTest)
+myTest$p.value
 myTest$null.value
 myTest$p.value
 myTest$conf.int
@@ -139,23 +140,24 @@ idag<-today()
 idag
 
 birthday<-"1981-11-05" 
-
+class(birthday)
 birthday+1 
 
 birth<-ymd(birthday)
 birth
+class(birth)
 birth+days(1)
 
 # Plocka ut delar ur datumet 
 
 week(birth) 
 
-yday(birth) 
+yday(birth)
 
 wday(birth,label=TRUE,abbr=FALSE) 
 
 # Byt delar av datumet 
-
+names()<-
 year(birth)<-1983 
 
 month(birth)<-6 

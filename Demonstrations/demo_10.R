@@ -96,6 +96,7 @@ is.logical(test1)
 plot(test1)
 plot(test2)
 summary(test1)
+summary
 summary.table(test1)
 summary.default(test1)
 

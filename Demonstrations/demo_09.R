@@ -21,6 +21,8 @@ dist<-cars$dist
 # olika objekt:
 # en vektor
 plot(x=speed)
+index<-1:50
+plot(x=index,y=speed)
 
 # två vektorer
 plot(x=dist,y=speed)
@@ -35,9 +37,10 @@ myData<-data.frame(firstMatrix,z)
 plot(myData)
 
 # vad är skillnaden mellan dessa?
-hist(speed,10)
+hist(speed,10,col="blue")
 hist(speed,10,freq=FALSE)
-hist(speed,10,freq=FALSE,breaks=20)
+hist(speed,freq=FALSE,breaks=20)
+hist(speed,breaks=20,freq=FALSE)
 
 # boxplot:
 boxplot(x=speed,main="Min boxplot", sub="text under plotten")
@@ -88,7 +91,7 @@ text(x=-3.5,y=3.5,labels="Origo")
 x<--3:9
 y<-2-3*x
 z<-3*x^2
-
+?par
 # skapa en graf med många komponenter:
 par(mar=c(5, 5, 5, 5) + 0.1)
 lines()
@@ -109,6 +112,7 @@ dev.off()
 
 # Gör subplots:
 par(mfrow=c(2,2))
+par(mfcol=c(2,2))
 hist(speed)
 
 
@@ -145,12 +149,19 @@ curve(expr=myFunc, from =-1, to =1, n =100 )
 x<-1:300
 y<-1:300
 
+# sätta upp en tom matris:
 z1<-matrix(0,nrow=300,ncol=300)
-for(i in x){
-  for(j in y){
-    z1[i,j]<-i+j    # vad händer om du byter plats på i och j här?
+# Nested for-loop
+for(i in x){  # loopa över rader
+  for(j in y){  # loopa över kolumner
+    z1[i,j]<-i+j    # beräkningar med index i och j
   }
 }
+# vad händer om du byter plats på i och j här?
+
+
+
+
 image(z1,col=topo.colors(n=5,alpha=1))
 image(z1,col=topo.colors(n=10,alpha=1))
 image(z1,col=topo.colors(n=20,alpha=1))
@@ -195,13 +206,6 @@ for(i in x){
 image(z4)
 image.plot(z4)
 
-
-
-
-
-#-------------------------------------------------------------
-# Objekt, klasser mm
-#-------------------------------------------------------------
 
 
 

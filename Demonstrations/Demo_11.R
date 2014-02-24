@@ -5,7 +5,7 @@
 
 # Undersök vilka paket som är inladdade och vilka som är installerade:
 library()
-installed.packages()
+a<-installed.packages()
 
 # Installera ett paket:
 install.packages("MASS")

@@ -87,6 +87,7 @@ Enkel grafik: Högnivåplottar
 Exempel: plot()
 ========================================================  
 ```{r,}
+# plot
 x<-1:20
 y<-x^2
 plot(x,y,main="Min första plot", type="l")

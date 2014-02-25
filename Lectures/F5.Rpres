@@ -116,6 +116,7 @@ Addera till redan existerande plot:
 - abline(a, b,h,v, ...) lägger till räta linjer
 - legend(x, y, legend, ...) - lägger till en legend.
 
+
 Lågnivåplottar
 ========================================================
 Addera olika figurer mm till en plot:

@@ -33,7 +33,7 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 5: Paket,grafik och statistik
+## Föreläsning 5: Grafik och statistik
 ### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 
 Avdelningen för statistik,
@@ -54,6 +54,7 @@ R-programmering - del 2:
 ========================================================
 
 - Labbarna görs nu i par
+- Fyll i labblistan på Lisam
 - Parprogrammering:
   - Turas om att sitta vid tagentbordet
   - Den som inte kodar är engagerad i koden och problemet 
@@ -69,7 +70,6 @@ Dagens föreläsning:
   - Lågnivå-plottar
 - Grundläggande statistik
 - Objekt, klasser, generiska funktioner
-- Paket
 
 Feedback:
 ========================================================

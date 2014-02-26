@@ -1,0 +1,115 @@
+
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center;
+  width: 100%;
+  color: red;
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programmering i R
+========================================================
+transition: rotate
+## Föreläsning 7: Texthantering och Linjär algebra
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+
+Avdelningen för statistik,
+Linköpings universitet
+
+Dagens föreläsning:
+========================================================
+
+- Feedback
+- Texthantering och stringr, regular expression 
+- Linjär algebra 
+
+
+
+Feedback:
+========================================================
+
+Labb 5: Kommentarer och frågor
+
+Texthantering
+========================================================
+
+regular expression
+========================================================
+
+regular expression
+========================================================
+
+Paketet stringr
+========================================================
+
+Paketet stringr
+========================================================
+
+
+
+
+Linjär algebra: Matriser
+========================================================
+- Matris är två-dimensionella tabeller.
+- Skapas en 2x3 matris från en vektor ```myVector```: ```matrix(myVector,2,3)```
+- matrix fyller matrisen kolumnvis. 
+- ```matrix(myVector,2,3, byrow=TRUE)``` fyller radvis.
+- ```dim(myVector) <- c(2,3)``` gör samma jobb.
+
+Linjär algebra
+========================================================
+- Transponat $X'$ eller $X^{T}$ (rader blir kolumner): ```t(X)```
+- Invers matris $X^{-1}$: ```solve(X)```
+- Matrismultiplikation $A*B$ eller $AB$: ```A%*%B```
+  - Kan bara göras med klassen matriser, ej klassen vektorer
+  - För att undvika att en matris blir en matris när en kolumn väljs: ```X[,1,drop=FASLE]```
+- Diagonalmatris: ```diag(c(1,3,5))```
+- Enhetsmatrisen: ```diag(3)```
+
+
+Linjär algebra
+========================================================
+- [[Egenvärden och egenvektorer]](http://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum): ```eigen(X)```
+  - Returnerar en lista med egenvärden och egenvektorer
+- Summera rader eller kolumner: ```rowSums(X)``` och ```colSums(X)```
+- Kombinera matriser: ```rbind(X,Y)``` eller ```cbind(X,Y)```
+- Omvandla mellan klasser:
+  - ```as.vector(X)```
+  - ```as.matrix(X)```
+
+
+Linjär algebra
+========================================================
+
+
+Intro sweSCB
+========================================================
+
+
+
+
+
+

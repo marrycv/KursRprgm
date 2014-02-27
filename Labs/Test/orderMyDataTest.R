@@ -10,7 +10,7 @@ test_that("Assignment: orderMyData()", {
   test1<-data.frame(x1,x1,x3,x4,x4,x3) # skilja ut bara numeric
   test2<-data.frame(x2,x3,x4,x5,x6) # skilja ut bara character
   test3<-data.frame(x1,x2,x3,x4,x5,x6) # både numeric och character
-
+  print(GruppNr)
   expect_that(orderMyData, is_a("function"),
               info = "Fel: orderMyData är inte en funktion.")
   expect_that(all(names(formals(orderMyData)) %in% c("myData")), condition=is_true(),

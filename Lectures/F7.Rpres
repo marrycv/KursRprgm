@@ -53,20 +53,99 @@ Feedback:
 
 Labb 5: Kommentarer och frågor
 
-Texthantering
+
+
+Arbeta med strängar
 ========================================================
+- Sträng (eng. string): en samling bokstäver (characters)
+- Centralt för hantering av strängar är Regular expressions (regex)
+- Ett flexibelt sätt att identifiera/matcha text eller delar av text (tänk sökfunktion)
+- Det finns olika typer av regular expressions i olika programspråk
+- regex i R påminner om Python. Testa ```?regex```
+- regex går även att använda i sökfunktionen i R-Studio (och andra program)
+- Med "pattern" syftas regular expression i R
+
+Arbeta med strängar
+========================================================
+- I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text (ex. paste(), substr(), grep() m.m.)
+- Det finns också ett paket som förenklar stränghantering - ```stringr```
+- ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
+
 
 regular expression
 ========================================================
+- Handlar om att hitta specifika delar av en sträng som uppfyller ett villkor
+- Byggs upp av:
+  - literals: "vanliga bokstäver och siffror"
+  - metacharacters: (metatecken) sätter upp speciella regler för matchning
+- Kolla på Roger Pengs [[videor]](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
+  - Regular Expressions
+  - Introduction to the Baltimore Homicide Data
+  - Regular Expressions in R
 
-regular expression
+regular expression: metacharacters
 ========================================================
+Tecken| Betydelse
+----- | ---- | 
+. | samtliga tecken (exkl. det “tomma” tecknet “”)  
+^ | det “tomma” tecknet i början av en text
+$ | det “tomma” tecknet i slutet text
+* | föregående tecken 0 eller fler gånger
++ | föregående tecken 1 eller fler gånger
+? | föregående tecken är valfritt
+{n,m} | föregående tecken $n$ eller max $m$
+[] | teckenlista (character list)
+$|$ | ELLER
+() | Gruppering
+\ | Används för att identifiera metatecken/specialtecken
+
+regular expression: exempel
+========================================================
+```grep()``` kollar om ett regular expression finns i en character vector
+```{r,}
+a<-c("hej","hela","vatten")
+grep(pattern="he",x=a)
+grep(pattern="a",x=a)
+grepl(pattern="he",x=a)
+```
+
+regular expression: teckenklass
+========================================================
+- Med [ ] skapas en lista över tänkbara tecken, en s.k. teckenklass (eng. character class)
+- Används för att identifiera en mängd av tecken
+- Inom [ ] har bara följande meta-tecken en särskild betydelse:
+
+Tecken| Betydelse| Exempel
+----- | ---- | ----|
+- | tecken | A-Z a-z 0-9 
+^ | ICKE | ^0-9
+\ | specialtecken | \t\n
+
+regular expression: teckenklass
+========================================================
+Vanliga fördefinierade klasser är... (kolla ```?regexp```)
+- [:digit:]  Nummer
+- [:lower:]   gemener
+- [:upper:]  VERSALER
+- [:punct:]  tecken, ej bokstäver eller siffror 
+- [:space:]  mellanslag, tab, ny rad m.m.
+
+regular expression: länkar
+========================================================
+
 
 Paketet stringr
 ========================================================
 
+
+
 Paketet stringr
 ========================================================
+
+
+Paketet stringr
+========================================================
+
 
 
 

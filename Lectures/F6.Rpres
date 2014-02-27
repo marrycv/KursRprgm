@@ -1,0 +1,383 @@
+
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center;
+  width: 100%;
+  color: red;
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programmering i R
+========================================================
+transition: rotate
+## Föreläsning 6: Paket, datum och statistik
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+
+Avdelningen för statistik,
+Linköpings universitet
+  
+R-programmering - del 2:
+========================================================
+
+- Labbarna görs nu i par
+- Parprogrammering:
+  - Turas om att sitta vid tagentbordet
+  - Den som inte kodar är engagerad i koden och problemet 
+  - Byter person varje halvtimme
+  - Viktigt att kommentera koden 
+
+Dagens föreläsning:
+========================================================
+
+- Feedback labb 4
+- Paket i R
+- Statistik
+  - kombinatorik
+  - slumptal, stickprov
+  - test
+- Datum och lubridate
+
+Feedback:
+========================================================
+
+Labb 4: Kommentarer och frågor
+
+
+Paket
+========================================================
+- R’s största styrka: 1000-tals paket med statistiska funktioner,estimationsmetoder etc etc. Just nu: 5186 paket
+- Varje paket innehåller funktioner som inte ingår i standard R.
+- Se se **[[här]](http://cran.r-project.org/web/packages/)** för en alfabetisk lista över R-paket.
+- CRAN task views. Se **[[här]](http://cran.r-project.org/web/views/)** för föreslagna paket för olika användningsområden.
+
+
+Paket
+========================================================
+- Det är möjligt att göra egna paket (men detta behandlas inte i denna kurs)
+- Dokumentationen av paket finns på CRAN
+- Reference manual
+- Vignettes och artiklar
+- Folk gör detta gratis, glöm inte att citera! (med ```citation()```).
+
+
+Paket
+========================================================
+Tips på bra paket:
+- ggplot2: Grafiskt paket.
+- tseries: Tidsseriemodellering. Innehåller t ex funktionerna arima och garch.
+- foreign: Funktioner får att läsa in data från andra statistikprogram som SPSS, Stata m.m.
+- tm: Funktioner för statistisk analys av textmassor (t ex webben, eller böcker).
+- stringr: Hantering av stängar/textdata
+- lubridate: Hantera datumdata och tidsdata.
+- RMYSQL/RPostgreSQL/RMongo/RODBC/RSQLite: Jobba med data från databaser.
+
+
+Läsa in redan installerade R-paket
+========================================================
+- En del paket följer med R, men måste explicit laddas/läsas in. Exempel: 
+  - Funktionen ```lm.ridge()``` från paketet MASS finns inte tillgänglig R's grundmiljö.
+  - Läsa in paket: ```library(MASS)```. Nu kan ```lm.ridge()``` användas.
+- ```ls("package:MASS")``` visar vilka funktioner som finns i paketet MASS.
+- Ta bort inläst paket från minnet: ```detach(package:MASS)```
+
+Hantera R-paket
+========================================================
+- Se vilka paket som är installerade på din dator: ```library()``` eller ```installed.packages()```
+- Ladda ner och installera paket från internet (CRAN): ```install.packages("tree")```
+- Läsa in installerat paket: ```library(tree)```
+- Lista alla inlästa paket: ```loadedNamespaces()```, ```sessionInfo()```
+- Ta bort ett R-paket från minnet: ```detach(package:tree)```
+- Ta bort installerat paket från hårddisk: ```remove.packages(tree)```
+- I Rstudio finns en flik för pakethantering
+
+Olika miljöer (enviroment)
+========================================================
+- När ett paket läses in skapas en egen miljö (enviroment) för detta paket
+- jmf. funktioner som skapar en lokal (och tillfällig) miljö
+- När en funktion sedan anropas söker R efter funktionen i de aktiva miljöerna i följande ordning: 
+  - Först undersöks den globala miljön (workspace)
+  - Sedan undersöks paketen i den ordning de har lästs in
+  - Sist undersöks package:base
+
+Olika miljöer (enviroment)
+========================================================
+- För att se i vilken ordning R söker används funktionen search()
+- Om man vill använda en specifik funktion (i ett paket/miljö) används anges namnet på paketet följt av :: 
+  - Exempel: ```MASS::lm.ridge()``
+
+Demostration av paket (demo_11)
+
+Kombinatorik
+========================================================
+Givet $n$ objekt, och vi väljer $k$ stycken: På hur många sätt kan vi göra det?
+
+Ordningen spelar roll: [[premutation]](http://sv.wikipedia.org/wiki/Permutation)
+- Om $n=k$: Då har vi $n!$ olika sätt
+- Om n>p: $\frac{n!}{(n-k)!}$
+
+Ordningen spelar inte roll: [[kombination]](http://sv.wikipedia.org/wiki/Kombination_%28matematik%29)
+- Om $n=k$: Då har vi $1$ sätt
+- Om $n>k$: $\binom{n}{k}=\frac{n!}{k!(n-k)!}$
+
+Kombinatorik
+========================================================
+- Fakultet: ```factorial()``` eller ```prod()```
+- Antalet möjliga kombinationer: ```choose(n=,k=)```
+- Alla möljiga kombinationer: ```combn(x=,m=)```
+- Finns olika paket för kombinatorik, tex ```combinat```
+
+
+Slumpvariabler sannolikhetslära
+========================================================
+Slumpvariabler
+- Modellerar osäkra händelser
+- Följer en sannolihetsfördelning
+- Kan vara diskret eller kontinuerlig
+- Ex.
+
+X | P(X)
+----- | ---- | 
+0 | 0.1  
+1 | 0.5
+2 | 0.3
+3 | 0.1
+
+
+Slumptal
+========================================================
+- Likforming fördelning: ```runif(n=1)``` eller bara ```runif(1)```
+- Likforming fördelningen mellan a och b: ```runif(n=1,min=a,max=b)```
+- 10 slumptal från likformig fördelning: ```runif(n=10,min=a,max=b)```
+- Normalfördelning: ```rnorm(n=10, mean=1,sd=2)```
+- T-fördelning med fyra frihetsgrader: ```rt(n=10,df=4)```
+- Etc för många andra fördelningar.
+
+
+Stickprov
+========================================================
+- Dra 10 observationer ur en vektor pop med återläggning: ```sample(pop,size=10,replace=TRUE)```
+- Dra 10 observationer ur en vektor pop utan återläggning: ```sample(pop,size=10,replace=FALSE)```
+- ```sample(10,size=3,replace=TRUE)``` är detsamma som ```sample(1:10,size=3,replace=TRUE)```
+
+Diskreta sannolikhetsfördelningar
+========================================================
+- Diskreta slumpvariabler (stokastiska variabler) kan anta ett ändligt antal värden, t ex 0 och 1, eller 4,5, 67, och -55, eller alla positiva heltal. etc
+- Diskret fördelning. Vad är sannolikheten att få exakt 3 spam-mejl under en dag med totalt 10 mejl om sannolikheten för att mejl är spam är 0.1?
+- X∼ Binomial (n = 10, p = 0.1).
+- Vi söker dbinom(x = 3, size = 10, prob = 0.1): Pr(X= 3) vilket ger 0.05739.
+
+Kontinuerliga sannolikhetsfördelningar
+========================================================
+- Kan anta alla värden i ett intervall. Vi kan t ex få utfallen 4.5, 6.789996, -54.43232 etc. Eller alla positiva reela tal. etc
+- Mest använda bland kontinuerliga fördelningar: Normalfördelningen: $N(\mu,\sigma)$
+- ```dnorm(x=1,mean=0.5,sd=2)``` beräknar höjden på täthetsfunktionen för en variabel med fördelningen $N(\mu=0.5,\sigma=2)$ i punkten x = 1.
+
+![alt text](F6-figure/NormalDensWiki.png)
+
+Kumulativa fördelningar
+========================================================
+- Mål: beräkna $Pr(X<1)$ där $X\sim N(2,1)$. Kumulativ sannolikhet.
+- ```pnorm(1, mean =2, sd=1)```
+- Kvantil/percentil: Hitta $q$ så att $Pr(X< q )=0.05$.
+  - Vilket värde klipper av 5% sannolikhetsmassa i vänstersvansen?
+  - Kvantil: ```qnorm(0.05,mean=2,sd=1)```
+
+De fyras gäng
+========================================================
+- Normalfördelningen
+  - rnorm, r som i random (slumptal)
+  - dnorm, d som i density (täthet)
+  - pnorm, p som i probability
+  - qnorm, q som in quantile.
+- Likformig fördelning
+  - runif
+  - dunif
+  - punif
+  - qunif
+
+Prex r/d/p/q för exempelvis binom, f, t, chisq, pois
+
+Slumptal
+========================================================
+Slumptalen i R är inte "riktiga" slumptal, utan [[pseudoslumptal]](http://sv.wikipedia.org/wiki/Pseudoslumptalsgenerator), vilket innebär att de genereras av en deterministisk algoritm som är svår att förutse, så att de genererade talen ser ut att vara slumpmässiga.
+- ```set.seed(seed=)```: Styr vilka slumptal som generas genom att bestämma startvärdet i algoritmerna som används för slumptalsgenerering 
+- ```?distribution```: Ger dig en lista över alla sannolikhetsfördelningar som ingår som standard
+- ```density()```: Ger täthetsskattning 
+
+Statistiska tester 
+========================================================
+Hypoteser på formen:
+- $H_0: \mu=10$
+- $H_1: \mu\ne10$
+
+eller
+- $H_0: \mu=10$
+- $H_1: \mu>10$
+
+
+Statistiska tester 
+========================================================
+- Konfidensintervall och hypotestest för medelvärde i normalpopulation $N(\mu,\sigma)$
+  - 90 %, två-sidigt konfidensintervall/test för $\mu$: ```t.test(myData,mu=2,conf.level=0.9)``` 
+- ```chisq.test(x,y=NULL,conf.level=0.95)``` beräknar $\chi^2$-test (chi2)
+  - x : ska vara en vektor eller en tabell/matris
+  - y : om x är vektor, också en vektor annars NULL 
+  - conf.level: konfidensnivå för testet
+
+
+Statistiska tester 
+========================================================
+- ```fisher.test(x,y=NULL,conf.level=0.95)``` beräknar fishers exakta test
+- ```prop.test()```: Beräknar test och konfidensintervall för andelar 
+
+Slumptal och Statistiska tester 
+========================================================
+Demo_12 del 1 
+
+
+
+Datum och tid
+========================================================
+- Datum är klurigt att arbeta med - men används extremt mycket
+- Två typer av tid
+  - Relativ tid, längden beror på när de inträffar (ex. år, månad)
+  - Exakt tid (ex. sekunder, minuter, timmar, dagar, veckor) 
+- Det finns en del funktioner förinstallerade (i paketet ```base```)
+
+Datum och tid
+========================================================
+- myDate <- “2012-01-31”. class(myDate) returnerar character 
+- myDateAsDate <- as.Date(myDate), vilket är av klassen Date
+- as.Date(ISOdate(year = 2012, month=1,day=31))
+- Det finns också ett kraftfullt paket som förenklar och förbättrar datum och tidhantering: lubridate
+
+Paketet lubridate
+========================================================
+- För dokumentation av lubridate finns...
+  - Den vanliga manualen finns [[här]](http://cran.r-project.org/web/packages/lubridate/index.html)
+  - En artikel i Journal of statistical software: [[Dates and Times Made Easy with lubridate]](http://www.jstatsoft.org/v40/i03/paper) (kurslitteratur)
+  
+- Är ett R-paket för att förenkla hantering av datum, tid m.m.
+- För "klassisk" hatering av datum och tid i R, titta på Roger Pengs [[video]](http://www.youtube.com/watch?v=JFovWLPHI24)
+
+Paketet lubridate
+======================================================== 
+Tre huvudsakliga delar:
+  1. Läsa in datum (från text)
+  2. Ändra inlästa datum
+  3. Göra beräkningar med datum  
+  
+Några exempel:
+========================================================  
+```{r,}
+library(lubridate)
+test<-ymd("1999-06-17")
+print(test)
+week(test)
+ymd("1999-06-17")+weeks(2)
+```
+
+
+
+Paketet lubridate: Parsing 
+========================================================
+För att läsa in datum/tid...
+
+Elementordning | Funktion
+----- | ---- | 
+år, månad, dag | ```ymd()``` 
+år, dag, månad | ```ydm()``` 
+månad, dag, år | ```mdy()``` 
+timme, minut | ```hm()``` 
+timme, minut, sekund | ```hms()``` 
+år, mån, dag, timme, min, sek | ```ymd_hms``` 
+
+Källa: Grolemund and Wickham (2011, Table 4)
+
+
+Paketet lubridate
+========================================================
+För att “plocka ut” eller ändra delar av ett datum används följande funktioner
+
+Datum | Funktion| Tidsdel | Funktion
+----- | ---- | ----| ----
+år | ```year()``` | timme | ```hour()```
+månad | ```month()``` | minut | ```minute()``` 
+vecka | ```week()``` | sekund | ```second()```
+årsdag | ```yday()``` | tidszon | ```tz()```
+månadsdag | ```mday()```
+veckodag | ```wday()```
+
+Källa: Grolemund and Wickham (2011, Table 5)
+
+
+Paketet lubridate
+========================================================
+- För att räkna med datum finns det fyra olika objekt i lubridate
+  - ```instant``` (sv. tidpunkt)
+  - ```interval``` ( sv. intervall)
+  - ```duration``` (sv. duration)
+  - ```period``` (sv. period)
+- ```interval```, ```duration``` och ```period``` används för att beskriva tidsspann
+
+Paketet lubridate
+========================================================
+- ```instant```: En specifikt tillfälle i tiden, tex "2004-02-21 kl 12.33", viktiga funktioner: ```now()```, ```today()```, ```here()```
+- ```interval``` defineras som tidsspannet mellan två ```instant```.
+  - ```new_interval(start,end)```
+  - Inte så användbara för datumberäkningar
+  
+Paketet lubridate
+========================================================
+- Duration - ett fixt tidsspann som mäts i sekunder -tänk kontinuerlig tid  (absolut tidslängd)
+  - ex: ```new_duration()```,```dseconds()```, ```dhours()```, ```ddays()``` o.s.v.
+- Period - utgår från den aktuella enheten -tänk diskret tid (relativ tidslängd)
+  - ex. ```period(num=,units=)```, ```minutes()```, ```hours()```, ```days()```, ```weeks()``` o.s.v.  
+
+Avrunda
+========================================================
+Avrunda
+- round_date(x,unit=)
+- floor_date(x=,unit=)
+- ceiling_date(x=,unit=)
+
+Tidszoner
+========================================================
+- ```with_tz(time=,tzone=)```: Samma tidpunkt i en annan tidszon
+- ```force_tz(time=,time=)```: Klocktiden är samma men tidszonen ändras
+
+Paketet lubridate
+========================================================
+Demo_12 del 2
+
+
+Referenser
+========================================================
+Grolemund, G., Wickham, H., 2011. Dates and times made easy with
+lubridate. Journal of Statistical Software 40 (3), 1–25.
+kan hittas [[här]](http://www.jstatsoft.org/v40/i03/paper)
+
+

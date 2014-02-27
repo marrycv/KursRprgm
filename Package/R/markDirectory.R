@@ -23,6 +23,8 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
   stopifnot(file.exists(dirPath),
             is.null(sinkToDir) || file.exists(sinkToDir), 
             is.null(testFilesDir) || file.exists(testFilesDir))
+  # Correct dirPath (add / as last letter if not added)
+  if(!substr(dirPath,nchar(dirPath),nchar(dirPath))=="/") dirPath <- paste(dirPath,"/",sep="")
   
   # Check to see the filenames at the githubRepo
   .checkTestFiles(assignments)
@@ -37,7 +39,7 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
   # Get list of files to Mark
   filesToMark <- dir(dirPath)
   
-  # Test to source files to check for errors
+  # Test to source files to check for errors fileToMark <- filesToMark[1]
   errors <- FALSE 
   for (fileToMark in filesToMark){
     cat(fileToMark, sep="")
@@ -56,6 +58,8 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
     cat("\nCorrect errors before proceeding.\n")
     return(invisible(NULL))  
   }
+  
+  cat("\nAll files are OK. \nStarting tests:\n\n")
 
   # Test the functions fileToMark <- filesToMark[1]
   for (fileToMark in filesToMark){
@@ -63,10 +67,11 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
     rm(list=ls(envir=.GlobalEnv), 
        envir=.GlobalEnv)
     source(file = paste(dirPath, fileToMark, sep=""), local = .GlobalEnv, encoding="latin1")
-    if(!is.null(sinkToDir)) sink(file=paste(sinkToDir, LiuId, ".txt", sep=""))    
+    if(!is.null(sinkToDir)) sink(file=paste(sinkToDir, paste(LiuId,collapse="_"), ".txt", sep=""))    
     cat("Filename:",fileToMark,"\n")
     cat("Namn:", Namn,"\n")
     cat("LiuID:",LiuId,"\n")
+    if(exists("GruppNr")) cat("Grupp:",GruppNr,"\n")
     # Test functions
     try(.testTask("general", cache=TRUE))
   

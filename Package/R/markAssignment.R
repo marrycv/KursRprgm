@@ -6,13 +6,14 @@
 #' 
 #' @param assignments The assignment(s) to mark / check. Can be a vector of multiple assignments.
 #' @param filePath The path to the file with the suggested solution.
+#' @param cache Should testfiles be stored locally temporarily (for slow internet connections).
 #' 
 #' @details The function will mark the assignment given in  
 #' 
 #' @export
 
 
-markAssignment <- function(assignments, filePath=file.choose()){
+markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE){
   # Assertions
   stopifnot(file.exists(filePath), is.character(assignments))
     
@@ -32,15 +33,21 @@ markAssignment <- function(assignments, filePath=file.choose()){
      envir=.GlobalEnv)
   
   # Read in the source file into source enviroment
-  source(file = filePath, local = .GlobalEnv)
-  
+  res <- try(source(file = filePath, local = .GlobalEnv))
+  if(class(res)=="try-error") {
+    rm(list=ls(envir=.GlobalEnv), envir=.GlobalEnv)
+    load(file=tempImage, envir=.GlobalEnv)
+    unlink(tempImage)
+    stop("Filen kan inte läsas utan fel.", call.=FALSE)
+  }
+    
   # Test general tasks
-  .testTask("general")
+  .testTask("general", cache=cache)
   
   # Choose actual object, move it to test enviroment
   for (assignment in assignments){
     cat("\n",assignment,"() :", sep = "")
-    .testTask(task=assignment)
+    .testTask(task=assignment, cache=cache)
   }
 
   # Clean the global enviroment and load old enviroment
@@ -128,5 +135,3 @@ markAssignment <- function(assignments, filePath=file.choose()){
   }
   return(invisible(NULL))
 }
-
-# testfolder <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk programmering i R/RCourse2014/KursRprgm/Labs/Test"

@@ -21,7 +21,9 @@ grep(pattern="staden",poem)
 
 grep(pattern="han",poem)
 
-grep(pattern="v.r",poem)
+index<-grep(pattern="v.r",poem)
+poem[index]
+
 
 # Börja med små bokstäver:
 grep(pattern="^[a-ö]",poem)
@@ -36,9 +38,10 @@ grep(pattern="vara?",poem)
 
 grep(pattern="tt|ll",poem)
 
-grep(pattern="a(tt|ll)a?",poem) 
-
-
+index<-grep(pattern="a(tt|ll)a?",poem) 
+poem[index]
+index<-grep(pattern="a(tt|ll)",poem) 
+poem[index]
 
 
 
@@ -123,7 +126,7 @@ str_sub(hw, 8, 14)
 str_sub(hw, 8)
 str_sub(hw, c(1, 8), c(6, 14))
 
-str_sub(hw, -1)
+str_sub(hw, start=-1)
 str_sub(hw, -7)
 str_sub(hw, end = -7)
 

@@ -70,6 +70,8 @@ Arbeta med strängar
 - I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text (ex. paste(), substr(), grep() m.m.)
 - Det finns också ett paket som förenklar stränghantering - ```stringr```
 - ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
+- ```readLines(con=,encoding=)``` kan användas för att läsa in en text. Varje rad i texten blir då ett element i en vektor. 
+- För att kunna läsa in data med svensk text så behöver vi ändra [encoding](http://en.wikipedia.org/wiki/Character_encoding) för att bokstäverna å,ä och ö ska synas. Vi ändrar då  ```encoding="latin1"``` i ```readLines()```.
 
 
 regular expression
@@ -118,7 +120,7 @@ regular expression: teckenklass
 Tecken| Betydelse| Exempel
 ----- | ---- | ----|
 - | tecken | A-Z a-z 0-9 
-^ | ICKE | ^0-9
+^ | ICKE | ^ 0-9 
 \ | specialtecken | \t\n
 
 regular expression: teckenklass
@@ -132,22 +134,39 @@ Vanliga fördefinierade klasser är... (kolla ```?regexp```)
 
 regular expression: länkar
 ========================================================
+- Sida för att testa regular expression: [regexpal.com](http://regexpal.com)
+- Från [wikipedia](http://sv.wikipedia.org/wiki/Regulj%C3%A4ra_uttryck)
 
+
+Förinstallerade strängfunktioner:
+========================================================
+- ```substr()```: substring - välja ut en del av en sträng
+-  ```strsplit()```: stringsplit - dela upp en sträng i flera element
+- ```paste()```: slår ihop flera strängelement (eller en vektor) till ett strängelement
+- ```nchar()```: räknar antalet tecken i en sträng
+
+Förinstallerade strängfunktioner:
+========================================================
+- ```grep()```: identifierar vilka element som innehåller ett “pattern”, returnerar en indexvektor
+- ```grepl()```: identifierar vilka element som innehåller ett “pattern”, returnerar en logisk vektor
+- ```gsub()```: ersätter ett “pattern”, med en given textsträng
+- För exempel på några av dessa funktioner kolla på Roger Pengs [[video]](http://www.youtube.com/watch?v=q8SzNKib5-4)
+
+Men dessa kan vara lite svåra att komma ihåg ... paketet ```stringr``` to the rescue
+
+Paketet stringr
+========================================================
+- En vektoriserad wrapper för de förinstallerade funktionerna 
+-  Samtliga funktioner börjar med str_
+  - ex. str_c()
+
+- Smidigt i R-Studio
+- Vilka funktioner som finns (och vad de gör) framgår i [[manual]](http://cran.r-project.org/web/packages/stringr/index.html) på CRAN och i [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) om stringr
 
 Paketet stringr
 ========================================================
 
-
-
-Paketet stringr
-========================================================
-
-
-Paketet stringr
-========================================================
-
-
-
+Demo_ 13 del 2
 
 
 Linjär algebra: Matriser
@@ -156,7 +175,7 @@ Linjär algebra: Matriser
 - Skapas en 2x3 matris från en vektor ```myVector```: ```matrix(myVector,2,3)```
 - matrix fyller matrisen kolumnvis. 
 - ```matrix(myVector,2,3, byrow=TRUE)``` fyller radvis.
-- ```dim(myVector) <- c(2,3)``` gör samma jobb.
+- ```dim(myVector) <- c(2,3)``` gör samma jobb. Kolla på ```?dim()```
 
 Linjär algebra
 ========================================================
@@ -179,16 +198,55 @@ Linjär algebra
   - ```as.vector(X)```
   - ```as.matrix(X)```
 
-
 Linjär algebra
 ========================================================
+demo_14 del 1
+
+Intro sweSCB
+========================================================
+sweSCB är ett paket för att ladda ner dataset från SCB hemsida och ladda in dem direkt i R.
+
+Skapat av:
+- Love Hansson
+- Måns Magnusson
+- Thomas Reinholdsson
+
+[[Här]](https://github.com/LCHansson/sweSCB) kan ni läsa mer om paktet.
+  
+Intro sweSCB
+========================================================
+För att installera:
+
+```{r,eval=FALSE}
+install.packages("devtools")
+devtools::install_github("sweSCB","LCHansson")
+library(sweSCB)
+```
 
 
 Intro sweSCB
 ========================================================
+demo_14 del 2
 
+Intro labb 8: Miniprojekt
+========================================================
+- Labb 8 kommer vara i form av ett miniprojekt
+- Det kommer finnas en del generella instruktioner som måste följas, med det kommer vara en hel del frihet i lösningen av uppgiften.
+- Syftet är att ni ska:
+  - Testa "riktig" dataanalys i R.
+  - Kunna hantera lite större mängder programkod 
+  - Se fördelarna med lösa ett projekt med hjälp av kod istället för att klicka i menyer, jfr med Minitab
+  - Öva på mer självständig programmering (mindre instruktioner)
 
-
+Intro labb 8: Miniprojekt
+========================================================
+Kort beskrivning:
+  1. Ni ska ta några datamaterial från svenska myndigheter
+  2. Sedan ska ni utföra datahantering, statistik analys och presentation av data (grafer mm) i R.
+  3. Sedan ska ni sätt in era resultat i ett dokument, där ni skriver korta kommentarer till resutlatet.
+  4. Det som ska lämnas i är både rapporten i pdf-format och er kod från steg 2.
+  
+Detaljer återfinns i labbinstruktionen för labb 8.
 
 
 

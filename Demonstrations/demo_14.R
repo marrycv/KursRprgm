@@ -25,6 +25,7 @@ t(B)
 B%*%A 
 
 solve(A) 
+round(A%*%solve(A),3)
 
 solve(diag(3)) 
 

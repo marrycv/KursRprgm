@@ -1,0 +1,54 @@
+
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center;
+  width: 100%;
+  color: red;
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programmering i R
+========================================================
+transition: rotate
+## Föreläsning 9: Paket,grafik och statistik
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+
+Avdelningen för statistik,
+Linköpings universitet
+
+Dagens föreläsning:
+========================================================
+
+- Feedback
+- Repetion
+
+Feedback:
+========================================================
+
+Labb 7: Kommentarer och frågor
+
+Repetion
+========================================================

@@ -1,0 +1,127 @@
+
+<style type="text/css">
+
+.indent {
+  padding-left: 2em !important;
+}
+
+.emphasize {
+  text-align: center;
+  width: 100%;
+  color: red;
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+
+Programmering i R
+========================================================
+transition: rotate
+## Föreläsning 8: Mer grafik och statistik
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+
+Avdelningen för statistik,
+Linköpings universitet
+
+Dagens föreläsning:
+========================================================
+
+- Feedback
+- Arrayer
+- Mer statistk
+  - Linjär regression
+  - fomelobjektet
+  - Tidsserier
+- Mer grafik
+  - base
+  - lattice
+  - ggplot2
+- Spatiala data (plotta karta. Ggplot, http://spatial.ly/r/ shape filer)  
+
+Feedback:
+========================================================
+
+Labb 6: Kommentarer och frågor
+
+
+Inför tentan
+========================================================
+- Tenta i datorsal (4 h)
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams), det finns lösnngar lösningar till dessa
+- Hjälpmedel: 
+  - Den inbyggda hjälpen i R (ej internet)
+  - R reference card v.2 av Matt Baggot, laddas ner [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), 
+- Tenta, R reference card och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
+- Vid tentan kommer ni få ett specifikt användarnamn och lösenord som ni använder för att logga in.
+
+
+Arrayer
+========================================================
+- Arrayer är en generalisering av matrisen till en högre dimension
+- Arrayer är uppsättning av tal som kan ha 3 eller fler dimensioner. "En flerdimensionell matris"
+- Fungerar som matriser. I en 3D-array väljs element med: ```[x,y,z]```, där x,y,z är postioner i de tre dimensionerna. jfm en matris med index ```[x,y]``` 
+- Skapas med ```array()```, eller med ```dim()```
+
+Arrayer:
+========================================================
+```{r}
+array(data=1:12,dim=c(2,3,2))
+```
+
+Linjär regression
+========================================================
+
+
+
+
+fomelobjektet
+========================================================
+
+Linjär regression
+========================================================
+
+Linjär regression
+========================================================
+
+Tidsserier
+========================================================
+
+Tidsserier
+========================================================
+
+Tidsserier
+========================================================
+
+Mer grafik
+========================================================
+
+Spatiala data
+========================================================
+
+Spatiala data
+========================================================
+
+Spatiala data
+========================================================
+
+
+
+
+
+

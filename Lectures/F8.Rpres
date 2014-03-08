@@ -86,7 +86,24 @@ array(data=1:12,dim=c(2,3,2))
 
 Linjär regression
 ========================================================
+- Regression: anpassar en rät linje till en punktsvärm (scatter)
+- En statistisk model för att undersöka linjära samband: $y=\beta_{0}+\beta_{1}x$
+- I fallet med en $x$-variabel: tänk räta linjens ekvation
+- Kan ses som en approximativ lösning till ett överbestämt ekvationssystem.
 
+Linjär regression
+========================================================
+- Skattas med: ```lm(formula=,data=)```
+  - ```formula=``` ska vara ett formelobjekt
+  - ```data=``` ska vara en data.frame
+  - "lm" står för linear model
+
+
+– summary(eBayReg) ger inte längre min, max, median etc, utan ger en utskrift av estimationsresultaten för regressionsmodellen.
+
+– plot(eBayReg) - ger olika plottar kopplade till regressionsanalys
+
+– abline(reg=eBayReg) - plottar den skattade regressionslinjen
 
 
 

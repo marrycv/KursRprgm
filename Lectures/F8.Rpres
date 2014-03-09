@@ -41,18 +41,16 @@ Linköpings universitet
 
 Dagens föreläsning:
 ========================================================
-
 - Feedback
 - Arrayer
 - Mer statistk
   - Linjär regression
-  - fomelobjektet
-  - Tidsserier
+  - Fomel-objektet
 - Mer grafik
   - base
   - lattice
   - ggplot2
-- Spatiala data (plotta karta. Ggplot, http://spatial.ly/r/ shape filer)  
+- Spatiala data
 
 Feedback:
 ========================================================
@@ -117,7 +115,7 @@ abline(reg=x)
 Fomelobjektet
 ========================================================
 Olika funktioner i R använder sig av formel-objekt, tex ```lm()```
-- Kan skapas med ```as.formula()```, eller skrias direkt i tex ```lm(formula=)```
+- Kan skapas med ```as.formula()```, eller skrivas direkt i tex ```lm(formula=)```
 - Grunden: ```y~model```,tex y~x1+x2, kolla på ?"~"
 - Syntax:
   - ```+``` används för att addera variabler
@@ -144,7 +142,7 @@ Användbara funktioner:
 - ```coef()``` - koefficienter
 - ```fitted()``` - anpassande värden
 - ```summary()``` eller ```summary.lm()``` - ger sammanfattning av modellen
-- ```residuals()``` - det skattade felet på modelen
+- ```residuals()``` - det skattade felet på modellen
 - ```predict.lm()``` - göra prediktion
 - ```abline(reg=)``` - plotta regressionslinjen 
 - ```str()``` - ger strukturen på objektet 
@@ -184,15 +182,15 @@ base package: exempel
 ```{r}
 plot(c(-4,4),c(-4,4),type="n",xlab="",ylab="")
 abline(h=-4:4,v=-4:4,col="green")
-text(x=3,y=2,labels="hej",)
+text(x=2,y=2,labels="hej",cex=4)
 points(-4:4,rnorm(9),col="blue",pch=15,cex=2)
 ```
 
 lattice package
 ========================================================
 Lattice/grid system:
-- Skapar hela plotten med enda funktionsanro: tänka på detaljer i förväg. 
-- I det enda funktions anropet finns all information om storlekar och marginaler i plotten och funktionen skalar plotten den så att den ser bra ut, stället för att användaren måste göra det själv.
+- Skapar hela plotten med enda funktionsanrop: tänka på detaljer i förväg. 
+- I det enda funktionsanropet finns all information om storlekar och marginaler i plotten och funktionen skalar plotten den så att den ser bra ut, stället för att användaren måste göra det själv, jfm base.
 
 lattice package
 ========================================================
@@ -203,7 +201,7 @@ lattice package
 lattice package
 ========================================================
 - ```xyplot(x=,data=)``` - scatteplots
-- ```bwplot()``` - boxplota
+- ```bwplot()``` - boxplot
 - ```histogram()``` - histogram 
 - ```barchart()``` - stapeldiagram
 - ```splom()``` - matrisplot
@@ -234,7 +232,7 @@ ggplot2
 Grammar of graphics:
 ”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
 
-från "ggplot2 book" av Hadley Wickham 
+Från "ggplot2 book" av Hadley Wickham 
 
 ggplot2
 ========================================================
@@ -272,7 +270,7 @@ ggplot2
 Skapa en ggplot():
 - Börja med att skapa ett ggplot-objekt: ```g<-ggplot(data=mpg,mapping=aes(x,y))```
 - Addera olika lager för att modifiera plotten, sparar du den i ett objekt, så kan du plotta med ```print()```
-- Det spelar inte roll vilken ordning du adderar
+- Det spelar ingen roll vilken ordning du adderar
 
  
 ggplot2

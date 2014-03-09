@@ -97,7 +97,9 @@ Linjär regression
   - ```formula=``` ska vara ett formelobjekt
   - ```data=``` ska vara en data.frame
   - "lm" står för linear model
-
+```{r,eval=FALSE}
+lm(formula=y~x,data=myData)
+```
 
 – summary(eBayReg) ger inte längre min, max, median etc, utan ger en utskrift av estimationsresultaten för regressionsmodellen.
 

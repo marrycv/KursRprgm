@@ -63,7 +63,7 @@ Labb 6: Kommentarer och frågor
 Inför tentan
 ========================================================
 - Tenta i datorsal (4 h)
-- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams), det finns lösnngar lösningar till dessa
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
 - Hjälpmedel: 
   - Den inbyggda hjälpen i R (ej internet)
   - R reference card v.2 av Matt Baggot, laddas ner [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), 
@@ -77,8 +77,11 @@ Arrayer
 - Arrayer är uppsättning av tal som kan ha 3 eller fler dimensioner. "En flerdimensionell matris"
 - Fungerar som matriser. I en 3D-array väljs element med: ```[x,y,z]```, där x,y,z är postioner i de tre dimensionerna. jfm en matris med index ```[x,y]``` 
 - Skapas med ```array()```, eller med ```dim()```
+Arrayer
+========================================================
+![alt text](array_matrix.jpg)
 
-Arrayer:
+Arrayer
 ========================================================
 ```{r}
 array(data=1:12,dim=c(2,3,2))
@@ -89,34 +92,64 @@ Linjär regression
 - Regression: anpassar en rät linje till en punktsvärm (scatter)
 - En statistisk model för att undersöka linjära samband: $y=\beta_{0}+\beta_{1}x$
 - I fallet med en $x$-variabel: tänk räta linjens ekvation
-- Kan ses som en approximativ lösning till ett överbestämt ekvationssystem.
+- Kan ses som en approximativ lösning till ett överbestämt ekvationssystem, jfm linjär algebra
 
 Linjär regression
 ========================================================
 - Skattas med: ```lm(formula=,data=)```
   - ```formula=``` ska vara ett formelobjekt
   - ```data=``` ska vara en data.frame
-  - "lm" står för linear model
+- "lm" står för linear model
+- ```lm()``` returnerar en lm-objekt (lista), kolla i ?lm för innehåll
 ```{r,eval=FALSE}
 lm(formula=y~x,data=myData)
 ```
 
-– summary(eBayReg) ger inte längre min, max, median etc, utan ger en utskrift av estimationsresultaten för regressionsmodellen.
-
-– plot(eBayReg) - ger olika plottar kopplade till regressionsanalys
-
-– abline(reg=eBayReg) - plottar den skattade regressionslinjen
-
-
-
-fomelobjektet
+Linjär regression
 ========================================================
+```{r}
+data(trees)
+x<-lm(formula=Volume~Height,data=trees)
+plot(trees$Height,trees$Volume,pch=15)
+abline(reg=x)
+```
+
+Fomelobjektet
+========================================================
+Olika funktioner i R använder sig av formel-objekt, tex ```lm()```
+- Kan skapas med ```as.formula()```, eller skrias direkt i tex ```lm(formula=)```
+- Grunden: ```y~model```,tex y~x1+x2, kolla på ?"~"
+- Syntax:
+  - ```+``` används för att addera variabler
+  - ```y~.``` ger alla förklarande variabler
+  - ```I()``` används för att göra matematiska beräkningar i formler
+  - ```?formula()``` för mer detaljer
+
+
+Fomelobjektet
+========================================================
+```{r}
+y<-rnorm(10)
+x1<-1:10
+x2<-20:10
+x3<-15:25
+z<-as.formula("y~x1+x2+x3")
+z
+str(z)
+```
 
 Linjär regression
 ========================================================
+Användbara funktioner:
+- ```coef()``` - koefficienter
+- ```fitted()``` - anpassande värden
+- ```summary()``` eller ```summary.lm()``` - ger sammanfattning av modellen
+- ```residuals()``` - det skattade felet på modelen
+- ```predict.lm()``` - göra prediktion
+- ```abline(reg=)``` - plotta regressionslinjen 
+- ```str()``` - ger strukturen på objektet 
 
-Linjär regression
-========================================================
+
 
 Tidsserier
 ========================================================
@@ -129,16 +162,166 @@ Tidsserier
 
 Mer grafik
 ========================================================
+Tre olika sätt att göra grafik i R:
+  - base package (vad vi gjort hitintills)
+  - lattice package
+  - ggplot2 package (grammar of graphics)
+  
+Matematiska symboler i plottarna: ?plotmath
+
+
+Graphical Devices
+========================================================
+- Grafiken i R baseras på en "device"
+- Kolla på ```?Devices``` för att se olika alternativ
+- Om du inte öppnat en device och du anropar en plot-funktion i R så kommer R välja en lämplig device för att visa din plot. 
+- Om du vill spara en bild som en fil kan du vilja öppna en annan device:
+  - pdf()
+  - png()
+  - jpeg()
+- dev.off() stänger av den nuvarande device
+- Kolla på ?dev.off() för hantering av devices
+
+
+base package
+========================================================
+- Tanken är att stegvis bygga upp sin plot
+- Starta med en "grundplot", sen adderas olika element till plotten tills den är färdig.
+- Representeras av de olika kommandon som bygger upp plotten + data (inget enhetligt objekt)
+- Ofta enkel att använda för grundläggande plottar
+
+base package: exempel
+========================================================
+```{r}
+plot(c(-4,4),c(-4,4),type="n",xlab="",ylab="")
+abline(h=-4:4,v=-4:4,col="green")
+text(x=3,y=2,labels="hej",)
+points(-4:4,rnorm(9),col="blue",pch=15,cex=2)
+```
+
+lattice package
+========================================================
+Lattice/grid system:
+- Skapar hela plotten med enda funktionsanro: tänka på detaljer i förväg. 
+- I det enda funktions anropet finns all information om storlekar och marginaler i plotten och funktionen skalar plotten den så att den ser bra ut, stället för att användaren måste göra det själv.
+
+lattice package
+========================================================
+- Använder sig av forumla-object för att bestämma vad som ska plottas
+- Funktionerna returnerar ett objekt av klassen ”trellis”, som har en speciell print()-metod som plottar objektet.
+- Använder "panel function": om du har betingat med en eller flera faktorer. Panel function styr hur varje delplott ska bli. Annoyma funktioner kan användas här.
+
+lattice package
+========================================================
+- ```xyplot(x=,data=)``` - scatteplots
+- ```bwplot()``` - boxplota
+- ```histogram()``` - histogram 
+- ```barchart()``` - stapeldiagram
+- ```splom()``` - matrisplot
+- ```levelplot()```, ```contourplot()``` - för bilder/matriser
+
+lattice package
+========================================================
+demo_16 del 1
+
+ggplot2
+========================================================
+- Baserad på ”Grammar of Gaphics” av Leland Wilkinson
+- Skapad av Hadley Wickham
+- Alternativ till base och lattice
+- http://ggplot2.org
+- Har egenskapar från både base och lattice graphics
+- Ofta enklare att använda än lattice
+
+ggplot2
+========================================================
+"Grammatik för grafik"
+- Abstraktioner av olika grafiska idéer. Jmf med ordklasser/satsdelar i språk
+- Ger ett teoretiskt fundament för hur grafik kan skapas
+- Fördjupning: http://ggplot2.org/book/ 
+
+ggplot2
+========================================================
+Grammar of graphics:
+”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
+
+från "ggplot2 book" av Hadley Wickham 
+
+ggplot2
+========================================================
+Funktionen ```qplot()```:
+- ```qplot(x=,y=,data=,)```
+  - aesthetics: (size, shape, color)
+  - geoms: (points, lines)
+  - data kommer ifrån en data.frame
+
+
+ggplot2
+========================================================
+Funktionen ```qplot()```:
+- ```qplot(x=,y=,data=,color=,shape=,facets=)```
+  - ```x=```, ```y=```: variabler i x- och y-led
+  - ```data=```: en data.frame
+  - ```color=/shape=```: gruppera data i samma plot
+  - ```facets=```: göra olika betingade plottar, har ett formel-objekt som input
+
+ggplot2:
+========================================================
+```ggplot()``` är huvudfunktionen i paktet
+
+Grundläggande komponenter:
+- En data.frame
+- aesthetic mappings: färg, storlek
+- geoms: geometriska figurer
+- facets: grupperingar
+- stats: transformationer och olika beräkningar
+- scales: skalan som aesthetic map använder
+- coordinate system: koordinatsystem
+
+ggplot2
+========================================================
+Skapa en ggplot():
+- Börja med att skapa ett ggplot-objekt: ```g<-ggplot(data=mpg,mapping=aes(x,y))```
+- Addera olika lager för att modifiera plotten, sparar du den i ett objekt, så kan du plotta med ```print()```
+- Det spelar inte roll vilken ordning du adderar
+
+ 
+ggplot2
+========================================================
+Skapa en ggplot():
+- Addera grupperingar: ```facet_grid(.~z)```, har en formel-objekt som argument där z är en factor, viktigt med bra namn till factorer. 
+- ```geom_point()```: skapar punktsvärm
+- ```geom_line()```: skapar injeplot
+- ```geom_bar()```: stapeldiagram/histogram
+- ```geom_histogram()```: skapar histogram
+- Addera en regressionlinje: ```geom_smooth(method="lm")```
+
+ggplot2
+========================================================
+Skapa en ggplot():
+- Ändra titlar mm: ```xlab()```, ```ylab()```, ```labs()``` ```ggtitle()```
+- Globala inställnignar: ```theme()``` 
+  - standardtema:  ```theme_gray()```, ```theme_bw()```
+
+
+ggplot2
+========================================================
+demo_16 del 2
 
 Spatiala data
 ========================================================
+Det är ofta instressant att undersöka någon variabel är fördelad över en karta
+
+Paketet ```maptools``` i R låter oss göra spatiala analyser av data.
+
+Vi behöver då data över en karta: shapefil
+
+På kurshemsidan finns filer med karta över Sveriges län och kommuner. 
+
 
 Spatiala data
 ========================================================
-
-Spatiala data
-========================================================
-
+demo_16 del 3
 
 
 

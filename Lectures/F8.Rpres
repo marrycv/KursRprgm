@@ -149,17 +149,6 @@ Användbara funktioner:
 - ```abline(reg=)``` - plotta regressionslinjen 
 - ```str()``` - ger strukturen på objektet 
 
-
-
-Tidsserier
-========================================================
-
-Tidsserier
-========================================================
-
-Tidsserier
-========================================================
-
 Mer grafik
 ========================================================
 Tre olika sätt att göra grafik i R:

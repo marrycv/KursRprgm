@@ -5,16 +5,16 @@
 #----------------------------------------------------
 #----------------------------------------------------
 
-# Ange gruppnummer här
+# Ange gruppnummer h?r
 GruppNr <- "Mitt gruppnummer (ex. 4)"
-# Ange namnen här för alla i gruppen, ex Namn <-c( "Alice Walker","Gustav Vasa")
-Namn <- c("ex. Måns Magnusson", "ex. Josef Wilzen")
-# Ange Liu-ID här för alla i gruppen, ex LiuId <- c("aliwa432","gusva204")
+# Ange namnen h?r f?r alla i gruppen, ex Namn <-c( "Alice Walker","Gustav Vasa")
+Namn <- c("ex. M?ns Magnusson", "ex. Josef Wilzen")
+# Ange Liu-ID h?r f?r alla i gruppen, ex LiuId <- c("aliwa432","gusva204")
 LiuId  <- c("ex. manma97", "ex. joswi128")
 
 #----------------------------------------------------
 #----------------------------------------------------
-# linjär algbra
+# linj?r algbra
 #----------------------------------------------------
 #----------------------------------------------------
 

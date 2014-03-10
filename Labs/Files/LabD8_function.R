@@ -27,7 +27,7 @@ LiuId  <- c("ex. manma97", "ex. joswi128")
 # Funktionen nedan är ett exempel, som inte har något med uppgifterna att göra.
 
 
-#' @title mySin
+#' @title Min egen sinusplotfunktion
 #'
 #' @description 
 #' Beräknar och plottar olika sinuskurvor 

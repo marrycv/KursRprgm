@@ -26,7 +26,7 @@ source("LabD8_function.R")
 # Här lägger ni in koden som gör dataanalysen i inlämningsupperna.
 
 # skriv korta kommentarer till er kod, så att andra kan förstå den.
-# Använd föklarande variabelnamn, inte naman på formen a,b,x,y
+# Använd föklarande variabelnamn, inte naman på formen: a,b,x,y
 
 
 

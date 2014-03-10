@@ -4,9 +4,11 @@
 
 data(trees)
 x<-lm(formula=Volume~Height,data=trees)
+x
 plot(trees$Height,trees$Volume,pch=15)
 abline(reg=x)
 
+class(x)
 plot(x)
 summary(x)
 coef(x)
@@ -18,6 +20,7 @@ class(x)
 attributes(x)
 str(x)
 # välja ut olika delar av resultatet
+x$residuals
 x$coefficients
 x$model
 x$fitted.values
@@ -59,20 +62,26 @@ b<-summary(a)
 
 
 
+
+
+
+
+
+
+
+
+
 # fiktiv tidseriedata:
 
 x<-1:120
 set.seed(12422)
 monthDiff<-rnorm(12,sd=10)
-y<-10+0.46*x+monthDiff+rnorm(120,sd=3)
-
+y<-10+0.46*x+monthDiff+rnorm(120,sd=2)
 plot(x,y,type="l")
-summary
-
 z<-y-monthDiff
 plot(x,z,type="l")
 
-
+residuals()
 
 
 

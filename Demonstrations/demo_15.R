@@ -71,17 +71,6 @@ b<-summary(a)
 
 
 
-# fiktiv tidseriedata:
-
-x<-1:120
-set.seed(12422)
-monthDiff<-rnorm(12,sd=10)
-y<-10+0.46*x+monthDiff+rnorm(120,sd=2)
-plot(x,y,type="l")
-z<-y-monthDiff
-plot(x,z,type="l")
-
-residuals()
 
 
 

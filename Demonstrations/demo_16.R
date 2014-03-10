@@ -9,8 +9,6 @@
 
 
 
-
-
 #-------------------------------------------------------------
 # Del 1: lattice del 1
 #-------------------------------------------------------------
@@ -30,7 +28,6 @@ xyplot(ozone~radiation,data=environmental,main="Ozone vs. Radiation")
 
 summary(environmental$temperature)
 temp.cut<-equal.count(environmental$temperature,3)
-
 
 # göra betingade grafer:
 xyplot(ozone~radiation|temp.cut,data=environmental)
@@ -122,7 +119,7 @@ qplot(hwy,data=mpg,fill=drv)
 
 # facets= factor for rows ~ facotr for columns
 qplot(hwy,data=mpg, facets=drv~., binwidth=2)
-qplot(displ,hwy,data=mpg, facets=.~drv)
+qplot(hwy,data=mpg, facets=.~drv)
 
 qplot(hwy,data=mpg,geom="density")
 qplot(hwy,data=mpg,geom="density", color=drv)
@@ -267,6 +264,12 @@ setwd("/home/joswi05/Dropbox/Josef/732G33 josef/labbar/spatial")
 dir()
 # läsa in data
 sweMap <- readShapePoly("Lan_SCB_07")
+Encoding(as.character(sweMap@data$LNNAMN))<-"latin1" 
+
+as.character(sweMap@data$LNNAMN)
+
+is.factor(sweMap@data$LNNAMN)
+
 ?readShapePoly
 str(sweMap)
 # ladda ner data med län med sweSCB:
@@ -280,7 +283,7 @@ sweMap@data[,1]
 dim(sweMap@data)
 sweMap@data<-cbind(sweMap@data,hej=rnorm(21))
 spplot(sweMap,"hej")
-
+  
 sweMap@data<-cbind(sweMap@data,number=seq(0,300,length.out=21))
 spplot(sweMap,"number")
 
@@ -290,6 +293,20 @@ sweMap@data<-cbind(sweMap@data,density=x)
 spplot(sweMap,"density")
 
 
+setwd("/home/joswi05/Dropbox/Rkurs/KursRprgm/Labs/DataFiles")
+
+# följande fil ligger på kurshemsidan, där ni hittar filer till labbarna.
+bokbuss<-read.csv(file="bokbusar.csv",encoding="latin1")
+names(bokbuss)
+
+library(stringr)
+ID<-factor(str_sub(bokbuss$region,start=1,end=2))
+bok<-data.frame(bokbussar=bokbuss$X2012,ID=ID)
+temp<-base::merge(x=sweMap@data,y=bok,by.x="LNKOD",by.y="ID")
+sweMap@data<-temp
+
+# Hur många bokbussar finnas i det i olika län?
+spplot(sweMap,"bokbussar")
 
 
 

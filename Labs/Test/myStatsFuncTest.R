@@ -4,6 +4,7 @@
 # source("/home/joswi05/Dropbox/Josef/732G33 josef/labbar/från  labbass/test_student.R")
 
 test_that("Assignment: myStatsFunc()", {
+  
   x1<-c(1,3,56,3) 
   x2<-c("a","b","a","c")
   x3<-rep(TRUE,4)

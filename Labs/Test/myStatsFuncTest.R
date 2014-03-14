@@ -50,24 +50,24 @@ test_that("Assignment: myStatsFunc()", {
 
 
   # 1: inga variabler
-  expect_equal(myStatsFunc(myDataSet=optionsTest1$dataSet,
+  expect_equivalent(myStatsFunc(myDataSet=optionsTest1$dataSet,
                            numericFunc=optionsTest1$numericFunc,categoricFunc=optionsTest1$categoricFunc),testOutput1,
                             info = "Klarar inte av fallet med varken numeric eller character variabler.")
   # 2: bara numeriska variabler
-  expect_equal(myStatsFunc(myDataSet=optionsTest2$dataSet,
+  expect_equivalent(myStatsFunc(myDataSet=optionsTest2$dataSet,
                            numericFunc=optionsTest2$numericFunc,categoricFunc=optionsTest2$categoricFunc),testOutput2,
                             info = "Klarar inte av fallet med bara numeriska variabler")
   # 3: bara character variabler
-  expect_equal(myStatsFunc(myDataSet=optionsTest3$dataSet,
+  expect_equivalent(myStatsFunc(myDataSet=optionsTest3$dataSet,
                          numericFunc=optionsTest3$numericFunc,categoricFunc=optionsTest3$categoricFunc),testOutput3,
                           info = "Klarar inte av fallet med bara character/factor variabler")
   # 4: Både numeric och character
-  expect_equal(myStatsFunc(myDataSet=optionsTest4$dataSet,
+  expect_equivalent(myStatsFunc(myDataSet=optionsTest4$dataSet,
                          numericFunc=optionsTest4$numericFunc,categoricFunc=optionsTest4$categoricFunc),testOutput4,
                           info = "Klarar inte av fallet med flera numeric variabler och flera character/factor variabler")
 
   # 5: Bara en numeric och och en character
-  expect_equal(myStatsFunc(myDataSet=optionsTest5$dataSet,
+  expect_equivalent(myStatsFunc(myDataSet=optionsTest5$dataSet,
                          numericFunc=optionsTest5$numericFunc,categoricFunc=optionsTest5$categoricFunc),testOutput5,
                           info = "Klarar inte av fallet med en numeric variabel och en character/factor variabel") 
   setwd(oldWD)

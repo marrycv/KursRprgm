@@ -69,5 +69,6 @@ test_that("Assignment: subPlotFunc()", {
 
 
   setwd(oldWD)
-})
+  }
+)
 

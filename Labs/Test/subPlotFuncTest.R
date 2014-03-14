@@ -32,7 +32,7 @@ test_that("Assignment: subPlotFunc()", {
   
   
   textError<-paste("Klarar inte test 1 (se labbinstruktionen). Bilden är ",(round(resTest1$relativeError,4)*100)," % korrekt.")
-  expect_true(object=resTest1$relativeError>0.999,info="textError")
+  expect_true(object=resTest1$relativeError>0.999,info=textError)
   
 #   expect_equal(studentPlot1,testPlot1,
 #              info = "Klarar inte test 1 (se labbinstruktionen).")

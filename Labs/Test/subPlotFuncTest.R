@@ -5,6 +5,7 @@
 
 test_that("Assignment: subPlotFunc()", {
   
+  browser()
 
   expect_that(subPlotFunc, is_a("function"),
               info = "Fel: subPlotFunc är inte en funktion.")

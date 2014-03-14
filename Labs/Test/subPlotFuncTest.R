@@ -31,31 +31,36 @@ test_that("Assignment: subPlotFunc()", {
   resTest1<-compareImages(imageOrginal=testPlot1,imageStudent=studentPlot1)
   
   
-  textError<-paste("Klarar inte test 1 (se labbinstruktionen). Bilden är ",(round(resTest1$relativeError,4)*100)," % korrekt.")
-  expect_true(object=resTest1$relativeError>0.999,info=textError)
+  textError<-paste("Klarar inte test 1 (se labbinstruktionen). Bilden är ",(round(resTest1$relaviteCorrect,4)*100)," % korrekt.")
+  expect_true(object=resTest1$relaviteCorrect>0.999,info=textError)
   
 #   expect_equal(studentPlot1,testPlot1,
 #              info = "Klarar inte test 1 (se labbinstruktionen).")
 #   image(abs(studentPlot1-testPlot1))
 
   # 2:  testar att med icke konsistenta argument
-#   test2String<-"Argumenten funkar ej tillsammans"
-#   #prints_text(regexp=test2String,subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8))
-#   expect_output(subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8),regexp=test2String,
-#                 info="Klarar inte test 2 (se labbinstruktionen). Rätt text skrivs inte ut till konsolen.")
-# 
-# 
-#   # 3:  1 rader och 3 kolumner
-#   studentPlot3<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions3$myData,rowLength=plotOptions3$rowLength,
-#                                    colLength=plotOptions3$colLength,myOrder=plotOptions3$myOrder)
-#   expect_equal(studentPlot3,testPlot3,
-#              info = "Klarar inte test 3 (se labbinstruktionen).")
-# 
-#   # 4:  2 rader och 3 kolumner
-#   studentPlot4<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions4$myData,rowLength=plotOptions4$rowLength,
-#                                    colLength=plotOptions4$colLength,myOrder=plotOptions4$myOrder)
+  test2String<-"Argumenten funkar ej tillsammans"
+  #prints_text(regexp=test2String,subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8))
+  expect_output(subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8),regexp=test2String,
+                info="Klarar inte test 2 (se labbinstruktionen). Rätt text skrivs inte ut till konsolen.")
+
+  # 3:  1 rader och 3 kolumner
+  studentPlot3<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions3$myData,rowLength=plotOptions3$rowLength,
+                                   colLength=plotOptions3$colLength,myOrder=plotOptions3$myOrder)
+  #   expect_equal(studentPlot3,testPlot3,
+  #              info = "Klarar inte test 3 (se labbinstruktionen).")
+  resTest3<-compareImages(imageOrginal=testPlot3,imageStudent=studentPlot3)
+  textError<-paste("Klarar inte test 1 (se labbinstruktionen). Bilden är ",(round(resTest3$relaviteCorrect,4)*100)," % korrekt.")
+  expect_true(object=resTest1$relaviteCorrect>0.999,info=textError)
+
+  # 4:  2 rader och 3 kolumner
+  studentPlot4<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions4$myData,rowLength=plotOptions4$rowLength,
+                                   colLength=plotOptions4$colLength,myOrder=plotOptions4$myOrder)
 #   expect_equal(studentPlot3,testPlot3,
 #              info = "Klarar inte test 4 (se labbinstruktionen).")
+  resTest4<-compareImages(imageOrginal=testPlot4,imageStudent=studentPlot4)
+  textError<-paste("Klarar inte test 1 (se labbinstruktionen). Bilden är ",(round(resTest4$relaviteCorrect,4)*100)," % korrekt.")
+  expect_true(object=resTest4$relaviteCorrect>0.999,info=textError)
 
   }
 )

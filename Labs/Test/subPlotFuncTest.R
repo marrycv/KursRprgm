@@ -4,8 +4,6 @@
 # source("/home/joswi05/Dropbox/Josef/732G33 josef/labbar/från  labbass/test_student.R")
 
 test_that("Assignment: subPlotFunc()", {
-  
-  browser()
 
   expect_that(subPlotFunc, is_a("function"),
               info = "Fel: subPlotFunc är inte en funktion.")

@@ -39,23 +39,23 @@ test_that("Assignment: subPlotFunc()", {
 #   image(abs(studentPlot1-testPlot1))
 
   # 2:  testar att med icke konsistenta argument
-  test2String<-"Argumenten funkar ej tillsammans"
-  #prints_text(regexp=test2String,subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8))
-  expect_output(subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8),regexp=test2String,
-                info="Klarar inte test 2 (se labbinstruktionen). Rätt text skrivs inte ut till konsolen.")
-
-
-  # 3:  1 rader och 3 kolumner
-  studentPlot3<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions3$myData,rowLength=plotOptions3$rowLength,
-                                   colLength=plotOptions3$colLength,myOrder=plotOptions3$myOrder)
-  expect_equal(studentPlot3,testPlot3,
-             info = "Klarar inte test 3 (se labbinstruktionen).")
-
-  # 4:  2 rader och 3 kolumner
-  studentPlot4<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions4$myData,rowLength=plotOptions4$rowLength,
-                                   colLength=plotOptions4$colLength,myOrder=plotOptions4$myOrder)
-  expect_equal(studentPlot3,testPlot3,
-             info = "Klarar inte test 4 (se labbinstruktionen).")
+#   test2String<-"Argumenten funkar ej tillsammans"
+#   #prints_text(regexp=test2String,subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8))
+#   expect_output(subPlotFunc(myData=plotOptions1$myData,rowLength=3,colLength=1,myOrder=1:8),regexp=test2String,
+#                 info="Klarar inte test 2 (se labbinstruktionen). Rätt text skrivs inte ut till konsolen.")
+# 
+# 
+#   # 3:  1 rader och 3 kolumner
+#   studentPlot3<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions3$myData,rowLength=plotOptions3$rowLength,
+#                                    colLength=plotOptions3$colLength,myOrder=plotOptions3$myOrder)
+#   expect_equal(studentPlot3,testPlot3,
+#              info = "Klarar inte test 3 (se labbinstruktionen).")
+# 
+#   # 4:  2 rader och 3 kolumner
+#   studentPlot4<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions4$myData,rowLength=plotOptions4$rowLength,
+#                                    colLength=plotOptions4$colLength,myOrder=plotOptions4$myOrder)
+#   expect_equal(studentPlot3,testPlot3,
+#              info = "Klarar inte test 4 (se labbinstruktionen).")
 
   }
 )

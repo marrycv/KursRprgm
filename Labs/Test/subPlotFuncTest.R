@@ -29,7 +29,8 @@ test_that("Assignment: subPlotFunc()", {
   studentPlot1<-createMatrixFromPlot(plotCode=subPlotFunc,myData=plotOptions1$myData,rowLength=plotOptions1$rowLength,
                                    colLength=plotOptions1$colLength,myOrder=plotOptions1$myOrder)
   resTest1<-compareImages(imageOrginal=testPlot1,imageStudent=studentPlot1)
-  (round(resTest1$relativeError,4)*100)
+  
+  
   textError<-paste("Klarar inte test 1 (se labbinstruktionen). Bilden är ",(round(resTest1$relativeError,4)*100)," % korrekt.")
   expect_true(object=resTest1$relativeError>0.999,info="textError")
   

@@ -1,7 +1,7 @@
 ### Assignment : giveBlood() ###
 # rm(list=ls())
 # library(testthat)
-# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/inl6_grupp3.R")
+#source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/lab6_grupp11.R")
 # source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R")
 
 test_that("Assignment: giveBlood()", {

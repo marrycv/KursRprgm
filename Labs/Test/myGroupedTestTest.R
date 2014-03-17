@@ -2,6 +2,7 @@
 # rm(list=ls())
 # library(testthat)
 # source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/emmajosef6_grupp14.R")
+# source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R")
 
 test_that("Assignment: myGroupedTest()", {
   

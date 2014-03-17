@@ -1,10 +1,10 @@
-### Assignment : sumOfRandomDice() ###
+### Assignment : giveBlood() ###
 # rm(list=ls())
 # library(testthat)
 # source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/inl 6_grupp3.R")
 # source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R")
 
-test_that("Assignment: sumOfRandomDice()", {
+test_that("Assignment: giveBlood()", {
   
   # ladda in test-data:
   load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata")

@@ -17,7 +17,7 @@
 #' @export
 
 
-markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir = NULL){
+markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir = NULL, encoding = "latin1"){
   
   # Assertions
   stopifnot(file.exists(dirPath),
@@ -39,13 +39,13 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
   # Get list of files to Mark
   filesToMark <- dir(dirPath)
   
-  # Test to source files to check for errors fileToMark <- filesToMark[1]
+  # Test to source files to check for errors
   errors <- FALSE 
   for (fileToMark in filesToMark){
     cat(fileToMark, sep="")
     res <- 
       try(expr=suppressWarnings(
-        .sourceTest(path = paste(dirPath, fileToMark, sep=""),
+        .sourceTest(path = paste(dirPath, fileToMark, sep=""), encoding = encoding,
                     assignments = c(assignments,"Namn", "LiuId"))), silent=TRUE)
     if(class(res)=="try-error") {
       message(res[1])
@@ -66,7 +66,7 @@ markDirectory <- function(assignments, dirPath, testFilesDir = NULL, sinkToDir =
     cat(fileToMark, "\n")
     rm(list=ls(envir=.GlobalEnv), 
        envir=.GlobalEnv)
-    source(file = paste(dirPath, fileToMark, sep=""), local = .GlobalEnv, encoding="latin1")
+    source(file = paste(dirPath, fileToMark, sep=""), local = .GlobalEnv, encoding=encoding)
     if(!is.null(sinkToDir)) sink(file=paste(sinkToDir, paste(LiuId,collapse="_"), ".txt", sep=""))    
     cat("Filename:",fileToMark,"\n")
     cat("Namn:", Namn,"\n")

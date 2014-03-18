@@ -43,7 +43,7 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, enc
   }
     
   # Test general tasks
-  .testTask("general", cache=cache, encoding=encoding)
+  .testTask("general", cache=cache)
   
   # Choose actual object, move it to test enviroment
   for (assignment in assignments){

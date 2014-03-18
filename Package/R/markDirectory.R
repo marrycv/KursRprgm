@@ -8,6 +8,7 @@
 #' @param dirPath The path to the directori
 #' @param testFilesDir a folder with test files (testfiles must end with 'Test.R')
 #' @param sinkToDir a folder where to sink student comments
+#' @param encoding Encoding of all files that are sourced
 #' 
 #' @details The function will mark the assignment given in \code{assignments}. 
 #' As a first step all files are checked to see that the files are OK to source. If

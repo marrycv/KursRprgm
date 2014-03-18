@@ -10,13 +10,13 @@ test_that("Assignment: giveBlood()", {
   # ladda in test-data:
   load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata",encoding="latin1")
     
-  # övergripande om funktionen:
+  # Ã¶vergripande om funktionen:
   expect_that(giveBlood, is_a("function"),
-              info = "Fel: giveBlood är inte en funktion.")
+              info = "Fel: giveBlood Ã¤r inte en funktion.")
   expect_that(all(names(formals(giveBlood)) %in% c("lasttime","holiday","sex","typeOfTravel")), condition=is_true(),
-              info = "Fel: Namnen på argumenten i funktionen är fel.")
+              info = "Fel: Namnen pÃ¥ argumenten i funktionen Ã¤r fel.")
   expect_that(do.call(what=giveBlood,args=bloodOptions1Female), is_a("character"),
-              info = "Fel: Funktionen returnerar inte en text-sträng")
+              info = "Fel: Funktionen returnerar inte en text-strÃ¤ng")
   
   # testfall:
   

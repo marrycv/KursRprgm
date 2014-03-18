@@ -1,6 +1,7 @@
 ### Assignment : giveBlood() ###
 # rm(list=ls())
 # library(testthat)
+
 #source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/lab6_grupp11.R")
 # source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R")
 
@@ -9,13 +10,13 @@ test_that("Assignment: giveBlood()", {
   # ladda in test-data:
   load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata")
     
-  # Ã¶vergripande om funktionen:
+  # övergripande om funktionen:
   expect_that(giveBlood, is_a("function"),
-              info = "Fel: giveBlood Ã¤r inte en funktion.")
+              info = "Fel: giveBlood är inte en funktion.")
   expect_that(all(names(formals(giveBlood)) %in% c("lasttime","holiday","sex","typeOfTravel")), condition=is_true(),
-              info = "Fel: Namnen pÃ¥ argumenten i funktionen Ã¤r fel.")
+              info = "Fel: Namnen på argumenten i funktionen är fel.")
   expect_that(do.call(what=giveBlood,args=bloodOptions1Female), is_a("character"),
-              info = "Fel: Funktionen returnerar inte en text-strÃ¤ng")
+              info = "Fel: Funktionen returnerar inte en text-sträng")
   
   # testfall:
   

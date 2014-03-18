@@ -8,7 +8,7 @@
 test_that("Assignment: giveBlood()", {
   
   # ladda in test-data:
-  load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata",encoding="latin1")
+  load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata")
     
   # övergripande om funktionen:
   expect_that(giveBlood, is_a("function"),

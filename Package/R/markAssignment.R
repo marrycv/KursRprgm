@@ -7,13 +7,14 @@
 #' @param assignments The assignment(s) to mark / check. Can be a vector of multiple assignments.
 #' @param filePath The path to the file with the suggested solution.
 #' @param cache Should testfiles be stored locally temporarily (for slow internet connections).
+#' @param encoding Encoding of all files that are sourced
 #' 
 #' @details The function will mark the assignment given in  
 #' 
 #' @export
 
 
-markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE){
+markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, encoding="latin1"){
   # Assertions
   stopifnot(file.exists(filePath), is.character(assignments))
     
@@ -22,7 +23,7 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE){
 
   # Check if it is possible to source the file 
   # and that the file contains the assignments to test
-  redundant <- .sourceTest(path = filePath, assignments = assignments)
+  redundant <- .sourceTest(path = filePath, assignments = assignments, encoding)
   
   # Saving the current workspace (temp)
   tempImage <- tempfile(pattern="image",fileext=".Rdata")
@@ -33,7 +34,7 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE){
      envir=.GlobalEnv)
   
   # Read in the source file into source enviroment
-  res <- try(source(file = filePath, local = .GlobalEnv))
+  res <- try(source(file = filePath, local = .GlobalEnv, encoding=encoding))
   if(class(res)=="try-error") {
     rm(list=ls(envir=.GlobalEnv), envir=.GlobalEnv)
     load(file=tempImage, envir=.GlobalEnv)
@@ -42,7 +43,7 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE){
   }
     
   # Test general tasks
-  .testTask("general", cache=cache)
+  .testTask("general", cache=cache, encoding=encoding)
   
   # Choose actual object, move it to test enviroment
   for (assignment in assignments){
@@ -56,14 +57,14 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE){
   unlink(tempImage)
 }
 
-.sourceTest <- function(path, assignments){
+.sourceTest <- function(path, assignments, encoding){
   stopifnot(is.character(path), is.character(assignments))
   
   # Try to source the code
   res <- try(
     suppressMessages(
       suppressWarnings(
-        source(path, echo=FALSE, local=TRUE, encoding="latin1")
+        source(path, echo=FALSE, local=TRUE, encoding=encoding)
         )
       )
     )

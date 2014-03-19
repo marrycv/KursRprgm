@@ -9,17 +9,17 @@ test_that("Assignment: MyOLS()", {
   # ladda in test-data:
   load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/OLStestData.Rdata")
   
-  # ÷vergripande om funktionen:
+  # √ñvergripande om funktionen:
   expect_that(MyOLS, is_a("function"),
-              info = "Fel: MyOLS ‰r inte en funktion.")
+              info = "Fel: MyOLS √§r inte en funktion.")
   expect_that(all(names(formals(MyOLS)) %in% c("X","y")), condition=is_true(),
-              info = "Fel: Namnen pÂ argumenten i funktionen ‰r fel.")
+              info = "Fel: Namnen p√• argumenten i funktionen √§r fel.")
   expect_that(do.call(what=MyOLS,args=OLSoptions1), is_a("list"),
-              info = "Fel: Funktionen returnerar inte en text-str√§ng")
+              info = "Fel: Funktionen returnerar inte en text-str√É¬§ng")
   
   # testfall:
   
-  # testfall 1: tvÂ x variabler:
+  # testfall 1: tv√• x variabler:
   expect_equal(do.call(MyOLS,OLSoptions1),OLSresult1,
                info =OLSerror1)
   

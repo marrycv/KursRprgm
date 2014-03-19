@@ -33,22 +33,73 @@
 Programmering i R
 ========================================================
 transition: rotate
-## FÃ¶relÃ¤sning 9: Paket,grafik och statistik
-### [Josef WilzÃ©n](mailto:josef.wilzen@liu.se)
+## Föreläsning 9: Sammanfattning och repetition
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 
-Avdelningen fÃ¶r statistik,
-LinkÃ¶pings universitet
+Avdelningen för statistik,
+Linköpings universitet
 
-Dagens fÃ¶relÃ¤sning:
+Dagens föreläsning:
 ========================================================
 
+- Inför tentan
+- Återkoppling til kursmålen
 - Feedback
-- Repetion
+- Genomgång av gammal tenta
+
+Inför tentan
+========================================================
+- Tenta i datorsal (4 h), regler finns [[här]]() 
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
+- Hjälpmedel: 
+  - Den inbyggda hjälpen i R (ej internet)
+  - R reference card v.2 av Matt Baggot, laddas ner [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), 
+- Tenta, R reference card och eventualla dataset kommer ni att få tillgäng till elektroniskt (ta inte med några papper)
+- Vid tentan kommer ni fä ett specifikt användarnamn och lösenord som ni använder för att logga in.
+ 
+ 
+Återkoppling til kursmålen
+========================================================
+Kursen baseras på [[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_detail_print_sv.lasso?&ID=2017074).
+Från målen:
+
+"Efter avslutad kurs skall den studerande kunna:
+skapa enkla program i programspråket R med hjälp av grundläggande programmeringstekniker som inläsning och utskrift av data, tilldelning och manipulation av datastrukturer, skriva egna funktioner, upprepningar och villkorsstyrda satser."
+
+
+Återkoppling til kursmålen
+========================================================
+Från kursinnehåll:
+
+Kursen ger en allmän introduktion till programmering med speciell fokus på programspråket R. Exempel på områden som behandlas i kursen:
+- Orientering om olika typer av programspråk
+- Inläsning och utskrift av data
+- Datastrukturer, funktioner och objekt
+- Upprepning och villkorsstyrda satser
+- Statistik och grafik i R 
+
+
+Återkoppling til kursmålen
+========================================================
+Kursen kommer behandla statistiskt programmering i R. Kursen ger en introduktion till bland annat:
+
+- Installera och använda R / R-Studio.
+- Att använda hjälpen i R / R-studio.
+- Importera och exportera data
+- Datatyper
+- Funktioner
+- Programmeringsteknik
+- Matrisoperationer
+- Strängar och datum
+- Statistik och grafik
+- Installera och använda R-paket
 
 Feedback:
 ========================================================
 
-Labb 7: Kommentarer och frÃ¥gor
+- Labb 5: Kommentarer och frågor
+- Labb 6: Kommentarer och frågor
 
-Repetion
+Genomgång av gammal tenta
 ========================================================
+Tentan från 2013-06-04, den återfinns [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams/20130604)

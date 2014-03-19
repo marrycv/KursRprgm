@@ -1,10 +1,12 @@
 ### Assignment : giveBlood() ###
 # rm(list=ls())
 # library(testthat)
-#source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/lab6_grupp11.R")
-# source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R")
+# 
+# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/lab6_grupp11.R",encoding="latin1")
+# source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R",encoding="latin1")
 
 test_that("Assignment: giveBlood()", {
+  
   
   # ladda in test-data:
   load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata")

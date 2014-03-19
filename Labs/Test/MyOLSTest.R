@@ -1,42 +1,38 @@
 ### Assignment : MyOLS() ###
 # rm(list=ls())
 # library(testthat)
-# 
-# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/lab6_grupp11.R",encoding="latin1")
 # source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_7.R",encoding="latin1")
 
 test_that("Assignment: MyOLS()", {
   
   
   # ladda in test-data:
-  load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/testGiveBlood.Rdata")
+  load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/OLStestData.Rdata")
   
-  # Ã¶vergripande om funktionen:
-  expect_that(giveBlood, is_a("function"),
-              info = "Fel: giveBlood Ã¤r inte en funktion.")
-  expect_that(all(names(formals(giveBlood)) %in% c("lasttime","holiday","sex","typeOfTravel")), condition=is_true(),
-              info = "Fel: Namnen pÃ¥ argumenten i funktionen Ã¤r fel.")
-  expect_that(do.call(what=giveBlood,args=bloodOptions1Female), is_a("character"),
+  # Övergripande om funktionen:
+  expect_that(MyOLS, is_a("function"),
+              info = "Fel: MyOLS är inte en funktion.")
+  expect_that(all(names(formals(MyOLS)) %in% c("X","y")), condition=is_true(),
+              info = "Fel: Namnen på argumenten i funktionen är fel.")
+  expect_that(do.call(what=MyOLS,args=OLSoptions1), is_a("list"),
               info = "Fel: Funktionen returnerar inte en text-strÃ¤ng")
   
   # testfall:
   
-  # testfall 1:
-  expect_equal(do.call(giveBlood,bloodOptions1Male),resBlood1Male,
-               info = errorInfo(parameters=bloodOptions1Male,funcName="giveBlood"))
-  expect_equal(do.call(giveBlood,bloodOptions1Female),resBlood1Female,
-               info = errorInfo(parameters=bloodOptions1Female,funcName="giveBlood"))
+  # testfall 1: två x variabler:
+  expect_equal(do.call(MyOLS,OLSoptions1),OLSresult1,
+               info =OLSerror1)
   
-  # testfall 2:
-  expect_equal(do.call(giveBlood,bloodOptions2Male),resBlood2Male,
-               info = errorInfo(parameters=bloodOptions2Male,funcName="giveBlood"))
-  expect_equal(do.call(giveBlood,bloodOptions2Female),resBlood2Female,
-               info = errorInfo(parameters=bloodOptions2Female,funcName="giveBlood"))
+  # testfall 2: google data:
+  expect_equal(do.call(MyOLS,OLSoptions2),OLSresult2,
+               info =OLSerror2)
   
-  # testfall 4:
-  expect_equal(do.call(giveBlood,bloodOptions3Male),resBlood3Male,
-               info = errorInfo(parameters=bloodOptions3Male,funcName="giveBlood"))
-  expect_equal(do.call(giveBlood,bloodOptions3Female),resBlood3Female,
-               info = errorInfo(parameters=bloodOptions3Female,funcName="giveBlood"))
+  # testfall 3: en x variabel:
+  expect_equal(do.call(MyOLS,OLSoptions3),OLSresult3,
+               info =OLSerror3)
+  
+  # testfall 4: t(X)X ej inverterbar:
+  expect_equal(do.call(MyOLS,OLSoptions4),OLSresult4,
+               info =OLSerror4)
   
 })

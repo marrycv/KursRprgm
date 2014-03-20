@@ -11,18 +11,18 @@ test_that("Assignment: WordCount()", {
   # ladda in test-data:
   load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/countTestData.Rdata")
   
-  # Övergripande om funktionen:
+  # Ã–vergripande om funktionen:
   
-#   expect_that(WordCount, is_a("function"),
-#               info = "Fel: WordCount är inte en funktion.")
-#   expect_that(all(names(formals(WordCount)) %in% c("text")), condition=is_true(),
-#               info = "Fel: Namnen på argumenten i funktionen är fel.")
-#   expect_that(WordCount(text=countOptions1$text), is_a("data.frame"),
-#               info = "Fel: Funktionen returnerar inte en data.frame")
+  expect_that(WordCount, is_a("function"),
+              info = "Fel: WordCount Ã¤r inte en funktion.")
+  expect_that(all(names(formals(WordCount)) %in% c("text")), condition=is_true(),
+              info = "Fel: Namnen pÃ¥ argumenten i funktionen Ã¤r fel.")
+  expect_that(WordCount(text=countOptions1$text), is_a("data.frame"),
+              info = "Fel: Funktionen returnerar inte en data.frame")
   
   # testfall:
   
-  # Testar på en nonsenstext:
+  # Testar pÃ¥ en nonsenstext:
   expect_equal(WordCount(text=countOptions1$text),countResult1,
                info =countError1)
   expect_output(WordCount(text=countOptions1$text),regexp=countResultText1,

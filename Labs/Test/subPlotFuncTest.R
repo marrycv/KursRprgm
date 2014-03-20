@@ -30,7 +30,7 @@ test_that("Assignment: subPlotFunc()", {
                                    colLength=plotOptions1$colLength,myOrder=plotOptions1$myOrder)
   resTest1<-compareImages(imageOrginal=testPlot1,imageStudent=studentPlot1)
   
-  textError<-paste("Testar test 1 (se labbinstruktionen). Bilden Ã¤r ",(round(resTest1$relaviteCorrect,4)*100)," % korrekt.")
+  textError<-paste("Testar test 1 (se labbinstruktionen). Bilden är ",(round(resTest1$relaviteCorrect,4)*100)," % korrekt.")
   expect_true(object=resTest1$relaviteCorrect>0.999,info=textError)
   
 #   expect_equal(studentPlot1,testPlot1,

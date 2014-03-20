@@ -4,7 +4,7 @@
 # source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_7.R",encoding="latin1")
 #  
 # source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/D7_Grupp5.R",encoding="latin1")
-# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/lab7_grupp11.R",encoding="latin1")
+# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/labb7_grupp6.R",encoding="latin1")
 
 test_that("Assignment: henify()", {
   

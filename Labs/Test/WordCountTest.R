@@ -22,23 +22,23 @@ test_that("Assignment: WordCount()", {
   # testfall:
   
   # Testar på en nonsenstext:
-  expect_equal(WordCount(text=countOptions1$text),countResult1,
-               info =countError1)
-  expect_output(WordCount(text=countOptions1$text),regexp=countResultText1,
-                info=countErrorText1)
-  
-  
-  # Testfall 1 i labben:
-  expect_equal(WordCount(text=countOptions2$text),countResult2,
-               info =countError2)
-  expect_output(WordCount(text=countOptions2$text),regexp=countResultText2,
-                info=countErrorText2)
-  
-  # Testfall 2 i labben:
-  expect_equal(WordCount(text=countOptions3$text),countResult3,
-               info =countError3)
-  expect_output(WordCount(text=countOptions3$text),regexp=countResultText3,
-                info=countErrorText3)
+#   expect_equal(WordCount(text=countOptions1$text),countResult1,
+#                info =countError1)
+#   expect_output(WordCount(text=countOptions1$text),regexp=countResultText1,
+#                 info=countErrorText1)
+#   
+#   
+#   # Testfall 1 i labben:
+#   expect_equal(WordCount(text=countOptions2$text),countResult2,
+#                info =countError2)
+#   expect_output(WordCount(text=countOptions2$text),regexp=countResultText2,
+#                 info=countErrorText2)
+#   
+#   # Testfall 2 i labben:
+#   expect_equal(WordCount(text=countOptions3$text),countResult3,
+#                info =countError3)
+#   expect_output(WordCount(text=countOptions3$text),regexp=countResultText3,
+#                 info=countErrorText3)
   
   
 })

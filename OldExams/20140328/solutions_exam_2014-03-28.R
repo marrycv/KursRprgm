@@ -84,6 +84,11 @@ year2014<-seq(from=day1,by="day",length.out=365)
 # c)
 #weekdays(year2014)
 weekends<-year2014[c(FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE)]
+
+# alt:
+
+index<-wday(year2014)==1|wday(year2014)==7
+weekends<-year2014[index]
 #weekdays(weekends)
 #length(weekends)
 

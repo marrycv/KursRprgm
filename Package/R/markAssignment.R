@@ -11,6 +11,12 @@
 #' 
 #' @details The function will mark the assignment given in  
 #' 
+#' @examples
+#' \dontrun{
+#' assignments <- c("leapYear", "matrixTrace", "fastAnalysis")
+#' filePath <- "/Users/manma97/Downloads/D2.R"
+#' markAssignment(assignments=assignments, filePath=filePath, cache=FALSE)
+#' }
 #' @export
 
 

@@ -46,11 +46,11 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, enc
     rm(list=ls(envir=.GlobalEnv), envir=.GlobalEnv)
     load(file=tempImage, envir=.GlobalEnv)
     unlink(tempImage)
-    stop("Filen kan inte läsas utan fel.", call.=FALSE)
+    stop("File can't be read without errors.", call.=FALSE)
   }
     
   # Test general tasks
-  .testTask("general", cache=cache)
+  .testTask(task="general", cache=cache)
   
   # Choose actual object, move it to test enviroment
   for (assignment in assignments){
@@ -88,7 +88,7 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, enc
         )
       )
     )
-  if(class(res) == "try-error") stop("The file couln't be read without error.", call.=FALSE)
+  if(class(res) == "try-error") stop("The file couln't be read without error. \nTry 'Source' button in R-Studio.", call.=FALSE)
 
   # Check for objects
   inFile <- assignments %in% ls()

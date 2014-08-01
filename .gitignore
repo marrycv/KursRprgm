@@ -11,3 +11,4 @@ F*_files
 F*-figure
 *cache*
 *figure*
+*.Rapp.*

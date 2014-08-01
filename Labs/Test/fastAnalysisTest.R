@@ -3,8 +3,9 @@ test_that("Assignment: fastAnalysis()", {
 
   # Ladda ned data för att testa funktionen på
   testFile <- tempfile(pattern="TestFile", fileext=".csv")
-  download.file(url="https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/Apple.csv", 
-                destfile=testFile, method="curl", quiet=TRUE)
+  library(downloader)
+  download(url="https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/Apple.csv", 
+           destfile=testFile, quiet=TRUE)
     
   expect_that(fastAnalysis, is_a("function"),
               info = "Fel: fastAnalysis är inte en funktion.")

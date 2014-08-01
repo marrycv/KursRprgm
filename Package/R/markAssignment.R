@@ -23,7 +23,8 @@
 markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, encoding="latin1"){
   # Assertions
   stopifnot(file.exists(filePath), is.character(assignments))
-    
+  library(downloader)
+  
   # Check to see the filenames at the githubRepo
   .checkTestFiles(assignments)
 
@@ -100,8 +101,8 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, enc
       testFile <- paste(tempdir(), "/", cachedFile, sep="")
     } else {
       testFile <- tempfile(pattern=paste("Test",toupper(task),sep=""), fileext=".R")
-      download.file(url=paste(gitHubPath, task, "Test.R", sep=""), 
-                    destfile=testFile, method="curl", quiet=TRUE)
+      download(url=paste(gitHubPath, task, "Test.R", sep=""), 
+               destfile=testFile, quiet=TRUE)
     }
   } else {
     testFile <- paste(testfolder, "/", task, "Test.R", sep = "")

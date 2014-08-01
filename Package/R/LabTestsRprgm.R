@@ -1,10 +1,10 @@
-#' @title LabTestsRprgrm
+#' @title LabTestsRprgm
 #' 
-#' @description Testing assignments in the cours R programming
+#' @description Testing assignments in the course R programming
 #' 
 #' @section Test
 #
-#' @name LabTestsRprgrm
+#' @name LabTestsRprgm
 #' @docType package
 
 

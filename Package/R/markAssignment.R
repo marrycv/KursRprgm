@@ -64,6 +64,19 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, enc
   unlink(tempImage)
 }
 
+
+
+
+#' @title .sourceTest
+#' 
+#' @description 
+#' Check if it is possible to source the file and that the file contains the assignments to test
+#'
+#' @param path Path to file to mark
+#' @param assignments assignments to mark (as character vector)
+#' @param encoding encoding of source file 
+#' 
+#' 
 .sourceTest <- function(path, assignments, encoding){
   stopifnot(is.character(path), is.character(assignments))
   
@@ -91,6 +104,17 @@ markAssignment <- function(assignments, filePath=file.choose(), cache=FALSE, enc
 }
 
 
+
+#' @title .testTask
+#' 
+#' @description 
+#' Test a task by downloading testfile from github and run tests
+#' 
+#' @param task Task to run tests on
+#' @param testFolder If the testfiles are in a local folder, the path to this folder
+#' @param cache Should the testfiles be stored locally temporarily?
+#' 
+#' 
 
 .testTask <- function(task, testfolder = NULL, cache = FALSE){
 

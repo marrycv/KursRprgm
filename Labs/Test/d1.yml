@@ -1,0 +1,21 @@
+assignment  : D1
+description : Lab 1 in course introduction to R programming.
+tasks:
+  uppgift1:
+    test_url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift1Test.R
+  uppgift2:
+    test_url:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift2Test.R
+  uppgift3:
+    test_url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift3Test.R
+  uppgift4:
+    test_url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift4Test.R
+  uppgift5:
+    test_url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift5Test.R
+mandatory:
+  test_url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/mandatory.R

@@ -1,6 +1,6 @@
 ### Assignment structure ###
 
-context("Lab file information:")
+context("Lab file information")
 
 test_that("Mandatory objects", {
   expect_true(exists("Namn"))

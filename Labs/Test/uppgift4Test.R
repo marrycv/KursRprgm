@@ -1,5 +1,7 @@
 ### Assignment : uppgift4 ###
 
+context("uppgift4()")
+
 test_that("Kontroll av uppgift4.", {
   expect_that(uppgift4, is_a("function"),
               info = "Fel: uppgift4 är inte en funktion.")

@@ -1,4 +1,5 @@
-assignment  : D1
+# Assignment D1
+name  : D1
 description : Lab 1 in course introduction to R programming.
 tasks:
   uppgift1:

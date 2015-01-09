@@ -1,11 +1,12 @@
 ### Assignment structure ###
 
-context("Lab file information")
+context("Labbinformation: ")
 
-test_that("Mandatory objects", {
-  expect_true(exists("Namn"))
-  expect_true(exists("LiuId"))
-  expect_is(Namn, "character")
-  expect_is(LiuId, "character")
+test_that("Obligatoriska object", {
+  expect_true(exists("Namn"), info = "Variabeln 'Namn' saknas.")
+  expect_true(exists("LiuId"), info = "Variabeln 'LiuId' saknas.")
+  expect_is(Namn, "character", info = "Variabeln 'Namn' är inte en textvariabel.")
+  expect_is(LiuId, "character", info = "Variabeln 'LiuId' är inte en textvariabel.")
 })
 
+library(testthat)

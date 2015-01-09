@@ -1,22 +1,22 @@
 # Assignment D1
 name  : D1
-description : Lab 1 in course introduction to R programming.
+description : "Statistisk programmering med R: Lab 1 "
 tasks:
-  uppgift1:
+  three_elements:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift1Test.R
-  uppgift2:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/three_elements_tests.R
+  mult_first_last:
     url:
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift2Test.R
-  uppgift3:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/mult_first_last_tests.R
+  orth_scalar_prod:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift3Test.R
-  uppgift4:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/orth_scalar_prod_tests.R
+  lukes_father:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift4Test.R
-  uppgift5:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/lukes_father_tests.R
+  approx_e:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/uppgift5Test.R
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/approx_e_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Test/mandatory.R
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

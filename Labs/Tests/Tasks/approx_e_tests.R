@@ -3,6 +3,8 @@
 context("approx_e()")
 
 test_that("Kontroll av approx_e.", {
+  expect_that(exists("approx_e"), is_true(),
+              info = "Fel: approx_e() saknas.")
   expect_that(approx_e, is_a("function"),
               info = "Fel: approx_e är inte en funktion.")
   expect_that(all(names(formals(approx_e)) %in% c("N")), condition=is_true(),

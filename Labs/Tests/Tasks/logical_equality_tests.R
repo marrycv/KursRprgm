@@ -3,6 +3,8 @@
 context("logical_equality()")
 
 test_that("Kontroll av logical_equality.", {
+  expect_that(exists("logical_equality"), is_true(),
+              info = "Fel: logical_equality() saknas.")
   expect_that(logical_equality, is_a("function"),
               info = "Fel: logical_equality är inte en funktion.")
   expect_that(all(names(formals(logical_equality)) %in% c("A", "B")), condition=is_true(),

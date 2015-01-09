@@ -3,6 +3,8 @@
 context("mult_first_last()")
 
 test_that("Kontroll av mult_first_last.", {
+  expect_that(exists("mult_first_last"), is_true(),
+              info = "Fel: mult_first_last() saknas.")
   expect_that(mult_first_last, is_a("function"),
               info = "Fel: mult_first_last är inte en funktion.")
   expect_that(all(names(formals(mult_first_last)) %in% c("vektor")), condition=is_true(),

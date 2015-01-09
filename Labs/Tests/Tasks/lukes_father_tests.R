@@ -3,6 +3,8 @@
 context("lukes_father()")
 
 test_that("Kontroll av lukes_father.", {
+  expect_that(exists("lukes_father"), is_true(),
+              info = "Fel: lukes_father() saknas.")
   expect_that(lukes_father, is_a("function"),
               info = "Fel: lukes_father är inte en funktion.")
   expect_that(all(names(formals(lukes_father)) %in% c("namn")), condition=is_true(),

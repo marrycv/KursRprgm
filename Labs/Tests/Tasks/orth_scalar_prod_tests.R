@@ -3,6 +3,8 @@
 context("orth_scalar_prod()")
 
 test_that("Kontroll av orth_scalar_prod.", {
+  expect_that(exists("orth_scalar_prod"), is_true(), 
+              info = "Fel: orth_scalar_prod() saknas.")
   expect_that(orth_scalar_prod, is_a("function"),
               info = "Fel: orth_scalar_prod är inte en funktion.")
   expect_that(all(names(formals(orth_scalar_prod)) %in% c("a", "b")), condition=is_true(),

@@ -3,6 +3,8 @@
 context("three_elements()")
 
 test_that("Kontroll av three_elements.", {
+  expect_that(exists("three_elements"), is_true(), 
+              info = "Fel: three_elements() saknas.")
   expect_that(three_elements, is_a("function"),
               info = "Fel: three_elements är inte en funktion.")
   expect_that(is.numeric(three_elements()), condition=is_true(),

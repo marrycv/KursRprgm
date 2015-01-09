@@ -23,13 +23,13 @@
 
  
 \end_preamble
-\use_default_options false
+\use_default_options true
 \begin_modules
 knitr
 \end_modules
 \maintain_unincluded_children false
 \language swedish
-\language_package none
+\language_package auto
 \inputencoding auto
 \fontencoding default
 \font_roman default
@@ -79,14 +79,14 @@ knitr
 \topmargin 2.5cm
 \rightmargin 2.5cm
 \bottommargin 2.5cm
-\secnumdepth 3
-\tocdepth 3
+\secnumdepth 2
+\tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language swedish
 \papercolumns 1
 \papersides 1
-\paperpagestyle fancy
+\paperpagestyle default
 \tracking_changes false
 \output_changes false
 \html_math_output 0

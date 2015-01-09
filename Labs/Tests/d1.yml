@@ -18,6 +18,9 @@ tasks:
   approx_e:
     url: 
       - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/approx_e_tests.R
+  logical_equality:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/logical_equality_tests.R
 mandatory:
   url:
     - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

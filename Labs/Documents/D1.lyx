@@ -3693,6 +3693,75 @@ range(myx)
 \end_layout
 
 \begin_layout Enumerate
+Dessa funktioner tillsammans kan användas för att beräkna mer komplicerade
+ summor.
+ Exempelvis kan 
+\begin_inset Formula 
+\[
+\sum_{i=5}^{20}i^{2}
+\]
+
+\end_inset
+
+beräknas på följande sätt i R:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+i <- 5:20
+\end_layout
+
+\begin_layout Plain Layout
+
+isq <- i^2
+\end_layout
+
+\begin_layout Plain Layout
+
+sum(isq)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva följande beräkningar i R:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\sum_{i=1}^{100}i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sum_{i=1}^{20}i^{2}-\sum_{i=1}^{10}i^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
 För att skapa kvartiler används funktionen 
 \family typewriter
 quantile()
@@ -6598,6 +6667,54 @@ for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
 
 \begin_layout Chapter
 Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+För att använda 
+\family typewriter
+markmyassignment
+\family default
+ i denna laboration ange:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment)
+\end_layout
+
+\begin_layout Plain Layout
+
+lab_path <-
+\end_layout
+
+\begin_layout Plain Layout
+
+"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d1.yml"
+\end_layout
+
+\begin_layout Plain Layout
+
+set_assignment(lab_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

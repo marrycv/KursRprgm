@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -15,13 +15,13 @@ knitr
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -32,15 +32,24 @@ knitr
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -73,10 +82,6 @@ Inlämningsuppgifterna innebär att konstruera funktioner.
  och testa att det fungerar i varje steg.
 \end_layout
 
-\begin_layout Standard
-Ett förslag på hur du kan angripa problemet är att:
-\end_layout
-
 \begin_layout Enumerate
 Lös uppgiften med vanlig kod direkt i R-Studio (precis som i datorlaborationen
  ovan) utan att skapa en funktion.
@@ -95,9 +100,248 @@ Implementera koden du skrivit i 1.
 Testa att du får samma resultat som i testexemplen, nu med funktionen.
 \end_layout
 
+\begin_layout Subsection*
+Automatisk återkoppling med 
+\family typewriter
+markmyassignment
+\end_layout
+
 \begin_layout Standard
-Varje uppgift kan ge flera poäng så även om du inte lyckas med alla delar
- i en funktion kan du få poäng.
+Som ett komplement för att snabbt kunna få återkoppling på de olika arbetsuppgif
+terna finns paketet markmyassignment.
+ Med detta är det möjligt att direkt få återkoppling på uppgifterna i laboration
+en, oavsett dator.
+ Dock krävs internetanalsutning.
+\end_layout
+
+\begin_layout Standard
+För att installera markmyassignment krävs paketet devtools (som därför först
+ måste installeras):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("devtools")
+\end_layout
+
+\begin_layout Plain Layout
+
+devtools::install_github("markmyassignment","MansMeg")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+För att automatiskt återkoppla en laboration behöver du först ange vilken
+ laboration det rör sig om på följande sätt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_assignment("[assignment path]")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+där
+\family typewriter
+ [assignment path]
+\family default
+ är en adress du får av läraren till varje laboration.
+\end_layout
+
+\begin_layout Standard
+För att se vilka uppgifter som finns i laborationen kan du använda funktionen
+ 
+\family typewriter
+show_tasks()
+\family default
+ på följande sätt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+show_tasks()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+För att få återkoppling på en uppgift använder du funktionenen 
+\family typewriter
+mark_my_assignment()
+\family default
+.
+ För att rätta samtiga uppgifter i en laboration gör du på följande sätt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mark_my_assignment()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tänk på att uppgifterna som ska kontrolleras måste finnas som funktioner
+ i R:s globala miljö.
+ Du kan också kontrollera en eller flera enskilda uppgifter på följande
+ sätt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mark_my_assignment(tasks="foo")
+\end_layout
+
+\begin_layout Plain Layout
+
+mark_my_assignment(tasks=c("foo", "bar"))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Det går också att rätta en hel R-fil med samtliga laborationer.
+ Detta är bra att göra innan du lämnar in din laboration.
+ För att rätta en hel fil gör du på följande sätt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mark_my_assignment(mark_file = "[my search path to file]")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+där 
+\family typewriter
+[my search path to file]
+\family default
+ är sökvägen till din fil.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Obs!
+\series default
+ När hela filer kontrolleras måste den globala miljön vara tom.
+ Använd 
+\family typewriter
+rm(list=ls())
+\family default
+ för att rensa den globala miljön.
 \end_layout
 
 \end_body

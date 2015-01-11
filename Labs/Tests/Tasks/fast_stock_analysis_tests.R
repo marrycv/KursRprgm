@@ -6,7 +6,7 @@ test_that("fast_stock_analysis()", {
   # Ladda ned data för att testa funktionen på
   testFile <- tempfile(pattern="fast_stock_analysis_test_file", fileext=".csv")
   if(!file.exists(testFile)) {
-    path <- markmyassignment:::path_type("https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/Apple.csv")
+    path <- markmyassignment:::path_type("https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/DataFiles/AppleTest.csv")
     markmyassignment:::get_file.path_http(path = path, dest = testFile)
   }
   

@@ -1,10 +1,14 @@
 ### Assignment : my_moving_average() ###
 
+context("my_moving_average()")
+
 test_that("Assignment: my_moving_average()", {
   x <- 1:3
   y <- c(1, 5, 6, 7, 7, 1, -2)
   y_res_n2 <- c(3.0, 5.5, 6.5, 7.0, 4.0, -0.5) 
-  
+
+  expect_that(exists("my_moving_average"), is_true(),
+              info = "Fel: my_moving_average() saknas.")  
   expect_that(my_moving_average, is_a("function"),
               info = "Fel: my_moving_average är inte en funktion.")
   expect_that(all(names(formals(my_moving_average)) %in% c("x","n")), condition=is_true(),

@@ -1,6 +1,9 @@
 ### Assignment : babylon() ###
+context("babylon()")
 
 test_that("Assignment: babylon()", {
+  expect_that(exists("babylon"), is_true(),
+              info = "Fel: babylon() saknas.")
   expect_that(babylon, is_a("function"),
               info = "Fel: babylon är inte en funktion.")
   expect_that(all(names(formals(babylon)) %in% c("x", "init", "tol")), condition=is_true(),

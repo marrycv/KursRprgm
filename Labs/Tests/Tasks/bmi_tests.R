@@ -1,6 +1,9 @@
 ### Assignment : bmi() ###
+context("bmi()")
 
 test_that("Assignment: bmi()", {
+  expect_that(exists("bmi"), is_true(),
+              info = "Fel: bmi() saknas.")
   expect_that(bmi, is_a("function"),
               info = "Fel: bmi är inte en funktion.")
   expect_that(all(names(formals(bmi)) %in% c("body_weight","body_height")), condition=is_true(),

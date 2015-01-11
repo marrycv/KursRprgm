@@ -1,5 +1,7 @@
 ### Assignment : my_matrix_prod() ###
 
+context("my_matrix_prod()")
+
 test_that("Assignment: my_matrix_prod()", {
   testMatA1 <- matrix(c(3, 1, 5, 6), nrow = 2, ncol = 2)
   testMatB1 <- t(testMatA1)
@@ -10,6 +12,9 @@ test_that("Assignment: my_matrix_prod()", {
   testMatA4 <- matrix(2:9, nrow = 2, ncol = 4)
   testMatB4 <- t(testMatA4)
 
+
+  expect_that(exists("my_matrix_prod"), is_true(),
+              info = "Fel: my_matrix_prod() saknas.")
   expect_that(my_matrix_prod, is_a("function"),
               info = "Fel: bmi är inte en funktion.")
   expect_that(all(names(formals(my_matrix_prod)) %in% c("A","B")), condition=is_true(),

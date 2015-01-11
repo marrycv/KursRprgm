@@ -1,8 +1,8 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass report
 \begin_preamble
 \usepackage{fancyhdr}%The first page setting
 \fancypagestyle{plain}
@@ -23,25 +23,25 @@
 
  
 \end_preamble
-\use_default_options false
+\use_default_options true
 \begin_modules
 knitr
 \end_modules
 \maintain_unincluded_children false
 \language swedish
-\language_package none
+\language_package auto
 \inputencoding auto
 \fontencoding default
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -52,15 +52,24 @@ knitr
 \use_hyperref false
 \papersize a4paper
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Index
 \shortcut idx
@@ -70,14 +79,14 @@ knitr
 \topmargin 2.5cm
 \rightmargin 2.5cm
 \bottommargin 2.5cm
-\secnumdepth 3
-\tocdepth 3
+\secnumdepth 2
+\tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language swedish
 \papercolumns 1
 \papersides 1
-\paperpagestyle fancy
+\paperpagestyle default
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -120,6 +129,11 @@ opts_chunk$set(comment='')
 
 \begin_layout Plain Layout
 
+options(digits = 5)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -135,7 +149,7 @@ opts_chunk$set(comment='')
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "Intro.lyx"
+filename "IntroDel1.lyx"
 
 \end_inset
 
@@ -169,14 +183,60 @@ LatexCommand tableofcontents
 Datorlaboration
 \end_layout
 
+\begin_layout Chapter
+Programkontroll
+\end_layout
+
+\begin_layout Standard
+En av de centrala delarna för att skriva effektiva och väl fungerande funktioner
+ och kod i R är att kunna styra programmen på ett bra sätt.
+ För detta används så kallad programkontroll.
+ Generellt sett kan man säga att programkontrollen består av två huvudsakliga
+ delar, villkorssatser och loopar.
+\end_layout
+
 \begin_layout Section
 Villkorssatser
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 Villkorssatser används för att kontrollera flödet i programmeringen på ett
- smidigt sätt.
- Skapa 
+ smidigt sätt och beroende på huruvida ett villkor är uppfyllt eller inte
+ ska programmet göra olika saker.
+ Grunden för villkorststyrning är 
+\family typewriter
+if
+\family default
+.
+ Vill vi styra ett program behöver vi med logiska värdet ange vilka delar
+ som ska utföras.
+ Med if utförs dessa OM 
+\family typewriter
+if
+\family default
+-satsen är sann (
+\family typewriter
+TRUE
+\family default
+), annars utförs den inte.
+ Vi kan sedan använda 
+\family typewriter
+else
+\family default
+ för de fall då uttrycket i if är falskt (
+\family typewriter
+FALSE
+\family default
+).
+\end_layout
+
+\begin_layout Standard
+Villkorssatser bygger helt på logiska värden i R som behandlades tidigare
+ under laborationen om Logik i R.
+\end_layout
+
+\begin_layout Enumerate
+Skapa 
 \family typewriter
 if
 \family default
@@ -204,17 +264,17 @@ status open
 
 \begin_layout Plain Layout
 
-#if-sats: 
-\end_layout
-
-\begin_layout Plain Layout
-
-x<- -1000
+x <- -100
 \end_layout
 
 \begin_layout Plain Layout
 
 if (x < 0) print("Hej!")
+\end_layout
+
+\begin_layout Plain Layout
+
+if (x > 0) print("Hej hej!")
 \end_layout
 
 \begin_layout Plain Layout
@@ -238,7 +298,7 @@ if
 \family default
  användas.
  Kör koden nedan.
- Ändra värdet av 
+ Pröva olika värdet på 
 \family typewriter
 x
 \family default
@@ -288,6 +348,26 @@ if(x < 0){
 
 \begin_layout Plain Layout
 
+if(x >= 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+	a <- 100
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+print(a)
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -297,7 +377,81 @@ if(x < 0){
 \end_layout
 
 \begin_layout Enumerate
-Testa nu att köra följande 
+Alla logiska värden kan användas - så länge det är ett enda logiskt värde.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+if(TRUE) x <- "Lotta"
+\end_layout
+
+\begin_layout Plain Layout
+
+if(FALSE) x <- "Lisa"
+\end_layout
+
+\begin_layout Plain Layout
+
+if(x == "Lotta"){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print("Hej Lotta!")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+if(!TRUE) x <- "Lisa"
+\end_layout
+
+\begin_layout Plain Layout
+
+if(x == "Lisa"){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print("Hej Lisa!")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nästa steg är att lägga till en 
+\family typewriter
+else
+\family default
+-sats.
+ Testa nu att köra följande 
 \family typewriter
 if
 \family default
@@ -324,7 +478,17 @@ status open
 
 \begin_layout Plain Layout
 
-if(x<0){
+x <- 100
+\end_layout
+
+\begin_layout Plain Layout
+
+if(x < 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+	a <- 1
 \end_layout
 
 \begin_layout Plain Layout
@@ -334,17 +498,12 @@ if(x<0){
 
 \begin_layout Plain Layout
 
-	a<- pi - 23
+} else {
 \end_layout
 
 \begin_layout Plain Layout
 
-	print(a)
-\end_layout
-
-\begin_layout Plain Layout
-
-}else{
+	a <- 2
 \end_layout
 
 \begin_layout Plain Layout
@@ -354,17 +513,12 @@ if(x<0){
 
 \begin_layout Plain Layout
 
-	a<-pi+23
-\end_layout
-
-\begin_layout Plain Layout
-
-	print(a)
-\end_layout
-
-\begin_layout Plain Layout
-
 }	
+\end_layout
+
+\begin_layout Plain Layout
+
+a
 \end_layout
 
 \begin_layout Plain Layout
@@ -378,7 +532,80 @@ if(x<0){
 \end_layout
 
 \begin_layout Enumerate
-Testa nu att köra en 
+Pröva att göra en 
+\family typewriter
+if-else
+\family default
+-sats som skriver ut 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+Male
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ om värdet 
+\family typewriter
+x
+\family default
+ är 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+M
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ och 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+Female
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ om värdet 
+\family typewriter
+x
+\family default
+ är 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+F
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Det går också att göra flera logiska tester med fler 
+\family typewriter
+if
+\family default
+ - 
+\family typewriter
+else
+\family default
+.
+ Testa nu att köra en 
 \family typewriter
 if
 \family default
@@ -415,7 +642,7 @@ if(x==0){
 
 \begin_layout Plain Layout
 
-}else if(x<0){
+} else if(x < 0){
 \end_layout
 
 \begin_layout Plain Layout
@@ -425,7 +652,7 @@ if(x==0){
 
 \begin_layout Plain Layout
 
-}else{
+} else {
 \end_layout
 
 \begin_layout Plain Layout
@@ -466,69 +693,59 @@ else if
 \family typewriter
 else
 \family default
- sats som skriver ut födelseåret för följande kvinnor (och ta er lite tid
- att läsa om dem på Wikipedia):
-\begin_inset CommandInset label
-LatexCommand label
-name "enu:Skapa-variabeln-cool_kvinna."
-
-\end_inset
-
-
+ sats som skriver ut födelseåret om vi anger förnamnet som ett textelement.
+ Anges något annat namn/text ska programmet returnera 
+\family typewriter
+NA
+\family default
+.
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-Amelia Earhart
+Amelia Earhart (1897)
 \end_layout
 
 \begin_layout Enumerate
-Ada Lovelace
+Ada Lovelace (1815)
 \end_layout
 
 \begin_layout Enumerate
-Vigdis Finnbogadottir
-\end_layout
-
-\begin_layout Enumerate
-Alice Walker
+Vigdis Finnbogadottir (1930)
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
-Gör om uppgift 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "enu:Skapa-variabeln-cool_kvinna."
+\begin_layout Subsection
+* Extraproblem
+\end_layout
 
+\begin_layout Enumerate
+Skapa ett program som med en villkorssats som skriver ut namnet på en av
+ kvinnorna ovan om rätt födelseår har angetts.
+ Om inget korrekt födelseår har angett ska programmet skriva ut 
+\family typewriter
+
+\begin_inset Quotes eld
 \end_inset
 
- men använd nu 
-\family typewriter
-switch()
-\family default
- istället för 
-\family typewriter
-if
-\family default
- - 
-\family typewriter
-else
-\family default
- 
-\family typewriter
-if
-\family default
- - 
-\family typewriter
-else
+Hillary Clinton
+\begin_inset Quotes erd
+\end_inset
+
+
 \family default
 .
- 
 \end_layout
 
 \begin_layout Section
 Loopar
+\end_layout
+
+\begin_layout Standard
+En av de mest centrala verktygen för all programmering är användandet av
+ loopar.
+ Dessa används för att utföra upprepande uppgifter och är en central del
+ i att skriva välfungerande program.
 \end_layout
 
 \begin_layout Subsection
@@ -536,7 +753,7 @@ Loopar
 \family typewriter
 for
 \family default
- - loopar
+ - loop
 \end_layout
 
 \begin_layout Enumerate
@@ -544,7 +761,15 @@ En
 \family typewriter
 for
 \family default
--loop har ett loop-element och en loop-vektor.
+-loop har ett loop-element (
+\family typewriter
+i
+\family default
+) och en loop-vektor (
+\family typewriter
+1:10
+\family default
+).
  I koden nedan är 
 \family typewriter
 i
@@ -555,24 +780,7 @@ i
 \family default
  är vektorn som loopas över.
  Testa att köra koden.
- Testa att ändra 
-\family typewriter
-1:10
-\family default
- till 
-\family typewriter
-1:5
-\family default
- och 
-\family typewriter
-5:1
-\family default
-.
- Vad händer nu? Testa att använda loop-vektorn 
-\family typewriter
-seq(1, 6, by=2)
-\family default
-
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -607,12 +815,64 @@ for(i in 1:10){
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:10) print(i+3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 0
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:10) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    y <- y + i
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Testa att ändra 
+\family typewriter
+1:10
+\family default
+ till 
+\family typewriter
+1:5
+\family default
+ och 
+\family typewriter
+5:1
+\family default
+.
+ Vad händer nu? Testa att använda loop-vektorn 
+\family typewriter
+seq(1, 6, by=2)
 \end_layout
 
 \begin_layout Enumerate
@@ -624,7 +884,11 @@ for
 \family typewriter
 Övning ger färdighet
 \family default
- 20 gånger.
+ 20 gånger med 
+\family typewriter
+print()
+\family default
+.
  
 \end_layout
 
@@ -664,12 +928,130 @@ minVektor<-1:5
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(minaOrd)){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(minaOrd[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 for(i in minVektor){
 \end_layout
 
 \begin_layout Plain Layout
 
 	print(minaOrd[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for(ord in minaOrd){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(minaOrd[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+En bra funktion för att skapa loop-vektorer är funktionen 
+\family typewriter
+seq_along()
+\family default
+.
+ Den skapar en loop-vektor på samma sätt som 
+\family typewriter
+1:length(minaOrd)
+\family default
+.
+ Dock blir det tydligare i koden vad loopen gör (sequence along 
+\family typewriter
+minaOrd
+\family default
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:length(minaOrd)){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(i)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in seq_along(minaOrd)){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(i)
 \end_layout
 
 \begin_layout Plain Layout
@@ -688,64 +1070,7 @@ for(i in minVektor){
 \end_layout
 
 \begin_layout Enumerate
-Skriv en 
-\family typewriter
-for
-\family default
--loop som skriver ut alla heltal som är jämt delbara med 13 som finns mellan
- 1 och 200.
- [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-?%%
-\family default
-]
-\begin_inset CommandInset label
-LatexCommand label
-name "enu:Skriv-en-for-loop"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Skriv en 
-\family typewriter
-for
-\family default
--loop som loopar över varje rad i matrisen 
-\family typewriter
-A
-\family default
- (se nedan).
- För varje rad ska medelvärdet beräknas.
- Skapa en text-sträng på formen 
-\family typewriter
-På rad i är medelvärdet x
-\family default
-, där 
-\family typewriter
-i
-\family default
- är radnummret och 
-\family typewriter
-x
-\family default
- är medelvärdet för just den raden.
- För att se om du gjort rätt: Rad 8 ska ha medelvärdet 23.
- [
-\series bold
-Tips!
-\series default
- använd 
-\family typewriter
-paste()
-\family default
- för att skapa text-strängarna.]
+Det går också att använda en loop för att iterera över element i en lista.
 \begin_inset Newline newline
 \end_inset
 
@@ -760,7 +1085,22 @@ status open
 
 \begin_layout Plain Layout
 
-A <- matrix(1:40,nrow=10) 
+myList <- list("Hej",3:8,c("Lite mer text", "och lite nuffror"), 4:12)
+\end_layout
+
+\begin_layout Plain Layout
+
+for (element in myList){
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(element)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -774,14 +1114,58 @@ A <- matrix(1:40,nrow=10)
 \end_layout
 
 \begin_layout Enumerate
-Kombinera en 
+Pröva att skriva en 
 \family typewriter
 for
 \family default
--loop och villkorssats: 
-\begin_inset Newline newline
+-loop som:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Summerar talen 0 till 200
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut 
+\begin_inset Quotes eld
 \end_inset
 
+I love R!
+\begin_inset Quotes erd
+\end_inset
+
+ 20 gånger
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut talen 1 till 20 och den kumulativa summan från 1 till 20
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+* Extraproblem
+\end_layout
+
+\begin_layout Enumerate
+Skriv en 
+\family typewriter
+for
+\family default
+-loop som skriver ut alla heltal som är jämt delbara med 13 som finns mellan
+ 1 och 200 med hjälp av en loop och villkorssats.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+?%%
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
 Skriv en 
 \family typewriter
 for
@@ -812,15 +1196,13 @@ Intresserar mig inte
 
 \family default
  till skärmen.
- (
+ [
 \series bold
 Tips!
 \series default
  
 \family typewriter
-?%%
-\family default
-)
+?%%]
 \end_layout
 
 \begin_layout Subsection
@@ -832,8 +1214,12 @@ for
 \end_layout
 
 \begin_layout Enumerate
-Följande kod är ett exempel på en nästlad loop.
- Vad gör koden? Implementera denna kod.
+Följande kod är ett exempel på en nästlad loop för att loopa över flera
+ index (exempelvis rader och kolumner).
+ Denna loop är nästlad i två nivåer.
+ I teorin kan vi nästla en loop i hur många nivåer vi vill.
+ Men ju fler nivåer, desto svårare är det att kunna läsa koden och följa
+ vad som sker i programmet.
 \begin_inset Newline newline
 \end_inset
 
@@ -848,17 +1234,75 @@ status open
 
 \begin_layout Plain Layout
 
-A <- matrix(1:4,ncol=2)
+for (i in 1:2){
 \end_layout
 
 \begin_layout Plain Layout
 
-B <- matrix(5:8,ncol=2)
+	for (j in 1:3){
 \end_layout
 
 \begin_layout Plain Layout
 
-C <- matrix(rep(0,4), ncol=2)
+		print(i)
+\end_layout
+
+\begin_layout Plain Layout
+
+		print(j)
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu pröva att summera elementen i två matriser med en nästlad 
+\family typewriter
+for
+\family default
+-loop.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(1:6,ncol=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+B <- matrix(1:6,ncol=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+C <- matrix(0, ncol=3, nrow=3)
 \end_layout
 
 \begin_layout Plain Layout
@@ -868,12 +1312,27 @@ for (i in 1:2){
 
 \begin_layout Plain Layout
 
-	for (j in 1:2){
+	for (j in 1:3){
+\end_layout
+
+\begin_layout Plain Layout
+
+		print(A[i,j])
+\end_layout
+
+\begin_layout Plain Layout
+
+		print(B[i,j])
 \end_layout
 
 \begin_layout Plain Layout
 
 		C[i,j] <- A[i,j] + B[i,j]
+\end_layout
+
+\begin_layout Plain Layout
+
+		print(C[i,j])
 \end_layout
 
 \begin_layout Plain Layout
@@ -902,7 +1361,8 @@ for (i in 1:2){
 \end_inset
 
 .
- Testa med följande två matriser:
+ Testa med följande två matriser.
+ Hur behöver du ändra matrisen för att det ska fungera?
 \begin_inset Newline newline
 \end_inset
 
@@ -935,19 +1395,6 @@ B <- matrix(10:8,ncol=3)
 
 \end_layout
 
-\begin_layout Enumerate
-Ändra koden igen koden för två godtyckligt stora matriser.
- [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-dims()
-\family default
-]
-\end_layout
-
 \begin_layout Subsection
 
 \family typewriter
@@ -967,6 +1414,11 @@ while
 for
 \family default
 -loopar.
+ På detta sätt liknar det en 
+\family typewriter
+if
+\family default
+-sats fast som loop.
  Testa koden nedan med några olika värden på 
 \family typewriter
 x
@@ -1040,8 +1492,8 @@ oändlighet
 \end_inset
 
 .
- Vad är viktigt att tänka på i syntaxen när while-loop används för att undvika
- detta? 
+ Vad är viktigt att tänka på i while-loop används för att undvika detta?
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1142,77 +1594,145 @@ Skriv en
 \family typewriter
 while
 \family default
- - loop som skriver ut alla jämna tal mellan 1 och 20.
- 
+ - loop som:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skriver ut talen 1 till 35
 \end_layout
 
 \begin_layout Enumerate
-I datorlaboration 1 skapades en funktion för att approximera talet 
-\begin_inset Formula $e$
-\end_inset
-
- genom olika stora värden på 
-\begin_inset Formula $N$
-\end_inset
-
-:
-\begin_inset CommandInset label
-LatexCommand label
-name "enu:I-datorlaboration-1"
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-e=\sum_{n=0}^{N}\frac{1}{n!}
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Skapa en variabel du kallar 
-\family typewriter
-tol
-\family default
- som du sätter till 0.001.
- Skapa en 
-\family typewriter
-while
-\family default
- loop som börjar vid 
-\begin_inset Formula $N=1$
-\end_inset
-
- och ökar 
-\begin_inset Formula $N$
-\end_inset
-
- med 1 till dess att skillnaden mellan approximationen av 
-\begin_inset Formula $e$
-\end_inset
-
- och 
-\family typewriter
-exp(1)
-\family default
- är mindre än variabeln 
-\family typewriter
-tol
-\family default
-.
- Hur stort måste 
-\begin_inset Formula $N$
-\end_inset
-
- vara för att felet på approximationen är mindre än 0.001, mindre än 0.00001?
+Summerar talen 5 till 200
 \end_layout
 
+\begin_layout Enumerate
+Skriver ut 
+\begin_inset Quotes eld
+\end_inset
+
+I love R!
+\begin_inset Quotes erd
+\end_inset
+
+ 20 gånger
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut talen 1 till 20 och den kumulativa summan från 1 till 20
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut alla jämna tal mellan 1 och 20.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+?%%]
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
-Kontrollstrukturer för loopar
+Kontrollstrukturer för loopar och 
+\family typewriter
+repeat{}
+\end_layout
+
+\begin_layout Standard
+För att kontrollera loopar finns det två huvudsakliga kontrollstrukturer.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kontrollstruktur
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Betydelse
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+next()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hoppa vidare till nästa iteration i loopen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+break()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Avbryt den aktuella loopen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dessa två sätt att kontrollera en loop är mycket värdefulla och gör det
+ möjligt att avsluta en hel loop i förtid (
+\family typewriter
+break
+\family default
+) eller hoppa över beräkningar för den nuvarande iterationen (
+\family typewriter
+next
+\family default
+).
 \end_layout
 
 \begin_layout Enumerate
@@ -1221,19 +1741,13 @@ Nedan är ett exempel på kod som använder kontrollstrukturen
 next
 \family default
 .
- Denna kontrollstruktur för loopar kan vara mycket bra för att hoppa över
- beräkningar senare i loopen.
- Det är ett sätt att innan loopen kör igång, pröva om denna iteration behöver
- eller ska beräknas.
+ Innan beräkningar i loopen görs prövar vi med en villkorssats om beräkningen
+ är möjlig.
  
 \begin_inset Newline newline
 \end_inset
 
-Vad gör denna kod? Varför används 
-\family typewriter
-next()
-\family default
- här? Pröva att ta bort 
+Pröva koden och pröva sedan att ta bort 
 \family typewriter
 next
 \family default
@@ -1252,7 +1766,11 @@ status open
 
 \begin_layout Plain Layout
 
-myList <- list("Hej",3:8,"Lite mer text", "och lite nuffror", 4:12)
+myList <- list("Hej",3:8,c("Lite mer text", "och lite nuffror"), 4:12)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1286,26 +1804,41 @@ for (element in myList){
 \end_layout
 
 \begin_layout Enumerate
-I uppgift 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "enu:Skriv-en-for-loop"
-
-\end_inset
-
- användes en for loop för att skriva ut alla tal som är delbara med 13 mellan
- 1 och 200.
- Använd nu 
+Använd nu 
 \family typewriter
-next
+next()
 \family default
- för att uppnå samma resultat.
+ för att skriva ut alla tal mellan 13 och 200 som är jämt delbara med 13.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+%%
+\family default
+]
 \end_layout
 
 \begin_layout Enumerate
-På samma sätt som next kan användas för att begränsa vissa beräkningar kan
- break avsluta en for-loop när exempelvis en beräkning är tillräckligt bra.
- Det blir då en form av while loop fast med ett begränsat antal iterationer.
+På samma sätt som 
+\family typewriter
+next
+\family default
+ kan användas för att begränsa vissa beräkningar kan 
+\family typewriter
+break
+\family default
+ avsluta en 
+\family typewriter
+for
+\family default
+-loop när exempelvis en beräkning är tillräckligt bra.
+ Det blir då en form av 
+\family typewriter
+while
+\family default
+ loop fast med ett begränsat antal iterationer.
  
 \family typewriter
 while
@@ -1334,19 +1867,7 @@ break
 x
 \family default
 .
- När vill du använda en 
-\family typewriter
-while
-\family default
--loop och när en 
-\family typewriter
-for
-\family default
--loop med 
-\family typewriter
-break
-\family default
-?
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1366,17 +1887,17 @@ x<-1
 
 \begin_layout Plain Layout
 
-for (i in 1:10) {
+for (i in 1:20) {
 \end_layout
 
 \begin_layout Plain Layout
 
-  if( x > 5 ) break 
+  if( x > 10 ) break() 
 \end_layout
 
 \begin_layout Plain Layout
 
-  print("x is less than 5")
+  print("x is less than 10")
 \end_layout
 
 \begin_layout Plain Layout
@@ -1400,33 +1921,499 @@ for (i in 1:10) {
 \end_layout
 
 \begin_layout Enumerate
-Pröva nu att på samma sätt konvertera din 
-\family typewriter
-while
-\family default
- loop i uppgift 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "enu:I-datorlaboration-1"
-
-\end_inset
-
- på sida 
-\begin_inset CommandInset ref
-LatexCommand pageref
-reference "enu:I-datorlaboration-1"
-
-\end_inset
-
- till en 
+Skriv en 
 \family typewriter
 for
 \family default
--loop med 
+ - loop som itererar över loop vektorn 
+\family typewriter
+1:100
+\family default
+.
+ Använd 
+\family typewriter
+break
+\family default
+ för att...
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skriver ut talen 1 till 35
+\end_layout
+
+\begin_layout Enumerate
+Summerar talen 1 till 20
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut 
+\begin_inset Quotes eld
+\end_inset
+
+I love R!
+\begin_inset Quotes erd
+\end_inset
+
+ 20 gånger
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+En sista typ av loop som kan användas är 
+\family typewriter
+repeat{}
+\family default
+.
+ Till skillnad från for och while-loopar kommer denna struktur fortsätta
+ iterera till dess att den stöter på ett 
 \family typewriter
 break
 \family default
 .
+ Precis som med 
+\family typewriter
+while
+\family default
+-loopar kan detta innebära att programmet aldrig avslutas.
+\end_layout
+
+\begin_layout Enumerate
+Nedan är ett exempel på kod som använder 
+\family typewriter
+repeat{}
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-1 
+\end_layout
+
+\begin_layout Plain Layout
+
+repeat {
+\end_layout
+
+\begin_layout Plain Layout
+
+  x <- x + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+  print(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+  if( x > 5 ) break() 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skapa en 
+\family typewriter
+repeat
+\family default
+-loop som...
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skriver ut talen 1 till 35
+\end_layout
+
+\begin_layout Enumerate
+Summerar talen 1 till 20
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut 
+\begin_inset Quotes eld
+\end_inset
+
+I love R!
+\begin_inset Quotes erd
+\end_inset
+
+ 20 gånger
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+* Extraproblem
+\end_layout
+
+\begin_layout Enumerate
+Skapa med 
+\family typewriter
+repeat
+\family default
+, 
+\family typewriter
+next
+\family default
+ och 
+\family typewriter
+break
+\family default
+ kod som gör följande:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skriver ut alla jämna tal mellan 3 och 17.
+\end_layout
+
+\begin_layout Enumerate
+Beräknar och skriver ut resultat i varje steg av den kumulativa summan från
+ 10 till 20.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Avbryta funktioner och generera varningar
+\end_layout
+
+\begin_layout Standard
+Ibland vill vi att ett program ska avbrytas om vissa villkor inte är uppfyllda.
+ Det kan vara att argument till en funktion inte är korrekt eller att resultat
+ som beräknats är felaktiga.
+ För att avbryta ett R-program använder vi 
+\family typewriter
+stop()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Skapa följande funktion (som avbryts om 
+\family typewriter
+x>10
+\family default
+) och pröva lite olika värden på 
+\family typewriter
+x
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+test_funktion <- function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(x>10) stop()
+\end_layout
+
+\begin_layout Plain Layout
+
+  return("Yay!")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Det går också att generera 
+\series bold
+felmeddelanden
+\series default
+ med 
+\family typewriter
+stop()
+\family default
+.
+ Detta kan vara bra för att kunna identifiera var programmet var tvungen
+ att avbrytas.
+ Pröva att lägga till felmeddelandet nedan.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+test_funktion <- function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(x>10) stop("x > 10 juh!")
+\end_layout
+
+\begin_layout Plain Layout
+
+  return("Yay!")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ibland kan det vara så att vi inte vill avbryta ett pågående program utan
+ att vi istället bara skulle vilja varna för att det kan vara något fel.
+ Det görs med funktionen 
+\family typewriter
+warning()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Skapa följande funktion (som avbryts om 
+\family typewriter
+x>10
+\family default
+) och pröva lite olika värden på 
+\family typewriter
+x
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+test_funktion <- function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(x>10) warning()
+\end_layout
+
+\begin_layout Plain Layout
+
+  return("Yay!")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Med 
+\family typewriter
+warning()
+\family default
+ kan vi också ange varningsmeddelanden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+test_funktion <- function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(x>10) warning("x>10 juh!")
+\end_layout
+
+\begin_layout Plain Layout
+
+  return("Yay!")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Om ett program genererar flera varningar sparas dessa och det går att gå
+ igenom samtliga varningar efter att programmet kört klart.
+ För att koma åt dessa varningar använder vi funktionen 
+\family typewriter
+warnings()
+\family default
+.
+ Pröva följande kod.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:20){
+\end_layout
+
+\begin_layout Plain Layout
+
+	test_funktion(i)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+En fördel med varningar är att vi kan tysta dem om vi vill.
+ Detta går inte med ex.
+ 
+\family typewriter
+cat()
+\family default
+ eller 
+\family typewriter
+print()
+\family default
+ vilket gör att dessa funktioner inte ska användas för att generera varningar.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressWarnings(test_funktion(100))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1456,18 +2443,33 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=TRUE, echo=FALSE>>=
+<<eval=TRUE,echo=FALSE>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-# Sourca in facit.
+# Set you (local) path
 \end_layout
 
 \begin_layout Plain Layout
 
-source("/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk
- programmering i R/RCourse2014/KursRprgmTeacher/Labs/Solutions/LabSolutions.R")
+solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
+k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_files <- dir(solution_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
+ echo = FALSE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1480,8 +2482,62 @@ source("/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistisk
 
 \end_layout
 
-\begin_layout Subsection*
-Uppgift 1: BMI
+\begin_layout Chapter
+Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+För att använda 
+\family typewriter
+markmyassignment
+\family default
+ i denna laboration ange:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment)
+\end_layout
+
+\begin_layout Plain Layout
+
+lab_path <-
+\end_layout
+
+\begin_layout Plain Layout
+
+"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d3.yml"
+\end_layout
+
+\begin_layout Plain Layout
+
+set_assignment(lab_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+bmi()
 \end_layout
 
 \begin_layout Standard
@@ -1501,7 +2557,7 @@ bodyWeight
  Funktionen ska beräkna BMI på följande sätt: 
 \begin_inset Formula 
 \[
-\texttt{bmi(bodyWeight,bodyHeight)}=\frac{\texttt{bodyWeight}}{\texttt{bodyHeight}^{2}}
+\texttt{bmi(body\_weight,body\_height)}=\frac{\texttt{body\_weight}}{\texttt{body\_height}^{2}}
 \]
 
 \end_inset
@@ -1509,11 +2565,11 @@ bodyWeight
 och returnera värdet.
  Om 
 \family typewriter
-bodyHeight
+body_height
 \family default
  och/eller 
 \family typewriter
-bodyWeight
+body_weight
 \family default
  är mindre eller lika med 0 ska funktionen varna att den aktuella variabeln
  är mindre eller lika med 0 och att resultatet inte är meningsfullt:
@@ -1522,7 +2578,7 @@ bodyWeight
 \begin_layout Standard
 
 \family typewriter
-bodyWeight is not positive, calculation is not meaningful
+body_weight is not positive, calculation is not meaningful
 \family default
  eller
 \end_layout
@@ -1530,17 +2586,17 @@ bodyWeight is not positive, calculation is not meaningful
 \begin_layout Standard
 
 \family typewriter
-bodyHeight is not positive, calculation is not meaningful
+body_height is not positive, calculation is not meaningful
 \end_layout
 
 \begin_layout Standard
 Testa med olika värden för 
 \family typewriter
-bodyLength
+body_length
 \family default
  och 
 \family typewriter
-bodyWeight
+body_weight
 \family default
 .
 \begin_inset Newline newline
@@ -1564,12 +2620,12 @@ status open
 
 \begin_layout Plain Layout
 
-bmi(bodyWeight = 95, bodyHeight = 1.98)
+bmi(body_weight = 95, body_height = 1.98)
 \end_layout
 
 \begin_layout Plain Layout
 
-myBMI <- bmi(bodyWeight = 95, bodyHeight = 1.98)
+myBMI <- bmi(body_weight = 95, body_height = 1.98)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1579,22 +2635,22 @@ myBMI
 
 \begin_layout Plain Layout
 
-bmi(bodyWeight = 74, bodyHeight = -1.83)
+bmi(body_weight = 74, body_height = -1.83)
 \end_layout
 
 \begin_layout Plain Layout
 
-bmi(bodyWeight = 0, bodyHeight = 1.63)
+bmi(body_weight = 0, body_height = 1.63)
 \end_layout
 
 \begin_layout Plain Layout
 
-bmi(bodyWeight = -73, bodyHeight = 0)
+bmi(body_weight = -73, body_height = 0)
 \end_layout
 
 \begin_layout Plain Layout
 
-suppressWarnings(bmi(bodyWeight = -73, bodyHeight = 0))
+suppressWarnings(bmi(body_weight = -73, body_height = 0))
 \end_layout
 
 \begin_layout Plain Layout
@@ -1607,8 +2663,10 @@ suppressWarnings(bmi(bodyWeight = -73, bodyHeight = 0))
 
 \end_layout
 
-\begin_layout Subsection*
-Uppgift 2: Matrismultiplikation
+\begin_layout Section
+
+\family typewriter
+my_matrix_prod()
 \end_layout
 
 \begin_layout Standard
@@ -1618,7 +2676,7 @@ En central del inom den linjära algebran är matrismultiplikation, d.v.s.
  B som multiplicerar två matriser med varandra på följande sätt:
 \begin_inset Formula 
 \[
-\texttt{myMatrixProd(A, B)}=\mathbf{A}\cdot\mathbf{B}
+\texttt{my\_matrix\_prod(A, B)}=\mathbf{A}\cdot\mathbf{B}
 \]
 
 \end_inset
@@ -1695,7 +2753,11 @@ Loopa över elementen i
 \series bold
 Tips!
 \series default
- Här kan du använda din kod från uppgift 3 i datorlaboration 1]
+ Här kan du använda din kod från 
+\family typewriter
+orth_scalar_prod()
+\family default
+]
 \end_layout
 
 \begin_layout Standard
@@ -1713,27 +2775,27 @@ status open
 
 \begin_layout Plain Layout
 
-matX <- matrix(1:6, nrow=2, ncol=3) 
+X <- matrix(1:6, nrow=2, ncol=3) 
 \end_layout
 
 \begin_layout Plain Layout
 
-matY <- matrix(6:1, nrow=3, ncol=2) 
+Y <- matrix(6:1, nrow=3, ncol=2) 
 \end_layout
 
 \begin_layout Plain Layout
 
-myMatrixProd(A = matX, B = matY)
+my_matrix_prod(A = X, B = Y)
 \end_layout
 
 \begin_layout Plain Layout
 
-myMatrixProd(A = matY, B = matX)
+my_matrix_prod(A = Y, B = X)
 \end_layout
 
 \begin_layout Plain Layout
 
-myMatrixProd(A = matX, B = matX)
+my_matrix_prod(A = X, B = X)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1746,8 +2808,10 @@ myMatrixProd(A = matX, B = matX)
 
 \end_layout
 
-\begin_layout Subsection*
-Uppgift 3: Den babylonska metoden för att approximera kvadratrötter
+\begin_layout Section
+
+\family typewriter
+babylon()
 \end_layout
 
 \begin_layout Standard
@@ -1851,10 +2915,6 @@ rot
 iter
 \family default
  ska antalet iterationer returneras.
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1910,10 +2970,124 @@ sqrt(15)
 
 \end_layout
 
+\begin_layout Section
+
+\family typewriter
+my_moving_average()
+\end_layout
+
+\begin_layout Standard
+I denna uppgift ska vi skapa en funktion som beräknar glidande medelvärden
+ som du kallar 
+\family typewriter
+my_moving_average().
+
+\family default
+ 
+\end_layout
+
+\begin_layout Standard
+Funktionen ska kunna ta en godtycklig vektor 
+\family typewriter
+x
+\family default
+, och ett argument 
+\family typewriter
+n
+\family default
+.
+ Först ska den kontrollera att vektorn är numerisk.
+ Är vektorn inte numerisk ska funktionen avbrytas och skriva ut felmeddelandet
+ 
+\family typewriter
+
+\begin_inset Quotes sld
+\end_inset
+
+Not a numeric vector!
+\begin_inset Quotes srd
+\end_inset
+
+
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Annars ska funktionen beräkna det glidande medelvärdet på följande sätt
+\begin_inset Formula 
+\[
+y_{t}=\frac{x_{t}+\cdots+x_{t+n}}{n}
+\]
+
+\end_inset
+
+där 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ är det 
+\begin_inset Formula $t$
+\end_inset
+
+:e elementet i vektorn som ska returneras.
+ Detta innebär att vektorn 
+\begin_inset Formula $y$
+\end_inset
+
+ är 
+\begin_inset Formula $n-1$
+\end_inset
+
+ element kortare än 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Här är textexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+my_moving_average(x = 1:10, n=2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_moving_average(x = "Pelle", n=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_moving_average(x = 5:15, n=4)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \shape italic
-Nu är du klar! 
+Grattis! Nu är du klar! 
 \end_layout
 
 \end_body

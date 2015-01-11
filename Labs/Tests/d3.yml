@@ -1,0 +1,20 @@
+# Assignment D2
+name  : D2
+description : "Statistisk programmering med R: Lab 3"
+reporter : student
+tasks:
+  bmi:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/bmi_tests.R
+  my_matrix_prod:
+    url:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_matrix_prod_tests.R
+  babylon :
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/babylon_tests.R
+  my_moving_average :
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_moving_average_tests.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

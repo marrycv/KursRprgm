@@ -1,6 +1,6 @@
-### Assignment : myMatrixProd() ###
+### Assignment : my_matrix_prod() ###
 
-test_that("Assignment: myMatrixProd()", {
+test_that("Assignment: my_matrix_prod()", {
   testMatA1 <- matrix(c(3, 1, 5, 6), nrow = 2, ncol = 2)
   testMatB1 <- t(testMatA1)
   testMatA2 <- matrix(c(3, 1, 5, 6, 1, 1), nrow = 3, ncol = 3)
@@ -10,22 +10,22 @@ test_that("Assignment: myMatrixProd()", {
   testMatA4 <- matrix(2:9, nrow = 2, ncol = 4)
   testMatB4 <- t(testMatA4)
 
-  expect_that(myMatrixProd, is_a("function"),
+  expect_that(my_matrix_prod, is_a("function"),
               info = "Fel: bmi är inte en funktion.")
-  expect_that(all(names(formals(myMatrixProd)) %in% c("A","B")), condition=is_true(),
+  expect_that(all(names(formals(my_matrix_prod)) %in% c("A","B")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(is.matrix(myMatrixProd(A=testMatA1, B=testMatB1)), condition=is_true(),
+  expect_that(is.matrix(my_matrix_prod(A=testMatA1, B=testMatB1)), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en matris.")
-  expect_equal(myMatrixProd(A=testMatA1, B=testMatB1), testMatA1%*%testMatB1,
+  expect_equal(my_matrix_prod(A=testMatA1, B=testMatB1), testMatA1%*%testMatB1,
               info = "Fel: Funktionen returnerar fel värde för två 2*2 matriser.")
-  expect_equal(myMatrixProd(A=testMatA2, B=testMatB2), testMatA2%*%testMatB2,
+  expect_equal(my_matrix_prod(A=testMatA2, B=testMatB2), testMatA2%*%testMatB2,
                info = "Fel: Funktionen returnerar fel värde för två 3*3 matriser.")
-  expect_equal(myMatrixProd(A=testMatA3, B=testMatB3), testMatA3%*%testMatB3,
+  expect_equal(my_matrix_prod(A=testMatA3, B=testMatB3), testMatA3%*%testMatB3,
                info = "Fel: Funktionen returnerar fel värde för två matriser (1*6 och 6*1.)")
-  expect_equal(myMatrixProd(A=testMatA4, B=testMatB4), testMatA4%*%testMatB4,
+  expect_equal(my_matrix_prod(A=testMatA4, B=testMatB4), testMatA4%*%testMatB4,
                info = "Fel: Funktionen returnerar fel värde för två matriser (2*4 och 4*2.)")
-  expect_error(myMatrixProd(A=testMatB3, B=testMatB3),
+  expect_error(my_matrix_prod(A=testMatB3, B=testMatB3),
                info = "Fel: Funktionenen stoppar inte om dimensionerna är fel.")  
-  expect_error(myMatrixProd(A=testMatB3, B=testMatB3), "Matrix dimensions mismatch",
+  expect_error(my_matrix_prod(A=testMatB3, B=testMatB3), "Matrix dimensions mismatch",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande då dimensionerna är fel.")  
 })

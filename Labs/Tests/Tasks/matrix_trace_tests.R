@@ -8,7 +8,7 @@ test_that("matrix_trace", {
   
   expect_that(matrix_trace, is_a("function"),
               info = "Fel: matrixTrace är inte en funktion.")
-  expect_that(all(names(formals(matrixTrace)) %in% c("X")), condition=is_true(),
+  expect_that(all(names(formals(matrix_trace)) %in% c("X")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(class(matrix_trace(test_matA)), is_equivalent_to("numeric"),
               info="Fel: Funktionen returnerar inte ett numeriskt värde")

@@ -11,13 +11,13 @@ test_that("leap_year()", {
               info = "Fel: leap_year är inte en funktion.")
   expect_that(all(names(formals(leap_year)) %in% c("years")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(class(leapYear(years=test_years)), 
+  expect_that(class(leap_year(years=test_years)), 
               is_equivalent_to("data.frame"),
               info="Fel: Funktionen leap_year() returnerar inte en data.frame")
-  expect_that(dim(leapYear(years=test_years)), 
+  expect_that(dim(leap_year(years=test_years)), 
               is_equivalent_to(c(length(test_years),2)), 
               info="Kommentar: Funktionen leap_year() returnerar fel dimensioner (kolumner och/eller rader)")
-  expect_that(all(colnames(leapYear(years=test_years)) %in% c("years","leap_year")), is_true(),
+  expect_that(all(colnames(leap_year(years=test_years)) %in% c("years","leap_year")), is_true(),
               info="Fel: Funktionen returnerar fel variabelnamn.")
   expect_that(unlist(lapply(leap_year(years=test_years),class)), 
               is_equivalent_to(c("numeric","logical")), 

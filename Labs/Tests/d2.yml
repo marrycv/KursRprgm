@@ -1,0 +1,17 @@
+# Assignment D2
+name  : D2
+description : "Statistisk programmering med R: Lab 2"
+reporter : student
+tasks:
+  leap_year:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/leap_year_tests.R
+  matrix_trace:
+    url:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/matrix_trace_tests.R
+  fast_stock_analysis:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/fast_stock_analysis_tests.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

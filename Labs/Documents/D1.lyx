@@ -149,7 +149,7 @@ options(digits = 5)
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "Intro.lyx"
+filename "IntroDel1.lyx"
 
 \end_inset
 

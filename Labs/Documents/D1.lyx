@@ -5610,6 +5610,89 @@ Pröva att skapa en vektor med heltal mellan 10 och 20.
 \end_layout
 
 \begin_layout Section
+Logiska funktioner
+\end_layout
+
+\begin_layout Standard
+Sist men inte minst finns det två funktioner i R som är av interesse när
+ vi arbetar med logiska vektorer.
+ Funktionen 
+\family typewriter
+any()
+\family default
+ returnerar 
+\family typewriter
+TRUE
+\family default
+ om något element är 
+\family typewriter
+TRUE
+\family default
+ och funktionen 
+\family typewriter
+all()
+\family default
+ returnerar 
+\family typewriter
+TRUE
+\family default
+ om samtliga element är 
+\family typewriter
+TRUE
+\family default
+ i en vektor.
+ Dessa kan ses som 
+\begin_inset Quotes eld
+\end_inset
+
+statistiska
+\begin_inset Quotes erd
+\end_inset
+
+ funktioner för logiska vektorer.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Pröva koden nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- c(TRUE, FALSE, TRUE, TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+any(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+all(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 * Extraproblem
 \end_layout
 

@@ -1,26 +1,31 @@
 
-test_that("Assignment: fastAnalysis()", {
+context("fast_stock_analysis")
+
+test_that("fast_stock_analysis()", {
 
   # Ladda ned data för att testa funktionen på
-  testFile <- tempfile(pattern="TestFile", fileext=".csv")
-  library(downloader)
-  download(url="https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/Apple.csv", 
-           destfile=testFile, quiet=TRUE)
-    
-  expect_that(fastAnalysis, is_a("function"),
-              info = "Fel: fastAnalysis är inte en funktion.")
-  expect_that(all(names(formals(fastAnalysis)) %in% c("filePath", "periodLength")), condition=is_true(),
+  testFile <- tempfile(pattern="fast_stock_analysis_test_file", fileext=".csv")
+  if(!file.exists(testFile)) {
+    path <- markmyassignment:::path_type("https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/Apple.csv")
+    markmyassignment:::get_file.path_http(path = path, dest = testFile)
+  }
+  
+  expect_that(exists("fast_stock_analysis"), is_true(),
+              info = "Fel: fast_stock_analysis() saknas.")
+  expect_that(fast_stock_analysis, is_a("function"),
+              info = "Fel: fast_stock_analysis är inte en funktion.")
+  expect_that(all(names(formals(fast_stock_analysis)) %in% c("file_path", "period_length")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   
-  expect_that(class(fastAnalysis(filePath=testFile, periodLength=5)), 
+  expect_that(class(fast_stock_analysis(file_path=testFile, period_length=5)), 
               is_equivalent_to("list"), 
               info="Fel: Funktionen returnerar inte en lista")
-  expect_that(all(names(fastAnalysis(filePath=testFile, periodLength=5)) %in% 
+  expect_that(all(names(fast_stock_analysis(file_path=testFile, period_length=5)) %in% 
                 c("total_spridning", "medel_slutpris", "slutpris_upp", "datum")), 
               is_true(), 
               info="Fel: Listans element är inte korrekt namngivna")
   # Create myList1
-  myList1 <- fastAnalysis(filePath=testFile, periodLength=5)
+  myList1 <- fast_stock_analysis(file_path=testFile, period_length=5)
   expect_equal(myList1$total_spridning, 11.82, tolerance = 0.01, 
               info="Fel: Elementet 'total_spridning' är fel.")
   expect_equal(myList1$medel_slutpris, 424.996, tolerance = 0.01, 

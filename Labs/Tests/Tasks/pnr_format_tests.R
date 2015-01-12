@@ -1,19 +1,19 @@
-### Assignment : pnrFormat ###
+### Assignment : pnr_format ###
 
 test_that("Kontroll av inlämningsfil.", {
-  expect_that(pnrFormat, is_a("function"),
-              info = "Fel: pnrFormat är inte en funktion.")
-  expect_that(all(names(formals(pnrFormat)) %in% c("pnr")), condition=is_true(),
+  expect_that(pnr_format, is_a("function"),
+              info = "Fel: pnr_format är inte en funktion.")
+  expect_that(all(names(formals(pnr_format)) %in% c("pnr")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(is.character(pnrFormat(6408233234)), condition=is_true(),
+  expect_that(is.character(pnr_format(6408233234)), condition=is_true(),
               info = "Fel: Funktionen returnerar inte ett textelement.")
-  expect_that(is.character(pnrFormat("6408233234")), condition=is_true(),
+  expect_that(is.character(pnr_format("6408233234")), condition=is_true(),
               info = "Fel: Funktionen returnerar inte ett textelement.")
-  expect_equal(pnrFormat("640823-3234"), "196408233234",
+  expect_equal(pnr_format("640823-3234"), "196408233234",
               info = "Fel: Funktionen returnerar fel vid formatet ÅÅMMDD-NNNK")
-  expect_equal(pnrFormat("196408233234"), "196408233234",
+  expect_equal(pnr_format("196408233234"), "196408233234",
                info = "Fel: Funktionen returnerar fel vid formatet ÅÅÅÅMMDDNNNK")
-  expect_equal(pnrFormat(6408233234), "196408233234",
+  expect_equal(pnr_format(6408233234), "196408233234",
                info = "Fel: Funktionen returnerar fel vid formatet ÅÅMMDDNNNK (numeriskt).")
   pnrToday <- paste(substr(Sys.Date(),1,4), 
                     substr(Sys.Date(),6,7),
@@ -23,9 +23,9 @@ test_that("Kontroll av inlämningsfil.", {
                        substr(Sys.Date()+1,6,7),
                        substr(Sys.Date()+1,9,10),
                        "0133", sep="")  
-  expect_equal(pnrFormat(substr(pnrToday,3,12)), pnrToday,
+  expect_equal(pnr_format(substr(pnrToday,3,12)), pnrToday,
                info = "Fel: Funktionen returnerar fel för en person som föddes idag.")
-  expect_equal(pnrFormat(substr(pnrTomorrow,3,12)), pnrTomorrow,
+  expect_equal(pnr_format(substr(pnrTomorrow,3,12)), pnrTomorrow,
                info = "Fel: Funktionen returnerar fel för en person som fyller 100 imorgon.")
   
 })

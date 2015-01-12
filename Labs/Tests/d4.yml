@@ -1,0 +1,29 @@
+# Assignment D4
+name  : D4
+description : "Statistisk programmering med R: Lab 4"
+reporter : student
+tasks:
+  pnr_sex:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_sex_tests.R
+  pnr_format:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_format_tests.R
+  pnr_date:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_date_tests.R
+  pnr_ctrl:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_ctrl_tests.R
+  pnr_samordn:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_samordn_tests.R
+  pnr_age:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_age_tests.R
+  my_gauss_elimination:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_gauss_elimination_tests.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

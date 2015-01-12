@@ -1,6 +1,10 @@
 ### Assignment : pnr_info ###
 
+context("pnr_info()")
+
 test_that("Kontroll av pnr_info.", {
+  expect_that(exists("pnr_info"), is_true(),
+              info = "Fel: pnr_info() saknas.")
   expect_that(pnr_info, is_a("function"),
               info = "Fel: pnr_info är inte en funktion.")
   expect_that(all(names(formals(pnr_info)) %in% c("pnr", "...", "date")), condition=is_true(),

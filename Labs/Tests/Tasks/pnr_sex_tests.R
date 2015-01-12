@@ -1,6 +1,9 @@
 ### Assignment : pnr_sex ###
+context("pnr_sex()")
 
 test_that("Kontroll av pnr_sex.", {
+  expect_that(exists("pnr_sex"), is_true(),
+              info = "Fel: pnr_sex() saknas.")
   expect_that(pnr_sex, is_a("function"),
               info = "Fel: pnr_sex är inte en funktion.")
   expect_that(all(names(formals(pnr_sex)) %in% c("pnr")), condition=is_true(),

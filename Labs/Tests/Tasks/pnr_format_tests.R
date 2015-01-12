@@ -1,6 +1,9 @@
 ### Assignment : pnr_format ###
+context("pnr_format()")
 
-test_that("Kontroll av inlämningsfil.", {
+test_that("Kontroll av pnr_format().", {
+  expect_that(exists("pnr_format"), is_true(),
+              info = "Fel: pnr_format() saknas.")
   expect_that(pnr_format, is_a("function"),
               info = "Fel: pnr_format är inte en funktion.")
   expect_that(all(names(formals(pnr_format)) %in% c("pnr")), condition=is_true(),

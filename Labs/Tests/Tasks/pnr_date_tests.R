@@ -1,6 +1,10 @@
 ### Assignment : pnr_date ###
 
+context("pnr_date()")
+
 test_that("Kontroll av pnr_date.", {
+  expect_that(exists("pnr_date"), is_true(),
+              info = "Fel: pnr_date() saknas.")  
   expect_that(pnr_date, is_a("function"),
               info = "Fel: pnr_date är inte en funktion.")
   expect_that(all(names(formals(pnr_date)) %in% c("date")), condition=is_true(),
@@ -9,8 +13,9 @@ test_that("Kontroll av pnr_date.", {
               info = "Fel: Funktionen returnerar inte ett textelement.")
   expect_equal(pnr_date(date="2012-01-23"), "2012-01-23",
               info = "Fel: Funktionen returnerar inte ett korrekt datum.")
-  expect_equal(pnr_date(), "2013-12-31",
-              info = "Fel: Ska returnera 2013-12-31.")
+  last_year <- paste0(as.character(as.numeric(paste(substr(Sys.Date(),1,4))) - 1),"-12-31")
+  expect_equal(pnr_date(), last_year,
+              info = paste0("Fel: Ska returnera", last_year, "."))
   expect_error(pnr_date(date="has"), 
                info = "Fel: Funktionen stoppas inte om fel format anges.")
   expect_error(pnr_date("has"), "Incorrect date format",

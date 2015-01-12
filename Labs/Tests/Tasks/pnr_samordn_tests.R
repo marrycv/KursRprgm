@@ -2,7 +2,7 @@
 context("pnr_samordn()")
 
 test_that("Kontroll av pnr_samordn.", {
-  expect_that(exists("mpnr_samordn"), is_true(),
+  expect_that(exists("pnr_samordn"), is_true(),
               info = "Fel: pnr_samordn() saknas.")
   expect_that(pnr_samordn, is_a("function"),
               info = "Fel: pnrSex är inte en funktion.")

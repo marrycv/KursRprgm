@@ -135,7 +135,7 @@ install.packages("devtools")
 
 \begin_layout Plain Layout
 
-devtools::install_github("markmyassignment","MansMeg")
+devtools::install_github("MansMeg/markmyassignment")
 \end_layout
 
 \begin_layout Plain Layout

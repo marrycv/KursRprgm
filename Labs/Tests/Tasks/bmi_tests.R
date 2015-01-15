@@ -6,6 +6,8 @@ test_that("Assignment: bmi()", {
               info = "Fel: bmi() saknas.")
   expect_that(bmi, is_a("function"),
               info = "Fel: bmi är inte en funktion.")
+  expect_self_contained(object = bmi,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(bmi)) %in% c("body_weight","body_height")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.numeric(bmi(body_weight = 71, body_height = 1.78)), condition=is_true(),

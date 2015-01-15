@@ -7,6 +7,8 @@ test_that("Kontroll av logical_equality.", {
               info = "Fel: logical_equality() saknas.")
   expect_that(logical_equality, is_a("function"),
               info = "Fel: logical_equality är inte en funktion.")
+  expect_self_contained(object = logical_equality,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(logical_equality)) %in% c("A", "B")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.logical(logical_equality(TRUE, TRUE)), condition=is_true(),

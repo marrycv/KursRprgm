@@ -6,6 +6,8 @@ test_that("Kontroll av pnr_format().", {
               info = "Fel: pnr_format() saknas.")
   expect_that(pnr_format, is_a("function"),
               info = "Fel: pnr_format är inte en funktion.")
+  expect_self_contained(object = pnr_format,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(pnr_format)) %in% c("pnr")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.character(pnr_format(6408233234)), condition=is_true(),

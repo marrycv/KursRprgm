@@ -10,6 +10,8 @@ test_that("matrix_trace", {
               info = "Fel: matrixTrace är inte en funktion.")
   expect_that(all(names(formals(matrix_trace)) %in% c("X")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  expect_self_contained(object = matrix_trace,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(class(matrix_trace(test_matA)), is_equivalent_to("numeric"),
               info="Fel: Funktionen returnerar inte ett numeriskt värde")
   expect_that(length(matrix_trace(test_matA)), is_equivalent_to(1),

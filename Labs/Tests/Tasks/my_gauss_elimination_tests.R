@@ -15,6 +15,8 @@ test_that("my_gauss_elimination()", {
               info = "Fel: my_gauss_elimination() saknas.")
   expect_that(my_gauss_elimination, is_a("function"),
               info = "Fel: my_gauss_elimination är inte en funktion.")
+  expect_self_contained(object = my_gauss_elimination,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(my_gauss_elimination)) %in% c("A","b")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.numeric(my_gauss_elimination(A=A1, b=b1)), condition=is_true(),

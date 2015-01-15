@@ -11,6 +11,8 @@ test_that("Assignment: my_moving_average()", {
               info = "Fel: my_moving_average() saknas.")  
   expect_that(my_moving_average, is_a("function"),
               info = "Fel: my_moving_average är inte en funktion.")
+  expect_self_contained(object = my_moving_average,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(my_moving_average)) %in% c("x","n")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.numeric(my_moving_average(x=y, n=2)), condition=is_true(),

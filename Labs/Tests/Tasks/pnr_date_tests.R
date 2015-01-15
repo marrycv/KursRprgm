@@ -7,6 +7,8 @@ test_that("Kontroll av pnr_date.", {
               info = "Fel: pnr_date() saknas.")  
   expect_that(pnr_date, is_a("function"),
               info = "Fel: pnr_date är inte en funktion.")
+  expect_self_contained(object = pnr_date,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(pnr_date)) %in% c("date")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.character(pnr_date(as.character(Sys.Date()))), condition=is_true(),

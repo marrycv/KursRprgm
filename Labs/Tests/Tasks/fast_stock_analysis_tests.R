@@ -14,6 +14,8 @@ test_that("fast_stock_analysis()", {
               info = "Fel: fast_stock_analysis() saknas.")
   expect_that(fast_stock_analysis, is_a("function"),
               info = "Fel: fast_stock_analysis är inte en funktion.")
+  expect_self_contained(object = fast_stock_analysis,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(fast_stock_analysis)) %in% c("file_path", "period_length")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   

@@ -16,7 +16,9 @@ test_that("Assignment: my_matrix_prod()", {
   expect_that(exists("my_matrix_prod"), is_true(),
               info = "Fel: my_matrix_prod() saknas.")
   expect_that(my_matrix_prod, is_a("function"),
-              info = "Fel: bmi är inte en funktion.")
+              info = "Fel: my_matrix_prod är inte en funktion.")
+  expect_self_contained(object = my_matrix_prod,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(my_matrix_prod)) %in% c("A","B")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(is.matrix(my_matrix_prod(A=testMatA1, B=testMatB1)), condition=is_true(),

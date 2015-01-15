@@ -6,6 +6,8 @@ test_that("Assignment: babylon()", {
               info = "Fel: babylon() saknas.")
   expect_that(babylon, is_a("function"),
               info = "Fel: babylon är inte en funktion.")
+  expect_self_contained(object = babylon,
+                        "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(babylon)) %in% c("x", "init", "tol")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_that(babylon(x=2, init=1.5, tol=0.01), is_a("list"),

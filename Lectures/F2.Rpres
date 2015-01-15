@@ -40,133 +40,16 @@ Linköpings universitet
 Föreläsning 2: Innehåll 
 ========================================================
 - Uppföljning av labb 1
-- Variabeltyper
-- Logik i R
 - Datastrukturer
-  - Vektorer
   - Matriser
   - Data.frame
   - Listor
-  - Att studera datatyper i R
+- Grundläggande databearbetning
 - Input och output (I/O) i R
 
 Uppföljning av laboration 1
 ========================================================
 type: section
-
-Variabeltyper
-========================================================
-type: section
-
-Variabeltyper
-========================================================
-- Olika typer av värden på variabler, ex:
-  - Heltal, Numeriska värden, Textsträngar
-- Kallas för atomära klasser
-- För att undersöka vilken klass en variabel har används: ```typeof()```
-- För att konvertera mellan klasser används ```as.``` - funktioner (finns för alla variabeltyper). Ex:
-```{r}
-as.character(1:5)
-```
-
-Variabeltyper, översikt
-========================================================
-
-Beskrivning | Synonymer | ```typeof()``` | Exempel i R
------ | ---- | ----- | ---- | ----
-Heltal ($\mathbb{Z}$) | ```int``` | ```integer``` | ```-1, 0, 1``` 
-Reella tal ($\mathbb{R}$) | ```real```, ```double```, ```float``` | ```numeric``` | ```1.03, -2.872``` 
-Komplexa tal ($\mathbb{C}$) | ```cplx``` | ```complex``` | ```1 + 2i``` 
-Logiska värden | ```boolean```, ```bool```, ```logi``` | ```logical``` | ```TRUE FALSE``` 
-Textsträngar | ```string```, ```char``` | ```character``` |  ```Go R!``` 
-
-Logik i R
-========================================================
-type: section
-
-
-Kort om logik
-========================================================
-- Logiska värden är centralt i programmering och statistik
-- De logiska värdena i R är ```TRUE, FALSE, NA```
-- Logiska värden är en egen variabeltyp (med värden, vektorer, matriser)
-
-
-Kort om logik II
-========================================================
-- Logiska variabler kan skapas med ```c()```:  
-Ex: ```c(TRUE, FALSE)```
-- Logiska vektorer/matriser kan användas för "slicing"
-```{r}
-minBool <- c(TRUE, FALSE, FALSE, TRUE)
-minVektor <- c(12,1,2,7)
-minVektor[minBool]
-```
-- Detta är mycket användbart!
-
-Relationsoperatorer
-========================================================
-- Ett annat sätt är att använda relationsoperatorer
-- Finns i *R reference card v.2* under operatorer
-- Relationsoperatorer skapar logiska vektorer (eller matriser)
-
-| Beskrivning | Operatorer i R |
-| ----- | ---- |
-| Lika med  | ```==``` |
-| Inte lika med  | ```!=``` |
-| Större än | ```>``` |
-| Mindre än | ```<``` |
-| Större än eller lika med  | ```>=``` |
-| Mindre än eller lika med  | ```<=``` |
-| Finns i  | ```%in%``` |
-
-Relationsoperatorer (Exempel)
-========================================================
-```{r}
-x <- c(1, 2, 3, 4, 5)
-x != 5
-x > 2
-```
-
-
-Logiska operatorer
-========================================================
-- Logiska operatorer används för att "räkna" med logiska uttryck
-- De operatorer som vi kommer använda är: 
-
-| Operator | Symbol | Operator i R |
-| --- | --- | --- |
-| och (and) | $\wedge$ | ```&``` |
-| eller (or) | $\vee$ | $|$ |
-| exklusivt eller (exclusive or) | $\veebar$ | ```xor()``` |
-| icke (not) | $\neg$ | ```!``` |
-
-Logiska operatorer (forts.)
-========================================================
-incremental: true
-
-| Symbol | $A$ | $B$ | $\neg A$ | $A \wedge B$ | $A \vee B$ | $A \veebar B$ |
-| --- | --- | --- | --- | --- | --- | --- |
-| i R | ```A``` | ```B``` | ```!A``` | ```A & B``` | ```A``` $|$ ```B``` | ```xor(A,B)``` |
-|  | ```TRUE``` | ```TRUE``` | ```FALSE``` | ```TRUE``` | ```TRUE``` | ```FALSE``` |
-|  | ```TRUE``` | ```FALSE``` | ```FALSE``` | ```FALSE``` | ```TRUE``` | ```TRUE``` |
-|  | ```FALSE``` | ```TRUE``` | ```TRUE``` | ```FALSE``` | ```TRUE``` | ```TRUE``` |
-|  | ```FALSE``` | ```FALSE``` | ```TRUE``` | ```FALSE``` | ```FALSE``` | ```FALSE``` |
-
-- Logiska operatorer kan kombineras med paranteser för komplicerade uttryck: 
-```{r}
-(FALSE & !TRUE) | xor(FALSE,TRUE)
-````
-
-Demo 03: Logiska operatorer
-========================================================
-## Demonstration av:
-- Logiska vektorer
-- Relationsoperatorer
-- Slicing med logiska vektorer
-- Logiska operatorer
-
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_03.R)
 
 
 Datastrukturer
@@ -186,36 +69,41 @@ Vektorer
 ========================================================
 type: sub-section
 
-Ändra element i en vektor
+Vektorer
 ========================================================
-- Det enklaste sättet är att använda "slicing":
+- Element av **samma** typ
+- En dimension
+- Indexering med ```[ ]```
+
+Exempel
+========================================================
+
 ```{r}
 vektor <- seq(1, 3, 0.5)
 vektor
 vektor[2:3] <- c(4,7)
 vektor
-
 ```
-
 
 Sortera vektorer
 ========================================================
-- Sortera vektorer ```sort()``` och ```order()```
+- ```sort()``` och ```order()```
 ```{r}
 vektor <- c(5,2,4,3,-1)
 sort(vektor)
 order(vektor, decreasing = TRUE)
 ```
 
-Faktorvariabel
+Faktorvariabel (vektor)
 ========================================================
-- Skapar dummyvariabler automatiskt vid analyser
+- Dummyvariabler vid analyser
 - Sparar minnesutrymme  (jmf. med textvektorer)
-- Textvektorer konverteras enkelt med ```factor()```  
+- Text till faktor med ```factor()```  
 - Textdata som läses in i R konverteras till ```factor``` om inte ```stringsAsFactors = FALSE```
 
 ```{r}
-minFaktor <- factor(x=c(1,3,2,2,1,3), levels=1:3, labels=c("A","B","C"))
+minText <- c("A", "B", "A", "A")
+minFaktor <- factor(minText)
 minFaktor
 ```
 
@@ -225,14 +113,12 @@ type: sub-section
 
 Matriser
 ========================================================
-- Tvådimensionell (men alla element är samma variabeltyp)  
-Ex. logiska, numeriska, text
+- Tvådimensionell
+- Element av **samma** typ
 - Skapas med ```matrix()```
-- Vanliga operatorer (som ```* + / %%```) sker elementvis
-- Matrisoperatorer  
-Ex. ```%*%```, ```t()```, ```solve()```  
-- "Slicing" sker både rader och kolumner med ```[ , ]```
-- Ändra element eller vektorer sker med "slicing"
+- Vanliga operatorer sker elementvis
+- Matrisoperatorer finns
+- Indexering med ```[ , ]```
 
 Matrisexempel
 ========================================================
@@ -248,31 +134,118 @@ Data.frame
 ========================================================
 type: sub-section
 
-
 Data.frame
 ========================================================
-- Vanligaste sättet att spara "dataset" i R
-- Som matriser, men:
-  - Olika kolumner kan ha olika datatyper
-  - "Slicing" av variabler kan göras med variabelnamn
-- Skapas med ```data.frame()```
-- Oftast läser vi in dataset från filer/databaser m.m. 
-- Förinstallerade dataset kan läsas in med ```data()```
-- Ett specialfall av listor
-- Skapa nya variabler som variabler "i" datasetet eller med ```within()```
+incremental: true
+
+- "dataset" i R
+- Ett objekt som andra 
+- Olika kolumner kan ha olika datatyper
+- Indexering av variabler kan göras med variabelnamn ```["min_var"]```
+- Specialfall av listor
+- Indexering av rader och kolumner med ```[ , ]```
 
 
-Data.frame exempel
+Skapa en data.frames
 ========================================================
+incremental: true
+
 ```{r}
 minData <- 
  data.frame(vikt=c(58,78,98), 
             namn=c("Lisa","Kim","Max"), 
             rik=c(TRUE,FALSE,FALSE))
-minData$ny <- c(1,5,2)
 minData
 ```
 
+
+Läsa in interna data.frames 
+========================================================
+- Inkluderade datamaterial i R
+- Finns i paketet ```datasets```
+
+```{r}
+data(iris)
+```
+
+
+Iris
+========================================================
+<p align="center">
+  <img src="http://www.twofrog.com/images/iris38a.jpg" alt="Iris setosa"/>
+</p>
+
+
+Undersöka en data.frame
+========================================================
+incremental: true
+
+```{r, eval=FALSE}
+head(iris)
+tail(iris)
+summary(iris)
+dim(iris)
+```
+
+- Använda R-Studios "Environment"
+
+Variabler
+========================================================
+- Är vektorer
+- Tre sätt att "välja" en variabel
+```{r, eval=FALSE}
+iris$Species
+iris[, "Species"]
+iris[["Species"]]
+iris[, 5]
+iris[, colnames(iris) == "Species"]
+```
+
+Skapa en ny variabel
+========================================================
+incremental: true
+
+- Lägger till en ny vektor
+- Som vektorer i övrigt
+```{r}
+iris$Sepal.Length2 <- 
+  iris$Sepal.Length ^ 2 
+iris$Species2 <- c(2,1)
+iris$Species2[1:10]
+```
+
+Ta bort variabler
+========================================================
+- Tillskriver variabeln värdet ```NULL```
+- Som vid indexering av 
+```{r, eval=FALSE}
+iris$Sepal.Length2 <- NULL
+iris <- iris[, -7]
+```
+
+
+Byta variabelnamn
+========================================================
+incremental: true
+
+- Variabelnamn är en textvektor
+- Bör inte innehålla mellanrum
+```{r}
+colnames(iris)
+colnames(iris)[1] <- "Oj_EnVariabel"
+colnames(iris)[1:2]
+```
+
+Row ID
+========================================================
+- Rader har enskilda ID
+- Detta är också en textvektor!
+
+```{r}
+rownames(iris)[1:5]
+rownames(iris)[1] <- "Blomma 1"
+rownames(iris)[1:5]
+```
 
 
 Listor
@@ -281,9 +254,34 @@ type: sub-section
 
 Listor
 ========================================================
-- Som en vektor, men **alla** sorters objekt kan sparas
-- Tänk: Ett antal lådor där data sparas
-- Mycket praktiskt för att returnera flera olika objekt från en funktion.
+incremental: true
+
+- Som en vektor, men **alla** element är objekt
+- **Tänk:** "lådor" med objekt
+- Kan namnges precis som variabler i ```data.frames```
+
+```{r}
+minLista <- list(Pelles="Pelle Karlsson", c(1,2,3,4))
+minLista
+```
+
+Indexera listor
+========================================================
+incremental: true
+
+- Görs med enkla och dubbla "hakparanteser"
+  - ```[]```: Tänk plocka ut en eller flera "lådor"
+  - ```[[]]```: Tänk öppna och ta innehållet i **en** låda
+- Om namngivna: 
+  - ```lista$list_element_namn```
+  - ```[["list_element_namn"]]```
+
+```{r}
+minLista <- list(Pelles="Pelle Karlsson", c(1,2,3,4))
+minLista[1]
+minLista[[1]]
+```
+
 
 Att studera objekt i R
 ========================================================
@@ -291,7 +289,6 @@ type: sub-section
 
 Att studera datatyper i R
 ========================================================
-- Det finns ett flertal sätt att undersöka / "titta på" datatyper i R:
 
 | Funktion | Exempel | Kort beskrivning |
 | --- | --- | --- | 
@@ -299,17 +296,25 @@ Att studera datatyper i R
 | ```str()``` | ```str(a)``` | Visar kondenserat (en rad per objekt) alla delar i ett R-objekt | 
 | ```is.``` | ```is.logical(a)``` | Testar om objektet är en given klass. | 
 
-Demo 04: Datastrukturer
+Demo: Listor
 ========================================================
-## Demonstration av:
-- Sortera vektorer
-- Faktorvariabler
-- Matriser
-- ```data.frame```
-- Listor
-- Studera R-objekt
+type: section
 
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_04.R)
+
+Grundläggande databearbetning
+========================================================
+type: section
+
+Sammanfoga data
+========================================================
+
+- "Ni statistiker tror att världen kommer i excelformat"
+- Grundläggande databearbetningar
+  + ```rbind()```
+  + ```cbind()```
+  + ```merge()```
+- Aggregera data används ```aggregate()```
+
 
 Input och output (I/O) i R
 ========================================================
@@ -317,18 +322,22 @@ type: section
 
 Input och output (I/O) i R
 ========================================================
-- Olika sätt att läsa in data:
+incremental: true
+
+- Olika sätt att läsa in data (input):
   - Från filer på datorn / nätverket (.csv, .xlsx, .txt, .Rdata)
-  - Från filer på webben 
-  - Från databaser (SQL m.m. se [732G16](http://www.ida.liu.se/~732G16/index.sv.shtml))
+  - Från filer på webben (```httr```)
+  - Från databaser (med SQL)
   - Via API:er (ex.  [```rOpenGov```](http://ropengov.github.io/))
-- Olika sätt att leverera:
-  - Filer 
-  - Databaser
-  - Webbsidor (ex. [New york times](http://www.nytimes.com/interactive/2012/10/31/nyregion/where-the-power-is-out-and-returning.html))
-  - Interaktiva webbdatabaser (ex. [Shiny](http://glimmer.rstudio.com/prenumerant/KLD_Explorer/))
-  - Rapporter / analyser / texter
   
+- Olika sätt att leverera (output):
+  - Filer 
+  - Databaser / API:er
+  - Webbsidor (ex. [New york times](http://www.nytimes.com/interactive/2012/10/31/nyregion/where-the-power-is-out-and-returning.html))
+  - Interaktiva webbdatabaser (ex. [Shiny](http://shiny.rstudio.com/gallery/word-cloud.html))
+  - Rapporter / analyser / texter ([knitr](http://yihui.name/knitr/))
+
+
 Filhantering i R
 ========================================================
 - R läser in i internminnet, men ofta vill vi arbeta med filer från hårddisken
@@ -344,15 +353,6 @@ Input (I)
 För att läsa in data finns:
 - ```.csv``` och ```.txt```-filer: ```read.table()```,```read.csv()```, ```read.csv2()```
 - ```.Rdata```-filer: ```load()```
-- För övriga datakällor finns separata paket:
-
-| R-Paket | Filtyp |
-| --- | --- |  
-| ```XLconnect``` | Excel-filer (mer information finns [här](http://rwiki.sciviews.org/doku.php?id=tips%3adata-io%3ams_windows&s=excel)) |
-| ```foreign``` | Filer från Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka |
-| ```RODBC``` | Kontakta databaser från R |
-| ```XML``` | XML - data |
-| ```rjson``` | JSON - data  |
 
 
 Output (O) 
@@ -361,13 +361,19 @@ För att spara data från R till hårddisken finns (bland annat):
 - ```.csv``` - filer: ```write.table()```,```write.csv()```, ```write.csv2()```
 - ```.Rdata``` - filer: ```save()```
 
-
-Demo 05: Filhantering, Input och Output (I/O) 
+Andra datakällor
 ========================================================
-## Demonstration av:
-- Skapa sökvägar med ```file.choose()```
-- R working directory
-- Läsa in ```.csv``` - filer
-- Skriva ```.csv``` - filer
+För andra datakällor finns andra paket:
 
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_05.R)
+| R-Paket | Filtyp |
+| --- | --- |  
+| ```XLConnect``` | Excel-filer (mer information finns [här](http://rwiki.sciviews.org/doku.php?id=tips%3adata-io%3ams_windows&s=excel)) |
+| ```foreign``` | Filer från Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka |
+| ```RODBC```, ```RMySQL``` m.m.| Kontakta databaser från R |
+| ```XML``` | XML - data |
+| ```RJSONIO``` | JSON - data  |
+
+
+Demo: Filhantering, Input och Output (I/O) 
+========================================================
+type: section

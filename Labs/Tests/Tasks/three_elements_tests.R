@@ -7,8 +7,6 @@ test_that("Kontroll av three_elements.", {
               info = "Fel: three_elements() saknas.")
   expect_that(three_elements, is_a("function"),
               info = "Fel: three_elements är inte en funktion.")
-  expect_self_contained(object = three_elements,
-                        "Fel: Funktionen innehåller fria variabler")
   expect_that(is.numeric(three_elements()), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en numerisk vektor.")
   expect_equal(length(three_elements()), 3,

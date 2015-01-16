@@ -149,7 +149,7 @@ options(digits = 5)
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "Intro.lyx"
+filename "IntroDel1.lyx"
 
 \end_inset
 
@@ -4317,6 +4317,50 @@ myNote
  
 \end_layout
 
+\begin_layout Enumerate
+Har vi en lista med flera vektorer kan vi lägga ihop dessa vektorer med
+ 
+\family typewriter
+unlist()
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+num_list <- list(3:5, 10:15, 1, 20:22)
+\end_layout
+
+\begin_layout Plain Layout
+
+num_list
+\end_layout
+
+\begin_layout Plain Layout
+
+unlist(num_list)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Indexering av listor
 \end_layout
@@ -4408,7 +4452,7 @@ minLista[-1]
 \begin_layout Enumerate
 Välj 
 \family typewriter
-job
+work
 \family default
  från 
 \family typewriter

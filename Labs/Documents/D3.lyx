@@ -2097,6 +2097,22 @@ Beräknar och skriver ut resultat i varje steg av den kumulativa summan från
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Skapa en egen 
+\family typewriter
+sum()
+\family default
+ funktion och 
+\family typewriter
+mean()
+\family default
+ som med en 
+\family typewriter
+for
+\family default
+-loop beräknar summan och medelvärdet för en godtycklig numerisk vektor.
+\end_layout
+
 \begin_layout Section
 Avbryta funktioner och generera varningar
 \end_layout

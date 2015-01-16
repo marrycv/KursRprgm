@@ -1,0 +1,573 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Miniprojekt: Programmering i R
+\end_layout
+
+\begin_layout Standard
+Som en del av kursen i R programmering ska en analys av befintliga data
+ göras med Rmarkdown genomföras.
+ Miniprojektet är uppdelat i två delar.
+ Den första delen handlar om att läsa in data från externa datakällor och
+ beskriva dessa data.
+\end_layout
+
+\begin_layout Standard
+I den andra delen av miniprojektet ska mer utförlig analys genomföras samt
+ bearbeta och analysera denna data vidare.
+ 
+\end_layout
+
+\begin_layout Standard
+För båda delarna gäller att:
+\end_layout
+
+\begin_layout Itemize
+R-markdown ska användas.
+\end_layout
+
+\begin_layout Itemize
+Rapporterna ska lämnas in som både 
+\series bold
+PDF
+\series default
+ och 
+\series bold
+.Rmd
+\series default
+-fil.
+ 
+\end_layout
+
+\begin_layout Itemize
+Samtliga material ska laddas in i R från webben som 
+\series bold
+externa datakällor
+\series default
+.
+ Vill ni använda ett eget material får ni lägga upp det öppet på github,
+ dropbox, google docs eller dylikt och läsa in det därifrån i R.
+ Syftet är att rapporten ska vara helt reproducerbar och kunna skapas på
+ godtycklig dator.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Rmd
+\series default
+-filen ska kunna köras och reproducera era resultat.
+ D.v.s.
+ den ska innehålla all er kod som behövs för analysen.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Namn
+\series default
+, 
+\series bold
+liu-id
+\series default
+ och 
+\series bold
+gruppnummer
+\series default
+ ska framgå i början av rapporten.
+\end_layout
+
+\begin_layout Section
+Deskriptiva data
+\end_layout
+
+\begin_layout Standard
+Den första delen av miniprojektet är att samla in datamaterial och beskriva
+ materialet kortfattat i en första del av rapporten.
+\end_layout
+
+\begin_layout Standard
+Till den miniprojektet behöver ni 
+\series bold
+tre
+\series default
+ datamaterial, två som innehåller kommunala data och ett material som innehåller
+ en tidsserie.
+ 
+\end_layout
+
+\begin_layout Standard
+Tänk på att välja material ni själva tycker är intressant!
+\end_layout
+
+\begin_layout Paragraph
+Kommunala data
+\end_layout
+
+\begin_layout Standard
+Två datamaterial (data.frames) ska innehålla data på kommunnivå (d.s.v.
+ för alla 290 kommuner).
+ Ett exempel skulle kunna vara antal invånare i varje kommun.
+ Dataseten ska ha minst 
+\series bold
+2 variabler
+\series default
+ utöver kommunnamn.
+ Ni väljer själv vilka variabler som ska ingå och vilken område data ska
+ komma ifrån.
+ Tanken är att i nästa del göra en enklare sambandsanalys mellan dessa variabler
+ i nästa del av miniprojektet.
+\end_layout
+
+\begin_layout Paragraph
+Tidsserie
+\end_layout
+
+\begin_layout Standard
+Hitta ett dataset som innehåller en 
+\series bold
+tidserie
+\series default
+, det innebär att det finns en variabel som har observerats över tiden.
+ Kravet är att data ska innehålla data på 
+\series bold
+månadsnivå
+\series default
+ och innehålla data från minst 3 år (36 månder).
+ Här ska ni alltså hitta en variabel som observerats under minst 36 tidpunkter,
+ men fler går bra.
+ Data ska alltså innehålla två kolumner, en med variabeln som vi är intresserade
+ av och en med tidpunkterna.
+\end_layout
+
+\begin_layout Subsection
+Inlämning av del I
+\end_layout
+
+\begin_layout Standard
+Den första inlämningsuppgiften handlar om att läsa in i R och beskriva de
+ material ni valt med R-markdown.
+ Ni ska beskriva era material i text samt sammanfatta de variabler ni valt
+ med de beskrivande statistiska mått som ni själva finner lämpliga.
+ Ta fram beskrivande statistik för 
+\series bold
+alla
+\series default
+ variabler i data.
+ Beroende på hur data ser ut så kan det vara medelvärden, frekvenstabeller
+ mm.
+ Ni kan göra relevanta transformationer av era variabler om ni vill, tex
+ göra en numeriska variabel till en binär och räkna med andelar eller dela
+ in kommunerna i stora, medelstora och små när det gäller befolkning.
+\end_layout
+
+\begin_layout Standard
+Följande saker ska ni göra med data med basgrafiken i R:
+\end_layout
+
+\begin_layout Enumerate
+Ni ska minst ha ett histogram eller barplot per variabel i kommunamaterialet
+\end_layout
+
+\begin_layout Enumerate
+En tidsseriegraf/linjediagram för tidseriematerialet
+\end_layout
+
+\begin_layout Standard
+Lämna in rapporten både som en fullt reproducerbar 
+\series bold
+Rmd
+\series default
+-fil och som 
+\series bold
+PDF
+\series default
+ i LISAM.
+\end_layout
+
+\begin_layout Itemize
+I denna del ska samtliga grafer vara skapade med basgrafiken i R.
+\end_layout
+
+\begin_layout Itemize
+Tabeller ska vara 
+\begin_inset Quotes eld
+\end_inset
+
+riktiga
+\begin_inset Quotes erd
+\end_inset
+
+ tabeller (med ex.
+ 
+\family typewriter
+kable()
+\family default
+), inte utskrifter av R-kod.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analys
+\end_layout
+
+\begin_layout Standard
+I den första delen av minprojektet har ni valt ut och beskrivit tre datamaterial.
+ Nu ska vi fortsätta detta arbete med analyser av materialen.
+ Ni som grupp kommer att ha en del frihet i hur ni utför datanalysen som
+ beskrivs nedan.
+ Det ni ska göra är att bearbeta data vidare, några enkla analyser, lite
+ olika grafer i 
+\family typewriter
+ggplot2
+\family default
+ och en linjär regression.
+ 
+\end_layout
+
+\begin_layout Subsection
+Inlämning del II
+\end_layout
+
+\begin_layout Standard
+Den fulla rapporten ska lämnas in som en fullt reproducerbar 
+\series bold
+Rmd
+\series default
+-fil och som ett 
+\series bold
+PDF
+\series default
+-dokument i LISAM.
+ Nedan framgår exakt vilka analyser som ska genomföras.
+\end_layout
+
+\begin_layout Itemize
+I denna del ska samtliga grafer vara skapade med 
+\family typewriter
+ggplot2
+\end_layout
+
+\begin_layout Itemize
+Tabeller ska vara 
+\begin_inset Quotes eld
+\end_inset
+
+riktiga
+\begin_inset Quotes erd
+\end_inset
+
+ tabeller (med ex.
+ 
+\family typewriter
+kable()
+\family default
+), inte utskrifter i R-kod.
+\end_layout
+
+\begin_layout Subsubsection
+Dataanalys av kommundata
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Slå-samman-dataseten"
+
+\end_inset
+
+Slå samman de två dataseten med kommundata så det blir ett dataset som innehålle
+r variablerna från båda dataseten.
+ Om ni gör rätt här så ska ni få ett dataset med en variabel över kommun
+ och minst 4 andra variabler.
+ Detta kan göras på olika sätt, ett är att använda funktionen 
+\family typewriter
+merge()
+\family default
+.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Här"
+target "http://www.youtube.com/watch?v=rkmIASiE8iI"
+
+\end_inset
+
+ finns en video för hur ni kan använda 
+\family typewriter
+merge()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Följande saker ska ni göra med data:
+\end_layout
+
+\begin_layout Enumerate
+Ta fram minst en scatterplot mellan två variabler.
+\end_layout
+
+\begin_layout Enumerate
+Ta fram minst en scatterplot/histogram/stapeldiagram som är grupperat på
+ en annan variabel i minst två grupper.
+\end_layout
+
+\begin_layout Enumerate
+Göra minst ett hypotestest, där ni ställer upp en nollhypotes och sen testar
+ om ni kan förkasta den.
+ Beroende på hur er data ser ut så kan det vara ett t-test, test av andelar
+ eller ett chitvå-test/fishers test.
+ I rapporten ska ni skriva upp både nollhypotesen och mothypotesen, ange
+ även p-värdet.
+\end_layout
+
+\begin_layout Enumerate
+Om data är numerisk (ex.
+ frekvenser) så ska ni beräkna korrelationer mellan alla sådana variabler.
+\end_layout
+
+\begin_layout Enumerate
+Beräkna två olika linjära regressionsmodeller.
+ Ni väljer en responsvariabel (
+\begin_inset Formula $y$
+\end_inset
+
+-variabel) ni tror kan bero/ha ett samband med de andra variablerna.
+ Välj sedan ut två olika variabler som ni kan ha som förklarande variabler
+ (
+\begin_inset Formula $x$
+\end_inset
+
+-variabler).
+ Skatta sedan två regressionsmodeller med de två olika förklarande variablerna
+ i var sin regressionsmodell, dvs om era förklarande variabler heter 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+och 
+\begin_inset Formula $X_{2},$
+\end_inset
+
+ så blir modellerna: 
+\begin_inset Formula $y=\beta_{0}+\beta_{1}*X_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $y=\beta_{0}+\beta_{1}*X_{2}$
+\end_inset
+
+.
+ Det är okej att använda frekvensdata i regressionmodellerna .
+ Följande saker ska vara med från modellerna:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Scatterplot mellan föklarande variabel och responsvariabel, tillsammans
+ med skattad regressionlinje.
+\end_layout
+
+\begin_layout Enumerate
+Histogram över residualerna (felen)
+\end_layout
+
+\begin_layout Enumerate
+Hurvida lutningen på regressionslinjen är signifikant skild från noll, dvs
+ om p-värdet för 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+i de olika modellern är mindre är 0.05.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Ni ska ha med minst en Sverigekarta där ni plottar någon beskrivande statistik
+ för en variabel över kommunerna.
+ Ni behöver ladda ner 
+\begin_inset Quotes eld
+\end_inset
+
+Kommun_SCB.zip
+\begin_inset Quotes erd
+\end_inset
+
+ och packa upp den för att få tillgång till en karta på kommunnivå.
+\end_layout
+
+\begin_layout Subsubsection
+Dataanalys av tidseriedata
+\end_layout
+
+\begin_layout Standard
+Låt 
+\family typewriter
+X
+\family default
+ vara er variabel i tidsseriematerialet.
+ Utför nu följande:
+\end_layout
+
+\begin_layout Enumerate
+Gör en linjeplot mellan 
+\family typewriter
+X
+\family default
+ och er tidsvariabel.
+ Skalan på x-axeln ska vara en lämplig tidsskala.
+\end_layout
+
+\begin_layout Enumerate
+Beräkna månadsmedelvärden, spara dessa i 
+\family typewriter
+monthMeans
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Använd funktionen 
+\family typewriter
+summary()
+\family default
+ för att fram beskrivande statistik för varje år (det ska vara minst tre
+ år i data)
+\end_layout
+
+\begin_layout Enumerate
+Subtrahera månadsmedelvärden från X, så ni tar bort säsongsvariationen i
+ data.
+ Månadsmedelvärdet för januari ska subtraheras från alla januarivärden i
+ data, och likadant för de andra månaderna.
+ Spara den nya tidserie som 
+\family typewriter
+newX
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Gör en linjeplot mellan 
+\family typewriter
+newX
+\family default
+ och tid.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Skatta en linjär regressionsmodell mellan 
+\family typewriter
+newX
+\family default
+ och dess tidsindex.
+ Rapportera följande:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Scatterplot (punkter) mellan föklarande variabel och responsvariabel, tillsamman
+s med skattad regressionlinje.
+\end_layout
+
+\begin_layout Enumerate
+Histogram över residualerna (felen)
+\end_layout
+
+\begin_layout Enumerate
+Hurvida lutningen på regressionslinjen är signifikant skild från noll, dvs
+ om p-värdet för 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+i de olika modellern är mindre är 0.05.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Verkar det finnas någon trend i data? Dvs ökar/minskar data med tiden, eller
+ är data konstant över tid.
+\end_layout
+
+\end_body
+\end_document

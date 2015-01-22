@@ -91,16 +91,31 @@ Instruktioner
 \end_layout
 
 \begin_layout Itemize
-Denna laboration ska göras 
+Denna laboration ska göras i grupper om 
 \series bold
-en och en
+två och två
 \series default
 .
+ Det är viktigt för gruppindelningen att inte ändre grupper.
 \end_layout
 
 \begin_layout Itemize
-Det är tillåtet att diskutera med andra, men att plagiera eller skriva kod
- åt varandra är 
+En av ska vara 
+\series bold
+navigatör
+\series default
+ och den andra 
+\series bold
+programmerar
+\series default
+.
+ Navigatörens ansvar är att ha ett helhetsperspektiv över koden.
+ Byt position var 30:e minut.
+\end_layout
+
+\begin_layout Itemize
+Det är tillåtet att diskutera med andra grupper, men att plagiera eller
+ skriva kod åt varandra är 
 \series bold
 inte tillåtet
 \series default
@@ -154,11 +169,6 @@ target "http://www.ida.liu.se/~732G33/timetable/index.sv.shtml"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-Laborationen ska lämnas in via LISAM.
- 
 \end_layout
 
 \begin_layout Standard

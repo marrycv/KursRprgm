@@ -11,4 +11,3 @@ test_that("Obligatoriska object", {
   expect_true(nchar(LiuId) > 0, info = "Ange ditt LiuId.")
 })
 
-library(testthat)

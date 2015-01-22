@@ -135,7 +135,7 @@ Kursboken *A first course in statistical programming with R* av Braun och Murdoc
 
 ## Artiklar 
 - *Dates and Times Made Easy with* ```lubridate``` [[ladda ned]](http://www.jstatsoft.org/v40/i03/paper)
-- ```stringr```: *modern, consistent string processing* [[ladda ned]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf)
+- *Handling and processing strings in R* [[ladda ned]](http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf)
 - *Best practices for scientific computing* [[ladda ned]](http://arxiv.org/abs/1210.0530)
 
 Kurslitteratur II: Extramaterial
@@ -158,19 +158,19 @@ Datorlaborationer
 - Börja direkt!
 - Är ~~obligatoriska~~.
 - ~ 15 h arbete
-- Labbar utgår från en labbfil (med tester)
+- Laborationsmall finns på hemsidan
 - Labbarna lämnas in via LISAM och autorättas
 - ```markmyassignment```
-- Filer på kurshemsidan.
-- 100 % rätt för godkänt (?)
-
+- Filer på kurshemsidan
+- 100 % rätt för godkänt
+- Samordning med linjär algebra
 
 markmyassignment
 ========================================================
 
 - Paket för direkt återkoppling på labbar
 - Underlätta lärandet
-- Utvecklas till årets kursomgång
+- Utvecklats till årets kursomgång
 - **Kom gärna med synpunkter!**
 
 ```{r, eval=FALSE}
@@ -456,7 +456,6 @@ incremental: true
 
 Kort om logik II
 ========================================================
-incremental: true
 
 ```{r}
 minVektor <- c(12,1,2,7)
@@ -467,7 +466,6 @@ minVektor[minBool]
 
 Logiska operatorer
 ========================================================
-incremental: true
 - Boolsk algebra
 - Operatorer:
 
@@ -498,7 +496,6 @@ incremental: true
 
 Relationsoperatorer
 ========================================================
-incremental: true
 - Jämförelser
 - I *R reference card v.2* under operatorer
 - Skapar logiska vektorer

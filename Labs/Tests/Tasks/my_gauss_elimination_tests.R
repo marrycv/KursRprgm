@@ -25,4 +25,6 @@ test_that("my_gauss_elimination()", {
                info = "Fel: Funktionen returnerar fel värde för A <- diag(3) och b <- c(1,4,5).")
   expect_equal(as.vector(my_gauss_elimination(A=A2, b=b2)), x2,
                info = "Fel: Funktionen returnerar fel värde för A <- matrix(c(6, 10, 4, 3, 4, 6, 3, 10, 8),nrow=3) och b <- c(18,40,24).")
+  expect_function_code(object = my_gauss_elimination, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

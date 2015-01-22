@@ -33,4 +33,6 @@ test_that("Kontroll av pnr_format().", {
   expect_equal(pnr_format(substr(pnrTomorrow,3,12)), pnrTomorrow,
                info = "Fel: Funktionen returnerar fel för en person som fyller 100 imorgon.")
   
+  expect_function_code(object = pnr_format, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

@@ -22,4 +22,7 @@ test_that("Kontroll av pnr_ctrl.", {
               info = "Fel: Ska returnera FALSE för 198112189879.")
   expect_that(pnr_ctrl("199909090909"), condition=is_false(),
               info = "Fel: Ska returnera FALSE för 199909090909.")
+  
+  expect_function_code(object = pnr_ctrl, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

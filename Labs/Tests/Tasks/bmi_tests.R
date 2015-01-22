@@ -28,4 +28,6 @@ test_that("Assignment: bmi()", {
                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")  
   expect_warning(bmi(body_weight = 0, body_height = -2), "body_height is not positive",
                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")  
+  expect_function_code(object = bmi, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

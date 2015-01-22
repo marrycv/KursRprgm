@@ -26,6 +26,9 @@ test_that("fast_stock_analysis()", {
                 c("total_spridning", "medel_slutpris", "slutpris_upp", "datum")), 
               is_true(), 
               info="Fel: Listans element är inte korrekt namngivna")
+  expect_function_code(object = fast_stock_analysis, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
+  
   # Create myList1
   myList1 <- fast_stock_analysis(file_path=testFile, period_length=5)
   expect_equal(myList1$total_spridning, 11.82, tolerance = 0.01, 
@@ -39,6 +42,7 @@ test_that("fast_stock_analysis()", {
   expect_equal(myList1$datum, c("2012-01-24", "2012-01-18"), 
               info="Fel: Elementet 'datum' är fel.")
 
+  
   # Unlink temporary file
   unlink(testFile)
 })

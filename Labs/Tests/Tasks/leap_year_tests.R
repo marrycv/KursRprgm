@@ -30,4 +30,6 @@ test_that("leap_year()", {
   expect_that(leap_year(years=test_years)["leap_year"], 
               is_equivalent_to(data.frame(leap_year=test_years_leap)), 
               info="Kommentar: Variabeln leap_years är felaktig.")
+  expect_function_code(object = leap_year, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

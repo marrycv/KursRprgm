@@ -17,6 +17,9 @@ test_that("Kontroll av three_elements.", {
               info="Kommentar: e^(pi+1) saknas / är fel")
   expect_that(sin(pi/3) %in% three_elements(), is_true(), 
               info="Kommentar: sin(pi/3) saknas / är fel")
+  
+  expect_function_code(object = three_elements, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })
 
 

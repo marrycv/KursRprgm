@@ -20,4 +20,7 @@ test_that("Kontroll av pnr_samordn.", {
                info = "Fel: Ska returnera FALSE för 198112189876.")
   expect_equal(pnr_samordn("198112789866"), TRUE,
                info = "Fel: Ska returnera TRUE för 198112189866.")
+  
+  expect_function_code(object = pnr_samordn, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

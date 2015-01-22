@@ -19,4 +19,7 @@ test_that("Kontroll av pnr_age.", {
                info = "Fel: Ska returnera 31.")
   expect_equal(pnr_age(pnr = "198112189876", date="2012-12-17"), 30,
                info = "Fel: Ska returnera 30.")
+  
+  expect_function_code(object = pnr_age, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

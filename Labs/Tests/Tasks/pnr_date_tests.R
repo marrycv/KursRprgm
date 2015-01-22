@@ -22,4 +22,7 @@ test_that("Kontroll av pnr_date.", {
                info = "Fel: Funktionen stoppas inte om fel format anges.")
   expect_error(pnr_date("has"), "Incorrect date format",
                info = "Fel: Funktionen genererar inte ett korrekt felmeddelande.")
+  
+  expect_function_code(object = pnr_date, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

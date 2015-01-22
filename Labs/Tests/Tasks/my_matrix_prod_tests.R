@@ -35,4 +35,7 @@ test_that("Assignment: my_matrix_prod()", {
                info = "Fel: Funktionenen stoppar inte om dimensionerna är fel.")  
   expect_error(my_matrix_prod(A=testMatB3, B=testMatB3), "Matrix dimensions mismatch",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande då dimensionerna är fel.")  
+  
+  expect_function_code(object = my_matrix_prod, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")  
 })

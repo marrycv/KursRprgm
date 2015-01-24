@@ -3817,9 +3817,17 @@ extraTime
 \begin_layout Enumerate
 Kontrollera att den angivna dagen är en vardag, om inte ange nästa vardag
  som förslag.
- Tips: 
+ 
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Tips!
+\series default
+ 
 \family typewriter
-?weekday(), ?days()
+?wday(), ?days()
 \end_layout
 
 \begin_layout Enumerate
@@ -3870,6 +3878,25 @@ Tips:
  
 \family typewriter
 year(), month(), day(), paste()
+\end_layout
+
+\begin_layout Standard
+Tips! Det kan vara så att weekday() returnerar veckodagarna på svenska.
+ För att returnera veckodagar på engelska finns följande tips 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://stackoverflow.com/questions/9216138/find-the-day-of-a-week-in-r/9216316#9216316"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
 \end_layout
 
 \begin_layout Standard

@@ -40,7 +40,7 @@ test_that("Kontroll av pnr_info.", {
   expect_equal(pnr_info(pnr = "198112189876", date="2012-12-18")$age, 31,
                info = "Fel: Returnerar fel värde för age.")
 
-  expect_function_code(object = pnr_info, expected = "return\\(", 
+  expect_function_code(object = pnr_info, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
   
 })

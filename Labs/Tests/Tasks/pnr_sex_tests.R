@@ -21,6 +21,6 @@ test_that("Kontroll av pnr_sex.", {
   expect_equal(pnr_sex("198112189866"), "K",
                info = "Fel: Ska returnera 'K' för 198112189866.")
   
-  expect_function_code(object = pnr_sex, expected = "return\\(", 
+  expect_function_code(object = pnr_sex, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
 })

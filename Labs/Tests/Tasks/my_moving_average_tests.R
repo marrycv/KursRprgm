@@ -24,6 +24,6 @@ test_that("Assignment: my_moving_average()", {
   expect_error(my_moving_average(x="Pelle", n=3), "Not a numeric vector!",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande.")  
   
-  expect_function_code(object = my_moving_average, expected = "return\\(", 
+  expect_function_code(object = my_moving_average, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
 })

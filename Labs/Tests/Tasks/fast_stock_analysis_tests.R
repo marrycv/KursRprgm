@@ -26,7 +26,7 @@ test_that("fast_stock_analysis()", {
                 c("total_spridning", "medel_slutpris", "slutpris_upp", "datum")), 
               is_true(), 
               info="Fel: Listans element är inte korrekt namngivna")
-  expect_function_code(object = fast_stock_analysis, expected = "return\\(", 
+  expect_function_code(object = fast_stock_analysis, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
   
   # Create myList1

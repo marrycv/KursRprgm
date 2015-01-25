@@ -28,6 +28,6 @@ test_that("matrix_trace", {
   expect_that(matrix_trace(test_matD), 
               is_equivalent_to(57), 
               info="Fel: Returnerar fel värde för en 4 * 4 matris.")  
-  expect_function_code(object = matrix_trace, expected = "return\\(", 
+  expect_function_code(object = matrix_trace, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
 })

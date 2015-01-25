@@ -6,8 +6,6 @@ test_that("fast_swe_pop()", {
               info = "Fel: fast_swe_pop() saknas.")
   expect_that(fast_swe_pop, is_a("function"),
               info = "Fel: fast_swe_pop är inte en funktion.")
-  expect_self_contained(object = fast_swe_pop,
-                        "Fel: Funktionen innehåller fria variabler")
   expect_that(is.null(formals(fast_swe_pop)), condition=is_true(),
               info = "Fel: Funktionen ska sakna argument.")
   res <- fast_swe_pop()

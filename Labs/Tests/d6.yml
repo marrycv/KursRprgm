@@ -1,0 +1,14 @@
+# Assignment D6
+name  : D6
+description : "Statistisk programmering med R: Lab 6"
+reporter : student
+tasks:
+  fast_swe_pop:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/fast_swe_pop_tests.R
+  gram_schmidt:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/gram_schmidt.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

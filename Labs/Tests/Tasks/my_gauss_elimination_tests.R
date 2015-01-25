@@ -27,4 +27,6 @@ test_that("my_gauss_elimination()", {
                info = "Fel: Funktionen returnerar fel värde för A <- matrix(c(6, 10, 4, 3, 4, 6, 3, 10, 8),nrow=3) och b <- c(18,40,24).")
   expect_function_code(object = my_gauss_elimination, expected = "return\\(", 
                        info = "Fel: return() saknas i funktionen.")  
+  res <- function_code("solve\\(")(my_gauss_elimination)
+  expect_that(res$passed, is_false(), "Fel: solve() finns i funktionen.")
 })

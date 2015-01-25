@@ -5,6 +5,8 @@
 # source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/D7_Grupp5.R",encoding="latin1")
 # source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/lab7_grupp11.R",encoding="latin1")
 
+context("my_ols()")
+
 test_that("Assignment: my_ols()", {
 
   expect_that(exists("my_ols"), is_true(),

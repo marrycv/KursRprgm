@@ -1,5 +1,5 @@
 
-context("fast_stock_analysis")
+context("fast_stock_analysis()")
 
 test_that("fast_stock_analysis()", {
 

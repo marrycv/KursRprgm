@@ -5,6 +5,8 @@
 # source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D6/lab6_grupp11.R",encoding="latin1")
 # source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_6.R",encoding="latin1")
 
+context("give_blood()")
+
 error_info <- function(parameters, funcName){
   index<-sapply(X=parameters,FUN=is.null)
   parameters[index]<-"NULL"

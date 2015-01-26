@@ -3147,6 +3147,79 @@ repmis
 \end_layout
 
 \begin_layout Section
+
+\family typewriter
+downloader
+\end_layout
+
+\begin_layout Standard
+Ibland kan det vara så att vi vill ladda ned filer från R, men inte läsa
+ in dem.
+ Vi kanske vill ladda ned ett antal filer och sedan läsa in dem en och en.
+ För att ladda ned filer i R finns funktionen 
+\family typewriter
+download.file()
+\family default
+.
+ Dock kan det ibland vara lite klurigt att få den att fungera för så kallade
+ secure http (https) adresser.
+ Av bekvämlighet har därför paketet 
+\family typewriter
+downloader
+\family default
+ skapats som gör nedladdning av filer mycket enkelt och bekvämt oberoende
+ av operativsystem.
+ 
+\end_layout
+
+\begin_layout Enumerate
+För att ladda ned data anger vi dels sökvägen till den aktuella filen och
+ sedan sökvägen dit filen ska laddas ned.
+ I detta fallet laddas filen ned till min working directory.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(downloader) 
+\end_layout
+
+\begin_layout Plain Layout
+
+apple_remote <- "https://github.com/MansMeg/KursRprgm/blob/master/Labs/DataFiles/
+Apple.RData" 
+\end_layout
+
+\begin_layout Plain Layout
+
+apple_local <- paste0(getwd(), "/Apple.RData") 
+\end_layout
+
+\begin_layout Plain Layout
+
+download(url = apple_remote, destfile = apple_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Github
 \end_layout
 

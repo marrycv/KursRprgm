@@ -18,34 +18,34 @@ test_that("Assignment: diagonalize_matrix", {
               info="Fel: Funktionen returnerar inte korrekta listelementnamn.")
   expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))$D), 
               is_equivalent_to("matrix"),
-              info="Fel: D är inte en matris")
+              info="Fel: D ska vara en matris")
   expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))$P), 
               is_equivalent_to("matrix"),
-              info="Fel: P är inte en matris")
+              info="Fel: P ska vara en matris")
   expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))$Pinv), 
               is_equivalent_to("matrix"),
-              info="Fel: Pinv är inte en matris")
+              info="Fel: Pinv ska vara en matris")
   
   expect_equal(round(diagonalize_matrix(matrix(3:6,ncol=2))$Pinv,2)[1,], 
                c(-0.54, -0.85),
-              info="Fel: Pinv är felaktig")
+              info="Fel: berakning av Pinv")
   expect_equal(round(diagonalize_matrix(matrix(3:6,ncol=2))$P,2)[1,], 
                c(-0.63, -0.84),
-               info="Fel: P är felaktig")
+               info="Fel: berakning av P")
   expect_equal(round(diagonalize_matrix(matrix(3:6,ncol=2))$D,2)[1,], 
                c(9.22, 0),
-               info="Fel: D är felaktig")
+               info="Fel: berakning av D")
   
   expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$Pinv,2)[3,], 
                c(0.41, -0.82, 0.41),
-               info="Fel: Pinv är felaktig")
+               info="Fel: berakning av Pinv")
   expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$P,2)[1,], 
                c(-0.54, -0.80, 0.41),
-               info="Fel: P är felaktig")
+               info="Fel: P")
   expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$D,2)[2,2], 
-               c(-0.42), info="Fel: D är felaktig")
+               c(-0.42), info="Fel: berakning av D")
   expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$D,2)[1,1], 
-               c(42.42), info="Fel: D är felaktig")
+               c(42.42), info="Fel: berakning av D")
   expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$D,2)[3,3], 
-               c(0), info="Fel: D är felaktig")
+               c(0), info="Fel: berakning av D")
 })

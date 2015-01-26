@@ -1,0 +1,4708 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+\usepackage{fancyhdr}%The first page setting
+\fancypagestyle{plain}
+{%
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[L]{
+    LINK\"OPING UNIVERSITY\\
+    Avdelningen för Statistik\\
+    Institutionen för datavetenskap
+  }
+  \fancyhead[R]{Programming i R}
+}
+%The remaining pages
+
+\fancyhead[RO,LE]{}
+\fancyhead[C]{Programming i R}
+\fancyhead[LO,RE]{}
+
+ 
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language swedish
+\language_package auto
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language swedish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Datorlaboration 7
+\end_layout
+
+\begin_layout Author
+Måns Magnusson
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Global options
+\end_layout
+
+\begin_layout Plain Layout
+
+opts_chunk$set(comment='') 
+\end_layout
+
+\begin_layout Plain Layout
+
+options(digits = 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "IntroDel2.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Datorlaboration
+\end_layout
+
+\begin_layout Chapter
+Enklare statistisk analys och simulering
+\end_layout
+
+\begin_layout Section
+Enklare statistiska metoder
+\end_layout
+
+\begin_layout Subsection
+Korstabulering och 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+-tester
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att läsa in det interna datasetet 
+\family typewriter
+iris
+\family default
+ med 
+\family typewriter
+data(iris)
+\family default
+ i R.
+ Vi ska nu använda detta dataset för att pröva att analysera data i R.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data(iris)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Som ett första steg vill vi pröva att producera korstabeller.
+ I 
+\family typewriter
+iris
+\family default
+ finns bara en kategorisk variabel, därför klassindlear vi två kontinuerliga
+ variabler på följande sätt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+iris$Petal.Length.Cat <- cut(iris$Petal.Length, breaks=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+iris$Sepal.Length.Cat <- cut(iris$Sepal.Length, breaks=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att skapa en korstabell på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+table(iris$Petal.Length.Cat, iris$Species)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi använda flera kategoriska variabler med 
+\family typewriter
+ftable()
+\family default
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ftable(iris$Petal.Length.Cat, iris$Sepal.Length.Cat, iris$Species)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+För att göra ett 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+-test använder vi funktionen 
+\family typewriter
+chisq.test()
+\family default
+.
+ Funktionen behöver en tabell att testa, så vi skapar och sparar tabellen
+ ovan och testar den sedan..
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+tab <- table(iris$Petal.Length.Cat, iris$Species)
+\end_layout
+
+\begin_layout Plain Layout
+
+chisq.test(tab)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Om vi tittar på tabellen ovan är det många värden som är 0 (d.v.s.
+ mindre än 5).
+ Då behöver vi korrigera vårt test med 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Yates korrektion"
+target "http://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ Detta kan vi göra i R genom att lägga till argumentet 
+\family typewriter
+correct=TRUE
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+chisq.test(tab, correct=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ett annat sätt är att använda 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Fishers exakta test"
+target "http://en.wikipedia.org/wiki/Fisher%27s_exact_test"
+
+\end_inset
+
+
+\series default
+\color inherit
+ istället.
+ Det görs på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+fisher.test(tab)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+t-test
+\end_layout
+
+\begin_layout Enumerate
+Vill vi jämföra två grupper avseende en kontinuerlig variabel använder vi
+ funktionen 
+\family typewriter
+t.test()
+\family default
+.
+ Inledningvis kan vi testa om 
+\family typewriter
+Sepal.Length
+\family default
+ för 
+\family typewriter
+iris
+\family default
+ versicolor är mindre 6.
+ Vi börjar med att plocka ut elementen för de olika arterna:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+versLength <- iris$Sepal.Length[iris$Species=="versicolor"]
+\end_layout
+
+\begin_layout Plain Layout
+
+t.test(x=versLength, alternative="greater", mu=6)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Om vi nu vill testa om skillnaden mellan två blomsterarter är olika anger
+ vi två vektorer, en för varje art:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+virginLength <- iris$Sepal.Length[iris$Species=="virginica"]  
+\end_layout
+
+\begin_layout Plain Layout
+
+t.test(x=versLength, y=virginLength)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sambandsmått
+\end_layout
+
+\begin_layout Standard
+För att studera samband mellan två eller flera kontinuerliga variabler studerar
+ vi ofta korrelation och kovarians.
+\end_layout
+
+\begin_layout Enumerate
+För att beräkna kovarians och korrelation används 
+\family typewriter
+cov()
+\family default
+ och 
+\family typewriter
+cor()
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+cor(iris$Petal.Length, iris$Petal.Width) 
+\end_layout
+
+\begin_layout Plain Layout
+
+cov(iris$Petal.Length, iris$Petal.Width)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också enkelt skapa kovarians- och korrelationsmatriser på samma sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+cor(iris[,1:4])
+\end_layout
+
+\begin_layout Plain Layout
+
+cov(iris[,1:4])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi göra ett enkelt hypotestest för korrelationen använder vi 
+\family typewriter
+cor.test()
+\family default
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+cor.test(iris$Petal.Length, iris$Petal.Width)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Beskrivande statistik
+\end_layout
+
+\begin_layout Enumerate
+Hitta det hösta och minsta värdet i 
+\family typewriter
+iris
+\family default
+ (för alla variabler).
+ Ta reda på vilken rad dessa värden finns på med relationsoperatorn == och
+ 
+\family typewriter
+which.max()
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Beräkna medelvärden för alla kolumnerna med 
+\family typewriter
+colMeans()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Beräkna nu kvartiler för 
+\family typewriter
+Petal.Width
+\family default
+ med funktionen 
+\family typewriter
+quantiles()
+\family default
+.
+ Beräkna den 1 och 99 procentiga percentilen? [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+?quantile]
+\end_layout
+
+\begin_layout Enumerate
+Beräkna nu kvartiler för samtliga variabler.
+\end_layout
+
+\begin_layout Enumerate
+Testa nu att använda funktionen 
+\family typewriter
+summary()
+\family default
+ på 
+\family typewriter
+Petal.Width
+\family default
+ först och sedan på hela datasetet.
+ Vad får du för resultat?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Skapa en logisk vektor som anger om en variabeln 
+\family typewriter
+Petal.Width
+\family default
+ är större än 2.
+ Spara denna variabel som 
+\family typewriter
+small
+\family default
+ på följande sätt.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+table()
+\family default
+ för att se vilka arter (variabeln 
+\family typewriter
+Species
+\family default
+) som är 
+\family typewriter
+small
+\family default
+.
+\end_layout
+
+\begin_layout Section
+Slumptal och simulering
+\end_layout
+
+\begin_layout Standard
+En central del inom statistik och analys handlar är simulering.
+ Det ett stortantal fördelningar vi kan simulera och för vilka vi har täthetsfun
+ktion (pdf), den kulmulativa fördelningsfunktionen (cdf) och den inversa
+ kulmulativa fördelningsfunktionen.
+ De flesta fördelningar har fyra varianter:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Prefix
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Beskrivning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exempel
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+r
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+simulera från fördelningen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+täthetsfunktionen (pdf)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+p
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+kulmulativ fördelninsgfunktion (cdf)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+pnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+q
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+inversa kulmulativa fördelningsfunktionen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+qnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+För att se vilka fördelningar som finns förinstallerade med R se 
+\family typewriter
+?distribution
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Vill vi exempelvis simulera 100 tal från 
+\begin_inset Formula $\mathcal{N}(10,1^{2})$
+\end_inset
+
+ gör vi på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minNormal <- rnorm(n=100, mean=10, sd=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skapa en vektor med 30 slumptal från den uniforma fördelningen 
+\begin_inset Formula $\mathcal{U}(min=1,max=10)$
+\end_inset
+
+.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+runif()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Skapa en vektor med 200 slumptal från normalfördelningen med medelvärde
+ 1 och varians 2, döp den till 
+\family typewriter
+minNorm
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Skapa ett histogram över 
+\family typewriter
+minNorm
+\family default
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+hist()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Skapa en vektor med slumptal av längd 50 från Poissonfördelningen med medelvärde
+ 8, döp den till 
+\family typewriter
+minPoission
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ är poissonfördelad med medelvärde 3.
+ Uppgiften är nu att skapa ett stapeldiagram (se koden nedan) över sannolikheter
+na att 
+\begin_inset Formula $X$
+\end_inset
+
+ antar värdena 
+\begin_inset Formula $0,1,...,11,12$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- dpois(x=0:12,lambda=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(x, names.arg=0:12, main="Poisson(lambda=3)")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Låt 
+\begin_inset Formula $X$
+\end_inset
+
+ vara samma som ovan.
+ Vad är sannolikheten att 
+\begin_inset Formula $X$
+\end_inset
+
+ antar följande värden [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+ppois
+\family default
+()]:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sitt medelvärde? 
+\end_layout
+
+\begin_layout Enumerate
+Mindre än eller lika med sitt medelvärde?
+\end_layout
+
+\begin_layout Enumerate
+Större än sitt medelvärde?
+\end_layout
+
+\begin_layout Enumerate
+Ett udda tal? Ni behöver inte ta hänsyn till tal som är större än 12.
+\end_layout
+
+\begin_layout Enumerate
+Talen 4 till 6?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Skapa en vektor med 50 slumptal från t-fördelningen, med medelvärde 1 och
+ 5 frihetsgrader (degrees of freedom), döp den till 
+\family typewriter
+minT
+\end_layout
+
+\begin_layout Enumerate
+Gör ett histogram över 
+\family typewriter
+minPoission
+\family default
+ och över 
+\family typewriter
+minT.
+
+\family default
+ Testa att ändra argumentet 
+\family typewriter
+breaks
+\family default
+ i 
+\family typewriter
+hist()
+\family default
+ till några olika värden.
+\end_layout
+
+\begin_layout Subsection
+
+\family typewriter
+sample()
+\family default
+ och 
+\family typewriter
+set.seed()
+\end_layout
+
+\begin_layout Standard
+Vill vi dra slumptal från ett antal element använder vi funktionen sample().
+ Med denna funktion kan vi dra ett stickprov (med eller utan återläggning)
+ från en given vektor.
+ Om vi exempelvis vill dra 5 slumpmässiga värden mellan 1 och 10 
+\series bold
+med
+\series default
+ återläggning gör vi det på följande sätt i R:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sample(x=1:10, size=5, replace=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Dra ett stickprov (
+\begin_inset Formula $n=5$
+\end_inset
+
+) 
+\series bold
+utan
+\series default
+ återläggning från sekvensen 
+\family typewriter
+10:20
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Upprepa uppgiften ovan men 
+\series bold
+med
+\series default
+ återläggning.
+\end_layout
+
+\begin_layout Enumerate
+Vi kan på samma sätt dra slumpmässiga element från andra vektorer (exempelvis
+ Textvektorer).
+ Tänk dig att du och några vänner ska organisera en fest.
+ Skapa vektorn 
+\family typewriter
+namn
+\family default
+, som ska innehålla namnen för minst tre personer som strängar.
+ Två personer behövs för att laga mat och två för att diska.
+ Välj slumpmässigt vilka som ska göra de olika uppgifterna.
+ Samma person ska kunna bli vald för båda uppgifterna.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Inte sällan vill vi att våra simuleringar och analyser ska vara reproducerbara,
+ d.v.s.
+ att vi ska få samma resultat varje gång vi gör en simulering.
+ För detta används funktionen 
+\family typewriter
+set.seed()
+\family default
+ och funktionen tar ett godtyckligt heltal för att initiera slumptalsgeneratorn
+ i R.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Upprepa uppgiften ovan två gånger, blir resultatet det samma? Upprepa två
+ gånger till men kör först 
+\family typewriter
+set.seed(1234)
+\family default
+ innan varje gång.Får du nu samma resultat?
+\end_layout
+
+\begin_layout Enumerate
+Upprepa nu uppgiften ovan igen, men ändra argumentet 
+\family typewriter
+prob
+\family default
+ så att de olika personer har olika sannolikhet att bli vald samt att du
+ har sannolikheten 0 att bli vald.
+ ;)
+\end_layout
+
+\begin_layout Section
+Exempel: 
+\family typewriter
+sum_of_dice()
+\end_layout
+
+\begin_layout Enumerate
+Nu ska ni testa att simulera olika tärningskast.
+ I uppgiften betyder D6 en vanlig 6-sidig tärning (med sidorna 1,2,3,4,5,6)
+ där alla utfall har samma sannolikhet (1/6).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skriv en funktion 
+\family typewriter
+my_dice(),
+\family default
+ som generar 
+\begin_inset Formula $n$
+\end_inset
+
+ stycken kast från en D6 och returnerar en vektor med kasten.
+ [
+\series bold
+Tips!
+\series default
+ sample()]
+\end_layout
+
+\begin_layout Enumerate
+Skriv en funktion 
+\family typewriter
+sum_of_dice()
+\family default
+ som generar följande slumptal: 
+\begin_inset Formula $Y_{k}=\sum_{n=1}^{N}X_{n}$
+\end_inset
+
+, där 
+\begin_inset Formula $X$
+\end_inset
+
+ är ett tärningskast från funktionen 
+\family typewriter
+myDice()
+\family default
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ är ett heltal, 
+\begin_inset Formula $k$
+\end_inset
+
+ går från 
+\begin_inset Formula $1,2,3,...,K$
+\end_inset
+
+.
+ Funktionen ska ha N och K som argument, 
+\family typewriter
+sum_of_dice(N, K)
+\family default
+.
+ Funktionen ska alltså kasta 
+\begin_inset Formula $N$
+\end_inset
+
+ stycken D6, summera dessa, sen upprepa det 
+\begin_inset Formula $K$
+\end_inset
+
+ stycken gånger.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_dice <- function(N,K){
+\end_layout
+
+\begin_layout Plain Layout
+
+res <- integer(K)
+\end_layout
+
+\begin_layout Plain Layout
+
+for (k in 1:K){
+\end_layout
+
+\begin_layout Plain Layout
+
+res[k] <- sum(sample(1:6,size=N, replace=TRUE))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+return(res)}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Testa nu 
+\family typewriter
+sum_of_dice(N, K)
+\family default
+ med 
+\begin_inset Formula $N=3,5$
+\end_inset
+
+ och 
+\begin_inset Formula $K=100,1000,3000$
+\end_inset
+
+.
+ Plotta resultaten i histogram och beräkna också medelvärde, standardavvikelse,
+ min och max.
+ Nedan ser ni några exempel på tester.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(3827)
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_dice(N=3,K=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_dice(N=5,K=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Detta är ett klassiskt exempel på centrala gränsvärdessatsen.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+* Extraproblem
+\end_layout
+
+\begin_layout Standard
+Skapa funktionen 
+\family typewriter
+expectedValue(x,p)
+\family default
+, som givet vektorn 
+\family typewriter
+x
+\family default
+ (innehåller numeriska värden) och 
+\family typewriter
+p
+\family default
+ (innehåller sannolikheter för värdena i 
+\family typewriter
+x
+\family default
+) ska beräkna det teoretiska 
+\begin_inset CommandInset href
+LatexCommand href
+name "väntevärdet"
+target "http://sv.wikipedia.org/wiki/V%C3%A4ntev%C3%A4rde"
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+E[X]=\sum_{i=1}^{K}x_{i}p_{i}(X=x)
+\]
+
+\end_inset
+
+där index 
+\begin_inset Formula $i$
+\end_inset
+
+ går över alla möjliga värden på 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Ex: Om 
+\begin_inset Formula $X$
+\end_inset
+
+ följer fördelningen i tabellen nedan, då blir väntevärdet: 
+\begin_inset Formula $0\cdot0.3+1\cdot0.1+2\cdot0.6=1.3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+p(x)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skapa funktionen 
+\family typewriter
+variance(x, p)
+\family default
+, som givet vektorn 
+\family typewriter
+x
+\family default
+ (innehåller numeriska värden) och 
+\family typewriter
+p
+\family default
+ (innehåller sannolikheter för värdena i 
+\family typewriter
+x
+\family default
+) ska beräkna det teoretiska variansen.
+ Läs 
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://sv.wikipedia.org/wiki/Varians"
+
+\end_inset
+
+ om du inte vet hur variansen beräknas.
+\end_layout
+
+\begin_layout Enumerate
+Testa nu 
+\family typewriter
+expectedValue()
+\family default
+ och 
+\family typewriter
+variance()
+\family default
+ på fallen nedan.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x1<-1:50 
+\end_layout
+
+\begin_layout Plain Layout
+
+p1<-x1/sum(x1)
+\end_layout
+
+\begin_layout Plain Layout
+
+x2<-1:30 
+\end_layout
+
+\begin_layout Plain Layout
+
+p2<-(sin(x2)+1)/sum(sin(x2)+1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Simulera ett urval från fördelningarna ovan av storlek 1000 och visualisera
+ detta i ett histogram [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+hist()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+I vissa fall vill vi simulera data från en given sannolikhetsmodell.
+ Det kan exempelvis vara en linjär modell som ser ut på följande sätt:
+\begin_inset Formula 
+\[
+y_{i}=\alpha+\beta x_{i}+\epsilon_{i}
+\]
+
+\end_inset
+
+där 
+\begin_inset Formula $\epsilon_{i}\sim\mathcal{N}(0,\sigma)$
+\end_inset
+
+.
+ Detta görs enklast i flera steg.
+ I detta fall simulerar jag även 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ samt sätter 
+\begin_inset Formula $\alpha=2,\beta=4,\sigma=1$
+\end_inset
+
+ och 
+\begin_inset Formula $n=100$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha <- 2
+\end_layout
+
+\begin_layout Plain Layout
+
+beta <- 4
+\end_layout
+
+\begin_layout Plain Layout
+
+sigma <- 1
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- 100
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- rnorm(n)
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- alpha + beta*x + rnorm(n, sd=sigma)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Kör koden ovan och visualisera det simulerade datamaterialet i ett spridningsdia
+gram [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+plot()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Pröva lite olika värden för 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ och 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ och visualisera de olika datamaterialen.
+ 
+\end_layout
+
+\begin_layout Chapter
+Introduktion till linjär regression
+\end_layout
+
+\begin_layout Standard
+Denna laboration kommer inte gå in i teorin bakom (multipel) linjär regression
+ utan kommer fokusera hur man anpassar regressionmodeller, analyserar resultatet
+ och gör diagnostiska tester i R.
+\end_layout
+
+\begin_layout Section
+Anpassa en regressionsmodell
+\end_layout
+
+\begin_layout Standard
+Den vanliga regressionmodellen bygger på modellen
+\begin_inset Formula 
+\[
+y_{i}=\beta_{0}+\beta_{1}x_{1}+...+\beta_{p}x_{p}+\epsilon_{i}
+\]
+
+\end_inset
+
+eller med matrisnotation
+\begin_inset Formula 
+\[
+\mathbf{y}=\mathbf{B}\mathbf{x}+\mathbf{\epsilon}
+\]
+
+\end_inset
+
+där 
+\begin_inset Formula $\epsilon\sim\mathcal{N}(\mathbf{0},\sigma^{2})$
+\end_inset
+
+ där de okända parametrarna är 
+\begin_inset Formula $\beta$
+\end_inset
+
+ samt 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ i modellen och baserat på våra data vill vi uppskatta dessa parametrar.
+ 
+\end_layout
+
+\begin_layout Standard
+I R (och till skillnad mot de flesta statistikprogram) skiljer vi på att
+ anpassa (eller skatta) en modell och studera resultatet från modellen eller
+ använda den för ex.
+ prediktion.
+ För att anpassa en modell använder vi funktionen 
+\family typewriter
+lm()
+\family default
+.
+ Det gör att vi kan anpassa en linjär modell och sedan spara den som ett
+ vanligt R-objekt.
+ Sedan kan vi studera detta objekt på ett stort antal sätt, skriva egna
+ funktioner för specifik analys, eller för att grafiskt visualisera modellen.
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att läsa in datasetet 
+\family typewriter
+Prestige
+\family default
+ som finns i paketet 
+\family typewriter
+car
+\family default
+ .
+ Vi behöver också paketet 
+\family typewriter
+MASS
+\family default
+.
+ Installera dessa paket om du inte har dem installerade.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(car)
+\end_layout
+
+\begin_layout Plain Layout
+
+data(Prestige)
+\end_layout
+
+\begin_layout Plain Layout
+
+library(MASS)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Läs på kort om de variabler som finns i datasetet med 
+\family typewriter
+?Prestige
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Börja med att visualisera sambandet mellan 
+\family typewriter
+prestige
+\family default
+ och 
+\family typewriter
+income
+\family default
+.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+plot()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu anpassa vår första linjära regressionsmodell.
+ För att anpassa en modell i R behöver vi ange två saker, dels en formula
+ som beskriver hur modellen ser ut, och sedan vilket dataset som innehåller
+ variablerna vi vill ha i vår modell.
+ För att anpassa en linjär regression med inkomst som oberoende variabel
+ gör vi på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell <- lm(prestige ~ income, data=Prestige)
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Om vi tittar på det resulterande objektet ser vi regressionskoefficienternas
+ värden.
+ Detta är bra för en snabb koll, men senare kommer vi gå in mer på hur vi
+ kan få ut mer utförliga resultat.
+\end_layout
+
+\begin_layout Enumerate
+Det går också att bara ange vektorer (de behöver inte heller ligga i samma
+ 
+\family typewriter
+data.frame
+\family default
+):
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell2 <- lm(Prestige$prestige ~ Prestige$income)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi lägga till en variabel (andel kvinnor) gör vi på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell3 <- lm(prestige ~ income + women + education, data=Prestige)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan på detta sätt enkelt lägga till ett stort antal variabler.
+ Som standard så inkluderas alltid en intercept i modellen, vill vi ta bort
+ denna använder lägger vi till 
+\family typewriter
+-1
+\family default
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell4 <- lm(prestige ~ income + women - 1, data=Prestige)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nu kommer också fördelarna med att ha definierat faktorvariabler.
+ Lägger vi in en faktorvariabel förstår R detta automatiskt och 
+\begin_inset Quotes eld
+\end_inset
+
+under the hood
+\begin_inset Quotes erd
+\end_inset
+
+ skapas dummyvariabler för vilka koefficienter skattas.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell5 <- lm(prestige ~ income + type, data=Prestige)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Till sist kan det vara så att vi vill lägga till interaktionseffekter i
+ modellen.
+ Detta görs enkelt med 
+\family typewriter
+:
+\family default
+ på följande sätt (detta inkluderar både additiva och multiplikativa effekter):
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minModell6 <- lm(prestige ~ income:women, data=Prestige)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analysera resultatet från en linjär regression
+\end_layout
+
+\begin_layout Standard
+Nu har vi anpassat (och smygtittat på) lite olika modeller baserat på datasetet
+ 
+\family typewriter
+Prestige
+\family default
+.
+ Vi ska nu studera de resultat vi fått lite mer.
+ Nu har vi stor nytta av R:s objektorienterade uppbyggnad och generiska
+ funktioner.
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att använda funktionen 
+\family typewriter
+summary()
+\family default
+.
+ Se exemplet nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Med denna får vi en sammanfattning av de flesta resultat i modellanpassningen.
+ Pröva denna funktion på 
+\family typewriter
+minModell3
+\family default
+.
+ Hitta följande storheter i sammanfattningen av modellen:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\beta$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $F$
+\end_inset
+
+-statistikan samt p-värdena för de olika 
+\begin_inset Formula $\beta$
+\end_inset
+
+-koefficienterna.
+\end_layout
+
+\begin_layout Enumerate
+Pröva att analysera modell 5 och 6 på samma sätt.
+ Hur ser en kategorisk variabel samt interaktionseffekter ut i R?
+\end_layout
+
+\begin_layout Enumerate
+Funktionen 
+\family typewriter
+summary()
+\family default
+ ger en bra bild av resultatet, men vi vill ofta också studera en ANOVA-tabell
+ för vår modells ingående variabler.
+ För detta används funktionen 
+\family typewriter
+anova()
+\family default
+.
+ Pröva den på modellerna 3, 5 och 6.
+\end_layout
+
+\begin_layout Enumerate
+De flesta (icke-bayesianska) statistiker och forskare är mycket förtjusta
+ i p-värden.
+ För att få ut p-värden till ANOVA-tabellen använder vi oss av argumentet
+ 
+\family typewriter
+test='Chisq'
+\family default
+.
+ Pröva att på detta sätt testa för variabler i modell 5.
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också inkludera flera modeller i en ANOVA-tabell.
+ Vad ger det för resultat?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+anova(minModell, minModell3, test="Chisq")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Använda parametrar och resultat för vidare analys
+\end_layout
+
+\begin_layout Standard
+Vill vi använda vissa speciella delar av en modell kan vi plocka ut delar
+ från modellen med olika funktioner.
+ Exempelvis kanske vi är intresserad av att använda 
+\begin_inset Formula $\beta$
+\end_inset
+
+-koefficenterna i modellen till något annat.
+ Eller använda modellen för att göra prediktioner på nya data.
+\end_layout
+
+\begin_layout Enumerate
+Pröva att använda funktionen 
+\family typewriter
+coef()
+\family default
+ på modellobjekt 3 ovan.
+ Pröva att spara ned resultatet som ett nytt objekt.
+ Vad får du för resultat? Jämför med 
+\family typewriter
+print()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+På ett liknande sätt kan vi snabbt få ut alla residualer (om vi vill studera
+ dessa) med funktionen 
+\family typewriter
+resid()
+\family default
+.
+ Pröva denna funktion på modell 3 ovan och plotta resiudalerna i ett histogram.
+ Är residualerna normalfördelade? [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+hist()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Pröva att med hjälp av residualvektorn och relationsoperatorer ta fram vilket
+ yrke har den största negativa residualen (d.v.s.
+ lägst prestige kontrollerat för utbildning, inkomst och könsfördelning).
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+which.min()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också få ut de predicerade värdena för varje observation med 
+\family typewriter
+predict()
+\family default
+.
+ Pröva att på detta sätt se vilket yrke som har den högsta respektive lägsta
+ förvänatade prestigen.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+which.max()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också använda 
+\family typewriter
+predict()
+\family default
+ för att skapa prediktioner på nya data.
+ Då behöver vi ta ett nytt dataset (men med samma variabelnamn och variabeltyper
+) och ange detta data med argumentet 
+\family typewriter
+newdata
+\family default
+.
+ Pröva att ta de fem första raderna i datasetet 
+\family typewriter
+Prestige
+\family default
+ och spara det som 
+\family typewriter
+newPrestige
+\family default
+.
+ Pröva att predicera variabeln 
+\family typewriter
+prestige
+\family default
+ för detta dataset med modell 6.
+\end_layout
+
+\begin_layout Section
+Tester och diagnostik
+\end_layout
+
+\begin_layout Standard
+I linjär regression görs ett stort antal antagande om i modellen som ligger
+ till grund för att kunna dra slutsatser från materialet.
+ Nedan följer ett antal tester och visualiseringar för att diagnostisera
+ ett antal centrala antaganden i linjär regression.
+ 
+\end_layout
+
+\begin_layout Standard
+Observera att syftet med denna del är att testa lite olika funktionalitet
+ i R, för mer fördjupad genomgång av de olika antagandena och hur dessa
+ problem avhjälpes se dokumentationen till funktionerna eller i litteratur
+ på området (en bra sammanfattning är 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "berry1993understanding"
+
+\end_inset
+
+ samt 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://en.wikipedia.org/wiki/Linear_regression#Assumptions"
+
+\end_inset
+
+
+\series default
+\color inherit
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Välj en godtycklig modell ovan (eller skapa en egen ny modell) och utför
+ följande diagnostik:
+\end_layout
+
+\begin_layout Enumerate
+Det första och enklaste sättet att diagnostisera vår modell är att vi använder
+ funktionen 
+\family typewriter
+plot()
+\family default
+ på vårt modellobjekt.
+ Pröva 
+\family typewriter
+plot()
+\family default
+ på modell 3, 5 och 6.
+\end_layout
+
+\begin_layout Enumerate
+Nedan finns lite olika diagnostiska verktyg och kodexempel.
+ Pröva på detta sätt att...
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Identifiera uteliggare
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+outlierTest(minModell) 
+\end_layout
+
+\begin_layout Plain Layout
+
+qqPlot(minModell)  
+\end_layout
+
+\begin_layout Plain Layout
+
+leveragePlots(minModell) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Identifiera observationer med starkt inflytande på modellen
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+avPlot(minModell) 
+\end_layout
+
+\begin_layout Plain Layout
+
+influencePlot(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Utvärdera linjäritetsantagande för regressionkoefficienterna
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+crPlots(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+ceresPlots(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Studera multikollinearitet mellan regressionskoefficienterna
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+vif(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Oberoende feltermer (framförallt för tidsserieregression)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+durbinWatsonTest(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Residualernas fördelning
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+qqPlot(minModell) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Konstant varians (homoscedasticitet)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ncvTest(minModell) 
+\end_layout
+
+\begin_layout Plain Layout
+
+spreadLevelPlot(minModell)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pröva att baserat på dessa tester att anpassa den modell för variabeln 
+\family typewriter
+prestige
+\family default
+ som du själv tror mest på.
+ Vad är dina slutsatser?
+\end_layout
+
+\begin_layout Subsection
+Anscombes data
+\end_layout
+
+\begin_layout Standard
+Vi ska nu pröva ett klassiskt exempel när det gäller linjär regression,
+ 
+\family typewriter
+anscombe
+\family default
+s data.
+ Materialet består av fyra 
+\begin_inset Formula $x$
+\end_inset
+
+-variabler och fyra 
+\begin_inset Formula $y$
+\end_inset
+
+-variabler där materialet ser mycket olika ut, även om de enskilda regressionsmo
+dellerna har exakt samma resultat.
+\end_layout
+
+\begin_layout Enumerate
+Börja med att läsa in materialet i R med 
+\family typewriter
+data()
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data(anscombe)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Anpassa nu följande fyra regressionsmodeller i R utan att plotta materialet.
+\begin_inset Formula 
+\begin{eqnarray*}
+y_{1} & = & \beta_{0}+\beta_{1}x_{1}+\epsilon\\
+y_{2} & = & \beta_{0}+\beta_{1}x_{2}+\epsilon\\
+y_{3} & = & \beta_{0}+\beta_{1}x_{3}+\epsilon\\
+y_{4} & = & \beta_{0}+\beta_{1}x_{4}+\epsilon
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Studera koefficienterna i modellerna.
+ De ska vara nästan identiska.
+\end_layout
+
+\begin_layout Enumerate
+Pröva nu att plotta datamaterialet och använd de diagnostiska verktygen
+ ovan.
+ Vilka antaganden är problematiska i respektive modell, och vilka diagnostiska
+ verktyg fångar upp detta?
+\end_layout
+
+\begin_layout Chapter
+Housing data
+\end_layout
+
+\begin_layout Enumerate
+Ni ska nu analysera datamaterialet HUS, som innehåller information om en
+ mängd hus.
+ Följande variabler finns i data:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Försäljningspris (dollar)
+\end_layout
+
+\begin_layout Itemize
+Bostadsyta (kvadratfot)
+\end_layout
+
+\begin_layout Itemize
+Antal sovrum
+\end_layout
+
+\begin_layout Itemize
+Antal badrum
+\end_layout
+
+\begin_layout Itemize
+Förekomst av luftkonditionering, 1 = luftkonditionering finns, 0 annars
+\end_layout
+
+\begin_layout Itemize
+Antal bilar som garaget är konstruerat för
+\end_layout
+
+\begin_layout Itemize
+Förekomst av pool, 1 = pool finns, 0 annars
+\end_layout
+
+\begin_layout Itemize
+Byggår 
+\end_layout
+
+\begin_layout Itemize
+Tomtstorlek (kvadratfot) 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Läs in datamaterialet 
+\begin_inset Quotes eld
+\end_inset
+
+HUS.csv
+\begin_inset Quotes erd
+\end_inset
+
+ och spara det som 
+\family typewriter
+HUS
+\family default
+.
+ Det finns även ett dataset 
+\begin_inset Quotes eld
+\end_inset
+
+HUS_eng.csv
+\begin_inset Quotes erd
+\end_inset
+
+, som har engelska namn på variablerna men innehåller samma data.
+ Materialet finns att tillgå 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://github.com/MansMeg/KursRprgm/tree/master/Labs/DataFiles"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Enumerate
+Gör följande med 
+\family typewriter
+HUS
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Plotta en boxplot över variabeln 
+\family typewriter
+Försäljningspris.
+
+\family default
+ Ta fram besrkivande statistik med 
+\family typewriter
+summary()
+\family default
+ för 
+\family typewriter
+Försäljningspris.
+
+\family default
+ Det verkar finnas en del outliers (extremt stora värden), dessa vill vi
+ ta bort från data, kör följande kod:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# ta bort alla hus som har pris större än 3:e kvartilen:
+\end_layout
+
+\begin_layout Plain Layout
+
+index<-HUS[,1]<quantile(HUS[,1])[4] 
+\end_layout
+
+\begin_layout Plain Layout
+
+HUS<-HUS[index,]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Plotta ett histogram för 
+\family typewriter
+Försäljningspris
+\family default
+ med 
+\family typewriter
+breaks=40
+\family default
+, (bonusfråga: ser fördelningen symmetrisk ut?)
+\end_layout
+
+\begin_layout Enumerate
+Beräkna ett tvåsidigt konfidensintervall (KI) med 
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+ för 
+\family typewriter
+Försäljningspris
+\family default
+ (tips 
+\family typewriter
+?t.test()
+\family default
+ ) spara i 
+\family typewriter
+testPris.
+\end_layout
+
+\begin_layout Enumerate
+Välj ut KI från 
+\family typewriter
+testPris
+\family default
+.
+ tips: 
+\family typewriter
+?t.test()
+\family default
+ och läs under rubriken 
+\begin_inset Quotes eld
+\end_inset
+
+Value
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Kör sedan 
+\family typewriter
+str(testPris).
+
+\family default
+ Testa 
+\family typewriter
+class(testPris)
+\end_layout
+
+\begin_layout Enumerate
+Beräkna ett tvåsidigt KI med 
+\begin_inset Formula $\alpha=0.10$
+\end_inset
+
+ för 
+\family typewriter
+Försäljningspris
+\end_layout
+
+\begin_layout Enumerate
+Beräkna ett enkelsidigt (undre) KI med 
+\begin_inset Formula $\alpha=0.01$
+\end_inset
+
+ för 
+\family typewriter
+Försäljningspris
+\end_layout
+
+\begin_layout Enumerate
+Kör koden nedan, vad blir resutlatet? Hur ska medelvärdet för variabeln
+ 
+\family typewriter
+Luftkonditionering
+\family default
+ tolkas?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(HUS)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Skapa följande frekvenstabeller från HUS (tips: 
+\family typewriter
+?table()
+\family default
+ )
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+För 
+\family typewriter
+Antal.sovrum
+\end_layout
+
+\begin_layout Enumerate
+För 
+\family typewriter
+Luftkonditionering
+\end_layout
+
+\begin_layout Enumerate
+Mellan variablerna 
+\family typewriter
+Antal.sovrum
+\family default
+ och 
+\family typewriter
+Luftkonditionering
+\family default
+, spara som 
+\family typewriter
+sovLuftTab.
+ Testa class(sovLuftTab)
+\end_layout
+
+\begin_layout Enumerate
+Mellan variablerna 
+\family typewriter
+Antal.sovrum
+\family default
+ och 
+\family typewriter
+Antal.badrum
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Kör 
+\family typewriter
+prop.table(sovLuftTab)
+\family default
+ och 
+\family typewriter
+prop.table(sovLuftTab,margin=1)
+\family default
+.
+ Vad händer med tabellen?
+\end_layout
+
+\begin_layout Enumerate
+Beräkna fishers exakta test för tabellen 
+\family typewriter
+sovLuftTab
+\family default
+, använd 
+\series bold
+
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+,
+\series default
+ vad är noll-hypotesen? Kan vi förkasta den? (tips: 
+\family typewriter
+?fisher.test
+\family default
+() ) 
+\end_layout
+
+\begin_layout Enumerate
+Antag att variablen 
+\family typewriter
+Försäljningspris
+\family default
+ representerar en hel population med hus.
+ Dra ett slumpmässigt stickprov med 20 hus utan återläggning.
+ Beräkna ett tvåsidigt KI (
+\begin_inset Formula $\alpha=0.01$
+\end_inset
+
+) utifrån stickprovet för populationsmedelvärdet.
+\end_layout
+
+\begin_layout Enumerate
+Antag nu att hela datasetet HUS är alla hus i en population.
+ Dra ett stickprov slumpmässigt (dvs välj rader) på 40 hus utan återläggning.
+ Gör följande beräkningar utifrån stickprovet:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Numeriska variaber: Beräkna ett tvåsidigt KI med 
+\begin_inset Formula $\alpha=0.01$
+\end_inset
+
+för populationsmedelvärdet.
+\end_layout
+
+\begin_layout Enumerate
+Binära(0/1) variaber: Beräkna ett tvåsidigt KI med 
+\begin_inset Formula $\alpha=0.01$
+\end_inset
+
+för populationsandelen.
+ Tips: 
+\family typewriter
+?prop.test(), ?table()
+\end_layout
+
+\end_deeper
+\begin_layout Chapter
+Texthantering och regular expression i R med 
+\family typewriter
+stringr
+\family default
+ 
+\end_layout
+
+\begin_layout Standard
+Gör följande delar i 
+\shape italic
+Handling and Processing Strings in R
+\shape default
+ av Gaston Sanchez.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Kap
+\begin_inset space ~
+\end_inset
+
+2
+\series default
+ Hela
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Kap
+\begin_inset space ~
+\end_inset
+
+3
+\series default
+ 3.1, 3.3
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Kap
+\begin_inset space ~
+\end_inset
+
+4
+\series default
+ 4.2.1 - 4.2.3
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Kap
+\begin_inset space ~
+\end_inset
+
+5
+\series default
+ 5 - 5.2.2, 5.2.6, 5.3.1-5.3.2
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Kap
+\begin_inset space ~
+\end_inset
+
+6
+\series default
+ 6-6.1.3, 6.2.2, 6.4 - 6.4.1, 6.4.3, 6.4.5, 6.4.7, 6.4.9 - 6.4.10
+\end_layout
+
+\begin_layout Standard
+Boken finns fritt tillgänglig 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Inluppg.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Set you (local) path
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
+k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_files <- dir(solution_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
+ echo = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+För att använda 
+\family typewriter
+markmyassignment
+\family default
+ i denna laboration ange:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment)
+\end_layout
+
+\begin_layout Plain Layout
+
+lab_path <-
+\end_layout
+
+\begin_layout Plain Layout
+
+"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d7.yml"
+\end_layout
+
+\begin_layout Plain Layout
+
+set_assignment(lab_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+diagonalize_matrix()
+\end_layout
+
+\begin_layout Standard
+Vi ska skapa en funktion, 
+\family typewriter
+diagonalize_matrix(),
+\family default
+ som kan diagonalisera en godtycklig matris.
+ Argumentet ska vara 
+\family typewriter
+X
+\family default
+.
+ Funktionen ska först testa om matrisen är diagonaliserbar, d.v.s.
+ om matrisens egenvektorer är linjärt oberoende (d.v.s.
+ determinanten av egenvektorerna är skild från 0).
+ Av numeriska skäl kan detta vara svårt att uppfylla.
+ I denna uppgift ska därför determinanten avrundas till 10 decimaler för
+ att testa om matrisen är diagonaliserbar.
+\end_layout
+
+\begin_layout Standard
+Är matrisen inte diagonaliserbar ska funktionen avbrytas med meddelandet
+ 
+\family typewriter
+
+\begin_inset Quotes sld
+\end_inset
+
+Matrix not diagonizable.
+\family default
+
+\begin_inset Quotes srd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(1:4,ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+diagonalize_matrix(X = A)
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(c(0,1,0,0),ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+diagonalize_matrix(X = A)
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(c(4,1,-2,1),ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+diagonalize_matrix(X = A)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+my_grouped_test()
+\end_layout
+
+\begin_layout Standard
+Nu ska ni skapa en funktion som ska beräkna gruppvisa konfindesintervall
+ (KI) för en variabel.
+ Innan ni börjar se till att HUS-data är inläst och kör koden nedan för
+ att ta bort de extremt stora värdena:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Download
+\end_layout
+
+\begin_layout Plain Layout
+
+file_path <-
+\end_layout
+
+\begin_layout Plain Layout
+
+  "https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/DataFiles/HUS.cs
+v"
+\end_layout
+
+\begin_layout Plain Layout
+
+HUS <- repmis::source_data(file_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Small corrections (removing outliers)
+\end_layout
+
+\begin_layout Plain Layout
+
+index<-HUS[,1] < quantile(HUS[,1])[4] 
+\end_layout
+
+\begin_layout Plain Layout
+
+HUS<-HUS[index,]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Funktion ska heta 
+\family typewriter
+my_grouped_test()
+\family default
+ och ha argumenten:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+data_vector
+\family default
+ - är en numerisk vektor
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+my_groups
+\family default
+ - är en factor/character-vektor som grupperar dataVector
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+alpha
+\family default
+ - är signifikansnivån för intervallet, 
+\family typewriter
+alpha=0.05
+\family default
+ ska ge ett 95 % konfidensintervall.
+\end_layout
+
+\begin_layout Standard
+Funktionen ska returnera en matris 
+\family typewriter
+result
+\family default
+ där raderna motsvarar grupperna i 
+\family typewriter
+my_groups
+\family default
+ och har fyra kolumner: Undre gräns för KI, medelvärdet, övre gräns för
+ KI och antal observationer i varje grupp.
+ Se testfallen för namen på kolumnerna.
+ Raderna ska ha samma namn som grupperna 
+\family typewriter
+my_groups
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Förslag till lösning:
+\end_layout
+
+\begin_layout Enumerate
+Se till att my_groups är en faktor.
+ Räkna ut hur många grupper som finns i my_groups.
+ 
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+?levels() ?table()
+\end_layout
+
+\begin_layout Enumerate
+Skapa en tom matris av rätt storlek, kalla den 
+\family typewriter
+result
+\family default
+.
+ Ge den lämpliga namn.
+ 
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+?colnames(), ?rownames()
+\end_layout
+
+\begin_layout Enumerate
+Spara antalet observationer för varje grupp i den fjärde variabeln i 
+\family typewriter
+result
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+by()
+\family default
+ kombinerat med 
+\family typewriter
+t.test()
+\family default
+ för att beräkna gruppvisa KI, spara i 
+\family typewriter
+group_test
+\family default
+.
+ Testa 
+\family typewriter
+?by()
+\family default
+, ni ser att det finns ett argument som heter 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+...
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ för funktionen 
+\family typewriter
+by()
+\family default
+.
+ Dessa tre punkter kan ersättas med argument som behövs till funtionen 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+FUN
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Mer tips: 
+\family typewriter
+str(
+\begin_inset Quotes eld
+\end_inset
+
+objekt från t.test
+\begin_inset Quotes erd
+\end_inset
+
+)
+\family default
+ och 
+\family typewriter
+?by
+\family default
+ läs under rubriken 
+\begin_inset Quotes eld
+\end_inset
+
+value
+\begin_inset Quotes erd
+\end_inset
+
+ för att kolla vad 
+\family typewriter
+by()
+\family default
+ returnerar.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Loopa över antalet grupper och välj ut KI och medelvärde för varje grupp
+ från 
+\family typewriter
+group_test
+\family default
+.
+ Spara på rätt ställen i 
+\family typewriter
+result
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Returnera 
+\family typewriter
+result
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Testa om testfallen nedan fungerar:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+my_grouped_test(HUS[,1],HUS$Luftkonditionering,0.01)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_grouped_test(HUS[,2],HUS$Pool,0.10)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Chickwts-data
+\end_layout
+
+\begin_layout Plain Layout
+
+data(chickwts)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_grouped_test(chickwts[,1],chickwts[,2],0.05)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+sum_of_random_dices()
+\end_layout
+
+\begin_layout Standard
+Funktionen 
+\family typewriter
+sum_of_dice()
+\family default
+ i sektionen Slumptal och Statistik summerar värdet från ett fixt antal
+ tärnigar, nu ska ni skriva en funktion som kan summera ett slumpmässigt
+ antal tärningar.
+ Antalet tärningar ska vara Poissonfördelat med en parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ på följande sätt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+Y & \sim & \mbox{Po}(\lambda)\\
+X & = & \sum_{i}^{Y}Z_{i}
+\end{eqnarray*}
+
+\end_inset
+
+där 
+\begin_inset Formula $Z_{i}$
+\end_inset
+
+ är utfallet från en sexsidig tärning.
+ Skapa en funkton 
+\family typewriter
+sum_of_random_dices()
+\family default
+.
+ Argumenten ska vara:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+K
+\family default
+: antal dragningar från slumpfördelningen
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+lambda
+\family default
+: ett positivt kontinuerligt tal (parameter i poissonfördelningen)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+my_seed
+\family default
+: ett slumpfrö som styr slumptalsgenereringen, default ska vara 
+\family typewriter
+NULL
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Funktionen 
+\family typewriter
+sum_of_random_dices()
+\family default
+ ska returnera en 
+\family typewriter
+data.frame
+\family default
+ med summan av ögonen på de slumpmässigt antalet tärningar samt antalet
+ kastade tärningar.
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur detta kan implementeras finns här:
+\end_layout
+
+\begin_layout Itemize
+Ändra seeden till: 
+\family typewriter
+set.seed(mySeed)
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Sätt upp en tom 
+\family typewriter
+data.frame
+\family default
+ som namnges 
+\family typewriter
+result
+\family default
+, som ska ha 
+\family typewriter
+K
+\family default
+ rader och 2 kolumner.
+ Första komunen ska ha namnet 
+\family typewriter
+value
+\family default
+ och den andra 
+\family typewriter
+dices
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Gör följande for-loop över vektorn 
+\family typewriter
+1:K
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dra ett slumptal från en poissionfördelning med parameter 
+\family typewriter
+lambda
+\family default
+.
+ Spara slumptalet i 
+\family typewriter
+current_number
+\family default
+, vilket är antalet tärningar.
+ Spara 
+\family typewriter
+current_number
+\family default
+ i kolumnen 
+\family typewriter
+dices
+\family default
+ på aktuell rad i 
+\family typewriter
+result
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Anropa 
+\family typewriter
+sum_of_dice()
+\family default
+ med argumenten 
+\family typewriter
+K=1
+\family default
+ och 
+\family typewriter
+N=current_number
+\family default
+, spara resultatet i kolumnen 
+\family typewriter
+value
+\family default
+ på aktuell rad i 
+\family typewriter
+result
+\family default
+.
+ Observera att om 
+\family typewriter
+curret_number=0
+\family default
+ så ska summan bli 0
+\family typewriter
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Returnera 
+\family typewriter
+result
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Testa om testfallen nedan fungerar:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=3, fig.width=4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_random_dices(K=5,lambda=3,my_seed=42)
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_random_dices(K=5,lambda=8,my_seed=4711)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- sum_of_random_dices(K=300,lambda=5,my_seed=42)
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(x$value, 20)
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(x$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+sd(x$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- sum_of_random_dices(K=300,lambda=10,my_seed=4711)
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(y$value, 20)
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(y$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+sd(y$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(y$dices, y$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+wordcount()
+\end_layout
+
+\begin_layout Standard
+Nu är uppgiften att skapa en funktion som ska kunna räkna hur många gånger
+ olika ord förekommer i texten.
+ Funktionen ska heta 
+\family typewriter
+WordCount()
+\family default
+ och ha argumentet 
+\family typewriter
+text
+\family default
+ som ska vara en 
+\family typewriter
+character
+\family default
+-vektor.
+ Funktionen ska ta en text (i form av en text vektor) och returnera en frekvense
+n för alla ord om ingår i texten.
+\end_layout
+
+\begin_layout Standard
+Nedan är ett förslag på hur ni kan implementera funktionen.
+\end_layout
+
+\begin_layout Enumerate
+Läs in paktet i 
+\family typewriter
+stringr
+\family default
+ i den aktuella R-sessionen.
+\end_layout
+
+\begin_layout Enumerate
+Börja med att sätta ihop de olika textelementen till en textsträng, men
+ denna gång använd mellanslag som avskiljare istället för 
+\family typewriter
+
+\backslash
+n
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Ta bort punkter och kommatecken i textsträngen.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Gör om alla ord till endast gemener 
+\end_layout
+
+\begin_layout Enumerate
+Dela upp teckensträngen med 
+\family typewriter
+str_split()
+\family default
+ för att få ut respektive ord.
+ [
+\series bold
+Tips!
+\series default
+ Tänk på att du får ut en lista med denna funktion, inte en vektor.
+ 
+\family typewriter
+unlist()
+\family default
+ kan vara till hjälp.]
+\end_layout
+
+\begin_layout Enumerate
+Räkna respektive ord och skapa en data.frame med respektive ord i kolumn
+ 1 och antalet förekomster av detta ord i kolumn 2.
+ Döp kolumn 1 till 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+Word
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, och kolumn 2 till 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+Freq
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+str_c()
+\family default
+ och 
+\family typewriter
+print()
+\family default
+ för att baserat på datsetet ovan skriva ut följande mening 
+\begin_inset Quotes eld
+\end_inset
+
+Det vanligaste ordet är [ordet] som förekom [frekvens] gånger i texten.
+\begin_inset Quotes erd
+\end_inset
+
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+which.max()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Returnera din 
+\family typewriter
+data.frame
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Funktionen 
+\family typewriter
+wordcount()
+\family default
+ tar en godtycklig text (textvektor) och returnerar ett dataset med samtliga
+ ord i textvektorn och ordens frekvenser.
+ Funktionen ska också skriva ut meningen 
+\begin_inset Quotes eld
+\end_inset
+
+Det vanligaste ordet är [ordet] som förekom [frekvens] gånger i texten.
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Kolla om testfallen nedan fungerar:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Laddar ned testdata
+\end_layout
+
+\begin_layout Plain Layout
+
+library(downloader) 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_remote <-
+\end_layout
+
+\begin_layout Plain Layout
+
+  "https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/DataFiles/trans
+trom.txt" 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_local <- paste0(getwd(), "/transtrom.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+download(url = transtrommer_remote, destfile = transtrommer_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Test
+\end_layout
+
+\begin_layout Plain Layout
+
+text<-readLines("transtrom.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+worddata<-wordcount(text=text)
+\end_layout
+
+\begin_layout Plain Layout
+
+head(worddata[order(worddata[,2], decreasing=TRUE),])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+henify()
+\end_layout
+
+\begin_layout Standard
+Med hjälp av funktionerna i 
+\family typewriter
+stringr
+\family default
+ ska ni skriva en funktion som ska byta ut 
+\begin_inset Quotes eld
+\end_inset
+
+han
+\begin_inset Quotes erd
+\end_inset
+
+ och 
+\begin_inset Quotes eld
+\end_inset
+
+hon
+\begin_inset Quotes erd
+\end_inset
+
+ i en text mot 
+\begin_inset Quotes eld
+\end_inset
+
+hen
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Detta kan göras med hjälp av regular expressions.
+ Det ska gå att göra denna operation med endast ett regular expression (om
+ vi ignorerar versaler i hen).
+ Det är dock inte ett måste att implementera detta med bara en rad kod.
+\end_layout
+
+\begin_layout Standard
+Funktionen ska heta 
+\family typewriter
+henify(text)
+\end_layout
+
+\begin_layout Itemize
+argumentet 
+\family typewriter
+text
+\family default
+ ska antingen ange sökvägen till den textfil som ska användas som då slutar
+ på 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+.txt
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ eller vara en teckenvektor innehållande en text.
+\end_layout
+
+\begin_layout Standard
+Arbetsordning:
+\end_layout
+
+\begin_layout Enumerate
+Läs in paktet i stringr i den aktuella R-sessionen.
+\end_layout
+
+\begin_layout Enumerate
+Iakttag följade fall:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Om 
+\family typewriter
+text
+\family default
+ är en sökväg till en fil så ska filen med texten läsas in som och sparas
+ i en character-vektor.
+ Detta kan du kolla med om de fyra sista teckenen är 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+.txt
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+str_sub()
+\family default
+, 
+\family typewriter
+readLines()
+\family default
+.
+ Glöm inte att 
+\family typewriter
+.
+
+\family default
+ är ett metatecken.
+\end_layout
+
+\begin_layout Enumerate
+Om första elementet i text inte slutar på 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+.txt
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ så ska text användas som en textvektor i resten av funktionen.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Använd nu 
+\family typewriter
+str_replace_all()
+\family default
+ för att ersätta Han/han och Hon/hon med Hen/hen.
+ Här behöver ni använda regular expressions.
+ Iakttag följande:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tänk på att han/hon ska kunna börja med stor eller liten bokstav.
+\end_layout
+
+\begin_layout Itemize
+Han/hon kan komma först i strängen, någonstans i mitten, eller sist.
+\end_layout
+
+\begin_layout Itemize
+Vi ska inte välja ord där han/hon är en del av ordet, tex 
+\begin_inset Quotes eld
+\end_inset
+
+storhandla
+\begin_inset Quotes erd
+\end_inset
+
+ ska inte bli 
+\begin_inset Quotes eld
+\end_inset
+
+storhendla
+\begin_inset Quotes erd
+\end_inset
+
+ eller att 
+\begin_inset Quotes eld
+\end_inset
+
+hona
+\begin_inset Quotes erd
+\end_inset
+
+ ska blir 
+\begin_inset Quotes eld
+\end_inset
+
+hena
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Returnera den ändrade texten.
+\end_layout
+
+\begin_layout Standard
+Kolla om testfallen nedan fungerar:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(downloader) 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_remote <-
+\end_layout
+
+\begin_layout Plain Layout
+
+  "https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/DataFiles/trans
+trom2.txt" 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_local <- paste0(getwd(), "/transtrom2.txt") 
+\end_layout
+
+\begin_layout Plain Layout
+
+download(url = transtrommer_remote, destfile = transtrommer_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# test 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+henify(text="transtrom2.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# test 2:
+\end_layout
+
+\begin_layout Plain Layout
+
+txt1<-c("Hon, hankar handskar, han", "handlar du honorarer?","honartad hona
+ han.")
+\end_layout
+
+\begin_layout Plain Layout
+
+txt1
+\end_layout
+
+\begin_layout Plain Layout
+
+henify(txt1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Nu är du klar! 
+\end_layout
+
+\end_body
+\end_document

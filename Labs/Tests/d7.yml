@@ -11,8 +11,8 @@ tasks:
       - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_grouped_test_tests.R
   sum_of_random_dices:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/sum_of_random_dices_tests.R
-  sum_of_random_dices:
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/wordcount_tests.R
+  wordcount:
     url: 
       - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/wordcount_tests.R
   henify:

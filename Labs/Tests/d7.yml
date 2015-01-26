@@ -1,0 +1,23 @@
+# Assignment D7
+name  : D7
+description : "Statistisk programmering med R: Lab 7"
+reporter : student
+tasks:
+  diagonalize_matrix:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/diagonalize_matrix_tests.R
+  my_grouped_test:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_grouped_test_tests.R
+  sum_of_random_dices:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/sum_of_random_dices_tests.R
+  sum_of_random_dices:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/wordcount_tests.R
+  henify:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/henify_tests.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

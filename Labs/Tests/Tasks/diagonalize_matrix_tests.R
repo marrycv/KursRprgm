@@ -10,17 +10,42 @@ test_that("Assignment: diagonalize_matrix", {
                         "Fel: Funktionen inneh√•ller fria variabler")
   expect_that(all(names(formals(diagonalize_matrix)) %in% c("X")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(class(diagonalize_matrix(1:3)), 
+  expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))), 
+              is_equivalent_to("list"),
+              info="Fel: Funktionen returnerar inte en lista")
+  expect_that(all(names(diagonalize_matrix(matrix(1:4,ncol=2))) %in% 
+              c("D", "P", "Pinv")), is_true(),
+              info="Fel: Funktionen returnerar inte korrekta listelementnamn.")
+  expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))$D), 
               is_equivalent_to("matrix"),
-              info="Fel: Funktionen returnerar inte en matrix")
-  expect_equal(dim(diagonalize_matrix(1:5)), c(3,3),
-               info="Fel: Funktionen returnerar en matrix med fel dimension")
-  expect_equal(dim(diagonalize_matrix(1)), c(1,1),
-               info="Fel: Funktionen returnerar en matrix med fel dimension f√∂r diagonalize_matrix(1)")
-  expect_equal(diagonalize_matrix(1:9)[3:4,5], c(3,2),
-               info="Fel: Funktionen returnerar en felaktig matris med diagonalize_matrix(1:9)")
-
- 
-
-
+              info="Fel: D ‰r inte en matris")
+  expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))$P), 
+              is_equivalent_to("matrix"),
+              info="Fel: P ‰r inte en matris")
+  expect_that(class(diagonalize_matrix(matrix(1:4,ncol=2))$Pinv), 
+              is_equivalent_to("matrix"),
+              info="Fel: Pinv ‰r inte en matris")
+  
+  expect_equal(round(diagonalize_matrix(matrix(3:6,ncol=2))$Pinv,2)[1,], 
+               c(-0.54, -0.85),
+              info="Fel: Pinv ‰r felaktig")
+  expect_equal(round(diagonalize_matrix(matrix(3:6,ncol=2))$P,2)[1,], 
+               c(-0.63, -0.84),
+               info="Fel: P ‰r felaktig")
+  expect_equal(round(diagonalize_matrix(matrix(3:6,ncol=2))$D,2)[1,], 
+               c(9.22, 0),
+               info="Fel: D ‰r felaktig")
+  
+  expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$Pinv,2)[3,], 
+               c(0.41, -0.82, 0.41),
+               info="Fel: Pinv ‰r felaktig")
+  expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$P,2)[1,], 
+               c(-0.54, -0.80, 0.41),
+               info="Fel: P ‰r felaktig")
+  expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$D,2)[2,2], 
+               c(-0.42), info="Fel: D ‰r felaktig")
+  expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$D,2)[1,1], 
+               c(42.42), info="Fel: D ‰r felaktig")
+  expect_equal(round(diagonalize_matrix(matrix(10:18,ncol=3))$D,2)[3,3], 
+               c(0), info="Fel: D ‰r felaktig")
 })

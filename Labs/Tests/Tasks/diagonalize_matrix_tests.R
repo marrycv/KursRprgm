@@ -1,5 +1,7 @@
 ### Assignment : diagonalize_matrix() ###
 
+context("diagonalize_matrix")
+
 test_that("Assignment: diagonalize_matrix", {
     
   expect_that(exists("diagonalize_matrix"), is_true(),

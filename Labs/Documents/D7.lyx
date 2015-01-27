@@ -4169,7 +4169,7 @@ Nu är uppgiften att skapa en funktion som ska kunna räkna hur många gånger
  olika ord förekommer i texten.
  Funktionen ska heta 
 \family typewriter
-WordCount()
+wordcount()
 \family default
  och ha argumentet 
 \family typewriter
@@ -4180,8 +4180,58 @@ text
 character
 \family default
 -vektor.
- Funktionen ska ta en text (i form av en text vektor) och returnera en frekvense
-n för alla ord om ingår i texten.
+ Funktionen ska ta en text (i form av en text vektor) och returnera en 
+\family typewriter
+data.frame
+\family default
+ med två variabler 
+\family typewriter
+word
+\family default
+ (textvariabel) och 
+\family typewriter
+freq
+\family default
+ (integervariabel).
+ 
+\end_layout
+
+\begin_layout Standard
+I variabeln 
+\family typewriter
+word
+\family default
+ ska respektive ord ingå, men med små bokstäver, och i variabeln 
+\family typewriter
+freq
+\family default
+ ska frekvensen av orden framgå.
+ Den 
+\family typewriter
+data.frame
+\family default
+ som returneras ska vara sorterad efter variabeln 
+\family typewriter
+word
+\family default
+.
+ Funktionen ska också skriva ut meningen 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+The most common word is [ord] and occured [antal] times.
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ med 
+\family typewriter
+message()
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -4213,7 +4263,7 @@ Ta bort punkter och kommatecken i textsträngen.
 \end_layout
 
 \begin_layout Enumerate
-Gör om alla ord till endast gemener 
+Gör om alla ord till endast gemener.
 \end_layout
 
 \begin_layout Enumerate
@@ -4231,7 +4281,7 @@ Tips!
 \family typewriter
 unlist()
 \family default
- kan vara till hjälp.]
+ kan då vara till hjälp.]
 \end_layout
 
 \begin_layout Enumerate
@@ -4243,7 +4293,7 @@ Räkna respektive ord och skapa en data.frame med respektive ord i kolumn
 
 
 \family typewriter
-Word
+word
 \family default
 
 \begin_inset Quotes erd
@@ -4255,7 +4305,7 @@ Word
 
 
 \family typewriter
-Freq
+freq
 \family default
 
 \begin_inset Quotes erd
@@ -4263,6 +4313,14 @@ Freq
 
 .
  
+\end_layout
+
+\begin_layout Enumerate
+Sortera datasetet efter 
+\family typewriter
+word
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -4272,25 +4330,21 @@ str_c()
 \family default
  och 
 \family typewriter
-print()
+message()
 \family default
  för att baserat på datsetet ovan skriva ut följande mening 
 \begin_inset Quotes eld
 \end_inset
 
-Det vanligaste ordet är [ordet] som förekom [frekvens] gånger i texten.
+
+\family typewriter
+The most common word is [ord] and occured [antal] times.
+\family default
+
 \begin_inset Quotes erd
 \end_inset
 
- [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-which.max()
-\family default
-]
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -4298,24 +4352,6 @@ Returnera din
 \family typewriter
 data.frame
 \family default
-.
-\end_layout
-
-\begin_layout Standard
-Funktionen 
-\family typewriter
-wordcount()
-\family default
- tar en godtycklig text (textvektor) och returnerar ett dataset med samtliga
- ord i textvektorn och ordens frekvenser.
- Funktionen ska också skriva ut meningen 
-\begin_inset Quotes eld
-\end_inset
-
-Det vanligaste ordet är [ordet] som förekom [frekvens] gånger i texten.
-\begin_inset Quotes erd
-\end_inset
-
 .
 \end_layout
 
@@ -4385,6 +4421,15 @@ worddata<-wordcount(text=text)
 \begin_layout Plain Layout
 
 head(worddata[order(worddata[,2], decreasing=TRUE),])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+head(wordcount(text=rep("a",10)))
 \end_layout
 
 \begin_layout Plain Layout

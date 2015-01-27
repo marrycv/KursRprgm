@@ -1,6 +1,6 @@
 ### Assignment : diagonalize_matrix() ###
 
-context("diagonalize_matrix")
+context("diagonalize_matrix()")
 
 test_that("Assignment: diagonalize_matrix", {
     

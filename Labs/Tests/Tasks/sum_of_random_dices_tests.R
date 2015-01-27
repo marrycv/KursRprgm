@@ -6,8 +6,8 @@ test_that("Assignment: sum_of_random_dices()", {
   
   # ladda in test-data:
 
-  expect_that(exists("my_grouped_test"), is_true(),
-              info = "Fel: my_grouped_test() saknas.")
+  expect_that(exists("sum_of_random_dices"), is_true(),
+              info = "Fel: sum_of_random_dices() saknas.")
   expect_that(sum_of_random_dices, is_a("function"),
               info = "Fel: sum_of_random_dices är inte en funktion.")
   expect_that(all(names(formals(sum_of_random_dices)) %in% c("K","lambda","my_seed")), condition=is_true(),

@@ -1,41 +1,38 @@
 ### Assignment : henify() ###
-# rm(list=ls())
-# library(testthat)
-# source("/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/Solutions/LabSolutions_7.R",encoding="latin1")
-#  
-# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/D7_Grupp5.R",encoding="latin1")
-# source("/home/joswi05/Dropbox/RCourse2014/Admin/StudentSolutions/D7/labb7_grupp6.R",encoding="latin1")
+
+context("henify()")
 
 test_that("Assignment: henify()", {
-  
-  # ladda in test-data:
-  load(file="/home/joswi05/Dropbox/Rkurs/KursRprgmTeacher/Labs/SolutionData/henifyTestData.Rdata")
+    
+  test1 <- c("Hon, hankar handskar, han", "handlar du honorarer?","honartad hona han.")
+  test2 <- c("Hon, han, honom, Han, hon, hen, hankar handskar, han")
   
   # Övergripande om funktionen:
-  
+  expect_that(exists("henify"), is_true(),
+              info = "Fel: henify() saknas.")
   expect_that(henify, is_a("function"),
               info = "Fel: henify är inte en funktion.")
-  expect_that(all(names(formals(henify)) %in% c("FileName")), condition=is_true(),
+  expect_that(all(names(formals(henify)) %in% c("text")), condition=is_true(),
               info = "Fel: Namnen på argumenten i funktionen är fel.")
-  expect_that(henify(FileName=henifyOptions1$text), is_a("character"),
+  expect_that(henify(text=test1), is_a("character"),
               info = "Fel: Funktionen returnerar inte en character-vektor")
  
 
   # testfall:
-
-  # Testar på en nonsenstext:
-  expect_equal(henify(FileName=henifyOptions1$text),henifyResult1,
-               info =henifyError1)
-  
-  
-  # Testfall 1 i labben:
-  setwd("/home/joswi05/Dropbox/Rkurs/KursRprgm/Labs/DataFiles")
-  expect_equal(henify(FileName=henifyOptions2$text),henifyResult2,
-               info =henifyError2)
+  expect_equal(henify(text=test1)[1], "Hen, hankar handskar, hen",
+              info = "Fel: Funktionen fungerar inte för 'Hon, hankar handskar, han'")
+  expect_equal(henify(text=test1)[2], "handlar du honorarer?",
+               info = "Fel: Funktionen fungerar inte för 'handlar du honorarer?'")
+  expect_equal(henify(text=test1)[3], "honartad hona hen.",
+               info = "Fel: Funktionen fungerar inte för 'honartad hona han.'")
+  expect_equal(henify(text=test2), "Hen, hen, honom, Hen, hen, hen, hankar handskar, hen",
+               info = "Fel: Funktionen fungerar inte för 'Hon, han, honom, Han, hon, hen, hankar handskar, han'")
 
   # Testfall 2 i labben:
-  expect_equal(henify(FileName=henifyOptions3$text),henifyResult3,
-               info =henifyError3)
-
+  test_file_name <- paste0(tempdir(),"/test.txt")
+  writeLines(c(test1, test2), test_file_name)
+  expect_equal(henify(text=test_file_name)[1], "Hen, hankar handskar, hen",
+               info = "Fel: Funktionen kan inte läsa in txt-filer.")  
+  unlink(test_file_name)
   
 })

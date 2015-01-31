@@ -1,0 +1,11 @@
+# Assignment D8
+name  : D8
+description : "Statistisk programmering med R: Lab 8"
+reporter : student
+tasks:
+  dynamic_linear_system:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/dynamic_linear_system_tests.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R

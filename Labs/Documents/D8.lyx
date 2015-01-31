@@ -1,0 +1,3759 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+\usepackage{fancyhdr}%The first page setting
+\fancypagestyle{plain}
+{%
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[L]{
+    LINK\"OPING UNIVERSITY\\
+    Avdelningen för Statistik\\
+    Institutionen för datavetenskap
+  }
+  \fancyhead[R]{Programming i R}
+}
+%The remaining pages
+
+\fancyhead[RO,LE]{}
+\fancyhead[C]{Programming i R}
+\fancyhead[LO,RE]{}
+
+ 
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language swedish
+\language_package auto
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language swedish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Datorlaboration 8
+\end_layout
+
+\begin_layout Author
+Måns Magnusson
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Global options
+\end_layout
+
+\begin_layout Plain Layout
+
+opts_chunk$set(comment='') 
+\end_layout
+
+\begin_layout Plain Layout
+
+options(digits = 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "IntroDel2.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Datorlaboration
+\end_layout
+
+\begin_layout Chapter
+Introduktion till 
+\family typewriter
+ggplot2
+\end_layout
+
+\begin_layout Standard
+Paketet 
+\family typewriter
+ggplot2
+\family default
+ skiljer sig från den grundläggande grafikfunktionaliteten som finns implementer
+at i R.
+ Paketet bygger på vad som brukar kallas 
+\begin_inset Quotes eld
+\end_inset
+
+The grammar of graphics
+\begin_inset Quotes erd
+\end_inset
+
+ (därav 
+\family typewriter
+gg
+\family default
+ i 
+\family typewriter
+ggplot2
+\family default
+) och är ett försök till ett formellt språk för att uttrycka hur en visualiserin
+g ska se ut.
+ Mer teori bakom denna gramatik går att finna i 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wilkinson2006grammar,wilkinson2012grammar"
+
+\end_inset
+
+ och är grunden bakom exempelvis SPSS grafiksystem.
+ Genom att ha en grundläggande förståelse för denna grammatik kan vi enkelt
+ och snabbt skapa mycket komplicerade visualiseringar.
+\end_layout
+
+\begin_layout Standard
+I R:s basgrafiksystem kunde man se grafikfunktionaliteten lite som ett papper
+ vi ritar på.
+ Vi ritar initialt upp vår graf och kan sedan lägga till/rita 
+\begin_inset Quotes eld
+\end_inset
+
+ovanpå
+\begin_inset Quotes erd
+\end_inset
+
+ det befintliga pappret.
+ 
+\family typewriter
+ggplot
+\family default
+ är annorlunda.
+ Med 
+\family typewriter
+ggplot
+\family default
+ skapar vi ett grafikobjekt och vi kan lägga till bit för bit av grafen
+ för att när vi sedan är klar med vår graf visualisera den.
+ Det gör det enklare att bygga upp komplicerade grafer utan att behöva använda
+ särskilt mycket kod.
+\end_layout
+
+\begin_layout Section
+Grunden i 
+\family typewriter
+ggplot2
+\end_layout
+
+\begin_layout Standard
+Till skillnad från basgrafiken utgår ggplot 
+\series bold
+alltid
+\series default
+ från en 
+\family typewriter
+data.frame
+\family default
+.
+ Baserat på denna data.frame skapas sedan grafen med två huvudsakliga komponenter
+: 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+aes
+\family default
+ (aestetic) som handlar om utseendet på grafen, färger, former m.m.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+geom
+\family default
+ (geometrics) som beskriver vilken typ av graf vi vill ha (bar, line, points)
+\end_layout
+
+\begin_layout Standard
+Vi lägger sedan till dessa komponenter till vår graf och 
+\family typewriter
+data.frame
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+När det gäller de olika geometriska argumenten, d.v.s.
+ de olika typer av grafer som går att skapa, finns det ett mycket stor antal
+ vi kan använda oss av.
+ Några exempel är:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+geom
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Beskrivning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_point
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scatterplot
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_line
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Line graph
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_bar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Barplot
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_boxplot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Boxplot
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_histogram
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Histogram
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Exakt hur dessa geometriska figurer ska se ut styrs sedan med 
+\family typewriter
+aes
+\family default
+.
+ Nedan finns några exempel:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+aes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Beskrivning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x-axel
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+y
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+y-axel
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+storlek
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+col
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+färg
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+shape
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+form
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+De enskilda geometriska figurerna kan i sin tur ha ett antal olika aestetics.
+ Nedan finns lite exempel.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\series bold
+geom
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Specifika aestetics
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_points
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+point 
+\family typewriter
+shape
+\family default
+, point 
+\family typewriter
+size
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_line
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+linetype
+\family default
+, line 
+\family typewriter
+size
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+geom_bar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+y 
+\family typewriter
+min
+\family default
+, y 
+\family typewriter
+max
+\family default
+, 
+\family typewriter
+fill
+\family default
+ color, 
+\family typewriter
+outline
+\family default
+ color
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Med dessa verktyg har vi en grund för att bygga upp ett mycket stort antal
+ visualiseringar.
+\end_layout
+
+\begin_layout Subsection
+Skapa en ggplot (linje eller scatter)
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att läsa in the datamaterialet 
+\family typewriter
+Nile
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ggplot2)
+\end_layout
+
+\begin_layout Plain Layout
+
+data(Nile)
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile <- as.data.frame(Nile) 
+\end_layout
+
+\begin_layout Plain Layout
+
+colnames(Nile) <- "level"
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$years <- 1871:1970
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+För att skapa en 
+\family typewriter
+ggplot
+\family default
+ börjar vi med att skapa grunden för plotten med funktionen 
+\family typewriter
+ggplot()
+\family default
+.
+ Nedan är ett exempel på att skapa en 
+\family typewriter
+ggplot
+\family default
+ med 
+\family typewriter
+Nile
+\family default
+, sedan lägger vi till att 
+\family typewriter
+x
+\family default
+ ska utgöras av variabeln 
+\family typewriter
+years
+\family default
+ och 
+\family typewriter
+level
+\family default
+.
+ Sedan lägger vi till att plotten ska utgöras av punkter.
+ Vi sparar grafen som variabeln 
+\family typewriter
+p
+\family default
+.
+ För att skapa grafen tittar vi bara på 
+\family typewriter
+p
+\family default
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, fig.height=3, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_point()
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi ändra till en linjegraf (vilket känns bättre) här byter vi bara
+ ut geometrin:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi lägga till både punkter och linjer i samma graf kan vi bara ta 
+\family typewriter
+p
+\family default
+ och lägga till punkter.
+ Här blir det tydligt hur vi i 
+\family typewriter
+ggplot
+\family default
+ lägger till lager på lager och sedan producerar en visualisering:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- p + geom_point()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+På samma sätt kan vi också lägga till rubriker och axelettiketter:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- p + xlab("Years") + ylab("Water level") + ggtitle("Nile series")
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period <- "- 1900" Nile$period[Nile$years >= 1900] <- "1900 - 1945"
+ Nile$period[Nile$years > 1945] <- "1945 + " Nile$period <- as.factor(Nile$period
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Enklare modifikationer av ett 
+\family typewriter
+ggplot
+\family default
+-objekt
+\end_layout
+
+\begin_layout Enumerate
+Vill vi ändra färg och form på olika delar i en graf behöver vi ange exakt
+ var dessa förändringar ska ske.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line(color="red",
+ size=3) + geom_point(color="blue", size=4)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Om vi nu vill förtydliga vissa delar av grafen med olika färger eller använder
+ vi 
+\family typewriter
+aes
+\family default
+ i den del av grafen vi vill ändra.
+ Först ska vi skapa en ny faktorvariabel vi vill visualisera.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period <- "- 1900" 
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period[Nile$years >= 1900] <- "1900 - 1945"
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period[Nile$years > 1945] <- "1945 + " 
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period <- as.factor(Nile$period)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi nu exempelvis lyfta in visualiseringen i linjerna måste vi lägga
+ 
+\family typewriter
+aes
+\family default
+ där.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line(aes(color=period))
+ + geom_point()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi istället modifiera punkterna lägger vi till det i geom_point().
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line() + geom_point(aes(co
+lor=period))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi lägga det i hela grafen kan vi lägga till färgen i den huvudsakliga
+ styrningen av aestetics i grafen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line()
+ + geom_point()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Baserat på graferna ovan pröva att göra följande förändringar:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Ändra typ av linje i grafen [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+linetype
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Ändra typ av punkter i grafen [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+shape
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Gör punkterna transparaenta [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+alpha
+\family default
+]
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Barplot, histogram och boxplot
+\end_layout
+
+\begin_layout Standard
+För att pröva dessa diagram använder vi oss av datamaterialet mtcars.
+ Vi börjar med att läsa in datamaterialet mtcars.
+ För att få mer information om detta datamaterial, använd 
+\family typewriter
+?mtcars
+\family default
+.
+ Vi gör också om
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data(mtcars)
+\end_layout
+
+\begin_layout Plain Layout
+
+mtcars$cyl <- as.factor(mtcars$cyl)
+\end_layout
+
+\begin_layout Plain Layout
+
+mtcars$gear <- as.factor(mtcars$gear)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Till skillnad från basgrafiken använder vi inte olika funktioner för olika
+ plottar utan vi använder bara olika 
+\family typewriter
+geoms
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Vill vi exempelvis skapa ett stapeldiagram anger vi bara en axel och ett
+ annat geom, men i övrigt är det inge större skillnad mot en linjegraf:
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=cyl) + geom_bar()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också enkelt lägga till funktionen 
+\family typewriter
+coord_flip()
+\family default
+ för att skapa ett liggande stapelidagram istälet för ett stående.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p + coord_flip()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skillnaden ligger i att det finns lite andra aestetics för stapeldiagram
+ än för övriga diagram som 
+\family typewriter
+fill
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=cyl) + geom_bar(fill="darkblue", colour="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+För att skapa stapeldiagram med flera grupper behöver vi dels lägga till
+ en till variabel som indikerar att vi vill ha ex.
+ olika färger för olika grupper samt ange hur dessa diagram ska se ut.
+ Pröva exemplen nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=cyl, fill=gear) + geom_bar(position="stack")
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=cyl, fill=gear) + geom_bar(position="dodge")
+\end_layout
+
+\begin_layout Plain Layout
+
+p + scale_fill_discrete(name="Testa
+\backslash
+nDetta")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Histogram
+\end_layout
+
+\begin_layout Enumerate
+Den egentliga skillnaden mellan ett stapeldiagram och ett histogram är bara
+ huruvida variabeln är kontinuerlig eller inte.
+ Detta gör att för att skapa ett histogram gör vi på exakt samma sätt, men
+ vi använder oss av en kontinuerlig variabel:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=mpg) + geom_bar(fill="darkblue", colour="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sättet ovan är ett sätt att skapa ett histogram.
+ Vi kan också använda den specialgjorda geometriska funktionen 
+\family typewriter
+geom_histogram()
+\family default
+ om vi vill kunna hantera histogram enklare.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=mpg) + geom_histogram(fill="darkblue",
+ colour="red",binwidth=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Boxplot
+\end_layout
+
+\begin_layout Enumerate
+Boxplottar är egentligen en kombination av kontinuerliga variabler.
+ Precis som tidigare inleder vi skapa en 
+\family typewriter
+ggplot
+\family default
+ med ett datamaterial och definierar vilka variabler vi vill använda.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=mtcars) + aes(x=cyl, y=mpg) + geom_boxplot()
+\end_layout
+
+\begin_layout Plain Layout
+
+p
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi sedan göra förändringar kan vi lägga till det till och från.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p + coord_flip() + xlab("X") + ggtitle("Hejsan")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Grafiska teman/profiler 
+\end_layout
+
+\begin_layout Standard
+En av de stora fördelarna med att ggplot skiljer ut själva plotten från
+ utseendet är att det är enkelt att skapa strukturer för olika delar av
+ en graf som vi vill använda flera gånger.
+ En av de bästa exemplen på detta är teman i 
+\family typewriter
+ggplot
+\family default
+.
+ Ett tema är en uppsättning med inställningar för en grafisk profil som
+ vi vill använda i 
+\family typewriter
+ggplot2
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Den stora fördelen är att har vi väl skapat ett tema (vilket kan ta lite
+ tid) kan temat läggas till mycket enkelt till samtliga grafer.
+ Detta underlättar kopplingen mellan exempelvis grafiska profiler och de
+ grafer som produceras, vilket gör att 
+\family typewriter
+ggplot2
+\family default
+ är mycket populärt i företag och organisationer.
+ Ett exempel på rapport som använder 
+\family typewriter
+ggplot2
+\family default
+ genomgående är Pensionsmyndighetens 
+\begin_inset CommandInset href
+LatexCommand href
+name "[Orange rapport]"
+target "http://secure.pensionsmyndigheten.se/20895.html"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Med 
+\family typewriter
+ggplot2
+\family default
+ kommer en del teman förinstallerade och precis som allt annat i R är det
+ enkelt att bara lägga till den grafiska profilen efter att vi skapat en
+ graf.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line()
+ + geom_point()
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- p + theme_bw()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pröva på liknande sätt följande teman: 
+\family typewriter
+theme_grey()
+\family default
+, 
+\family typewriter
+theme_classic()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Ett tema i 
+\family typewriter
+ggplot2
+\family default
+ är bara en funktion, så det är enkelt att titta på hur temat ser ut och
+ sedan utgå från ett befintligt tema för att anpassa det till det utseende
+ vi själva vill ha.
+ Sedan kan detta tema enkelt spridas till alla som arbetar med visualisering
+ med 
+\family typewriter
+ggplot
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+theme_bw
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Att ändra den grafiska profilen innebär då bara att ändra denna temafunktion
+ (även om det kan innebära en del jobb).
+\end_layout
+
+\begin_layout Chapter
+Introduktion till spatiala data och visualisering
+\end_layout
+
+\begin_layout Standard
+Spatiala data , geografiska data eller geotaggad data är data som innehåller
+ information om lokalitet eller plats.
+ Det är en datastruktur som blir allt mer vanligt i och med att allt mer
+ data digitaliseras.
+ Det kan vara data om positioner (från exempelvis mobiltelefoner eller twitterme
+ddelanden), det kan vara kartor för att skapa geografiska referenser till
+ exempelvis data på kommunal nivå och det kan vara eller det kan vara spatial
+ visualisering där exempelvis områden med större brottslighet visualiseras.
+\end_layout
+
+\begin_layout Standard
+Samlingsnamnet för denna typ av analyser är spatiala data eller spatial
+ analys.
+ En mycket bra hemsida med fördjupningar finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://spatial.ly/r/"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+Tidigare har denna typ av analys och databearbetning varit reserverade för
+ personer med särskilt kunnande i geografiska informationsystem eller GIS,
+ men på senare tid har R seglat upp som en allt större konkurren när det
+ gäller spatial visualisering och analys.
+\end_layout
+
+\begin_layout Standard
+I detta avsnitt kommer vi göra en kortare djupdykning i detta fält.
+ Djupdykningen kommer vara långt ifrån fullständig, men ge en känsla för
+ att det ofta inte behöver vara särskilt svårt att skapa kartvisualiseringar.
+\end_layout
+
+\begin_layout Section
+Förberedelser
+\end_layout
+
+\begin_layout Subsection
+Rpaket
+\end_layout
+
+\begin_layout Standard
+Som ett första steg behöver vi installera en hel del paket som kan hantera
+ och arbeta med spatiala datastrukturer.
+ Vi kommer därför gå igenom den mest grundläggande funktionaliteten i följande
+ R-paket: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Paket
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Innehåll
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+maptools
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Verktyg för att använda och läsa in spatiala data
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rgeos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kopplingar från R till GEOS (
+\series bold
+G
+\series default
+eometry 
+\series bold
+e
+\series default
+ngine 
+\series bold
+o
+\series default
+pen 
+\series bold
+s
+\series default
+ource)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rgdal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Verktyg för att konvertera mellan projektioner
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+ggmap
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spatial visualisering med google maps och opens street map.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+sp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Klasser och metoder för spatiala datastrukturer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+När det gäller paketen rgeos och rgdal bygger dessa paket dessutom på andra
+ implementationer i språk som Java och C++.
+ Det kan göra det något mer krångligt att installera dessa paket i vissa
+ fall.
+ För att installera dessa paket på Mac OS kan jag rekommendera 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[denna]"
+target "http://spatialanalysis.co.uk/2010/11/installing-rgdal-on-mac-os-x/"
+
+\end_inset
+
+
+\series default
+\color inherit
+ och 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[denna]"
+target "http://tlocoh.r-forge.r-project.org/mac_rgeos_rgdal.html"
+
+\end_inset
+
+
+\series default
+\color inherit
+ guide för installation.
+\end_layout
+
+\begin_layout Subsection
+Data
+\end_layout
+
+\begin_layout Standard
+I denna laboration behöver vi också ladda ned den data vi ska använda oss
+ av.
+ Detta är exempel på svenska data över sveriges kommunindelning i form av
+ shape-fil.
+ Vi laddar ned dessa shapefiler med paketet 
+\family typewriter
+downloader
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(downloader)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Download and read data 
+\end_layout
+
+\begin_layout Plain Layout
+
+kommuner_remote <- "https://raw.github.com/MansMeg/KursSvyMeth/master/Labs/DataFil
+es/Kommun_SCB.zip"
+\end_layout
+
+\begin_layout Plain Layout
+
+kommuner_local <- "Kommun_SCB.zip"
+\end_layout
+
+\begin_layout Plain Layout
+
+download(kommuner_remote, destfile = kommuner_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+unzip(kommuner_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Läsa in shape-filer och spatiala datastrukturer 
+\end_layout
+
+\begin_layout Standard
+För att skapa kartor behöver vi en så kallad shapefil.
+ Dessa innehåller geografisk data i vektoriserat format vilket vi kan läsa
+ in och modifiera i R.
+ Vektoriserade geografiska data innebär att vår data representeras som punkter,
+ vektorer eller polygoner.
+ Mer information om shapefiler finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://en.wikipedia.org/wiki/Shapefile"
+
+\end_inset
+
+
+\series default
+\color inherit
+ och om vektoriserad GIS-information finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://sv.wikipedia.org/wiki/Geografiskt_informationssystem#RasterGIS_och_vektorGIS"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+Shapefiler som är aktuella för just era problem beror på detaljeringsgrad,
+ men församlingsgränser eller kommunindelningsgränser av intresse finns
+ på de flesta kommuner och länsstyrelser.
+ Ofta finns informationen att tillgå gratis som shapefiler.
+ Exempelvis tillhandahåller valmyndigheten samtliga valdistrikt i form av
+ en shapefil.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Läs in shapefilen med hjälp av 
+\family typewriter
+readShapePoly()
+\family default
+ på följande sätt i R.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(maptools)
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_municip <- readShapePoly("Kommun_SCB/Kommun_SCB_07.shp") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi har nu läst in shapefilen i R.
+ Vi kan få en snabb beskrivning av våra geografiska data med 
+\family typewriter
+summary()
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+class(swe_municip)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(swe_municip)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Som ett första steg kan vi också skapa en snabb grafisk plot baserat på
+ vårt spatiala objekt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(swe_municip)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nu har vi läst in och studerat vår första shapefil!
+\end_layout
+
+\begin_layout Subsection
+Statistik på karta
+\end_layout
+
+\begin_layout Standard
+Nästa steg är att integrera statistik med vår karta, för att på detta sätt
+ visualisera kommunala data.
+ Med Koden nedan laddar jag ned kommunala data från SCB (antalet mjölkkor
+ per kommun) och städar datat något.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(pxweb)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data <-    
+\end_layout
+
+\begin_layout Plain Layout
+
+  get_pxweb_data(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/JO/JO0103/Husdjur
+K",
+\end_layout
+
+\begin_layout Plain Layout
+
+                 dims = list(Region = c('*'),
+\end_layout
+
+\begin_layout Plain Layout
+
+                 Djurslag = c('05'),
+\end_layout
+
+\begin_layout Plain Layout
+
+                 ContentsCode = c('JO0103K2'),
+\end_layout
+
+\begin_layout Plain Layout
+
+                 Tid = c('2007')),
+\end_layout
+
+\begin_layout Plain Layout
+
+  clean = TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data <- my_data[, c(1,5)] 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data[, 1] <- substr(as.character(my_data$region),1,4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data[is.na(my_data[, 2]), 2] <- 0  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+När det gäller spatiala data finns vårt dataset (kopplade till varje polygon
+ - i detta fall kommun) som en egen 
+\family typewriter
+data.frame
+\family default
+ i vårt spatiala objekt.
+ Vi kan komma åt datat med @ på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+head(swe_municip@data)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Denna 
+\family typewriter
+data.frame
+\family default
+ kan vi hantera precis som vanliga 
+\family typewriter
+data.frame
+\family default
+s.
+ Vill vi lägga på data använder vi därför 
+\family typewriter
+merge()
+\family default
+ och lägger till våra data om kor till respektive kommun.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_municip@data <- merge(swe_municip@data, my_data, by.x="KNKOD", by.y="region")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nu har vi lagt till våra estimat och kan använda 
+\family typewriter
+spplot()
+\family default
+ för att skapa en karta baserad på vår statistik.
+ Pröva följande kod.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=5, fig.width=3, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+spplot(swe_municip, "values")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Kombinera polygoner till större geografiska områden.
+\end_layout
+
+\begin_layout Standard
+Nu har vi arbetat med svenska kommuner.
+ Vill vi arbeta med län går detta att göra genom att läsa in en separat
+ shapefil för län.
+ Vi kan dock kombinera polygoner till större områden direkt i R.
+ I detta fall är det län, men det går att kombinera områden på ett godtyckligt
+ sätt.
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar att skapa en variabel som heter 
+\family typewriter
+LN
+\family default
+ som indikerar vilket län respektive kommun ligger i.
+ Tack vara kommunkoderna är det möjligt att se detta direkt.
+ De två första positionerna anger län.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, fig.height=4, fig.width=4, fig.align='center', eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_municip@data$LN <- substr(swe_municip@data$KNKOD,1,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nästa steg blir att slå samman de kommunala polygonerna för att bilda länspolygo
+ner.
+ För detta använder vi 
+\family typewriter
+unionSpatialPolygons()
+\family default
+.
+ I detta fall verkar det som några kommuner hamnat i fel län.
+ Detta beror på att länskoden för vissa kommuner blivigt är felaktig.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_county <- unionSpatialPolygons(SpP = swe_municip,IDs = swe_municip@data$LN)
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan sedan studera resultatet med 
+\family typewriter
+plot()
+\family default
+ och 
+\family typewriter
+summary()
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(swe_county) 
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(swe_county)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+När vi lägger ihop olika polygoner försvinner vårt datamaterial i vårt spatiala
+ objekt.
+ För att lägga till nya data behöver vi därför göra detta 
+\begin_inset Quotes eld
+\end_inset
+
+manuellt
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Vi börjar med att aggregera upp våra data till länsnivå.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+aggr_data <- aggregate(x=swe_municip@data$values, by=list(swe_municip@data$LN),F
+UN=sum)  
+\end_layout
+
+\begin_layout Plain Layout
+
+names(aggr_data) <- c("LN", "kossor")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nästa steg är att lägga till dessa nya aggregerade data till vårt nya spatiala
+ objekt.
+ För att detta ska gå måste rad-id i vår data.frame stämma överens med polygon-id
+ i det spatiala objektet.
+ Därför börjar vi med att lägga till radnamn och därefter använder vi 
+\family typewriter
+SpatialPolygonsDataFrame()
+\family default
+ för att kombinera data på länsnivå.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+rownames(aggr_data) <- aggr_data$LN 
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_county <- SpatialPolygonsDataFrame(Sr=swe_county, data=aggr_data)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nu kan vi återigen skapa en karta med lite större områden där antalet kor
+ framgår mer tydligt.
+ (Men på grund av kommunkodsproblem så har några kommuner hamnat fel.)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+spplot(swe_county, "kossor")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Skapa delmängder av spatiala objekt
+\end_layout
+
+\begin_layout Standard
+Som ett sista steg ska vi plocka ut endast delar av en karta för att skapa
+ kartor över mindre delområden.
+ Detta blir extra intressant när vi visualisera data på kartor.
+ Vi utgår än en gång från våra kommuner som spatialt objekt.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu istället plocka ut en delmängd av dessa kommuner.
+ Än en gång använder vi länskoderna vi skapat.
+ För att plocka ut ett visst antal kommuner gör vi precis som för att indexera
+ rader i en data.frame i R.
+ För att välja ut länet 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+01
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ (Stockholms län) används följande kod.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+spatial_sthlm <- swe_municip[swe_municip@data[['LN']]=="01",] 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan nu studera dels hur vårt spatiala objekt ser ut med 
+\family typewriter
+plot()
+\family default
+ samt få en bild av var kossorna bor i Stockholms län med 
+\family typewriter
+spplot()
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+* Extraproblem: Statistik över Östergötland
+\end_layout
+
+\begin_layout Standard
+Vi ska nu skapa en karta över Östergötland för en godtycklig statistisk
+ storhet.
+ Ta reda på vilken länskod Östergötland har.
+ Gå in på SCB och hämta ned data på kommunnivå för Östergötlands län.
+ Du kan välja vilken statistik du vill (ex.
+ valresultat finns på kommunal nivå) och skapa en karta över denna variabel
+ för Östergötland.
+ 
+\end_layout
+
+\begin_layout Standard
+För att snabbt ladda ned data till R kan du använda paketet 
+\family typewriter
+pxweb
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(pxweb)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data <- interactive_pxweb(api="scb", lang="sv")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Skapa kartor med 
+\family typewriter
+ggmap
+\end_layout
+
+\begin_layout Standard
+Vi har hittils arbetat med shapefiler som innehåller spatiala data.
+ Inte sällan vill vi också sätta våra spatiala data i relation till kartor.
+ Särskilt om vi har data som är geotaggade, d.v.s.
+ innehåller koordinater är det av intresse att visualisera dessa på en karta.
+ För att använda kartor i R är det enklaste att använda oss av de kartor
+ som finns öppet tillgängliga på webben, som Google Maps, Open Street Map
+ m.fl.
+ Med paketet 
+\family typewriter
+ggmap
+\family default
+ kan vi enkelt läsa in en godtycklig kvadratisk karta.
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att läsa in paketet ggmap och skapar en första karta över
+ Linköping på följande sätt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ggmap)
+\end_layout
+
+\begin_layout Plain Layout
+
+qmap("Linkoping")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Som framgår ovan så får vi dels upp en karta över Linköping (på en relativt
+ hög upplösning) och dels information om att vi använt Google Maps samt
+ information om vilka villkor som gäller för användadet av kartan.
+ Framöver kommer denna extra information döljas.
+ Vill vi zomma in eller ut använder vi argumentet 
+\family typewriter
+zoom
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+qmap("Linkoping", zoom=14)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressMessages(qmap("Linkoping", zoom=14))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också använda Google Maps för att för att få ut koordinater för enskilda
+ platser med 
+\family typewriter
+geocode()
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_uni <- unlist(geocode("Linkopings Universitet"))
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_uni
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressMessages(linkpg_uni <- unlist(geocode("Linkopings Universitet")))
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_uni
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Då qmap() använder sig av koordinater kan vi också ange koordinater för
+ att skapa kartor.
+ Med argumentet maptype van vi välja mellan google maps kartor 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+roadmap
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+satellite
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+hybrid
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+terrain
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+qmap(location=linkpg_uni, zoom=14, maptype="roadmap")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressMessages(qmap(location=linkpg_uni, zoom=14, maptype="roadmap"))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan också välja svartvita kartor med argumentet color.
+ Precis som i 
+\family typewriter
+ggplot2
+\family default
+ kan vi spara våra kartobjekt för att skriva ut dem senare.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+karta <- qmap(linkpg_uni, zoom = 14, maptype="satellite", color="bw")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+karta <- suppressMessages(qmap(linkpg_uni, zoom = 14, maptype="satellite",
+ color="bw"))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Det finns fyra olika kartsystem som går att använda från 
+\family typewriter
+ggmap
+\family default
+.
+ Vill vi använda något annat kartsystem använder vi 
+\family typewriter
+source
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+qmap(linkpg_uni, zoom = 14, source = "stamen", maptype = "toner")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nu har vi skapat kartor i R.
+ Nästa steg är att kombinera kartor och spatiala data.
+\end_layout
+
+\begin_layout Section
+Kombinera spatiala data med olika projektioner/geografiska referenssystem
+\end_layout
+
+\begin_layout Standard
+När vi har många olika typer av data vi vill kombinera på samma karta måste
+ de ha samma projektion och samma kooridinatsystem.
+ En bra och kort introduktion till kartprojektioner hittar du 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://www.lantmateriet.se/Kartor-och-geografisk-information/GPS-och-geodetisk-matning/Om-geodesi/Kartprojektioner/Kartprojektionens-grunder/"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Alla data vi vill kombinera behöver vi känna till vilket geografiskt referenssys
+tem som används.
+ Exempelvis Google Maps använder sig av formatet EPSG 4326 (vilket vi kallar
+ longitud och latitud).
+ För att kolla upp vilket EPSG-nummer ett format kan vi använda 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "http://spatialreference.org/"
+target "http://spatialreference.org/"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+Vi ska nu pröva att visualisera våra kommungränser vi läst in i shapefilen
+ ovan på Google Maps.
+\end_layout
+
+\begin_layout Enumerate
+Det första steget vi måste ta är att vi måste konvertera våra kommunkartor
+ till EPSG 4326 för att visualisera dem med Google Maps.
+ Vi börjar med att tillskriva vår shapefil det EPSG-format filen har.
+ (Filen använder SWEREF 99 TM - slå upp det på 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "http://spatialreference.org/"
+target "http://spatialreference.org/"
+
+\end_inset
+
+
+\series default
+\color inherit
+ så framgår EPSG-koden).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+proj4string(swe_municip) <- CRS("+init=epsg:3006")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi har nu tillskrivit vårt spatiala objekt ett geografiskt referenssystem.
+ Nästa steg är att konvertera den till longitud och latitud.
+ För att konvertera mellan geografiska referenssystem behövs rgdal-paketet.
+ Vi vet att EPSG-koden för detta är 4326 och använder 
+\family typewriter
+spTransform()
+\family default
+ för att göra konverteringen på följande sätt.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(rgdal)
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_municip_4326 <- spTransform(swe_municip, CRS("+init=epsg:4326"))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nu har vi konverterat vår shapefil till rätt format och kan visualisera
+ våra data på en karta.
+ För att 
+\family typewriter
+ggplot2
+\family default
+ ska kunna läsa ett spatialt polygonobjekt behöver vi först göra om det
+ spatala objektet till en 
+\family typewriter
+data.frame
+\family default
+ som ggplot kan använda med
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data <- fortify(swe_municip_4326) 
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_large <- qmap("Linkoping", zoom = 6, maptype = "terrain")
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_large +    geom_polygon(aes(x = long, y = lat, group = group), data
+ = data,                colour = "white", fill = "blue", alpha = .2, size
+ = .3)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+På detta sätt kan vi visualiser de flesta spatiala datatyper på ett enkelt
+ och snabbt sätt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ifx
+\backslash
+undefined
+\backslash
+MAINBIB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "References"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Inluppg.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Set you (local) path
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
+k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_files <- dir(solution_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
+ echo = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+För att använda 
+\family typewriter
+markmyassignment
+\family default
+ i denna laboration ange:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment)
+\end_layout
+
+\begin_layout Plain Layout
+
+lab_path <-
+\end_layout
+
+\begin_layout Plain Layout
+
+"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d8.yml"
+\end_layout
+
+\begin_layout Plain Layout
+
+set_assignment(lab_path)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+dynamic_linear_system()
+\end_layout
+
+\begin_layout Standard
+Vi ska nu skapa en funktion som beräknar ett linjärt system och kan visualisera
+ detta system över tid.
+ Vi utgår från systemet för grodor och flugor som finns i kap.
+ 1.3 
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://www.math.ubc.ca/~behrend/math221/DynSys.pdf"
+
+\end_inset
+
+.
+ Funktionen ska ha följande argument
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+f_0
+\family default
+ en initial startposition (
+\begin_inset Formula $n=0$
+\end_inset
+
+) för ett linjärt system av godtycklig storlek 
+\family typewriter
+f_0
+\family default
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+A
+\family default
+ transitionsmatris.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\family typewriter
+n
+\family default
+ för vilka steg beräkningar ska göras.
+\end_layout
+
+\begin_layout Standard
+Med dessa funktioner ska funktionen beräkna nivån (ex.
+ antal flugor och grodor) vid de tidpunkter som anges av i enlighet med
+ 
+\begin_inset Formula 
+\[
+f_{n+1}=\mathbf{A}f_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Funktionen ska returnera en data.frame med variabeln 
+\begin_inset Formula $n$
+\end_inset
+
+ samt 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ på respektive rad.
+ Om vi anger en vektor 
+\family typewriter
+f_0
+\family default
+ utan namn ska variabelnanen vara 
+\family typewriter
+var1
+\family default
+, 
+\family typewriter
+var2
+\family default
+ ...
+ o.s.v.
+ Anger vi en namngiven vektor ska namnen vara variabelnamn i den data.frame
+ som returneras.
+ Variabeln 
+\family typewriter
+n
+\family default
+ ska också kunna ta godtyckliga värden för 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+diagonalize_matrix()
+\end_layout
+
+\begin_layout Standard
+Hur funktionen ska fungera framgår nedan.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(c(.38, .24, -.36, 1.22),ncol=2,byrow = TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+f_0 <- c(10,10)
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- c(1:3,5,10)
+\end_layout
+
+\begin_layout Plain Layout
+
+dynamic_linear_system(f_0, A, n)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f_0 <- c(1,3)
+\end_layout
+
+\begin_layout Plain Layout
+
+names(f_0) <- c("frogs","flies") 
+\end_layout
+
+\begin_layout Plain Layout
+
+dynamic_linear_system(f_0, A, n)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix((1/100)*c(80, 30, 30, 5, 55, 5, 15, 15, 65), ncol=3, byrow =
+ TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+companies <- c(20,40,40) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(companies) <- c("Fido","Telus","Rogers")
+\end_layout
+
+\begin_layout Plain Layout
+
+dynamic_linear_system(f_0=companies, A, n=c(1,3, 5, 10, 1000)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Miniprojektet del II
+\end_layout
+
+\begin_layout Standard
+Den sista delen av denna laboration är att genomföra miniprojektet del II.
+ Se kurshemsidan för detaljer.
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Nu är du klar! 
+\end_layout
+
+\end_body
+\end_document

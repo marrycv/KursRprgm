@@ -527,7 +527,7 @@ nrow(min_matris1)
 
 \begin_layout Plain Layout
 
-dims(min_matris1)
+dim(min_matris1)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4993,11 +4993,11 @@ header=TRUE
 \family default
  ? [
 \series bold
-Tips:
+Tips: 
 \series default
- 
+läs hjälpen för 
 \family typewriter
-?read.table
+read.table
 \family default
 ] 
 \begin_inset CommandInset label

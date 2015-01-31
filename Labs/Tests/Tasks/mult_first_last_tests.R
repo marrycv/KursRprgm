@@ -19,5 +19,7 @@ test_that("Kontroll av mult_first_last.", {
                info = "Fel: Funktionen returnerar inte rätt värde för vektor = 5:10.")
   expect_equal(mult_first_last(vektor=c(8,1,1,1,0,5)), 40,
                info = "Fel: Funktionen returnerar inte rätt värde för vektor = c(8,1,1,1,0,5).")
+  expect_function_code(object = mult_first_last, expected = "return", 
+                       info = "Fel: return() saknas i funktionen.")
 })
 

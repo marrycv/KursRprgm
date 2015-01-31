@@ -19,5 +19,8 @@ test_that("Kontroll av orth_scalar_prod.", {
                info = "Fel: Funktionen returnerar inte ett korrekt värde.")
   expect_equal(orth_scalar_prod(a=5:10, b=20:25), 1030,
                info = "Fel: Funktionen returnerar inte ett korrekt värde.")
+  
+  expect_function_code(object = orth_scalar_prod, expected = "return", 
+                       info = "Fel: return() saknas i funktionen.")  
 })
 

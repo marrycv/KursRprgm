@@ -21,6 +21,8 @@ test_that("Kontroll av logical_equality.", {
               info = "Fel: logical_equality(TRUE, FALSE) returnerar inte FALSE.")
   expect_that(logical_equality(FALSE, FALSE), is_true(),
               info = "Fel: logical_equality(FALSE, FALSE) returnerar inte TRUE.")
+  expect_function_code(object = logical_equality, expected = "return", 
+                       info = "Fel: return() saknas i funktionen.")  
 })
 
 

@@ -19,5 +19,7 @@ test_that("Kontroll av approx_e.", {
                info = "Fel: Funktionen returnerar fel värde.")
   expect_equal(approx_e(100), exp(1), 
                info = "Fel: Funktionen returnerar fel värde.")
+  expect_function_code(object = approx_e, expected = "return", 
+                       info = "Fel: return() saknas i funktionen.")  
 })
 

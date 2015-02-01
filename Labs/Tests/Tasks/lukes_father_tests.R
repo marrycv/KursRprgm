@@ -12,10 +12,11 @@ test_that("Kontroll av lukes_father.", {
   expect_that(all(names(formals(lukes_father)) %in% c("namn")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_output(lukes_father("Benny"), "Benny",
-              info = "Fel: Funktionen returnerar inte namnet.")
+              info = "Fel: Funktionen skriver inte ut namnet.")
   expect_output(lukes_father("Benny"), "I am your father",
-                info = "Fel: Funktionen returnerar inte 'I am your father'.")
-  expect_output(lukes_father("Benny"), "Benny, I am your father",
-                info = "Fel: Funktionen returnerar inte 'I am your father'.")
+                info = "Fel: Funktionen skriver inte ut 'I am your father'.")
+  temp <- capture.output(ret_val <- lukes_father("Benny"))
+  expect_null(ret_val,
+              info = "Fel: Funktionen ska inte returnera ngt, bara skriva ut till skarmen.")
 })
 

@@ -39,7 +39,7 @@ Linköpings universitet
 
 Föreläsning 3: Innehåll 
 ========================================================
-- Uppföljning av labb D2
+- Uppföljning av labb D1 och D2
 - Programkontroll
 - Villkorssatser
 - Loopar (for - loop)
@@ -48,9 +48,20 @@ Föreläsning 3: Innehåll
 - Funktionsmeddelanden
   message, warning, stop
 
+Rättat laboration D1
+========================================================
+
+- Använd **inte** svenska tecken i programkod, filnamn eller dylikt
+- Namn och LiuId i filen
+
+- Granskning av fusk kommer göras senare.
+
+
 Uppföljning av laboration 2
 ========================================================
-type: section
+type: sub-section
+
+[http://goo.gl/z3IvEr](http://goo.gl/z3IvEr)
 
 Programkontroll
 ========================================================
@@ -58,6 +69,8 @@ type: section
 
 Programkontroll
 ========================================================
+incremental: true
+
 - Att kontrollera körning av program / funktioner
 - Det finns olika kontroller vi kan vilja göra, exempelvis:
   - köra / (åter)använda en annan del av koden
@@ -148,12 +161,10 @@ if ( prgm == "R" ) {
 ```
 
 
-Demo 06: Villkorssatser
+Demo: Villkorssatser
 ========================================================
 - Villkorssatser
 - Villkorssatser i funktioner
-
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_06.R)
 
 
 Loopar
@@ -187,6 +198,7 @@ for ( element in vektor ) {
 }
 ```
 
+
 Loopar (for - loop): Exempel II
 ========================================================
 type: prompt
@@ -208,6 +220,10 @@ for ( index in 1:length(vektor) ) {
 }
 ```
 
+Demo: for-loopar
+========================================================
+type: sub-section
+
 Nästlade loopar (nested loops)
 ========================================================
 - Om vi vill loopa i flera dimensioner
@@ -221,6 +237,10 @@ for ( i in 1:2 ) {
   }
 }
 ```
+
+Demo: nästlade for-loopar
+========================================================
+type: sub-section
 
 Kontrollstrukturer för loopar
 ========================================================
@@ -278,6 +298,9 @@ for ( i in 1:3 ) {
 cat("Error: Mitt fel!")
 ```
 
+Demo: kontrollstrukturer för loopar
+========================================================
+type: sub-section
 
 Villkorstyrda loopar (while - loop)
 ========================================================
@@ -329,12 +352,6 @@ cat("[1] 1\n[1] 2\nWarning messages:\n1: Farligt värre 1 \n2: Farligt värre 2 
 ```
 
 
-Demo 07: Loopar
+Demo: villkorsstyrda loopar
 ========================================================
-- for - loopar
-- nästlade loopar
-- while - loopar
-- kontrollstrukturer för loopar
-- ```stop()``` och ```warning()```
-
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_07.R)
+type: sub-section

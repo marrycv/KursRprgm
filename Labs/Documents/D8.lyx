@@ -2964,8 +2964,12 @@ linkpg_uni
 \end_layout
 
 \begin_layout Enumerate
-Då qmap() använder sig av koordinater kan vi också ange koordinater för
- att skapa kartor.
+Då 
+\family typewriter
+qmap()
+\family default
+ använder sig av koordinater kan vi också ange koordinater för att skapa
+ kartor.
  Med argumentet maptype van vi välja mellan google maps kartor 
 \begin_inset Quotes eld
 \end_inset
@@ -3168,6 +3172,340 @@ qmap(linkpg_uni, zoom = 14, source = "stamen", maptype = "toner")
 \begin_layout Enumerate
 Nu har vi skapat kartor i R.
  Nästa steg är att kombinera kartor och spatiala data.
+\end_layout
+
+\begin_layout Section
+Visualisera geotaggad data på karta
+\end_layout
+
+\begin_layout Standard
+Att visualisera data på kartor följer i princip samma grundstruktur för
+ att visualisera data med två kontinuerliga variabler (longitud och latitud).
+ Detta framgår tydligt om vi använder följande kod.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center', eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ggmap(paris, extent = "normal")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Med följande kod slumpas ett antal datapunkter ut kring Linköping.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(1984)
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_map <- qmap("Linkoping", color="bw") 
+\end_layout
+
+\begin_layout Plain Layout
+
+df <- 
+\end_layout
+
+\begin_layout Plain Layout
+
+  data.frame(
+\end_layout
+
+\begin_layout Plain Layout
+
+    lon = jitter(rep(15.6, 50), amount = .15), 
+\end_layout
+
+\begin_layout Plain Layout
+
+    lat = jitter(rep(58.4, 50), amount = .152),
+\end_layout
+
+\begin_layout Plain Layout
+
+    event = sample(c("Kometnedslag", "Olycka", "Polis"), size = 50, replace
+ = TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(1984)
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_map <- qmap("Linkoping", color="bw") 
+\end_layout
+
+\begin_layout Plain Layout
+
+df <- 
+\end_layout
+
+\begin_layout Plain Layout
+
+  data.frame(
+\end_layout
+
+\begin_layout Plain Layout
+
+    lon = jitter(rep(15.6, 50), amount = .15), 
+\end_layout
+
+\begin_layout Plain Layout
+
+    lat = jitter(rep(58.4, 50), amount = .152),
+\end_layout
+
+\begin_layout Plain Layout
+
+    event = sample(c("Kometnedslag", "Olycka", "Polis"), size = 50, replace
+ = TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan använda samtliga funktioner i 
+\family typewriter
+ggplot2
+\family default
+.
+ Nedan är motsvarigheten till en scatterplot.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_map +   
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes(x = lon, y = lat), data = df)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi visualisera olika kategorier kan vi använde 
+\family typewriter
+aes
+\family default
+tetics i 
+\family typewriter
+ggplot2
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_map +   
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_point(aes(x = lon, y = lat, colour = event, size = event),      
+         data = df)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vill vi visualisera frekvenser efter två kontinuerliga variabler finns dels
+ 
+\family typewriter
+stat_bin2d
+\family default
+ och 
+\family typewriter
+stat_density2d
+\family default
+ tillgängligt i 
+\family typewriter
+ggplot2
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_map +   
+\end_layout
+
+\begin_layout Plain Layout
+
+  stat_bin2d(aes(x = lon, y = lat),
+\end_layout
+
+\begin_layout Plain Layout
+
+             size = .5, bins = 20, alpha = 0.4, data = df)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<fig.height=4, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+linkpg_map +   
+\end_layout
+
+\begin_layout Plain Layout
+
+  stat_density2d(aes(x = lon, y = lat), 
+\end_layout
+
+\begin_layout Plain Layout
+
+                 alpha = 0.2, size = 1, bins = 4, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                 data = df, geom = "polygon")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

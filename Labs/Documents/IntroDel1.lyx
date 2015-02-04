@@ -157,7 +157,11 @@ target "http://www.ida.liu.se/~732G33/timetable/index.sv.shtml"
 \end_layout
 
 \begin_layout Itemize
-Laborationen ska lämnas in via LISAM.
+Laborationen ska lämnas in via 
+\series bold
+LISAM
+\series default
+.
  
 \end_layout
 

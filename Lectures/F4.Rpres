@@ -39,11 +39,11 @@ Linköpings universitet
 
 Föreläsning 4: Innehåll 
 ========================================================
-- Uppföljning av labb 3
-- Allmänt om funktioner
-- Globala och lokala miljöer i R
+- Uppföljning av tidigare laborationer
+- Mer om funktioner
 - Bra och effektiv programmering
 - ```*apply```-funktioner
+- ROxygen
 
 Uppföljning av laboration 3
 ========================================================
@@ -70,24 +70,43 @@ En funktion i R består av:
 
 Allmänt om funktioner
 ========================================================
-- Funktioner är precis som andra objekt i R (skriva ut till prompt, spara, manipulera m.m.)
+- Funktioner är objekt
 
 ```{r}
 f <- function(x,y) {
-  return(x^2 - y)
+  z <- x^2 - y
+  return(z)
 }
 f
 ```
+
+Allmänt om funktioner
+========================================================
+incremental: true
+- Funktioner har tre delar: 
+  - argument
+  - funktionskropp
+  - lokal miljö/föräldramiljö
+
+
+Exempel
+========================================================
+```{r}
+formals(f)
+body(f)
+environment(f)
+```
+
 
 
 Allmänt om funktioner (forts.)
 ========================================================
 - Funktioner kan tas som argument (av andra funktioner)
 ```{r}
-SquareFunction <- function(x) {
+square_function <- function(x) {
   return(x^2)
 }
-integrate(SquareFunction, lower = 0, upper = 1)
+integrate(square_function, lower = 0, upper = 1)
 ```
 
 - Funktioner kan returnera funktioner (se ex. i RP:s video)
@@ -95,12 +114,12 @@ integrate(SquareFunction, lower = 0, upper = 1)
 Allmänt om funktioner (forts. II)
 ========================================================
 incremental: true
-- Vi behöver inte namnge argumenten vid anrop av funktioner.
+- Vi behöver inte namnge argumenten
 ```{r}
 f(1,5) # Samma som f(x = 1, y = 5)
 ```
 
-- Vi kan ha vilken ordning vi vill på argumenten om de namnges
+- Ordningen spelar ingen roll
 ```{r}
 f(y = 5, x = 1) # Samma som f(x = 1, y = 5)
 ```
@@ -116,18 +135,13 @@ f(3)
 
 Allmänt om funktioner (forts. IV)
 ========================================================
-- Defaultvärden kan anges för argument
+- Defaultvärden
+
 ```{r}
 f <- function(x = 10) x^2 - 3
 f(3)
 f()
 ```
-
-Demo 08a: Allmänt om funktioner
-========================================================
-- Mer om funktioner
-
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08a.R)
 
 
 Globala och lokala miljöer i R
@@ -139,7 +153,7 @@ Globala miljöer, lokala miljöer och namespaces
 ========================================================
 incremental: true
 
-R består av ett antal miljöer där objekt kan definieras/skapas
+Objekt kan definieras/skapas i...
 
 - Den global miljön 
 - Lokala miljöer (inne i funktioner)
@@ -149,16 +163,16 @@ R består av ett antal miljöer där objekt kan definieras/skapas
 Hur vet R vad vi menar?
 ========================================================
 incremental: true
-- Hur kopplar R ihop en symbol med ett objekt? (ex. ```mean``` med funktionen ```mean```)
+- Koppling mellan objektnamn och funktion 
+
 - R har en söklista som gås igenom:
-  1. Lokala miljöer (söker vidare "uppåt" till)
-  2. Den global miljön (Global enviroment)
+  1. Lokala miljöer
+  2. Den global miljön
   3. Vidare i den ordning ```namespaces``` är laddade
 
 Fria variabler
 ========================================================
 incremental: true
-- I funktioner kan vi definiera vad som kallas "fria" variabler
 
 ```{r,eval=FALSE}
 f <- function(x) x + y
@@ -196,7 +210,7 @@ incremental: true
 
 Exempel på search()
 ========================================================
-Vi kan undersöka vilka laddade namespaces som finns med ```search()```:
+Undersöka laddade namespaces med ```search()```:
 ```{r}
 search()
 ```
@@ -217,41 +231,31 @@ Att skapa / definiera objekt kallas att tilldela (assign)
 
 - grunden är ```assign()```
 - ```<-``` : tilldela i aktuell miljö 
-- ```<<-``` : tilldela direkt till global 
-- ```=``` : Kan användas, men avråds från (minska förvirring i funktioner)
+- ```<<-``` : tilldela direkt till global miljö
+- ```=``` : kan användas, men avråds från (minska förvirring i funktioner)
 
 
 Funktioner i funktioner
 ========================================================
 - Ofta vill vi använda funktioner i funktioner
 - Att tänka på:
-  - Var ska funktionen definieras/skapas? - om vi har fria variabler 
+  - Var ska funktionen definieras/skapas?
   - Skicka information inom funktioner
 
 
 Skicka information inom funktioner
 ========================================================
-- Kan göras genon att "skicka vidare" argument hela vägen
+- Kan göras genom att "skicka vidare" argument hela vägen
 - Detta görs med "ellipsis" - symbolen ```...```
-- Detta läggs in som ett argument i funktionen, ex. ```minFun <- function(...)```
-- Sedan används ```...``` där dessa godtyckliga argument ska
+- Detta läggs in som ett argument i funktionen, ex. ```min_fun <- function(...)```
+- ```...``` används där argumenten ska användas i funktionen
 
 ```{r}
-minMean <- function(...){ 
+min_mean <- function(...){ 
   print(mean(...))
 }
-minMean(c(1,3,NA,5), na.rm = TRUE)
+min_mean(c(1,3,NA,5), na.rm = TRUE)
 ```
-
-
-Demo 08b: Miljöer och namespaces
-========================================================
-- Miljöer
-- Fria variabler
-- Tilldelning (assign)
-- Ellipsis (...)
-
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08b.R)
 
 
 God (vetenskaplig) programmering
@@ -261,8 +265,8 @@ Bygger på artikeln *Best practices for scientific computing* som finns [här](h
 
 God (vetenskaplig) programmering
 ========================================================
-- Kod är lika stor del av vetenskap/analys som allt annat
-- Forskare spenderar 30% eller mer på att skriva kod, skickliga statistiker gör troligen samma sak.
+- Kod är stor del av vetenskap/analys
+- Forskare spenderar 30% eller mer på att skriva kod
 - Det är enkelt att det blir fel
 
 8 steg för god programmering
@@ -280,8 +284,8 @@ God (vetenskaplig) programmering
 1. Skriv kod för människor, inte datorer
 ========================================================
 incremental: true
-- Läsare ska inte behöva hålla allt i huvudet, använd funktioner
-- Använd variabelnamn som är tydliga, konsistenta och meningsfulla
+- Läsare ska inte behöva hålla allt i huvudet - använd funktioner
+- Använd objektnamn som är tydliga och meningsfulla
 - Använd en kodstil (coding style):
   - Ex. [Hadley Wickhams](http://adv-r.had.co.nz/Style.html), [Googles](http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml)
 
@@ -289,7 +293,7 @@ incremental: true
 ========================================================
 incremental: true
 - Låt datorn upprepa uppgifter 
-- Återanvänd kod (funktioner är smidigt)
+- Återanvänd kod - använd funktioner
 - Automatisera arbetsflödet (one file to rule them all)
 
 3. Arbeta i små steg
@@ -312,6 +316,7 @@ incremental: true
 ========================================================
 incremental: true
 - Skapa kontroller av input och output: ```stop()```
+- Det ska smälla högt och tidigt
 - Använd testpaket (överkurs)
   - i R: paketet ```testthat```
 - Gör buggar till egna testfall
@@ -328,11 +333,11 @@ incremental: true
 ========================================================
 incremental: true
 - Dokumentera syftet med koden, **inte** vad koden gör
-- Gör koden enkel att förstå istället för att dokumentera komplex kod
+- Gör koden enkel att förstå
 - Kombinera kod och dokumentation
   - Lägg in mycket inlinedokumentation med ```#```
-  - literate programming/knitr (överkurs)
-  - Paketet ```ROxygen``` (överkurs)
+  - literate programming/knitr
+  - Paketet ```ROxygen```
 
 8. Samarbeta
 ========================================================
@@ -343,6 +348,42 @@ incremental: true
   - hantera komplexa programmeringsproblem
 - Använd issue-trackers (överkurs)
 
+Dokumentera med ROxygen
+========================================================
+- ROxygen är standard för dokumentation
+- Samma som JavaDoc
+- Skapar automatiskt ```.Rd``` i paket
+- Använder ```#'```
+
+Dokumentera med ROxygen
+========================================================
+
+ROxygendel | Innehåll
+------------- | -------------
+```@title```  | Anger titel för dokumentet
+```@description```  | En beskrivning vad funktionen gör
+```@details```  | Detaljer om funktionen
+```@param```  | Argument till funktionen
+```@return```  | Vad funktionen returnerar
+```@references```  | Eventuella referenser av intresse
+```@seealso```  | Andra funktioner som kan vara aktuella
+```@examples```  | Exempel på hur funktionen kan användas
+
+Exempel
+========================================================
+```{r}
+#' @description
+#' En funktion som kvadrerar argumenten i x och y och summerar dem. #'
+#' @param x
+#' Den numeriska variabel x som ska kvadreras
+#' @param y
+#' Den numeriska variabel y som ska kvadreras
+#'
+#' @return
+#' Funktionen returnerar en numerisk vektor
+#'
+f <- function(x, y) x^2 + y^2
+```
 
 *apply-functioner
 ========================================================
@@ -376,12 +417,4 @@ Mäta körtid i R
 ```{r}
 system.time(expr=mean(rep(c(1,2),1000000)))
 ```
-
-Demo 08c: *apply och körtid
-====================================
-## Demonstration av:
-- ```*apply``` 
-- körtid i R 
-
-Fil för demonstration finns [[här]](https://raw.github.com/MansMeg/KursRprgm/master/Demonstrations/demo_08c.R)
 

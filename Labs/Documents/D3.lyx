@@ -2833,7 +2833,11 @@ babylon()
 \begin_layout Standard
 En algoritm för att approximera kvadratroten ur ett tal är den så kallade
  babylonska metoden, en metod som flera säkert känner igen från gymnasiet.
- Metoden, som är ett specialfall av Newton-Raphsons metod, kan beskrivas
+ Det är ett sätt att räkna ut kvadratroten för ett godtyckligt tal.
+\end_layout
+
+\begin_layout Standard
+Metoden, som är ett specialfall av Newton-Raphsons metod, kan beskrivas
  på följande sätt:
 \end_layout
 
@@ -2842,7 +2846,10 @@ Starta med ett godtyckligt förslag på kvadratroten, kallat
 \begin_inset Formula $r_{0}$
 \end_inset
 
-
+.
+ Vi behöver starta vår algoritm i någon punkt.
+ Ju närmare den sanna kvadratroten vi startar desto färre iterationer kommer
+ behövas.
 \end_layout
 
 \begin_layout Enumerate
@@ -3033,7 +3040,7 @@ Not a numeric vector!
 Annars ska funktionen beräkna det glidande medelvärdet på följande sätt
 \begin_inset Formula 
 \[
-y_{t}=\frac{x_{t}+\cdots+x_{t+n}}{n}
+y_{t}=\frac{x_{t}+\cdots+x_{t+n-1}}{n}
 \]
 
 \end_inset
@@ -3063,7 +3070,7 @@ där
 \end_layout
 
 \begin_layout Standard
-Här är textexempel på hur funktionen ska fungera:
+Här är testexempel på hur funktionen ska fungera:
 \end_layout
 
 \begin_layout Standard

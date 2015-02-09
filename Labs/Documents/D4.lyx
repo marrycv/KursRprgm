@@ -3285,6 +3285,54 @@ my_gauss_elimination(A,b)
 \end_layout
 
 \begin_layout Section
+* Tävlingsuppgift:
+\family typewriter
+ my_gauss_elimination()
+\end_layout
+
+\begin_layout Standard
+För de studenter som är intresserade finns i denna laboration en tävlingsuppgift.
+ Tävlingsuppgiften består dels i att göra om 
+\family typewriter
+my_gauss_elimination()
+\family default
+ så den kan ta en godtyckligt stort ekvationssystem (
+\series bold
+A
+\series default
+ och 
+\series bold
+b
+\series default
+) och dels att försöka optimera denna funktion så den blir så snabb som
+ möjligt.
+\end_layout
+
+\begin_layout Standard
+Om det är flera funktioner som är korrekta (d.v.s.
+ ger rätt svar) koras vinnaren baserat på vilken funktion som är snabbast.
+\end_layout
+
+\begin_layout Standard
+Mejla in ditt förslag till
+\series bold
+\color blue
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name " mans.magnusson@liu.se"
+target " mans.magnusson@liu.se"
+
+\end_inset
+
+
+\series default
+\color inherit
+ innan deadline.
+ 
+\end_layout
+
+\begin_layout Section
 Svenska personnummer
 \end_layout
 

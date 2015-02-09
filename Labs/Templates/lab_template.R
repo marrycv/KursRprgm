@@ -1,9 +1,9 @@
 #### Programmering i R ####
-#### Inlämning, Datalaboration 1 ####
+#### Assignment, Datalaboration 1 ####
 
-# Ange ditt namn här, ex Namn <- "Alice Walker"
+# Write your name here (no swedish letters), ex Namn <- "Alice Walker"
 Namn <- ""
-# Ange ditt LiU-ID här, ex LiuId <- "aliwa123"
+# Write your name here, ex LiuId <- "aliwa123"
 LiuId  <- ""
 
 

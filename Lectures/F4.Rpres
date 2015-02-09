@@ -39,15 +39,11 @@ Linköpings universitet
 
 Föreläsning 4: Innehåll 
 ========================================================
-- Uppföljning av tidigare laborationer
 - Mer om funktioner
 - Bra och effektiv programmering
 - ```*apply```-funktioner
 - ROxygen
 
-Uppföljning av laboration 3
-========================================================
-type: section
 
 Mer om funktioner
 ========================================================
@@ -101,7 +97,7 @@ environment(f)
 
 Allmänt om funktioner (forts.)
 ========================================================
-- Funktioner kan tas som argument (av andra funktioner)
+- Funktioner kan tas som argument
 ```{r}
 square_function <- function(x) {
   return(x^2)
@@ -163,9 +159,9 @@ Objekt kan definieras/skapas i...
 Hur vet R vad vi menar?
 ========================================================
 incremental: true
-- Koppling mellan objektnamn och funktion 
+- objektnamn och objekt
 
-- R har en söklista som gås igenom:
+- R:s söklista:
   1. Lokala miljöer
   2. Den global miljön
   3. Vidare i den ordning ```namespaces``` är laddade
@@ -196,7 +192,7 @@ f(3)
 f <- function(x) x + y
 ```
 
-```{r,eval=TRUE}
+```{r, eval=TRUE}
 y <- 2
 f(3)
 ```

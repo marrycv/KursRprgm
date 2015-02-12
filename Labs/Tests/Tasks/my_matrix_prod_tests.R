@@ -38,4 +38,7 @@ test_that("Assignment: my_matrix_prod()", {
   
   expect_function_code(object = my_matrix_prod, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
+  expect_that(my_matrix_prod, not(markmyassignment:::function_code("%*%")), 
+              info = "Fel: Funktionen innehåller %*%")
+
 })

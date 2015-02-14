@@ -28,6 +28,6 @@ test_that("my_gauss_elimination()", {
   expect_function_code(object = my_gauss_elimination, expected = "return\\(", 
                        info = "Fel: return() saknas i funktionen.")  
   
-  res <- function_code("solve")(my_gauss_elimination)
+  res <- markmyassignment:::function_code("solve")(my_gauss_elimination)
   expect_that(res$passed, is_false(), "Fel: Funktionen solve() finns i funktionen.")
 })

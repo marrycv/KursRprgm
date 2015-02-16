@@ -30,5 +30,8 @@ test_that("Assignment: babylon()", {
                info = "Fel: Antalet iterationer är felaktig för x = 15, init = 1.5 och tol = 0.01.")  
   expect_function_code(object = babylon, expected = "return\\(", 
                        info = "Fel: return() saknas i funktionen.")
+  
+  res <- markmyassignment:::function_code("sqrt")(babylon)
+  expect_that(res$passed, is_false(), "Fel: Funktionen sqrt() används i funktionen.")
 })
 

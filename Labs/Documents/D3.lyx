@@ -2870,6 +2870,34 @@ Om
 \end_inset
 
  inte har uppnått godtycklig nogrannhet: gå till steg 2 igen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Obs!
+\series default
+ 
+\begin_inset Formula $||$
+\end_inset
+
+ indikerar absolutbeloppet av skillnaden mellan iterationerna.
+ Mer information om absolutbeloppet finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://sv.wikipedia.org/wiki/Absolutbelopp"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
 \end_layout
 
 \begin_layout Standard
@@ -2903,7 +2931,7 @@ init
 \family typewriter
 tol
 \family default
- är hur stor noggrannhet som ska krävas.
+ är hur stor noggrannhet som ska krävas för att avsluta algoritmen.
 \end_layout
 
 \begin_layout Standard
@@ -2938,6 +2966,18 @@ rot
 iter
 \family default
  ska antalet iterationer returneras.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Obs!
+\series default
+ Det är inte tillåtet att använda funktionen 
+\family typewriter
+sqrt()
+\family default
+ i denna uppgift.
 \end_layout
 
 \begin_layout Standard

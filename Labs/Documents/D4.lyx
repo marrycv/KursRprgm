@@ -3208,7 +3208,8 @@ Funktionen ska kunna ta en
 \end_inset
 
  med gausselimination.
- 
+ Tänk på att det är troligt att du får avrundningsfel i denna uppgift.
+ Resultatet behöver bara vara rätt till 10:e decimalen.
 \end_layout
 
 \begin_layout Standard
@@ -3223,10 +3224,15 @@ solve()
 .
  Denna funktion är inte tillåten att använda, men kan användas för att pröva
  sig fram om funktionen ger rätt svar.
+ 
 \end_layout
 
 \begin_layout Standard
-Ett tips om man är osäker hur man väljer ut rader och kolumner är att titta
+
+\series bold
+Tips!
+\series default
+ Ett tips om man är osäker hur man väljer ut rader och kolumner är att titta
  i laboration D2 där matrisindexering behandlas.
  
 \end_layout
@@ -3495,7 +3501,15 @@ abler och som textvariabler.
 \end_layout
 
 \begin_layout Standard
-Funktionen ska kunna ta ett personnummer på ett godtyckligt format och returnera
+Funktionen ska heta 
+\family typewriter
+pnr_format()
+\family default
+ med argumentet 
+\family typewriter
+pnr
+\family default
+ och ska kunna ta ett personnummer på ett godtyckligt format och returnera
  personnummret som ett textelement med följande format: 
 \family typewriter
 ÅÅÅÅMMDDNNNK
@@ -3604,11 +3618,11 @@ target "http://sv.wikipedia.org/wiki/Luhn-algoritmen"
  Fördelen nu är att vi vet exakt på vilket format personnummren kommer att
  vara eftersom vi kommer använda funktionen 
 \family typewriter
-pnrFormat()
+pnr_format()
 \family default
  innan vi anropar 
 \family typewriter
-pnrCtrl()
+pnr_ctrl()
 \family default
 .
  
@@ -3788,7 +3802,11 @@ I denna uppgift ska vi från ett personnummer räkna ut det juridiska könet.
 \begin_layout Standard
 Skapa nu en funktion du kallar 
 \family typewriter
-pnrSex()
+pnr_sex()
+\family default
+ med argumentet 
+\family typewriter
+pnr
 \family default
 .
  Denna funktion ska ta ett personnummer och returnera en persons kön som
@@ -3899,11 +3917,15 @@ Exempelvis en person som är född 19640823 får följande första siffror i
 \begin_layout Standard
 Skapa en funktion du kallar 
 \family typewriter
-pnrSamordn()
+pnr_samordn()
+\family default
+ med argumentet 
+\family typewriter
+pnr
 \family default
  som tar ett personnummer på formatet genererat av funktionen 
 \family typewriter
-pnrFormat()
+pnr_format()
 \family default
  och returnerar 
 \family typewriter
@@ -3993,9 +4015,13 @@ Vi ska i denna funktion skapa ett datum för att senare beräkna åldern för
  olika individer.
  Skapa en funktion du kallar 
 \family typewriter
-pnrDate()
+pnr_date()
 \family default
  som tar argumentet 
+\family typewriter
+pnr
+\family default
+ och 
 \family typewriter
 date
 \family default
@@ -4186,7 +4212,7 @@ Sist ska vi baserat på dels ett personnummer och dels ett datum beräkna
  åldern för personen vid detta datum.
  Skapa en funktion du kallar 
 \family typewriter
-pnrAge()
+pnr_age()
 \family default
  tar argumentet 
 \family typewriter
@@ -4216,6 +4242,26 @@ Ett förslag på hur funktionen kan implementeras är följande:
 \begin_layout Enumerate
 Räkna ut skillnaden i hela år mellan datumets årtal personnummrets årtal.
  D.v.s hur gammal personen är den 31 december.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+as.Date()
+\family default
+ och 
+\family typewriter
+as.character()
+\family default
+ och 
+\family typewriter
+as.numeric()
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -4284,6 +4330,20 @@ pnr_info()
 \begin_layout Standard
 Nu har vi skapat ett antal funktioner för att beräkna olika delar av personnummr
 et.
+ Funktionen ska heta 
+\family typewriter
+pnr_info()
+\family default
+ och ta argumentet 
+\family typewriter
+pnr
+\family default
+ samt 
+\family typewriter
+...
+
+\family default
+ .
  Nu ska vi sätta ihop dessa funktioner till en enda funktion som baserat
  på en vektor av personnummer returnerar en 
 \family typewriter

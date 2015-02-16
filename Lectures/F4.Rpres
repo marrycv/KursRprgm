@@ -43,6 +43,7 @@ Föreläsning 4: Innehåll
 - Bra och effektiv programmering
 - ```*apply```-funktioner
 - ROxygen
+- R-paket
 
 
 Mer om funktioner
@@ -344,6 +345,44 @@ incremental: true
   - hantera komplexa programmeringsproblem
 - Använd issue-trackers (överkurs)
 
+
+högnivå-functioner
+========================================================
+type: section
+
+*apply-functioner
+========================================================
+- "High level functions"
+- Ett (snabbare) alternativ till loopar
+- Internt i R: loop i C-kod
+- Funtioner:
+  - ```lapply()``` : loopar över element i en lista
+  - ```tapply()``` : loopar över ett index (ex. ```aggregate()```)
+  - ```apply()```  : loopar över marginaler (ex. ```colSums()```)
+  - det finns fler... se [här](http://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/)
+
+Exempel på lapply()
+========================================================
+```lapply()``` har tre argument:
+- ```X``` listan vi vill loopa över
+- ```FUN``` funktionen att aplicera
+- ```...``` argument till funktionen
+```{r}
+myList <- list(x = 1:10, y = c(NA,12:20))
+str(lapply(X=myList, FUN=mean, na.rm=TRUE))
+```
+
+Mäta körtid i R
+========================================================
+- Ibland vill vi mäta hur lång tid kod tar att köra: ```system.time()```
+```{r}
+system.time(expr=mean(rep(c(1,2),1000000)))
+```
+
+ROxygen
+========================================================
+type: section
+
 Dokumentera med ROxygen
 ========================================================
 - ROxygen är standard för dokumentation
@@ -381,36 +420,87 @@ Exempel
 f <- function(x, y) x^2 + y^2
 ```
 
-*apply-functioner
+R-paket
 ========================================================
 type: section
 
-*apply-functioner
+Vad är R-paket?
 ========================================================
-- "High level functions"
-- Ett (snabbare) alternativ till loopar
-- Internt i R: loop i C-kod
-- Funtioner:
-  - ```lapply()``` : loopar över element i en lista
-  - ```tapply()``` : loopar över ett index (ex. ```aggregate()```)
-  - ```apply()```  : loopar över marginaler (ex. ```colSums()```)
-  - det finns fler... se [här](http://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/)
+incremental: true
 
-Exempel på lapply()
+- R:s största styrka!
+- En samling funktioner
+- MÅNGA utvecklare
+- Finns två huvudsakliga "arkiv" för paket:
+  - CRAN
+  - GitHub
+- Det är enkelt att bidra med egna paket!
+- Det är finns oxkså mycket skräp därute!
+- Glöm inte att citera med ```citation()```
+
+Läsa in redan installerade R-paket
 ========================================================
-```lapply()``` har tre argument:
-- ```X``` listan vi vill loopa över
-- ```FUN``` funktionen att aplicera
-- ```...``` argument till funktionen
-```{r}
-myList <- list(x = 1:10, y = c(NA,12:20))
-str(lapply(X=myList, FUN=mean, na.rm=TRUE))
+incremental: true
+
+- Läsa in paket görs med ```library()```
+- Anropa funktioner (utan att ladda paket görs med ```::```)
+  - ```base::mean()```
+- Installera paket:
+  - ```install.packages()``` (CRAN)
+  - ```devtools::install_github()``` (GitHub)
+- En del paket följer med R 
+- ```ls("package:MASS")``` visar vilka funktioner som finns i paketet MASS.
+- I Rstudio finns en flik för pakethantering
+- Lista alla inlästa paket: ```sessionInfo()```
+
+Semantic versioning
+========================================================
+incremental: true 
+
+- Ett versionsnummer består av tre delar:
+  [MAJOR].[MINOR].[PATCH]
+  - Major: Stora förändringar som **inte** är bakåtkompatibla
+  - Minor: Mindre förändringar som **är** bakåtkompatibla  
+  - Patch: Buggkorrigeringar
+- En majorversion som är 0 innebär "utveckling pågår", större färändringar kan ske.
+
+```{r, eval=TRUE}
+R.version.string
 ```
 
-Mäta körtid i R
+Att hitta rätt paket
 ========================================================
-- Ibland vill vi mäta hur lång tid kod tar att köra: ```system.time()```
-```{r}
-system.time(expr=mean(rep(c(1,2),1000000)))
+incremental: true
+
+- Alla paket håller inte samma kvaliet. Följande tips för att granska:
+  1. Kommer paketet med R eller någon från R Core Team?
+  2. När kom senaste uppdateringen?
+  3. Är paketet en utvecklingsversion?
+  4. Mejla och fråga utvecklaren
+  5. Kontrollräkna centrala funktioner
+
+- För att komma igång med nya paket: vignetter
+
+
+Installera paket
+========================================================
+incremental: true
+
+CRAN:
+```{r, eval=FALSE}
+install.packages("lubridate")
 ```
+
+GitHub:
+```{r, eval=FALSE}
+devtools::install_github(repo="sweSCB", username="rOpenGov")
+```
+
+Läsa in paket
+========================================================
+
+```{r, eval=FALSE}
+library(lubridate)
+```
+
 

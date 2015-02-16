@@ -33,24 +33,41 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 5: Grafik och statistik
-### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+## Föreläsning 5: Objektorientering, datum och linjär algebra
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
 
-R-programmering - del 2:
+
+
+Dagens föreläsning:
 ========================================================
 
-- Del 1: grunderna i programmeringsteknik och R-syntax
-- Del 2, olika tillämpliningar:
-  - Grafik och statistik
-  - Paket (= extra funktioner)
+- Praktisk information om del II.
+- Objektorientering, klasser, generiska funktioner
+- Datum och tid med ```lubridate```
+- Linjär algebra i R
+
+Del II i kursen
+========================================================
+type: section
+
+R-programmering - del II
+========================================================
+
+- Del 1: Grunderna i programmering
+- Del 2: Tillämpningar:
+  - Grafik
+  - Statistik och analys
+  - Externa data
   - Datum
   - Texthantering och regular expression 
-  - Linjär algebra i R
-  
-R-programmering - del 2:
+  - Linjär algebra
+  - knitr och markdown
+
+
+R-programmering - del II:
 ========================================================
 
 - Labbarna görs nu i par
@@ -58,178 +75,265 @@ R-programmering - del 2:
 - Parprogrammering:
   - Turas om att sitta vid tagentbordet
   - Den som inte kodar är engagerad i koden och problemet 
-  - Byter person varje halvtimme
+  - Byter person var 30:e minut
   - Viktigt att kommentera koden 
 
-Dagens föreläsning:
+
+Laboration D3 och D4
 ========================================================
 
-- Feedback
-- Grafik
-  - Högnivå-plottar
-  - Lågnivå-plottar
-- Grundläggande statistik
-- Objekt, klasser, generiska funktioner
+D3 gick superbra!
 
-Feedback:
+## goo.gl/z3IvEr
+
+
+Objektorientering i R
 ========================================================
+type: section
 
-Labb 3: Kommentarer och frågor
 
-Enkel grafik: Högnivåplottar
+Objektorientering i R
 ========================================================
-- ```plot()``` - kan plotta många olika objekt: 
-  - ```plot(x=,y=)```, ger en scatterplot, här är x och y vektorer som ger x- och y-koordinater
-  - ```plot(X)```- om X en matris så plottas de två första variablerna mot variablerna mot varndra
-  - ```plot(X)```, om X en data.frame så skapas en matrix-plot
-  - Vanliga argument: "```type=```","```main=```", "```xlab=```,"```ylab=```","```xlim=```,"```ylim=```", "```col=```"
-  
-Exempel: plot()
-========================================================  
-```{r,}
-x<-1:20
-y<-x^2
-plot(x,y,main="Min första plot", type="l")
-```
+incremental: true
 
-  
-Enkel grafik: Högnivåplottar
-========================================================
-- ```hist(x=,breaks=,freq=)``` ger ett histogram, 
-  - "```x```"- numerisk vektor 
-  - "```breaks=```"- antal bins, default är att variationsområdet delas in i $log_{2}(n)+1$ interval
-  - "```freq=FALSE"```- realtiva frekvenser.  
-- ```barplot()``` ger stapeldiagram
-- ```boxplot()``` ger boxplot
-- ```pie()``` ger en piechart
+- Största skillnaden mellan R och andra statistikprogram
 
-Kolla i hjälpen hur funktionerna anropas.
+> Allt som existerar i R är objekt, och allt R gör är funktioner
 
-Nu demo_09: Del 1
+- Alla objekt i R har en klass
+  - ```matrix```, ```data.frame```, ```lm```
+- Variabeltyper är "atomära" klasser
+- Dessa klasser har en ```konstruktor``` (en funktion med samma namn)
+- Vi kan undersöka ett objekts klass med ```class()```
 
-
-Lågnivåplottar
-========================================================
-Addera till redan existerande plot:
-- points(x, y, ...)
-- lines(x, y) adds line segments
-- abline(a, b,h,v, ...) lägger till räta linjer
-- legend(x, y, legend, ...) - lägger till en legend.
-
-
-Lågnivåplottar
-========================================================
-Addera olika figurer mm till en plot:
-- polygon(x, y, ...) -lägger till en polygon
-- symbols(x, y, ...) - lägger till symboler
-- segments(x0, y0, x1, y1, ...) - ritar en begränsad linje
-- arrows(x0, y0, x1, y1) - lägger till pilar
-
-Lågnivåplottar
-========================================================
-- ```par()```, har många argument (se hjälpen):
-  - ```mfrow=c(2,3)``` - skapar subplots, här 2 rader och tre kolumner
-  - ```mfg=c(2,1)``` - ritar in nästa plot i position: rad 2 och kolumn 1
-  - ```cex=``` - ändrar textstorlek
-  - ```lty=``` - bestämmer linjetyp 
-  - ```lwd=``` - bestämmer hur bred linjen ska vara
-  - ```pch=``` - bestämmer symbol till punktplottar
-- Sätta tillbaka till default-värden: ```dev.off()```
-
-Resurser på nätet
-========================================================
-- För färger, symboler, mer om par() mm kolla **[[här]](http://www.statmethods.net/advgraphs/parameters.html)**.  
-- Kontroll av axlar, texter mm kolla **[[här]](http://www.statmethods.net/advgraphs/axes.html)**.  
-- Mer om plottar **[[här]](http://ww2.coastal.edu/kingw/statistics/R-tutorials/graphs.html)** (en del är överkurs på denna sida)
-- Sök på google om du vill göra någon specifik plot eller ändra någon speciell del av din graf: använd engelska sökord
-
-  
-Mer om plottar:
-========================================================  
-- ```locator(n=)``` - ger koordinaterna i en eller flera punkter i plotten
-- ```curve(expr, from =, to =, n = )``` - plottar en matematisk funktion 
-- ```image()``` - skapar en heatmap för en matris
-- ```contour()``` - skapar en kontur-plot
-
-Nu demo_09: Del 2
-
-Beskrivande statistik i R:
-========================================================  
-- ```max()```, ```min()```, ```sum()```
-- Centralmått: ```mean()```, ```median()```
-- Sprindningsmått: ```sd()```, ```var()```, ```cov()```, ```cor()```, ```quantile()```, ```range()```
-- ```summary(object=)``` - om object är en numerisk vector/matris ges olika mått (mer om ```summary()``` senare)
-
-Beskrivande statistik i R:
-======================================================== 
-- För statistk över kolumner/rader i data:
-  - ```colMeans()``` eller ```colSums()``` 
-  - ```rowMeans()``` eller ```rowSums()```
-- Frekvenstabeller:
-  - ```table()```: tar en eller flera faktorer som argument och skapar frekvenstabeller
-  - ```tabulate()```
-  - ```levels()```: ger de olika nivåerna på en faktorvariabel
-- apply-funktioner: mycket användbara för beskrivande statistik
-
-
-apply-funktioner
-======================================================== 
-Generellt tar ett objekt ```X``` och applicerar funktionen ```FUN``` över någon dimension i X
-- ```apply(X, MARGIN, FUN, ...) ```: ```X``` - en matris(array), ```FUN```-vald funktion, ```MARGIN```- vald dimension (2=kolumnvis)
-- ```lapply(X, FUN, ...)```: X-lista, ouput-lista, applicerar ```FUN``` på varje element i X
-- ```sapply(X, FUN, ...)```: variant av ```lapply``` som försöker returnera en vector/matris istället för lista
-
-apply-funktioner 
-======================================================== 
-- ```replicate(n, expr, simplify = "array")```: variant av ```sapply``` för upprepade beräkningar (ofta i samband med slumptal)
-- ```by(data, INDICES, FUN, ...)```: variant av ```tapply```, för data.frames, ```data``` grupperas enligt faktorn ```INDICES``` och ```FUN``` aplliceras på varje grupp 
-- ```aggregate(x, by, FUN,...)```: liknar ```by()```, funkar för data.frames och tidsserier
-
-Nu demo_10 del 1
-
-
-
-Objekt i R
-========================================================
-Allt är objekt i R, olika typer:
-- Vector objects (vektor/matris/array)
-- List objects (lista/data.frame)
-- Symbol objects: Namnet på ett objekt i R är vanligen symbol
-- Function objects (funktioner): 
-- NULL object: markerar frånvaro av object
-
-
-Attribut och klasser
-========================================================
-- attributes: Alla objekt (utom NULL) kan ha attribut
-  - Names: namnet på objektet 
-  - Dimensions: en vanlig ```vektor``` saknar dimensions, men matriser har två dimensioner. 
-  - Dimnames: namnen på dimensionerna
-  - Classes (klasser): En klass ```ger mer egenskaper``` till objekten, och utgör grunden för de generiska funktionerna/metoderna. Klasser är ```mer abstrakta``` än objekt. Funktionen: ```class()```
-  
-
-Undersöka objekt 
-========================================================
-- funktionerna "```is.```" och "```as.```", ex:
-  - ```is.vector()```, ```as.list()```, ```is.symbol()```, ```as.name()```, ```is.function()```
-- ```class()``` - ger objektets klass
-- ```names()```, ```attributes()``` - ger namn och attribut
-- ```str()``` - ger underliggande strukturen av ett objekt
-- ```unclass()```
-
-  
 Generiska funktioner
 ========================================================
-- Generisk = "allmäna"
-- Exempel: ```print()```, ```summary()```, ```plot()```, ```str()``
-  - Kolla på Roger Pengs video "The str function"
-- Dessa funktioner utför olika saker beroende på vilken klass ett objekt har. Detta gör dem mycket användbara.
+incremental: true
 
+- Generisk = allmänn
+- Gör olika saker beroende på objektets klass 
+- Ex. ```plot()```, ```mean()```, ```summary()```, ```names()```
+- Funktionen anropar **metoden** för objektet
+
+
+Metoder
+========================================================
+incremental: true
+
+- En funktion för en specifik klass (och generisk funktion)
+- Alla metoder för en generisk funktion: ```methods()```
+- Defaultmetod med  ```mean.default()```
+- Ex. ```mean.difftime()```
+- Metoder kan anropas direkt som vanliga funktioner
+
+
+Datum och tid
+========================================================
+type: section
+
+
+Datum och tid
+========================================================
+incremental: true
+
+- Datum är klurigt att arbeta med - men används extremt mycket
+- Två typer av tid
+  - Relativ tid, längden beror på när de inträffar (ex. år, månad)
+  - Exakt tid (ex. sekunder, minuter, timmar, dagar, veckor) 
+- Enklare funktioner följer med ```base```
+- En introduktion finns i Roger Pengs [[video]](http://www.youtube.com/watch?v=JFovWLPHI24)
+
+Datum och tid i base
+========================================================
+```{r}
+my_date <- "2012-01-31"
+class(my_date)
+my_date_as_date <- as.Date(my_date)
+my_date_as_date
+```
+
+lubridate
+========================================================
+- Paket för enkel och effektiv datumhantering
+- Sammansatt av "lubricant" och "date"
+- Introduktion: [[Dates and Times Made Easy with lubridate]](http://www.jstatsoft.org/v40/i03/paper) (kurslitteratur)
+
+
+Paketet lubridate
+======================================================== 
+Tre huvudsakliga delar:
+  1. Läsa in datum (från text) - parsing
+  2. Ändra inlästa datum
+  3. Göra beräkningar med datum  
   
-Generiska funktioner: exempel
+Exempel
 ========================================================  
-- ```plot()```:
-  - Det finns många plot()-funktioner, några exempel: ```plot.density()```, ```plot.ecdf()``` och ```plot.lm()``` , om du har ett objekt ```X``` av klass ```lm``` R anropa ```plot.lm()``` om du kör ```plot(X)```
-  - Testa att skriva "```plot```" i R tryck på tab när markören är i slutet av ordet eller ```methods(plot)```   
+```{r,}
+library(lubridate)
+test<-ymd("1999-06-17")
+print(test)
+week(test)
+ymd("1999-06-17") + weeks(2)
+```
+
+Paketet lubridate: Parsing 
+========================================================
+
+Elementordning | Funktion
+----- | ---- | 
+år, månad, dag | ```ymd()``` 
+år, dag, månad | ```ydm()``` 
+månad, dag, år | ```mdy()``` 
+timme, minut | ```hm()``` 
+timme, minut, sekund | ```hms()``` 
+år, mån, dag, timme, min, sek | ```ymd_hms``` 
+
+Källa: Grolemund and Wickham (2011, Table 4)
+
+
+Paketet lubridate
+========================================================
+För att “plocka ut” eller ändra delar av ett datum används följande funktioner
+
+Datum | Funktion| Tidsdel | Funktion
+----- | ---- | ----| ----
+år | ```year()``` | timme | ```hour()```
+månad | ```month()``` | minut | ```minute()``` 
+vecka | ```week()``` | sekund | ```second()```
+årsdag | ```yday()``` | tidszon | ```tz()```
+månadsdag | ```mday()```
+veckodag | ```wday()```
+
+Källa: Grolemund and Wickham (2011, Table 5)
+
+
+Exempel
+========================================================  
+```{r,}
+my_date <- ymd("1999-06-17")
+week(my_date)
+wday(my_date, label = TRUE)
+year(my_date) <- 2015
+my_date
+```
+
+
+Paketet lubridate
+========================================================
+- För att räkna med datum finns det fyra olika objekt i lubridate
+  - ```instant``` (sv. tidpunkt)
+  - ```interval``` ( sv. intervall)
+  - ```duration``` (sv. duration)
+  - ```period``` (sv. period)
+- ```interval```, ```duration``` och ```period``` används för att beskriva tidsspann
+
+instant och interval
+========================================================
+- ```instant```
+  - En specifikt tillfälle i tiden
+  - Ex. "2004-02-21 kl 12.33"
+  - Viktiga funktioner: ```now()```, ```today()```, ```here()```
+- ```interval``` 
+  - Tidsspannet mellan två ```instant```.
+  - ```new_interval(start,end)```
   
-Nu demo_10 del 2  
+instant och interval: exempel
+========================================================
+```{r,}
+library(lubridate)
+instant_1 <- ymd("2001-06-17")
+instant_2 <- ymd("2009-01-11")
+my_interval <- new_interval(start = instant_1, end = instant_2)
+my_interval
+```
+
+
+
+Duration
+========================================================
+- Ett fixt tidsspann som mäts i sekunder 
+- Tänk kontinuerlig tid  
+- Absolut tid i sekunder
+- Börjar med ```d```
+- Konvertera interval med ```as.duration()```
+- Ex: ```new_duration()```,```dseconds()```, ```dhours()```, ```ddays()``` o.s.v.
+
+Duration: exempel
+========================================================
+```{r,}
+my_interval / ddays(30)
+as.duration(my_interval)
+```
+
+Period
+========================================================
+- Utgår från den aktuella enheten (dagar, månader, år)
+- Tänk diskret tid
+- Relativ tid
+- Vad vi i dagligt tal menar med ex. fem månader
+  - ex. ```period(num=,units=)```, ```minutes()```, ```hours()```, ```days()```, ```weeks()``` o.s.v.  
+
+
+Period: exempel
+========================================================
+```{r}
+my_interval / months(1)
+my_interval %/% years(1)
+as.period(my_interval)
+```
+
+
+Att räkna med tid
+========================================================
+Vi lägger till /drar bort en duration eller period till/från ett datum.
+
+```{r,}
+course_start <- ymd("2015-01-19")
+course_start + weeks(8)
+course_start + months(1)
+course_start + ddays(30)
+```
+
+
+Avrunda datum
+========================================================
+
+- ```round_date(x,unit=)```
+- ```floor_date(x=,unit=)```
+- ```ceiling_date(x=,unit=)```
+
+Linjär algebra
+========================================================
+type: section
+
+Linjär algebra: Matriser
+========================================================
+- Matris är två-dimensionella tabeller.
+- Skapas en 2x3 matris från en vektor ```my_vector```: ```matrix(my_vector,2,3)```
+- ```matrix()``` fyller matrisen kolumnvis
+- ```matrix(myVector,2,3, byrow=TRUE)``` fyller radvis.
+
+Linjär algebra
+========================================================
+- Transponat $\mathbf{X}'$ eller $\mathbf{X}^{T}$ : ```t(X)```
+- Invertera matris $X^{-1}$ : ```solve(X)```
+- Matrismultiplikation $\mathbf{A}\cdot\mathbf{B}$ eller $\mathbf{AB}$ : ```A%*%B```
+  - Kan bara göras med klassen ```matrix```, ej vektorer
+  - Undvika att en matris blir en vektor med ```X[,1,drop=FASLE]```
+- Diagonalmatris: ```diag(c(1,3,5))```
+- Enhetsmatrisen $\mathbf{I}$ : ```diag(3)```
+
+Linjär algebra
+========================================================
+- [[Egenvärden och egenvektorer]](http://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum): ```eigen(X)```
+  - Returnerar en lista med egenvärden och egenvektorer
+- Summera rader eller kolumner: ```rowSums(X)``` och ```colSums(X)```
+- Kombinera matriser: ```rbind(X,Y)``` eller ```cbind(X,Y)```
+
+
+Referenser
+========================================================
+Grolemund, G., Wickham, H., 2011. Dates and times made easy with
+lubridate. Journal of Statistical Software 40 (3), 1–25.
+kan hittas [[här]](http://www.jstatsoft.org/v40/i03/paper)
+

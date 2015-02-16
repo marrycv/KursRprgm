@@ -3359,6 +3359,11 @@ Skriv en funktion som beräknar determinanten för en godtycklig
 \end_inset
 
  matris.
+ Funktionen ska ha argumentet 
+\family typewriter
+x
+\family default
+.
  Om det inte är ett objekt av klassen matrix som anges som argument ska
  funktionen avbryta och skriva ut 
 \begin_inset Quotes sld
@@ -3420,7 +3425,7 @@ A <- matrix(1:4,ncol=2)
 
 \begin_layout Plain Layout
 
-two_by_two_det(A)
+two_by_two_det(x=A)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3544,7 +3549,7 @@ status open
 
 \begin_layout Plain Layout
 
-toeplitz_matrix(1:5)
+toeplitz_matrix(x=1:5)
 \end_layout
 
 \begin_layout Plain Layout

@@ -2,6 +2,7 @@
 context("fast_swe_pop()")
 
 test_that("fast_swe_pop()", {  
+  library(pxweb)
   expect_that(exists("fast_swe_pop"), is_true(),
               info = "Fel: fast_swe_pop() saknas.")
   expect_that(fast_swe_pop, is_a("function"),

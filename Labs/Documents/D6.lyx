@@ -3675,13 +3675,13 @@ Välja ut delar av datamaterialet vi vill ladda ned.
 \end_layout
 
 \begin_layout Enumerate
-För att navigera i Statistiska centralbyråns API är det tre delar vi behöver
- ange, vilket api (SCB i detta fall), version på api:et och api:ets språk.
- För att ta reda på dessa faktorer används funktionen 
+För att navigera i Statistiska centralbyråns API kan vi använda funktionen
+ 
 \family typewriter
-api_catalogue()
+interactive_pxweb()
 \family default
- som då listar samtliga pxweb-apier som kommer förinstallerade.
+ som listar förinstallerade api:er och ger möjlighet att välja vilket api
+ vi vill hämta data från.
 \begin_inset Newline newline
 \end_inset
 
@@ -3696,7 +3696,7 @@ status open
 
 \begin_layout Plain Layout
 
-api_catalogue()
+mitt_data <- interactive_pxweb()
 \end_layout
 
 \begin_layout Plain Layout
@@ -3710,7 +3710,8 @@ api_catalogue()
 \end_layout
 
 \begin_layout Enumerate
-För att anknyta till Statistiska centralbyråns api kan då följande kod användas:
+För att anknyta direkt till Statistiska centralbyråns api kan då följande
+ kod användas:
 \begin_inset Newline newline
 \end_inset
 
@@ -4564,12 +4565,12 @@ status open
 
 \begin_layout Plain Layout
 
-proj(1:4, -1:2)
+proj(u = 1:4, v = -1:2)
 \end_layout
 
 \begin_layout Plain Layout
 
-proj(10:15, -(15:10))
+proj(u = 10:15, v = -(15:10))
 \end_layout
 
 \begin_layout Plain Layout
@@ -4589,9 +4590,9 @@ vec_norm()
 \family default
  som tar argumentet 
 \family typewriter
-v
+x
 \family default
- och returnerar en normaliserad konstant.
+ och returnerar en vektornormen.
 \begin_inset Formula 
 \[
 \|\mathbf{x}\|=\sqrt{\sum_{k=1}^{n}x_{k}^{2}}.
@@ -4614,12 +4615,12 @@ status open
 
 \begin_layout Plain Layout
 
-vec_norm(1:4)
+vec_norm(x = 1:4)
 \end_layout
 
 \begin_layout Plain Layout
 
-vec_norm(-1:2)
+vec_norm(x = -1:2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4640,7 +4641,22 @@ gram_schmidt(X)
 .
  Funktionen ska kunna ta en godtycklig matris och returnera följande ortonormera
 de matris.
- Funktionen ska avbryta och returnera felmeddelandet 
+ 
+\begin_inset Formula 
+\[
+\mathbf{E}=\left(\begin{array}{cccc}
+\mathbf{e}_{1} & \mathbf{e}_{2} & \cdots & \mathbf{e}_{n}\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Funktionen ska avbryta och returnera felmeddelandet 
+\family typewriter
+
 \begin_inset Quotes sld
 \end_inset
 
@@ -4648,21 +4664,59 @@ Not an object of class matrix.
 \begin_inset Quotes srd
 \end_inset
 
+
+\family default
  om 
 \family typewriter
 X
 \family default
- inte är klassen 
+ inte är av klassen 
 \family typewriter
 matrix
 \family default
 .
- 
-\begin_inset Formula 
-\[
-\mathbf{E}=\left(\begin{array}{cccc}
-\mathbf{e}_{1} & \mathbf{e}_{2} & \cdots & \mathbf{e}_{n}\end{array}\right)
-\]
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tips!
+\series default
+ Följande 
+\family typewriter
+for
+\family default
+-loop är ett sätt att tänka.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 2:ncol(X)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  for (j in 2:i){}   
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
 
 \end_inset
 
@@ -4685,22 +4739,22 @@ status open
 
 \begin_layout Plain Layout
 
-X <- matrix(c(3,1,2,2), ncol=2)
+A <- matrix(c(3,1,2,2), ncol=2)
 \end_layout
 
 \begin_layout Plain Layout
 
-gram_schmidt(X)
+gram_schmidt(X = A)
 \end_layout
 
 \begin_layout Plain Layout
 
-X <- matrix(c(1,-1,1,1,0,1,1,1,2), ncol=3)
+B <- matrix(c(1,-1,1,1,0,1,1,1,2), ncol=3)
 \end_layout
 
 \begin_layout Plain Layout
 
-gram_schmidt(X)
+gram_schmidt(X = B)
 \end_layout
 
 \begin_layout Plain Layout

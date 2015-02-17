@@ -3487,6 +3487,37 @@ X
 \end_layout
 
 \begin_layout Standard
+Hur man diagonaliserar en matris framgår 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://en.wikipedia.org/wiki/Diagonalizable_matrix#How_to_diagonalize_a_matrix"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ Funktionen ska returnera en lista med de namngivna elementen 
+\family typewriter
+P
+\family default
+, 
+\family typewriter
+D
+\family default
+ och 
+\family typewriter
+Pinv
+\family default
+.
+\end_layout
+
+\begin_layout Standard
 Är matrisen inte diagonaliserbar ska funktionen avbrytas med meddelandet
  
 \family typewriter

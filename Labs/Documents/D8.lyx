@@ -253,6 +253,27 @@ ggplot
  särskilt mycket kod.
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Här"
+target "http://shinyapps.stat.ubc.ca/r-graph-catalog/"
+
+\end_inset
+
+
+\series default
+\color inherit
+ finns en bra katalog över de flesta graferna i 
+\family typewriter
+ggplot2
+\family default
+.
+\end_layout
+
 \begin_layout Section
 Grunden i 
 \family typewriter

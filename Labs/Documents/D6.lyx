@@ -4639,14 +4639,23 @@ Med dessa funktioner är det möjligt att sätta ihop funktionen
 gram_schmidt(X)
 \family default
 .
- Funktionen ska kunna ta en godtycklig matris och returnera följande ortonormera
-de matris.
+ Funktionen ska kunna ta en godtycklig matris 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ eller 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ och returnera följande ortonormerade matris.
  
 \begin_inset Formula 
-\[
-\mathbf{E}=\left(\begin{array}{cccc}
-\mathbf{e}_{1} & \mathbf{e}_{2} & \cdots & \mathbf{e}_{n}\end{array}\right)
-\]
+\begin{eqnarray*}
+\mathbf{E}_{3\times3} & = & \left(\begin{array}{ccc}
+\mathbf{e}_{1} & \mathbf{e}_{2} & \mathbf{e}_{3}\end{array}\right)\\
+\mathbf{E}_{2\times2} & = & \left(\begin{array}{cc}
+\mathbf{e}_{1} & \mathbf{e}_{2}\end{array}\right)
+\end{eqnarray*}
 
 \end_inset
 
@@ -4686,7 +4695,7 @@ Tips!
 \family typewriter
 for
 \family default
--loop är ett sätt att tänka.
+-loop är ett generellt sätt att tänka.
 \end_layout
 
 \begin_layout Standard

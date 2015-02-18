@@ -16,8 +16,6 @@ test_that("gram_schmidt()", {
                info="Fel: Funktionen returnerar fel ortonormering med gram_schmidt(matrix(1:4, ncol=2))")
   expect_equal(as.vector(round(gram_schmidt(matrix(1:9, ncol=3)),2))[2:4], c(0.53, 0.80, 0.87),
                info="Fel: Funktionen returnerar fel ortonormering med gram_schmidt(matrix(1:9, ncol=3))")
-  expect_equal(as.vector(round(gram_schmidt(matrix(1:25, ncol=5)),2))[12:14], c(0.49,0.45,0.27),
-               info="Fel: Funktionen returnerar fel ortonormering med gram_schmidt(matrix(1:25, ncol=3))")
   expect_error(gram_schmidt("Pelle"),
                info="Fel: Funktionen avbryter/stoppar inte om X är något annat än en matris")
 })

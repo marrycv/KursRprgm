@@ -3171,6 +3171,9 @@ my_gauss_elimination()
 Vi ska i denna uppgift skapa en funktion som kan lösa ett linjärt ekvationsystem
  i R med tre variabler och tre ekvationer.
  Mer information om linjära ekvationssystem finns 
+\series bold
+\color blue
+
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
@@ -3178,7 +3181,13 @@ target "http://sv.wikipedia.org/wiki/Linj%C3%A4rt_ekvationssystem"
 
 \end_inset
 
+
+\series default
+\color inherit
  och om gausselimination finns det mer information 
+\series bold
+\color blue
+
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
@@ -3186,6 +3195,38 @@ target "http://sv.wikipedia.org/wiki/Gausselimination"
 
 \end_inset
 
+
+\series default
+\color inherit
+.
+ En video om gausselimination finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://www.youtube.com/watch?v=2j5Ic2V7wq4"
+
+\end_inset
+
+
+\series default
+\color inherit
+ och 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://www.youtube.com/watch?v=ybQbWYBEZzc"
+
+\end_inset
+
+
+\series default
+\color inherit
 .
 \end_layout
 

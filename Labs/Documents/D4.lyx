@@ -4067,11 +4067,19 @@ pnr
 date
 \family default
 .
- Argumentet date ska ha följande textformat: 
+ Argumentet 
+\family typewriter
+date
+\family default
+ ska ha följande textformat: 
 \family typewriter
 ÅÅÅÅ-MM-DD
 \family default
-.
+ och som default ska 
+\family typewriter
+NA
+\family default
+ anges.
  Om datumet inte är på detta format ska funktionen stoppas och returnera
  följande felmeddelande:
 \end_layout

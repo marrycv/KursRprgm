@@ -1601,12 +1601,12 @@ status open
 
 \begin_layout Plain Layout
 
-A <- matrix(1:9,ncol=3)
+A <- matrix(c(1,1,1,1,1,2,1,3,4),ncol=3) 
 \end_layout
 
 \begin_layout Plain Layout
 
-B <- matrix(10:18,ncol=3)
+B <- matrix(c(-1,2,2,-2,-2,1,1,1,-1),ncol=3)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1733,7 +1733,11 @@ Används matriserna
 \series bold
 A
 \series default
- och B ovan.
+ och 
+\series bold
+B
+\series default
+ ovan.
  Skapa även följande matriser 
 \series bold
 C
@@ -1790,7 +1794,6 @@ Beräkna följande blockmatris i R
 \end_layout
 
 \begin_layout Enumerate
-Är 
 \begin_inset Formula $\mathbf{X}$
 \end_inset
 
@@ -1798,9 +1801,9 @@ Beräkna följande blockmatris i R
 \begin_inset Formula $\mathbf{Y}$
 \end_inset
 
- är identiska.
- Detta är ett sätt att invertera matriser på ett enklare sätt om vi enkelt
- kan invertera delar av matrisen.
+ ska vara identiska.
+ Detta är ett sätt att invertera matriser på ett enklare sätt genom att
+ invertera delar av matrisen.
 \end_layout
 
 \begin_layout Subsection

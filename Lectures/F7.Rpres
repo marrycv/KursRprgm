@@ -230,6 +230,7 @@ incremental: true
 - R skiljer sig från andra statistikprogram
 - Objektorienteringen i R
 - Grunden är formelobjektet ```y ~ x1 + x2```
+  Används på flera håll i R.
 - Att arbeta med modeller i R innebär fyra delar/steg:
   1. Anpassa/träna vår modell och spara som ett objekt
   2. Analysera/studera resultatet

@@ -39,10 +39,9 @@ transition: rotate
 Avdelningen för statistik,
 Linköpings universitet
 
-Dagens föreläsning:
+Föreläsning 7: Innehåll 
 ========================================================
 
-- Feedback
 - Texthantering och stringr, regular expression 
 - Statistik och simulering
 - Linjär regression
@@ -54,12 +53,10 @@ type: section
 Arbeta med strängar
 ========================================================
 - Sträng (eng. string): en samling bokstäver (characters)
-- Centralt för hantering av strängar är Regular expressions (regex)
+- Centralt är regular expressions (regex)
 - Ett flexibelt sätt att identifiera/matcha text eller delar av text (tänk sökfunktion)
-- Det finns olika typer av regular expressions i olika programspråk
-- regex i R påminner om Python. Testa ```?regex```
 - regex går även att använda i sökfunktionen i R-Studio (och andra program)
-- Med "pattern" syftas regular expression i R
+- Med ```pattern``` syftas regular expressions i R
 
 Arbeta med strängar
 ========================================================
@@ -67,7 +64,8 @@ Arbeta med strängar
 - Det finns också ett paket som förenklar stränghantering - ```stringr```
 - ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
 - ```readLines(con=,encoding=)``` kan användas för att läsa in en text. Varje rad i texten blir då ett element i en vektor. 
-- För att kunna läsa in data med svensk text så behöver vi ändra [encoding](http://en.wikipedia.org/wiki/Character_encoding) för att bokstäverna å,ä och ö ska synas. Vi ändrar då  ```encoding="latin1"``` i ```readLines()```.
+- Svensk text kräver rätt [encoding](http://en.wikipedia.org/wiki/Character_encoding) för å,ä och ö. 
+- Vi ändrar med  ```encoding = "latin1"``` i ```readLines()```.
 
 
 regular expression
@@ -76,7 +74,7 @@ regular expression
 - Byggs upp av:
   - literals: "vanliga bokstäver och siffror"
   - metacharacters: (metatecken) sätter upp speciella regler för matchning
-- Kolla på Roger Pengs [[videor]](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
+- Se RP:s [[video]](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
   - Regular Expressions
   - Introduction to the Baltimore Homicide Data
   - Regular Expressions in R
@@ -100,6 +98,7 @@ $|$ | ELLER
 regular expression: exempel
 ========================================================
 ```grep()``` kollar om ett regular expression finns i en character vector
+
 ```{r,}
 a<-c("hej","hela","vatten")
 grep(pattern="he",x=a)
@@ -123,7 +122,7 @@ regular expression: teckenklass
 ========================================================
 Vanliga fördefinierade klasser är... (kolla ```?regexp```)
 - [:digit:]  Nummer
-- [:lower:]   gemener
+- [:lower:]  gemener
 - [:upper:]  VERSALER
 - [:punct:]  tecken, ej bokstäver eller siffror 
 - [:space:]  mellanslag, tab, ny rad m.m.
@@ -137,7 +136,7 @@ regular expression: länkar
 Förinstallerade strängfunktioner:
 ========================================================
 - ```substr()```: substring - välja ut en del av en sträng
--  ```strsplit()```: stringsplit - dela upp en sträng i flera element
+- ```strsplit()```: stringsplit - dela upp en sträng i flera element
 - ```paste()```: slår ihop flera strängelement (eller en vektor) till ett strängelement
 - ```nchar()```: räknar antalet tecken i en sträng
 
@@ -148,16 +147,14 @@ Förinstallerade strängfunktioner:
 - ```gsub()```: ersätter ett “pattern”, med en given textsträng
 - För exempel på några av dessa funktioner kolla på Roger Pengs [[video]](http://www.youtube.com/watch?v=q8SzNKib5-4)
 
-Men dessa kan vara lite svåra att komma ihåg ... paketet ```stringr``` to the rescue
+Men dessa kan vara lite svåra att komma ihåg ... ```stringr``` to the rescue
 
 Paketet stringr
 ========================================================
 - En vektoriserad wrapper för de förinstallerade funktionerna 
--  Samtliga funktioner börjar med str_
-  - ex. str_c()
-
-- Smidigt i R-Studio
-- Vilka funktioner som finns (och vad de gör) framgår i [[manual]](http://cran.r-project.org/web/packages/stringr/index.html) på CRAN och i [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) om stringr
+-  Samtliga funktioner börjar med ```str_```
+  - ex. ```str_c()```
+- Se [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
 
 
 Statistik och simulering
@@ -187,11 +184,13 @@ prefix | Beskrivning | Exempel
 ```p``` | kulmulativ fördelninsgfunktion (cdf) | ```pnorm()```
 ```q``` | inversa kulmulativa fördelningsfunktionen | ```qnorm()```
 
+- Se CRAN task view: Distributions [[här]](http://cran.r-project.org/web/views/Distributions.html)
 
 Slumptal och simulering: Urval och slumpfrön
 ========================================================
-
-- För att få samma "slumpmässiga" resultat använder vi ett slumpfrö med ```set.seed()```
+- Det finns ingen riktig slump i datorer
+- Det finns slumptalsgeneratorer
+- Kan styra "slumpen" med "slumpfrön" (```set.seed()```)
 - För att dra ett (obundet) slumpmässigt urval använder vi ```sample()```
 
 Slumptal och simulering: Exempel
@@ -212,8 +211,9 @@ Slumptal och simulering: Exempel sample()
 incremental: true
 
 ```{r}
-text <- c("Sveriges", "Kommuner", "och", "Landsting")
+text <- c("Linköpings", "Universitet")
 set.seed(20140730)
+sample(x=text, size=4, replace=TRUE)
 sample(x=text, size=4, replace=TRUE)
 set.seed(20140730)
 sample(x=text, size=4, replace=TRUE)
@@ -228,12 +228,12 @@ Linjär regression
 incremental: true
 
 - R skiljer sig från andra statistikprogram
-- Bygger på objektorienteringen i R
+- Objektorienteringen i R
 - Grunden är formelobjektet ```y ~ x1 + x2```
 - Att arbeta med modeller i R innebär fyra delar/steg:
   1. Anpassa/träna vår modell och spara som ett objekt
   2. Analysera/studera resultatet
-  3. Diagnosticera
+  3. Diagnostisera
   4. Använda modellen och resultaten
 
 

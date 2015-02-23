@@ -154,6 +154,7 @@ Markdown
 - Snabbt och enkelt 
 - Kan hantera matematik (med LaTeX)
 - Integrerat med R-Studio
+  - Kan behöva installera LaTeX
 
 
 knitr
@@ -163,7 +164,7 @@ knitr
 - Dynamiska rapporter
 - Literate programming
 - Inbyggt i R-Studio
-
+- För att skapa tabeller: ```kable()```
 
 Demo: Markdown och knitr
 ========================================================
@@ -191,6 +192,7 @@ Ladda ned och läsa in från webben
 - .Rdata
 - .csv
 - .txt
+
 
 Vanliga källor att använda
 ========================================================

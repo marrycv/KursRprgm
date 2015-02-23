@@ -44,17 +44,12 @@ Dagens föreläsning:
 
 - Feedback
 - Texthantering och stringr, regular expression 
-- Linjär algebra 
+- Statistik och simulering
+- Linjär regression
 
-
-
-
-Feedback:
+Texthantering i R
 ========================================================
-
-Labb 5: Kommentarer och frågor
-
-
+type: section
 
 Arbeta med strängar
 ========================================================
@@ -164,90 +159,143 @@ Paketet stringr
 - Smidigt i R-Studio
 - Vilka funktioner som finns (och vad de gör) framgår i [[manual]](http://cran.r-project.org/web/packages/stringr/index.html) på CRAN och i [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) om stringr
 
-Paketet stringr
+
+Statistik och simulering
+========================================================
+type: section
+
+Enklare statistiska tester
 ========================================================
 
-Demo_ 13 del 2
+- ${\chi}^2$-tester görs på (**Obs!**) _tabeller_ med: 
+  - ```chisq.test()```, ```fisher.test()```
+- För t-tester används ```t.test()```
+- Korrelation och kovarians beräknas med: 
+  - ```cor()``` och ```cov()``` och testas med
+  - ```cor.test()```
 
 
-Linjär algebra: Matriser
+Slumptal och simulering
 ========================================================
-- Matris är två-dimensionella tabeller.
-- Skapas en 2x3 matris från en vektor ```myVector```: ```matrix(myVector,2,3)```
-- matrix fyller matrisen kolumnvis. 
-- ```matrix(myVector,2,3, byrow=TRUE)``` fyller radvis.
-- ```dim(myVector) <- c(2,3)``` gör samma jobb. Kolla på ```?dim()```
 
-Linjär algebra
+- I R finns en uppsättning funktioner för fördelningar:
+
+prefix | Beskrivning | Exempel
+----- | ---- | ----- 
+```r``` | simulera från fördelningen | ```rnorm()```
+```d``` | täthetsfunktionen (pdf) | ```dnorm()```
+```p``` | kulmulativ fördelninsgfunktion (cdf) | ```pnorm()```
+```q``` | inversa kulmulativa fördelningsfunktionen | ```qnorm()```
+
+
+Slumptal och simulering: Urval och slumpfrön
 ========================================================
-- Transponat $X'$ eller $X^{T}$ (rader blir kolumner): ```t(X)```
-- Invers matris $X^{-1}$: ```solve(X)```
-- Matrismultiplikation $A*B$ eller $AB$: ```A%*%B```
-  - Kan bara göras med klassen matriser, ej klassen vektorer
-  - För att undvika att en matris blir en matris när en kolumn väljs: ```X[,1,drop=FASLE]```
-- Diagonalmatris: ```diag(c(1,3,5))```
-- Enhetsmatrisen: ```diag(3)```
 
+- För att få samma "slumpmässiga" resultat använder vi ett slumpfrö med ```set.seed()```
+- För att dra ett (obundet) slumpmässigt urval använder vi ```sample()```
 
-Linjär algebra
+Slumptal och simulering: Exempel
 ========================================================
-- [[Egenvärden och egenvektorer]](http://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum): ```eigen(X)```
-  - Returnerar en lista med egenvärden och egenvektorer
-- Summera rader eller kolumner: ```rowSums(X)``` och ```colSums(X)```
-- Kombinera matriser: ```rbind(X,Y)``` eller ```cbind(X,Y)```
-- Omvandla mellan klasser:
-  - ```as.vector(X)```
-  - ```as.matrix(X)```
+incremental: true
 
-Linjär algebra
-========================================================
-demo_14 del 1
-
-Intro sweSCB
-========================================================
-sweSCB är ett paket för att ladda ner dataset från SCB hemsida och ladda in dem direkt i R.
-
-Skapat av:
-- Love Hansson
-- Måns Magnusson
-- Thomas Reinholdsson
-
-[[Här]](https://github.com/LCHansson/sweSCB) kan ni läsa mer om paktet.
-  
-Intro sweSCB
-========================================================
-För att installera:
-
-```{r,eval=FALSE}
-install.packages("devtools")
-devtools::install_github("sweSCB","LCHansson")
-library(sweSCB)
+```{r}
+rnorm(n=5, mean=10, sd=1)
+set.seed(20140730)
+rnorm(n=5, mean=10, sd=1)
+set.seed(20140730)
+rnorm(n=5, mean=10, sd=1)
 ```
 
 
-Intro sweSCB
+Slumptal och simulering: Exempel sample()
 ========================================================
-demo_14 del 2
+incremental: true
 
-Intro labb 8: Miniprojekt
+```{r}
+text <- c("Sveriges", "Kommuner", "och", "Landsting")
+set.seed(20140730)
+sample(x=text, size=4, replace=TRUE)
+set.seed(20140730)
+sample(x=text, size=4, replace=TRUE)
+```
+
+Linjär regression
 ========================================================
-- Labb 8 kommer vara i form av ett miniprojekt
-- Det kommer finnas en del generella instruktioner som måste följas, med det kommer vara en hel del frihet i lösningen av uppgiften.
-- Syftet är att ni ska:
-  - Testa "riktig" dataanalys i R.
-  - Kunna hantera lite större mängder programkod 
-  - Se fördelarna med lösa ett projekt med hjälp av kod istället för att klicka i menyer, jfr med Minitab
-  - Öva på mer självständig programmering (mindre instruktioner)
+type: section
 
-Intro labb 8: Miniprojekt
+Linjär regression
 ========================================================
-Kort beskrivning:
-  1. Ni ska ta några datamaterial från svenska myndigheter
-  2. Sedan ska ni utföra datahantering, statistik analys och presentation av data (grafer mm) i R.
-  3. Sedan ska ni sätt in era resultat i ett dokument, där ni skriver korta kommentarer till resutlatet.
-  4. Det som ska lämnas i är både rapporten i pdf-format och er kod från steg 2.
-  
-Detaljer återfinns i labbinstruktionen för labb 8.
+incremental: true
 
+- R skiljer sig från andra statistikprogram
+- Bygger på objektorienteringen i R
+- Grunden är formelobjektet ```y ~ x1 + x2```
+- Att arbeta med modeller i R innebär fyra delar/steg:
+  1. Anpassa/träna vår modell och spara som ett objekt
+  2. Analysera/studera resultatet
+  3. Diagnosticera
+  4. Använda modellen och resultaten
+
+
+Anpassa en modell: formula
+========================================================
+incremental: true
+
+- Kräver formel och data (med samma variabeler)
+
+```{r}
+library(MASS)
+library(car)
+data(Prestige)
+```
+```{r}
+mod1 <- lm(prestige ~ income + women + education, data=Prestige)
+```
+```{r}
+mod2 <- lm(prestige ~ income + women + education - 1, data=Prestige)
+```
+```{r}
+mod3 <- lm(prestige ~ income:women + education, data=Prestige)
+```
+
+
+Analysera resultatet
+========================================================
+
+- Använder följande funktioner för att studera resultatet:
+  - ```summary()```
+  - ```anova()```
+
+Exempel:
+```{r, eval=FALSE}
+summary(mod1)
+anova(mod1)
+anova(mod3, mod1, test="Chisq")
+```
+
+
+Diagnosticera modellen
+========================================================
+
+- Finns ett stort antal metoder för detta, ex:
+
+```{r, eval=FALSE}
+plot(mod1)
+durbinWatsonTest(mod1)
+qqPlot(mod1)  
+```
+
+
+Använda modellen
+========================================================
+
+- Vi kan göra olika saker med en färdig modell som
+  - Publicera resultat
+  - Studera residualer
+  - Prediktion
+  - Generera "fina" tabeller
+- Vi kan spara vår modell och sedan använda funktioner som
+  - ```resid()```
+  - ```predict()```
 
 

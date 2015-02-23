@@ -3552,6 +3552,11 @@ status open
 
 \begin_layout Plain Layout
 
+toeplitz_matrix(x="Ett element")
+\end_layout
+
+\begin_layout Plain Layout
+
 toeplitz_matrix(x=1:5)
 \end_layout
 

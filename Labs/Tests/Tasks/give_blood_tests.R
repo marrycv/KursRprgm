@@ -64,9 +64,9 @@ test_that("Assignment: give_blood()", {
   expect_that(do.call(what=give_blood,args=test_list[[1]]), is_a("character"),
               info = "Fel: Funktionen returnerar inte en text-vektor")
   
-  # testfall:
-  for(i in seq_along(test_list)){
-    expect_that(do.call(give_blood, test_list[[i]]) == test_results[i], is_true(),
+  # testfall: i <-1
+  for(i in seq_along(test_list)){ 
+    expect_that(tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results[i]), is_true(),
                 info = error_info(parameters=test_list[[i]],funcName="give_blood"))
   } 
 })

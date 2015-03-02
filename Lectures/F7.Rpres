@@ -33,8 +33,8 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 7: Texthantering och Linjär algebra
-### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+## Föreläsning 7: Texthantering, statistik, simulering och regression
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
@@ -54,23 +54,57 @@ Arbeta med strängar
 ========================================================
 - Sträng (eng. string): en samling bokstäver (characters)
 - Centralt är regular expressions (regex)
-- Ett flexibelt sätt att identifiera/matcha text eller delar av text (tänk sökfunktion)
+- Identifiera/matcha text eller delar av text (tänk sökfunktion)
 - regex går även att använda i sökfunktionen i R-Studio (och andra program)
 - Med ```pattern``` syftas regular expressions i R
 
-Arbeta med strängar
+Arbeta med strängar II
 ========================================================
-- I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text (ex. paste(), substr(), grep() m.m.)
-- Det finns också ett paket som förenklar stränghantering - ```stringr```
+- I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text 
+  - ex. `paste()`, `substr()`, `nchar()`
+- Men vi använder framförallt paketet ```stringr```
 - ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
-- ```readLines(con=,encoding=)``` kan användas för att läsa in en text. Varje rad i texten blir då ett element i en vektor. 
-- Svensk text kräver rätt [encoding](http://en.wikipedia.org/wiki/Character_encoding) för å,ä och ö. 
-- Vi ändrar med  ```encoding = "latin1"``` i ```readLines()```.
 
 
-regular expression
+
+Arbeta med strängar II
 ========================================================
-- Handlar om att hitta specifika delar av en sträng som uppfyller ett villkor
+
+- ```readLines(con=,encoding=)``` kan användas för att läsa in en text. Varje rad i texten blir då ett element i en vektor. 
+
+- Icke-engelska symboler/tecken text kräver [encoding](http://en.wikipedia.org/wiki/Character_encoding) (ex. för å,ä och ö). 
+- Vi ändrar med  ```encoding = "latin1"``` i ```readLines()```.
+- Vanligast är `latin1` och `UTF8`
+
+Paketet stringr
+========================================================
+- En vektoriserad wrapper för de förinstallerade funktionerna 
+-  Samtliga funktioner börjar med ```str_```
+- Se [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
+
+Funktioner
+========================================================
+type: sub-section
+
+Grundläggande strängfunktioner
+========================================================
+
+stringr | base | Användning
+--- | ----- | ---- | 
+`str_sub()` | `substr()` | substring,  välja ut en del av en sträng
+`str_c()` | `paste()` | slår ihop strängelement
+`str_split()` |`strsplit()` | dela upp en sträng i flera element
+`str_length()` | `nchar()` | beräknar antalet tecken
+`str_trim()` | - | tar bort mellanslag (före/efter textelement)
+`str_pad()` | - | lägger till mellanslag (före/efter textelement)
+
+Pattern matching
+========================================================
+type: sub-section
+
+regular expression (regexp)
+========================================================
+- Hitta specifika delar av en sträng som uppfyller ett villkor
 - Byggs upp av:
   - literals: "vanliga bokstäver och siffror"
   - metacharacters: (metatecken) sätter upp speciella regler för matchning
@@ -84,8 +118,8 @@ regular expression: metacharacters
 Tecken| Betydelse
 ----- | ---- | 
 . | samtliga tecken (exkl. det “tomma” tecknet “”)  
-^ | det “tomma” tecknet i början av en text
-$ | det “tomma” tecknet i slutet text
+^ | det "tomma" tecknet i början av en text
+$ | det "tomma" tecknet i slutet text
 * | föregående tecken 0 eller fler gånger
 + | föregående tecken 1 eller fler gånger
 ? | föregående tecken är valfritt
@@ -94,17 +128,6 @@ $ | det “tomma” tecknet i slutet text
 $|$ | ELLER
 () | Gruppering
 \ | Används för att identifiera metatecken/specialtecken
-
-regular expression: exempel
-========================================================
-```grep()``` kollar om ett regular expression finns i en character vector
-
-```{r,}
-a<-c("hej","hela","vatten")
-grep(pattern="he",x=a)
-grep(pattern="a",x=a)
-grepl(pattern="he",x=a)
-```
 
 regular expression: teckenklass
 ========================================================
@@ -133,28 +156,34 @@ regular expression: länkar
 - Från [wikipedia](http://sv.wikipedia.org/wiki/Regulj%C3%A4ra_uttryck)
 
 
-Förinstallerade strängfunktioner:
+Pattern matchingfunktioner i R 
 ========================================================
-- ```substr()```: substring - välja ut en del av en sträng
-- ```strsplit()```: stringsplit - dela upp en sträng i flera element
-- ```paste()```: slår ihop flera strängelement (eller en vektor) till ett strängelement
-- ```nchar()```: räknar antalet tecken i en sträng
 
-Förinstallerade strängfunktioner:
-========================================================
-- ```grep()```: identifierar vilka element som innehåller ett “pattern”, returnerar en indexvektor
-- ```grepl()```: identifierar vilka element som innehåller ett “pattern”, returnerar en logisk vektor
-- ```gsub()```: ersätter ett “pattern”, med en given textsträng
+- ```pattern``` är ett regular expression
+
+stringr | base | Användning
+--- | ----- | ---- | 
+`str_detect()` | `grepl()` | identifierar pattern, returnerar en logisk vektor
+`str_locate()` | `gregexpr()` | identifierar pattern, returnerar positionen i texten
+`str_replace()` | `gsub()` | identifierar pattern, och ersätter detta med ny text
+`str_extract_all` | - | Plocka ut alla strängar som uppfyller `pattern`
+
+
 - För exempel på några av dessa funktioner kolla på Roger Pengs [[video]](http://www.youtube.com/watch?v=q8SzNKib5-4)
 
-Men dessa kan vara lite svåra att komma ihåg ... ```stringr``` to the rescue
 
-Paketet stringr
+regular expression: exempel
 ========================================================
-- En vektoriserad wrapper för de förinstallerade funktionerna 
--  Samtliga funktioner börjar med ```str_```
-  - ex. ```str_c()```
-- Se [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
+
+```{r}
+library(stringr)
+a <- c("hej","hela","vatten")
+str_detect(pattern="he", string = a)
+str_detect(pattern="a", string = a)
+str_locate(pattern="he", string = a)
+str_extract_all(pattern = ".a", string = a)
+```
+
 
 
 Statistik och simulering
@@ -175,7 +204,7 @@ Enklare statistiska tester
 Slumptal och simulering
 ========================================================
 
-- I R finns en uppsättning funktioner för fördelningar:
+- I R finns en uppsättning funktioner för fördelningar
 
 prefix | Beskrivning | Exempel
 ----- | ---- | ----- 

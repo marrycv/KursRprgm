@@ -4286,6 +4286,16 @@ message()
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+table()
+\end_layout
+
+\begin_layout Standard
 Nedan är ett förslag på hur ni kan implementera funktionen.
 \end_layout
 

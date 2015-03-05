@@ -28,7 +28,7 @@ test_that("Assignment: diagonalize_matrix", {
               is_equivalent_to("matrix"),
               info="Fel: Pinv ska vara en matris")
   expect_error(diagonalize_matrix(matrix(c(3,3,2,2),byrow = TRUE,ncol=2)),
-              info = "Fel: Funktionen avbryter inte för singulära matriser (det(A) = 0).")
+              info = "Fel: Funktionen avbryter inte for singulara matriser (det(A) = 0).")
   
   # Check that mat$P %*% mat$D %*% mat$Pinv returns the matrix
   A <- matrix(3:6,ncol=2)

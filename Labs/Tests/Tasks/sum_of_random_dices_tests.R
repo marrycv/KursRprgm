@@ -9,9 +9,9 @@ test_that("Assignment: sum_of_random_dices()", {
   expect_that(exists("sum_of_random_dices"), is_true(),
               info = "Fel: sum_of_random_dices() saknas.")
   expect_that(sum_of_random_dices, is_a("function"),
-              info = "Fel: sum_of_random_dices ‰r inte en funktion.")
+              info = "Fel: sum_of_random_dices ar inte en funktion.")
   expect_that(all(names(formals(sum_of_random_dices)) %in% c("K","lambda","my_seed")), condition=is_true(),
-              info = "Fel: Namnen p√• argumenten i funktionen ‰r fel.")
+              info = "Fel: Namnen p√• argumenten i funktionen ar fel.")
   
   res <- sum_of_random_dices(K=10,lambda=2,my_seed=4711)
   expect_that(res, is_a("data.frame"),
@@ -31,20 +31,20 @@ test_that("Assignment: sum_of_random_dices()", {
   res_mean2 <- round(mean(res[,2]),2)
   res_sd2 <- round(sd(res[,2]),2)
   expect_more_than(object = res_mean1, 20.25,
-    info = "Fel: 'value' ber‰knas felaktigt.")
+    info = "Fel: 'value' beraknas felaktigt.")
   expect_less_than(object = res_mean1, 21.75,
-    info = "Fel: 'value' ber‰knas felaktigt.")
+    info = "Fel: 'value' beraknas felaktigt.")
   expect_more_than(object = res_sd1, 8.95,
-    info = "Fel: 'value' ber‰knas felaktigt.")
+    info = "Fel: 'value' beraknas felaktigt.")
   expect_less_than(object = res_sd1, 10.05,
-    info = "Fel: 'value' ber‰knas felaktigt.")
+    info = "Fel: 'value' beraknas felaktigt.")
   
   expect_more_than(object = res_mean2, 5.85,
-                   info = "Fel: 'dices' ber‰knas felaktigt.")
+                   info = "Fel: 'dices' beraknas felaktigt.")
   expect_less_than(object = res_mean2, 6.15,
-                   info = "Fel: 'dices' ber‰knas felaktigt.")
+                   info = "Fel: 'dices' beraknas felaktigt.")
   expect_more_than(object = res_sd2, 2.3,
-                   info = "Fel: 'dices' ber‰knas felaktigt.")
+                   info = "Fel: 'dices' beraknas felaktigt.")
   expect_less_than(object = res_sd2, 2.6,
-                   info = "Fel: 'dices' ber‰knas felaktigt.")
+                   info = "Fel: 'dices' beraknas felaktigt.")
 })

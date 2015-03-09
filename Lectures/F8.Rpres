@@ -46,16 +46,27 @@ Dagens föreläsning:
 - spatiala data
 - miniprojekt
 
+Laboration D6
+========================================================
+- `suppressPackageStartupMessages()`
+- lubridate för att plotta mot tid
+
+Laboration D7
+========================================================
+
+## goo.gl/z3IvEr
 
 Inför tentamen
 ========================================================
+incremental: true
+
 - Tenta i datorsal (4 h)
-- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams)
 - Hjälpmedel: 
   - Den inbyggda hjälpen i R (ej internet)
   - R reference card v.2 av Matt Baggot, laddas ner [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), 
-- Tenta, R reference card och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
-- Vid tentan kommer ni få ett specifikt användarnamn och lösenord som ni använder för att logga in.
+- Tenta och material får ni tillgång till elektroniskt - ta inte med något
+- Ett specifikt användarnamn och lösenord per tentand.
 
 ggplot2
 ========================================================
@@ -63,7 +74,7 @@ type: section
 
 ggplot2
 ========================================================
-- Baserad på ”Grammar of Gaphics” av Leland Wilkinson
+- Baserad på "Grammar of Gaphics" av Leland Wilkinson
 - Skapad av Hadley Wickham
 - Alternativ till basgrafiken
 - [http://ggplot2.org](http://ggplot2.org)
@@ -82,7 +93,7 @@ ggplot2
 
 > ”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
 
-Från "ggplot2 book" av Hadley Wickham 
+Från "ggplot2" av Hadley Wickham 
 
 ggplot2
 ========================================================
@@ -90,8 +101,9 @@ incremental: true
 
 - Bygger upp en graf av flera delar
   - ```data``` (data.frame)
-  - ```geom```s
-  - ```aes```s
+  - ```geom```
+  - ```aes```
+- Lägger "lager på lager"
 
 geom
 ========================================================
@@ -115,7 +127,7 @@ aes
 ```x``` | x-axel |
 ```y``` | y-axel |
 ```size``` | storlek |
-```col``` | färg |
+```colour``` | färg |
 ```shape``` | form |
 
 aes och geoms
@@ -130,7 +142,7 @@ aes och geoms
 
 Exempel
 ========================================================
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 library(ggplot2)
 data(Nile)
 Nile <- as.data.frame(Nile) 
@@ -141,41 +153,65 @@ Nile$period[Nile$years >= 1900] <- "1900 - 1945"
 Nile$period[Nile$years > 1945] <- "1945 + " 
 Nile$period <- as.factor(Nile$period)
 ```
+
+Exempel
+========================================================
 ```{r, echo=TRUE}
-ggplot(data=Nile) + aes(x=years, y=level) + geom_point()
+plt <- ggplot(data=Nile) + aes(x=years, y=level) + geom_point()
+plt
 ```
 
 Exempel
 ========================================================
 ```{r, echo=TRUE}
-ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
+plt <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
+plt
 ```
 
 Exempel
 ========================================================
 ```{r, echo=TRUE}
-p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line(aes(type=period)) + geom_point(aes(shape=period))
-p
+plt <- ggplot(data=Nile) + aes(x=years, y=level, colour=period) + 
+  geom_line(aes(type=period)) + geom_point(aes(shape=period))
+plt
+```
+
+Teman
+========================================================
+- En av styrkorna med `ggplot2`
+- Bästa sättet att styra färgsättning och utseende
+- Paketet `ggthemes` innehåller många teman
+
+Exempel: Teman
+========================================================
+```{r, echo=TRUE}
+plt + theme_bw()
 ```
 
 Exempel: Teman
 ========================================================
 ```{r, echo=TRUE}
-p + theme_bw()
+library(ggthemes)
+plt + theme_tufte()
 ```
 
 Exempel: Teman
 ========================================================
 ```{r, echo=TRUE}
-p + theme_classic()
+plt + theme_excel()
 ```
 
 Exempel: Teman
 ========================================================
 ```{r, echo=TRUE}
-p + theme_grey()
+plt + theme_economist()
 ```
 
+Exempel: Teman
+========================================================
+```{r, echo=TRUE}
+plt + theme_stata()
+```
 
 Spatiala data
 ========================================================
@@ -183,15 +219,18 @@ type: section
 
 Spatiala data
 ========================================================
+incremental: true
 
 > Also known as geospatial data or geographic information it is the data or information that identifies the geographic location of features and boundaries on Earth
 
-- Geografiska informationssystem (GIS)
+- Kallas också ofta
+  - Geografiska informationssystem (GIS)
+  - Kartor, geotaggad data
 - Tvådimensionella data
-- Kartor
-- Spatial analys kommer senare
-- Speciella datastrukturer
-- Projektioner
+- Spatial **analys** kommer senare
+- Speciellt med spatiala data
+  - Speciella datastrukturer
+  - Projektioner
 
 Projektioner
 ========================================================
@@ -200,14 +239,14 @@ Projektioner
 - Behöver använda projektioner: från 3 till 2 dimensioner
 - Alla projektioner ger felaktigheter
 - Lägre skala ger mindre projektionsfel
-- Exempel finns [[här]](http://www.lantmateriet.se/Kartor-och-geografisk-information/GPS-och-geodetisk-matning/Om-geodesi/Kartprojektioner/Kartprojektionens-grunder/)
+- Mer information finns här [**[här]**](http://www.lantmateriet.se/Kartor-och-geografisk-information/GPS-och-geodetisk-matning/Om-geodesi/Kartprojektioner/Kartprojektionens-grunder/)
 
 Skapa kartor
 ========================================================
 - Många karttjänster finns att använda gratis
   - Google Maps
   - Open Street map
-- För att skapa kartor används ```ggmap()```
+- För att skapa kartor används ```ggmap()``` i paketet `ggmap`
 - Anger en koordinat och zoom
 - Bygger på longitud och latitud
 
@@ -256,17 +295,66 @@ shapefiler
 - Geografiska data
   - Punkter
   - Polygoner
-- Ett standardformat är shape-filer
-- Shapefil för Sveriges län och kommuner finns [[här]](https://github.com/MansMeg/KursRprgm/tree/master/Labs/DataFiles)
+- shape-filer är ett standardformat [**[mer info]**](http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf)
+- Shapefil för Sveriges län och kommuner finns [**[här]**](https://github.com/MansMeg/KursRprgm/tree/master/Labs/DataFiles)
 
 
-Kombinera shapefiler och kartor
+Arbeta och visualisera shapefiler
 ========================================================
-- Kräver paketet ```maptools```
+- Kräver paketen ```maptools```, `rgeos` och `rgdal`.
 
-```{r, eval=FALSE}
-library(maptools)
-swe_municip <- readShapePoly("Kommun_SCB/Kommun_SCB_07.shp") 
+```{r,echo=FALSE}
+library(downloader)
+# Download and read data 
+kommuner_remote <- "https://raw.github.com/MansMeg/KursSvyMeth/master/Labs/DataFiles/Kommun_SCB.zip"
+kommuner_local <- "Kommun_SCB.zip"
+suppressMessages(download(kommuner_remote, destfile = kommuner_local))
+unzip(kommuner_local)
+```
+
+```{r, eval=TRUE}
+suppressPackageStartupMessages(library(rgdal))
+swe_municip <- readOGR(dsn = "Kommun_SCB", "Kommun_SCB_07")
 ```
 
 - Skapar ett ```sp``` objekt vi kan arbeta vidare med
+
+Visualisera med base
+========================================================
+
+```{r, eval=TRUE}
+plot(swe_municip)
+```
+
+Visualisera med ggplot2
+========================================================
+
+```{r, eval=FALSE}
+sw <- swe_municip[stringr::str_sub(swe_municip@data$KNKOD,1,1)=="0",]
+sw <- fortify(sw, region = "KNKOD")
+sw <- merge(x = sw, y = swe_municip@data, by.x="id", by.y="KNKOD")
+
+ggplot(sw, aes(x=long, y=lat, group=group, fill=KNBEF96)) + 
+  geom_polygon() + geom_path(color="white") + theme_bw()
+```
+
+Visualisera med ggplot2
+========================================================
+
+```{r, eval=TRUE, echo=FALSE}
+sw <- swe_municip[stringr::str_sub(swe_municip@data$KNKOD,1,1)=="0",]
+sw <- fortify(sw, region = "KNKOD")
+sw <- merge(x = sw, y = swe_municip@data, by.x="id", by.y="KNKOD")
+
+ggplot(sw, aes(x=long, y=lat, group=group, fill=KNBEF96)) + 
+  geom_polygon() + geom_path(color="white") + theme_bw()
+```
+
+
+Miniprojektet
+========================================================
+
+- Fortsätta med tidigare data (om ni vill)
+- Olika analyser (t-test, linjär regression m.m.)
+- Visualisera en karta/shape - fil
+- Bara använda ggplot2 i del II (base i del I)

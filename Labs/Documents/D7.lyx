@@ -4481,7 +4481,17 @@ worddata<-wordcount(text=text)
 
 \begin_layout Plain Layout
 
-head(worddata[order(worddata[,2], decreasing=TRUE),])
+head(worddata)
+\end_layout
+
+\begin_layout Plain Layout
+
+sorted_worddata <- worddata[order(worddata[,2], decreasing=TRUE),]
+\end_layout
+
+\begin_layout Plain Layout
+
+head(sorted_worddata)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4490,7 +4500,7 @@ head(worddata[order(worddata[,2], decreasing=TRUE),])
 
 \begin_layout Plain Layout
 
-head(wordcount(text=rep("a",10)))
+head(wordcount(text=c(rep("a",10), rep("b", 5))))
 \end_layout
 
 \begin_layout Plain Layout

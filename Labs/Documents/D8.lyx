@@ -997,9 +997,22 @@ p <- p + xlab("Years") + ylab("Water level") + ggtitle("Nile series")
 
 \begin_layout Plain Layout
 
-Nile$period <- "- 1900" Nile$period[Nile$years >= 1900] <- "1900 - 1945"
- Nile$period[Nile$years > 1945] <- "1945 + " Nile$period <- as.factor(Nile$period
-)
+Nile$period <- "- 1900" 
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period[Nile$years >= 1900] <- "1900 - 1945" 
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period[Nile$years > 1945] <- "1945 + " 
+\end_layout
+
+\begin_layout Plain Layout
+
+Nile$period <- as.factor(Nile$period)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1434,6 +1447,11 @@ nDetta")
 
 \begin_layout Plain Layout
 
+p + scale_fill_manual(values=c("black", "blue", "red"))
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -1504,8 +1522,17 @@ status open
 
 \begin_layout Plain Layout
 
-p <- ggplot(data=mtcars) + aes(x=mpg) + geom_histogram(fill="darkblue",
- colour="red",binwidth=10)
+p <- ggplot(data=mtcars) + aes(x=mpg)
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- p + geom_histogram(fill="darkblue", colour="red",binwidth=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+p
 \end_layout
 
 \begin_layout Plain Layout
@@ -1655,18 +1682,27 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE>>=
+<<fig.height=2.5, fig.width=4, fig.align='center'>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line()
- + geom_point()
+p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line() + geom_point()
+\end_layout
+
+\begin_layout Plain Layout
+
+p
 \end_layout
 
 \begin_layout Plain Layout
 
 p <- p + theme_bw()
+\end_layout
+
+\begin_layout Plain Layout
+
+p
 \end_layout
 
 \begin_layout Plain Layout
@@ -1736,6 +1772,83 @@ theme_bw
 \begin_layout Enumerate
 Att ändra den grafiska profilen innebär då bara att ändra denna temafunktion
  (även om det kan innebära en del jobb).
+\end_layout
+
+\begin_layout Enumerate
+Det finns också ett separat R-paket med ett antal vanliga teman kallat 
+\family typewriter
+ggthemes
+\family default
+.
+ De olika teman som är installerade i 
+\family typewriter
+ggtheme
+\family default
+s framgår 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://github.com/jrnold/ggthemes"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Enumerate
+Med dessa går det enkelt att skapa olika färgsättningar för samma graf.
+ I 
+\family typewriter
+ggtheme
+\family default
+s-paketet finns också färgpaletter som passar bra för personer som är färgblinda.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fig.height=2.5, fig.width=4, fig.align='center'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(ggthemes)
+\end_layout
+
+\begin_layout Plain Layout
+
+p + theme_excel()
+\end_layout
+
+\begin_layout Plain Layout
+
+p + theme_economist()
+\end_layout
+
+\begin_layout Plain Layout
+
+p + theme_tufte()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -2138,6 +2251,16 @@ status open
 
 \begin_layout Plain Layout
 
+library(rgdal)
+\end_layout
+
+\begin_layout Plain Layout
+
+library(rgeos)
+\end_layout
+
+\begin_layout Plain Layout
+
 library(maptools)
 \end_layout
 
@@ -2488,7 +2611,7 @@ unionSpatialPolygons()
 \family default
 .
  I detta fall verkar det som några kommuner hamnat i fel län.
- Detta beror på att länskoden för vissa kommuner blivigt är felaktig.
+ Detta beror på att länskoden för vissa kommuner blivit är felaktig.
 \begin_inset Newline newline
 \end_inset
 
@@ -3216,7 +3339,7 @@ status open
 
 \begin_layout Plain Layout
 
-ggmap(paris, extent = "normal")
+ggmap(linkpg_uni, extent = "normal", zoom=12)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3254,7 +3377,7 @@ set.seed(1984)
 
 \begin_layout Plain Layout
 
-linkpg_map <- qmap("Linkoping", color="bw") 
+linkpg_map <- qmap("Linkoping", color="bw", zoom =12) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3309,7 +3432,7 @@ set.seed(1984)
 
 \begin_layout Plain Layout
 
-linkpg_map <- qmap("Linkoping", color="bw") 
+linkpg_map <- qmap("Linkoping", color="bw", zoom=12) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3324,12 +3447,12 @@ df <-
 
 \begin_layout Plain Layout
 
-    lon = jitter(rep(15.6, 50), amount = .15), 
+    lon = jitter(rep(15.6, 50), amount = .05), 
 \end_layout
 
 \begin_layout Plain Layout
 
-    lat = jitter(rep(58.4, 50), amount = .152),
+    lat = jitter(rep(58.4, 50), amount = .052),
 \end_layout
 
 \begin_layout Plain Layout
@@ -3705,9 +3828,17 @@ linkpg_large <- qmap("Linkoping", zoom = 6, maptype = "terrain")
 
 \begin_layout Plain Layout
 
-linkpg_large +    geom_polygon(aes(x = long, y = lat, group = group), data
- = data,                colour = "white", fill = "blue", alpha = .2, size
- = .3)
+linkpg_large +    
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_polygon(aes(x = long, y = lat, group = group), data = data,
+\end_layout
+
+\begin_layout Plain Layout
+
+               colour = "white", fill = "blue", alpha = .2, size = .3)
 \end_layout
 
 \begin_layout Plain Layout

@@ -45,8 +45,8 @@ test_that("Assignment: wordcount()", {
   expect_message(wordcount(text=text1), "The most common word is 'a' and it occured 9 times.",
                  info = "Fel: Funktionen returnerar fel meddelande.")
 
-  expect_true(suppressMessages(wordcount(text="a, a a, a "))$freq == 4,
-              info = "Fel: Funktionen beräknar fel frekvenser.")
+  expect_true(suppressMessages(wordcount(text="a, a a,a "))$freq == 4,
+              info = "Fel: Funktionen beräknar fel frekvens för 'a, a a,a ' (4).")
   
   expect_equal(suppressMessages(wordcount(text=text2))$word[1:2], c("a", "and"),
                info = "Fel: Orden är inte sorterade i boksavsordning.")

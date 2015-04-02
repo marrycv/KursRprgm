@@ -80,8 +80,8 @@ Miniprojekt: Programmering i R
 Som en del av kursen i R programmering ska en analys av befintliga data
  göras med Rmarkdown genomföras.
  Miniprojektet är uppdelat i två delar.
- Den första delen handlar om att läsa in data från externa datakällor och
- beskriva dessa data.
+ Den första delen handlar om att läsa in och bearbeta data från externa
+ datakällor och beskriva dessa data.
 \end_layout
 
 \begin_layout Standard
@@ -150,7 +150,7 @@ gruppnummer
 \end_layout
 
 \begin_layout Section
-Deskriptiva data
+Deskriptiv analys
 \end_layout
 
 \begin_layout Standard
@@ -159,7 +159,7 @@ Den första delen av miniprojektet är att samla in datamaterial och beskriva
 \end_layout
 
 \begin_layout Standard
-Till den miniprojektet behöver ni 
+Till den miniprojektet behöver ni totalt 
 \series bold
 tre
 \series default
@@ -243,6 +243,10 @@ Ni ska minst ha ett histogram eller barplot per variabel i kommunamaterialet
 
 \begin_layout Enumerate
 En tidsseriegraf/linjediagram för tidseriematerialet
+\end_layout
+
+\begin_layout Enumerate
+En tabell
 \end_layout
 
 \begin_layout Standard
@@ -384,12 +388,12 @@ Följande saker ska ni göra med data:
 \end_layout
 
 \begin_layout Enumerate
-Ta fram minst en scatterplot mellan två variabler.
+Producera minst en scatterplot mellan två variabler.
 \end_layout
 
 \begin_layout Enumerate
-Ta fram minst en scatterplot/histogram/stapeldiagram som är grupperat på
- en annan variabel i minst två grupper.
+Producera minst en scatterplot/histogram/stapeldiagram som är grupperat
+ på en annan variabel i minst två grupper.
 \end_layout
 
 \begin_layout Enumerate

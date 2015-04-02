@@ -3729,11 +3729,12 @@ ofta
 \begin_layout Itemize
 Minsta tid mellan blodgivningstillfällen: kvinnor 4 månader, män 3 månader,
  båda anger relativ tid.
+ Efter exakt denna tid kan personen ge blod.
 \end_layout
 
 \begin_layout Itemize
-Om personen varit i ett land där det inte finns malaria ska den vänta 4
- veckor (relativ tid) efter slutdatum i argumentet 
+Om personen varit i ett land där det inte finns malaria ska den vänta (vara
+ i karantän) 4 veckor (relativ tid) efter slutdatum i argumentet 
 \family typewriter
 holiday
 \family default
@@ -3741,12 +3742,17 @@ holiday
 \end_layout
 
 \begin_layout Itemize
-Om personen varit i ett land där det finns malaria ska den vänta 6 månader
- (relativ tid) efter slutdatum i argumentet 
+Om personen varit i ett land där det finns malaria ska den vänta (vara i
+ karantän) 6 månader (relativ tid) efter slutdatum i argumentet 
 \family typewriter
 holiday
 \family default
  innan den får ge blod.
+\end_layout
+
+\begin_layout Itemize
+När det gäller karantänen får personen inte ge blod under karantänen utan
+ det är förste dagen efter karantänen personen får ge blod.
 \end_layout
 
 \begin_layout Itemize
@@ -4009,7 +4015,7 @@ day5<-ymd("2014-05-23")
 
 \begin_layout Plain Layout
 
-holiday2<-new_interval(day4,day5)
+holiday2<-new_interval(day4, day5)
 \end_layout
 
 \begin_layout Plain Layout

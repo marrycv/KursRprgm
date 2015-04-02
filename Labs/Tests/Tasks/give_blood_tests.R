@@ -45,12 +45,18 @@ test_that("Assignment: give_blood()", {
          type_of_travel = "other")
   )
   
-  test_results <- c("year=2014 month=Jun day=24 weekday=Tuesday",
+  test_results_eng <- c("year=2014 month=Jun day=24 weekday=Tuesday",
                     "year=2014 month=May day=26 weekday=Monday",
                     "year=2014 month=Oct day=27 weekday=Monday",
                     "year=2014 month=Oct day=27 weekday=Monday",
                     "year=2014 month=Jun day=24 weekday=Tuesday",
                     "year=2014 month=Jun day=23 weekday=Monday")
+  test_results_swe <- c("year=2014 month=Jun day=24 weekday=Tisdag",
+                    "year=2014 month=May day=26 weekday=M\u00E5ndag",
+                    "year=2014 month=Oct day=27 weekday=M\u00E5ndag",
+                    "year=2014 month=Oct day=27 weekday=M\u00E5ndag",
+                    "year=2014 month=Jun day=24 weekday=Tisdag",
+                    "year=2014 month=Jun day=23 weekday=M\u00E5ndag")
     
   # övergripande om funktionen:
   expect_that(exists("give_blood"), is_true(),
@@ -66,7 +72,7 @@ test_that("Assignment: give_blood()", {
   
   # testfall: i <-1
   for(i in seq_along(test_list)){ 
-    expect_that(tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results[i]), is_true(),
+    expect_that(tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results_swe[i]) | tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results_eng[i]), is_true(),
                 info = error_info(parameters=test_list[[i]],funcName="give_blood"))
   } 
 })

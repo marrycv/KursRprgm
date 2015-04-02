@@ -34,24 +34,17 @@ test_that("Assignment: wordcount()", {
   expect_is(suppressMessages(wordcount(text=text1))$freq, "integer",
             info = "Fel: Variabeln freq ska vara en integervektor.")
   
-  expect_true(all(suppressMessages(wordcount(text=text1))$word %in% c("a", "aa", "b", "bb", "c", "cc", "d")),
-              info = "Fel: Funktionen plockar ut fel ord.")
-  
-  expect_equal(suppressMessages(wordcount(text=text1))$word[1:3], c("a", "aa", "b"),
-               info = "Fel: Orden är inte sorterade i boksavsordning.")
-  
-  expect_true(all(suppressMessages(wordcount(text=text1))$freq %in% c(9,1,5,3,3,5,4)),
-               info = "Fel: Funktionen beräknar fel frekvenser.")
+  expect_equal(suppressMessages(wordcount(text=text1))$word[3:5], c("b", "bb", "c"),
+              info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+  expect_equal(suppressMessages(wordcount(text=text1))$freq[3:5], c(5, 3, 3),
+               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
   expect_message(wordcount(text=text1), "The most common word is 'a' and it occured 9 times.",
                  info = "Fel: Funktionen returnerar fel meddelande.")
 
-  expect_true(suppressMessages(wordcount(text="a, a a,a "))$freq == 4,
-              info = "Fel: Funktionen beräknar fel frekvens för 'a, a a,a ' (4).")
-  
-  expect_equal(suppressMessages(wordcount(text=text2))$word[1:2], c("a", "and"),
-               info = "Fel: Orden är inte sorterade i boksavsordning.")
+  expect_equal(suppressMessages(wordcount(text=text2))$word[3:5], c("approached", "as", "black"),
+               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
   expect_equal(suppressMessages(wordcount(text=text2))$freq[20:25], c(3, 1, 1, 2, 2, 1),
-               info = "Fel: Fel frekvenser eller ej sorterade ord.")
+               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
   expect_message(wordcount(text=text2), "The most common word is 'the' and it occured 8 times.",
                  info = "Fel: Funktionen returnerar fel meddelande.")
 

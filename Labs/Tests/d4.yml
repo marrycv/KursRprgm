@@ -21,6 +21,9 @@ tasks:
   pnr_age:
     url: 
       - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_age_tests.R
+  pnr_info:
+    url: 
+      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/pnr_info_tests.R
   my_gauss_elimination:
     url: 
       - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_gauss_elimination_tests.R

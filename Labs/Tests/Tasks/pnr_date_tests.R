@@ -11,6 +11,8 @@ test_that("Kontroll av pnr_date.", {
                         "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(pnr_date)) %in% c("date")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  expect_that(is.symbol(formals(pnr_date)$date), condition=is_false(),
+              info = "Fel: Argumentet 'date' saknar default value.")
   expect_that(is.character(pnr_date(as.character(Sys.Date()))), condition=is_true(),
               info = "Fel: Funktionen returnerar inte ett textelement.")
   expect_equal(pnr_date(date="2012-01-23"), "2012-01-23",

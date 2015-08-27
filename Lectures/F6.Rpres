@@ -33,7 +33,7 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 6: Paket, datum och statistik
+## Föreläsning 6: Basgrafik, knitr, markdown och externa data
 ### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 
 Avdelningen för statistik,
@@ -42,13 +42,31 @@ Linköpings universitet
 
 Föreläsning 6: Innehåll 
 ========================================================
+- Föregående laborationer
 - Basgrafik
 - knitr och markdown
 - Externa data och pxweb
 
+Laboration D4
+========================================================
+- ```my_gaussian_elemination()```
+- Svenska tecken i laborationerna
+- Extra inlämning i samband med D5
+- Inlämning i par fr. D5 - glöm inte namn för **båda**
+- I fas med linjär algebra? - Skjuta på uppgiften ```my_ols()``` m.fl.
+
+Laboration D5
 ========================================================
 
+## goo.gl/z3IvEr
+
+Miniprojektet
 ========================================================
+- Hitta data på webben (eller lägg upp eget)
+  - Kommunala (tvärsnitt) data
+  - Tidsseriedata
+- Presentera med basgrafik, knitr och markdown
+- Ska kunna vara reproducerbart av mig
 
 
 Basgrafik
@@ -233,3 +251,4 @@ mitt_data <- interactive_pxweb(api = "scb", language = "sv")
 
 Demo: pxweb
 ========================================================
+type: section

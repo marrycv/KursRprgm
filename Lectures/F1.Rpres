@@ -33,7 +33,7 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 1: Introduktion
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzen](mailto:josef.wilzen@liu.se)
 Avdelningen för statistik, 
 Linköpings universitet
 
@@ -144,8 +144,10 @@ Kurslitteratur II: Extramaterial
 - Google Developers (GD) videomaterial [[här]](http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w)
 - Roger Pengs föreläsningar (RP) [[här]](http://www.youtube.com/user/rdpeng/videos)
 
-## R Reference card v.2
+## Reference cards:
 Ett par sidor med viktiga funktioner i R. [[ladda ned]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
+Hjälp till RStudio [[ladda ned]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+
 
 Examination
 ========================================================
@@ -163,7 +165,7 @@ Datorlaborationer
 - ```markmyassignment```
 - Filer på kurshemsidan
 - 100 % rätt för godkänt
-- Samordning med linjär algebra
+- Vissa labbuppgifter är inspirerade av linjär algebra
 
 markmyassignment
 ========================================================

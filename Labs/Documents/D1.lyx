@@ -28,7 +28,7 @@
 knitr
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language swedish
 \language_package auto
 \inputencoding auto
 \fontencoding default
@@ -83,7 +83,7 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language swedish
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -6782,7 +6782,7 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d1.yml"
+"https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d1.yml"
 \end_layout
 
 \begin_layout Plain Layout

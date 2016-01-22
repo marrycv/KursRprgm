@@ -108,15 +108,23 @@ markmyassignment
 
 \begin_layout Standard
 Som ett komplement för att snabbt kunna få återkoppling på de olika arbetsuppgif
-terna finns paketet markmyassignment.
+terna finns paketet 
+\family typewriter
+markmyassignment
+\family default
+.
  Med detta är det möjligt att direkt få återkoppling på uppgifterna i laboration
 en, oavsett dator.
  Dock krävs internetanalsutning.
 \end_layout
 
 \begin_layout Standard
-För att installera markmyassignment krävs paketet devtools (som därför först
- måste installeras):
+För att installera markmyassignment körs koden nedan.
+ Om du sitter i PC-pularna så 
+\family typewriter
+markmyassignment
+\family default
+ redan installerat och du kan gå till nästa steg.
 \end_layout
 
 \begin_layout Standard
@@ -130,12 +138,7 @@ status open
 
 \begin_layout Plain Layout
 
-install.packages("devtools")
-\end_layout
-
-\begin_layout Plain Layout
-
-devtools::install_github("MansMeg/markmyassignment")
+install.packages("markmyassignment")
 \end_layout
 
 \begin_layout Plain Layout
@@ -149,8 +152,12 @@ devtools::install_github("MansMeg/markmyassignment")
 \end_layout
 
 \begin_layout Standard
-För att automatiskt återkoppla en laboration behöver du först ange vilken
- laboration det rör sig om på följande sätt:
+För att automatiskt återkoppla en laboration behöver du först läsa in 
+\family typewriter
+markmyassignment
+\family default
+ i den aktuella sessionen och ange vilken laboration det rör sig om på följande
+ sätt:
 \end_layout
 
 \begin_layout Standard

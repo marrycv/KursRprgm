@@ -140,5 +140,106 @@ target "https://htmlpreview.github.io/?https://github.com/MansMeg/markmyassignme
 .
 \end_layout
 
+\begin_layout Standard
+Samma information finns också i R och går att läsa genom att först installera
+ 
+\family typewriter
+markmyassignment
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("markmyassignment")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Därefter går det att läsa information om hur du använder 
+\family typewriter
+markmyassignment
+\family default
+ med följande kommando i R:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+vignette("markmyassignment")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Till sist går det att komma åt hjälpfilerna och dokumentationen i 
+\family typewriter
+markmyassignment
+\family default
+ på följande sätt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+help(package="markmyassignment")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lycka till!
+\end_layout
+
 \end_body
 \end_document

@@ -6270,7 +6270,7 @@ nyFun <- function(){
 
 \begin_layout Enumerate
 För att anropa en funktion måste vi använda paranteser.
- Använder vi inte paranteser så studer vi hur funktionen ser ut.
+ Använder vi inte paranteser så studerar vi hur funktionen ser ut.
 \begin_inset Newline newline
 \end_inset
 

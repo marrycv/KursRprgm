@@ -28,7 +28,7 @@
 knitr
 \end_modules
 \maintain_unincluded_children false
-\language swedish
+\language english
 \language_package auto
 \inputencoding auto
 \fontencoding default
@@ -83,7 +83,7 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default

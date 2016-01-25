@@ -119,12 +119,34 @@ en, oavsett dator.
 \end_layout
 
 \begin_layout Standard
-För att installera markmyassignment körs koden nedan.
- Om du sitter i PC-pularna så 
+Information om hur du installerar och använder 
 \family typewriter
 markmyassignment
 \family default
- redan installerat och du kan gå till nästa steg.
+ för att få direkt återkoppling på dina laborationer finns att tillgå 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://htmlpreview.github.io/?https://github.com/MansMeg/markmyassignment/blob/master/vignettes/markmyassignment.html"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+Samma information finns också i R och går att läsa genom att först installera
+ 
+\family typewriter
+markmyassignment
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -133,7 +155,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -152,12 +174,11 @@ install.packages("markmyassignment")
 \end_layout
 
 \begin_layout Standard
-För att automatiskt återkoppla en laboration behöver du först läsa in 
+Därefter går det att läsa information om hur du använder 
 \family typewriter
 markmyassignment
 \family default
- i den aktuella sessionen och ange vilken laboration det rör sig om på följande
- sätt:
+ med följande kommando i R:
 \end_layout
 
 \begin_layout Standard
@@ -166,17 +187,12 @@ status open
 
 \begin_layout Plain Layout
 
-<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-library(markmyassignment)
-\end_layout
-
-\begin_layout Plain Layout
-
-set_assignment("[assignment path]")
+vignette("markmyassignment")
 \end_layout
 
 \begin_layout Plain Layout
@@ -190,18 +206,9 @@ set_assignment("[assignment path]")
 \end_layout
 
 \begin_layout Standard
-där
+Till sist går det att komma åt hjälpfilerna och dokumentationen i 
 \family typewriter
- [assignment path]
-\family default
- är en adress du får av läraren till varje laboration.
-\end_layout
-
-\begin_layout Standard
-För att se vilka uppgifter som finns i laborationen kan du använda funktionen
- 
-\family typewriter
-show_tasks()
+markmyassignment
 \family default
  på följande sätt:
 \end_layout
@@ -212,45 +219,12 @@ status open
 
 \begin_layout Plain Layout
 
-<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-show_tasks()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-För att få återkoppling på en uppgift använder du funktionenen 
-\family typewriter
-mark_my_assignment()
-\family default
-.
- För att rätta samtiga uppgifter i en laboration gör du på följande sätt:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-mark_my_assignment()
+help(package="markmyassignment")
 \end_layout
 
 \begin_layout Plain Layout
@@ -264,91 +238,7 @@ mark_my_assignment()
 \end_layout
 
 \begin_layout Standard
-Tänk på att uppgifterna som ska kontrolleras måste finnas som funktioner
- i R:s globala miljö.
- Du kan också kontrollera en eller flera enskilda uppgifter på följande
- sätt:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-mark_my_assignment(tasks="foo")
-\end_layout
-
-\begin_layout Plain Layout
-
-mark_my_assignment(tasks=c("foo", "bar"))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Det går också att rätta en hel R-fil med samtliga laborationer.
- Detta är bra att göra innan du lämnar in din laboration.
- För att rätta en hel fil gör du på följande sätt:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<prompt=TRUE,eval=FALSE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-mark_my_assignment(mark_file = "[my search path to file]")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-där 
-\family typewriter
-[my search path to file]
-\family default
- är sökvägen till din fil.
- 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Obs!
-\series default
- När hela filer kontrolleras måste den globala miljön vara tom.
- Använd 
-\family typewriter
-rm(list=ls())
-\family default
- för att rensa den globala miljön.
+Lycka till!
 \end_layout
 
 \end_body

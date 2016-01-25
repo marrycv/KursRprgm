@@ -146,12 +146,12 @@ Kurslitteratur II: Extramaterial
 
 ## Reference cards:
 Ett par sidor med viktiga funktioner i R. [[ladda ned]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
-Hjälp till RStudio [[ladda ned]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) Det kommer flera reference cards under kursens g�ng.
+Hjälp till RStudio [[ladda ned]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) Det kommer flera reference cards under kursens gång.
 
 
 Examination
 ========================================================
-- Datalabbar
+- Datalabbar, 8 st
 - Datortentamen i datasal
   + *Hjälpmedel:* R reference card v.2 (digitalt)
 
@@ -161,18 +161,29 @@ Datorlaborationer
 - Är ~~obligatoriska~~.
 - ~ 15 h arbete
 - Laborationsmall finns på hemsidan
-- Labbarna lämnas in via LISAM och autorättas
+- Labbarna lämnas in via [LISAM](http://lisam.liu.se/) och autorättas
 - ```markmyassignment```
 - Filer på kurshemsidan
 - 100 % rätt för godkänt
 - Vissa labbuppgifter är inspirerade av linjär algebra
+
+Datorlaborationer
+========================================================
+- Registrera er på kursen för att få tillgång till kursrummet på LISAM
+- Arbetstakt:
+  - Kursen går på halvfart ~ 20 h/vecka, varav ca 15 till labbar
+  - Mjuk deadline: söndag kväll varje vecka
+  - Hård deadline: tisdag kl 18 veckan efter labben, dvs 2 feb för labb 1.
+- Kompletteringar:
+  - Labb 1-4: komplettering starx efter halva kursen
+  - Komplettering innan tenta och omtentor
+  - Komplettering starx efter kursen
 
 markmyassignment
 ========================================================
 
 - Paket för direkt återkoppling på labbar
 - Underlätta lärandet
-- Utvecklats till årets kursomgång
 - **Kom gärna med synpunkter!**
 
 ```{r, eval=FALSE}

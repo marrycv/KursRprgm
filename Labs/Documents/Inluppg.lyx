@@ -2,7 +2,7 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass report
 \use_default_options true
 \begin_modules
 knitr
@@ -130,7 +130,7 @@ markmyassignment
 \begin_inset CommandInset href
 LatexCommand href
 name "här"
-target "https://htmlpreview.github.io/?https://github.com/MansMeg/markmyassignment/blob/master/vignettes/markmyassignment.html"
+target "https://cran.r-project.org/web/packages/markmyassignment/vignettes/markmyassignment.html"
 
 \end_inset
 
@@ -174,6 +174,73 @@ install.packages("markmyassignment")
 \end_layout
 
 \begin_layout Standard
+Om du ska installera ett paket i PC-pularana så behöver du ange följande:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("markmyassignment",lib="sökväg till en mapp i din hemkatalog")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tänk på att i sökvägar till mappar/filer i R i Windowssystem så används
+ 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\backslash
+
+\backslash
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+, tex 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Josef
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 Därefter går det att läsa information om hur du använder 
 \family typewriter
 markmyassignment
@@ -206,7 +273,22 @@ vignette("markmyassignment")
 \end_layout
 
 \begin_layout Standard
-Till sist går det att komma åt hjälpfilerna och dokumentationen i 
+Det går även att komma åt vignetten 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://cran.r-project.org/web/packages/markmyassignment/vignettes/markmyassignment.html"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ Till sist går det att komma åt hjälpfilerna och dokumentationen i 
 \family typewriter
 markmyassignment
 \family default

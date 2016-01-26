@@ -2,7 +2,7 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass report
 \use_default_options true
 \maintain_unincluded_children false
 \language swedish
@@ -108,18 +108,23 @@ inte tillåtet
 \end_layout
 
 \begin_layout Itemize
-Utgå från laborationsfilen som går att ladda ned 
+Utgå från laborationsfilen, som går att ladda ned 
 \series bold
 \color blue
 
 \begin_inset CommandInset href
 LatexCommand href
 name "här"
-target "https://github.com/MansMeg/KursRprgm"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R"
 
 \end_inset
 
 
+\series default
+\color inherit
+, när du gör inlämningsuppgifterna.
+ Spara denna som labb[no]_[liuID].R , tex labb1_josad732.R om det är labb
+ 1.
 \end_layout
 
 \begin_layout Itemize
@@ -148,8 +153,8 @@ Deadline för labben framgår på
 
 \begin_inset CommandInset href
 LatexCommand href
-name "kurshemsidan"
-target "http://www.ida.liu.se/~732G33/timetable/index.sv.shtml"
+name "LISAM"
+target "http://lisam.liu.se/"
 
 \end_inset
 

@@ -96,7 +96,7 @@ Denna laboration ska göras i grupper om
 två och två
 \series default
 .
- Det är viktigt för gruppindelningen att inte ändre grupper.
+ Det är viktigt för gruppindelningen att inte ändra grupper.
 \end_layout
 
 \begin_layout Itemize
@@ -130,7 +130,7 @@ Utgå från laborationsfilen som går att ladda ned
 \begin_inset CommandInset href
 LatexCommand href
 name "här"
-target "https://github.com/MansMeg/KursRprgm"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R"
 
 \end_inset
 

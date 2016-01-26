@@ -101,7 +101,7 @@ Datorlaboration 1
 \end_layout
 
 \begin_layout Author
-Måns Magnusson
+Josef Wilzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -6719,8 +6719,43 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
-k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+solution_path <- "C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
@@ -6740,6 +6775,10 @@ for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -6750,6 +6789,28 @@ for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
 
 \begin_layout Chapter
 Inlämningsuppgifter
+\end_layout
+
+\begin_layout Standard
+Ladda nu ner labbmallen, som finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R"
+
+\end_inset
+
+ 
+\series default
+\color inherit
+och spara namn och liuID i respektive variabel.
+ Spara filen som labb1_[ditt liuID].R Det är denna fil som du sedan lämnar
+ in på LISAM.
+ Tänk på filen endast ska innehålla de obligatoriska funktionerna nedan
+ och inget annat.
 \end_layout
 
 \begin_layout Standard
@@ -6773,6 +6834,16 @@ status open
 \begin_layout Plain Layout
 
 library(markmyassignment)
+\end_layout
+
+\begin_layout Plain Layout
+
+# eller 
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment,lib="sökväg till en mapp i din hemkatalog")
 \end_layout
 
 \begin_layout Plain Layout

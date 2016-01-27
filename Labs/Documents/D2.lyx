@@ -101,7 +101,7 @@ Datorlaboration 2
 \end_layout
 
 \begin_layout Author
-Måns Magnusson
+Josef Wilzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -4927,7 +4927,7 @@ Som en första steg ska vi pröva att importera csv-filer och txt-filer.
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
-target "https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/DataFiles/Apple.txt"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/Apple.txt"
 
 \end_inset
 
@@ -4946,7 +4946,7 @@ google.csv
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
-target "https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/DataFiles/google.csv"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/google.csv"
 
 \end_inset
 
@@ -5386,12 +5386,84 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
-k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+#solution_path <- "C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
 
+solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
@@ -5403,6 +5475,14 @@ solution_files <- dir(solution_path)
 
 for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
  echo = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -5449,7 +5529,7 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d2.yml"
+"https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d2.yml"
 \end_layout
 
 \begin_layout Plain Layout
@@ -5792,7 +5872,7 @@ datum
 \end_layout
 
 \begin_layout Standard
-Exempel på hur du kan implementera funktionen:
+Så här ska funktionen implementeras:
 \end_layout
 
 \begin_layout Enumerate
@@ -5923,7 +6003,48 @@ status open
 
 \begin_layout Plain Layout
 
-appleFilePath <- "C:/minRkurs/filer/AppleTest.csv"
+apple_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+				KursRprgm
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+DataFiles
+\backslash
+
+\backslash
+AppleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout
@@ -5947,7 +6068,59 @@ status open
 
 \begin_layout Plain Layout
 
-appleFilePath <- tempfile(pattern="AppleCSV",fileext=".csv")
+#old solution:
+\end_layout
+
+\begin_layout Plain Layout
+
+#appleFilePath <- "C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgm
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+DataFiles
+\backslash
+
+\backslash
+"
+\end_layout
+
+\begin_layout Plain Layout
+
+#appleFilePath <- tempfile(pattern="AppleCSV",fileext=".csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+#download.file("https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Dat
+aFiles/AppleTest.csv", destfile = appleFilePath, method = "curl") 
 \end_layout
 
 \begin_layout Plain Layout
@@ -5956,8 +6129,54 @@ appleFilePath <- tempfile(pattern="AppleCSV",fileext=".csv")
 
 \begin_layout Plain Layout
 
-download.file("https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Data
-Files/AppleTest.csv", destfile = appleFilePath, method = "curl") 
+#library(repmis) data_url <- "https://raw.githubusercontent.com/STIMALiU/KursRprgm
+/master/Labs/DataFiles/Apple.txt" 
+\end_layout
+
+\begin_layout Plain Layout
+
+#apple <- repmis::source_data(data_url, sep = ";", dec = ".", header = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+appleFilePath<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgm
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+DataFiles
+\backslash
+
+\backslash
+AppleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout

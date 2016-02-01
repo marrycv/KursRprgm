@@ -5435,7 +5435,7 @@ Users
 \backslash
 
 \backslash
-Florence
+joswi05
 \backslash
 
 \backslash
@@ -5876,6 +5876,10 @@ Så här ska funktionen implementeras:
 \end_layout
 
 \begin_layout Enumerate
+Skriv först en funktion som ska läsa in data
+\end_layout
+
+\begin_layout Enumerate
 Läs in data (csv) med argumentet 
 \family typewriter
 file_path
@@ -6011,7 +6015,7 @@ Users
 \backslash
 
 \backslash
-Florence
+joswi05
 \backslash
 
 \backslash
@@ -6032,7 +6036,7 @@ Josef
 
 \begin_layout Plain Layout
 
-				KursRprgm
+KursRprgm
 \backslash
 
 \backslash
@@ -6140,7 +6144,7 @@ aFiles/AppleTest.csv", destfile = appleFilePath, method = "curl")
 
 \begin_layout Plain Layout
 
-appleFilePath<-"C:
+apple_path<-"C:
 \backslash
 
 \backslash
@@ -6148,7 +6152,7 @@ Users
 \backslash
 
 \backslash
-Florence
+joswi05
 \backslash
 
 \backslash
@@ -6200,7 +6204,7 @@ status open
 
 \begin_layout Plain Layout
 
-myList1 <- fast_stock_analysis(file_path = appleFilePath, period_length=5)
+myList1 <- fast_stock_analysis(file_path = apple_path, period_length=5)
   
 \end_layout
 
@@ -6211,7 +6215,7 @@ str(myList1)
 
 \begin_layout Plain Layout
 
-myList2 <- fast_stock_analysis(file_path = appleFilePath, period_length=10)
+myList2 <- fast_stock_analysis(file_path = apple_path, period_length=10)
 \end_layout
 
 \begin_layout Plain Layout

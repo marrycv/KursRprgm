@@ -33,13 +33,13 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 3: Programkontroll
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 Avdelningen för statistik, 
 Linköpings universitet
 
 Föreläsning 3: Innehåll 
 ========================================================
-- Uppföljning av labb D1 och D2
+- Uppföljning av labb D2
 - Programkontroll
 - Villkorssatser
 - Loopar (for - loop)
@@ -47,6 +47,7 @@ Föreläsning 3: Innehåll
 - Villkorsstyrda loopar (while - loop)
 - Funktionsmeddelanden
   message, warning, stop
+- Intro debugging
 
 
 Programkontroll
@@ -146,6 +147,15 @@ if ( prgm == "R" ) {
 }
 ```
 
+Villkorssatser
+========================================================
+Funktionen ```ifelse()``` är en vektoriserad variant av if-else. 
+
+Syntax:
+
+ - ```test=``` ett logiskt test
+ - ```yes=``` värden att returnera om test är sann
+ - ```no=``` värden att returnera om test är falsk
 
 Demo: Villkorssatser
 ========================================================
@@ -316,7 +326,12 @@ while ( i < 5 ) {
 }
 ```
 
-Varningsmeddelanden
+Demo: villkorsstyrda loopar
+========================================================
+type: sub-section
+
+
+Varningsmeddelanden och Debugging
 ========================================================
 type: section
 
@@ -337,7 +352,28 @@ for (i in 1:2){
 cat("[1] 1\n[1] 2\nWarning messages:\n1: Farligt värre 1 \n2: Farligt värre 2 ")
 ```
 
-
-Demo: villkorsstyrda loopar
+Debugging
 ========================================================
-type: sub-section
+Det uppstår ofta [fel](https://en.wikipedia.org/wiki/Software_bug) vid programmering! 
+Debugging handlar om att hitta orsaken till att en kod/funktion in fungerar som det var tänkt.
+Olika typer av fel:
+- Syntaktiska fel: Felaktig syntax är angiven i koden (ofta stavfel)
+- Semantiska fel: Olämplig använding av objekt/funktioner, tex ```x<-0```, ```y<-3```, ```y/x```. 
+- Logiska fel: Programmet löser inte det tänkte problemmet. Kan vara svåra att lösa.
+
+
+Debugging
+========================================================
+- Använd ```cat()```, ```print()``` eller ```message()``` för att skriva ut värden på olika variabler -> få en uppfattning av vad som händer i en funktion
+- ```browser()```: "hoopar in i funktionen på valt ställe"
+  - ```n```: kör nästa rad kod
+  - ```c```: kör allt i funktion/loop
+  - ```Q```: avsluta
+- ```debugg()```: "hoopar in i funktionen från början"
+
+Demo debugging
+========================================================
+
+
+
+

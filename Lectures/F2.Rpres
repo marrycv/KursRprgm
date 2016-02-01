@@ -32,8 +32,8 @@
 Programering i R
 ========================================================
 transition: rotate
-## Föreläsning 2: Logik, datatyper och I/O
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+## Föreläsning 2: Datastrukturer, databearbetning och I/O
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 Avdelningen för statistik, 
 Linköpings universitet
 
@@ -112,7 +112,7 @@ Matriser
 - Element av **samma** typ
 - Skapas med ```matrix()```
 - Vanliga operatorer sker elementvis
-- Matrisoperatorer finns
+- Matrisoperatorer finns, mer om det senare i kursen
 - Indexering med ```[ , ]```
 
 Matrisexempel
@@ -187,7 +187,7 @@ dim(iris)
 Variabler
 ========================================================
 - Är vektorer
-- Tre sätt att "välja" en variabel
+- Olika sätt att "välja" en variabel
 ```{r, eval=FALSE}
 iris$Species
 iris[, "Species"]
@@ -271,6 +271,8 @@ incremental: true
   - ```lista$list_element_namn```
   - ```[["list_element_namn"]]```
 
+Indexera listor
+========================================================
 ```{r}
 minLista <- list(Pelles="Pelle Karlsson", c(1,2,3,4))
 minLista[1]
@@ -291,10 +293,6 @@ Att studera datatyper i R
 | ```str()``` | ```str(a)``` | Visar kondenserat (en rad per objekt) alla delar i ett R-objekt | 
 | ```is.``` | ```is.logical(a)``` | Testar om objektet är en given klass. | 
 
-Demo: Listor
-========================================================
-type: section
-
 
 Grundläggande databearbetning
 ========================================================
@@ -310,6 +308,9 @@ Sammanfoga data
   + ```merge()```
 - Aggregera data används ```aggregate()```
 
+Demo: Matriser, data.frame, listor och databearbetning 
+========================================================
+type: section
 
 Input och output (I/O) i R
 ========================================================
@@ -317,18 +318,19 @@ type: section
 
 Input och output (I/O) i R
 ========================================================
-incremental: true
+#incremental: true
 
 - Olika sätt att läsa in data (input):
   - Från filer på datorn / nätverket (.csv, .xlsx, .txt, .Rdata)
   - Från filer på webben (```httr```)
   - Från databaser (med SQL)
-  - Via API:er (ex.  [```rOpenGov```](http://ropengov.github.io/))
-  
+  - Via [API](https://en.wikipedia.org/wiki/Application_programming_interface):er (ex.  [```rOpenGov```](http://ropengov.github.io/))
+
+Input och output (I/O) i R
+========================================================
 - Olika sätt att leverera (output):
   - Filer 
   - Databaser / API:er
-  - Webbsidor (ex. [New york times](http://www.nytimes.com/interactive/2012/10/31/nyregion/where-the-power-is-out-and-returning.html))
   - Interaktiva webbdatabaser (ex. [Shiny](http://shiny.rstudio.com/gallery/word-cloud.html))
   - Rapporter / analyser / texter ([knitr](http://yihui.name/knitr/))
 
@@ -362,11 +364,12 @@ För andra datakällor finns andra paket:
 
 | R-Paket | Filtyp |
 | --- | --- |  
-| ```XLConnect``` | Excel-filer (mer information finns [här](http://rwiki.sciviews.org/doku.php?id=tips%3adata-io%3ams_windows&s=excel)) |
+| ```XLConnect```, ```gdata``` | Excel-filer|
 | ```foreign``` | Filer från Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka |
 | ```RODBC```, ```RMySQL``` m.m.| Kontakta databaser från R |
 | ```XML``` | XML - data |
 | ```RJSONIO``` | JSON - data  |
+Länkar om att läsa in olika typer av data: [här](http://www.r-tutor.com/r-introduction/data-frame/data-import) och [här](http://www.r-bloggers.com/read-excel-files-from-r/)
 
 
 Demo: Filhantering, Input och Output (I/O) 

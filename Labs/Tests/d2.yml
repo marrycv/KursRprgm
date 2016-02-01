@@ -5,13 +5,13 @@ reporter : student
 tasks:
   leap_year:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/leap_year_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/leap_year_tests.R
   matrix_trace:
     url:
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/matrix_trace_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/matrix_trace_tests.R
   fast_stock_analysis:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/fast_stock_analysis_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/fast_stock_analysis_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R
+    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

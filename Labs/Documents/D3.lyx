@@ -101,7 +101,7 @@ Datorlaboration 3
 \end_layout
 
 \begin_layout Author
-Måns Magnusson
+Josef Wilzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -765,9 +765,10 @@ for
 \family typewriter
 i
 \family default
-) och en loop-vektor (
+) och en loop-vektor (t.ex.
+
 \family typewriter
-1:10
+ 1:10
 \family default
 ).
  I koden nedan är 
@@ -970,12 +971,12 @@ for(i in minVektor){
 
 \begin_layout Plain Layout
 
-for(ord in minaOrd){
+for(ord in minaOrd){   
 \end_layout
 
 \begin_layout Plain Layout
 
-	print(minaOrd[i])
+	print(ord)   
 \end_layout
 
 \begin_layout Plain Layout
@@ -1302,7 +1303,7 @@ B <- matrix(1:6,ncol=3)
 
 \begin_layout Plain Layout
 
-C <- matrix(0, ncol=3, nrow=3)
+C <- matrix(0, ncol=3, nrow=2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1362,7 +1363,7 @@ for (i in 1:2){
 
 .
  Testa med följande två matriser.
- Hur behöver du ändra matrisen för att det ska fungera?
+ Hur behöver du ändra koden för att det ska fungera?
 \begin_inset Newline newline
 \end_inset
 
@@ -1511,11 +1512,15 @@ I R-studio: trycka på stop-knappen i kanten på console - fönstret eller
 \begin_inset Quotes eld
 \end_inset
 
-Tools
+Session
 \begin_inset Quotes erd
 \end_inset
 
-->
+
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -2469,12 +2474,125 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
-k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+#solution_path <- "C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
 
+solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
+\end_layout
+
+\begin_layout Plain Layout
+
+#solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
@@ -2532,7 +2650,7 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d3.yml"
+"https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d3.yml"
 \end_layout
 
 \begin_layout Plain Layout
@@ -2570,7 +2688,15 @@ bodyHeight
 bodyWeight
 \family default
 .
- Funktionen ska beräkna BMI på följande sätt: 
+ Funktionen ska beräkna 
+\begin_inset CommandInset href
+LatexCommand href
+name "BMI"
+target "https://en.wikipedia.org/wiki/Body_mass_index"
+
+\end_inset
+
+ på följande sätt: 
 \begin_inset Formula 
 \[
 \texttt{bmi(body\_weight,body\_height)}=\frac{\texttt{body\_weight}}{\texttt{body\_height}^{2}}
@@ -2587,8 +2713,12 @@ body_height
 \family typewriter
 body_weight
 \family default
- är mindre eller lika med 0 ska funktionen varna att den aktuella variabeln
- är mindre eller lika med 0 och att resultatet inte är meningsfullt:
+ är mindre eller lika med 0 ska funktionen 
+\series bold
+varna
+\series default
+ att den aktuella variabeln är mindre eller lika med 0 och att resultatet
+ inte är meningsfullt:
 \end_layout
 
 \begin_layout Standard
@@ -2686,7 +2816,15 @@ my_matrix_prod()
 \end_layout
 
 \begin_layout Standard
-En central del inom den linjära algebran är matrismultiplikation, d.v.s.
+En central del inom den linjära algebran är 
+\begin_inset CommandInset href
+LatexCommand href
+name "matrismultiplikation"
+target "https://sv.wikipedia.org/wiki/Matris#Matrismultiplikation"
+
+\end_inset
+
+ , d.v.s.
  att multiplicera två matriser med varandra.
  Du ska nu skapa en funktion kallad myMatrixProd() med argumenten A och
  B som multiplicerar två matriser med varandra på följande sätt:

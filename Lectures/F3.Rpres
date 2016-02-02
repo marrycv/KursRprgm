@@ -359,7 +359,7 @@ Debugging handlar om att hitta orsaken till att en kod/funktion in fungerar som 
 Olika typer av fel:
 - Syntaktiska fel: Felaktig syntax är angiven i koden (ofta stavfel)
 - Semantiska fel: Olämplig använding av objekt/funktioner, tex ```x<-0```, ```y<-3```, ```y/x```. 
-- Logiska fel: Programmet löser inte det tänkte problemmet. Kan vara svåra att lösa.
+- Logiska fel: Programmet löser inte det tänkta problemmet. Kan vara svåra att lösa.
 
 
 Debugging

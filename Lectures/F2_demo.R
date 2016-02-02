@@ -8,7 +8,9 @@
 # -------------------------------------------------------------------------------------------
 # Matriser
 # -------------------------------------------------------------------------------------------
-A1<-matrix(c(1,42,323,11,434,54,34,23,2),3,3)
+A1<-matrix(data = c(1,42,323,11,434,54,34,23,2),nrow = 3,ncol = 3)
+matrix(data = c(1,42,323,11,434,54,34,23),nrow = 3,ncol = 3)
+matrix(data = c(1,42,323,11,434,54,34,23),nrow = 3,ncol = 3,byrow = TRUE)
 A1
 colnames(A1)
 colnames(A1)<-c("x","y","z")
@@ -21,8 +23,18 @@ A1[1,]
 A1[,1]
 A1[1,,drop=FALSE]
 A1[,1,drop=FALSE]
+a1<-A1[1,]
+a2<-A1[1,,drop=FALSE]
+dim(a2)
+is.vector(a1)
+is.matrix(a2)
 dim(A1)
 dim(A1[,1])
+
+x<-A1[,1]
+dim(x)
+dim(A1[,1])
+
 length(A1[,1])
 dim(A1[,1,drop=FALSE])
 
@@ -30,12 +42,14 @@ A2<-matrix(c("a","b","c","d","e","f","g","h"),4,2)
 A2
 typeof(A1)
 A1*2
+A1-7
 typeof(A2)
 A2*2
 
 A2[1:2,]
 A2[-2,]
 A2[-c(1,4),]
+A2[4,2]
 
 str(A1)
 str(A2)
@@ -45,13 +59,31 @@ is.list(A1)
 # -------------------------------------------------------------------------------------------
 # Data.frame
 # -------------------------------------------------------------------------------------------
+
+data()
 ?iris
 data(iris)
 head(iris)
+tail(iris)
 dim(iris)
+iris
 colnames(iris)
 iris$Species
 is.factor(iris$Species)
+x<-iris$Species
+table(x)
+table(iris$Species)
+
+y<-factor(c("a","a","c","d","d"))
+y
+levels(y)
+levels(y)[1]<-c("hej")
+y
+is.factor(y)
+is.character(y)
+z<-as.character(y)
+z
+
 typeof(iris$Species)
 typeof(iris$Sepal.Length)
 mean(iris$Sepal.Length)
@@ -99,7 +131,9 @@ x[[1]]
 y[[1]]
 y[[1:2]]
 
+
 x[[3]][4]
+x[[3]][4]<-4746
 x$c[4]
 y[3]<-NULL
 y
@@ -126,7 +160,7 @@ a
 b
 cbind(a,b)
 rbind(a,b)
-
+rbind(b,a)
 
 ?merge
 # från example(merge)

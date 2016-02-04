@@ -2437,6 +2437,760 @@ suppressWarnings(test_funktion(100))
 
 \end_layout
 
+\begin_layout Section
+Debugging
+\end_layout
+
+\begin_layout Standard
+Debugging handlar om att hitta och rätta fel i ens programmeringskod.
+ Det kan göras på en mängd olika sätt.
+\end_layout
+
+\begin_layout Enumerate
+Syntaktiska fel: Testa att kör koden nedan.
+ Vad händer? försök tolka felmeddelandet och rätta sedan koden.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f<-function(x,y){
+\end_layout
+
+\begin_layout Plain Layout
+
+	x2<-sin(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+	y2<-log(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+	z<-x2^(y2^2-3*y2
+\end_layout
+
+\begin_layout Plain Layout
+
+return(z)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Semantiska fel: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Testa att kör koden nedan.
+ Vad händer? Ger funktionen rätt respons?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f<-function(x,y){ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	x_mean<-mean(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+	x_mean2<-x_mean^2
+\end_layout
+
+\begin_layout Plain Layout
+
+	print(x_mean2)  
+\end_layout
+
+\begin_layout Plain Layout
+
+	y_mean<-mean(y)  
+\end_layout
+
+\begin_layout Plain Layout
+
+	y_mean2<-y_mean^2 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 	print(y_mean2)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-4:193 
+\end_layout
+
+\begin_layout Plain Layout
+
+y<-c("1","3","87","321","31") 
+\end_layout
+
+\begin_layout Plain Layout
+
+f(x = x,y = y)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Försök nu att lägga in test i funktionen som testar om 
+\family typewriter
+x
+\family default
+ och 
+\family typewriter
+y
+\family default
+ är numeriska innan medelvärdet beräknas.
+ Om de inte är numeriska skriv ut 
+\family typewriter
+
+\begin_inset Quotes sld
+\end_inset
+
+not numeric
+\begin_inset Quotes srd
+\end_inset
+
+
+\family default
+ till skärmen.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Logiska fel: Testa att kör koden nedan.
+ Vad händer? Ger funktionen rätt respons? Försök att rätta funktionen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# my_col_stats: a function for calculating stats for a specified column
+ in a dataset 
+\end_layout
+
+\begin_layout Plain Layout
+
+# my_data - a data.frame  
+\end_layout
+
+\begin_layout Plain Layout
+
+# index - the column of intrest 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+my_col_stats<-function(my_data,index){
+\end_layout
+
+\begin_layout Plain Layout
+
+	x<-my_data[,1]  
+\end_layout
+
+\begin_layout Plain Layout
+
+	return(list(mean=mean(x),meadian=median(x),sd=sd(x)))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+data("iris") 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_col_stats(my_data = iris,index = 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_col_stats(my_data = iris,index = 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_col_stats(my_data = iris,index = 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_col_stats(my_data = iris,index = 4)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+browser()
+\family default
+ och 
+\family typewriter
+debug()
+\family default
+: Kör koden nedan.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+h<-function(x){
+\end_layout
+
+\begin_layout Plain Layout
+
+	x_sum<-sum(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+	x_mean<-mean(x)   
+\end_layout
+
+\begin_layout Plain Layout
+
+	x2<-x^2
+\end_layout
+
+\begin_layout Plain Layout
+
+	z<-5
+\end_layout
+
+\begin_layout Plain Layout
+
+	y<-exp(x2)-z
+\end_layout
+
+\begin_layout Plain Layout
+
+	return(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+debug(h)
+\end_layout
+
+\begin_layout Plain Layout
+
+a<-matrix(1:4,2,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+h(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+undebug(h)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Använd 
+\family typewriter
+debug
+\family default
+ för att stega igenom funktionen.
+ Använd följande komandon för att navigera i debugg-mode: 
+\family typewriter
+n
+\family default
+ ,
+\family typewriter
+c
+\family default
+ och 
+\family typewriter
+Q
+\family default
+.
+ Kolla kontinuerligt i enviroment-filken i RStudio och se hur de lokala
+ variablerna ändras.
+ I debugg-mode kan vanliga R-funktioner anropas.
+ Testa att köra 
+\family typewriter
+print(x)
+\family default
+, 
+\family typewriter
+sin(x) 
+\family default
+och 
+\family typewriter
+x^5
+\family default
+ i debugg-mode.
+\end_layout
+
+\begin_layout Enumerate
+Testa nu att sätta in 
+\family typewriter
+browser() 
+\family default
+innan raden med 
+\family typewriter
+x2<-x^2
+\family default
+ , läs den uppdaterade funktionen och anropa 
+\family typewriter
+h(a)
+\family default
+.
+ Vad blir skilnaden jämfört med 
+\family typewriter
+debug()
+\family default
+? 
+\end_layout
+
+\begin_layout Enumerate
+Testa att istället sätta in
+\family typewriter
+ if(!is.numeric(x)) browser()
+\family default
+ innan raden med
+\family typewriter
+ x_sum<-sum(x)
+\family default
+.
+ Testa nu med 
+\family typewriter
+h(a)
+\family default
+ och 
+\family typewriter
+h(
+\begin_inset Quotes sld
+\end_inset
+
+hej
+\begin_inset Quotes srd
+\end_inset
+
+)
+\family default
+.
+ Vad blir skilnaden från föregående uppgift?
+\end_layout
+
+\begin_layout Enumerate
+När det är bättre att använda 
+\family typewriter
+browser()
+\family default
+ jämfört med 
+\family typewriter
+debug()
+\family default
+? Diskutera med någon!
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Stina vill skriva en funktion som kollar om ett värde 
+\family typewriter
+a
+\family default
+ (en skalär) finns som element i en vektor 
+\family typewriter
+b
+\family default
+.
+ Hon skrev då funktionen 
+\family typewriter
+isIn
+\family default
+ nedan.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+isIn <- function(a, b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	j <- 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (j <= length(b)) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(a == b[j]) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			out <- TRUE} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		else { 
+\end_layout
+
+\begin_layout Plain Layout
+
+			out <- FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\end_layout
+
+\begin_layout Plain Layout
+
+		j <- j + 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	return(out)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Testa isIn med anropen 
+\family typewriter
+isIn(3,1:3)
+\family default
+ och 
+\family typewriter
+isIn(3,1:5)
+\family default
+.
+ Gör funktonen det den ska?
+\end_layout
+
+\begin_layout Enumerate
+Placera 
+\family typewriter
+browser()
+\family default
+ på lämpligt ställe i koden.
+ Undersök vad som händer i loopen.
+ Du kan även testa andra debuggingfunktioner.
+ Tips 
+\family typewriter
+?debug
+\end_layout
+
+\begin_layout Enumerate
+Ta bort buggen med minimal förändring av koden.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Stina vill nu utöka sin funktion så att 
+\family typewriter
+a
+\family default
+ kan vara en vekor, för att kunna kolla vilka element i 
+\family typewriter
+a
+\family default
+ som finns i 
+\family typewriter
+b
+\family default
+.
+ Hon ändrade då 
+\family typewriter
+isIn
+\family default
+ till:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+isIn <- function(a, b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	out <- rep(NA, length(a)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	j <- 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(j <= length(b)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	j <- j + 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+		for ( i in 1:length(a)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			out[i] <- (a[i] == b[j])
+\end_layout
+
+\begin_layout Plain Layout
+
+		} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	return(out)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Testa 
+\family typewriter
+isIn
+\family default
+ med 
+\family typewriter
+a<-1:5
+\family default
+ och 
+\family typewriter
+b<-3:9
+\family default
+.
+ Funkar funktionen som den ska?
+\end_layout
+
+\begin_layout Enumerate
+Placera 
+\family typewriter
+browser()
+\family default
+ på lämpligt ställe i koden.
+ Undersök vad som händer i looparna.
+ Du kan även testa andra debuggingfunktioner.
+ Tips 
+\family typewriter
+?debug
+\end_layout
+
+\begin_layout Enumerate
+Ta bort buggen med minimal förändring av koden.
+\end_layout
+
+\begin_layout Enumerate
+Jämför med 
+\family typewriter
+%in%
+\family default
+ om 
+\family typewriter
+isIn
+\family default
+ fungerar som den ska.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -2515,7 +3269,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -2556,7 +3310,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-#solution_path<-"C:
+solution_path<-"C:
 \backslash
 
 \backslash

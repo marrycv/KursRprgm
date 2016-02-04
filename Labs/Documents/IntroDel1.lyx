@@ -108,7 +108,7 @@ inte tillåtet
 \end_layout
 
 \begin_layout Itemize
-Deadline för labben framgår på 
+Deadline för labben framgår på 
 \series bold
 \color blue
 
@@ -157,20 +157,21 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \series default
 \color inherit
 , när du gör inlämningsuppgifterna.
- Spara denna som labb[no]_[liuID].R , tex labb1_josad732.R om det är labb
- 1.
- Ta inte med hakparenterser i filnamnet.
+ Spara denna som labb[no]_[liuID].R , t.ex.
+ labb1_josad732.R om det är labb 1.
+ Ta inte med hakparenteser i filnamnet.
  Denna fil ska laddas upp på LISAM och ska 
 \series bold
 inte
 \series default
  innehålla något annat än de aktuella funktionerna, namn- och ID-variabler
- och ev kommentarer.
+ och ev.
+ kommentarer.
  Alltså 
 \series bold
 inga
 \series default
- andra variabler, funktionsanrop för att testa inläminngsuppgifterna eller
+ andra variabler, funktionsanrop för att testa inlämningsuppgifterna eller
  anrop till markmyassignment-funktioner.
 \end_layout
 

@@ -6719,7 +6719,7 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path <- "C:
+#solution_path <- "C:
 \backslash
 
 \backslash
@@ -6760,6 +6760,43 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
+solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout

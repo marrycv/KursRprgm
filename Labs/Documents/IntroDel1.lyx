@@ -108,6 +108,40 @@ inte tillåtet
 \end_layout
 
 \begin_layout Itemize
+Deadline för labben framgår på 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "LISAM"
+target "http://lisam.liu.se/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Laborationen ska lämnas in via 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "LISAM"
+target "http://lisam.liu.se/"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Itemize
 Utgå från laborationsfilen, som går att ladda ned 
 \series bold
 \color blue
@@ -125,6 +159,19 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 , när du gör inlämningsuppgifterna.
  Spara denna som labb[no]_[liuID].R , tex labb1_josad732.R om det är labb
  1.
+ Ta inte med hakparenterser i filnamnet.
+ Denna fil ska laddas upp på LISAM och ska 
+\series bold
+inte
+\series default
+ innehålla något annat än de aktuella funktionerna, namn- och ID-variabler
+ och ev kommentarer.
+ Alltså 
+\series bold
+inga
+\series default
+ andra variabler, funktionsanrop för att testa inläminngsuppgifterna eller
+ anrop till markmyassignment-funktioner.
 \end_layout
 
 \begin_layout Itemize
@@ -144,30 +191,6 @@ Inlämningsuppgifter
 \begin_layout Itemize
 I laborationen finns det extrauppgifter markerade med *.
  Dessa kan hoppas över.
-\end_layout
-
-\begin_layout Itemize
-Deadline för labben framgår på 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "LISAM"
-target "http://lisam.liu.se/"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Laborationen ska lämnas in via 
-\series bold
-LISAM
-\series default
-.
- 
 \end_layout
 
 \begin_layout Standard

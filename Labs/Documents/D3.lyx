@@ -2477,7 +2477,7 @@ f<-function(x,y){
 
 \begin_layout Plain Layout
 
-	y2<-log(y)
+	y2<-log(y)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3420,6 +3420,32 @@ set_assignment(lab_path)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Kom ihåg:
+\series default
+ Om era funktioner inte fungerar som de ska testa debuggging! Använd 
+\family typewriter
+print
+\family default
+ eller 
+\family typewriter
+cat
+\family default
+ för att skriva ut relevanta värden.
+ Använd 
+\family typewriter
+browser
+\family default
+/
+\family typewriter
+debug
+\family default
+ för att stega igenom funktionerna.
+ Glöm inte att ta bort debuggingkoden innan du lämnar in labben.
 \end_layout
 
 \begin_layout Section

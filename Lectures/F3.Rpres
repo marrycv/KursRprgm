@@ -39,7 +39,7 @@ Linköpings universitet
 
 Föreläsning 3: Innehåll 
 ========================================================
-- Uppföljning av labb D2
+- Uppföljning av labb D1 och D2
 - Programkontroll
 - Villkorssatser
 - Loopar (for - loop)
@@ -48,6 +48,13 @@ Föreläsning 3: Innehåll
 - Funktionsmeddelanden
   message, warning, stop
 - Intro debugging
+
+Uppföljning av labb D1 och D2
+========================================================
+- Namn på fil, ex: ```labb1_josad732.R```
+- Använd inte å, ä eller ö i variabel- eller funktionsnamn
+- Alla dataset finns på github, finns länk på kurshemsidan till  [github](https://github.com/STIMALiU/KursRprgm/tree/master/Labs/DataFiles)
+- Frågor? Kommentarer?
 
 
 Programkontroll

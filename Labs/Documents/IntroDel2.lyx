@@ -123,7 +123,23 @@ inte tillåtet
 \end_layout
 
 \begin_layout Itemize
-Utgå från laborationsfilen som går att ladda ned 
+Använd inte 
+\family typewriter
+å
+\family default
+, 
+\family typewriter
+ä
+\family default
+ eller 
+\family typewriter
+ö
+\family default
+ i variabel- eller funktionsnamn.
+\end_layout
+
+\begin_layout Itemize
+Utgå från laborationsfilen, som går att ladda ned 
 \series bold
 \color blue
 
@@ -135,6 +151,25 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \end_inset
 
 
+\series default
+\color inherit
+, när du gör inlämningsuppgifterna.
+ Spara denna som labb[no]_[liuID].R , t.ex.
+ labb1_josad732.R om det är labb 1.
+ Ta inte med hakparenteser i filnamnet.
+ Denna fil ska laddas upp på LISAM och ska 
+\series bold
+inte
+\series default
+ innehålla något annat än de aktuella funktionerna, namn- och ID-variabler
+ och ev.
+ kommentarer.
+ Alltså 
+\series bold
+inga
+\series default
+ andra variabler, funktionsanrop för att testa inlämningsuppgifterna eller
+ anrop till markmyassignment-funktioner.
 \end_layout
 
 \begin_layout Itemize

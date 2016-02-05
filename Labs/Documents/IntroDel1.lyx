@@ -138,7 +138,22 @@ target "http://lisam.liu.se/"
 \series default
 \color inherit
 .
- 
+\end_layout
+
+\begin_layout Itemize
+Använd inte 
+\family typewriter
+å
+\family default
+, 
+\family typewriter
+ä
+\family default
+ eller 
+\family typewriter
+ö
+\family default
+ i variabel- eller funktionsnamn.
 \end_layout
 
 \begin_layout Itemize

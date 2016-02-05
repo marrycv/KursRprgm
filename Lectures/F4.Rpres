@@ -33,8 +33,8 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 4: Funktioner och programmering
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
-Avdelningen för statistik, 
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+STIMA, 
 Linköpings universitet
 
 Föreläsning 4: Innehåll 
@@ -91,9 +91,14 @@ Exempel
 ```{r}
 formals(f)
 body(f)
-environment(f)
 ```
 
+
+Exempel
+========================================================
+```{r}
+environment(f)
+```
 
 
 Allmänt om funktioner (forts.)
@@ -246,12 +251,25 @@ Skicka information inom funktioner
 - Detta görs med "ellipsis" - symbolen ```...```
 - Detta läggs in som ett argument i funktionen, ex. ```min_fun <- function(...)```
 - ```...``` används där argumenten ska användas i funktionen
+- Argument efter ```...``` måste namnges
 
 ```{r}
 min_mean <- function(...){ 
   print(mean(...))
 }
 min_mean(c(1,3,NA,5), na.rm = TRUE)
+```
+
+Skicka information inom funktioner
+========================================================
+Ibland behövs mer flexibilitet än vad ```...``` ger då kan ```do.call()``` användas. 
+ Argument:
+- ```what=``` en funktion som ska anropas
+- ```args=``` en lista med argument till funktionen  i ```what```
+```{r}
+x<-c(NA,1,2,453,32,1,NA)
+mylist<-list(x=x,na.rm=TRUE)
+do.call(what = mean,args = mylist)
 ```
 
 
@@ -301,6 +319,8 @@ incremental: true
   - Git finns implementerat direkt i R-Studio [mer info](http://www.molecularecologist.com/2013/11/using-github-with-r-and-rstudio/)
 - Versionshantera ALLT som inte skapas av koden (överkurs)
   - Data, rapporter, (kurser i R programmering)
+- Det finns enkel versionshantering i Dropbox och Google drive
+- Om du inte versionshanterar: Spara ofta, vid större kodprojekt spara en ny fil vid större förändnirngar. 
 
 4. Upprepa aldrig din (eller andras) kod (DRY - principle)
 ========================================================
@@ -317,7 +337,7 @@ incremental: true
 - Använd testpaket (överkurs)
   - i R: paketet ```testthat```
 - Gör buggar till egna testfall
-- Använd debuggers (överkurs)
+- Använd debuggers!
 
 6. Optimera kod först när den fungerar korrekt
 ========================================================
@@ -407,6 +427,7 @@ ROxygendel | Innehåll
 Exempel
 ========================================================
 ```{r}
+#' @title f
 #' @description
 #' En funktion som kvadrerar argumenten i x och y och summerar dem. #'
 #' @param x

@@ -101,7 +101,7 @@ Datorlaboration 4
 \end_layout
 
 \begin_layout Author
-Måns Magnusson
+Josef WIlzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -198,11 +198,19 @@ litet i form av nya funktioner eller nya data.
 \end_layout
 
 \begin_layout Standard
-Paket är något som skiljer R från andra statistikprogram är attden mesta
+Paket är något som skiljer R från andra statistikprogram är att den mesta
  funktionaliteten inte kommer med från början.
  I andra programmeringsspråk är denna form av 
 \series bold
-modularisering
+
+\begin_inset CommandInset href
+LatexCommand href
+name "modularisering"
+target "https://en.wikipedia.org/wiki/Modular_programming"
+
+\end_inset
+
+
 \series default
  betydligt vanligare.
  Den stora fördelen med detta är att vi bara behöver läsa in de paket vi
@@ -242,8 +250,16 @@ target "http://semver.org/"
 
 \begin_layout Enumerate
 Först måste vi installera ett paket.
- Detta kan antingen göras genom CRAN (Comprehensive R Archive Network) på
- internet där de flesta paket ligger uppe.
+ Detta kan antingen göras genom 
+\begin_inset CommandInset href
+LatexCommand href
+name "CRAN"
+target "https://cran.r-project.org/"
+
+\end_inset
+
+ (Comprehensive R Archive Network) på internet där de flesta paket ligger
+ uppe.
  Detta görs med funktionen 
 \family typewriter
 install.packages()
@@ -282,6 +298,21 @@ install.packages("lubridate")
 
 \begin_layout Plain Layout
 
+# eller om du ska installera något paket i PC-pularna: 
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("stringr",lib="sökväg till en mapp i din hemkatalog")
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("lubridate",lib="sökväg till en mapp i din hemkatalog")
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -291,7 +322,59 @@ install.packages("lubridate")
 \end_layout
 
 \begin_layout Enumerate
-En annan server där det finns mycket paket är på github.com.
+För att se vilka paket som är installerade så körs:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+installed.packages() 
+\end_layout
+
+\begin_layout Plain Layout
+
+# eller 
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-installed.packages() 
+\end_layout
+
+\begin_layout Plain Layout
+
+View(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+En annan server där det finns mycket paket är på 
+\begin_inset CommandInset href
+LatexCommand href
+name "github"
+target "https://github.com/"
+
+\end_inset
+
+.
  Det är vanligt att paket som fortfarande utvecklas aktivt finns på både
  CRAN och github.com då github underlättar enormt för så kallad collaborativ
  utveckling där flera personer hjälps åt med utvecklingen.
@@ -364,6 +447,16 @@ status open
 \begin_layout Plain Layout
 
 library(pxweb)
+\end_layout
+
+\begin_layout Plain Layout
+
+# eller om du har installerat ett paket på en egenvald plats:
+\end_layout
+
+\begin_layout Plain Layout
+
+library(markmyassignment,lib="sökväg till en mapp i din hemkatalog")
 \end_layout
 
 \begin_layout Plain Layout
@@ -473,6 +566,11 @@ ggplot2
 ggplot2
 \family default
  inte är installerat pröva att installera det.
+\end_layout
+
+\begin_layout Enumerate
+Ta reda på hur paket kan avinstalleras i R genom att söka på webben eller
+ i R:s dokumentation.
 \end_layout
 
 \begin_layout Chapter
@@ -1156,7 +1254,23 @@ Funktioner i funktioner
 \begin_layout Standard
 Ibland kan det vara så att vi vill ge en hel funktion som ett argument till
  en annan funktion.
- Ett exempel på detta är om vi vill integrera en funktion numeriskt.
+ Ett exempel på detta är om vi vill 
+\begin_inset CommandInset href
+LatexCommand href
+name "integrera"
+target "https://sv.wikipedia.org/wiki/Integral"
+
+\end_inset
+
+ en funktion 
+\begin_inset CommandInset href
+LatexCommand href
+name "numeriskt"
+target "https://sv.wikipedia.org/wiki/Numerisk_integrering"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1368,7 +1482,11 @@ Ellipsis (
 \end_layout
 
 \begin_layout Standard
-Ovan var ett exempel på ...
+Ovan var ett exempel på 
+\family typewriter
+...
+
+\family default
  som kallas ellipsis.
  Ellipsis är ett sätt att kunna skicka ett godtyckligt antal argument (och
  godtyckligt namngivna) till en funktion och sedan skicka vidare dessa till
@@ -1393,6 +1511,12 @@ FUN
 \end_layout
 
 \begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Vi-ska-nu"
+
+\end_inset
+
 Vi ska nu pröva att skapa en funktion på följande sätt.
 \begin_inset Newline newline
 \end_inset
@@ -1531,6 +1655,301 @@ apply_my_function_on_x()
 \family default
 -funktion och kontrollera att resultaten fungerar som de ska.
  
+\end_layout
+
+\begin_layout Subsection
+do.call()
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+do.call()
+\family default
+ är en mycket kraftfull funktion när det gäller hantering av funktioner
+ i funktioner.
+\end_layout
+
+\begin_layout Enumerate
+Kör 
+\family typewriter
+?do.call
+\family default
+, testa sen koden nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# kolla upp vad argumentet heter i summary: 
+\end_layout
+
+\begin_layout Plain Layout
+
+?summary 
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-list(object=iris) 
+\end_layout
+
+\begin_layout Plain Layout
+
+do.call(what = summary,args = x)
+\end_layout
+
+\begin_layout Plain Layout
+
+g<-function(x,a1,a2,a3){
+\end_layout
+
+\begin_layout Plain Layout
+
+  y<-a1*x^2+a2*x+a3  
+\end_layout
+
+\begin_layout Plain Layout
+
+return(y) 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+mylist<-list(x=10,a1=2,a2=-4,a3=10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+do.call(g,mylist) 
+\end_layout
+
+\begin_layout Plain Layout
+
+mylist$x<-20 
+\end_layout
+
+\begin_layout Plain Layout
+
+do.call(g,mylist)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skriv en egen funktion med minst 2 argument som du testar att anropa med
+ 
+\family typewriter
+do.call()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Testa nu den omgjorda funktionen av 
+\family typewriter
+apply_my_function_on_x
+\family default
+.
+ Pröva nu att styra 
+\family typewriter
+na.rm
+\family default
+ i 
+\family typewriter
+mean()
+\family default
+på vektorn 
+\family typewriter
+x<-1:300
+\family default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+apply_my_function_on_args <- function(FUN,args) do.call(FUN,args)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Det blir lätt problem om vi har flera funktioner i huvudfunktionen som använder
+ 
+\family typewriter
+...
+
+\family default
+ , se exemplet nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+apply_my_function_on_xy <- function(x,y, FUN1,FUN2, ...){
+\end_layout
+
+\begin_layout Plain Layout
+
+	x_new<-FUN1(x,...)
+\end_layout
+
+\begin_layout Plain Layout
+
+	y_new<-FUN2(y,...)   
+\end_layout
+
+\begin_layout Plain Layout
+
+	return(list(x=x_new,y=y_new)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+apply_my_function_on_xy(x = c(NA,12,64,NA,2),y=letters,FUN1 = mean,FUN2
+ = length) 
+\end_layout
+
+\begin_layout Plain Layout
+
+apply_my_function_on_xy(x = c(NA,12,64,NA,2),y=letters,FUN1 = mean,FUN2
+ = length,na.rm=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+I fallet ovan är det bra att använda 
+\family typewriter
+do.call()
+\family default
+, testa den modifierade funktionen nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+apply_my_function_on_xy <- function(FUN1,FUN2,arg1,arg2){
+\end_layout
+
+\begin_layout Plain Layout
+
+	x_new<-do.call(FUN1,args=arg1)
+\end_layout
+
+\begin_layout Plain Layout
+
+	y_new<-do.call(FUN2,args=arg2)   
+\end_layout
+
+\begin_layout Plain Layout
+
+	return(list(x=x_new,y=y_new)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+a<-list(x = c(NA,12,64,NA,14),na.rm=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+b<-list(x=letters)
+\end_layout
+
+\begin_layout Plain Layout
+
+apply_my_function_on_xy(FUN1 = mean,FUN2 = length,arg1=a,arg2=b) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2074,7 +2493,7 @@ Hittar den inte variabeln där fortsätter den upp till dess att den kommer
 Finns variabeln inte i den globala miljön söker den vidare i de inlästa
  paketen.
  Finns funktionen inte där så returnerar R ett felmeddelande om att den
- friavariabeln saknas.
+ fria variabeln saknas.
  
 \end_layout
 
@@ -2616,6 +3035,87 @@ lapply()
  för att beräkna den skillnaden mellan tidpunkt 0 och 10 för alla kycklingar.
 \end_layout
 
+\begin_layout Enumerate
+Testa nu koden nedan med 
+\family typewriter
+apply()
+\family default
+.
+ Vad betyder 
+\family typewriter
+MARGIN = 2
+\family default
+ eller 
+\family typewriter
+MARGIN = 1
+\family default
+? Kolla i hjälpen!
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data("trees") 
+\end_layout
+
+\begin_layout Plain Layout
+
+data("iris")
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(X = trees,MARGIN = 2,FUN = mean) 
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(X = trees,MARGIN = 1,FUN = mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(X = iris[,-5],MARGIN = 2,FUN = mean) 
+\end_layout
+
+\begin_layout Plain Layout
+
+?quantile 
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(X = iris[,-5],MARGIN = 2,FUN = quantile)
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(X = iris[,-5],MARGIN = 2,FUN = quantile,probs=c(0.1,0.5,0.9))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Dokumentation av funktioner - 
 \family typewriter
@@ -3041,6 +3541,207 @@ library(pxweb)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Chapter
+Kodstil
+\end_layout
+
+\begin_layout Standard
+Kolla på de olika stilguiderna:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Hadley Wickhams"
+target "http://adv-r.had.co.nz/Style.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Googles"
+target "http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notera att dessa två stilguider kan ge något olika svar på samma fråga.
+\end_layout
+
+\begin_layout Standard
+Svara nu på frågorna nedan:
+\end_layout
+
+\begin_layout Enumerate
+Är 
+\family typewriter
+dayone
+\family default
+ ett bra variabel namn?
+\end_layout
+
+\begin_layout Enumerate
+Hur ska jag skriva 
+\begin_inset Quotes sld
+\end_inset
+
+
+\family typewriter
+x+y
+\family default
+
+\begin_inset Quotes srd
+\end_inset
+
+ eller 
+\begin_inset Quotes sld
+\end_inset
+
+
+\family typewriter
+x + y
+\family default
+
+\begin_inset Quotes srd
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+Ska jag välja alt.
+ 1 eller alt.
+ 2?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# alt.
+ 1
+\end_layout
+
+\begin_layout Plain Layout
+
+if (y == 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	log(x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+} else {   
+\end_layout
+
+\begin_layout Plain Layout
+
+	y ^ x 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# alt.
+ 2
+\end_layout
+
+\begin_layout Plain Layout
+
+if (y == 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	log(x) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}  
+\end_layout
+
+\begin_layout Plain Layout
+
+else 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	y ^ x 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hur många tecken ska en rad med kod maximalt vara?
+\end_layout
+
+\begin_layout Enumerate
+Hur bör jag kommentera min kod?
+\end_layout
+
+\begin_layout Enumerate
+Vilken operator ska jag använda vid vanlig tilldelning? (Dvs jag vill jag
+ variabeln 
+\family typewriter
+x
+\family default
+ värdet 5.)
+\end_layout
+
+\begin_layout Enumerate
+Hur ser ett bra filnamn ut?
+\end_layout
+
+\begin_layout Enumerate
+Att diskutera: Varför är det viktigt att ha en bra kodstil? 
 \end_layout
 
 \begin_layout Standard

@@ -5989,7 +5989,16 @@ Sätt ihop dessa värden till en namngiven lista med namnen ovan.
 \end_layout
 
 \begin_layout Standard
-Här är testexempel på hur funktionen ska fungera (
+Ladda ner testdata 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/AppleTest.csv"
+
+\end_inset
+
+.
+ Här är testexempel på hur funktionen ska fungera (
 \series bold
 Obs!
 \series default

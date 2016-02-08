@@ -101,7 +101,7 @@ Datorlaboration 4
 \end_layout
 
 \begin_layout Author
-Josef WIlzén och Måns Magnusson
+Josef Wilzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -4132,7 +4132,7 @@ status open
 
 \begin_layout Plain Layout
 
-#solution_path<-"C:
+solution_path<-"C:
 \backslash
 
 \backslash
@@ -4173,7 +4173,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -4544,7 +4544,7 @@ Här är
 \begin_inset Formula $x_{N}$
 \end_inset
 
- alla möjliga utfall av slumpvaraiabeln 
+ är alla möjliga utfall av slumpvaraiabeln 
 \begin_inset Formula $X$
 \end_inset
 
@@ -4818,7 +4818,7 @@ Här är
 \begin_inset Formula $x_{N}$
 \end_inset
 
- alla möjliga utfall av slumpvaraiabeln 
+ är alla möjliga utfall av slumpvaraiabeln 
 \begin_inset Formula $X$
 \end_inset
 

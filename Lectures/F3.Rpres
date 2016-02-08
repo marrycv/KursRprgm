@@ -362,7 +362,7 @@ cat("[1] 1\n[1] 2\nWarning messages:\n1: Farligt värre 1 \n2: Farligt värre 2 
 Debugging
 ========================================================
 Det uppstår ofta [fel](https://en.wikipedia.org/wiki/Software_bug) vid programmering! 
-Debugging handlar om att hitta orsaken till att en kod/funktion in fungerar som det var tänkt.
+Debugging handlar om att hitta orsaken till att en kod/funktion inte fungerar som det var tänkt.
 Olika typer av fel:
 - Syntaktiska fel: Felaktig syntax är angiven i koden (ofta stavfel)
 - Semantiska fel: Olämplig använding av objekt/funktioner, tex ```x<-0```, ```y<-3```, ```y/x```. 

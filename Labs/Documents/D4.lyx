@@ -4084,7 +4084,7 @@ Vilken operator ska jag använda vid vanlig tilldelning? (Dvs jag vill jag
 \family typewriter
 x
 \family default
- värdet 5.)
+ ska ha värdet 5.)
 \end_layout
 
 \begin_layout Enumerate

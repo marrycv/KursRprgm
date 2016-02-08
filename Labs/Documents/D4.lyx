@@ -5027,7 +5027,7 @@ px<-rep(1/10,10)
 
 \begin_layout Plain Layout
 
-x_mat<-cbind(x,px)
+x_mat<-cbind(x,px) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -5036,26 +5036,17 @@ x_mat<-cbind(x,px)
 
 \begin_layout Plain Layout
 
-E_discrete() 
+V_discrete() 
 \end_layout
 
 \begin_layout Plain Layout
 
-E_discrete(trans = c(2,0)) 
+V_discrete(trans = c(2,0)) 
 \end_layout
 
 \begin_layout Plain Layout
 
-E_discrete(trans = c(2,5))
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-E_discrete(density_matrix = x_mat)
+V_discrete(trans = c(2,5))
 \end_layout
 
 \begin_layout Plain Layout
@@ -5064,22 +5055,39 @@ E_discrete(density_matrix = x_mat)
 
 \begin_layout Plain Layout
 
-E_discrete(density_matrix = y_mat) 
+V_discrete(density_matrix = x_mat) 
 \end_layout
 
 \begin_layout Plain Layout
 
-E_discrete(density_matrix = y_mat,trans = c(4,0))
 \end_layout
 
 \begin_layout Plain Layout
 
-E_discrete(density_matrix = y_mat,trans = c(1,5))
+V_discrete(density_matrix = y_mat)
 \end_layout
 
 \begin_layout Plain Layout
 
-E_discrete(density_matrix = y_mat,trans = c(0,5))
+V_discrete(density_matrix = y_mat,trans = c(4,0))
+\end_layout
+
+\begin_layout Plain Layout
+
+V_discrete(density_matrix = y_mat,trans = c(1,5))
+\end_layout
+
+\begin_layout Plain Layout
+
+V_discrete(density_matrix = y_mat,trans = c(0,5))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -5090,6 +5098,10 @@ E_discrete(density_matrix = y_mat,trans = c(0,5))
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Nu ska du skapa en funktion som ska heta my_stats().
 \end_layout
 
 \begin_layout Subsection

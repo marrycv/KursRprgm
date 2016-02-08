@@ -5,10 +5,13 @@ reporter : student
 tasks:
   fast_swe_pop:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/fast_swe_pop_tests.R
-  gram_schmidt:
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/fast_swe_pop_tests.R
+  my_grouped_test:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/gram_schmidt_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_grouped_test_tests.R
+  sum_of_random_dices:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/sum_of_random_dices_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R
+    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

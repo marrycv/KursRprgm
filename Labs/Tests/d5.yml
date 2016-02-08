@@ -3,21 +3,15 @@ name  : D5
 description : "Statistisk programmering med R: Lab 5"
 reporter : student
 tasks:
-  hilbert_matrix:
-    url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/hilbert_matrix_tests.R
   two_by_two_det:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/two_by_two_det_tests.R
-  toeplitz_matrix:
-    url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/toeplitz_matrix_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/two_by_two_det_tests.R
   give_blood:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/give_blood_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/give_blood_tests.R
   my_ols:
     url: 
-      - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/Tasks/my_ols_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_ols_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/mandatory.R
+    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

@@ -46,17 +46,27 @@ test_that("E_discrete()", {
               is_equivalent_to("numeric"),
               info="Fel: Funktionen returnerar inte en numerisk vector")
   
+  expect_equal(E_discrete(),c(1),
+               info="Fel: funktionen returnerar inte rätt värde vid E_discrete()")
+  
+  expect_equal(E_discrete(trans = c(2,0)),c(2),
+               info="Fel: funktionen returnerar inte rätt värde vid E_discrete(trans = c(2,0))")
+  
+  expect_equal(E_discrete(trans = c(2,5)),c(7),
+               info="Fel: funktionen returnerar inte rätt värde vid E_discrete(trans = c(2,5))")
+  
+  
   expect_equal(length(E_discrete(density_matrix = x_mat)), c(1),
                info="Fel: Funktionen returnerar inte en vektor av längd 1")
   
   expect_equal(E_discrete(density_matrix = x_mat),c(5.5),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = x_mat")
+               info="Fel: funktionen returnerar inte rätt värde vid E_discrete(density_matrix = x_mat)")
   
   expect_equal(E_discrete(density_matrix = y_mat),c(1.9),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat")
+               info="Fel: funktionen returnerar inte rätt värde vid E_discrete(density_matrix = y_mat)")
   
   expect_equal(E_discrete(density_matrix = y_mat,trans = c(4,0)),c(7.6),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(4,0)t")
+               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(4,0)")
   
   expect_equal(E_discrete(density_matrix = y_mat,trans = c(1,5)),c(6.9),
                info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(1,5)")

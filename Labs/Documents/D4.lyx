@@ -4953,6 +4953,145 @@ E_discrete
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+y<-1:3 
+\end_layout
+
+\begin_layout Plain Layout
+
+py<-c(0.2,0.7,0.1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+y_mat<-cbind(y,py)
+\end_layout
+
+\begin_layout Plain Layout
+
+V_discrete(density_matrix = matrix("hej"))
+\end_layout
+
+\begin_layout Plain Layout
+
+V_discrete(trans = matrix("hej"))
+\end_layout
+
+\begin_layout Plain Layout
+
+V_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8)))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Testa nu följande fungerande fall:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-1:10 
+\end_layout
+
+\begin_layout Plain Layout
+
+px<-rep(1/10,10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+x_mat<-cbind(x,px)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete() 
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(trans = c(2,0)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(trans = c(2,5))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(density_matrix = x_mat)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(density_matrix = y_mat) 
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(density_matrix = y_mat,trans = c(4,0))
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(density_matrix = y_mat,trans = c(1,5))
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(density_matrix = y_mat,trans = c(0,5))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Kontinerlig variabel: E_con och V_con
 \end_layout

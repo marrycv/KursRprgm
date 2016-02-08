@@ -49,11 +49,20 @@ test_that("V_discrete()", {
   expect_equal(length(V_discrete(density_matrix = x_mat)), c(1),
                info="Fel: Funktionen returnerar inte en vektor av längd 1")
   
+  expect_equal(V_discrete(),c(0),
+               info="Fel: funktionen returnerar inte rätt värde vid V_discrete()")
+  
+  expect_equal(V_discrete(trans=c(2,0)),c(0),
+               info="Fel: funktionen returnerar inte rätt värde vid V_discrete(trans=c(2,0))")
+  
+  expect_equal(V_discrete(trans=c(2,4)),c(0),
+               info="Fel: funktionen returnerar inte rätt värde vid V_discrete(trans=c(2,4))")
+  
   expect_equal(V_discrete(density_matrix = x_mat),c(8.25),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = x_mat")
+               info="Fel: funktionen returnerar inte rätt värde vid V_discrete(density_matrix = x_mat)")
   
   expect_equal(V_discrete(density_matrix = y_mat),c(0.29),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat")
+               info="Fel: funktionen returnerar inte rätt värde vid V_discrete(density_matrix = y_mat)")
   
   expect_equal(V_discrete(density_matrix = y_mat,trans = c(4,0)),c(4.64),
                info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(4,0)t")

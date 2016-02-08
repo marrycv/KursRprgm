@@ -9,6 +9,7 @@ test_that("E_discrete()", {
   py<-c(0.2,0.7,0.1)
   y_mat<-cbind(y,py)
   
+  
   expect_that(exists("E_discrete"), is_true(),
               info = "Fel: E_discrete() saknas.")
   expect_that(E_discrete, is_a("function"),

@@ -4852,7 +4852,7 @@ Varinasen för en linjärkomination
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\sigma_{linj}^{2}=Var\left(a\cdot X+b\right)=b^{2}\cdot Var\left(X\right)\label{eq:var-linj}
+\sigma_{linj}^{2}=Var\left(a\cdot X+b\right)=a^{2}\cdot Var\left(X\right)\label{eq:var-linj}
 \end{equation}
 
 \end_inset
@@ -4930,7 +4930,7 @@ trans=
  i 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:väntevärde linj"
+reference "eq:var-linj"
 
 \end_inset
 

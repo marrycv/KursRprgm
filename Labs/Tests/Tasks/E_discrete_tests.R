@@ -38,7 +38,7 @@ test_that("E_discrete()", {
   expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))),
                info = "Fel: Funktionenen stoppar inte när sannolikheterna inte summerar till 1.")  
   
-  expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "probs does not sum to 1!",
+  expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "Probabilities do not sum to 1!",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande när sannolikheterna inte summerar till 1.") 
   
   

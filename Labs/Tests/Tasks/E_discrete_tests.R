@@ -47,7 +47,7 @@ test_that("E_discrete()", {
               info="Fel: Funktionen returnerar inte en numerisk vector")
   
   expect_equal(length(E_discrete(density_matrix = x_mat)), c(1),
-               info="Fel: Funktionen returnerar en vektor av lengd 1")
+               info="Fel: Funktionen returnerar inte en vektor av längd 1")
   
   expect_equal(E_discrete(density_matrix = x_mat),c(5.5),
                info="Fel: funktionen returnerar inte rätt värde med density_matrix = x_mat")

@@ -12,6 +12,9 @@ tasks:
   E_discrete:
     url:
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/E_discrete_tests.R
+  V_discrete:
+    url:
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/V_discrete_tests.R
 mandatory:
   url:
     - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

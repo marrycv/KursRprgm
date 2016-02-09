@@ -49,7 +49,7 @@ test_that("moment_func()", {
   
   
   
-  expect_that(class(moment_func()), 
+  expect_that(class(moment_func(densities = test_list1,moment = E_discrete)), 
               is_equivalent_to("list"),
               info="Fel: Funktionen returnerar inte en lista")
   

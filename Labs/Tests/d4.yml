@@ -15,6 +15,9 @@ tasks:
   V_discrete:
     url:
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/V_discrete_tests.R
+  moment_func:
+    url:
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/moment_func_tests.R
 mandatory:
   url:
     - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

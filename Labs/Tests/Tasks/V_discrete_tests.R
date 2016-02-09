@@ -8,7 +8,6 @@ test_that("V_discrete()", {
   y<-1:3
   py<-c(0.2,0.7,0.1)
   y_mat<-cbind(y,py)
-  z<-1
   
   expect_that(exists("V_discrete"), is_true(),
               info = "Fel: V_discrete() saknas.")
@@ -22,13 +21,13 @@ test_that("V_discrete()", {
                        info = "Fel: return() saknas i funktionen.")
   
   expect_error(V_discrete(density_matrix = matrix("hej")),
-               info = "Fel: Funktionenen stoppar inte när density_matrix är icke numerisk.")  
+               info = "Fel: Funktionen stoppar inte när density_matrix är icke numerisk.")  
   
   expect_error(V_discrete(density_matrix = matrix("hej")), "density_matrix is not numeric!",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande då density_matrix är icke numerisk.")  
   
   
-  expect_error(V_discrete(density_matrix = matrix("hej")),
+  expect_error(V_discrete(trans = matrix("hej")),
                info = "Fel: Funktionenen stoppar inte när trans är icke numerisk.")  
   
   expect_error(V_discrete(trans = matrix("hej")), "trans is not numeric!",
@@ -40,6 +39,12 @@ test_that("V_discrete()", {
   
   expect_error(V_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "Probabilities do not sum to 1!",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande när sannolikheterna inte summerar till 1.") 
+  
+  expect_error(V_discrete(trans = c(1,2,3)),
+               info = "Fel: Funktionenen stoppar inte när trans inte har längd 2.")  
+  
+  expect_error(V_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "trans has not length 2!",
+               info = "Fel: Funktionen returnerar inte rätt felmeddelande när när trans inte har längd 2.")
   
   
   expect_that(class(V_discrete()), 

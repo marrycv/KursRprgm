@@ -20,9 +20,15 @@ test_that("Assignment: my_moving_average()", {
   expect_that(all(my_moving_average(x=y, n=2) == y_res_n2), condition=is_true(),
               info = "Fel: Funktionen returnerar fel om x = c(1,5,6,7,7,1,-2).")
   expect_error(my_moving_average(x="Pelle", n=3),
-               info = "Fel: Funktionenen stoppar inte om x är ickenumerisk.")  
+               info = "Fel: Funktionenen stoppar inte om x är icke numerisk.")  
   expect_error(my_moving_average(x="Pelle", n=3), "Not a numeric vector!",
-               info = "Fel: Funktionen returnerar inte rätt felmeddelande.")  
+               info = "Fel: Funktionen returnerar inte rätt felmeddelande.")
+  
+  expect_equal(my_moving_average(x = 1:10,n = 2), c( 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5,9.5),
+               info="Fel: Funktionen returnerar fel om x=1:10 och n=2")
+  
+  expect_equal(my_moving_average(x = 5:15,n = 4), c( 6.5 , 7.5,  8.5 , 9.5 ,10.5, 11.5, 12.5, 13.5),
+               info="Fel: Funktionen returnerar fel om x=5:15 och n=4")
   
   expect_function_code(object = my_moving_average, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  

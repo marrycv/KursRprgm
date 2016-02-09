@@ -70,7 +70,7 @@ test_that("V_discrete()", {
                info="Fel: funktionen returnerar inte rätt värde vid V_discrete(density_matrix = y_mat)")
   
   expect_equal(V_discrete(density_matrix = y_mat,trans = c(4,0)),c(4.64),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(4,0)t")
+               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(4,0)")
   
   expect_equal(V_discrete(density_matrix = y_mat,trans = c(1,5)),c(0.29),
                info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(1,5)")

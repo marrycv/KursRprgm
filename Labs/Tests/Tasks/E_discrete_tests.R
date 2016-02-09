@@ -45,7 +45,7 @@ test_that("E_discrete()", {
   expect_error(E_discrete(trans = c(1,2,3)),
                info = "Fel: Funktionenen stoppar inte när trans inte har längd 2.")  
   
-  expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "trans has not length 2!",
+  expect_error(E_discrete(trans = c(1,2,3)), "trans has not length 2!",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande när när trans inte har längd 2.") 
   
   

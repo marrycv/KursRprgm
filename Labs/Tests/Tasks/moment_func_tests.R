@@ -48,43 +48,30 @@ test_that("moment_func()", {
                info = "Fel: Funktionen returnerar inte rätt felmeddelande då moment inte är en funktion")  
   
   
-  expect_error(moment_func(density_matrix = cbind(y,c(0.4,0.6,0.8))),
-               info = "Fel: Funktionenen stoppar inte när sannolikheterna inte summerar till 1.")  
-  
-  expect_error(moment_func(density_matrix = cbind(y,c(0.4,0.6,0.8))), "Probabilities do not sum to 1!",
-               info = "Fel: Funktionen returnerar inte rätt felmeddelande när sannolikheterna inte summerar till 1.") 
-  
   
   expect_that(class(moment_func()), 
-              is_equivalent_to("numeric"),
-              info="Fel: Funktionen returnerar inte en numerisk vector")
+              is_equivalent_to("list"),
+              info="Fel: Funktionen returnerar inte en lista")
   
-  expect_equal(length(moment_func(density_matrix = x_mat)), c(1),
-               info="Fel: Funktionen returnerar inte en vektor av längd 1")
+  expect_equal(length(moment_func(densities = test_list3,moment = E_discrete)), c(3),
+               info="Fel: Funktionen returnerar inte en lista med rätt längd då densities = test_list3,moment = E_discrete")
   
-  expect_equal(moment_func(),c(0),
-               info="Fel: funktionen returnerar inte rätt värde vid moment_func()")
   
-  expect_equal(moment_func(trans=c(2,0)),c(0),
-               info="Fel: funktionen returnerar inte rätt värde vid moment_func(trans=c(2,0))")
+  expect_equal(moment_func(densities = test_list1,moment = E_discrete),list(density1=5.5),
+               info="Fel: funktionen returnerar inte rätt värde vid densities = test_list1,moment = E_discrete")
   
-  expect_equal(moment_func(trans=c(2,4)),c(0),
-               info="Fel: funktionen returnerar inte rätt värde vid moment_func(trans=c(2,4))")
+  expect_equal(moment_func(densities = test_list2,moment = V_discrete),list(density1=8.25,density2=0.29),
+               info="Fel: funktionen returnerar inte rätt värde vid densities = test_list2,moment = V_discrete")
   
-  expect_equal(moment_func(density_matrix = x_mat),c(8.25),
-               info="Fel: funktionen returnerar inte rätt värde vid moment_func(density_matrix = x_mat)")
+  expect_equal(moment_func(densities = test_list3,moment = E_discrete),list(density1=5.5,density2=1.9,density3=7.6),
+               info="Fel: funktionen returnerar inte rätt värde vid densities = test_list3,moment = E_discrete")
   
-  expect_equal(moment_func(density_matrix = y_mat),c(0.29),
-               info="Fel: funktionen returnerar inte rätt värde vid moment_func(density_matrix = y_mat)")
+  expect_equal(moment_func(densities = test_list4,moment = E_discrete),list(density1=5.5,density2=24,density3=5.7),
+               info="Fel: funktionen returnerar inte rätt värde vid densities = test_list4,moment = E_discrete")
   
-  expect_equal(moment_func(density_matrix = y_mat,trans = c(4,0)),c(4.64),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(4,0)t")
+  expect_equal(moment_func(densities = test_list4,moment = V_discrete),list(density1=8.25,density2=132,density3=2.61),
+               info="Fel: funktionen returnerar inte rätt värde med densities = test_list4,moment = V_discrete")
   
-  expect_equal(moment_func(density_matrix = y_mat,trans = c(1,5)),c(0.29),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(1,5)")
-  
-  expect_equal(moment_func(density_matrix = y_mat,trans = c(0,5)),c(0),
-               info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(0,5)")
-  
+
   
 })

@@ -4276,7 +4276,7 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-set_assignment(lab_path)
+suppressWarnings(set_assignment(lab_path))
 \end_layout
 
 \begin_layout Plain Layout
@@ -4506,7 +4506,19 @@ Väntevärde och varians i en dimension
 \begin_layout Standard
 I denna uppgoft ska du skapa funktioner som kan beräkna teoretirkt väntevärde
  och varians för en slumpvariabel i en dimension.
- Totalt ska du skapa tre funktioner E_discrete, V_discrete och moment_func.
+ Totalt ska du skapa tre funktioner 
+\family typewriter
+E_discrete()
+\family default
+, 
+\family typewriter
+V_discrete()
+\family default
+ och 
+\family typewriter
+moment_func()
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -4681,6 +4693,11 @@ E_discrete(trans = matrix("hej"))
 \begin_layout Plain Layout
 
 E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8)))
+\end_layout
+
+\begin_layout Plain Layout
+
+E_discrete(trans = c(1,2,3))
 \end_layout
 
 \begin_layout Plain Layout
@@ -4991,6 +5008,11 @@ V_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8)))
 
 \begin_layout Plain Layout
 
+V_discrete(trans = c(1,2,3))
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -5104,7 +5126,7 @@ moment_func(densities,moment=NULL)
 \family default
 .
  Funktionen syfte är att ta kunna ta flera diskreta sannolikhetsfördelningar,
- med eventualla linjärkominationsparametrar och beräkna olika 
+ med eventualla linjärkombinationsparametrar och beräkna olika 
 \begin_inset CommandInset href
 LatexCommand href
 name "moment"
@@ -5234,27 +5256,30 @@ moment_func(densities = final_list1,moment = E_discrete)
 
 \begin_layout Standard
 Det första som funktionen ska göra är att kontrollera argumenten.
- Kontrollera först att densities är en lista, stoppa annars funktionen med
- meddelandet 
-\family typewriter
-
-\begin_inset Quotes sld
+\begin_inset Quotes srd
 \end_inset
 
-densities is not a list!
+ Kontrollera först att densities är en lista, stoppa annars funktionen med
+ meddelandet 
 \begin_inset Quotes srd
 \end_inset
 
 
+\family typewriter
+densities is not a list!
 \family default
+
+\begin_inset Quotes srd
+\end_inset
+
 .
  Kontrollera sedan att moment är en funktion, stoppa annars funktionen med
  meddelandet 
-\family typewriter
-
-\begin_inset Quotes sld
+\begin_inset Quotes srd
 \end_inset
 
+
+\family typewriter
 No function supplied!
 \family default
 
@@ -5313,7 +5338,11 @@ Gå igenom alla element i
 \family typewriter
 densities
 \family default
- och anropa moment genom att använda 
+ och anropa 
+\family typewriter
+moment
+\family default
+ genom att använda 
 \family typewriter
 do.call()
 \family default
@@ -5331,7 +5360,152 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE,echo=TRUE>>=
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-1:10 
+\end_layout
+
+\begin_layout Plain Layout
+
+px<-rep(1/10,10) 
+\end_layout
+
+\begin_layout Plain Layout
+
+x_mat<-cbind(x,px) 
+\end_layout
+
+\begin_layout Plain Layout
+
+y<-1:3 
+\end_layout
+
+\begin_layout Plain Layout
+
+py<-c(0.2,0.7,0.1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+y_mat<-cbind(y,py) 
+\end_layout
+
+\begin_layout Plain Layout
+
+z<-seq(1,by = 3,length=5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pz<- c(0.1,0.2,0.3,0.2,0.2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+z_mat<-cbind(z,pz)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+test1<-list(density_matrix=x_mat) 
+\end_layout
+
+\begin_layout Plain Layout
+
+test2<-list(density_matrix=y_mat) 
+\end_layout
+
+\begin_layout Plain Layout
+
+test3<-list(density_matrix=z_mat)
+\end_layout
+
+\begin_layout Plain Layout
+
+test4<-list(density_matrix=x_mat,trans=c(4,2)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+test5<-list(density_matrix=y_mat,trans=c(3,0))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+test_list1<-list(test1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+test_list2<-list(test1,test2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+test_list3<-list(test1,test2,test3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+test_list4<-list(test1,test4,test5)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = TRUE,moment = E_discrete) 
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = test_list1,moment = 1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = test_list1,moment = E_discrete)
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = test_list2,moment = V_discrete) 
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = test_list3,moment = E_discrete) 
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = test_list4,moment = E_discrete) 
+\end_layout
+
+\begin_layout Plain Layout
+
+moment_func(densities = test_list4,moment = V_discrete)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -5348,8 +5522,10 @@ status open
 
 \end_layout
 
-\begin_layout Section
-Väntevärde och varians i två dimensioner
+\begin_layout Standard
+
+\shape italic
+Grattis! Nu är du klar! 
 \end_layout
 
 \end_body

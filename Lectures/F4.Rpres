@@ -315,10 +315,10 @@ incremental: true
 ========================================================
 incremental: true
 - Skriv kod i små steg, testa och ändra löpande
-- Versionshantera din kod (överkurs)
+- [Versionshantera](https://en.wikipedia.org/wiki/Version_control) din kod (överkurs)
   - Git finns implementerat direkt i R-Studio [mer info](http://www.molecularecologist.com/2013/11/using-github-with-r-and-rstudio/)
 - Versionshantera ALLT som inte skapas av koden (överkurs)
-  - Data, rapporter, (kurser i R programmering)
+  - Data, rapporter, (kurser i [R programmering](https://github.com/STIMALiU/KursRprgm))
 - Det finns enkel versionshantering i Dropbox och Google drive
 - Om du inte versionshanterar: Spara ofta, vid större kodprojekt spara en ny fil vid större förändnirngar. 
 
@@ -453,8 +453,8 @@ incremental: true
 - En samling funktioner
 - MÅNGA utvecklare
 - Finns två huvudsakliga "arkiv" för paket:
-  - CRAN
-  - GitHub
+  - [CRAN](https://cran.r-project.org/)
+  - [GitHub](https://github.com/)
 - Det är enkelt att bidra med egna paket!
 - Det är finns oxkså mycket skräp därute!
 - Glöm inte att citera med ```citation()```

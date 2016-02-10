@@ -41,6 +41,9 @@ test_that("fast_stock_analysis()", {
                info="Fel: Elementet 'slutpris_upp' är fel.")
   expect_true(all(myList1$datum %in% c("2012-01-24", "2012-01-18")), 
               info="Fel: Elementet 'datum' är fel.")
+  
+  expect_equal(myList1$datum, c("2012-01-24", "2012-01-18"), 
+               info="Fel: Elementet 'datum' är fel.")
 
   
   # Unlink temporary file

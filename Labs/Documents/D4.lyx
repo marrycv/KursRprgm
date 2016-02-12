@@ -4504,7 +4504,7 @@ Väntevärde och varians i en dimension
 \end_layout
 
 \begin_layout Standard
-I denna uppgoft ska du skapa funktioner som kan beräkna teoretirkt väntevärde
+I denna uppgift ska du skapa funktioner som kan beräkna teoretiskt väntevärde
  och varians för en slumpvariabel i en dimension.
  Totalt ska du skapa tre funktioner 
 \family typewriter
@@ -4553,7 +4553,7 @@ Här är
 \begin_inset Formula $x_{N}$
 \end_inset
 
- är alla möjliga utfall av slumpvaraiabeln 
+ alla möjliga utfall av slumpvaraiabeln 
 \begin_inset Formula $X$
 \end_inset
 
@@ -4561,8 +4561,8 @@ Här är
 \begin_inset Formula $p\left(x\right)$
 \end_inset
 
- är sannolikhetsfördelnignen för alla möjliga utfall.
- Väntevärdet för en linjärkomination 
+ är sannolikhetsfördelningen för alla möjliga utfall.
+ Väntevärdet för en linjärkombination 
 \begin_inset Formula $a\cdot X+b$
 \end_inset
 
@@ -4601,7 +4601,7 @@ reference "eq:väntevärde linj"
 E_discrete(density_matrix=matrix(c(1,1),ncol = 2),trans=c(1,0)).
 
 \family default
- Notera argumentnamn pch defaultvärden.
+ Notera argumentnamn och defaultvärden.
  
 \end_layout
 
@@ -4653,7 +4653,7 @@ reference "eq:väntevärde linj"
 
 \begin_layout Standard
 Funktionen ska kontrollera att villkoren är uppfyllda, om inte så ska den
- avbryta och felmedelanden enligt exemplen nedan:
+ avbryta och ge felmedelanden enligt exemplen nedan:
 \end_layout
 
 \begin_layout Standard
@@ -4832,7 +4832,7 @@ Här är
 \begin_inset Formula $x_{N}$
 \end_inset
 
- är alla möjliga utfall av slumpvaraiabeln 
+ alla möjliga utfall av slumpvaraiabeln 
 \begin_inset Formula $X$
 \end_inset
 
@@ -4954,7 +4954,7 @@ reference "eq:var-linj"
 
 \begin_layout Standard
 Funktionen ska kontrollera att villkoren är uppfyllda, om inte så ska den
- avbryta och felmedelanden enligt exemplen nedan.
+ avbryta och ge felmedelanden enligt exemplen nedan.
  
 \series bold
 Tips
@@ -5256,11 +5256,11 @@ moment_func(densities = final_list1,moment = E_discrete)
 
 \begin_layout Standard
 Det första som funktionen ska göra är att kontrollera argumenten.
-\begin_inset Quotes srd
-\end_inset
-
- Kontrollera först att densities är en lista, stoppa annars funktionen med
- meddelandet 
+ Kontrollera först att 
+\family typewriter
+densities
+\family default
+ är en lista, stoppa annars funktionen med meddelandet 
 \begin_inset Quotes srd
 \end_inset
 
@@ -5273,8 +5273,11 @@ densities is not a list!
 \end_inset
 
 .
- Kontrollera sedan att moment är en funktion, stoppa annars funktionen med
- meddelandet 
+ Kontrollera sedan att 
+\family typewriter
+moment
+\family default
+ är en funktion, stoppa annars funktionen med meddelandet 
 \begin_inset Quotes srd
 \end_inset
 
@@ -5304,7 +5307,11 @@ density_matrix
 \family typewriter
 trans
 \family default
- anropa funktionen moment.
+ anropa funktionen 
+\family typewriter
+moment
+\family default
+.
  Resultatet ska sparas i en lista, med elementnamn på formen 
 \family typewriter
 density1

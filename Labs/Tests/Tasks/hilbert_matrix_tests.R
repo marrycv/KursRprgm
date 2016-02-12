@@ -22,4 +22,7 @@ test_that("hilbert_matrix()", {
   expect_equal(round(as.vector(hilbert_matrix(nrow=10, ncol=10)), 3)[13:14], c(0.25, 0.20),
                info="Fel: Funktionen returnerar en felaktik matris med hilbert_matrix(nrow=10, ncol=10)")
 
+  expect_function_code(object = hilbert_matrix, expected = "return", 
+                       info = "Fel: return() saknas i funktionen.") 
+  # lägg till test för return()!
 })

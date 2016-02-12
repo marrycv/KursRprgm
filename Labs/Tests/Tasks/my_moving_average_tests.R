@@ -15,10 +15,12 @@ test_that("Assignment: my_moving_average()", {
                         "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(my_moving_average)) %in% c("x","n")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  
   expect_that(is.numeric(my_moving_average(x=y, n=2)), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en numerisk vector.")
   expect_that(all(my_moving_average(x=y, n=2) == y_res_n2), condition=is_true(),
               info = "Fel: Funktionen returnerar fel om x = c(1,5,6,7,7,1,-2).")
+  
   expect_error(my_moving_average(x="Pelle", n=3),
                info = "Fel: Funktionenen stoppar inte om x är icke numerisk.")  
   expect_error(my_moving_average(x="Pelle", n=3), "Not a numeric vector!",

@@ -27,6 +27,8 @@ test_that("Assignment: bmi()", {
 
   expect_warning(bmi(body_weight = -1, body_height = 0), 
                  info = "Fel: Genererar inte varningsmeddelande (då body_weight <= 0 och body_height<=0)")  
+
+# fix the test below to test for two warnings!
 #   expect_warning(bmi(body_weight = 0, body_height = -2), "body_height is not positive",
 #                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")   
 #   

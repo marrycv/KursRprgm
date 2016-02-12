@@ -18,16 +18,24 @@ test_that("Assignment: bmi()", {
                info = "Fel: Fungerar inte för body_weight > 0 och body_height > 0")
   expect_warning(bmi(body_weight = 0, body_height = 1.78),
                info = "Fel: Genererar inget varningsmeddelande (då body_weight <= 0)")
-  expect_warning(bmi(body_weight = -3, body_height = 1.78), "body_weight is not positive",
+  expect_warning(bmi(body_weight = -3, body_height = 1.78), "body_weight is not positive, calculation is not meaningful",
                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")
   expect_warning(bmi(body_weight = 71, body_height = 0),
-                 info = "Fel: Genererar inget varningsmeddelande (då body_weight <= 0)")
-  expect_warning(bmi(body_weight = 71, body_height = -2), "body_height is not positive",
-                 info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")
-  expect_warning(bmi(body_weight = -1, body_height = 0), "body_weight is not positive",
-                 info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")  
-  expect_warning(bmi(body_weight = 0, body_height = -2), "body_height is not positive",
-                 info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")  
+                 info = "Fel: Genererar inget varningsmeddelande (då body_height <= 0)")
+  expect_warning(bmi(body_weight = 71, body_height = -2), "body_height is not positive, calculation is not meaningful",
+                 info = "Fel: Genererar fel varningsmeddelande (då body_height <= 0)")
+
+  expect_warning(bmi(body_weight = -1, body_height = 0), 
+                 info = "Fel: Genererar inte varningsmeddelande (då body_weight <= 0 och body_height<=0)")  
+#   expect_warning(bmi(body_weight = 0, body_height = -2), "body_height is not positive",
+#                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")   
+#   
+  
+#   expect_warning(bmi(body_weight = -1, body_height = 0), "body_weight is not positive",
+#                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")  
+#   expect_warning(bmi(body_weight = 0, body_height = -2), "body_height is not positive",
+#                  info = "Fel: Genererar fel varningsmeddelande (då body_weight <= 0)")  
+  
   
   expect_function_code(object = bmi, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  

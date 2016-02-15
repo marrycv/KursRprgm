@@ -3461,11 +3461,11 @@ bmi()
 \family default
  med argumenten 
 \family typewriter
-bodyHeight
+body_weight
 \family default
  och 
 \family typewriter
-bodyWeight
+body_height
 \family default
 .
  Funktionen ska beräkna 

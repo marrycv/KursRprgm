@@ -39,12 +39,36 @@ Linköpings universitet
 
 Föreläsning 4: Innehåll 
 ========================================================
+- Uppföljning av labb 2 och 3
 - Mer om funktioner
 - Bra och effektiv programmering
 - ```*apply```-funktioner
 - ROxygen
 - R-paket
 
+Uppföljning av labb 2 och 3
+========================================================
+- Labb 2 är rättad.
+- Kommentarer på labb 3?
+- Inte många som lämnar in före mjuk deadline på söndag kväll.
+- Uppdaterat info om kompletteringar på kurshemsidan.
+- Undersökning på LISAM: 
+ - 732G33: Formativ utvärdering
+  
+Uppföljning av labb 2 och 3
+========================================================
+ - Vid inlämning:
+  - Spara er fil som labb1_josad732.R om det är labb 1. 
+  - Denna fil ska laddas upp på LISAM och ska inte innehålla något annat än de aktuella funktionerna, namn- och ID-variabler och ev kommentarer. 
+   - Tips: kommentera bort tester mm innan inlämning. ```ctrl+shif+c``` kommenterar/avkommenterar flera rader samtidigt.
+  
+
+
+Inför del 2 av kursen
+========================================================
+- Labbar ska göras i par. 
+- På Lisam finns en länk till ett dokument där ni ska fylla i er.
+- Ni blidar grupper själva.
 
 Mer om funktioner
 ========================================================
@@ -353,8 +377,8 @@ incremental: true
 - Gör koden enkel att förstå
 - Kombinera kod och dokumentation
   - Lägg in mycket inlinedokumentation med ```#```
-  - literate programming/knitr
-  - Paketet ```ROxygen```
+  - [literate programming](https://en.wikipedia.org/wiki/Literate_programming)/[knitr](https://en.wikipedia.org/wiki/Knitr)
+  - Paketet [```ROxygen```](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html)
 
 8. Samarbeta
 ========================================================
@@ -405,9 +429,9 @@ type: section
 
 Dokumentera med ROxygen
 ========================================================
-- ROxygen är standard för dokumentation
+- [ROxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) är standard för dokumentation
 - Samma som JavaDoc
-- Skapar automatiskt ```.Rd``` i paket
+- Skapar automatiskt [```.Rd```](https://cran.r-project.org/doc/manuals/R-exts.html#Rd-format) i paket
 - Använder ```#'```
 
 Dokumentera med ROxygen

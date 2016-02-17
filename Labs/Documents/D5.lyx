@@ -101,7 +101,7 @@ Datorlaboration 5
 \end_layout
 
 \begin_layout Author
-Måns Magnusson
+Josef Wilzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -896,7 +896,11 @@ changes
 owner
 \family default
 .
- Fältet changes ska vara en data.frame med variablerna 
+ Fältet 
+\family typewriter
+changes
+\family default
+ ska vara en data.frame med variablerna 
 \family typewriter
 time
 \family default
@@ -981,6 +985,13 @@ R har en hel del funktioner för att arbeta med matriser.
 
 \begin_layout Section
 Skapa matriser
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Skapa-matriser"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1804,6 +1815,23 @@ Beräkna följande blockmatris i R
  ska vara identiska.
  Detta är ett sätt att invertera matriser på ett enklare sätt genom att
  invertera delar av matrisen.
+ Testa om 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ och 
+\begin_inset Formula $\mathbf{Y}$
+\end_inset
+
+ är identiska med 
+\family typewriter
+all.equal()
+\family default
+ eller 
+\family typewriter
+==
+\family default
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1903,6 +1931,13 @@ där
 
 \begin_layout Section
 Egenvärden och egenvektorer
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Egenvärden-och-egenvektorer"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1910,7 +1945,15 @@ I R används funktionen
 \family typewriter
 eigen()
 \family default
- för att beräkna både egenvärden och egenvektorer.
+ för att beräkna både 
+\begin_inset CommandInset href
+LatexCommand href
+name "egenvärden och egenvektorer"
+target "https://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2016,6 +2059,179 @@ där
 
  är egenvärdets egenvektor.
  Kontrollera på detta sätt båda egenvärdena.
+\end_layout
+
+\begin_layout Section
+Paketet Matrix
+\end_layout
+
+\begin_layout Standard
+Paketet 
+\family typewriter
+Matrix
+\family default
+ är ett paket som används för att utföra numerisk linjär algebra.
+ Paketet innehållet många specialfunktioner som relaterar till matriser
+ och är snabbare än grundfunktionerna i R för linjär algebra.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Ladda in paketet i din session.
+\end_layout
+
+\begin_layout Enumerate
+Testa att köra koden nedan.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+?Matrix
+\end_layout
+
+\begin_layout Plain Layout
+
+a<-Matrix(1:10,5,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+a
+\end_layout
+
+\begin_layout Plain Layout
+
+Matrix(1:10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Matriser från 
+\family typewriter
+Matrix()
+\family default
+ är av en andra klasser jämfört med matriser skapade med 
+\family typewriter
+matrix()
+\family default
+.
+ Olika metoder är implemnterade för de olika klasserna.
+ Därför är det viktigt att kunna konvertera mellan klasserna, beroende på
+ sammanhanget.
+ Testa koden nedan.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+b<-matrix(11:20,5,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+a2<-as.matrix(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+b2<-Matrix(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(a2)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(b2)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+De flesta metoderna för linjär algebra finns implementerade för klasserna
+ i paketet 
+\family typewriter
+Matrix
+\family default
+.
+ Skapa nu några matriser med funktionen 
+\family typewriter
+Matrix()
+\family default
+.
+ Testa sen några av de vanliga matrisfunktionerna från 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Skapa-matriser"
+
+\end_inset
+
+ till 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Egenvärden-och-egenvektorer"
+
+\end_inset
+
+ på dessa matriser.
 \end_layout
 
 \begin_layout Section
@@ -2799,7 +3015,7 @@ birth + ddays(1000)
 \end_layout
 
 \begin_layout Standard
-Då tiden hela tiden utgår från sekunder ärdet enkelt att räkna exakt hur
+Då tiden hela tiden utgår från sekunder är det enkelt att räkna exakt hur
  många dagar det går på en viss tidsperiod genom att bara dividera med 
 \family typewriter
 ddays(1)
@@ -2834,7 +3050,7 @@ myTime
 \begin_layout Enumerate
 Eftersom alla tidsintervall i duration är konstanta måste år och månader
  ges ett fixt antal dagar.
- Räkna ut hur många dagara en 
+ Räkna ut hur många dagar en 
 \family typewriter
 dyears(1)
 \family default
@@ -2906,7 +3122,7 @@ myPeriod %/% weeks(1)
 
 \begin_layout Standard
 Med perioder blir det lite svårare att beräkna hur långa vissa tidpunkter
- är (eftersom det faktisk beroe på vilken period vi faktiskt talar om).
+ är (eftersom det faktisk beror på vilken period vi faktiskt talar om).
  Detta gör att lubridate uppskattar tidperioderna efter hur många 
 \begin_inset Quotes eld
 \end_inset
@@ -2961,8 +3177,11 @@ myInterval %/% weeks(1)
 \end_layout
 
 \begin_layout Enumerate
-Pröva att beräkna följande baserat på myTime(pröva både med och utan heltalsdivi
-sion):
+Pröva att beräkna följande baserat på 
+\family typewriter
+myTime
+\family default
+ (pröva både med och utan heltalsdivision):
 \end_layout
 
 \begin_deeper
@@ -3183,8 +3402,84 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
-k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+#solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
@@ -3246,98 +3541,12 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d5.yml"
+"https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d5.yml"
 \end_layout
 
 \begin_layout Plain Layout
 
-set_assignment(lab_path)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-
-\family typewriter
-hilbert_matrix()
-\end_layout
-
-\begin_layout Standard
-Vi ska nu skapa en funktion för att skapa godtyckligt stora kvadratiska
- Hilbertmatriser.
- Varje element i en Hilbertmatris är definierat som
-\begin_inset Formula 
-\[
-H_{ij}=\frac{1}{i+j-1}
-\]
-
-\end_inset
-
-För mer information om Hilbertmatrsier finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://en.wikipedia.org/wiki/Hilbert_matrix"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
- Skapa en funktion 
-\family typewriter
-hilbert_matrix()
-\family default
- med argumenten 
-\family typewriter
-nrow
-\family default
- och 
-\family typewriter
-ncol
-\family default
-.
- Funktionen ska returnera en Hilbertmatris enligt ovan.
- Nedan finns exempel på hur funktionen ska fungera.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Tips!
-\series default
- Använd en nästlad for-loop.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-hilbert_matrix(nrow = 2, ncol = 4)
-\end_layout
-
-\begin_layout Plain Layout
-
-hilbert_matrix(3, 3)
+suppressWarnings(set_assignment(lab_path))
 \end_layout
 
 \begin_layout Plain Layout
@@ -3357,7 +3566,15 @@ two_by_two_det()
 \end_layout
 
 \begin_layout Standard
-Skriv en funktion som beräknar determinanten för en godtycklig 
+Skriv en funktion som beräknar 
+\begin_inset CommandInset href
+LatexCommand href
+name "determinanten"
+target "https://sv.wikipedia.org/wiki/Determinant"
+
+\end_inset
+
+ för en godtycklig 
 \begin_inset Formula $2\times2$
 \end_inset
 
@@ -3464,130 +3681,6 @@ two_by_two_det(hilbert_matrix(3,3))
 \begin_layout Section
 
 \family typewriter
-toeplitz_matrix()
-\end_layout
-
-\begin_layout Standard
-Ännu en specialmatris som finns är den så kallade Toeplizmatrisen.
- Den kallas också ibland för diagonalkonstant matris.
- Samtliga diagonaler har samma värde.
- Mer information om Toeplitzmatriser finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://en.wikipedia.org/wiki/Toeplitz_matrix"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Standard
-Nedan är ett exempel på en toeplitzmatris.
- 
-\begin_inset Formula 
-\[
-\left(\begin{array}{cccc}
-a & b & c & d\\
-e & a & b & c\\
-f & e & a & b\\
-g & f & e & a
-\end{array}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Vi ska nu skapa en funktion som skapar en Toeplitzmatris av godtycklig storlek.
- Funktionen ska ta en godtycklig vektor 
-\family typewriter
-x
-\family default
- och returnera en toeplizmatris baserat på denna vektor.
- Funktionen ska först kontrollera att vektorn är av en udda längd och annars
- returnera 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-x not of odd length
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Tips!
-\series default
- Använd en nästlad 
-\family typewriter
-for
-\family default
--loop.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-toeplitz_matrix(x="Ett element")
-\end_layout
-
-\begin_layout Plain Layout
-
-toeplitz_matrix(x=1:5)
-\end_layout
-
-\begin_layout Plain Layout
-
-toeplitz_matrix(c("a","b", "c", "d", "e", "f", "g"))
-\end_layout
-
-\begin_layout Plain Layout
-
-toeplitz_matrix(1:4)
-\end_layout
-
-\begin_layout Plain Layout
-
-toeplitz_matrix(c(1,0,0,0,0))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-
-\family typewriter
 give_blood()
 \end_layout
 
@@ -3602,7 +3695,7 @@ target "http://geblod.nu/bli-blodgivare/kan-du-ge-blod/"
 \end_inset
 
  står det vilka regler som gäller.
- Ni ska skriva en funktion som ska hjälpa en blodgivare att veta när den
+ Ni ska skriva en funktion som ska hjälpa en blodgivare att veta när hen
  får ge blod, utifrån några av reglerna.
  Funktionen ska heta 
 \family typewriter
@@ -3634,7 +3727,11 @@ holiday
 \begin_inset Quotes eld
 \end_inset
 
+
+\family typewriter
 hemma
+\family default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -3674,7 +3771,11 @@ type_of_travel
 \begin_inset Quotes eld
 \end_inset
 
+
+\family typewriter
 malaria
+\family default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -3682,7 +3783,11 @@ malaria
 \begin_inset Quotes eld
 \end_inset
 
+
+\family typewriter
 other
+\family default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -3733,26 +3838,26 @@ Minsta tid mellan blodgivningstillfällen: kvinnor 4 månader, män 3 månader,
 \end_layout
 
 \begin_layout Itemize
-Om personen varit i ett land där det inte finns malaria ska den vänta (vara
+Om personen varit i ett land där det inte finns malaria ska hen vänta (vara
  i karantän) 4 veckor (relativ tid) efter slutdatum i argumentet 
 \family typewriter
 holiday
 \family default
- innan den får ge blod.
+ innan hen får ge blod.
 \end_layout
 
 \begin_layout Itemize
-Om personen varit i ett land där det finns malaria ska den vänta (vara i
+Om personen varit i ett land där det finns malaria ska hen vänta (vara i
  karantän) 6 månader (relativ tid) efter slutdatum i argumentet 
 \family typewriter
 holiday
 \family default
- innan den får ge blod.
+ innan hen får ge blod.
 \end_layout
 
 \begin_layout Itemize
 När det gäller karantänen får personen inte ge blod under karantänen utan
- det är förste dagen efter karantänen personen får ge blod.
+ det är första dagen efter karantänen personen får ge blod.
 \end_layout
 
 \begin_layout Itemize
@@ -3901,21 +4006,9 @@ year(), month(), day(), paste()
 
 \begin_layout Standard
 Tips! Det kan vara så att weekday() returnerar veckodagarna på svenska.
- För att returnera veckodagar på engelska finns följande tips 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://stackoverflow.com/questions/9216138/find-the-day-of-a-week-in-r/9216316#9216316"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
+ För att returnera veckodagar på engelska finns följande tips: 
+\family typewriter
+Sys.setlocale("LC_TIME", "English")
 \end_layout
 
 \begin_layout Standard
@@ -4092,7 +4185,7 @@ target "http://sv.wikipedia.org/wiki/Multipel_linj%C3%A4r_regression"
 
 \series default
 .
- Detta kallas ibland för en modellmatris.
+ Detta kallas ibland för en designlmatris.
 \end_layout
 
 \begin_layout Standard
@@ -4178,6 +4271,15 @@ Funktionen ska returnerna en lista som innehåller
 \end_inset
 
  samt residualerna.
+ 
+\series bold
+OBS
+\series default
+: ni får inte använda funktionen 
+\family typewriter
+lm()
+\family default
+ i denna uppgift!
 \end_layout
 
 \begin_layout Standard
@@ -4294,7 +4396,7 @@ Lägg till en kolumnvektor med ettor som första kolumn i
 \series bold
 X
 \series default
- (detta är vår intercept, 
+ (detta är till vårt intercept, 
 \begin_inset Formula $\beta_{0}$
 \end_inset
 

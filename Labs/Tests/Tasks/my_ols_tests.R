@@ -26,6 +26,13 @@ test_that("Assignment: my_ols()", {
   expect_equal(rownames(my_ols(X=data.frame(var1=c(1:5)), y=rep(1,5))$beta_hat)[1], "(Intercept)", 
                info = "Fel: Beta1 har inte (rad)namnet '(Intercept)'")
 
+  expect_function_code(object = my_ols, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")
+  
+  res <- markmyassignment:::function_code("lm")(my_ols)
+  expect_that(res$passed, is_false(), "Fel: Funktionen lm() används i funktionen.")
+  
+  
   data(CO2)
   res_CO2 <- my_ols(X=CO2[,4, drop=FALSE], y = CO2[,5])
   expect_equal(dim(res_CO2$beta_hat), c(2,1), 

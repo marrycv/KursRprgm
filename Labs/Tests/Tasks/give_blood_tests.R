@@ -69,6 +69,8 @@ test_that("Assignment: give_blood()", {
               info = "Fel: Argumenten har felaktiga namn.")
   expect_that(do.call(what=give_blood,args=test_list[[1]]), is_a("character"),
               info = "Fel: Funktionen returnerar inte en text-vektor")
+  expect_function_code(object = two_by_two_det, expected = "return\\(", 
+                       info = "Fel: return() saknas i funktionen.")
   
   # testfall: i <-1
   for(i in seq_along(test_list)){ 

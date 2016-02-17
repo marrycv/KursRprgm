@@ -2,7 +2,7 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass report
 \use_default_options true
 \maintain_unincluded_children false
 \language swedish
@@ -154,8 +154,13 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \series default
 \color inherit
 , när du gör inlämningsuppgifterna.
- Spara denna som labb[no]_[liuID].R , t.ex.
- labb1_josad732.R om det är labb 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+Spara denna som labb[no]_[liuID1]_[liuID2].R , t.ex.
+ labb5_josad732_manma684.R om det är labb 5.
+ Ordna liuID för gruppmedlemmerna efter bokstavsordning i filnamnet.
  Ta inte med hakparenteser i filnamnet.
  Denna fil ska laddas upp på LISAM och ska 
 \series bold
@@ -198,8 +203,8 @@ Deadline för labben framgår på
 
 \begin_inset CommandInset href
 LatexCommand href
-name "kurshemsidan"
-target "http://www.ida.liu.se/~732G33/timetable/index.sv.shtml"
+name "LISAM"
+target "lisam.liu.se"
 
 \end_inset
 

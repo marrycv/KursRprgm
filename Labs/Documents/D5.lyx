@@ -882,8 +882,14 @@ kalle
 * Extraproblem
 \end_layout
 
-\begin_layout Standard
-Skapa en klass som du kallar 
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Nu-ska-en"
+
+\end_inset
+
+Nu ska en S3 klass skapas som du kallar 
 \family typewriter
 account
 \family default
@@ -909,7 +915,80 @@ time
 amount.
 
 \family default
- Syftet är att skapa ett objekt för en persons bankkonto.
+ Fältet 
+\family typewriter
+owner
+\family default
+ ska vara en character-vektor av längd 1.
+ Syftet är att skapa en klass som representerar för en persons bankkonto.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skapa nu en konstruktor för klassen 
+\family typewriter
+account
+\family default
+, som heter 
+\family typewriter
+account
+\family default
+(
+\family typewriter
+changes
+\family default
+=,
+\family typewriter
+owner
+\family default
+=) och som testar att villkoren i 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Nu-ska-en"
+
+\end_inset
+
+ är uppfyllda.
+ Testa sedan att skapa ett objekt av klassen 
+\family typewriter
+account:
+\begin_inset Newline newline
+\end_inset
+
+ 
+\family default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-account(changes=data.frame(time="20:01",amount=1000),owner="Elin")
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+class(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -970,6 +1049,7 @@ withdraw()
  kontot får aldrig som helhet vara negativt.
 \end_layout
 
+\end_deeper
 \begin_layout Chapter
 Grundläggande linjär algebra
 \end_layout
@@ -4006,9 +4086,31 @@ year(), month(), day(), paste()
 
 \begin_layout Standard
 Tips! Det kan vara så att weekday() returnerar veckodagarna på svenska.
- För att returnera veckodagar på engelska finns följande tips: 
-\family typewriter
+ För att returnera veckodagar på engelska finns följande tips:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
 Sys.setlocale("LC_TIME", "English")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4138,8 +4240,15 @@ my_ols()
 \end_layout
 
 \begin_layout Standard
-I denna uppgift ska ni skriva en funktionen som kan skatta en linjär regressions
-modell.
+I denna uppgift ska ni skriva en funktionen som kan skatta en 
+\begin_inset CommandInset href
+LatexCommand href
+name "linjär regressionsmodell"
+target "https://en.wikipedia.org/wiki/Linear_regression"
+
+\end_inset
+
+.
  Vi kommer att prata mer om linjär regression längre fram och gå igenom
  de inbyggda funktionerna för linjär regression i R.
  Men nu ska ni 
@@ -4270,12 +4379,7 @@ Funktionen ska returnerna en lista som innehåller
 \begin_inset Formula $\hat{\sigma}_{\epsilon}^{2}$
 \end_inset
 
- samt residualerna.
- 
-\series bold
-OBS
-\series default
-: ni får inte använda funktionen 
+ samt residualerna.OBS: ni får inte använda funktionen 
 \family typewriter
 lm()
 \family default

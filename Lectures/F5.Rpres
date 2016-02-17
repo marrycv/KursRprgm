@@ -391,7 +391,7 @@ Linjär algebra: Matrix
 - **Matrix** är ett paket i som implemeterar effektivare/snabbare funktioner för linjär algebra, jämfört med grundfunktionerna i R.
 - Grunden är funktionen ```Matrix()```, vilket är en konstruktor, som skapar matriser med en annan klass jämfört med ```matrix()```.
 - Matriserna i **Matrix** baseras på S4 klasser.
-- I Matrix är det skillnad på [glesa](https://sv.wikipedia.org/wiki/Gles_matris) och täta matriser.
+- I **Matrix** är det skillnad på [glesa](https://sv.wikipedia.org/wiki/Gles_matris) och täta matriser.
 - Kolla på vingetterna [här](https://cran.r-project.org/web/packages/Matrix/index.html) för mer info.
 
 Referenser

@@ -3009,7 +3009,7 @@ date2 <- ymd("2014-11-03")
 
 \begin_layout Plain Layout
 
-myInterval <- new_interval(start=date1, end=date2)
+myInterval <- interval(start=date1, end=date2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4176,7 +4176,7 @@ day3<-ymd("2014-04-24")
 
 \begin_layout Plain Layout
 
-holiday1<-new_interval(day2,day3)
+holiday1<-interval(day2,day3)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4210,7 +4210,7 @@ day5<-ymd("2014-05-23")
 
 \begin_layout Plain Layout
 
-holiday2<-new_interval(day4, day5)
+holiday2<-interval(day4, day5)
 \end_layout
 
 \begin_layout Plain Layout

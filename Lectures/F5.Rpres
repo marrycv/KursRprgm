@@ -34,7 +34,7 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 5: Objektorientering, datum och linjär algebra
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzén](mailto:josefwilzen@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
@@ -45,7 +45,9 @@ Dagens föreläsning:
 ========================================================
 
 - Praktisk information om del II.
-- Objektorientering, klasser, generiska funktioner
+- Programmeringsparadigm
+  - Funktionell programmering
+  - Objektorientering
 - Datum och tid med ```lubridate```
 - Linjär algebra i R
 
@@ -81,39 +83,83 @@ R-programmering - del II:
 
 Laboration D3 och D4
 ========================================================
-
-D3 gick superbra!
-
-## goo.gl/z3IvEr
+- Frågor?
 
 
-Objektorientering i R
+Programmeringsparadigm och R
 ========================================================
 type: section
+
+
+Programmeringsparadigm
+========================================================
+- Det finns många [programmeringsspråk](https://en.wikipedia.org/wiki/Programming_language), som har olika funktion och syfte. 
+- [Programmeringsparadigm](https://en.wikipedia.org/wiki/Programming_paradigm) är ett sätt att klassificera programmeringsspråk beroende på hur de organiseras och struktureras.
+- Programmeringsspråk har [ett eller flera](https://en.wikipedia.org/wiki/Comparison_of_programming_languages) paradigm
+- Utmärkande för R är:
+  - [Funktionell programmering (FP)](https://en.wikipedia.org/wiki/Functional_programming)
+  - [Objektorienterad programmering (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming)
+
+Funktionell programmering
+========================================================
+- Fokuserar på "higer-order/first class functions": Vilka kan ta funktioner som argument och returnera dem som resultat.
+- Funktioner utan sidoeffekter: Det som händer i den lokala funktionsmiljön stannar där -> Detta gör funktioner lättre att förstå (tänk matematiska funktioner)
+  - En funktions output beror bara på värdena på inargumenten
+- Exempel:
+  - Common Lisp
+  - Erlang
+  - R
+  
+
+Funktionell programmering
+========================================================
+- R är är i grunden ett funktionellt spårk
+- R har "first class functions"
+- Funktioner kan manipuleras som andra objekt, sparas i listor mm
+- För fördjupning i R och FP se [här](http://adv-r.had.co.nz/Functional-programming.html).
 
 
 Objektorientering i R
 ========================================================
 incremental: true
 
-- Största skillnaden mellan R och andra statistikprogram
+- Stor skillnad mellan R och andra statistikprogram
 
 > Allt som existerar i R är objekt, och allt R gör är funktioner
 
+- OO utgår från klasser
+  - Klass är en mall som används för att skapa objekt
+  - Kopplar samman data/kod med beteende(metoder)
+  - Objekt är en specifik realisering av en klass, ex: person (klass) och josef (objekt)
+  - Objekt skapas med en ```konstruktor``` 
+
+Objektorientering i R
+========================================================
+incremental: true
 - Alla objekt i R har en klass
   - ```matrix```, ```data.frame```, ```lm```
 - Variabeltyper är "atomära" klasser
 - Dessa klasser har en ```konstruktor``` (en funktion med samma namn)
 - Vi kan undersöka ett objekts klass med ```class()```
 
+Objektorientering i R
+========================================================
+incremental: true
+Olika typer av klasser i R:
+- basklasser
+- S3 (informellt): "lista med klassattribut"
+- S4 (formellt): element väljs ut med ```@```
+- reference class
+
 Generiska funktioner
 ========================================================
 incremental: true
 
+- OO i R utgår från generiska funktioner.
 - Generisk = allmänn
 - Gör olika saker beroende på objektets klass 
 - Ex. ```plot()```, ```mean()```, ```summary()```, ```names()```
-- Funktionen anropar **metoden** för objektet
+- Funktionen anropar **metoden** för objektet, detta kallas ["Dynamic dispatch"](https://en.wikipedia.org/wiki/Dynamic_dispatch)
 
 
 Metoder
@@ -121,10 +167,20 @@ Metoder
 incremental: true
 
 - En funktion för en specifik klass (och generisk funktion)
+- Metoderna utgår från generisk funktion
 - Alla metoder för en generisk funktion: ```methods()```
 - Defaultmetod med  ```mean.default()```
 - Ex. ```mean.difftime()```
 - Metoder kan anropas direkt som vanliga funktioner
+
+
+Objektorientering i R: länkar
+========================================================
+- [Länk 1](www.cyclismo.org/tutorial/R/objectOriented.html)
+- [Länk 2](http://brainimaging.waisman.wisc.edu/~perlman/R/A1%20Introduction%20to%20object-oriented%20programming.pdf)
+- [Länk 3](http://www.stat.berkeley.edu/~statcur/WorkshopBC/Presentations/AdvancedProgramming/OOP2x2.pdf)
+- [Fördjupning 1](http://adv-r.had.co.nz/OO-essentials.html)
+- [Fördjupning 2](https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf)
 
 
 Datum och tid
@@ -330,6 +386,13 @@ Linjär algebra
 - Summera rader eller kolumner: ```rowSums(X)``` och ```colSums(X)```
 - Kombinera matriser: ```rbind(X,Y)``` eller ```cbind(X,Y)```
 
+Linjär algebra: Matrix
+========================================================
+- **Matrix** är ett paket i som implemeterar effektivare/snabbare funktioner för linjär algebra, jämfört med grundfunktionerna i R.
+- Grunden är funktionen ```Matrix()```, vilket är en konstruktor, som skapar matriser med en annan klass jämfört med ```matrix()```.
+- Matriserna i **Matrix** baseras på S4 klasser.
+- I Matrix är det skillnad på [glesa](https://sv.wikipedia.org/wiki/Gles_matris) och täta matriser.
+- Kolla på vingetterna [här](https://cran.r-project.org/web/packages/Matrix/index.html) för mer info.
 
 Referenser
 ========================================================

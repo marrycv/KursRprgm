@@ -19,7 +19,7 @@ test_that("Assignment: my_moving_average()", {
   expect_that(is.numeric(my_moving_average(x=y, n=2)), condition=is_true(),
               info = "Fel: Funktionen returnerar inte en numerisk vector.")
   expect_that(all(my_moving_average(x=y, n=2) == y_res_n2), condition=is_true(),
-              info = "Fel: Funktionen returnerar fel om x = c(1,5,6,7,7,1,-2).")
+              info = "Fel: Funktionen returnerar fel om x = c(1,5,6,7,7,1,-2), n=2. Returen ska vara c(3.0, 5.5, 6.5, 7.0, 4.0, -0.5)")
   
   expect_error(my_moving_average(x="Pelle", n=3),
                info = "Fel: Funktionenen stoppar inte om x är icke numerisk.")  

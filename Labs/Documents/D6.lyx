@@ -101,7 +101,7 @@ Datorlaboration 6
 \end_layout
 
 \begin_layout Author
-Måns Magnusson
+Josef Wilzén och Måns Magnusson
 \end_layout
 
 \begin_layout Standard
@@ -338,7 +338,20 @@ Som ett första steg måste vi beräkna frekvenser för den kategoriska variabel
 \family typewriter
 table()
 \family default
-:
+.
+ Testa 
+\family typewriter
+?table()
+\family default
+, 
+\family typewriter
+class(freqs)
+\family default
+, 
+\family typewriter
+str(freqs)
+\family default
+
 \begin_inset Newline newline
 \end_inset
 
@@ -353,7 +366,12 @@ status open
 
 \begin_layout Plain Layout
 
-freqs <- table(iris$Species) 
+freqs <- table(iris$Species)
+\end_layout
+
+\begin_layout Plain Layout
+
+freqs
 \end_layout
 
 \begin_layout Plain Layout
@@ -702,8 +720,17 @@ carTable <- table(mtcars$vs, mtcars$gear)
 
 \begin_layout Plain Layout
 
-barplot(carTable, main="Car Distribution by Gears and VS",         xlab="Number
- of Gears", col=c("darkblue","red"),         legend = rownames(carTable))
+barplot(carTable, main="Car Distribution by Gears and VS",         
+\end_layout
+
+\begin_layout Plain Layout
+
+xlab="Number of Gears",
+\end_layout
+
+\begin_layout Plain Layout
+
+col=c("darkblue","red"),legend= rownames(carTable))
 \end_layout
 
 \begin_layout Plain Layout
@@ -740,8 +767,12 @@ status open
 
 \begin_layout Plain Layout
 
-barplot(counts, main="Car Distribution by Gears and VS",         xlab="Number
- of Gears", col=c("darkblue","red"), beside=TRUE)
+barplot(counts, main="Car Distribution by Gears and VS",
+\end_layout
+
+\begin_layout Plain Layout
+
+xlab="Number of Gears", col=c("darkblue","red"), beside=TRUE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -914,8 +945,24 @@ Att skapa en vanlig scatterplots görs med funktionen
 plot()
 \family default
 .
- Det är en generisk funktion och i många fall använder vi plot för att visualise
-ra olika typer av objekt.
+ Det är en 
+\begin_inset CommandInset href
+LatexCommand href
+name "generisk funktion"
+target "https://en.wikipedia.org/wiki/Generic_function"
+
+\end_inset
+
+ och i många fall använder vi plot för att visualisera olika typer av objekt.
+ Testa
+\family typewriter
+ methods(plot)
+\family default
+ för att se vilka metoder som finns för 
+\family typewriter
+plot()
+\family default
+.
  Grundutförandet ger dock en scatterplot på följande sätt:
 \begin_inset Newline newline
 \end_inset
@@ -1142,6 +1189,7 @@ lty
 .
  Prova linjetyp 2 t.o.m.
  10.
+ Tips: använd en for-loop!
 \begin_inset Newline newline
 \end_inset
 
@@ -1245,7 +1293,9 @@ Pröva att lägg till argumentet
 lwd=3
 \family default
  i plotten ovan.
- Vad innebär detta? 
+ Vad innebär detta? Testa att köra 
+\family typewriter
+?par
 \end_layout
 
 \begin_layout Subsection
@@ -1274,6 +1324,74 @@ status open
 \begin_layout Plain Layout
 
 boxplot(Sepal.Length~Species, data=iris)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+Sepal.Length~Species
+\family default
+ är ett exempel på formel-objekt.
+ Formel-objekt används i olika sammanhang i R, men ett vanligt exempel är
+ när linjär regerssion ska skattas med funktionen 
+\family typewriter
+lm()
+\family default
+.
+ Testa att köra 
+\family typewriter
+?formula
+\family default
+.
+ Kör sedan koden nedan: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Sepal.Length~Species 
+\end_layout
+
+\begin_layout Plain Layout
+
+y<-Sepal.Length~Species 
+\end_layout
+
+\begin_layout Plain Layout
+
+class(y) 
+\end_layout
+
+\begin_layout Plain Layout
+
+str(y)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1350,7 +1468,7 @@ Grafiska inställningar och tillägg
 
 \begin_layout Standard
 Ovan har vi sett en hel del av de figurer som går att producera.
- Ned kommer lite mer inställningar och tillägg vi kan göra när vi arbetar
+ Nedan kommer lite mer inställningar och tillägg vi kan göra när vi arbetar
  med grafik i R.
 \end_layout
 
@@ -1444,7 +1562,7 @@ points(Nile$years, Nile$x, pch=20)
 \end_layout
 
 \begin_layout Enumerate
-Vi kan också lägga till godtyckliga linjer (ex.
+Vi kan också lägga till godtyckliga linjer (t.ex.
  som referenser) med 
 \family typewriter
 abline()
@@ -1556,15 +1674,25 @@ Vill vi ha flera grafer i en använder vi
 par(mfrow=c(3,2))
 \family default
 .
- Det kan vara krångligt att förstå exakt vad detta betyder.
  Men det vi säger till R med detta kommando är att vi vill ha tre rader
  och två kolumner med figurer.
+ Dessa struktur kommer att fyllas radvis.
  Pröva att köra denna kod och skapa därefter 6 figurer (vilka som hellst).
  Ändra till en 2
 \begin_inset Formula $\times$
 \end_inset
 
 2 figur och skapa på samma sätt fyra figurer.
+ 
+\family typewriter
+par(mfrow=c(1,1))
+\family default
+ återställer till en plot-struktur med en figur.
+ Argumentet 
+\family typewriter
+mfcol=c(3,2)
+\family default
+ fyller kolumnvis.
 \end_layout
 
 \begin_layout Section
@@ -1736,7 +1864,9 @@ blue
 
 \family default
 .
- 
+ Testa att ändra färgen till 
+\family typewriter
+col=c(1,2,3)
 \end_layout
 
 \begin_layout Enumerate
@@ -1841,6 +1971,717 @@ Spara ned även denna graf i pdf-format.
 \end_layout
 
 \begin_layout Chapter
+Slumptal och simulering
+\end_layout
+
+\begin_layout Section
+Täthetsfunktioner
+\end_layout
+
+\begin_layout Standard
+En central del inom statistik och analys handlar är simulering.
+ Det ett stortantal fördelningar vi kan simulera och för vilka vi har täthetsfun
+ktion (pdf), den kulmulativa fördelningsfunktionen (cdf) och den inversa
+ kulmulativa fördelningsfunktionen.
+ De flesta fördelningar har fyra varianter:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Prefix
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Beskrivning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exempel
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+r
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+simulera från fördelningen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+täthetsfunktionen (pdf)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+p
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+kulmulativ fördelninsgfunktion (cdf)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+pnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+q
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+inversa kulmulativa fördelningsfunktionen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+qnorm()
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+För att se vilka fördelningar som finns förinstallerade med R se 
+\family typewriter
+?distribution
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Vill vi exempelvis simulera 100 tal från 
+\begin_inset Formula $\mathcal{N}(10,1^{2})$
+\end_inset
+
+ gör vi på följande sätt:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minNormal <- rnorm(n=100, mean=10, sd=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Skapa en vektor med 30 slumptal från den uniforma fördelningen 
+\begin_inset Formula $\mathcal{U}(min=1,max=10)$
+\end_inset
+
+.
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+runif()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Skapa en vektor med 200 slumptal från normalfördelningen med medelvärde
+ 1 och varians 2, döp den till 
+\family typewriter
+minNorm
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Skapa ett histogram över 
+\family typewriter
+minNorm
+\family default
+ [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+hist()
+\family default
+]
+\end_layout
+
+\begin_layout Enumerate
+Skapa en vektor med slumptal av längd 50 från Poissonfördelningen med medelvärde
+ 8, döp den till 
+\family typewriter
+minPoission
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+ är poissonfördelad med medelvärde 3.
+ Uppgiften är nu att skapa ett stapeldiagram (se koden nedan) över sannolikheter
+na att 
+\begin_inset Formula $X$
+\end_inset
+
+ antar värdena 
+\begin_inset Formula $0,1,...,11,12$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=FALSE, eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- dpois(x=0:12,lambda=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(x, names.arg=0:12, main="Poisson(lambda=3)")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Låt 
+\begin_inset Formula $X$
+\end_inset
+
+ vara samma som ovan.
+ Vad är sannolikheten att 
+\begin_inset Formula $X$
+\end_inset
+
+ antar följande värden [
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+ppois
+\family default
+()]:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sitt medelvärde? 
+\end_layout
+
+\begin_layout Enumerate
+Mindre än eller lika med sitt medelvärde?
+\end_layout
+
+\begin_layout Enumerate
+Större än sitt medelvärde?
+\end_layout
+
+\begin_layout Enumerate
+Ett udda tal? Ni behöver inte ta hänsyn till tal som är större än 12.
+\end_layout
+
+\begin_layout Enumerate
+Talen 4 till 6?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Skapa en vektor med 50 slumptal från t-fördelningen, med medelvärde 1 och
+ 5 frihetsgrader (degrees of freedom), döp den till 
+\family typewriter
+minT
+\end_layout
+
+\begin_layout Enumerate
+Gör ett histogram över 
+\family typewriter
+minPoission
+\family default
+ och över 
+\family typewriter
+minT.
+
+\family default
+ Testa att ändra argumentet 
+\family typewriter
+breaks
+\family default
+ i 
+\family typewriter
+hist()
+\family default
+ till några olika värden.
+\end_layout
+
+\begin_layout Section
+sample() och set.seed()
+\end_layout
+
+\begin_layout Standard
+Vill vi dra slumptal från ett antal element använder vi funktionen sample().
+ Med denna funktion kan vi dra ett stickprov (med eller utan återläggning)
+ från en given vektor.
+ Om vi exempelvis vill dra 5 slumpmässiga värden mellan 1 och 10 
+\series bold
+med
+\series default
+ återläggning gör vi det på följande sätt i R:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sample(x=1:10, size=5, replace=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Dra ett stickprov (
+\begin_inset Formula $n=5$
+\end_inset
+
+) 
+\series bold
+utan
+\series default
+ återläggning från sekvensen 
+\family typewriter
+10:20
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Upprepa uppgiften ovan men 
+\series bold
+med
+\series default
+ återläggning.
+\end_layout
+
+\begin_layout Enumerate
+Vi kan på samma sätt dra slumpmässiga element från andra vektorer (exempelvis
+ Textvektorer).
+ Tänk dig att du och några vänner ska organisera en fest.
+ Skapa vektorn 
+\family typewriter
+namn
+\family default
+, som ska innehålla namnen för minst tre personer som strängar.
+ Två personer behövs för att laga mat och två för att diska.
+ Välj slumpmässigt vilka som ska göra de olika uppgifterna.
+ Samma person ska kunna bli vald för båda uppgifterna.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Inte sällan vill vi att våra simuleringar och analyser ska vara reproducerbara,
+ d.v.s.
+ att vi ska få samma resultat varje gång vi gör en simulering.
+ För detta används funktionen 
+\family typewriter
+set.seed()
+\family default
+ och funktionen tar ett godtyckligt heltal för att initiera slumptalsgeneratorn
+ i R.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Upprepa uppgiften ovan två gånger, blir resultatet det samma? Upprepa två
+ gånger till men kör först 
+\family typewriter
+set.seed(1234)
+\family default
+ innan varje gång.Får du nu samma resultat?
+\end_layout
+
+\begin_layout Enumerate
+Upprepa nu uppgiften ovan igen, men ändra argumentet 
+\family typewriter
+prob
+\family default
+ så att de olika personer har olika sannolikhet att bli vald samt att du
+ har sannolikheten 0 att bli vald.
+ ;)
+\end_layout
+
+\begin_layout Section
+Exempel: 
+\family typewriter
+sum_of_dice()
+\end_layout
+
+\begin_layout Enumerate
+Nu ska ni testa att simulera olika tärningskast.
+ I uppgiften betyder D6 en vanlig 6-sidig tärning (med sidorna 1,2,3,4,5,6)
+ där alla utfall har samma sannolikhet (1/6).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Skriv en funktion 
+\family typewriter
+my_dice(),
+\family default
+ som generar 
+\begin_inset Formula $n$
+\end_inset
+
+ stycken kast från en D6 och returnerar en vektor med kasten.
+ [
+\series bold
+Tips!
+\series default
+ sample()]
+\end_layout
+
+\begin_layout Enumerate
+Skriv en funktion 
+\family typewriter
+sum_of_dice()
+\family default
+ som generar följande slumptal: 
+\begin_inset Formula $Y_{k}=\sum_{n=1}^{N}X_{n}$
+\end_inset
+
+, där 
+\begin_inset Formula $X$
+\end_inset
+
+ är ett tärningskast från funktionen 
+\family typewriter
+myDice()
+\family default
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ är ett heltal, 
+\begin_inset Formula $k$
+\end_inset
+
+ går från 
+\begin_inset Formula $1,2,3,...,K$
+\end_inset
+
+.
+ Funktionen ska ha N och K som argument, 
+\family typewriter
+sum_of_dice(N, K)
+\family default
+.
+ Funktionen ska alltså kasta 
+\begin_inset Formula $N$
+\end_inset
+
+ stycken D6, summera dessa, sen upprepa det 
+\begin_inset Formula $K$
+\end_inset
+
+ stycken gånger.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_dice <- function(N,K){
+\end_layout
+
+\begin_layout Plain Layout
+
+res <- integer(K)
+\end_layout
+
+\begin_layout Plain Layout
+
+for (k in 1:K){
+\end_layout
+
+\begin_layout Plain Layout
+
+res[k] <- sum(sample(1:6,size=N, replace=TRUE))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+return(res)}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Testa nu 
+\family typewriter
+sum_of_dice(N, K)
+\family default
+ med 
+\begin_inset Formula $N=3,5$
+\end_inset
+
+ och 
+\begin_inset Formula $K=100,1000,3000$
+\end_inset
+
+.
+ Plotta resultaten i histogram och beräkna också medelvärde, standardavvikelse,
+ min och max.
+ Nedan ser ni några exempel på tester.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(3827)
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_dice(N=3,K=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_dice(N=5,K=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Detta är ett klassiskt exempel på centrala gränsvärdessatsen.
+\end_layout
+
+\end_deeper
+\begin_layout Chapter
 Introduktion till R markdown och knitr
 \end_layout
 
@@ -1895,7 +2736,7 @@ Det finns ett bra referensdokument
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
-target "http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf"
+target "https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf"
 
 \end_inset
 
@@ -1917,7 +2758,7 @@ fusklapp
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
-target "http://rmarkdown.rstudio.com/RMarkdownCheatSheet.pdf"
+target "https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"
 
 \end_inset
 
@@ -2639,7 +3480,7 @@ chunks
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
-target "http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf"
+target "https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf"
 
 \end_inset
 
@@ -3195,8 +4036,8 @@ library(downloader)
 
 \begin_layout Plain Layout
 
-apple_remote <- "https://github.com/MansMeg/KursRprgm/blob/master/Labs/DataFiles/
-Apple.RData" 
+apple_remote <- "https://github.com/STIMALiU/KursRprgm/blob/master/Labs/DataFiles
+/Apple.RData" 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3224,8 +4065,14 @@ Github
 \end_layout
 
 \begin_layout Standard
-github.com är framförallt en tjänst för att versionshantera programkod i
- molnet.
+\begin_inset CommandInset href
+LatexCommand href
+name "github"
+target "https://github.com/"
+
+\end_inset
+
+ är framförallt en tjänst för att versionshantera programkod i molnet.
  Dock används det också mycket för att lagra enklare datamaterial.
  Särskilt material som förändras mycket där vi behöver kunna följa vilka
  förändringar som gjorts.
@@ -3495,7 +4342,7 @@ rDrop
 \end_layout
 
 \begin_layout Standard
-Länken från dropbox består av två delar, ett öppet dokumentid (
+Länken från dropbox består av två delar, ett öppet dokument-id (
 \family typewriter
 pbxmllhmoax5zn6
 \family default
@@ -3824,7 +4671,9 @@ Navigera dig fram till följande datamaterial som vi ska läsa in:
 \family typewriter
 [NAKUArblosaTK] Arbetslösa 15-74 år (AKU) efter arbetslöshetstidens längd,
  kön och ålder.
- Kvartal 2006K2 - 2014K2
+ Kvartal 2005K2 - 2015K
+\family default
+4
 \end_layout
 
 \begin_layout Enumerate
@@ -3989,22 +4838,16 @@ get_pxweb_data(
 \begin_layout Plain Layout
 
 url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/AM/AM0401/AM0401L/NAKUArblosaTK",
-              
 \end_layout
 
 \begin_layout Plain Layout
 
-dims = list(Arbetsloshetstid = c('*'),
+dims = list(Arbetsloshetstid = c('*'),Kon = c('1+2'),
 \end_layout
 
 \begin_layout Plain Layout
 
-Kon = c('1+2'),
-\end_layout
-
-\begin_layout Plain Layout
-
-Alder = c('15-24', '25-54', '55-64'),
+Alder = c('15-24', '25-54', '55-74'),
 \end_layout
 
 \begin_layout Plain Layout
@@ -4014,14 +4857,37 @@ ContentsCode = c('AM0401F0'),
 
 \begin_layout Plain Layout
 
-Tid = c('2010K1', '2010K2', '2010K3', '2010K4', '2011K1', '2011K2', '2011K3',
- '2011K4', '2012K1', '2012K2', '2012K3', '2012K4', '2013K1', '2013K2', '2013K3',
- '2013K4', '2014K1', '2014K2')),
+Tid = c('2005K2', '2005K3', '2005K4', '2006K1', '2006K2', '2006K3', '2006K4',
 \end_layout
 
 \begin_layout Plain Layout
 
-clean = TRUE)
+'2007K1', '2007K2', '2007K3', '2007K4', '2008K1', '2008K2', '2008K3',
+\end_layout
+
+\begin_layout Plain Layout
+
+'2008K4', '2009K1', '2009K2', '2009K3', '2009K4', '2010K1', '2010K2',
+\end_layout
+
+\begin_layout Plain Layout
+
+'2010K3', '2010K4', '2011K1', '2011K2', '2011K3', '2011K4', '2012K1',
+\end_layout
+
+\begin_layout Plain Layout
+
+'2012K2', '2012K3', '2012K4', '2013K1', '2013K2', '2013K3', '2013K4',
+\end_layout
+
+\begin_layout Plain Layout
+
+'2014K1', '2014K2', '2014K3', '2014K4', '2015K1', '2015K2', '2015K3',
+\end_layout
+
+\begin_layout Plain Layout
+
+'2015K4')),clean = TRUE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4186,8 +5052,47 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path <- "/Users/manma97/Dropbox/Doktorandstudier/Undervisning/Statistis
-k programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+joswi05
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2016
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
 \end_layout
 
 \begin_layout Plain Layout
@@ -4203,6 +5108,10 @@ solution_files <- dir(solution_path)
 
 for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
  echo = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4249,7 +5158,7 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-"https://raw.githubusercontent.com/MansMeg/KursRprgm/master/Labs/Tests/d6.yml"
+"https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d6.yml"
 \end_layout
 
 \begin_layout Plain Layout
@@ -4396,11 +5305,6 @@ tail(pop)
 
 \begin_layout Plain Layout
 
-42 2009    9340682 
-\end_layout
-
-\begin_layout Plain Layout
-
 43 2010    9415570 
 \end_layout
 
@@ -4426,6 +5330,11 @@ tail(pop)
 
 \begin_layout Plain Layout
 
+48 2015    9851017
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4441,247 +5350,195 @@ tail(pop)
 \begin_layout Section
 
 \family typewriter
-gram_schmidt()
+sum_of_random_dice()
 \end_layout
 
 \begin_layout Standard
-Vi ska nu göra en funktion för gram-schmidt ortogonalisering.
- Vi kommer implementera denna funktion på precis det sätt ni lärt er att
- göra Gram-Schmidt ortogonalisering.
- När vi gör det i datorn kan dock avrundningsfel göra att ortogonaliseringen
- blir numeriskt instabil.
- Mer information om gram-schmidt ortogonalisering finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process"
-
+Funktionen 
+\family typewriter
+sum_of_dice()
+\family default
+ i sektionen Slumptal och Statistik summerar värdet från ett fixt antal
+ tärnigar, nu ska ni skriva en funktion som kan summera ett slumpmässigt
+ antal tärningar.
+ Antalet tärningar ska vara Poissonfördelat med en parameter 
+\begin_inset Formula $\lambda$
 \end_inset
 
-
-\series default
-\color inherit
-.
+ på följande sätt.
 \end_layout
 
 \begin_layout Standard
-För att implementera 
-\family typewriter
-gram_schmidt()
-\family default
- föreslås följande strategi:
-\end_layout
-
-\begin_layout Enumerate
-Börja med att skapa funktionen 
-\family typewriter
-inner_prod()
-\family default
- som tar argumenten 
-\family typewriter
-x
-\family default
- och 
-\family typewriter
-y
-\family default
- och beräknar det inre produktrummet på följande sätt
-\begin_inset Formula 
-\[
-\langle x,y\rangle=\sum_{k=1}^{n}x_{k}y_{k}
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-inner_prod(x = 1:4, y = -1:2)
-\end_layout
-
-\begin_layout Plain Layout
-
-inner_prod(x = 10:15, y = -(15:10))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Skapa sedan funktionen 
-\family typewriter
-proj() 
-\family default
-som tar argumenten 
-\family typewriter
-u
-\family default
- och 
-\family typewriter
-v
-\family default
- och returnerar projektionsoperatorn:
-\begin_inset Formula 
-\[
-\mbox{proj}_{\mathbf{u}}(\mathbf{v})=\frac{\left\langle \mathbf{v},\mathbf{u}\right\rangle }{\left\langle \mathbf{u},\mathbf{u}\right\rangle }\mathbf{u}
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-proj(u = 1:4, v = -1:2)
-\end_layout
-
-\begin_layout Plain Layout
-
-proj(u = 10:15, v = -(15:10))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Skapa funktionen 
-\family typewriter
-vec_norm()
-\family default
- som tar argumentet 
-\family typewriter
-x
-\family default
- och returnerar en vektornormen.
-\begin_inset Formula 
-\[
-\|\mathbf{x}\|=\sqrt{\sum_{k=1}^{n}x_{k}^{2}}.
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-vec_norm(x = 1:4)
-\end_layout
-
-\begin_layout Plain Layout
-
-vec_norm(x = -1:2)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Med dessa funktioner är det möjligt att sätta ihop funktionen 
-\family typewriter
-gram_schmidt(X)
-\family default
-.
- Funktionen ska kunna ta en godtycklig matris 
-\begin_inset Formula $2\times2$
-\end_inset
-
- eller 
-\begin_inset Formula $3\times3$
-\end_inset
-
- och returnera följande ortonormerade matris.
- 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathbf{E}_{3\times3} & = & \left(\begin{array}{ccc}
-\mathbf{e}_{1} & \mathbf{e}_{2} & \mathbf{e}_{3}\end{array}\right)\\
-\mathbf{E}_{2\times2} & = & \left(\begin{array}{cc}
-\mathbf{e}_{1} & \mathbf{e}_{2}\end{array}\right)
+Y & \sim & \mbox{Po}(\lambda)\\
+X & = & \sum_{i}^{Y}Z_{i}
 \end{eqnarray*}
 
 \end_inset
 
-
-\begin_inset Newline newline
+där 
+\begin_inset Formula $Z_{i}$
 \end_inset
 
-Funktionen ska avbryta och returnera felmeddelandet 
+ är utfallet från en sexsidig tärning.
+ Skapa en funkton 
 \family typewriter
-
-\begin_inset Quotes sld
-\end_inset
-
-Not an object of class matrix.
-\begin_inset Quotes srd
-\end_inset
-
-
+sum_of_random_dice()
 \family default
- om 
+.
+ Argumenten ska vara:
+\end_layout
+
+\begin_layout Itemize
+
 \family typewriter
-X
+K
 \family default
- inte är av klassen 
+: antal dragningar från slumpfördelningen
+\end_layout
+
+\begin_layout Itemize
+
 \family typewriter
-matrix
+lambda
+\family default
+: ett positivt kontinuerligt tal (parameter i poissonfördelningen)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+my_seed
+\family default
+: ett slumpfrö som styr slumptalsgenereringen, default ska vara 
+\family typewriter
+NULL
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Funktionen 
+\family typewriter
+sum_of_random_dice()
+\family default
+ ska returnera en 
+\family typewriter
+data.frame
+\family default
+ med summan av ögonen på de slumpmässigt antalet tärningar samt antalet
+ kastade tärningar.
+\end_layout
+
+\begin_layout Standard
+Ett förslag på hur detta kan implementeras finns här:
+\end_layout
+
+\begin_layout Itemize
+Ändra seeden till: 
+\family typewriter
+set.seed(mySeed)
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Sätt upp en tom 
+\family typewriter
+data.frame
+\family default
+ som namnges 
+\family typewriter
+result
+\family default
+, som ska ha 
+\family typewriter
+K
+\family default
+ rader och 2 kolumner.
+ Första komunen ska ha namnet 
+\family typewriter
+value
+\family default
+ och den andra 
+\family typewriter
+dice
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Gör följande for-loop över vektorn 
+\family typewriter
+1:K
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dra ett slumptal från en poissionfördelning med parameter 
+\family typewriter
+lambda
+\family default
+.
+ Spara slumptalet i 
+\family typewriter
+current_number
+\family default
+, vilket är antalet tärningar.
+ Spara 
+\family typewriter
+current_number
+\family default
+ i kolumnen 
+\family typewriter
+dice
+\family default
+ på aktuell rad i 
+\family typewriter
+result
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+Anropa 
+\family typewriter
+sum_of_dice()
+\family default
+ med argumenten 
+\family typewriter
+K=1
+\family default
+ och 
+\family typewriter
+N=current_number
+\family default
+, spara resultatet i kolumnen 
+\family typewriter
+value
+\family default
+ på aktuell rad i 
+\family typewriter
+result
+\family default
+.
+ Observera att om 
+\family typewriter
+curret_number=0
+\family default
+ så ska summan bli 0
+\family typewriter
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Returnera 
+\family typewriter
+result
 \family default
 .
 \end_layout
@@ -4689,13 +5546,15 @@ matrix
 \begin_layout Standard
 
 \series bold
-Tips!
+Obs!
 \series default
- Följande 
-\family typewriter
-for
-\family default
--loop är ett generellt sätt att tänka.
+ Om du inte implementerar funktionen på detta sätt kan den fortfarande fungera
+ korrekt, men eftersom slumptalen används i olika ordning kan det vara så
+ att du inte får samma resultat som i exemplen nedan.
+\end_layout
+
+\begin_layout Standard
+Testa om testfallen nedan fungerar:
 \end_layout
 
 \begin_layout Standard
@@ -4704,66 +5563,76 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE,echo=TRUE>>=
+<<fig.height=3, fig.width=4>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-for (i in 2:ncol(X)){
+sum_of_random_dice(K=5,lambda=3,my_seed=42)
 \end_layout
 
 \begin_layout Plain Layout
 
-  for (j in 2:i){}   
+sum_of_random_dice(K=5,lambda=8,my_seed=4711)
 \end_layout
 
 \begin_layout Plain Layout
 
-}
+sum_of_random_dice(K=5,lambda=3)  # denna körnining ska ge olika resutlat
+ vid olika anrop, för att testa my_seed=NULL
 \end_layout
 
 \begin_layout Plain Layout
 
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nedan är två exempel på hur funktionen ska fungera.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-A <- matrix(c(3,1,2,2), ncol=2)
+x <- sum_of_random_dice(K=300,lambda=5,my_seed=42)
 \end_layout
 
 \begin_layout Plain Layout
 
-gram_schmidt(X = A)
+hist(x$value, 20)
 \end_layout
 
 \begin_layout Plain Layout
 
-B <- matrix(c(1,-1,1,1,0,1,1,1,2), ncol=3)
+mean(x$value)
 \end_layout
 
 \begin_layout Plain Layout
 
-gram_schmidt(X = B)
+sd(x$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- sum_of_random_dice(K=300,lambda=10,my_seed=4711)
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(y$value, 20)
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(y$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+sd(y$value)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(y$dice, y$value)
 \end_layout
 
 \begin_layout Plain Layout

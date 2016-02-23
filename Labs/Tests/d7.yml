@@ -30,6 +30,9 @@ tasks:
   henify:
     url: 
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/henify_tests.R
+  my_grouped_test:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_grouped_test_tests.R
 mandatory:
   url:
     - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

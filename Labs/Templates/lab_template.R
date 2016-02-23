@@ -1,10 +1,17 @@
 #### Programmering i R ####
-#### Assignment, Datalaboration 1 ####
+#### Datorlaboration   ####
 
-# Write your name here (no swedish letters), ex Namn <- "Alice Walker"
+# Skiv ditt namn här, ex Namn <- "Alice Walker"
+# På del 2 i kursen, när ni arbetar i par, skriv då namn på formen:  Namn <- "Ada Lovelace och Alice Walker"
 Namn <- ""
-# Write your name here, ex LiuId <- "aliwa123"
+
+
+# Skiv ditt liu ID här, ex LiuId <- "aliwa123"
+# På del 2 i kursen, när ni arbetar i par, skriv då namn på formen:  LiuId <- "adalo456 och aliwa123 "
 LiuId  <- ""
+
+# På del 2 i kursen, när ni arbetar i par, ange även grupptillhörighet enligt: Grupp<-"grupp01", om ni tillhör grupp 01
+# Grupp<-""
 
 
 # Uppgift 1 ----
@@ -18,3 +25,5 @@ uppgift1 <- function(mitt_argument){
 # set_assignment("[ANGE LABBUPPGIFTENS SÖKVÄG HÄR (FINNS I LABBEN)]")
 # show_tasks()
 # mark_my_assignment()
+# mark_my_file()
+# OBS: kommentera bort markmyassignment-kod innan laboration lämnas in.

@@ -14,6 +14,7 @@ LiuId  <- ""
 Grupp<-""
 
 
+
 # Uppgift 1 ----
 uppgift1 <- function(mitt_argument){
   # Skriv din funktion här

@@ -11,7 +11,7 @@ Namn <- ""
 LiuId  <- ""
 
 # På del 2 i kursen, när ni arbetar i par, ange även grupptillhörighet enligt: Grupp<-"grupp01", om ni tillhör grupp 01
-# Grupp<-""
+Grupp<-""
 
 
 # Uppgift 1 ----

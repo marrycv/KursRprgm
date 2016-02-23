@@ -5588,8 +5588,17 @@ sum_of_random_dice(K=5,lambda=8,my_seed=4711)
 
 \begin_layout Plain Layout
 
-sum_of_random_dice(K=5,lambda=3)  # denna körnining ska ge olika resutlat
- vid olika anrop, för att testa my_seed=NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+# denna körnining ska ge olika resutlat vid olika anrop, för att testa my_seed=N
+ULL
+\end_layout
+
+\begin_layout Plain Layout
+
+sum_of_random_dice(K=5,lambda=3) 
 \end_layout
 
 \begin_layout Plain Layout

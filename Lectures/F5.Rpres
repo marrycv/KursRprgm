@@ -73,17 +73,19 @@ R-programmering - del II:
 ========================================================
 
 - Labbarna görs nu i par
-- Fyll i labblistan på Lisam
+- Se grupper på Lisam
 - Parprogrammering:
   - Turas om att sitta vid tagentbordet
   - Den som inte kodar är engagerad i koden och problemet 
   - Byter person var 30:e minut
-  - Viktigt att kommentera koden 
+  - Viktigt att kommentera koden: ROxygen, inline 
 
 
 Laboration D3 och D4
 ========================================================
+- Labb 3 rättad.
 - Frågor?
+- Tänk på mjuk deadline på söndag kväll!
 
 
 Programmeringsparadigm och R
@@ -125,7 +127,7 @@ incremental: true
 
 - Stor skillnad mellan R och andra statistikprogram
 
-> Allt som existerar i R är objekt, och allt R gör är funktioner
+> "Allt som existerar är ett objekt, allt som händer är ett funktionsanrop"  (John Chambers)
 
 - OO utgår från klasser
   - Klass är en mall som används för att skapa objekt
@@ -144,10 +146,17 @@ incremental: true
 
 Objektorientering i R
 ========================================================
+- Viktiga koncept:
+  - [Inkapsling](https://en.wikipedia.org/wiki/Encapsulation_%28computer_programming%29) (Encapsulation): Gömma och ordna relaterad data
+  - [Polymorfism](https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29) (Polymorphism): generiska funktioner
+  - [Arv](https://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29) (Inheritance): Underlättar specialisering av data och metoder, via underklasser
+
+Objektorientering i R
+========================================================
 incremental: true
 Olika typer av klasser i R:
 - basklasser
-- S3 (informellt): "lista med klassattribut"
+- S3 (informellt): "lista med klassattribut" -> Den här kursen
 - S4 (formellt): element väljs ut med ```@```
 - reference class
 
@@ -176,11 +185,13 @@ incremental: true
 
 Objektorientering i R: länkar
 ========================================================
-- [Länk 1](www.cyclismo.org/tutorial/R/objectOriented.html)
-- [Länk 2](http://brainimaging.waisman.wisc.edu/~perlman/R/A1%20Introduction%20to%20object-oriented%20programming.pdf)
-- [Länk 3](http://www.stat.berkeley.edu/~statcur/WorkshopBC/Presentations/AdvancedProgramming/OOP2x2.pdf)
+- [Länk 1](http://brainimaging.waisman.wisc.edu/~perlman/R/A1%20Introduction%20to%20object-oriented%20programming.pdf)
+- [Länk 2](http://www.stat.berkeley.edu/~statcur/WorkshopBC/Presentations/AdvancedProgramming/OOP2x2.pdf): Läs om S3
 - [Fördjupning 1](http://adv-r.had.co.nz/OO-essentials.html)
 - [Fördjupning 2](https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf)
+
+Objektorientering i R: Demo
+========================================================
 
 
 Datum och tid

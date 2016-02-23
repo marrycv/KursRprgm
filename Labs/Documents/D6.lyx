@@ -4196,6 +4196,16 @@ status open
 
 \begin_layout Plain Layout
 
+# för att installera:
+\end_layout
+
+\begin_layout Plain Layout
+
+devtools::install_github("duncantl/RGoogleDocs")
+\end_layout
+
+\begin_layout Plain Layout
+
 library(RGoogleDocs) 
 \end_layout
 
@@ -5163,7 +5173,7 @@ lab_path <-
 
 \begin_layout Plain Layout
 
-set_assignment(lab_path)
+suppressWarnings(set_assignment(lab_path))
 \end_layout
 
 \begin_layout Plain Layout

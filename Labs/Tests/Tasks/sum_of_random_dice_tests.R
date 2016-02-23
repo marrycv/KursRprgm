@@ -25,7 +25,7 @@ test_that("Assignment: sum_of_random_dice()", {
   expect_equal(nrow(res), 15,
                info = "Fel: Den returnerade data.framen har fel antal rader.")
   
-  res <- sum_of_random_dice(K=5000,lambda=6)
+  res <- sum_of_random_dice(K=3000,lambda=6)
   #res <- sum_of_random_dice(K=2000,lambda=6)
   res_mean1 <- round(mean(res[,1]),2)
   res_sd1 <- round(sd(res[,1]),2)

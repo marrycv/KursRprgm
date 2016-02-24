@@ -3985,6 +3985,20 @@ Nedan finns exempel från vanliga molntjänster och hur man kan ladda ned
 repmis
 \family default
 , som kan läsa in de flesta csv, xlsx och Rdata-filer.
+ För att ladde ner filer från Dropbox till R kan paketet 
+\family typewriter
+rdrop2
+\family default
+ användas, men det kommer inte vara en del av denna kurs, den intresserade
+ kan läsa 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://github.com/karthik/rdrop2"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -4285,122 +4299,6 @@ my_faithful <- sheetAsMatrix(google_worksheets[[1]], con = NULL, header
 \begin_layout Plain Layout
 
 head(my_faithful)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Dropbox
-\end_layout
-
-\begin_layout Standard
-Vi kan också vilja läsa in data från dropbox på ett enkelt sätt.
- För att kunna komma åt data på dropbox behöver vi först dela den fil vi
- vill läsa in i R.
- Mer information om hur man delar filer med dropbox finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "https://www.dropbox.com/help/167"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Standard
-När vi delar en fil på dropbox för vi en länk.
- Nedan är ett exempel på en länk:
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-\color blue
-\begin_inset CommandInset href
-LatexCommand href
-name "https://www.dropbox.com/s/pbxmllhmoax5zn6/google.csv?dl=0"
-target "https://www.dropbox.com/s/pbxmllhmoax5zn6/google.csv?dl=0"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-För att läsa in denna fil i R använder vi repmispaketet.
- Vill vi ha full kontroll på dropbox (skapa och läsa dolda filer m.m.) direkt
- från R finns paketet 
-\family typewriter
-rDrop
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-Länken från dropbox består av två delar, ett öppet dokument-id (
-\family typewriter
-pbxmllhmoax5zn6
-\family default
- i exemplet ovan) och ett filnamn (
-\family typewriter
-google.csv
-\family default
-).
- Med dessa två kan vi enkelt läsa in en fil i R på följande sätt:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(repmis) 
-\end_layout
-
-\begin_layout Plain Layout
-
-my_google <- 
-\end_layout
-
-\begin_layout Plain Layout
-
-  repmis::source_DropboxData(file = "google.csv", 
-\end_layout
-
-\begin_layout Plain Layout
-
-                             key = "pbxmllhmoax5zn6", 
-\end_layout
-
-\begin_layout Plain Layout
-
-                             sep=";", dec = ",")
-\end_layout
-
-\begin_layout Plain Layout
-
-head(my_google)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5568,6 +5466,9 @@ Testa om testfallen nedan fungerar:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -5664,13 +5565,26 @@ plot(y$dice, y$value)
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Miniprojektet del I
 \end_layout
 
 \begin_layout Standard
 En de av denna laboration är att genomföra miniprojektet del I.
- Se kurshemsidan för detaljer.
+ Se 
+\begin_inset CommandInset href
+LatexCommand href
+name "kurshemsidan"
+target "https://www.ida.liu.se/~732G33/info/courseinfo.sv.shtml"
+
+\end_inset
+
+ för detaljer.
 \end_layout
 
 \end_body

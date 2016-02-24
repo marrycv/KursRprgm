@@ -12,7 +12,7 @@ Namn <- ""
 
 
 # Skiv ditt liu ID här, ex LiuId <- "aliwa123"
-# På del 2 i kursen, när ni arbetar i par, skriv då namn på formen:  LiuId <- "adalo456 och aliwa123 "
+# På del 2 i kursen, när ni arbetar i par, skriv då ID på formen:  LiuId <- "adalo456 och aliwa123 "
 LiuId  <- ""
 
 # På del 2 i kursen, när ni arbetar i par, ange även grupptillhörighet enligt: Grupp<-"grupp01", om ni tillhör grupp 01

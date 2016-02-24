@@ -161,7 +161,7 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \begin_layout Itemize
 Spara denna som labb[no]_grupp[no].R , t.ex.
  labb5_grupp01.R om det är labb 5 och ni tillhör grupp 01.
- Ta inte med hakparenteser i filnamnet.
+ Ta inte med hakparenteser eller stora bokstäver i filnamnet.
  Denna fil ska laddas upp på LISAM och ska 
 \series bold
 inte

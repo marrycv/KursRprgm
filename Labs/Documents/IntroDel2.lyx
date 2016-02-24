@@ -111,6 +111,7 @@ programmerar
 .
  Navigatörens ansvar är att ha ett helhetsperspektiv över koden.
  Byt position var 30:e minut.
+ Båda ska vara engagerade i koden.
 \end_layout
 
 \begin_layout Itemize
@@ -158,16 +159,15 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \end_layout
 
 \begin_layout Itemize
-Spara denna som labb[no]_[liuID1]_[liuID2].R , t.ex.
- labb5_josad732_manma684.R om det är labb 5.
- Ordna liuID för gruppmedlemmerna efter bokstavsordning i filnamnet.
+Spara denna som labb[no]_grupp[no].R , t.ex.
+ labb5_grupp01.R om det är labb 5 och ni tillhör grupp 01.
  Ta inte med hakparenteser i filnamnet.
  Denna fil ska laddas upp på LISAM och ska 
 \series bold
 inte
 \series default
- innehålla något annat än de aktuella funktionerna, namn- och ID-variabler
- och ev.
+ innehålla något annat än de aktuella funktionerna, namn-, ID- och grupp-variabl
+er och ev.
  kommentarer.
  Alltså 
 \series bold
@@ -175,6 +175,17 @@ inga
 \series default
  andra variabler, funktionsanrop för att testa inlämningsuppgifterna eller
  anrop till markmyassignment-funktioner.
+ Om ni ska lämna i kompletteringar på del 2, döp då dessa till labb5_grupp01._kom
+p1.R om det är första kompletteringstillfället.
+ Se 
+\begin_inset CommandInset href
+LatexCommand href
+name "kurshemsidan"
+target "https://www.ida.liu.se/~732G33/info/courseinfo.sv.shtml"
+
+\end_inset
+
+ för mer information om kompletteringar.
 \end_layout
 
 \begin_layout Itemize

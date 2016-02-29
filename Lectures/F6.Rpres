@@ -34,34 +34,35 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 6: Basgrafik, knitr, markdown och externa data
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzen](mailto:josef.wilzen@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
-  
+
 
 Föreläsning 6: Innehåll 
 ========================================================
 - Föregående laborationer
 - Basgrafik
+- Slumptal och simulering
 - knitr och markdown
 - Externa data och pxweb
 
-Laboration D4
+Laboration 4 och 5
 ========================================================
-- ```my_gaussian_elemination()```
-- Svenska tecken i laborationerna
-- Extra inlämning i samband med D5
-- Inlämning i par fr. D5 - glöm inte namn för **båda**
-- I fas med linjär algebra? - Skjuta på uppgiften ```my_ols()``` m.fl.
+- Labb 4 rättad
+- Frågor på labb 4 och 5?
+- Första kompletteringen imorgon
 
-Laboration D5
+
+Laborationer del 2
 ========================================================
-
-## goo.gl/z3IvEr
+- Uppdaterat labbmallen.
+- lämmna in som labb5_grupp01.R
 
 Miniprojektet
 ========================================================
+Info [här](https://github.com/STIMALiU/KursRprgm/blob/master/Miniproject/Instruktioner.pdf?raw=true)
 - Hitta data på webben (eller lägg upp eget)
   - Kommunala (tvärsnitt) data
   - Tidsseriedata
@@ -149,6 +150,53 @@ Lågnivågrafik
 - Dock är ggplot2 bättre för att specialanpassa grafer
 
 
+Slumptal och simulering
+========================================================
+
+- I R finns en uppsättning funktioner för fördelningar
+
+prefix | Beskrivning | Exempel
+----- | ---- | ----- 
+```r``` | simulera från fördelningen | ```rnorm()```
+```d``` | täthetsfunktionen (pdf) | ```dnorm()```
+```p``` | kulmulativ fördelninsgfunktion (cdf) | ```pnorm()```
+```q``` | inversa kulmulativa fördelningsfunktionen | ```qnorm()```
+
+- Se CRAN task view: Distributions [[här]](http://cran.r-project.org/web/views/Distributions.html)
+
+Slumptal och simulering: Urval och slumpfrön
+========================================================
+- Det finns ingen riktig slump i datorer
+- Det finns slumptalsgeneratorer
+- Kan styra "slumpen" med "slumpfrön" (```set.seed()```)
+- För att dra ett (obundet) slumpmässigt urval använder vi ```sample()```
+
+Slumptal och simulering: Exempel
+========================================================
+incremental: true
+
+```{r}
+rnorm(n=5, mean=10, sd=1)
+set.seed(20140730)
+rnorm(n=5, mean=10, sd=1)
+set.seed(20140730)
+rnorm(n=5, mean=10, sd=1)
+```
+
+
+Slumptal och simulering: Exempel sample()
+========================================================
+incremental: true
+
+```{r}
+text <- c("Linköpings", "Universitet")
+set.seed(20140730)
+sample(x=text, size=4, replace=TRUE)
+sample(x=text, size=4, replace=TRUE)
+set.seed(20140730)
+sample(x=text, size=4, replace=TRUE)
+```
+
 R-Markdown och knitr
 ========================================================
 type: section
@@ -156,7 +204,6 @@ type: section
 R-Markdown och knitr
 ========================================================
 
-- Nytt denna kursomgång
 - Har mognat senaste åren
 - Förenkla för era laborationer framöver
 - Del av R-Studio
@@ -180,7 +227,7 @@ knitr
 - Lägga in R-kod i dokument
 - Ersätter R-kod med resultatet
 - Dynamiska rapporter
-- Literate programming
+- [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)
 - Inbyggt i R-Studio
 - För att skapa tabeller: ```kable()```
 
@@ -216,6 +263,7 @@ Vanliga källor att använda
 ========================================================
 - Dropbox
 - Google Docs
+- Github
 
 
 Öppen data med pxweb

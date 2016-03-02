@@ -1,5 +1,5 @@
 ### Assignment structure ###
-
+ 
 context("Labbinformation")
 
 test_that("Obligatoriska object", {

@@ -3,12 +3,31 @@ name  : D8
 description : "Statistisk programmering med R: Lab 8"
 reporter : student
 tasks:
-  diagonalize_matrix:
+  pnr_sex:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/diagonalize_matrix_tests.R
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_sex_tests.R
+  pnr_format:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_format_tests.R
+  pnr_date:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_date_tests.R
+  pnr_ctrl:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_ctrl_tests.R
+  pnr_samordn:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_samordn_tests.R
+  pnr_age:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_age_tests.R
+  pnr_info:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_info_tests.R
+
   dynamic_linear_system:
     url: 
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/dynamic_linear_system_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R
+    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2.R

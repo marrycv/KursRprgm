@@ -14,4 +14,7 @@ tasks:
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_ols_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2
+    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2.R
+mandatory:
+  url:
+    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

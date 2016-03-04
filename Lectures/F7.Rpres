@@ -43,15 +43,13 @@ Föreläsning 7: Innehåll
 ========================================================
 - Uppföljning tidigare laborationer
 - Texthantering och stringr, regular expression 
-- Statistik
-- Linjär regression
+- Statistik, Linjär regression
 
 Laboration D5
 ========================================================
 incremental: true
 
 - Rättad
-- Samtliga kompletteringar är rättade
 
 Laboration D6
 ========================================================
@@ -198,13 +196,14 @@ str_extract_all(pattern = ".a", string = a)
 
 
 
-Statistik och simulering
+Statistik, Linjär regression
 ========================================================
 type: section
 
 Enklare statistiska tester
 ========================================================
 
+- Det finns många statistiska modeller/metoder i R, se [här](https://cran.r-project.org/web/views/) för ex.
 - ${\chi}^2$-tester görs på (**Obs!**) _tabeller_ med: 
   - ```chisq.test()```, ```fisher.test()```
 - För t-tester används ```t.test()```
@@ -212,9 +211,31 @@ Enklare statistiska tester
   - ```cor()``` och ```cov()``` och testas med
   - ```cor.test()```
 
-Linjär regression
+Array
 ========================================================
-type: section
+- vector 1D, matrix 2D
+- ```array``` är en generell multidimensionell tabell för data. Tänk en matris med mer än 2 dimensioner.
+- ```array(data =, dim = , dimnames =)```
+- ```as.array(x)```, ```is.array(x)```
+- ```apply()``` kan användas för att applicera en funktion över vissa dimensioner i en array
+- Har så många index som dimensioner, tex en 3D array: ```A[x,y,z]```
+
+Array
+========================================================
+```{r}
+
+x<-array(1:16,dim = c(2,4,2))
+x
+```
+
+Array
+========================================================
+```{r}
+apply(x,MARGIN = c(1,2),mean)
+apply(x,MARGIN = c(3),mean)
+x[1:2,3:4,2]  # indexering
+```
+
 
 Linjär regression
 ========================================================

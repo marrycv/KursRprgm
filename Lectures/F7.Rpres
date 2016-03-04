@@ -34,7 +34,7 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 7: Texthantering, statistik, simulering och regression
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
@@ -43,19 +43,20 @@ Föreläsning 7: Innehåll
 ========================================================
 - Uppföljning tidigare laborationer
 - Texthantering och stringr, regular expression 
-- Statistik och simulering
+- Statistik
 - Linjär regression
 
 Laboration D5
 ========================================================
 incremental: true
 
+- Rättad
 - Samtliga kompletteringar är rättade
 
 Laboration D6
 ========================================================
 
-## goo.gl/z3IvEr
+Frågor?
 
 Texthantering i R
 ========================================================
@@ -210,54 +211,6 @@ Enklare statistiska tester
 - Korrelation och kovarians beräknas med: 
   - ```cor()``` och ```cov()``` och testas med
   - ```cor.test()```
-
-
-Slumptal och simulering
-========================================================
-
-- I R finns en uppsättning funktioner för fördelningar
-
-prefix | Beskrivning | Exempel
------ | ---- | ----- 
-```r``` | simulera från fördelningen | ```rnorm()```
-```d``` | täthetsfunktionen (pdf) | ```dnorm()```
-```p``` | kulmulativ fördelninsgfunktion (cdf) | ```pnorm()```
-```q``` | inversa kulmulativa fördelningsfunktionen | ```qnorm()```
-
-- Se CRAN task view: Distributions [[här]](http://cran.r-project.org/web/views/Distributions.html)
-
-Slumptal och simulering: Urval och slumpfrön
-========================================================
-- Det finns ingen riktig slump i datorer
-- Det finns slumptalsgeneratorer
-- Kan styra "slumpen" med "slumpfrön" (```set.seed()```)
-- För att dra ett (obundet) slumpmässigt urval använder vi ```sample()```
-
-Slumptal och simulering: Exempel
-========================================================
-incremental: true
-
-```{r}
-rnorm(n=5, mean=10, sd=1)
-set.seed(20140730)
-rnorm(n=5, mean=10, sd=1)
-set.seed(20140730)
-rnorm(n=5, mean=10, sd=1)
-```
-
-
-Slumptal och simulering: Exempel sample()
-========================================================
-incremental: true
-
-```{r}
-text <- c("Linköpings", "Universitet")
-set.seed(20140730)
-sample(x=text, size=4, replace=TRUE)
-sample(x=text, size=4, replace=TRUE)
-set.seed(20140730)
-sample(x=text, size=4, replace=TRUE)
-```
 
 Linjär regression
 ========================================================

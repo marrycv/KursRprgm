@@ -15,6 +15,3 @@ tasks:
 mandatory:
   url:
     - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2.R
-mandatory:
-  url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R

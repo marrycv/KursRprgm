@@ -27,8 +27,12 @@ test_that("Assignment: wordcount()", {
                         "Fel: Funktionen har fria variabler")
   expect_that(suppressMessages(wordcount(text=text1)), is_a("data.frame"),
               info = "Fel: Funktionen returnerar inte en data.frame")
-  expect_that(all(names(suppressMessages(wordcount(text=text1))) %in% c("freq", "word")), is_true(),
-              info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+  
+  expect_named(suppressMessages(wordcount(text=text1)),expected = c("word","freq"),
+                  info="Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+#   expect_that(all(names(suppressMessages(wordcount(text=text1))) %in% c("freq", "word")), is_true(),
+#               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+  
   expect_is(suppressMessages(wordcount(text=text1))$word, "character",
               info = "Fel: Variabeln word ska vara en textvektor.")
   expect_is(suppressMessages(wordcount(text=text1))$freq, "integer",

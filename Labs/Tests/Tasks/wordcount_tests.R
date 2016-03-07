@@ -39,16 +39,24 @@ test_that("Assignment: wordcount()", {
             info = "Fel: Variabeln freq ska vara en integervektor.")
   
   expect_equal(suppressMessages(wordcount(text=text1))$word[3:5], c("b", "bb", "c"),
-              info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+              info = "Fel: Funktionen returnerar inte rätt värden på kolumnen word när 
+              text='a b c aa bb cc a bb cc, a a bb. a cc cc a. b b. c d d a, d c cc d b b a a'")
+  
   expect_equal(suppressMessages(wordcount(text=text1))$freq[3:5], c(5, 3, 3),
-               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+               info = "Fel: Funktionen returnerar inte rätt värden på kolumnen freq när 
+              text='a b c aa bb cc a bb cc, a a bb. a cc cc a. b b. c d d a, d c cc d b b a a'")
+  
   expect_message(wordcount(text=text1), "The most common word is 'a' and it occured 9 times.",
                  info = "Fel: Funktionen returnerar fel meddelande.")
 
   expect_equal(suppressMessages(wordcount(text=text2))$word[3:5], c("approached", "as", "black"),
-               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+               info = "Fel: Funktionen returnerar inte rätt värden på kolumnen word i testet 
+               text<-readLines('transtrom.txt'); wordcount(text=text)")
+  
   expect_equal(suppressMessages(wordcount(text=text2))$freq[20:25], c(3, 1, 1, 2, 2, 1),
-               info = "Fel: Funktionen returnerar en data.frame med fel variabelnamn.")
+               info = "Fel: Funktionen returnerar inte rätt värden på kolumnen freq i testet 
+               text<-readLines('transtrom.txt'); wordcount(text=text)")
+  
   expect_message(wordcount(text=text2), "The most common word is 'the' and it occured 8 times.",
                  info = "Fel: Funktionen returnerar fel meddelande.")
 

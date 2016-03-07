@@ -41,9 +41,6 @@ test_that("Assignment: wordcount()", {
   expect_equal(suppressMessages(wordcount(text=text1))$word[3:5], c("b", "bb", "c"),
               info = "Fel: Funktionen returnerar inte rätt värden på kolumnen word när text=\"a b c aa bb cc a bb cc, a a bb. a cc cc a. b b. c d d a, d c cc d b b a a\"")
   
-#   expect_equal(suppressMessages(wordcount(text=text1))$word[3:5], c("b", "bb", "c"),
-#                info = "Fel: Funktionen returnerar inte rätt värden på kolumnen word när text=\"a b c aa bb cc a bb cc, a a bb. a cc cc a. b b. c d d a, d c cc d b b a a\"")
-  
   expect_equal(suppressMessages(wordcount(text=text1))$freq[3:5], c(5, 3, 3),
                info = "Fel: Funktionen returnerar inte rätt värden på kolumnen freq när text=\"a b c aa bb cc a bb cc, a a bb. a cc cc a. b b. c d d a, d c cc d b b a a\"")
   

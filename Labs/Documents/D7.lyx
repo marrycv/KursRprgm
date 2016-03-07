@@ -3371,6 +3371,15 @@ worddata<-wordcount(text=text)
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+head(worddata)
+\end_layout
+
+\begin_layout Plain Layout
+
 head(worddata[order(worddata[,2], decreasing=TRUE),])
 \end_layout
 

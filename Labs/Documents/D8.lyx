@@ -4866,6 +4866,16 @@ all()
 
 \begin_deeper
 \begin_layout Enumerate
+Testa först om 
+\family typewriter
+date
+\family default
+ är av typ 
+\family typewriter
+character
+\end_layout
+
+\begin_layout Enumerate
 Är 
 \family typewriter
 ÅÅÅÅ
@@ -4949,6 +4959,16 @@ pnr_date()
 \begin_layout Plain Layout
 
 pnr_date("Hejbaberiba")
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr_date(TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr_date(1)
 \end_layout
 
 \begin_layout Plain Layout

@@ -1,0 +1,105 @@
+
+<style type="text/css">
+  
+  .indent {
+    padding-left: 2em !important;
+  }
+
+.emphasize {
+  text-align: center;
+  width: 100%;
+  color: red;
+  font-weight:bold;
+  line-height:400%;
+}
+
+.sep {
+  line-height:400%;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+
+.reveal section del {
+  color: red;
+  font-weight:bold;
+  width: 100%;
+}
+
+</style>
+  
+Programmering i R
+========================================================
+transition: rotate
+## Föreläsning 9: Repetition
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+
+Avdelningen för statistik,
+Linköpings universitet
+
+Dagens föreläsning:
+========================================================
+- inför tentamen
+- labb 7 och 8
+- R i andra kurser
+- Gamal tenta
+
+Labb 7
+========================================================
+- D7 rättad.
+- Frågor? Kommentarer?
+
+Labb 8
+========================================================
+- Frågor? Kommentarer?
+
+Inför tentamen
+========================================================
+- Tenta i datorsal 08.00-12.00
+- Kom minst 15 min innan och följ vakternas instruktioner.
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
+
+Inför tentamen
+========================================================
+- Hjälpmedel: 
+  - Den inbyggda hjälpen i R (ej internet)
+- Referenskort:
+  - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
+- ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
+- RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+
+Inför tentamen
+========================================================
+- Tenta, referenskort och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
+- Vid tentan kommer ni få ett specifikt användarnamn och lösenord som ni använder för att logga in.
+- OBS: använd `ej` vanliga liuid och lösenord!
+  - Tentan är anonym
+- Se [här](https://github.com/STIMALiU/ComputerLabs/raw/master/ComputerExams/DocStudent.pdf) för allmänna instruktioner för datortentor i PC-pularna. 
+
+R i andra kurser
+========================================================
+Årskurs 2:
+- Surveymetodik med uppsats
+- Databaser: design och programmering
+
+Årskurs 3:
+- Statistisk teori I
+- Statistisk analys av komplexa data
+- Data-Mining
+
+R i andra kurser
+========================================================
+Kan användas på eget initiativ i många kurser, kolla [här](https://cran.r-project.org/web/views/) för uppslag.
+Ex:
+- Kandidatuppsats
+- Multivariata metoder
+
+Generella frågor
+========================================================
+Frågor på något i kursen?
+
+Gammal tenta
+========================================================
+Tentan "exam20150609.pdf", finns [här](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams)

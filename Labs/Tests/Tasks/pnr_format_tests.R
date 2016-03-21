@@ -24,10 +24,16 @@ test_that("Kontroll av pnr_format().", {
                     substr(Sys.Date(),6,7),
                     substr(Sys.Date(),9,10),
                     "0133", sep="")
-  pnrTomorrow <- paste(substr(Sys.Date()+1,1,4), 
-                       substr(Sys.Date()+1,6,7),
-                       substr(Sys.Date()+1,9,10),
-                       "0133", sep="")  
+#   pnrTomorrow <- paste(substr(Sys.Date()+1,1,4), 
+#                        substr(Sys.Date()+1,6,7),
+#                        substr(Sys.Date()+1,9,10),
+#                        "0133", sep="")
+  part1<-as.character(ymd(Sys.Date())+days(1)-years(100))
+  pnrTomorrow<-paste(substr(part1,1,4), 
+                     substr(part1,6,7),
+                     substr(part1,9,10),
+                     "0133", sep="")
+  
   expect_equal(pnr_format(substr(pnrToday,3,12)), pnrToday,
                info = "Fel: Funktionen returnerar fel för en person som föddes idag.")
   expect_equal(pnr_format(substr(pnrTomorrow,3,12)), pnrTomorrow,

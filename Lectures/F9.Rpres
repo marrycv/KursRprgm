@@ -44,7 +44,7 @@ Dagens föreläsning:
 - inför tentamen
 - labb 7 och 8
 - R i andra kurser
-- Gamal tenta
+- Gammal tenta
 
 Labb 7
 ========================================================
@@ -54,6 +54,16 @@ Labb 7
 Labb 8
 ========================================================
 - Frågor? Kommentarer?
+
+Kompletteringar av labbar
+========================================================
+- Deadline för kompletteringar finns [kurshemsidan](http://www.ida.liu.se/~732G33/info/courseinfo.sv.shtml)
+- Ev underkända labbar kommer att markeras med `kompletering` under ordinarie inlämning på Lisam. 
+- Kompletteringar lämnas då in på samma labb som är underkänd. OBS: missa inte deadline!
+- Namn:
+  - Labb 1-4: labb1_josad732_komp2.R om det är komplettering 2.
+  - Labb 5-8: labb5_grupp20_komp2.R om det är komplettering 2.
+
 
 Inför tentamen
 ========================================================
@@ -67,8 +77,8 @@ Inför tentamen
   - Den inbyggda hjälpen i R (ej internet)
 - Referenskort:
   - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
-- ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
-- RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+  - ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
+  - RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
 
 Inför tentamen
 ========================================================
@@ -91,7 +101,7 @@ R i andra kurser
 
 R i andra kurser
 ========================================================
-Kan användas på eget initiativ i många kurser, kolla [här](https://cran.r-project.org/web/views/) för uppslag.
+Kan användas på eget initiativ i många kurser, kolla [här](https://cran.r-project.org/web/views/) för uppslag på metoder.
 Ex:
 - Kandidatuppsats
 - Multivariata metoder

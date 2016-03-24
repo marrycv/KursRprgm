@@ -62,6 +62,8 @@ test_that("Kontroll av pnr_info.", {
   
 #   expect_equal(pnr_info(pnr = pnr1, date= "2000-06-01"), test,
 #                info = "Fel: ger inte rätt data.frame för argumenten pnr=c('196408233234','196408833234','198112189876','197003081242') och date='2000-06-01'")
+  expect_equal(rownames(pnr_info(pnr = pnr1, date= "2000-06-01")), c("1","2","3","4"),
+               info = "Fel: ger inte rätt radnamn för andra testet i labben.")
   expect_equal(pnr_info(pnr = pnr1, date= "2000-06-01"), test,
                info = "Fel: ger inte rätt data.frame för det andra testet i labben.")
   

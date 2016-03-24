@@ -60,7 +60,10 @@ test_that("Kontroll av pnr_info.", {
   age<-c(35,35,18,30)
   test<-data.frame(pnr=pnr1,correct,samordn,sex,age)
   
+#   expect_equal(pnr_info(pnr = pnr1, date= "2000-06-01"), test,
+#                info = "Fel: ger inte rätt data.frame för argumenten pnr=c('196408233234','196408833234','198112189876','197003081242') och date='2000-06-01'")
   expect_equal(pnr_info(pnr = pnr1, date= "2000-06-01"), test,
-               info = "Fel: ger inte rätt data.frame för argumenten pnr=c('196408233234','196408833234','198112189876','197003081242') och date='2000-06-01'")
+               info = "Fel: ger inte rätt data.frame för det andra testet i labben.")
+  
   
 })

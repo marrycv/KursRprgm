@@ -18,8 +18,9 @@ test_that("Kontroll av pnr_date.", {
   expect_equal(pnr_date(date="2012-01-23"), "2012-01-23",
               info = "Fel: Funktionen returnerar inte ett korrekt datum.")
   last_year <- paste0(as.character(as.numeric(paste(substr(Sys.Date(),1,4))) - 1),"-12-31")
+  
   expect_equal(pnr_date(), last_year,
-              info = paste0("Fel: Ska returnera", last_year, "."))
+              info = paste0("Fel: Ska returnera ", last_year, " för pnr_date()"))
   expect_error(pnr_date(date="has"), 
                info = "Fel: Funktionen stoppas inte om fel format anges.")
   expect_error(pnr_date("has"), "Incorrect date format",

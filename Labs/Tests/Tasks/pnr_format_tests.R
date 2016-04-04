@@ -28,6 +28,7 @@ test_that("Kontroll av pnr_format().", {
 #                        substr(Sys.Date()+1,6,7),
 #                        substr(Sys.Date()+1,9,10),
 #                        "0133", sep="")
+  library(lubridate)
   part1<-as.character(ymd(Sys.Date())+days(1)-years(100))
   pnrTomorrow<-paste(substr(part1,1,4), 
                      substr(part1,6,7),

@@ -34,7 +34,7 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 8: ggplot2 och spatiala data
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
@@ -46,25 +46,29 @@ Dagens föreläsning:
 - spatiala data
 - miniprojekt
 
-Laboration D6
+Laboration D6 och D7
 ========================================================
-- `suppressPackageStartupMessages()`
-- lubridate för att plotta mot tid
-
-Laboration D7
-========================================================
-
-## goo.gl/z3IvEr
+- D6 snart rättad.
+- Frågor? Kommentarer?
 
 Inför tentamen
 ========================================================
-- Tenta i datorsal (4 h)
-- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/MansMeg/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
+- Tenta i datorsal 08.00-12.00
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
 - Hjälpmedel: 
   - Den inbyggda hjälpen i R (ej internet)
-  - R reference card v.2 av Matt Baggot, laddas ner [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), 
-- Tenta, R reference card och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
+  - Referenskort:
+      - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
+      -  ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
+      - RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+      
+Inför tentamen
+========================================================
+- Tenta, referenskort och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
 - Vid tentan kommer ni få ett specifikt användarnamn och lösenord som ni använder för att logga in.
+- OBS: använd `ej` vanliga liuid och lösenord!
+- Tentan är anonym
+- Se [här](https://github.com/STIMALiU/ComputerLabs/raw/master/ComputerExams/DocStudent.pdf) för allmänna instruktioner för datortentor i PC-pularna. 
 
 ggplot2
 ========================================================
@@ -186,6 +190,24 @@ p + theme_grey()
 ```
 
 
+ggplot2
+========================================================
+ - ```qplot()```: Liknar ```plot()``` från basgrafiken.
+ - Bra för snabba grafer.
+ - Se Roger Pengs video för en [introduktion](https://www.youtube.com/watch?v=HeqHMM4ziXA)
+ - För mer kontroll använd  ```ggplot() ```
+
+
+ggplot2 och cowplot
+========================================================
+
+Paneler/subplots:
+  - Samma typ av plot: factets
+  - Olika plottar: paketet ```cowplot```, se [här](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) för intro
+  - Utgå från funktionen ```plot_gird()```. Se [här](https://cran.rstudio.com/web/packages/cowplot/vignettes/plot_grid.html) för exempel. 
+
+
+
 Spatiala data
 ========================================================
 type: section
@@ -246,7 +268,7 @@ linkpg_map +
 Visualisera data på karta: resultat
 ========================================================
 
-```{r, echo=FALSE}
+```{r, echo=FALSE,fig.height=10,fig.width=10}
 linkpg_map <- qmap("Linkoping", color="bw", zoom=15)
 geocode("Linkoping")
 df <- 
@@ -266,7 +288,7 @@ shapefiler
   - Punkter
   - Polygoner
 - Ett standardformat är shape-filer
-- Shapefil för Sveriges län och kommuner finns [[här]](https://github.com/MansMeg/KursRprgm/tree/master/Labs/DataFiles)
+- Shapefil för Sveriges län och kommuner finns [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/Labs/DataFiles)
 
 
 Kombinera shapefiler och kartor
@@ -279,3 +301,12 @@ swe_municip <- readShapePoly("Kommun_SCB/Kommun_SCB_07.shp")
 ```
 
 - Skapar ett ```sp``` objekt vi kan arbeta vidare med
+
+
+Miniprojekt del 2
+========================================================
+- Enklare statistika analyser
+- All grafik med ggplot2
+- Enkel kartstatistik
+
+

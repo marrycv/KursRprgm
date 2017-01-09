@@ -3932,7 +3932,7 @@ status open
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -3973,7 +3973,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-#solution_path<-"C:
+solution_path<-"C:
 \backslash
 
 \backslash

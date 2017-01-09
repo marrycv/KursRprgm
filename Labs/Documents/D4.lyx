@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass report
 \begin_preamble
 \usepackage{fancyhdr}%The first page setting
@@ -29,19 +31,19 @@ knitr
 \end_modules
 \maintain_unincluded_children false
 \language swedish
-\language_package auto
+\language_package none
 \inputencoding auto
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -2948,13 +2950,17 @@ Vi ska nu använda så kallade de så kallade
 
 \begin_layout Standard
 Det finns flera olika högnivåfunktioner.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -3500,8 +3506,9 @@ help()
 ?
 \family default
  för enskilda funktioner.
- Dessa dokument är skrivna i LaTeX och är separata dokument som är kopplade
- till funktioner i R-paket.
+ Dessa dokument är skrivna i \SpecialChar LaTeX
+ och är separata dokument som är kopplade till
+ funktioner i R-paket.
  Vi kan således bara använda detta för funktioner i paket.
 \end_layout
 
@@ -3614,13 +3621,17 @@ I dokumentationen ovan dokumenteras funktionens argument, vad funktionen
 
 \begin_layout Standard
 Följande delar i dokumentationen är vanliga att använda.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>

@@ -37,6 +37,7 @@ transition: rotate
 STIMA, 
 Linköpings universitet
 
+*Uppdaterad `r Sys.time()`*
 
 Föreläsning 1: Innehåll 
 ========================================================
@@ -47,8 +48,9 @@ Föreläsning 1: Innehåll
   - R som miniräknare 
   - Variabler
   - Numeriska vektorer
-- Logik
 - Att söka hjälp 
+- Funktioner
+- Logik
 - Inför datalaborationer
 
 
@@ -69,6 +71,10 @@ Information om kursen finns i **[[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_de
 - Mål 3. Bli bekväma med R. Förstå hur du kan använda R i ditt framtida statistiska arbete.
 - Mål 4. Ha kul!
 
+Flipped Learning
+========================================================
+- Kursen kommer att innehålla vissa element av *flipped learning*
+  - se [här]() och [här]() för mer info.
 
 Kursens delar
 ========================================================
@@ -79,10 +85,12 @@ incremental: true
   
 ### Varje vecka (block):
 
-- En föreläsning (med uppföljning av förra labben)
-- En ~~obligatorisk~~ datorlaboration 
+- En *interaktiv* föreläsning (med uppföljning av förra labben)
+- En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga.
 - 6 timmar lärarledd laboration + **många timmar eget arbete**
-- Inlämning **varje tisdag kl. 18.00** via LISAM
+- Inlämning 
+  - Fråga: **varje fredag kl. 18.00** via LISAM
+  - Labb: **varje onsdag kl. 18.00** via LISAM
 
 Del 1: Grundläggande programering
 ========================================================

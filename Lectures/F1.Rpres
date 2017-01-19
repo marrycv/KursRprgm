@@ -40,6 +40,7 @@ Linköpings universitet
   
 Uppdaterad: `r Sys.time()`
 
+*Uppdaterad `r Sys.time()`*
 
 Föreläsning 1: Innehåll 
 ========================================================
@@ -75,6 +76,7 @@ Information om kursen finns i **[[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_de
 
 Flipped Learning
 ========================================================
+<<<<<<< HEAD
 Kursen kommer innehålla inslag av flipped learning. För mer info se [här](https://github.com/STIMALiU/KursRprgm/blob/master/Other/flipped_learning_josef_wilzen.pdf) och [här](https://en.wikipedia.org/wiki/Flipped_classroom)
 
 "Flipped Learning is a pedagogical approach in which direct instruction
@@ -84,6 +86,10 @@ environment where the educator guides students as they apply concepts and
 engage creatively in the subject matter."
 http://flippedlearning.org/
 
+=======
+- Kursen kommer att innehålla vissa element av *flipped learning*
+  - se [här]() och [här]() för mer info.
+>>>>>>> 81451f0a9821d537ba65f54f6cca17e1814f5f60
 
 Kursens delar
 ========================================================
@@ -94,6 +100,7 @@ incremental: true
   
 ### Varje vecka (block):
 
+<<<<<<< HEAD
 - En interaktiv föreläsning (med uppföljning av förra veckan)
 - En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga
 - 4 timmar lärarledd laboration + **många timmar eget arbete**
@@ -114,6 +121,14 @@ incremental: true
   - Det "vanliga" innehållet på föreläsningen kommer att gås igenom i mån av tid
 
 
+=======
+- En *interaktiv* föreläsning (med uppföljning av förra labben)
+- En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga.
+- 6 timmar lärarledd laboration + **många timmar eget arbete**
+- Inlämning 
+  - Fråga: **varje fredag kl. 18.00** via LISAM
+  - Labb: **varje onsdag kl. 18.00** via LISAM
+>>>>>>> 81451f0a9821d537ba65f54f6cca17e1814f5f60
 
 Del 1: Grundläggande programering
 ========================================================

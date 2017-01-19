@@ -35,7 +35,10 @@ transition: rotate
 ## Föreläsning 1: Introduktion
 ### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 STIMA, 
-Linköpings universitet
+Linköpings universitet  
+  
+  
+Uppdaterad: `r Sys.time()`
 
 
 Föreläsning 1: Innehåll 
@@ -47,8 +50,9 @@ Föreläsning 1: Innehåll
   - R som miniräknare 
   - Variabler
   - Numeriska vektorer
-- Logik
 - Att söka hjälp 
+- Funktioner
+- Logik
 - Inför datalaborationer
 
 
@@ -69,6 +73,17 @@ Information om kursen finns i **[[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_de
 - Mål 3. Bli bekväma med R. Förstå hur du kan använda R i ditt framtida statistiska arbete.
 - Mål 4. Ha kul!
 
+Flipped Learning
+========================================================
+Kursen kommer innehålla inslag av flipped learning. För mer info se [här](https://github.com/STIMALiU/KursRprgm/blob/master/Other/flipped_learning_josef_wilzen.pdf) och [här](https://en.wikipedia.org/wiki/Flipped_classroom)
+
+"Flipped Learning is a pedagogical approach in which direct instruction
+moves from the group learning space to the individual learning space, and
+the resulting group space is transformed into a dynamic, interactive learning
+environment where the educator guides students as they apply concepts and
+engage creatively in the subject matter."
+http://flippedlearning.org/
+
 
 Kursens delar
 ========================================================
@@ -79,10 +94,26 @@ incremental: true
   
 ### Varje vecka (block):
 
-- En föreläsning (med uppföljning av förra labben)
-- En ~~obligatorisk~~ datorlaboration 
-- 6 timmar lärarledd laboration + **många timmar eget arbete**
-- Inlämning **varje tisdag kl. 18.00** via LISAM
+- En interaktiv föreläsning (med uppföljning av förra veckan)
+- En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga
+- 4 timmar lärarledd laboration + **många timmar eget arbete**
+- Inlämning: 
+  - Fråga: **varje fredag kl. 18.00** via LISAM
+  - Labbar: **varje onsdag kl. 18.00** via LISAM
+  
+Kursens delar
+========================================================
+incremental: true
+- Fråga:
+  - Varje vecka ska ni konstruera en fråga baserat på veckans innehåll.
+  - Ni väljer själva vilken fråga ni vill ställa, men den ska vara relevant i er inlärning
+  - T.ex. saker som är svåra att förstå, viktiga koncept etc
+- Interaktiv föreläsning:
+  - Den första delan av föreläsningen varje vecka kommer att ha en interaktiv del (ca 30 min)
+  - Innehållet på den interaktiva delen kommer bero på vilka frågor som har lämnats in.
+  - Det "vanliga" innehållet på föreläsningen kommer att gås igenom i mån av tid
+
+
 
 Del 1: Grundläggande programering
 ========================================================
@@ -115,9 +146,10 @@ Praktisk information
 ========================================================
 
 ## Kursens hemsida 
-Hemsidan innehåller bland annat schema, föreläsningar m.m. och finns [[här]](http://www.ida.liu.se/~732G33/).  
+Hemsidan innehåller bland annat schema, föreläsningar m.m. och finns [[här]](http://www.ida.liu.se/~732G33/). Kursen har också en github-sida [[här]](https://github.com/STIMALiU/KursRprgm)
 
-Kursen har också en github-sida [[här]](https://github.com/STIMALiU/KursRprgm)
+[LISAM](http://lisam.liu.se/): används för inlämning av labbar, frågor och kompletteringar.   
+[slack](https://slack.com/): används för kommunikation 
 
 ## Kurskod: 
 **732G33**
@@ -127,18 +159,18 @@ För denna kurs krävs [R](http://www.r-project.org/) och [R-Studio](http://www.
 
 
 
-Kurslitteratur
+Kurslitteratur I:
 ========================================================
 
 ## Kursboken
-Kursboken *A first course in statistical programming with R* av Braun och Murdoch.
+Kursboken *A first course in statistical programming with R* av Braun och Murdoch, andra upplagan.
 
 ## Artiklar 
 - *Dates and Times Made Easy with* ```lubridate``` [[ladda ned]](http://www.jstatsoft.org/v40/i03/paper)
 - *Handling and processing strings in R* [[ladda ned]](http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf)
 - *Best practices for scientific computing* [[ladda ned]](http://arxiv.org/abs/1210.0530)
 
-Kurslitteratur II: Extramaterial
+Kurslitteratur II: 
 ========================================================
 ## Videoföreläsningar
 - Google Developers (GD) videomaterial [[här]](http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w)
@@ -151,16 +183,17 @@ Hjälp till RStudio [[ladda ned]](http://www.rstudio.com/wp-content/uploads/2016
 
 Examination
 ========================================================
-- Datalabbar, 8 st
-- Datortentamen i datasal
-  + *Hjälpmedel:* R reference card v.2 (digitalt)
+- Datorlabbar, 8 st
+- Inskickade frågor, 8 st
+- Datortentamen i datorsal
+  + *Hjälpmedel:* R reference card v.2 (digitalt) + ett par till reference cards
 
 Datorlaborationer
 ========================================================
 - Börja direkt!
 - Är ~~obligatoriska~~.
 - ~ 15 h arbete
-- Laborationsmall finns på hemsidan
+- Laborationsmall finns på hemsidan, kolla [[här]](https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R) [här](https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R)
 - Labbarna lämnas in via [LISAM](http://lisam.liu.se/) och autorättas
 - ```markmyassignment```
 - Filer på kurshemsidan
@@ -171,13 +204,12 @@ Datorlaborationer
 ========================================================
 - Registrera er på kursen för att få tillgång till kursrummet på LISAM
 - Arbetstakt:
+  - kursveckorna går tisdag till tisdag
   - Kursen går på halvfart ~ 20 h/vecka, varav ca 15 till labbar
-  - Mjuk deadline: söndag kväll varje vecka
-  - Hård deadline: tisdag kl 18 veckan efter labben, dvs 2 feb för labb 1.
+  - Hård deadline: onsdag kl 18.00 veckan efter, dvs 2 feb för labb 1.
 - Kompletteringar:
-  - Labb 1-4: komplettering starx efter halva kursen
-  - Komplettering innan tenta och omtentor
-  - Komplettering starx efter kursen
+  - Labb 1-4: komplettering strax efter halva kursen
+  - Komplettering i samband tentan och omtentor
 
 markmyassignment
 ========================================================
@@ -198,7 +230,7 @@ type: section
 
 Datorns delar
 ========================================================
-![Datorns delar](http://www.bubblews.com/assets/images/news/911238892_1364462242.jpg)
+![Datorns delar](https://upload.wikimedia.org/wikipedia/commons/1/13/Personal_computer%2C_exploded_4.svg)
 
 R och datorn
 ========================================================

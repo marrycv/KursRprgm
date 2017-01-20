@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass report
 \begin_preamble
 \usepackage{fancyhdr}%The first page setting
@@ -32,16 +34,16 @@ knitr
 \language_package auto
 \inputencoding auto
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -188,7 +190,7 @@ Introduktion till R och R-Studio
 \end_layout
 
 \begin_layout Section
-R och R-Studio 
+R och R-Studio
 \end_layout
 
 \begin_layout Standard
@@ -774,6 +776,46 @@ Tips:
  Save as...].
 \end_layout
 
+\begin_layout Enumerate
+Lägg sedan till beräkningen 
+\begin_inset Formula $sin\left(log\text{\left(4^{3}\right)}\right)$
+\end_inset
+
+ på raden under, spara.
+\end_layout
+
+\begin_layout Enumerate
+Testa nu olika sätt köra koden i förgående uppgifter.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Markera någonstans på den rad som koden står.
+ tryck sedan 
+\family typewriter
+Ctrl+Enter
+\family default
+.
+ Gör det för alla rader med kod.
+\end_layout
+
+\begin_layout Enumerate
+Markera alla rader med kod i skriptet (så att de blir blå), tryck sedan
+ 
+\family typewriter
+Ctrl+Enter
+\end_layout
+
+\begin_layout Enumerate
+Markera någonstans i skriptet och tryck.
+ 
+\family typewriter
+Ctrl+Shift+Enter
+\family default
+ Vad händer?
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Objekt och variabler
 \end_layout
@@ -1243,13 +1285,17 @@ Det finns flera olika variabeltyper i R.
 \end_inset
 
 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1605,6 +1651,11 @@ status open
 
 \begin_layout Plain Layout
 
+a_int<-3L
+\end_layout
+
+\begin_layout Plain Layout
+
 a <- 1
 \end_layout
 
@@ -1621,6 +1672,11 @@ c <- TRUE
 \begin_layout Plain Layout
 
 z <- (1+1i)^3
+\end_layout
+
+\begin_layout Plain Layout
+
+typeof(a_int)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1668,6 +1724,10 @@ as.
 
 Nedan används 
 \family typewriter
+as.integer()
+\family default
+, 
+\family typewriter
 as.numeric()
 \family default
 , 
@@ -1698,6 +1758,40 @@ status open
 
 \begin_layout Plain Layout
 
+as.integer(a_int)
+\end_layout
+
+\begin_layout Plain Layout
+
+as.character(a_int)
+\end_layout
+
+\begin_layout Plain Layout
+
+as.numeric(a_int)
+\end_layout
+
+\begin_layout Plain Layout
+
+as.logical(a_int)
+\end_layout
+
+\begin_layout Plain Layout
+
+as.complex(a_int)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+as.integer(a)
+\end_layout
+
+\begin_layout Plain Layout
+
 as.character(a)
 \end_layout
 
@@ -1718,6 +1812,11 @@ as.complex(a)
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+as.integer(b)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1746,6 +1845,11 @@ as.complex(b)
 
 \begin_layout Plain Layout
 
+as.integer(c)
+\end_layout
+
+\begin_layout Plain Layout
+
 as.character(c)
 \end_layout
 
@@ -1766,6 +1870,11 @@ as.complex(c)
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+as.as.integer(z)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2141,7 +2250,7 @@ Ofta är det bra att söka efter fel via Google och Stack overflow.
 \series bold
 Obs!
 \series default
- Söka alltid på engelska.
+ Sök alltid på engelska.
  
 \end_layout
 
@@ -2431,8 +2540,8 @@ cat(x,y,z, sep=" - ")
 \end_layout
 
 \begin_layout Standard
-Något mer komplicerade problem från detta block att lösa.
- Alla problem går att lösa med de uppgifter som finns i detta block.
+Här kommer några något mer komplicerade problem för detta block.
+ Alla problem går att lösa med hjälp av föregående uppgifter.
 \end_layout
 
 \begin_layout Enumerate
@@ -2465,6 +2574,10 @@ x=\sqrt{z^{2}+\left|y\right|}
 
 \begin_layout Enumerate
 Gör följande beräkningar
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2483,14 +2596,14 @@ Gör följande beräkningar
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $5{}^{3}\mod5$
+\begin_inset Formula $5^{3}\mod5$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $5{}^{\pi}\mod5$
+\begin_inset Formula $5^{\pi}\mod5$
 \end_inset
 
  
@@ -2667,13 +2780,17 @@ seq()
  Samtliga dessa funktioner fungerar för de vanligaste variabeltyperna som
  textvektorer, logiska vektorer och numeriska vektorer.
  I tabellen nedan framgår deras funktion.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="5cm">
 <column alignment="center" valignment="top">
@@ -2959,6 +3076,11 @@ c <- 3:7
 \begin_layout Plain Layout
 
 d <- 10:1
+\end_layout
+
+\begin_layout Plain Layout
+
+e<-rep(2:3,each=3)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3468,7 +3590,7 @@ c(TRUE, 12, "Hello World!")
 \end_layout
 
 \begin_layout Enumerate
-Undersök variabeltypenför de två vektorerna ovan [
+Undersök variabeltypen för de två vektorerna ovan [
 \series bold
 Tips!
 \series default
@@ -3565,6 +3687,7 @@ order()
 \family default
  däremot returnerar en vektor med i vilken ordning elementen kommer i -
  om de skulle sorteras.
+ Detta är exempel på en indexvektor.
  Funktionen 
 \family typewriter
 order()
@@ -3743,6 +3866,10 @@ sum(isq)
 
 \begin_layout Enumerate
 Pröva följande beräkningar i R:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3956,6 +4083,10 @@ newVec <-c(myx + myw, myz, myy)
 
 \begin_layout Enumerate
 Använd R för att ta reda på följande.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4028,15 +4159,11 @@ I R är index heltal som går fr.o.m 1 t.o.m vektorns längd.
 \end_layout
 
 \begin_layout Enumerate
-Pröva att plocka ut följande element med 
-\family typewriter
-[ ]
-\family default
- ur 
+Skapa 
 \family typewriter
 minVec
 \family default
-:
+ enligt nedan::
 \begin_inset Newline newline
 \end_inset
 
@@ -4074,6 +4201,10 @@ minVec
 [ ]
 \family default
  på följande sätt:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4403,36 +4534,6 @@ q=(k,l,m,p)
 \end_inset
 
 och multiplicera det tredje elementet med det näst sista elementet i vektorn.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-minVec[2] <- 200
-\end_layout
-
-\begin_layout Plain Layout
-
-minVec[4:5] <- c(0, -4)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -4457,6 +4558,10 @@ Gör följande beräkningar på vektor
 \end_inset
 
 :
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4573,6 +4678,10 @@ Använd funktionen
 seq()
 \family default
  för att skapa följande sekvenser: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4595,6 +4704,10 @@ c()
 rep()
 \family default
  för att skapa följande logiska vektorer: 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4809,13 +4922,17 @@ räkna
  Precis som i vanlig matematik kan vi också använda paranteser och som för
  andra vektorer sker operatorerna elementvis.
  De viktigaste operatorerna är:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -4912,7 +5029,15 @@ icke
 \end_layout
 
 \begin_layout Standard
-Mer information finns i referenskortet (under 
+Mer information finns i 
+\begin_inset CommandInset href
+LatexCommand href
+name "referenskortet"
+target "https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf"
+
+\end_inset
+
+ (under 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5029,6 +5154,10 @@ b <- c(TRUE, FALSE, TRUE, FALSE)
 \begin_layout Enumerate
 Utryck följande satser med logiska operatorer och undersök om de är sanna
  eller falska:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5101,13 +5230,17 @@ Den logiska vektorn används för att indexera datasetet
 
 \begin_layout Standard
 De relationsoperatorer som finns är bland annat:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -5411,6 +5544,10 @@ minBoolean <- c(a,b,a,b)[-1]
 
 \begin_layout Enumerate
 Skapa logiska vektorer som indikerar när:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5469,6 +5606,10 @@ minText
 \begin_layout Enumerate
 Relationsoperatorerna kan kombineras med logiska operatorer.
  Skapa logiska vektorer som indikerar när:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -6654,8 +6795,7 @@ där
 \begin_inset Newline newline
 \end_inset
 
-Den allmänna lösningen ges av wikipedia [här].
- och ser ut på detta sätt:
+Den allmänna lösningen ges av:
 \begin_inset Formula 
 \[
 x=-\frac{b}{2a}\pm\sqrt{\frac{b^{2}}{(2a)^{2}}-\frac{c}{a}}
@@ -6768,7 +6908,7 @@ Users
 \backslash
 
 \backslash
-joswi05
+Wollstonecraft
 \backslash
 
 \backslash
@@ -6780,7 +6920,7 @@ Josef
 \backslash
 
 \backslash
-732G33_VT2016
+732G33_VT2017
 \backslash
 
 \backslash
@@ -6940,7 +7080,7 @@ utan argument
 \end_layout
 
 \begin_layout Standard
-I exemplet nedan har värdena avrundats till två eller tre decimaler.
+I exemplet nedan har värdena avrundats något.
  Observera att för att funktionen ge full poäng ska resultatet stämma med
  fler decimaler.
 \end_layout
@@ -7344,13 +7484,17 @@ A
 B
 \family default
  och returnera logiska värden i enlighet med följande logiska tabell:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">

@@ -36,9 +36,7 @@ transition: rotate
 ### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 STIMA, 
 Linköpings universitet  
-  
-  
-Uppdaterad: `r Sys.time()`
+
 
 *Uppdaterad `r Sys.time()`*
 
@@ -46,7 +44,6 @@ Föreläsning 1: Innehåll
 ========================================================
 - Kursens upplägg och praktisk information
 - R, R-Studio och vetenskaplig programmering
-- Vad är R och R-Studio?
 - Introduktion till programering i R
   - R som miniräknare 
   - Variabler
@@ -54,7 +51,6 @@ Föreläsning 1: Innehåll
 - Att söka hjälp 
 - Funktioner
 - Logik
-- Inför datalaborationer
 
 
 Kursens upplägg och praktisk information
@@ -66,7 +62,7 @@ Kursens mål
 ========================================================
 incremental: true
 
-Information om kursen finns i **[[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_detail_print_sv.lasso?&ID=2017074)**. Denna kan sammanfattas till:
+Information om kursen finns i **[kursplanen](http://kdb-5.liu.se/liu/fil/kp_detail_print_sv.lasso?&ID=2017074)**. Denna kan sammanfattas till:
 
 - Mål 0. Bli bekväma med datorer
 - Mål 1. Tänka som en programmerare. Ställa upp problemet rätt. Struktur.
@@ -76,7 +72,6 @@ Information om kursen finns i **[[kursplanen]](http://kdb-5.liu.se/liu/fil/kp_de
 
 Flipped Learning
 ========================================================
-<<<<<<< HEAD
 Kursen kommer innehålla inslag av flipped learning. För mer info se [här](https://github.com/STIMALiU/KursRprgm/blob/master/Other/flipped_learning_josef_wilzen.pdf) och [här](https://en.wikipedia.org/wiki/Flipped_classroom)
 
 "Flipped Learning is a pedagogical approach in which direct instruction
@@ -86,10 +81,6 @@ environment where the educator guides students as they apply concepts and
 engage creatively in the subject matter."
 http://flippedlearning.org/
 
-=======
-- Kursen kommer att innehålla vissa element av *flipped learning*
-  - se [här]() och [här]() för mer info.
->>>>>>> 81451f0a9821d537ba65f54f6cca17e1814f5f60
 
 Kursens delar
 ========================================================
@@ -100,8 +91,7 @@ incremental: true
   
 ### Varje vecka (block):
 
-<<<<<<< HEAD
-- En interaktiv föreläsning (med uppföljning av förra veckan)
+- En *interaktiv* föreläsning (med uppföljning av förra veckan)
 - En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga
 - 4 timmar lärarledd laboration + **många timmar eget arbete**
 - Inlämning: 
@@ -110,25 +100,18 @@ incremental: true
   
 Kursens delar
 ========================================================
-incremental: true
 - Fråga:
   - Varje vecka ska ni konstruera en fråga baserat på veckans innehåll.
   - Ni väljer själva vilken fråga ni vill ställa, men den ska vara relevant i er inlärning
   - T.ex. saker som är svåra att förstå, viktiga koncept etc
+  
+Kursens delar
+========================================================
 - Interaktiv föreläsning:
   - Den första delan av föreläsningen varje vecka kommer att ha en interaktiv del (ca 30 min)
   - Innehållet på den interaktiva delen kommer bero på vilka frågor som har lämnats in.
   - Det "vanliga" innehållet på föreläsningen kommer att gås igenom i mån av tid
 
-
-=======
-- En *interaktiv* föreläsning (med uppföljning av förra labben)
-- En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga.
-- 6 timmar lärarledd laboration + **många timmar eget arbete**
-- Inlämning 
-  - Fråga: **varje fredag kl. 18.00** via LISAM
-  - Labb: **varje onsdag kl. 18.00** via LISAM
->>>>>>> 81451f0a9821d537ba65f54f6cca17e1814f5f60
 
 Del 1: Grundläggande programering
 ========================================================
@@ -208,9 +191,9 @@ Datorlaborationer
 - Börja direkt!
 - Är ~~obligatoriska~~.
 - ~ 15 h arbete
-- Laborationsmall finns på hemsidan, kolla [[här]](https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R) [här](https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R)
+- Laborationsmall finns på hemsidan, kolla [här](https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R)
 - Labbarna lämnas in via [LISAM](http://lisam.liu.se/) och autorättas
-- ```markmyassignment```
+  - R-paketet ```markmyassignment```
 - Filer på kurshemsidan
 - 100 % rätt för godkänt
 - Vissa labbuppgifter är inspirerade av linjär algebra
@@ -224,7 +207,7 @@ Datorlaborationer
   - Hård deadline: onsdag kl 18.00 veckan efter, dvs 2 feb för labb 1.
 - Kompletteringar:
   - Labb 1-4: komplettering strax efter halva kursen
-  - Komplettering i samband tentan och omtentor
+  - Komplettering i samband med tentan och omtentor
 
 markmyassignment
 ========================================================
@@ -245,6 +228,7 @@ type: section
 
 Datorns delar
 ========================================================
+
 ![Datorns delar](https://upload.wikimedia.org/wikipedia/commons/1/13/Personal_computer%2C_exploded_4.svg)
 
 R och datorn
@@ -277,19 +261,19 @@ incremental: true
 Vad är R?
 ========================================================
 - Populäraste programmeringsspråket för statistiker
+  - se [här](http://blog.revolutionanalytics.com/popularity/) och [här](http://r4stats.com/articles/popularity/) 
 - Bygger på öppen källkod (gratis och transparent)
 - Många utvecklare - stor funktionalitet
 - Finns för Windows, Mac och Linux
 - Högnivåspråk (enklare)
-- Största analysspråket från 2014
 - Mer information i RP:s video "Overview and Background"
 - Ett "klister" för statistiska analyser
 
 Ett exempel på ett program
 ========================================================
 incremental: true
-Vi skriva ett program som utgår från talet 7 och skriver sedan de följande 3 udda talen på skärmen.  
-Programmet avslutas med meddelandet ’Klar!’.
+Skapa ett program som utgår från talet 7 och skriver sedan de följande 3 udda talen på skärmen.  
+Programmet ska avslutas med meddelandet ’Klar!’.
 
 I R ser det ut på följande sätt
 
@@ -323,15 +307,15 @@ type: section
 Installation av R och R-Studio
 ========================================================
 ## R
-1. Gå till [http://www.r-project.org/](http://www.r-project.org/)
-2. Download, Packages > CRAN > Sweden > Swedish University Computer Network
-3. Välj ditt operativsystem, ladda ned och installera R
+1. Gå till [https://cran.r-project.org/](https://cran.r-project.org/)
+2. Välj ditt operativsystem, ladda ned och installera R
 
 ## R-Studio
 1. Gå till [http://www.rstudio.com/](http://www.rstudio.com/)
 2. Powerful IDE for R > Download now > Download RStudio Desktop
 3. Välj ditt operativsystem, ladda ned och installera R-Studio
 
+Se kurshemsidan för mer info.
 
 Demo: R och R-Studio
 ====================================

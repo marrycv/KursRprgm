@@ -1,4 +1,4 @@
-<style type="text/css">
+K<style type="text/css">
 
 .indent {
   padding-left: 2em !important;
@@ -143,14 +143,14 @@ Kursens viktigaste moment:
 Praktisk information
 ========================================================
 
-## Kursens hemsida 
+## Kurslogistik 
 Hemsidan innehåller bland annat schema, föreläsningar m.m. och finns [[här]](http://www.ida.liu.se/~732G33/). Kursen har också en github-sida [[här]](https://github.com/STIMALiU/KursRprgm)
 
 [LISAM](http://lisam.liu.se/): används för inlämning av labbar, frågor och kompletteringar.   
+
 [slack](https://slack.com/): används för kommunikation 
 
-## Kurskod: 
-**732G33**
+Kurskod: **732G33**
 
 ## Programvara
 För denna kurs krävs [R](http://www.r-project.org/) och [R-Studio](http://www.rstudio.com/).

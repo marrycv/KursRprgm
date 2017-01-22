@@ -807,8 +807,7 @@ Ctrl+Enter
 \end_layout
 
 \begin_layout Enumerate
-Markera någonstans i skriptet och tryck.
- 
+Markera någonstans i skriptet och tryck: 
 \family typewriter
 Ctrl+Shift+Enter
 \family default
@@ -833,7 +832,7 @@ Kortfattat kan man säga att allt som sparas i minnet i R är objekt och allt
 variabler
 \series default
 .
- Olika variabler kan innehåller olika typer av värden som textsträngar och
+ Olika variabler kan innehålla olika typer av värden som textsträngar och
  numeriska värden.
 \end_layout
 
@@ -926,7 +925,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Vi kan sedan studera detta objekt/skriva ut dem till skärmen.
+Vi kan sedan studera dessa objekt/skriva ut dem till skärmen.
  Pröva följande kod.
 \begin_inset Newline newline
 \end_inset
@@ -1015,7 +1014,7 @@ min Variabel <- 20
 
 \begin_layout Enumerate
 Variabler kan förenkla mer komplicerade beräkningar mycket.
- Pröva att gör beräkningarna med variabler istället.
+ Pröva att göra beräkningarna med variabler istället.
  
 \begin_inset Newline newline
 \end_inset
@@ -1060,7 +1059,7 @@ c
 \end_layout
 
 \begin_layout Enumerate
-Logiska värden är element som kan ta värden 
+Logiska värden är element som kan anta värdena 
 \family typewriter
 TRUE
 \family default
@@ -1935,13 +1934,13 @@ target "http://sv.wikipedia.org/wiki/Random_Access_Memory"
 
 \series default
 \color inherit
-) vilket innebär att stänger vi av R/R-Studio försvinner allt arbete vi
- gjort om vi inte sparat det.
+) vilket innebär att om vi stänger av R/R-Studio försvinner allt arbete
+ vi gjort om vi inte sparat det.
 \end_layout
 
 \begin_layout Standard
 Att R arbetar helt i arbetsminne innebär att beräkningar sker snabbare,
- men det innebär också att det data vi kan arbeta med med R inte kan vara
+ men det innebär också att den data vi kan arbeta med i R inte kan vara
  större än arbetsminnet.
 \begin_inset Foot
 status open
@@ -2089,7 +2088,7 @@ ls()
 \end_layout
 
 \begin_layout Enumerate
-Konkret innebär koden ovan att vi vill ta bort flera (en lista) med objekt.
+Konkret innebär koden ovan att vi vill ta bort flera (en lista med) objekt.
  Denna lista utgörs av hela den globala miljön då vi anropar 
 \family typewriter
 ls()
@@ -2712,7 +2711,7 @@ Vektorer
 \end_layout
 
 \begin_layout Standard
-Vektoren är grunden för analyser i R.
+Vektorer är grunden för analyser i R.
  Vektorer påminner om vektorer inom matematiken men med vissa mindre skillnader.
  Kortfattat kan en vektor beskrivas som ett antal element med olika värden.
  Ett exempel på vektor är 
@@ -3159,8 +3158,7 @@ räkna
 \begin_inset Quotes erd
 \end_inset
 
- med vektorer (eller ex.
- skapa nya variabler i dataset längre fram).
+ med vektorer (eller exempelvis skapa nya variabler i dataset längre fram).
  
 \end_layout
 
@@ -3535,7 +3533,7 @@ Olika variabeltyper i vektorer
 En vektor kan bara ha en variabeltyp.
  Om vi skapar en vektor genom att kombinera flera olika variabeltyper så
  konverteras variabeltypen till den mest komplicerade variabeltypen.
- Variabeltypernas komplexitetnivå är: 
+ Variabeltypernas komplexitetsnivå är: 
 \end_layout
 
 \begin_layout Standard
@@ -3685,8 +3683,8 @@ sort()
 \family typewriter
 order()
 \family default
- däremot returnerar en vektor med i vilken ordning elementen kommer i -
- om de skulle sorteras.
+ däremot returnerar en vektor med den ordning som elementen kommer i - om
+ de skulle sorteras.
  Detta är exempel på en indexvektor.
  Funktionen 
 \family typewriter
@@ -4126,7 +4124,7 @@ myVec
 
 \end_deeper
 \begin_layout Section
-Indexering och att ändra enskilda element i en vektor
+Indexering och ändring av enskilda element i en vektor
 \end_layout
 
 \begin_layout Standard
@@ -4306,7 +4304,7 @@ minVec[length(minVec)]
 \end_layout
 
 \begin_layout Enumerate
-De sista tre elementen kan vi plocka ut på följande sätt.
+De tre sista elementen kan vi plocka ut på följande sätt.
  
 \begin_inset Newline newline
 \end_inset
@@ -4370,7 +4368,7 @@ minVec[-1]
 \end_layout
 
 \begin_layout Enumerate
-Allt utom det första och tredje elementet:
+Allt utom det första och det tredje elementet:
 \begin_inset Newline newline
 \end_inset
 
@@ -4400,7 +4398,7 @@ minVec[-c(1,3)]
 
 \end_deeper
 \begin_layout Enumerate
-Det går också at välja ut ett element flera gånger.
+Det går också att välja ut ett element flera gånger.
 \begin_inset Newline newline
 \end_inset
 
@@ -4429,11 +4427,12 @@ minVec[rep(3, times=3)]
 \end_layout
 
 \begin_layout Enumerate
-När det gäller indexering är fördelarna med funktionen 
+När vi förstått grunderna i indexering är det lätt att förstå fördelarna
+ med funktionen 
 \family typewriter
 order()
 \family default
- lättare att förstå.
+.
  Funktionen returnerar en vektor med index i ordningen från det lägsta talet
  till det högsta talet.
  På detta sätt kan vi således också sortera en vektor (och framöver framförallt
@@ -5205,8 +5204,8 @@ Relationsoperatorer
 \begin_layout Standard
 Relationsoperatorer är det sätt vi kan jämföra olika numeriska vektorer
  (och i vissa fall även textvektorer).
- Relationsoperatorerna returnerar alltid en logisk vektor vilket gör det
- mycket bra för att plocka ut delar ur vektorer och dataset.
+ Relationsoperatorerna returnerar alltid en logisk vektor vilket gör dem
+ mycket lämpliga för att plocka ut delar ur vektorer och dataset.
  
 \end_layout
 
@@ -5216,8 +5215,8 @@ Ofta vill vi jämföra olika vektorer och baserat på detta indexera ett dataset
 \end_layout
 
 \begin_layout Enumerate
-Använd relationsoperatorer för att göra en jämförelse (ex.
- variabeln ålder är större än 18)
+Använd relationsoperatorer för att göra en jämförelse (exempelvis variabeln
+ ålder är större än 18)
 \end_layout
 
 \begin_layout Enumerate
@@ -5755,7 +5754,7 @@ Logiska funktioner
 \end_layout
 
 \begin_layout Standard
-Sist men inte minst finns det två funktioner i R som är av interesse när
+Sist men inte minst finns det två funktioner i R som är av intresse när
  vi arbetar med logiska vektorer.
  Funktionen 
 \family typewriter
@@ -6098,7 +6097,7 @@ return(z)
 \end_layout
 
 \begin_layout Standard
-Det kan vara svårt att få till funktioner att fungera direkt.
+Det kan vara svårt att få funktioner att fungera direkt.
  Därför är det bra att gå igenom följande steg:
 \end_layout
 
@@ -6257,7 +6256,7 @@ rm(x,y,z)
 \end_layout
 
 \begin_layout Itemize
-Vi prövar att funktionen fungerar:
+Pröva att funktionen fungerar:
 \begin_inset Newline newline
 \end_inset
 
@@ -6291,7 +6290,7 @@ minFunktion(x = 3, y = 5)
 \end_layout
 
 \begin_layout Standard
-Nu har vi en bra grund för att själv implementera funktioner i R.
+Nu har vi en bra grund för att själva implementera funktioner i R.
 \end_layout
 
 \begin_layout Enumerate
@@ -6324,7 +6323,7 @@ Pröva funktionen med olika värden på argumenten
 \end_inset
 
 .
- När du kör funktionen, skapas variabeln 
+ Skapas variabeln 
 \begin_inset Formula $z$
 \end_inset
 
@@ -6336,7 +6335,7 @@ Global enviroment
 \begin_inset Quotes erd
 \end_inset
 
-? Varför inte?
+ när du kör funktionen? Varför inte?
 \begin_inset Newline newline
 \end_inset
 
@@ -6641,7 +6640,7 @@ source()
 \begin_layout Standard
 När vi har skapat ett antal funktioner vill vi ofta läsa in alla dessa funktione
 r på en gång.
- Eller om vi vill köra en R-fil använder vi funktionen source(
+ Om vi vill köra en R-fil använder vi funktionen source(
 \begin_inset Quotes eld
 \end_inset
 
@@ -6986,7 +6985,7 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 och spara namn och liuID i respektive variabel.
  Spara filen som labb1_[ditt liuID].R Det är denna fil som du sedan lämnar
  in på LISAM.
- Tänk på filen endast ska innehålla de obligatoriska funktionerna nedan
+ Tänk på att filen endast ska innehålla de obligatoriska funktionerna nedan
  och inget annat.
 \end_layout
 
@@ -7129,8 +7128,8 @@ vektor
 \family default
 \color inherit
 .
- Funktionen ska returnera produkten av det första och sista elementet i
- 
+ Funktionen ska returnera produkten av det första och det sista elementet
+ i 
 \family typewriter
 \color black
 vektor

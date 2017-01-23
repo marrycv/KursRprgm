@@ -6968,7 +6968,7 @@ Inlämningsuppgifter
 \end_layout
 
 \begin_layout Standard
-Ladda nu ner labbmallen, som finns 
+Ladda nu ner laborationsmallen, som finns 
 \series bold
 \color blue
 
@@ -6983,8 +6983,16 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \series default
 \color inherit
 och spara namn och liuID i respektive variabel.
- Spara filen som labb1_[ditt liuID].R Det är denna fil som du sedan lämnar
- in på LISAM.
+ Spara filen som 
+\family typewriter
+labb1_[ditt liuID].R
+\family default
+ Här är ett exempel 
+\family typewriter
+labb1_joswi123.R
+\family default
+ .
+ Det är denna fil som du sedan lämnar in på LISAM.
  Tänk på att filen endast ska innehålla de obligatoriska funktionerna nedan
  och inget annat.
 \end_layout

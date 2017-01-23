@@ -1,5 +1,5 @@
 #### Programmering i R ####
-#### Datorlaboration   ####
+#### Datorlaboration  [nummer] ####
 
 # spara denna fil enligt:
 # del 1: labb1_josad732.R om ditt liu-ID är josad732 och det är labb 1 .
@@ -7,12 +7,12 @@
 
 
 # Skiv ditt namn här, ex Namn <- "Alice Walker"
-# På del 2 i kursen, när ni arbetar i par, skriv då namn på formen:  Namn <- "Ada Lovelace och Alice Walker"
+# På del 2 i kursen, när ni arbetar i par, skriv då namn på formen:  Namn <- c("Ada Lovelace", "Alice Walker")
 Namn <- ""
 
 
 # Skiv ditt liu ID här, ex LiuId <- "aliwa123"
-# På del 2 i kursen, när ni arbetar i par, skriv då ID på formen:  LiuId <- "adalo456 och aliwa123 "
+# På del 2 i kursen, när ni arbetar i par, skriv då ID på formen:  LiuId <- c("adalo456", "aliwa123")
 LiuId  <- ""
 
 # På del 2 i kursen, när ni arbetar i par, ange även grupptillhörighet enligt: Grupp<-"grupp01", om ni tillhör grupp 01

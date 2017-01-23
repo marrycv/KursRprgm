@@ -37,9 +37,12 @@ transition: rotate
 STIMA, 
 Linköpings universitet
 
+
+*Uppdaterad `r Sys.time()`*
+
 Föreläsning 2: Innehåll 
 ========================================================
-- Uppföljning av labb 1
+- Interaktiv del ~ 30 min
 - Datastrukturer
   - Matriser
   - Data.frame
@@ -86,7 +89,7 @@ Sortera vektorer
 ```{r}
 vektor <- c(5,2,4,3,-1)
 sort(vektor)
-order(vektor, decreasing = TRUE)
+order(vektor, decreasing = FALSE)
 ```
 
 Faktorvariabel (vektor)
@@ -212,7 +215,7 @@ iris$Species2[1:10]
 Ta bort variabler
 ========================================================
 - Tillskriver variabeln värdet ```NULL```
-- Som vid indexering av 
+- Negativ indexering
 ```{r, eval=FALSE}
 iris$Sepal.Length2 <- NULL
 iris <- iris[, -7]
@@ -274,7 +277,7 @@ incremental: true
 Indexera listor
 ========================================================
 ```{r}
-minLista <- list(Pelles="Pelle Karlsson", c(1,2,3,4))
+minLista <- list(Perta="Perta Karlsson", c(1,2,3,4))
 minLista[1]
 minLista[[1]]
 ```

@@ -9,9 +9,9 @@
 # Matriser
 # -------------------------------------------------------------------------------------------
 A1<-matrix(data = c(1,42,323,11,434,54,34,23,2),nrow = 3,ncol = 3)
-matrix(data = c(1,42,323,11,434,54,34,23),nrow = 3,ncol = 3)
-matrix(data = c(1,42,323,11,434,54,34,23),nrow = 3,ncol = 3,byrow = TRUE)
 A1
+
+# ändra namn:
 colnames(A1)
 colnames(A1)<-c("x","y","z")
 colnames(A1)
@@ -19,10 +19,15 @@ A1
 rownames(A1)
 rownames(A1)<-c("rad1","rad2","rad3")
 A1
+
+# indexering:
 A1[1,]
 A1[,1]
 A1[1,,drop=FALSE]
 A1[,1,drop=FALSE]
+
+
+
 a1<-A1[1,]
 a2<-A1[1,,drop=FALSE]
 dim(a2)
@@ -63,6 +68,8 @@ is.list(A1)
 data()
 ?iris
 data(iris)
+?head
+
 head(iris)
 tail(iris)
 dim(iris)
@@ -86,10 +93,14 @@ z
 
 typeof(iris$Species)
 typeof(iris$Sepal.Length)
+
+
 mean(iris$Sepal.Length)
 iris[1:10,-5]
 colMeans(iris[,-5])
 rowMeans(iris[,-5])
+colSums(iris[,-5])
+
 summary(iris)
 
 ?mtcars
@@ -111,6 +122,7 @@ is.list(mtcars)
 is.matrix(mtcars)
 is.vector(mtcars)
 
+
 # -------------------------------------------------------------------------------------------
 # Listor
 # -------------------------------------------------------------------------------------------
@@ -130,26 +142,31 @@ x$a
 x[[1]]
 y[[1]]
 y[[1:2]]
-
+y[1:2]
 
 x[[3]][4]
 x[[3]][4]<-4746
 x$c[4]
+x
 y[3]<-NULL
 y
+
 # mer komplex lista:
 a<-list(x1=1:10,x2=c(2,4,22),x3=3:9)
 a
 b<-matrix(1:10,2,5)
 b
+
 storList<-list(minLista=a,minMat=b,logi=TRUE)
 storList
+str(storList)
+
 storList$minMat[1:2,3:4]
 storList$minLista[2]
 storList$minLista[[2]]
 
 summary(storList)
-str(storList)
+
 # -------------------------------------------------------------------------------------------
 # Grundläggande databearbetning
 # -------------------------------------------------------------------------------------------
@@ -171,11 +188,14 @@ y<-data.frame(id = c(2,3,1,4,5),year=2000:2004 ,temp=c(2,-4,21,15,17))
 y
 merge(x = x,y = y,by = "id")
 
+
+
 iris[1:10,]
 aggregate(x = iris$Sepal.Length,by=list(iris$Species),FUN = mean)
 aggregate(x = iris[,-5],by=list(iris$Species),FUN = mean)
 aggregate(x = iris[,-5],by=list(iris$Species),FUN = min)
 aggregate(x = iris[,-5],by=list(iris$Species),FUN = sd)
+
 
 
 
@@ -190,7 +210,7 @@ aggregate(x = iris[,-5],by=list(iris$Species),FUN = sd)
 ?getwd
 getwd()
 dir()
-setwd(dir = "/home/josef/Dropbox/Josef/732G33_VT2016/temp")
+setwd(dir = "/home/josef/Dropbox/Josef/732G33_VT2017/temp")
 dir()
 
 # -------------------------------------------------------------------------------------------

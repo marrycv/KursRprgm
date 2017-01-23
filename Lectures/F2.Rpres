@@ -341,7 +341,7 @@ Input och output (I/O) i R
 Filhantering i R
 ========================================================
 - R läser in i internminnet, men ofta vill vi arbeta med filer från hårddisken
-- R arbetar i working directory 
+- R arbetar i *working directory*
   - För att ta reda på sökvägen ```getwd()```
   - För att ändra sökvägen ```setwd()```
   - För att lista filer i katalogen ```dir()```

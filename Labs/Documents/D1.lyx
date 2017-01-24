@@ -212,7 +212,7 @@ target "http://sv.wikipedia.org/wiki/Integrerad_utvecklingsmilj%C3%B6"
 \series default
 \color inherit
  (Integrated development enviroment).
- Man kan se det lite som en verktygslåda för att enkelt arbeta med R.
+ En kan se det lite som en verktygslåda för att enkelt arbeta med R.
  Detta innebär att R-Studio kräver R för att fungera, men det går att använda
  R utan R-Studio.
 \end_layout
@@ -823,7 +823,7 @@ Objekt och variabler
 Nästa steg är att spara ned våra beräkningar som objekt.
  
 \series bold
-Kortfattat kan man säga att allt som sparas i minnet i R är objekt och allt
+Kortfattat kan en säga att allt som sparas i minnet i R är objekt och allt
  som görs/beräknas i R är funktioner.
 
 \series default
@@ -1709,7 +1709,7 @@ typeof(z)
 \end_layout
 
 \begin_layout Enumerate
-Inte sällan vill man konvertera mellan olika variabeltyper.
+Inte sällan vill en konvertera mellan olika variabeltyper.
  I R finns för för alla variabeltyper konverteringsfunktioner.
  Dessa börjar alltid med 
 \family typewriter
@@ -6908,6 +6908,47 @@ Users
 
 \backslash
 Wollstonecraft
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Josef
+\backslash
+
+\backslash
+732G33_VT2017
+\backslash
+
+\backslash
+KursRprgmTeacher
+\backslash
+
+\backslash
+Labs
+\backslash
+
+\backslash
+exercise_solutions
+\backslash
+
+\backslash
+"
+\end_layout
+
+\begin_layout Plain Layout
+
+#solution_path<-"C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+Florence
 \backslash
 
 \backslash

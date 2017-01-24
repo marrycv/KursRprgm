@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass report
 \begin_preamble
 \usepackage{fancyhdr}%The first page setting
@@ -32,16 +34,16 @@ knitr
 \language_package auto
 \inputencoding auto
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -192,8 +194,8 @@ Matriser är ytterligare en datastruktur som används flitigt i R.
  Den stora skillnaden mot vektorer är att vi har två dimensioner, rader
  och kolumner.
  Precis som vektorer kan vi bara ha en typ av värden i en matris.
- Det betyder att vi kan ha textmatriser, logiska matriser och numeriska
- matriser.
+ Det betyder att vi kan ha textmatriser, logiska matriser, numeriska matriser
+ osv.
 \end_layout
 
 \begin_layout Enumerate
@@ -232,8 +234,8 @@ min_matris1<-matrix(x,nrow=3,ncol=2)
 \end_layout
 
 \begin_layout Enumerate
-Man behöver inte ange både hur många rader och kolumner matrisen ska ha.
- Anger man den ena räknar R ut den andra.
+En behöver inte ange både hur många rader och kolumner matrisen ska ha.
+ Anger en den ena räknar R ut den andra.
 \begin_inset Newline newline
 \end_inset
 
@@ -273,6 +275,10 @@ elementvis
 min_matris
 \family default
 :
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -306,6 +312,12 @@ cbind()
 rbind()
 \family default
  (kombinera radvis).
+ Testa att använda 
+\family typewriter
+cbind()
+\family default
+ på två matriser som du skapar själv.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -727,6 +739,11 @@ all(X > 0)
 
 \begin_layout Plain Layout
 
+# vad gör all()? testa ?all
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -737,7 +754,7 @@ all(X > 0)
 
 \begin_layout Enumerate
 Använd relationsoperatorer för att skapa en logisk matris som indikerar
- alla element som är större än 20 i 
+ vilka element som är större än 20 i 
 \family typewriter
 stor_matris
 \family default
@@ -826,7 +843,7 @@ min_matris[c(2,1),1]
 
 \begin_layout Standard
 En av de mindre bra egenskaperna i R är att väljs en rad eller kolumn ut
- rduceras detta automatiskt till en vektor.
+ reduceras detta automatiskt till en vektor.
  Vill vi inte att detta ska ske (om vi exempelvis vill räkna med en rad
  eller kolumnmatris) måste vi ange att matrisformatet ska behållas med argumente
 t 
@@ -854,6 +871,16 @@ min_matris[3, ,drop=FALSE]
 \begin_layout Plain Layout
 
 min_matris[,1 ,drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+min_matris[,1 ,drop=TRUE]
+\end_layout
+
+\begin_layout Plain Layout
+
+#Testa att köra: ?"["
 \end_layout
 
 \begin_layout Plain Layout
@@ -905,6 +932,10 @@ storMat
 [ , ]
 \family default
 :
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -980,6 +1011,10 @@ storMat
 \family default
  till 0.
  
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1105,6 +1140,16 @@ at
 \end_layout
 
 \begin_layout Enumerate
+Funktionen 
+\family typewriter
+length()
+\family default
+ fungerar på matriser.
+ Ta reda på vad funktionen returnerar om den har en matris som argument.
+ 
+\end_layout
+
+\begin_layout Enumerate
 För att ta bort rader eller kolumner från en matris används minustecknet.
  
 \begin_inset Newline newline
@@ -1175,7 +1220,7 @@ kol_mat[,-1 , drop = FALSE]
 \end_layout
 
 \begin_layout Enumerate
-Sammantaget kan man konstatera att det är samma principer för att indexera
+Sammantaget kan en konstatera att det är samma principer för att indexera
  matriser som att indexera vektorer.
 \end_layout
 
@@ -1222,19 +1267,19 @@ data.frame
 \family typewriter
 data.frame()
 \family default
- och i denna funktion lägger man till de variabler vi vill ha i vårt datset
+ och i denna funktion lägger en till de variabler vi vill ha i vårt datset
  som vektorer.
- Som vanligt måste man tillskriva datasetet till ett objektnamn med 
+ Som vanligt måste en tillskriva datasetet till ett objektnamn med 
 \family typewriter
 <-
 \family default
 .
- Vill man namnge variablerna anger man variablerna som argument.
+ Vill en namnge variablerna anger en variablerna som argument.
  För att titta på en hel 
 \family typewriter
 data.frame
 \family default
- skriver man bara namnet för det aktuella objektet.
+ skriver en bara namnet för det aktuella objektet.
 \end_layout
 
 \begin_layout Standard
@@ -1422,6 +1467,16 @@ library(help = "datasets")
 
 \begin_layout Plain Layout
 
+# eller
+\end_layout
+
+\begin_layout Plain Layout
+
+data()
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -1435,7 +1490,7 @@ Pröva att läsa in en annan
 \family typewriter
 data.frame
 \family default
- som verkar intressant och titta på materialet.
+ som verkar intressant och titta på data.
 \end_layout
 
 \begin_layout Enumerate
@@ -1475,6 +1530,10 @@ Utöver detta finns ett antal funktioner som är relevanta att använda.
 iris
 \family default
 .
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1560,6 +1619,10 @@ nrow()
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Upprepa uppgift 8., men för ett annat dataset som finns i R.
+\end_layout
+
 \begin_layout Section
 Variabler i en 
 \family typewriter
@@ -1690,12 +1753,16 @@ Species
 \family typewriter
 iris
 \family default
- med de tre angivna metoderna ovan.
+ med de fyra angivna metoderna ovan.
 \end_layout
 
 \begin_layout Enumerate
 Pröva att göra följande analyser med hjälp av de statistiska funktionerna
  för vektorer.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1809,8 +1876,9 @@ Skapa och ta bort variabler
 
 \begin_layout Standard
 För att skapa en ny variabel tillskriver vi den nya variabeln (d.v.s.
- variabelnamnet) en ny vektor av samma längd som den aktuella data.frame.
- Vill vi skapa en ny variabel som är kvoten mellan 
+ variabelnamnet) en vektor av samma längd som antalet rader i den aktuella
+ data.frame.
+ Om vi vill skapa en ny variabel som är kvoten mellan 
 \family typewriter
 Petal.Width
 \family default
@@ -1850,15 +1918,26 @@ iris$newVariable <- iris$Petal.Width / iris$Petal.Length
 \end_layout
 
 \begin_layout Enumerate
-Skapa en ny variabel som är summan av 
+Skapa en nya variabler till 
+\family typewriter
+iris
+\family default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+summan av 
 \family typewriter
 Petal.Width
 \family default
  och 
 \family typewriter
 Sepal.Width
-\family default
- samt en variabel som är differensen mellan 
+\end_layout
+
+\begin_layout Enumerate
+differensen mellan 
 \family typewriter
 Sepal.Length
 \family default
@@ -1869,6 +1948,19 @@ Petal.Length
 .
 \end_layout
 
+\begin_layout Enumerate
+Vad händer om du raderar 
+\family typewriter
+iris
+\family default
+ och sen läser in 
+\family typewriter
+iris
+\family default
+ igen?
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 I vissa fall vill vi skapa nya kategoriska variabler.
  Detta kan vi göra på olika sätt.
@@ -2037,9 +2129,13 @@ data.frame
 \family typewriter
 names()
 \family default
+eller 
+\family typewriter
+colnames()
+\family default
 .
  Det som returneras är en textvektor.
- Pröva att använda funktionen på 
+ Pröva att använda funktionerma på 
 \family typewriter
 iris
 \family default
@@ -2095,8 +2191,12 @@ Pröva att byta ut alla variabler utom en med godtyckliga variabelnamn.
 \end_layout
 
 \begin_layout Enumerate
-Använd vektorn namn som du sparade ovan för att återställa variabelnamnen
- till de namn de hade innan.
+Använd vektorn 
+\family typewriter
+namn
+\family default
+ som du sparade ovan för att återställa variabelnamnen till de namn de hade
+ innan.
  Kontrollera att namnen är 
 \begin_inset Quotes eld
 \end_inset
@@ -2242,7 +2342,7 @@ myFactor <- factor(myText)
 \end_layout
 
 \begin_layout Enumerate
-Hur ser man skillnad på en textvektor och en faktorvariabel ovan?
+Hur ser en skillnad på en textvektor och en faktorvariabel ovan?
 \end_layout
 
 \begin_layout Enumerate
@@ -2349,7 +2449,7 @@ data.frame
 \family default
  som innehåller en textvektor kommer textvektorn automatiskt översättas
  till en faktorvariabel.
- För att undvika detta måste man ange argumentet 
+ För att undvika detta måste en ange argumentet 
 \family typewriter
 stringsAsFactors=FALSE
 \family default
@@ -2523,8 +2623,8 @@ under the hood
 \end_inset
 
  är en heltalsvektor kan konverteringar ibland bli förvirrande.
- Konverterar vi en faktorvariabel till numerisk variabel blir den denna
- underliggande heltalsvektor.
+ Konverterar vi en faktorvariabel till numerisk variabel erhåller vi den
+ underliggande heltalsvektorn.
  Vill vi få tillgång till klassetiketterna måste vi konvertertera faktorvariabel
 n till en textvektor.
  Pröva 
@@ -2543,7 +2643,15 @@ minFaktor
 \end_layout
 
 \begin_layout Enumerate
-Faktorvariabler motsvarar nominala variabler.
+Faktorvariabler motsvarar 
+\begin_inset CommandInset href
+LatexCommand href
+name "nominala"
+target "https://sv.wikipedia.org/wiki/M%C3%A4tskala"
+
+\end_inset
+
+ variabler.
  Vi kan också skapa ordinala variabler med funktionen 
 \family typewriter
 factor()
@@ -2766,6 +2874,10 @@ data(faithful)
 data.frame
 \family default
 , välj ut följande element:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2899,6 +3011,10 @@ Petal.Width
 faithful
 \family default
 .
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3011,12 +3127,22 @@ status open
 
 \begin_layout Plain Layout
 
-iris <- iris[order(iris$Petal.Length), ]
+index_vect1<-order(iris$Petal.Length)
 \end_layout
 
 \begin_layout Plain Layout
 
-iris <- iris[order(iris$Petal.Length, decreasing = TRUE), ]
+iris <- iris[index_vect1, ]
+\end_layout
+
+\begin_layout Plain Layout
+
+index_vect2<-order(iris$Petal.Length,decreasing = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+iris <- iris[index_vect2, ]
 \end_layout
 
 \begin_layout Plain Layout
@@ -3056,6 +3182,10 @@ data()
 \family default
 .
  Vi ska nu åtgå från detta datamaterial och genomföra ett antal operationer.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -3132,13 +3262,17 @@ s, matriser, vektorer på olika sätt.
  Många gånger är själva databearbetningarna som tar tid att göra innan vi
  kan påbörja de analyser vi är intresserade av.
  Följande manipulationer hör till de vi vanligen kan tänkas vilja göra.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -3891,6 +4025,10 @@ mtcars
 \family default
  och läs in detta dataset.
  Vi ska nu åtgå från detta datamaterial och genomföra ett antal operationer.
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -4597,6 +4735,10 @@ fuel
 \family default
 .
  
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5037,6 +5179,10 @@ apple <- read.table(file="Apple.txt",sep=";", header=TRUE)
 \end_inset
 
 
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -5084,7 +5230,7 @@ read.table()
 \end_layout
 
 \begin_layout Enumerate
-För att exportera dataset gör man på ett liknande sätt med funktionerna
+För att exportera dataset gör en på ett liknande sätt som med funktionerna
  
 \family typewriter
 write.csv()
@@ -5925,6 +6071,10 @@ period_length
 
 \begin_layout Enumerate
 Räkna ut de värden som ska returneras av funktionen:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper

@@ -7,7 +7,7 @@ test_that("Kontroll av mult_first_last.", {
               info = "Fel: mult_first_last() saknas.")
   expect_that(mult_first_last, is_a("function"),
               info = "Fel: mult_first_last är inte en funktion.")
-  expect_self_contained(object = mult_first_last,
+  expect_function_self_contained(object = mult_first_last,
                         "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(mult_first_last)) %in% c("vektor")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")

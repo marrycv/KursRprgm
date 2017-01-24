@@ -7,7 +7,7 @@ test_that("Kontroll av approx_e.", {
               info = "Fel: approx_e() saknas.")
   expect_that(approx_e, is_a("function"),
               info = "Fel: approx_e är inte en funktion.")
-  expect_self_contained(object = approx_e,
+  expect_function_self_contained(object = approx_e,
                         "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(approx_e)) %in% c("N")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")

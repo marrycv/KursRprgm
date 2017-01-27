@@ -264,6 +264,46 @@ min_matris2<-matrix(x ,ncol=2)
 \end_layout
 
 \begin_layout Enumerate
+Testa koden nedan.
+ Vad är skillanden i de båda fallen? Läs i dokumentation för 
+\family typewriter
+matrix()
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+a<-matrix(1:6 ,ncol=2,byrow = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+b<-matrix(1:6 ,ncol=2,byrow = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
 Till skillnad mot andra matrisprogram som matlab (och i linjära algebra)
  så utförs alla operationer på matriser 
 \series bold
@@ -987,6 +1027,62 @@ status open
 \begin_layout Plain Layout
 
 min_matris[min_matris < 2]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Notera att om ni bara kör koden i 2.
+ så returneras en vektor, som innehåller alla element som uppfyller kravet
+ för det logiska testet 
+\family typewriter
+min_matris < 2
+\family default
+.
+ Testa koden nedan.
+ Vad händer?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+min_matris2<-min_matris
+\end_layout
+
+\begin_layout Plain Layout
+
+min_matris2[min_matris2 < 2]<-99
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+min_matris2
+\end_layout
+
+\begin_layout Plain Layout
+
+min_matris
 \end_layout
 
 \begin_layout Plain Layout
@@ -1858,6 +1954,10 @@ Tips!
 \family typewriter
 quantiles()
 \family default
+, glöm inte att justera argumentet 
+\family typewriter
+probs=
+\family default
 ]
 \end_layout
 
@@ -1957,7 +2057,15 @@ iris
 \family typewriter
 iris
 \family default
- igen?
+ igen? Vilka variabler finns då? [
+\series bold
+Tips
+\series default
+! 
+\family typewriter
+rm()
+\family default
+]
 \end_layout
 
 \end_deeper
@@ -2507,6 +2615,11 @@ minDF
 minFaktor
 \family default
 , både som textvektor och som faktorvariabel.
+ För att se om ni gjort rätt kan ni köra 
+\family typewriter
+str(minDF)
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2521,7 +2634,7 @@ etiketter
  i en faktorvariabel gör vi det på ett liknande sätt som vi byter variabelnamn.
  Med funktionen 
 \family typewriter
-level()
+levels()
 \family default
  får vi tillgång till de olika kategorierna som en textvektor.
  Precis som för variabelnamn kan vi använda detta för att ändra klassetiketter:
@@ -2539,12 +2652,12 @@ status open
 
 \begin_layout Plain Layout
 
-level(myFactor)
+levels(myFactor)
 \end_layout
 
 \begin_layout Plain Layout
 
-level(myFactor)[1] <- "Ny label"
+levels(myFactor)[1] <- "Ny label"
 \end_layout
 
 \begin_layout Plain Layout
@@ -3142,7 +3255,12 @@ index_vect2<-order(iris$Petal.Length,decreasing = TRUE)
 
 \begin_layout Plain Layout
 
-iris <- iris[index_vect2, ]
+iris2 <- iris[index_vect2, ]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Vad är skillnaden på iris och iris2?
 \end_layout
 
 \begin_layout Plain Layout
@@ -3245,6 +3363,15 @@ peri
 \family typewriter
 norm_peri
 \family default
+.
+ 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ är medelvärdet av 
+\begin_inset Formula $x$
+\end_inset
+
 .
 \end_layout
 
@@ -3718,6 +3845,18 @@ Titta på
 res1
 \family default
  och se hur sammanslagningen har gjorts.
+ Fördelen med 
+\family typewriter
+merge()
+\family default
+ jämfört med t.ex.
+ 
+\family typewriter
+cbind()
+\family default
+ är att de två dataseten inte behöver vara sorterade på exakt samma sätt,
+ så länge det finns matchande ID-variabler i båda dataseten.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -3948,7 +4087,7 @@ str()
 \end_layout
 
 \begin_layout Standard
-För att undersöka objekt (vilket som hellst) i R finns funktionen str (från
+För att undersöka objekt (vilket som helst) i R finns funktionen str (från
  internal 
 \series bold
 str
@@ -4209,7 +4348,7 @@ data.frame
 
 \begin_layout Enumerate
 Antag att du har vektorer med de veckodagar som du behöver arbeta hårt,
- arbeta (mindre hårt) och har fri tid.
+ arbeta (mindre hårt) och har fritid.
  Samt hur många timmar du ska arbeta hårt totalt.
 \begin_inset Newline newline
 \end_inset
@@ -4913,7 +5052,7 @@ Med funktionen
 dir()
 \family default
  kan vi se vilka filer som finns i den aktuella katalogen.
- Stämmer det med vad du väntar dig?
+ Stämmer det med vad du förväntar dig?
 \begin_inset Newline newline
 \end_inset
 
@@ -5253,6 +5392,7 @@ apple
 .csv
 \family default
 -fil på detta sätt.
+ I vilken mapp hamnar filen?
 \begin_inset Newline newline
 \end_inset
 
@@ -5301,10 +5441,10 @@ write.table()
 \end_layout
 
 \begin_layout Standard
-Rdata-filer är troligtvis det mest effektiva sättet av alla att spara data
- som filer (jmf med SAS, SPSS, Excel och csv).
+.Rdata-filer är ett effektivt sättet att spara data som filer (jmf med SAS,
+ SPSS, Excel och csv).
  Det är R:s dataformat och bygger på en komprimering av materialet.
- Fördelen är att vi också kan spara flera R-objekt i en och samma Rdata-fil.
+ Fördelen är att vi också kan spara flera R-objekt i en och samma .Rdata-fil.
  För att arbeta med .Rdata-filer använder vi oss av 
 \family typewriter
 save()
@@ -5366,7 +5506,7 @@ apple
 \family typewriter
 google
 \family default
- som 
+ i samma fil med namnet 
 \family typewriter
 storebror.RData
 \family default
@@ -5573,7 +5713,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -5610,6 +5750,12 @@ exercise_solutions
 
 \backslash
 "
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
@@ -5746,6 +5892,11 @@ Använd den numeriska vektorn för att testa om varje givet år är ett skottår
 TRUE
 \family default
  om året är ett skottår.
+ 
+\series bold
+Tips
+\series default
+: Använd modulusoperatorn och relationsoperatorer.
 \end_layout
 
 \begin_layout Enumerate
@@ -5831,11 +5982,11 @@ matrix_trace()
 \end_layout
 
 \begin_layout Standard
-Diagonalmatriser och en matris spår (även kallad 
+Diagonalmatriser och spåret av en matris (kallad 
 \series bold
 trace
 \series default
-) är viktigt inom den linjära algebran.
+ på engelska) är viktigt inom den linjära algebran.
  Mer information finns 
 \series bold
 \color blue
@@ -6166,48 +6317,8 @@ status open
 
 \begin_layout Plain Layout
 
-apple_path<-"C:
-\backslash
-
-\backslash
-Users
-\backslash
-
-\backslash
-joswi05
-\backslash
-
-\backslash
-Dropbox
-\backslash
-
-\backslash
-Josef
-\backslash
-
-\backslash
-732G33_VT2016
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-KursRprgm
-\backslash
-
-\backslash
-Labs
-\backslash
-
-\backslash
-DataFiles
-\backslash
-
-\backslash
-AppleTest.csv"
+apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/Ap
+pleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout
@@ -6303,7 +6414,7 @@ aFiles/AppleTest.csv", destfile = appleFilePath, method = "curl")
 
 \begin_layout Plain Layout
 
-apple_path<-"C:
+#apple_path<-"C:
 \backslash
 
 \backslash
@@ -6340,6 +6451,12 @@ DataFiles
 
 \backslash
 AppleTest.csv"
+\end_layout
+
+\begin_layout Plain Layout
+
+apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/Ap
+pleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout

@@ -6501,6 +6501,16 @@ str(myList2)
 
 \begin_layout Plain Layout
 
+myList3 <- fast_stock_analysis(file_path = apple_path, period_length=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(myList3) 
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 

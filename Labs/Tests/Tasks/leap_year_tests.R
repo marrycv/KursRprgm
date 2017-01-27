@@ -9,7 +9,7 @@ test_that("leap_year()", {
               info = "Fel: leap_year() saknas.")
   expect_that(leap_year, is_a("function"),
               info = "Fel: leap_year är inte en funktion.")
-  expect_self_contained(object = leap_year,
+  expect_function_self_contained(object = leap_year,
                         "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(leap_year)) %in% c("years")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")

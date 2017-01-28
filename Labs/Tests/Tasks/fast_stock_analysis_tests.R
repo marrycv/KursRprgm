@@ -66,6 +66,19 @@ test_that("fast_stock_analysis()", {
               info="Fel: Elementet 'datum' är fel, för AppleTest.csv och period_length=3")
   
   
+  #-----------------------------------------------------------------------------------------------
+  # Testa för google2.csv och period_length=20
+  # Create myList3
+  myList3 <- fast_stock_analysis(file_path=testFile2, period_length=20)
+  expect_equal(myList3$total_spridning, 92.25, tolerance = 0.01, 
+               info="Fel: Elementet 'total_spridning' är fel, för google2.csv och period_length=20")
+  expect_equal(myList3$medel_slutpris, 631.19, tolerance = 0.01, 
+               info="Fel: Elementet 'medel_slutpris' är fel, för google2.csv och period_length=20")
+  expect_equal(myList3$slutpris_upp, FALSE, 
+               info="Fel: Elementet 'slutpris_upp' är fel, för google2.csv och period_length=20")
+  expect_true(all(myList3$datum %in% c("2012-01-24", "2012-01-23")), 
+              info="Fel: Elementet 'datum' är fel, för google2.csv och period_length=20")
+  
   
   # Unlink temporary file
   unlink(testFile)

@@ -76,7 +76,7 @@ test_that("fast_stock_analysis()", {
                info="Fel: Elementet 'medel_slutpris' är fel, för google2.csv och period_length=20")
   expect_equal(myList3$slutpris_upp, FALSE, 
                info="Fel: Elementet 'slutpris_upp' är fel, för google2.csv och period_length=20")
-  expect_true(all(myList3$datum %in% c("2012-01-24", "2012-01-23")), 
+  expect_true(all(myList3$datum %in% c("2012-01-24", "2011-12-23")), 
               info="Fel: Elementet 'datum' är fel, för google2.csv och period_length=20")
   
   

@@ -965,7 +965,7 @@ min_matris[2,1] <- 100
 \begin_layout Enumerate
 Pröva att välja ut följande delar ur matrisen 
 \family typewriter
-storMat
+stor_matris
 \family default
  ovan med 
 \family typewriter
@@ -1097,13 +1097,13 @@ min_matris
 
 \begin_layout Enumerate
 Pröva på detta sätt att välja ut elementen i matrisen som är större än 5
- och mindre än 3.
+ eller mindre än 4.
 \end_layout
 
 \begin_layout Enumerate
 Ändra nu följande enskilda värden, rader och kolumner i 
 \family typewriter
-storMat
+stor_matris
 \family default
  till 0.
  
@@ -1128,7 +1128,12 @@ Kolumn 4
 
 \end_deeper
 \begin_layout Enumerate
-Nu ska vissa värden i matrisen 
+Återskapa 
+\family typewriter
+stor_matris
+\family default
+ enligt nedan (om du har ändrat på den).
+ Nu ska vissa värden i matrisen 
 \family typewriter
 stor_matris
 \family default
@@ -1147,6 +1152,51 @@ NA
 Tips!
 \series default
  Gör detta i flera steg.]
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+a<-rep(c(1,2,3,4,5),10)
+\end_layout
+
+\begin_layout Plain Layout
+
+b<-1:50
+\end_layout
+
+\begin_layout Plain Layout
+
+c<-(1:50)^2
+\end_layout
+
+\begin_layout Plain Layout
+
+d<-log(1:50)
+\end_layout
+
+\begin_layout Plain Layout
+
+stor_matris <- cbind(a,b,c,d)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate

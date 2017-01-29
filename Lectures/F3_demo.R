@@ -23,6 +23,7 @@ if(x<=20){
 }
 
 
+# detta är ett exempel på kontroll av argument
 x<-1:2
 if(x>=1) print("hej")
 
@@ -39,6 +40,7 @@ f(x = "abc")
 
 
 # Egen version av sign()
+?sign
 my_sign<-function(x){
   if(x>0){
     return(1)
@@ -51,9 +53,9 @@ my_sign<-function(x){
 my_sign(10)
 my_sign(-210.53)
 my_sign(0)
-#
 
 
+# switch:
 centre <- function(x, type) {
   switch(type,
          mean = mean(x),
@@ -75,10 +77,12 @@ ifelse(test = x>10,yes = "ja",no = "nej")
 # for-loopar
 # -------------------------------------------------------------------------------------------
 
+# beror av loop-index "i"
 for(i in 1:10){
   print(i)
 }
 
+# beror inte av loop-index "i"
 for(i in 1:10){
   print("hello")
 }
@@ -110,7 +114,6 @@ for ( i in 1:2 ) {
     print(A[i,j])
   }
 }
-paste("hej",1,TRUE,sep = "")
 
 for ( i in 1:2 ) {
   for ( j in 1:2 ) {
@@ -137,6 +140,7 @@ for(i in 3:12){
 
 
 for(i in 3:12){
+  print("Deta händer före if-sats")
   if(i%%3!=0){
     break
   }
@@ -144,19 +148,13 @@ for(i in 3:12){
 }
 
 for(i in 3:12){
-  if(i%%3!=0){
-    stop("kldsag")
-  }
-  print(i)
-}
-
-
-for(i in 3:12){
+  print("Deta händer före if-sats")
   if(i%%3!=0){
     stop("avbryt!")
   }
   print(i)
 }
+
 
 
 
@@ -178,6 +176,9 @@ while(x<=5){
 }
 
 
+# iris data:
+dim(iris)
+head(iris)
 
 
 cond<-TRUE
@@ -191,8 +192,7 @@ while(cond){
     cond<-FALSE
   }
 }
-dim(iris)
-head(iris)
+
 
 # -------------------------------------------------------------------------------------------
 # Demo debugging
@@ -261,7 +261,8 @@ h<-function(x){
 }
 
 
-
+h(1:4)
+my_val<-h(2:5)
 
 
 

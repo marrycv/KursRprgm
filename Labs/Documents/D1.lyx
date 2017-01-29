@@ -4049,7 +4049,7 @@ max(c(mean(myx), median(myx), range(myz)))
 \begin_layout Enumerate
 Skapa vektorn 
 \family typewriter
-newx
+newVec
 \family default
  på följande sätt:
 \begin_inset Newline newline
@@ -4091,7 +4091,7 @@ Använd R för att ta reda på följande.
 \begin_layout Enumerate
 Hur många element har vektorn 
 \family typewriter
-myVec
+newVec
 \family default
 .
  
@@ -4100,24 +4100,32 @@ myVec
 \begin_layout Enumerate
 Vad är medelvärdet för vektorn 
 \family typewriter
-myVec
+newVec
 \family default
 .
  
 \end_layout
 
 \begin_layout Enumerate
-Vad är maximum och minimum?
+Vad är maximum och minimum för 
+\family typewriter
+newVec
+\family default
+?
 \end_layout
 
 \begin_layout Enumerate
-Vilket är det näst största värdet?
+Vilket är det näst största värdet för 
+\family typewriter
+newVec
+\family default
+?
 \end_layout
 
 \begin_layout Enumerate
 Hur många unika värden har 
 \family typewriter
-myVec
+newVec
 \family default
 .
 \end_layout

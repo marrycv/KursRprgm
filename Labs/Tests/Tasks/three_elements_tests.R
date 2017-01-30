@@ -3,19 +3,21 @@
 context("three_elements()")
 
 test_that("Kontroll av three_elements.", {
-  expect_that(exists("three_elements"), is_true(), 
+  expect_true(exists("three_elements"), 
               info = "Fel: three_elements() saknas.")
-  expect_that(three_elements, is_a("function"),
+  expect_true(is.function(three_elements),
               info = "Fel: three_elements är inte en funktion.")
-  expect_that(is.numeric(three_elements()), condition=is_true(),
+  #expect_function_self_contained(object = three_elements,
+  #                               "Fel: Funktionen innehåller fria variabler")
+  expect_true(is.numeric(three_elements()),
               info = "Fel: Funktionen returnerar inte en numerisk vektor.")
   expect_equal(length(three_elements()), 3,
               info = "Fel: Funktionen returnerar inte en vektor av längd 3.")
-  expect_that(log(3) %in% three_elements(), is_true(), 
+  expect_true(log(3) %in% three_elements(), 
               info="Kommentar: ln(3) saknas / är fel")
-  expect_that(exp(pi+1) %in% three_elements() | exp(1)^(pi+1) %in% three_elements(), is_true(), 
+  expect_true(exp(pi+1) %in% three_elements() | exp(1)^(pi+1) %in% three_elements(), 
               info="Kommentar: e^(pi+1) saknas / är fel")
-  expect_that(sin(pi/3) %in% three_elements(), is_true(), 
+  expect_true(sin(pi/3) %in% three_elements(), 
               info="Kommentar: sin(pi/3) saknas / är fel")
   
   expect_function_code(object = three_elements, expected = "return\\(", 

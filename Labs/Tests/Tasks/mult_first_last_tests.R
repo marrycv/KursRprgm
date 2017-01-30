@@ -3,15 +3,18 @@
 context("mult_first_last()")
 
 test_that("Kontroll av mult_first_last.", {
-  expect_that(exists("mult_first_last"), is_true(),
+  expect_true(exists("mult_first_last"),
               info = "Fel: mult_first_last() saknas.")
-  expect_that(mult_first_last, is_a("function"),
+  expect_true(is.function(mult_first_last),
               info = "Fel: mult_first_last är inte en funktion.")
   expect_function_self_contained(object = mult_first_last,
                         "Fel: Funktionen innehåller fria variabler")
-  expect_that(all(names(formals(mult_first_last)) %in% c("vektor")), condition=is_true(),
+  
+  name_vect<-names(formals(mult_first_last))
+  expect_true(all(name_vect %in% c("vektor"))&!is.null(name_vect), 
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(is.numeric(mult_first_last(5:10)), condition=is_true(),
+  
+  expect_true(is.numeric(mult_first_last(5:10)),
               info = "Fel: Funktionen returnerar inte ett numeriskt värde.")
   expect_equal(length(mult_first_last(5:10)), 1,
               info = "Fel: Funktionen returnerar inte ett värde.")

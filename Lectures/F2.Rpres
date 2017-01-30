@@ -54,9 +54,70 @@ Interaktiv del
 ========================================================
 type: section
 
-Interaktiv del
+Några generella frågor på kursen:
 ========================================================
-(*kommer snart*)
+Tillåtna hjälpmedel på tentan:
+Hjälpmedel: 
+  - Den inbyggda hjälpen i R (ej internet)
+  - Referenskort:
+    - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
+    - ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
+    - RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+    - Ev. något mer referenskort
+
+Några generella frågor på kursen:
+========================================================
+Finns det exakt en lösning till uppgifterna?
+- övningsuppgifter: enkla uppgifter kan ha en lösning, men många har olika lösnignar
+- inlämningsuppgifter: 
+  - Alla testen i markmyassignment måste bli godkända. De exempel på funktionsanrop som finns är till för att ni lättare ska klara texterna.
+  - Ni har rätt mycket frihet vilken kod ni skriver inuti funktionen: 
+  
+```{r,eval=FALSE}
+function(){
+  "olika lösningar"
+}
+
+```
+
+
+Markmyassignmnet:
+========================================================
+Om alla tester är avklarade på labb1:
+
+mark_my_assignment()  
+Labbinformation: ......  
+approx_e(): .........  
+logical_equality(): ..........  
+lukes_father(): .......  
+mult_first_last(): .........  
+orth_scalar_prod(): .........  
+three_elements(): ........  
+
+DONE ==================================================
+Good work!  
+(eller "You're a coding rockstar!", "Yay! All done!", etc)
+
+Markmyassignmnet:
+========================================================
+demo...
+
+Hantera strängar och return()
+========================================================
+- return()
+- paste()
+- print()
+- cat()  
+
+Kolla hjälpen, testa sen.
+
+Läs [här](http://stackoverflow.com/questions/31843662/what-is-the-difference-between-cat-and-print) och [här](http://stackoverflow.com/questions/12775085/the-difference-between-concatenating-character-strings-with-paste-vs-cat)
+
+Blandade frågor
+========================================================
+Demo...
+
+
 
 
 Datastrukturer

@@ -70,8 +70,8 @@ Några generella frågor på kursen:
 Finns det exakt en lösning till uppgifterna?
 - övningsuppgifter: enkla uppgifter kan ha en lösning, men många har olika lösnignar
 - inlämningsuppgifter: 
-  - Alla testen i markmyassignment måste bli godkända. De exempel på funktionsanrop som finns är till för att ni lättare ska klara texterna.
-  - Ni har rätt mycket frihet vilken kod ni skriver inuti funktionen: 
+  - Alla testen i markmyassignment måste bli godkända. De exempel på funktionsanrop som finns är till för att ni lättare ska klara testerna.
+  - Ni har rätt mycket frihet vilken kod ni skriver inuti funktioner: 
   
 ```{r,eval=FALSE}
 function(){

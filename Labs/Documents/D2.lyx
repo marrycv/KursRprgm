@@ -6393,11 +6393,20 @@ google2.csv
 \begin_inset CommandInset href
 LatexCommand href
 name "här"
-target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/AppleTest.csv"
+target "https://github.com/STIMALiU/KursRprgm/tree/master/Labs/DataFiles"
 
 \end_inset
 
 .
+ Klicka på filnamnet och sen på knappen 
+\begin_inset Quotes sld
+\end_inset
+
+Raw
+\begin_inset Quotes srd
+\end_inset
+
+ och spara ned filen.
  Här är testexempel på hur funktionen ska fungera (
 \series bold
 Obs!

@@ -2,6 +2,7 @@
 
 context("three_elements()")
 
+
 test_that("Kontroll av three_elements.", {
   expect_true(exists("three_elements"), 
               info = "Fel: three_elements() saknas.")

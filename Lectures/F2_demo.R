@@ -30,9 +30,13 @@ A1[,1,drop=FALSE]
 
 a1<-A1[1,]
 a2<-A1[1,,drop=FALSE]
+a2
 dim(a2)
 is.vector(a1)
 is.matrix(a2)
+
+is.vector(a2)
+
 dim(A1)
 dim(A1[,1])
 

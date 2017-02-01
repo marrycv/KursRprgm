@@ -2,7 +2,35 @@
 context("fast_stock_analysis()")
 
 test_that("fast_stock_analysis()", {
-
+  test_object_name<-function(target,true_names=NULL){
+    if(is.function(target)){
+      temp_name<-names(formals(target))
+    }else if(is.list(target)){
+      temp_name<-names(target)
+    }else{
+      stop("target has non valid class!")
+    }
+    
+    if(is.null(true_names)){
+      if(is.null(temp_name)){
+        return(TRUE)
+      }else{
+        return(FALSE)
+      }
+    }else if(is.character(true_names)&length(true_names)>=1){
+      no_names<-length(true_names)
+      no_match<-vector("logical",no_names)
+      if(length(temp_name)!=length(true_names)){
+        return(FALSE)
+      }
+      for(i in 1:no_names){
+        no_match[i]<-any(temp_name%in%true_names[i])
+      }
+      return(all(no_match))
+    }else{
+      stop("true_names has non valid class!") 
+    } 
+  }
   # Ladda ned data för att testa funktionen på
   testFile <- tempfile(pattern="fast_stock_analysis_test_file", fileext=".csv")
   testFile2 <- tempfile(pattern="fast_stock_analysis_test_file", fileext=".csv")
@@ -15,21 +43,22 @@ test_that("fast_stock_analysis()", {
     markmyassignment:::get_file.path_http(path = path, dest = testFile2)
   }
   
-  expect_that(exists("fast_stock_analysis"), is_true(),
+  expect_true(exists("fast_stock_analysis"),
               info = "Fel: fast_stock_analysis() saknas.")
-  expect_that(fast_stock_analysis, is_a("function"),
+  expect_true(is.function(fast_stock_analysis),
               info = "Fel: fast_stock_analysis är inte en funktion.")
   expect_function_self_contained(object = fast_stock_analysis,
                         "Fel: Funktionen innehåller fria variabler")
-  expect_that(all(names(formals(fast_stock_analysis)) %in% c("file_path", "period_length")), condition=is_true(),
+  
+  
+  expect_true(test_object_name(target = fast_stock_analysis,true_names = c("file_path","period_length")),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   
-  expect_that(class(fast_stock_analysis(file_path=testFile, period_length=5)), 
-              is_equivalent_to("list"), 
+  expect_true(is.list(fast_stock_analysis(file_path=testFile, period_length=5)), 
               info="Fel: Funktionen returnerar inte en lista")
-  expect_that(all(names(fast_stock_analysis(file_path=testFile, period_length=5)) %in% 
-                c("total_spridning", "medel_slutpris", "slutpris_upp", "datum")), 
-              is_true(), 
+  
+  temp_list<-fast_stock_analysis(file_path=testFile, period_length=5)
+  expect_true(test_object_name(target = temp_list,true_names = c("total_spridning", "medel_slutpris", "slutpris_upp", "datum")),
               info="Fel: Listans element är inte korrekt namngivna")
   expect_function_code(object = fast_stock_analysis, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
@@ -82,4 +111,5 @@ test_that("fast_stock_analysis()", {
   
   # Unlink temporary file
   unlink(testFile)
+  unlink(testFile2)
 })

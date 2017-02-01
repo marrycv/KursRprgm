@@ -52,7 +52,7 @@ test_that("leap_year()", {
   expect_true(is.data.frame(leap_year(years=test_years)), 
               info="Fel: Funktionen leap_year() returnerar inte en data.frame")
   
-  expect_true(dim(leap_year(years=test_years))==c(length(test_years),2), 
+  expect_true(all(dim(leap_year(years=test_years))==c(length(test_years),2)), 
               info="Fel: Funktionen leap_year() returnerar fel dimensioner (kolumner och/eller rader)")
   
   temp_df<-leap_year(years=test_years)

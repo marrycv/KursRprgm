@@ -51,7 +51,6 @@ test_that("leap_year()", {
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_true(is.data.frame(leap_year(years=test_years)), 
               info="Fel: Funktionen leap_year() returnerar inte en data.frame")
-  browser()
   expect_true(all(dim(leap_year(years=test_years))==c(length(test_years),2)), 
              info="Fel: Funktionen leap_year() returnerar fel dimensioner (kolumner och/eller rader)")
   

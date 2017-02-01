@@ -696,7 +696,7 @@ A | B
 \end_layout
 
 \begin_layout Enumerate
-Vi kan också använda relationsoperatorer för att skapa logiska vektorer.
+Vi kan också använda relationsoperatorer för att skapa logiska matriser.
  Precis som när det gäller vektorer sker dessa jämförelser elementvis.
  Det som returneras är en logisk matris.
  Pröva följande kod:
@@ -996,15 +996,80 @@ Kolumn 3
 \end_layout
 
 \begin_layout Enumerate
-Elementen (4, 4) och (2, 1)
-\end_layout
-
-\begin_layout Enumerate
 Rad 1 och 4
 \end_layout
 
 \begin_layout Enumerate
 Kolumn 1 till 3
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Indexering kan även ske med numeriska matriser.
+ För att det ska gå behöver vi skapa en matris med två kolumner och godtykligt
+ antal rader.
+ Låt oss kalla denna matris för indexmatris.
+ Första kolumnen i indexmatrisen motsvarar rader och andra kolumnen i indexmatri
+sen motsvarar kolumner i den ursprungliga matrisen.
+ Varje rad indexmatrisen motsvarar ett element i den ursprungliga matrisen.
+ Se koden nedan för ett exempel.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+index_mat<-matrix(c(4,2,4,1),2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+index_mat 
+\end_layout
+
+\begin_layout Plain Layout
+
+stor_matris[index_mat]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Välj med metoden ovan ut elementen (4, 4), (5,3) och (2, 1)
+\end_layout
+
+\begin_layout Enumerate
+Välj med metoden ovan ut elementet (42, 2)
+\end_layout
+
+\begin_layout Enumerate
+Välj med metoden ovan ut elementen (10, 1), (20,2), (30, 3) och (40,4)
+\end_layout
+
+\begin_layout Enumerate
+Vad händer om vi byter plats på raderna i matrisen 
+\family typewriter
+index_mat
+\family default
+ i exemplet ovan?
 \end_layout
 
 \end_deeper

@@ -5869,13 +5869,13 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-#solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/e
-xercise_solutions/"
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -6638,7 +6638,7 @@ AppleTest.csv"
 
 \begin_layout Plain Layout
 
-apple_path<-"C:
+#apple_path<-"C:
 \backslash
 
 \backslash
@@ -6679,7 +6679,7 @@ AppleTest.csv"
 
 \begin_layout Plain Layout
 
-google_path<-"C:
+#google_path<-"C:
 \backslash
 
 \backslash
@@ -6720,14 +6720,14 @@ google2.csv"
 
 \begin_layout Plain Layout
 
-#apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/A
-ppleTest.csv"
+apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/Ap
+pleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout
 
-#google_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/
-google2.csv"
+google_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/g
+oogle2.csv"
 \end_layout
 
 \begin_layout Plain Layout

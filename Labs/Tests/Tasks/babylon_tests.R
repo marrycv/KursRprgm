@@ -81,9 +81,8 @@ test_that("Assignment: babylon()", {
   expect_equal(babylon(x=15, init=0.1, tol=0.01)$iter, 9,
                info = "Fel: Antalet iterationer är felaktig för x = 15, init = 1.5 och tol = 0.01.")  
   
-  expect_function_code(object = babylon, expected = "return\\(", 
-                       info = "Fel: return() saknas i funktionen.")
-  
+  expect_function_code(object = babylon, expected = "return", 
+                       info = "Fel: return() saknas i funktionen.") 
   
   expect_false(body_contain(object = babylon,expected = "sqrt"), "Fel: Funktionen sqrt() används i funktionen.")
 })

@@ -84,7 +84,6 @@ test_that("Assignment: babylon()", {
   expect_function_code(object = babylon, expected = "return\\(", 
                        info = "Fel: return() saknas i funktionen.")
   
-  res <- markmyassignment:::function_code("sqrt")(babylon)
   
   expect_false(body_contain(object = babylon,expected = "sqrt"), "Fel: Funktionen sqrt() används i funktionen.")
 })

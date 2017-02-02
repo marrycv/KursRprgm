@@ -3,6 +3,39 @@
 context("my_matrix_prod()")
 
 test_that("Assignment: my_matrix_prod()", {
+  
+  test_object_name<-function(target,true_names=NULL){
+    if(is.function(target)){
+      temp_name<-names(formals(target))
+    }else if(is.list(target)){
+      temp_name<-names(target)
+    }else{
+      stop("target has non valid class!")
+    }
+    
+    if(is.null(true_names)){
+      if(is.null(temp_name)){
+        return(TRUE)
+      }else{
+        return(FALSE)
+      }
+    }else if(is.character(true_names)&length(true_names)>=1){
+      no_names<-length(true_names)
+      no_match<-vector("logical",no_names)
+      if(length(temp_name)!=length(true_names)){
+        return(FALSE)
+      }
+      for(i in 1:no_names){
+        no_match[i]<-any(temp_name%in%true_names[i])
+      }
+      return(all(no_match))
+    }else{
+      stop("true_names has non valid class!") 
+    } 
+  }
+  body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
+  package_loaded<-function(object){any(grepl(object, search()))}
+  
   testMatA1 <- matrix(c(3, 1, 5, 6), nrow = 2, ncol = 2)
   testMatB1 <- t(testMatA1)
   testMatA2 <- matrix(c(3, 1, 5, 6, 1, 1), nrow = 3, ncol = 3)
@@ -13,25 +46,30 @@ test_that("Assignment: my_matrix_prod()", {
   testMatB4 <- t(testMatA4)
 
 
-  expect_that(exists("my_matrix_prod"), is_true(),
+  expect_true(exists("my_matrix_prod"),
               info = "Fel: my_matrix_prod() saknas.")
-  expect_that(my_matrix_prod, is_a("function"),
+  
+  expect_true(is.function(my_matrix_prod),
               info = "Fel: my_matrix_prod är inte en funktion.")
-  expect_self_contained(object = my_matrix_prod,
+  expect_function_self_contained(object = my_matrix_prod,
                         "Fel: Funktionen innehåller fria variabler")
-  expect_that(all(names(formals(my_matrix_prod)) %in% c("A","B")), condition=is_true(),
+  
+  
+  expect_true(test_object_name(target = my_matrix_prod,c("A","B")),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
-  expect_that(is.matrix(my_matrix_prod(A=testMatA1, B=testMatB1)), condition=is_true(),
+  
+  expect_true(is.matrix(my_matrix_prod(A=testMatA1, B=testMatB1)),
               info = "Fel: Funktionen returnerar inte en matris.")
   
   expect_equal(my_matrix_prod(A=testMatA1, B=testMatB1), testMatA1%*%testMatB1,
               info = "Fel: Funktionen returnerar fel värde för två 2*2 matriser.")
+  
   expect_equal(my_matrix_prod(A=testMatA2, B=testMatB2), testMatA2%*%testMatB2,
                info = "Fel: Funktionen returnerar fel värde för två 3*3 matriser.")
   expect_equal(my_matrix_prod(A=testMatA3, B=testMatB3), testMatA3%*%testMatB3,
-               info = "Fel: Funktionen returnerar fel värde för två matriser (1*6 och 6*1.)")
+               info = "Fel: Funktionen returnerar fel värde för två matriser, med dimensioner 1*6 och 6*1.")
   expect_equal(my_matrix_prod(A=testMatA4, B=testMatB4), testMatA4%*%testMatB4,
-               info = "Fel: Funktionen returnerar fel värde för två matriser (2*4 och 4*2.)")
+               info = "Fel: Funktionen returnerar fel värde för två matriser , med dimensioner 2*4 och 4*2.")
   
   expect_error(my_matrix_prod(A=testMatB3, B=testMatB3),
                info = "Fel: Funktionenen stoppar inte om dimensionerna är fel.")  
@@ -40,7 +78,7 @@ test_that("Assignment: my_matrix_prod()", {
   
   expect_function_code(object = my_matrix_prod, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")  
-  expect_that(my_matrix_prod, not(markmyassignment:::function_code("%*%")), 
+  expect_false(object = body_contain(object = my_matrix_prod,expected = "%*%"),
               info = "Fel: Funktionen innehåller %*%")
 
 })

@@ -35,9 +35,9 @@ f<-function(x){
     print("x is not numeric")
   }
 }
-f(1:340)
+f(x = 1:340)
 f(x = "abc")
-
+mean("abc")
 
 # Egen version av sign()
 ?sign
@@ -76,22 +76,28 @@ ifelse(test = x>10,yes = "ja",no = "nej")
 # -------------------------------------------------------------------------------------------
 # for-loopar
 # -------------------------------------------------------------------------------------------
-
+1e10
 # beror av loop-index "i"
-for(i in 1:10){
+length(1:10)
+for(i in 1:1e7){
   print(i)
 }
 
 # beror inte av loop-index "i"
-for(i in 1:10){
+for(i in 1:5){
   print("hello")
 }
 
+
+loop_vekt<-1:10
+res<-rep(0,length(loop_vekt))
 x<-0
-for(i in 1:10){
+for(i in loop_vekt){
   x<-x+i
+  res[i]<-x
   print(x)
 }
+res
 
 for(j in 1:5){
   print(j)
@@ -120,6 +126,14 @@ for ( i in 1:2 ) {
     print(paste("rad:",i,"kolumn:",j,"värde=",A[i,j]))
   }
 }
+
+
+for ( i in 1:2 ) {
+  for ( j in 1:2 ) {
+    print(paste("rad:",j,"kolumn:",i,"värde=",A[j,i]))
+  }
+}
+
 
 
 # -------------------------------------------------------------------------------------------

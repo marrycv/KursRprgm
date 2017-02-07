@@ -20,11 +20,14 @@
 # factor-variabler ger fördelar när de används tillsammans med andra R-funktioner, tex lm() som gör linjär regression
 
 x<-letters[1:5]
+x
 x<-factor(x)
 x
 levels(x)
 typeof(x)
-relevel(x,ref="d")
+is.factor(x)
+x<-relevel(x,ref="d")
+x
 
 ?read.table()
 # stringsAsFactors=FALSE
@@ -38,7 +41,7 @@ cut(iris$Petal.Width, breaks=2)
 cut(iris$Petal.Width, breaks=2,labels = FALSE)
 cut(iris$Petal.Width, breaks=2,labels =c("A","B"))
 
-cut(iris$Petal.Width, breaks=c(0,2,5))
+cut(iris$Petal.Width, breaks=c(0,2,3,5))
 
 
 iris$newCat2 <- cut(iris$Petal.Width, breaks=2)
@@ -51,11 +54,11 @@ table(iris$newCat2)
 iris$newCat4<-""
 iris$newCat4
 
-iris$newCat4[iris$Petal.Length<2]<-"x<2"
+iris$newCat4[iris$Petal.Length<2] <-"x<2"
 iris$newCat4
 iris$newCat4[iris$Petal.Length>=2]<-"2<=x<5"
 # alt: 
-#iris$newCat4[iris$Petal.Length>=2&iris$Petal.Length<5]<-"2<=x<5"
+iris$newCat4[iris$Petal.Length>=2&iris$Petal.Length<5]<-"2<=x<5"
 
 iris$newCat4
 iris$newCat4[iris$Petal.Length>=5]<-"5<=x"
@@ -68,7 +71,8 @@ as.factor(iris$newCat4)
 # Matriser och data.frame:
 #------------------------------------------------------------------------------------------
 
-# matriser 2-dim datastruktur, alla element av samma typ. Bra vid numerisk linjär algebra.
+# matriser 2-dim datastruktur, alla element av samma typ. 
+# Bra vid numerisk linjär algebra.
 
 
 # Lite numerisk linjär algebra (mer del 2 i kursen)
@@ -80,7 +84,8 @@ B2<-B%*%A  # matrismultiplikation
 
 solve(B2)  # matrisinvers
 
-# data.frame 2-dim datastruktur, kolumner kan vara av olika typ. Bra vid databearbetning.
+# data.frame 2-dim datastruktur, 
+# kolumner kan vara av olika typ. Bra vid databearbetning.
 
 
 ?read.table   # läs under value
@@ -97,6 +102,10 @@ c<-(1:50)^2
 d<-log(1:50)
 stor_matris <- cbind(a,b,c,d)
 
+stor_matris[3,2]
+stor_matris[,2]
+
+
 # använda en 2-dim matris  indexering:
 index_mat<-matrix(c(4,2,4,1),2) 
 index_mat 
@@ -104,7 +113,7 @@ stor_matris[index_mat]  # resultatet är en vektor!
 
 #(a) Välj med metoden ovan ut elementen (4, 4), (5,3) och (2, 1)
 #(b) Välj med metoden ovan ut elementet (42, 2)
-index_mat<-matrix(c(4,5,2,4,3,1),3) 
+index_mat<-matrix(c(4,5,2,4,3,1),nrow = 3,ncol = 2) 
 index_mat 
 stor_matris[index_mat]
 stor_matris[index_mat]<-NA
@@ -116,7 +125,8 @@ head(stor_matris)
 x <- c(1,2,3,4,5,6)
 min_matris <- matrix(x, nrow=3,ncol=2)
 min_matris
-min_matris[min_matris < 5]  # resultatet är en vektor!
+index_mat<-min_matris < 5
+min_matris[index_mat]  # resultatet är en vektor!
 
 min_matris2<-min_matris
 min_matris2[min_matris2 <=4]<-99
@@ -166,6 +176,7 @@ delbar<-function(x,y){
 delbar(x = 10,y = 3)
 delbar(x = 12,y = 3)
 delbar(x = 180,y = 10)
+delbar(x = 180,y = 2)
 
 #------------------------------------------------------------------------------------------
 # blandade frågor:
@@ -227,8 +238,11 @@ A<-table(mtcars$gear,mtcars$carb)
 A
 B<-ftable(mtcars$gear,mtcars$carb)
 B
-str(A)
-str(B)
+
+A<-table(mtcars$gear,mtcars$carb,mtcars$cyl)
+A
+B<-ftable(mtcars$gear,mtcars$carb,mtcars$cyl)
+B
 B
 as.data.frame(A)
 
@@ -286,3 +300,9 @@ lm(trees$Volume~trees$Height)
 #------------------------------------------------------------------------------------------
 # Hur gör man för att importera datamaterial från en excel-fil till R?
 # mer om det i del 2.
+
+# readxl package
+
+# https://cran.r-project.org/web/packages/readxl/readxl.pdf
+# https://www.r-bloggers.com/read-excel-files-from-r/
+

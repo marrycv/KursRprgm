@@ -37,25 +37,26 @@ transition: rotate
 STIMA, 
 Linköpings universitet
 
+*Uppdaterad `r Sys.time()`*
+
 Föreläsning 4: Innehåll 
 ========================================================
-- Uppföljning av labb 2 och 3
+- Interaktiv del ~ 45 min
 - Mer om funktioner
 - Bra och effektiv programmering
 - ```*apply```-funktioner
 - ROxygen
 - R-paket
 
-Uppföljning av labb 2 och 3
+Interaktiv del
 ========================================================
-- Labb 2 är rättad.
-- Kommentarer på labb 3?
-- Inte många som lämnar in före mjuk deadline på söndag kväll.
-- Uppdaterat info om kompletteringar på kurshemsidan.
-- Undersökning på LISAM: 
- - 732G33: Formativ utvärdering
+type: section
+
+Interaktiv del
+========================================================
+(*kommer snart*)
   
-Uppföljning av labb 2 och 3
+Uppföljning av labb 3
 ========================================================
  - Vid inlämning:
   - Spara er fil som labb1_josad732.R om det är labb 1. 
@@ -67,7 +68,7 @@ Uppföljning av labb 2 och 3
 Inför del 2 av kursen
 ========================================================
 - Labbar ska göras i par. 
-- På Lisam finns en länk till ett dokument där ni ska fylla i er.
+- På Slack finns en länk till ett dokument där ni ska fylla i er.
 - Ni blidar grupper själva.
 
 Mer om funktioner
@@ -326,7 +327,7 @@ incremental: true
 - Läsare ska inte behöva hålla allt i huvudet - använd funktioner
 - Använd objektnamn som är tydliga och meningsfulla
 - Använd en kodstil (coding style):
-  - Ex. [Hadley Wickhams](http://adv-r.had.co.nz/Style.html), [Googles](http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml)
+  - Ex. [Hadley Wickhams](http://adv-r.had.co.nz/Style.html), [Googles](https://google.github.io/styleguide/Rguide.xml)
 
 2. Låt datorn göra arbetet
 ========================================================
@@ -390,7 +391,7 @@ incremental: true
 - Använd issue-trackers (överkurs)
 
 
-högnivå-functioner
+högnivå-funktioner
 ========================================================
 type: section
 
@@ -453,7 +454,7 @@ Exempel
 ```{r}
 #' @title f
 #' @description
-#' En funktion som kvadrerar argumenten i x och y och summerar dem. #'
+#' En funktion som kvadrerar argumenten i x och y och summerar dem. 
 #' @param x
 #' Den numeriska variabel x som ska kvadreras
 #' @param y

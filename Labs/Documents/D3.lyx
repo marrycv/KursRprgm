@@ -3466,7 +3466,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-#solution_path<-"C:
+solution_path<-"C:
 \backslash
 
 \backslash
@@ -3507,8 +3507,8 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
-ercise_solutions/"
+#solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/e
+xercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
@@ -4043,6 +4043,15 @@ init
 tol
 \family default
  är hur stor noggrannhet som ska krävas för att avsluta algoritmen.
+ 
+\family typewriter
+tol=0.01
+\family default
+ innebär att algoritmen ska sluta om 
+\begin_inset Formula $\left|r_{n+1}-r_{n}\right|\le0.01$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4077,6 +4086,86 @@ rot
 iter
 \family default
  ska antalet iterationer returneras.
+\end_layout
+
+\begin_layout Standard
+Här följer ett exempel på hur algoritmen ska fungera: Vi vill beräkna 
+\begin_inset Formula $\sqrt{10}$
+\end_inset
+
+, vår första gissning är 
+\begin_inset Formula $3$
+\end_inset
+
+, så vi sätter 
+\begin_inset Formula $r_{0}=3$
+\end_inset
+
+, vi väljer toleransnivån till 
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att beräkna 
+\begin_inset Formula $r_{1}=\frac{r_{0}+\frac{x}{r_{0}}}{2}=\frac{r_{0}+10/r_{0}}{2}=\frac{3+10/3}{2}=3.166667$
+\end_inset
+
+.
+ Sen beräknar vi den absoluta skillnaden mellan 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ och 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+: 
+\begin_inset Formula $|r_{1}-r_{0}|=|3.166667-3|=0.166667$
+\end_inset
+
+ eftersom 
+\begin_inset Formula $0.166667>0.1$
+\end_inset
+
+ så forstätter vi.
+ Detta är första interationen.
+\end_layout
+
+\begin_layout Enumerate
+Vi beräknar 
+\begin_inset Formula $r_{2}=\frac{r_{1}+\frac{x}{r_{1}}}{2}=\frac{3.166667+10/3.166667}{2}=3.162281$
+\end_inset
+
+.
+ Sen beräknar vi den absoluta skillnaden mellan 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ och 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+: 
+\begin_inset Formula $|r_{1}-r_{2}|=|3.166667-3.162281|=0.004386$
+\end_inset
+
+ eftersom 
+\begin_inset Formula $0.004386\le0.1$
+\end_inset
+
+ så avbryter vi algoritmen.
+ Detta är andra interationen.
+\end_layout
+
+\begin_layout Standard
+I detta fall blev det slutgiltiga resultatet 
+\begin_inset Formula $\sqrt{10}\approx3.162281$
+\end_inset
+
+ efter två iterationer.
 \end_layout
 
 \begin_layout Standard

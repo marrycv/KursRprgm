@@ -833,7 +833,7 @@ status open
 
 \begin_layout Plain Layout
 
-x <- 3:8
+x <-c(1,2,3,4,5,6)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1091,7 +1091,7 @@ status open
 
 \begin_layout Plain Layout
 
-min_matris[min_matris < 2]
+min_matris[min_matris <= 4]
 \end_layout
 
 \begin_layout Plain Layout

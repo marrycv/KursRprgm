@@ -3890,8 +3890,15 @@ my_matrix_prod
 \lang swedish
 ()
 \family default
- med argumenten A och B som multiplicerar två matriser med varandra på följande
- sätt:
+ med argumenten 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $B$
+\end_inset
+
+ som multiplicerar två matriser med varandra på följande sätt:
 \begin_inset Formula 
 \[
 \texttt{my\_matrix\_prod(A, B)}=\mathbf{A}\cdot\mathbf{B}
@@ -3913,8 +3920,76 @@ stoppas
 Matrix dimensions mismatch
 \family default
 .
- Observera att det inte är tillåtet att använda R:s funktion för matrismultiplik
-ation 
+ 
+\end_layout
+
+\begin_layout Standard
+Säg att vi vill beräkna 
+\begin_inset Formula $C=A\cdot B$
+\end_inset
+
+.
+ Matrismultiplikation defineras så att element 
+\begin_inset Formula $C\left[i,j\right]=A\left[i,\right]\cdot B\left[,j\right]$
+\end_inset
+
+ om vi använder R:s notation för indexering.
+ Om vi vill beräkna elementet på rad 3 och kolumn 4 i 
+\begin_inset Formula $C$
+\end_inset
+
+ så tar vi 
+\begin_inset CommandInset href
+LatexCommand href
+name "skalärprodukten"
+target "https://sv.wikipedia.org/wiki/Skal%C3%A4rprodukt"
+
+\end_inset
+
+ mellan vektorerna 
+\begin_inset Formula $a_{3}$
+\end_inset
+
+ och 
+\begin_inset Formula $b_{4}$
+\end_inset
+
+.
+ Där 
+\begin_inset Formula $a_{3}$
+\end_inset
+
+ är vektorn som utgörs av rad 3 i matrisen 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $b_{4}$
+\end_inset
+
+ är vektorn som utgörs av kolumn 4 i matrisen 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ För att få alla element i 
+\begin_inset Formula $C$
+\end_inset
+
+ måste vi uppreda denna procedur för alla kombinationer av rader från 
+\begin_inset Formula $A$
+\end_inset
+
+ och kolumner från 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Observera att det inte är tillåtet att använda R:s funktion för matrismultiplika
+tion 
 \family typewriter
 %*%
 \family default

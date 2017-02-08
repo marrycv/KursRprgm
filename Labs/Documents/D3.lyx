@@ -3153,6 +3153,22 @@ Tips
 \end_layout
 
 \begin_layout Enumerate
+Testa att använda 
+\family typewriter
+print()
+\family default
+/
+\family typewriter
+cat()
+\family default
+/
+\family typewriter
+message()
+\family default
+ för att skriva ut viktig information om det som händer i funktionen.
+\end_layout
+
+\begin_layout Enumerate
 Ta bort buggen med minimal förändring av koden.
  
 \end_layout
@@ -3196,7 +3212,7 @@ isIn <- function(a, b) {
 
 \begin_layout Plain Layout
 
-	out <- rep(NA, length(a)) 
+	out <- rep(FALSE, length(a)) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3281,18 +3297,113 @@ Placera
 \family typewriter
 browser()
 \family default
- på lämpligt ställe i koden.
- Undersök vad som händer i looparna.
- Du kan även testa andra debuggingfunktioner.
- Tips 
+ på lämpligt ställe i koden eller använd 
 \family typewriter
-?debug
+debug()
+\family default
+.
+ Undersök vad som händer i looparna.
+ Testa att använda 
+\family typewriter
+print()
+\family default
+/
+\family typewriter
+cat()
+\family default
+/
+\family typewriter
+message()
+\family default
+ för att skriva ut viktig information om det som händer i lopparna.
+\end_layout
+
+\begin_layout Enumerate
+Jämför med 
+\family typewriter
+%in%
+\family default
+ om 
+\family typewriter
+isIn
+\family default
+ fungerar som den ska.
 \end_layout
 
 \begin_layout Enumerate
 Ta bort buggen med minimal förändring av koden.
+ Om du tycker att uppgiften är svår så kommer lite ledning nedan.
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Se till att du förstår funktionen 
+\family typewriter
+%in%
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Testa att lägga in följande kod under tilldelningen av 
+\family typewriter
+out[i]
+\family default
+.
+ När du kör funktionen, vad är det som händer i looparna?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+out[i] <- (a[i] == b[j])
+\end_layout
+
+\begin_layout Plain Layout
+
+print(paste("i:",i," a[i]:",a[i]," j:",j," b[j]:",b[j]," out[i]:",out[i]))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vilka möjliga värden kan 
+\family typewriter
+i
+\family default
+ och 
+\family typewriter
+j
+\family default
+ anta i de båda looparna?
+\end_layout
+
+\begin_layout Enumerate
+Vilka värden är det som sparas i 
+\family typewriter
+out[i]
+\family default
+ i varje iteration?
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Jämför med 
 \family typewriter
@@ -3466,7 +3577,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -3507,8 +3618,8 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-#solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/e
-xercise_solutions/"
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout

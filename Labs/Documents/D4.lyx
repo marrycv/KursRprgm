@@ -3325,7 +3325,7 @@ status open
 
 \begin_layout Plain Layout
 
-tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=function(x) sum(x)^2)
+tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=function(x){sum(x)^2})
 \end_layout
 
 \begin_layout Plain Layout
@@ -3405,7 +3405,7 @@ myList <- split(x = ChickWeight, f = ChickWeight$Diet)
 \end_layout
 
 \begin_layout Enumerate
-Räkna ut medelvärde, varians och percentiler för varje weight i varje element
+Räkna ut medelvärde, varians och percentiler för weight i varje element
  i 
 \family typewriter
 myList
@@ -3525,7 +3525,7 @@ När vi arbetar med att utveckla funktioner finns det ofta ett behov av att
  Vi dokumenterar inte bara funktioner för andras skull utan också för vår
  egen skull.
  Det kan många gånger vara nog så svårt att komma ihåg hur vi tänkte för
- fyra månader när vi skrev en funktion.
+ fyra månader sen om vi tittar tillbaka på en funktion vi skrev då.
  
 \end_layout
 
@@ -3547,14 +3547,29 @@ help()
 \family default
  för enskilda funktioner.
  Dessa dokument är skrivna i \SpecialChar LaTeX
- och är separata dokument som är kopplade till
- funktioner i R-paket.
+ (se 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://sv.wikipedia.org/wiki/Latex_(typs%C3%A4ttningssystem)"
+
+\end_inset
+
+) och är separata dokument som är kopplade till funktioner i R-paket.
  Vi kan således bara använda detta för funktioner i paket.
 \end_layout
 
 \begin_layout Standard
 Vill vi dokumentera våra funktioner utan att skapa egna paket använder vi
- ROxygen.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "ROxygen"
+target "http://roxygen.org/roxygen.pdf"
+
+\end_inset
+
+.
  Det är ett format för att dokumentera funktioner direkt i R.
  Har vi väl dokumenterat våra funktioner med Roxygen kan vi generera R documenta
 tion-filer automatiskt om vi väljer att lägga in funktionen i ett paket.
@@ -3988,7 +4003,7 @@ Svara nu på frågorna nedan:
 \family typewriter
 dayone
 \family default
- ett bra variabel namn?
+ ett bra variabelnamn?
 \end_layout
 
 \begin_layout Enumerate
@@ -4037,6 +4052,10 @@ status open
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 # alt.
  1
 \end_layout
@@ -4048,7 +4067,7 @@ if (y == 0) {
 
 \begin_layout Plain Layout
 
-	log(x) 
+  log(x) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4058,7 +4077,7 @@ if (y == 0) {
 
 \begin_layout Plain Layout
 
-	y ^ x 
+  y ^ x 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4083,7 +4102,7 @@ if (y == 0) {
 
 \begin_layout Plain Layout
 
-	log(x) 
+  log(x) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4103,7 +4122,7 @@ else
 
 \begin_layout Plain Layout
 
-	y ^ x 
+  y ^ x 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4394,13 +4413,12 @@ hilbert_matrix()
 \end_layout
 
 \begin_layout Standard
-Vi ska nu skapa en funktion för att skapa godtyckligt stora kvadratiska
- Hilbertmatriser.
+Vi ska nu skapa en funktion för att skapa godtyckligt stora Hilbertmatriser.
  Varje element i en Hilbertmatris är definierat som
 \begin_inset Formula 
-\[
-H_{ij}=\frac{1}{i+j-1}
-\]
+\begin{equation}
+H_{ij}=\frac{1}{i+j-1}\label{eq:hilbert}
+\end{equation}
 
 \end_inset
 
@@ -4433,15 +4451,85 @@ ncol
 \family default
 .
  Funktionen ska returnera en Hilbertmatris enligt ovan.
- Nedan finns exempel på hur funktionen ska fungera.
+ I denna uppgift är det praktiskt att använda en nästlad for-loop.
+ Exempel på implementering:
+\end_layout
+
+\begin_layout Enumerate
+Skapa en matris 
+\begin_inset Formula $H$
+\end_inset
+
+ av rätt storlek
+\end_layout
+
+\begin_layout Enumerate
+Skapa en nästalad for-loop, där en loop går över rader och en över kolumner
+ i 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Beräkna 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:hilbert"
+
+\end_inset
+
+ för vajre element i 
+\begin_inset Formula $H$
+\end_inset
+
+ med hjälp av loop-index för de två looparna.
+\end_layout
+
+\begin_layout Enumerate
+Returnera 
+\begin_inset Formula $H$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+I denna uppgift är det inte tillåtet att använda sig av inbyggda funktioner
+ eller R-paket som direkt beräknar Hilbertmatriser, utan ni måste skapa
+ funktionen själva enligt instruktionerna ovan.
+ Exempel på otillåtna funktioner är: 
+\family typewriter
+Hilbert()
+\family default
+ i 
+\family typewriter
+Matrix
+\family default
+ och 
+\family typewriter
+pbdDMAT
+\family default
+, 
+\family typewriter
+hilbert.matrix()
+\family default
+ i 
+\family typewriter
+matrixcalc
+\family default
+, 
+\family typewriter
+hilb()
+\family default
+ i 
+\family typewriter
+pracma.
+\end_layout
 
-\series bold
-Tips!
-\series default
- Använd en nästlad for-loop.
+\begin_layout Standard
+Nedan finns exempel på hur funktionen ska fungera.
 \end_layout
 
 \begin_layout Standard
@@ -4455,12 +4543,27 @@ status open
 
 \begin_layout Plain Layout
 
-hilbert_matrix(nrow = 2, ncol = 4)
+hilbert_matrix(5, 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+A<-hilbert_matrix(nrow = 4, ncol = 4)
+\end_layout
+
+\begin_layout Plain Layout
+
+A
 \end_layout
 
 \begin_layout Plain Layout
 
 hilbert_matrix(3, 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+hilbert_matrix(3, 2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4501,7 +4604,7 @@ target "http://en.wikipedia.org/wiki/Toeplitz_matrix"
 \end_layout
 
 \begin_layout Standard
-Nedan är ett exempel på en toeplitzmatris.
+Nedan är två exempel på toeplitzmatriser.
  
 \begin_inset Formula 
 \[
@@ -4516,15 +4619,130 @@ g & f & e & a
 \end_inset
 
 
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccccccc}
+3 & 2 & 0 & 0 & 1 & 2 & 9\\
+7 & 3 & 2 & 0 & 0 & 1 & 2\\
+5 & 7 & 3 & 2 & 0 & 0 & 1\\
+0 & 5 & 7 & 3 & 2 & 0 & 0\\
+9 & 0 & 5 & 7 & 3 & 2 & 0\\
+8 & 9 & 0 & 5 & 7 & 3 & 2\\
+9 & 8 & 9 & 0 & 5 & 7 & 3
+\end{array}\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Vi ska nu skapa en funktion som skapar en Toeplitzmatris av godtycklig storlek.
- Funktionen ska ta en godtycklig vektor 
+ Det går att beskriva en Toeplizmatris en vektor, låt oss kalla den 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ måste vara av udda längd och ger upphov till en kvardatisk matris av storlek
+ 
+\begin_inset Formula $n\times n$
+\end_inset
+
+, där 
+\begin_inset Formula $n$
+\end_inset
+
+ ges av 
+\begin_inset Formula $n=\frac{length(x)+1}{2}$
+\end_inset
+
+.
+ För att helt specificera vår Toeplitzmatris behöver vi ange vilka element
+ i 
+\begin_inset Formula $x$
+\end_inset
+
+ som här till vilken diagonal i vår Toeplitzmatris.
+ Låt oss beteckna alla diagonaler så här:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccccccc}
+D_{0} & D_{+1} & D_{+2} & \cdots\\
+D_{-1} & D_{0} & D_{+1} & D_{+2}\\
+D_{-2} & D_{-1} & D_{0} & D_{+1} & D_{+2}\\
+\vdots & D_{-2} & D_{-1} & D_{0} & D_{-1} & \ddots & \vdots\\
+ &  & D_{-2} & D_{-1} & \ddots & \ddots & D_{+2}\\
+ &  &  & \ddots & \ddots & D_{0} & D_{+1}\\
+ &  &  & \cdots & D_{-2} & D_{-1} & D_{0}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Här betecknar 
+\begin_inset Formula $D_{0}$
+\end_inset
+
+ huvuddiagonalen, indexet 
+\begin_inset Formula $+1$
+\end_inset
+
+ betyder att den diagonalen ligger närmast över huvuddiagonalen, 
+\begin_inset Formula $+2$
+\end_inset
+
+ betyder diagonalen som är två steg över huvuddiagonalen osv.
+ På samma sätt betyder 
+\begin_inset Formula $-1$
+\end_inset
+
+ diagonalen som ligger närmast under huvuddiagonalen osv.
+ Vi antar att 
+\begin_inset Formula $x$
+\end_inset
+
+ kommer på formen 
+\begin_inset Formula $x=\left(\begin{array}{ccccc}
+D_{0} & D_{+1} & D_{+2} & D_{-1} & D_{-2}\end{array}\right)$
+\end_inset
+
+ .
+ Detta ger då matrisen nedan.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+D_{0} & D_{+1} & D_{+2}\\
+D_{-1} & D_{0} & D_{+1}\\
+D_{-2} & D_{-1} & D_{0}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nu ska ni skapa en funktion som ska ta en godtycklig vektor 
 \family typewriter
 x
 \family default
- och returnera en toeplizmatris baserat på denna vektor.
+ och returnera en Toeplizmatris baserat på denna vektor.
  Funktionen ska först kontrollera att vektorn är av en udda längd och annars
  returnera 
 \begin_inset Quotes sld

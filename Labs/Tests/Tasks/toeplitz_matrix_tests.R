@@ -2,6 +2,40 @@
 context("toeplitz_matrix()")
 
 test_that("toeplitz_matrix()", {  
+  test_object_name<-function(target,true_names=NULL){
+    if(is.function(target)){
+      temp_name<-names(formals(target))
+    }else if(is.list(target)){
+      temp_name<-names(target)
+    }else{
+      stop("target has non valid class!")
+    }
+    
+    if(is.null(true_names)){
+      if(is.null(temp_name)){
+        return(TRUE)
+      }else{
+        return(FALSE)
+      }
+    }else if(is.character(true_names)&length(true_names)>=1){
+      no_names<-length(true_names)
+      no_match<-vector("logical",no_names)
+      if(length(temp_name)!=length(true_names)){
+        return(FALSE)
+      }
+      for(i in 1:no_names){
+        no_match[i]<-any(temp_name%in%true_names[i])
+      }
+      return(all(no_match))
+    }else{
+      stop("true_names has non valid class!") 
+    } 
+  }
+  body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
+  package_loaded<-function(object){any(grepl(object, search()))}
+  
+  
+  
   
   test1<-matrix(c(1,4,5,2,1,4,3,2,1),3,3)
   test2<-matrix(c("a","c","b","a"),2,2)
@@ -47,6 +81,8 @@ test_that("toeplitz_matrix()", {
                info="Fel: Funktionen ger inte rätt felmeddlende när x har jämt antal element.")
   expect_function_code(object = toeplitz_matrix, expected = "return", 
                        info = "Fel: return() saknas i funktionen.") 
+  
+  # testa så att inte toeplitz() (base) och toeplitz.spam() eller toeplitz {ts} används!
   
   # lägg till test för return()!
   

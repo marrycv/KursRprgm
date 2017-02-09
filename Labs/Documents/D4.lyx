@@ -3282,14 +3282,52 @@ Pröva att på ett liknande sätt beräkna standardavvikelsen för varje kycklin
 quantile()
 \family default
 .
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=sd) 
+\end_layout
+
+\begin_layout Plain Layout
+
+tapply(X=ChickWeight$weight, INDEX=ChickWeight$Chick, FUN=length)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
-Pröva nu att skicka argument till quantile (med 
+Pröva nu att skicka argument till 
+\family typewriter
+quantile()
+\family default
+ (med 
 \family typewriter
 ...
 \family default
-) för att räkna ut percentiler för varje kyckling.
+) för att räkna ut några andra kvantiler för varje kyckling, tex 
+\family typewriter
+probs=c(0.1,0.9)
+\family default
+.
  
 \end_layout
 

@@ -4563,7 +4563,7 @@ hilbert_matrix(3, 3)
 
 \begin_layout Plain Layout
 
-hilbert_matrix(3, 2)
+hilbert_matrix(2, 3)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4733,7 +4733,7 @@ Här betecknar
 D_{0} & D_{+1} & D_{+2} & D_{+3} & \cdots & D_{+\left(n-1\right)} & D_{-1} & D_{-2} & D_{-3} & \cdots & D_{-\left(n-1\right)}\end{array}\right)$
 \end_inset
 
- .
+.
  Till exempel 
 \begin_inset Formula $x=\left(\begin{array}{ccccc}
 D_{0} & D_{+1} & D_{+2} & D_{-1} & D_{-2}\end{array}\right)$
@@ -4935,7 +4935,12 @@ toeplitz_matrix(1:4)
 
 \begin_layout Plain Layout
 
-toeplitz_matrix(c(1,0,0,0,0))
+a<-toeplitz_matrix(c(1,0,0,0,0))
+\end_layout
+
+\begin_layout Plain Layout
+
+a
 \end_layout
 
 \begin_layout Plain Layout

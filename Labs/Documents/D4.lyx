@@ -5387,12 +5387,8 @@ density_matrix=
 \family typewriter
 trans=
 \family default
- är en numerisk vektor av längd två, där första elementet är 
+ är en numerisk vektor av längd ett, där det enda elementet är 
 \begin_inset Formula $a$
-\end_inset
-
- och andra elementet är 
-\begin_inset Formula $b$
 \end_inset
 
  i 
@@ -5467,6 +5463,11 @@ V_discrete(trans = c(1,2,3))
 
 \begin_layout Plain Layout
 
+V_discrete(trans = c(7,2))
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -5514,12 +5515,12 @@ V_discrete()
 
 \begin_layout Plain Layout
 
-V_discrete(trans = c(2,0)) 
+V_discrete(trans = c(2)) 
 \end_layout
 
 \begin_layout Plain Layout
 
-V_discrete(trans = c(2,5))
+V_discrete(trans = c(2))
 \end_layout
 
 \begin_layout Plain Layout
@@ -5542,17 +5543,17 @@ V_discrete(density_matrix = y_mat)
 
 \begin_layout Plain Layout
 
-V_discrete(density_matrix = y_mat,trans = c(4,0))
+V_discrete(density_matrix = y_mat,trans = c(4))
 \end_layout
 
 \begin_layout Plain Layout
 
-V_discrete(density_matrix = y_mat,trans = c(1,5))
+V_discrete(density_matrix = y_mat,trans = c(1))
 \end_layout
 
 \begin_layout Plain Layout
 
-V_discrete(density_matrix = y_mat,trans = c(0,5))
+V_discrete(density_matrix = y_mat,trans = c(0))
 \end_layout
 
 \begin_layout Plain Layout
@@ -5650,6 +5651,11 @@ status open
 
 \begin_layout Plain Layout
 
+# skapa data:
+\end_layout
+
+\begin_layout Plain Layout
+
 x<-1:10 
 \end_layout
 
@@ -5680,6 +5686,11 @@ y_mat<-cbind(y,py)
 
 \begin_layout Plain Layout
 
+# skapa listor
+\end_layout
+
+\begin_layout Plain Layout
+
 first_list<-list(density_matrix=x_mat,trans=c(2,3)) 
 \end_layout
 
@@ -5691,6 +5702,11 @@ second_list<-list(density_matrix=y_mat,tran=c(5,1))
 \begin_layout Plain Layout
 
 final_list1<-list(first_list,second_list) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# anropa funktionen:
 \end_layout
 
 \begin_layout Plain Layout
@@ -5781,11 +5797,11 @@ density2
  Förslag på lösning:
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Kontrollera argumenten.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Sätt upp en tom lista för resultaten.
  
 \series bold
@@ -5795,10 +5811,13 @@ Tips:
 \family typewriter
 vector()
 \family default
- kan användas för att skapa tomma listor av önskad längd.
+ kan användas för att skapa tomma listor av önskad längd, testa t.ex.
+ 
+\family typewriter
+vector("list",15)
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Gå igenom alla element i 
 \family typewriter
 densities
@@ -5813,6 +5832,10 @@ do.call()
 \family default
 .
  
+\end_layout
+
+\begin_layout Enumerate
+Returnera restualtet.
 \end_layout
 
 \begin_layout Standard
@@ -5908,6 +5931,16 @@ test5<-list(density_matrix=y_mat,trans=c(3,0))
 
 \begin_layout Plain Layout
 
+test6<-list(density_matrix=y_mat,trans=c(2))
+\end_layout
+
+\begin_layout Plain Layout
+
+test7<-list(density_matrix=y_mat,trans=c(3))
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -5928,6 +5961,11 @@ test_list3<-list(test1,test2,test3)
 \begin_layout Plain Layout
 
 test_list4<-list(test1,test4,test5)
+\end_layout
+
+\begin_layout Plain Layout
+
+test_list5<-list(test2,test6,test7)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5966,7 +6004,7 @@ moment_func(densities = test_list4,moment = E_discrete)
 
 \begin_layout Plain Layout
 
-moment_func(densities = test_list4,moment = V_discrete)
+moment_func(densities = test_list5,moment = V_discrete)
 \end_layout
 
 \begin_layout Plain Layout

@@ -109,7 +109,7 @@ test_that("moment_func()", {
   expect_equal(moment_func(densities = test_list4,moment = E_discrete),list(density1=5.5,density2=24,density3=5.7),
                info="Fel: funktionen returnerar inte rätt värde vid densities = test_list4, moment = E_discrete")
   
-  expect_equal(moment_func(densities = test_list5,moment = V_discrete),list(density1=8.25,density2=132,density3=2.61),
+  expect_equal(moment_func(densities = test_list5,moment = V_discrete),list(density1=0.29,density2=1.16,density3=2.61),
                info="Fel: funktionen returnerar inte rätt värde med densities = test_list5, moment = V_discrete")
   
 

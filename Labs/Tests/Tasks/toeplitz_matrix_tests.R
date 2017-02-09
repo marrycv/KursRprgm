@@ -35,9 +35,6 @@ test_that("toeplitz_matrix()", {
   body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
   package_loaded<-function(object){any(grepl(object, search()))}
   
-  
-  
-  
   test1<-matrix(c(1,4,5,2,1,4,3,2,1),3,3)
   test2<-matrix(c("a","c","b","a"),2,2)
   test3<-matrix(c(11,22,33,44,22,11,22,33,33,22,11,22,44,33,22,11),4,4)
@@ -49,7 +46,7 @@ test_that("toeplitz_matrix()", {
               info = "Fel: toeplitz_matrix är inte en funktion.")
   expect_function_self_contained(object = toeplitz_matrix,
                         "Fel: Funktionen innehåller fria variabler")
-  
+   
   
   expect_true(test_object_name(target = toeplitz_matrix,true_names = c("x")),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")

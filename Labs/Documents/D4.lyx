@@ -378,7 +378,7 @@ target "https://github.com/"
 
 .
  Det är vanligt att paket som fortfarande utvecklas aktivt finns på både
- CRAN och github.com då github underlättar enormt för så kallad collaborativ
+ CRAN och github.com då github underlättar enormt för så kallad kollaborativ
  utveckling där flera personer hjälps åt med utvecklingen.
  För att installera från github direkt behöver först paketet 
 \family typewriter
@@ -603,7 +603,7 @@ gör
 \end_layout
 
 \begin_layout Standard
-För en fördjupning om funktioner rekomenderas 
+För en fördjupning om funktioner rekommenderas 
 \series bold
 \color blue
 
@@ -630,7 +630,7 @@ Tilldelning
 
 \begin_layout Standard
 Tilldelning (assignment) kan ske på några olika sätt i R.
- Ni har redan använd det vanligste 
+ Ni har redan använd det vanligaste 
 \begin_inset Quotes sld
 \end_inset
 
@@ -752,7 +752,7 @@ b
 \end_layout
 
 \begin_layout Enumerate
-För att tilldela i den globla miljön används 
+För att tilldela i den globala miljön används 
 \begin_inset Quotes sld
 \end_inset
 
@@ -776,9 +776,9 @@ För att tilldela i den globla miljön används
 \begin_inset Quotes srd
 \end_inset
 
- (rekomenderas ej!).
+ (rekommenderas ej!).
  Testa koden nedan.
- Ofta vill vi undvika att tilldela variabler i den globla miljön inifrån
+ Ofta vill vi undvika att tilldela variabler i den globala miljön inifrån
  funktioner, och därför är det bäst att använda den vanliga 
 \begin_inset Quotes sld
 \end_inset
@@ -871,7 +871,7 @@ y
 \end_layout
 
 \begin_layout Enumerate
-En annan tilldeningsoperator är 
+En annan tilldelningsoperator är 
 \family typewriter
 assign()
 \family default
@@ -1008,7 +1008,7 @@ t).
 \end_layout
 
 \begin_layout Enumerate
-Vi börjar med att skapa följade funktion i R.
+Vi börjar med att skapa följande funktion i R.
  
 \begin_inset Formula 
 \[
@@ -1124,7 +1124,7 @@ body(f)
 
 \begin_layout Enumerate
 Till sist kan vi också undersöka funktionens miljö.
- Detta säger ingeting just nu, men vi kommer strax återkomma till funktioners
+ Detta säger ingenting just nu, men vi kommer strax återkomma till funktioners
  lokala miljöer.
 \begin_inset Newline newline
 \end_inset
@@ -1494,7 +1494,7 @@ Pröva att köra funktionen både genom att ange argumentet
 b
 \family default
  och utan att ange det.
- Upprepa funktionen men sätt standarvärdet för 
+ Upprepa funktionen men sätt defaultvärden för 
 \family typewriter
 a
 \family default
@@ -1749,7 +1749,7 @@ f
 
 \begin_layout Enumerate
 Vi kan också skicka med argument till den funktion vi skickar med.
- Skapa täthetfunktionen för en 
+ Skapa täthetsfunktionen för en 
 \begin_inset CommandInset href
 LatexCommand href
 name "exponentialfördelad variabel"
@@ -2493,7 +2493,7 @@ mean()
 \family typewriter
 mean()
 \family default
--funktion i något paket kommer den tillslut titta i base-paketet där 
+-funktion i något paket kommer den till slut titta i base-paketet där 
 \family typewriter
 mean()
 \family default
@@ -3179,7 +3179,7 @@ Ragged array
 
  eller vektorer av olika längd).
  Detta är ofta av intresse i praktiken.
- Vi börjar med att läsa in datsetet 
+ Vi börjar med att läsa in datasetet 
 \family typewriter
 ChickWeight
 \family default
@@ -3661,7 +3661,7 @@ f <- function(x, y) x^2 + y^2
 \end_layout
 
 \begin_layout Standard
-Observera att roxygendokumentation inleds med 
+Observera att roxygen-dokumentation inleds med 
 \family typewriter
 #'
 \family default
@@ -4149,8 +4149,8 @@ Hur bör jag kommentera min kod?
 \end_layout
 
 \begin_layout Enumerate
-Vilken operator ska jag använda vid vanlig tilldelning? (Dvs jag vill jag
- variabeln 
+Vilken operator ska jag använda vid vanlig tilldelning? (Dvs.
+ jag vill jag variabeln 
 \family typewriter
 x
 \family default
@@ -4284,7 +4284,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -4325,8 +4325,8 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-#solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/e
-xercise_solutions/"
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
@@ -4422,7 +4422,7 @@ H_{ij}=\frac{1}{i+j-1}\label{eq:hilbert}
 
 \end_inset
 
-För mer information om Hilbertmatrsier finns 
+För mer information om Hilbertmatriser finns 
 \series bold
 \color blue
 
@@ -4464,7 +4464,7 @@ Skapa en matris
 \end_layout
 
 \begin_layout Enumerate
-Skapa en nästalad for-loop, där en loop går över rader och en över kolumner
+Skapa en nästlad for-loop, där en loop går över rader och en över kolumner
  i 
 \begin_inset Formula $H$
 \end_inset
@@ -4480,7 +4480,7 @@ reference "eq:hilbert"
 
 \end_inset
 
- för vajre element i 
+ för varje element i 
 \begin_inset Formula $H$
 \end_inset
 
@@ -4604,7 +4604,7 @@ target "http://en.wikipedia.org/wiki/Toeplitz_matrix"
 \end_layout
 
 \begin_layout Standard
-Nedan är två exempel på toeplitzmatriser.
+Nedan är två exempel på Toeplitzmatriser.
  
 \begin_inset Formula 
 \[
@@ -4639,7 +4639,8 @@ g & f & e & a
 
 \begin_layout Standard
 Vi ska nu skapa en funktion som skapar en Toeplitzmatris av godtycklig storlek.
- Det går att beskriva en Toeplizmatris en vektor, låt oss kalla den 
+ Det går att beskriva en Toeplitzmatris med en vektor, låt oss kalla den
+ 
 \begin_inset Formula $x$
 \end_inset
 
@@ -4648,7 +4649,7 @@ Vi ska nu skapa en funktion som skapar en Toeplitzmatris av godtycklig storlek.
 \begin_inset Formula $x$
 \end_inset
 
- måste vara av udda längd och ger upphov till en kvardatisk matris av storlek
+ måste vara av udda längd och ger upphov till en kvadratisk matris av storlek
  
 \begin_inset Formula $n\times n$
 \end_inset
@@ -4667,7 +4668,7 @@ Vi ska nu skapa en funktion som skapar en Toeplitzmatris av godtycklig storlek.
 \begin_inset Formula $x$
 \end_inset
 
- som här till vilken diagonal i vår Toeplitzmatris.
+ som hör till vilken diagonal i vår Toeplitzmatris.
  Låt oss beteckna alla diagonaler så här:
 \end_layout
 
@@ -4675,13 +4676,13 @@ Vi ska nu skapa en funktion som skapar en Toeplitzmatris av godtycklig storlek.
 \begin_inset Formula 
 \[
 \left(\begin{array}{ccccccc}
-D_{0} & D_{+1} & D_{+2} & \cdots\\
-D_{-1} & D_{0} & D_{+1} & D_{+2}\\
+D_{0} & D_{+1} & D_{+2} & \cdots &  & \cdots & D_{+\left(n-1\right)}\\
+D_{-1} & D_{0} & D_{+1} & D_{+2} &  &  & \vdots\\
 D_{-2} & D_{-1} & D_{0} & D_{+1} & D_{+2}\\
 \vdots & D_{-2} & D_{-1} & D_{0} & D_{-1} & \ddots & \vdots\\
  &  & D_{-2} & D_{-1} & \ddots & \ddots & D_{+2}\\
- &  &  & \ddots & \ddots & D_{0} & D_{+1}\\
- &  &  & \cdots & D_{-2} & D_{-1} & D_{0}
+\vdots &  &  & \ddots & \ddots & D_{0} & D_{+1}\\
+D_{-\left(n-1\right)} & \cdots &  & \cdots & D_{-2} & D_{-1} & D_{0}
 \end{array}\right)
 \]
 
@@ -4695,7 +4696,8 @@ Här betecknar
 \begin_inset Formula $D_{0}$
 \end_inset
 
- huvuddiagonalen, indexet 
+ huvuddiagonalen.
+ Indexet 
 \begin_inset Formula $+1$
 \end_inset
 
@@ -4704,7 +4706,20 @@ Här betecknar
 \end_inset
 
  betyder diagonalen som är två steg över huvuddiagonalen osv.
- På samma sätt betyder 
+ Till sist kommer 
+\begin_inset Formula $D_{+\left(n-1\right)}$
+\end_inset
+
+ som är diagonalen som ligger 
+\begin_inset Formula $\left(n-1\right)$
+\end_inset
+
+ steg ovanför huvuddiagonalen, där 
+\begin_inset Formula $n$
+\end_inset
+
+ är matrisens storlek.
+ På samma sätt betyder indexet 
 \begin_inset Formula $-1$
 \end_inset
 
@@ -4714,12 +4729,17 @@ Här betecknar
 \end_inset
 
  kommer på formen 
+\begin_inset Formula $x=\left(\begin{array}{ccccccccccc}
+D_{0} & D_{+1} & D_{+2} & D_{+3} & \cdots & D_{+\left(n-1\right)} & D_{-1} & D_{-2} & D_{-3} & \cdots & D_{-\left(n-1\right)}\end{array}\right)$
+\end_inset
+
+ .
+ Till exempel 
 \begin_inset Formula $x=\left(\begin{array}{ccccc}
 D_{0} & D_{+1} & D_{+2} & D_{-1} & D_{-2}\end{array}\right)$
 \end_inset
 
- .
- Detta ger då matrisen nedan.
+ ger upphov till matrisen:
 \end_layout
 
 \begin_layout Standard
@@ -4742,9 +4762,9 @@ Nu ska ni skapa en funktion som ska ta en godtycklig vektor
 \family typewriter
 x
 \family default
- och returnera en Toeplizmatris baserat på denna vektor.
+ och returnera en Toeplitzmatris baserat på denna vektor.
  Funktionen ska först kontrollera att vektorn är av en udda längd och annars
- returnera 
+ ska funktionen stoppas och stoptexten 
 \begin_inset Quotes sld
 \end_inset
 
@@ -4756,19 +4776,127 @@ x not of odd length
 \begin_inset Quotes srd
 \end_inset
 
+ ska skrivas ut.
+ Det går att lösa denna uppgift på ett flertal olika sätt.
+ Ett förslag på implementering kommer här: (men ni får gärna göra på andra
+ sätt!)
+\end_layout
+
+\begin_layout Enumerate
+Kolla först om 
+\family typewriter
+x
+\family default
+ är av udda längd, stoppa annars funktionen.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Skapa en tom matris med rätt storlek, låt oss kalla den 
+\family typewriter
+res_mat
+\family default
 .
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-Tips!
-\series default
- Använd en nästlad 
+\begin_layout Enumerate
+Ändra ordningen på elementen i 
 \family typewriter
-for
+x
 \family default
--loop.
+, om 
+\begin_inset Formula $x=\left(\begin{array}{ccccc}
+D_{0} & D_{+1} & D_{+2} & D_{-1} & D_{-2}\end{array}\right)$
+\end_inset
+
+ ändra så att 
+\begin_inset Formula $x=\left(\begin{array}{ccccc}
+D_{-2} & D_{-1} & D_{0} & D_{+1} & D_{+2}\end{array}\right)$
+\end_inset
+
+.
+ Nu ligger alltså 
+\begin_inset Formula $D_{0}$
+\end_inset
+
+ i mitten av vektorn och diagonalerna är ordnade så att de kommer i stigande
+ ordning sett från mitten.
+ 
+\series bold
+Tips:
+\series default
+ 
+\family typewriter
+rev()
+\end_layout
+
+\begin_layout Enumerate
+Skapa en nästlad for-loop som loopar över rader och kolumner i 
+\family typewriter
+res_mat
+\family default
+.
+ Vi vet nu att vilket värde en diagonal ska ha beror på hur många steg den
+ är från huvuddiagonalen (uppåt eller nedåt).
+ Använd loop-index från de båda looparna för att räkna ut hur många steg
+ som det aktuella element är från huvuddiagonalen och välj sedan ut rätt
+ värde från 
+\family typewriter
+x
+\family default
+ och spara på rätt position i 
+\family typewriter
+res_mat.
+\end_layout
+
+\begin_layout Enumerate
+Returnera 
+\family typewriter
+res_mat.
+\end_layout
+
+\begin_layout Standard
+I denna uppgift är det inte tillåtet att använda sig av inbyggda funktioner
+ eller R-paket som direkt beräknar Toeplizmatriser, utan ni måste skapa
+ funktionen själva enligt instruktionerna ovan.
+ Exempel på otillåtna funktioner är: 
+\family typewriter
+toeplitz()
+\family default
+ i 
+\family typewriter
+stats
+\family default
+, 
+\family typewriter
+toeplitz.spam()
+\family default
+ i 
+\family typewriter
+spam
+\family default
+, 
+\family typewriter
+toeplitz()
+\family default
+ i 
+\family typewriter
+ts
+\family default
+, 
+\family typewriter
+Toeplitz()
+\family default
+ i 
+\family typewriter
+pracma
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Nedan finns exempel på hur funktionen ska fungera.
 \end_layout
 
 \begin_layout Standard
@@ -4792,6 +4920,11 @@ toeplitz_matrix(x=1:5)
 
 \begin_layout Plain Layout
 
+toeplitz_matrix(x=c(1,4,5,2,3))
+\end_layout
+
+\begin_layout Plain Layout
+
 toeplitz_matrix(c("a","b", "c", "d", "e", "f", "g"))
 \end_layout
 
@@ -4803,6 +4936,11 @@ toeplitz_matrix(1:4)
 \begin_layout Plain Layout
 
 toeplitz_matrix(c(1,0,0,0,0))
+\end_layout
+
+\begin_layout Plain Layout
+
+toeplitz_matrix(c(1,0,2,0,3,0,4,0,5))
 \end_layout
 
 \begin_layout Plain Layout
@@ -4846,7 +4984,7 @@ target "https://sv.wikipedia.org/wiki/V%C3%A4ntev%C3%A4rde"
 
 \end_inset
 
- för diskret slumpvariabel defineras som:
+ för diskret slumpvariabeln definieras som:
 \end_layout
 
 \begin_layout Standard
@@ -4869,7 +5007,7 @@ Här är
 \begin_inset Formula $x_{N}$
 \end_inset
 
- alla möjliga utfall av slumpvaraiabeln 
+ alla möjliga utfall av slumpvariabeln 
 \begin_inset Formula $X$
 \end_inset
 
@@ -4948,7 +5086,7 @@ density_matrix=
 \family typewriter
 trans=
 \family default
- är en numerisk vector av längd två, där första elementet är 
+ är en numerisk vektor av längd två, där första elementet är 
 \begin_inset Formula $a$
 \end_inset
 
@@ -4969,7 +5107,7 @@ reference "eq:väntevärde linj"
 
 \begin_layout Standard
 Funktionen ska kontrollera att villkoren är uppfyllda, om inte så ska den
- avbryta och ge felmedelanden enligt exemplen nedan:
+ avbryta och ge felmeddelanden enligt exemplen nedan:
 \end_layout
 
 \begin_layout Standard
@@ -5125,7 +5263,7 @@ target "https://sv.wikipedia.org/wiki/Varians"
 
 \end_inset
 
- för diskret slumpvariabel defineras som:
+ för diskret slumpvariabel definieras som:
 \end_layout
 
 \begin_layout Standard
@@ -5148,7 +5286,7 @@ Här är
 \begin_inset Formula $x_{N}$
 \end_inset
 
- alla möjliga utfall av slumpvaraiabeln 
+ alla möjliga utfall av slumpvariabeln 
 \begin_inset Formula $X$
 \end_inset
 
@@ -5156,7 +5294,7 @@ Här är
 \begin_inset Formula $p\left(x\right)$
 \end_inset
 
- är sannolikhetsfördelnignen för alla möjliga utfall.
+ är sannolikhetsfördelningen för alla möjliga utfall.
  Variansen kan även beräknas som: 
 \end_layout
 
@@ -5172,7 +5310,7 @@ Var\left(X\right)=E\left(X^{2}\right)-E\left(X\right)^{2}\label{eq:var2}
 \end_layout
 
 \begin_layout Standard
-Varinasen för en linjärkomination 
+Variansen för en linjärkombination 
 \begin_inset Formula $a\cdot X+b$
 \end_inset
 
@@ -5218,7 +5356,7 @@ reference "eq:var-linj"
 V_discrete(density_matrix=matrix(c(1,1),ncol = 2),trans=c(1,0)).
 
 \family default
- Notera argumentnamn pch defaultvärden.
+ Notera argumentnamn och defaultvärden.
  
 \end_layout
 
@@ -5249,7 +5387,7 @@ density_matrix=
 \family typewriter
 trans=
 \family default
- är en numerisk vector av längd två, där första elementet är 
+ är en numerisk vektor av längd två, där första elementet är 
 \begin_inset Formula $a$
 \end_inset
 
@@ -5270,7 +5408,7 @@ reference "eq:var-linj"
 
 \begin_layout Standard
 Funktionen ska kontrollera att villkoren är uppfyllda, om inte så ska den
- avbryta och ge felmedelanden enligt exemplen nedan.
+ avbryta och ge felmeddelanden enligt exemplen nedan.
  
 \series bold
 Tips
@@ -5442,7 +5580,7 @@ moment_func(densities,moment=NULL)
 \family default
 .
  Funktionen syfte är att ta kunna ta flera diskreta sannolikhetsfördelningar,
- med eventualla linjärkombinationsparametrar och beräkna olika 
+ med eventuella linjärkombinationsparametrar och beräkna olika 
 \begin_inset CommandInset href
 LatexCommand href
 name "moment"
@@ -5615,7 +5753,7 @@ is.function()
 \family typewriter
 densities
 \family default
- och givet elemeten 
+ och givet elementen 
 \family typewriter
 density_matrix
 \family default
@@ -5640,7 +5778,7 @@ density2
  .
  Se även exemplen nedan.
  Listan ska sedan returneras.
- Föslag på lösning:
+ Förslag på lösning:
 \end_layout
 
 \begin_layout Itemize
@@ -5648,8 +5786,12 @@ Kontrollera argumenten.
 \end_layout
 
 \begin_layout Itemize
-Sätt upp en tom lista för resutlaten.
- Tips: 
+Sätt upp en tom lista för resultaten.
+ 
+\series bold
+Tips:
+\series default
+ 
 \family typewriter
 vector()
 \family default

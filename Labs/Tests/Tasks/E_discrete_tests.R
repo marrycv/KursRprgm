@@ -1,6 +1,39 @@
 context("E_discrete()")
 
 test_that("E_discrete()", {
+  
+  test_object_name<-function(target,true_names=NULL){
+    if(is.function(target)){
+      temp_name<-names(formals(target))
+    }else if(is.list(target)){
+      temp_name<-names(target)
+    }else{
+      stop("target has non valid class!")
+    }
+    
+    if(is.null(true_names)){
+      if(is.null(temp_name)){
+        return(TRUE)
+      }else{
+        return(FALSE)
+      }
+    }else if(is.character(true_names)&length(true_names)>=1){
+      no_names<-length(true_names)
+      no_match<-vector("logical",no_names)
+      if(length(temp_name)!=length(true_names)){
+        return(FALSE)
+      }
+      for(i in 1:no_names){
+        no_match[i]<-any(temp_name%in%true_names[i])
+      }
+      return(all(no_match))
+    }else{
+      stop("true_names has non valid class!") 
+    } 
+  }
+  body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
+  package_loaded<-function(object){any(grepl(object, search()))}
+  
   x<-1:10
   px<-rep(1/10,10)
   x_mat<-cbind(x,px)
@@ -10,14 +43,20 @@ test_that("E_discrete()", {
   y_mat<-cbind(y,py)
   z<-1
   
-  expect_that(exists("E_discrete"), is_true(),
+  expect_true(exists("E_discrete"),
               info = "Fel: E_discrete() saknas.")
-  expect_that(E_discrete, is_a("function"),
+  
+  expect_true(is.function(E_discrete),
               info = "Fel: E_discrete är inte en funktion.")
-  expect_self_contained(object = E_discrete,
+  
+  expect_function_self_contained(object = E_discrete,
                         "Fel: Funktionen innehåller fria variabler")
-  expect_that(all(names(formals(E_discrete)) %in% c("density_matrix", "trans")), condition=is_true(),
+  
+  
+  expect_true(test_object_name(target = E_discrete,true_names = c("density_matrix", "trans")),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  
+  
   expect_function_code(object = E_discrete, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")
   
@@ -38,7 +77,7 @@ test_that("E_discrete()", {
   expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))),
                info = "Fel: Funktionenen stoppar inte när sannolikheterna inte summerar till 1.")  
   
-  expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "Probabilities do not sum to 1!",
+  expect_error(E_discrete(density_matrix = cbind(y,c(0.4,0.6,0.8))), "probabilities do not sum to 1!",
                info = "Fel: Funktionen returnerar inte rätt felmeddelande när sannolikheterna inte summerar till 1.") 
   
   
@@ -49,8 +88,7 @@ test_that("E_discrete()", {
                info = "Fel: Funktionen returnerar inte rätt felmeddelande när när trans inte har längd 2.")
   
   
-  expect_that(class(E_discrete()), 
-              is_equivalent_to("numeric"),
+  expect_true(is.numeric(E_discrete()), 
               info="Fel: Funktionen returnerar inte en numerisk vector")
   
   expect_equal(E_discrete(),c(1),

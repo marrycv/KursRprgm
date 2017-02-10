@@ -33,32 +33,51 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 6: Basgrafik, knitr, markdown och externa data
-### [Josef Wilzen](mailto:josef.wilzen@liu.se)
+## Föreläsning 5: Basgrafik, knitr, markdown och externa data
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
 
 
-Föreläsning 6: Innehåll 
+Föreläsning 5: Innehåll 
 ========================================================
-- Föregående laborationer
+- Praktisk information om del II.
 - Basgrafik
 - Slumptal och simulering
 - knitr och markdown
 - Externa data och pxweb
 
-Laboration 4 och 5
+
+Del II i kursen
 ========================================================
-- Labb 4 rättad
-- Frågor på labb 4 och 5?
-- Första kompletteringen imorgon
+type: section
+
+R-programmering - del II
+========================================================
+
+- Del 1: Grunderna i programmering
+- Del 2: Tillämpningar:
+  - Grafik
+  - Statistik och analys
+  - Externa data
+  - Datum
+  - Texthantering och regular expression 
+  - Linjär algebra
+  - knitr och markdown
 
 
-Laborationer del 2
+R-programmering - del II:
 ========================================================
-- Uppdaterat labbmallen.
-- lämmna in som labb5_grupp01.R
+
+- Labbarna görs nu i par
+- Skapa grupper på Lisam
+- Parprogrammering:
+  - Turas om att sitta vid tagentbordet
+  - Den som inte kodar är engagerad i koden och problemet 
+  - Byter person var 30:e minut
+  - Viktigt att kommentera koden: ROxygen, inline 
+
 
 Miniprojektet
 ========================================================
@@ -67,7 +86,7 @@ Info [här](https://github.com/STIMALiU/KursRprgm/blob/master/Miniproject/Instru
   - Kommunala (tvärsnitt) data
   - Tidsseriedata
 - Presentera med basgrafik, knitr och markdown
-- Ska kunna vara reproducerbart av mig
+- Ska kunna vara reproducerbart
 
 
 Basgrafik
@@ -79,8 +98,9 @@ Basgrafik
 
 - Grafiken är en av styrkorna med R
 - Olika paket: ```ggplot2```, ```lattice``` m.m.
-- Hög nivå (funktioner)
+- Hög nivå (funktioner, ```plot```)
 - Låg nivå (bygga upp steg för steg)
+- Används ofta för att snabbt visualisera
 
 Enkel grafik: plot()
 ========================================================
@@ -102,9 +122,17 @@ Olika diagramtyper
 - ```hist(x=,breaks=,freq=)``` ger ett histogram, 
   - "```x```"- numerisk vektor 
   - "```breaks=```"- antal bins, default är att variationsområdet delas in i $log_{2}(n)+1$ interval
-- ```barplot()``` ger stapeldiagram
 - ```boxplot()``` ger boxplot
+- ```barplot()``` ger stapeldiagram
 - ```pie()``` ger en piechart
+
+
+Exempel: hist()
+========================================================  
+```{r,}
+hist(iris$Sepal.Length)
+```
+
 
 Exempel: boxplot()
 ========================================================  
@@ -126,28 +154,27 @@ tab <- table(iris$Species)
 barplot(tab)
 ```
 
-Exempel: hist()
-========================================================  
-```{r,}
-hist(iris$Sepal.Length)
-```
-
 
 Lågnivågrafik
 ========================================================
 - Kan användas för att bygga upp en graf från grunden
 
 Lägg till "lager på lager":
-- points(x, y, ...) lägger till punkter
-- lines(x, y) lägger till linjer
-- abline(a, b,h,v, ...) lägger till räta linjer
-- legend(x, y, legend, ...) lägger till en förklaringsruta
+- ```points(x, y, ...)``` lägger till punkter
+- ```lines(x, y) lägger``` till linjer
+- ```abline(a, b,h,v, ...)``` lägger till räta linjer
+- ```legend(x, y, legend, ...)``` lägger till en förklaringsruta
 
 Lågnivågrafik
 ========================================================
 
 - Går att bygga upp vad vi vill
-- Dock är ggplot2 bättre för att specialanpassa grafer
+- Dock är ggplot2 "smidigare"
+
+
+Slumptal och simulering
+========================================================
+type: section
 
 
 Slumptal och simulering
@@ -162,7 +189,7 @@ prefix | Beskrivning | Exempel
 ```p``` | kulmulativ fördelninsgfunktion (cdf) | ```pnorm()```
 ```q``` | inversa kulmulativa fördelningsfunktionen | ```qnorm()```
 
-- Se CRAN task view: Distributions [[här]](http://cran.r-project.org/web/views/Distributions.html)
+- Se CRAN task view: Distributions [här](http://cran.r-project.org/web/views/Distributions.html)
 
 Slumptal och simulering: Urval och slumpfrön
 ========================================================
@@ -204,14 +231,13 @@ type: section
 R-Markdown och knitr
 ========================================================
 
-- Har mognat senaste åren
-- Förenkla för era laborationer framöver
+- Förenkla för era laborationer i andra kurser
 - Del av R-Studio
 - Två delar:
   - Markdown (för text)
   - knitR (för R-kod)
 - Kan skapa PDF, Word och/eller HTML (och presentationer)
-- Grunden i litarate programming
+- Grunden i "litarate programming"
 
 Markdown
 ========================================================
@@ -219,12 +245,12 @@ Markdown
 - Snabbt och enkelt 
 - Kan hantera matematik (med LaTeX)
 - Integrerat med R-Studio
-  - Kan behöva installera LaTeX
+  - Kan behöva installera LaTeX för PDF
 
 
 knitr
 ========================================================
-- Lägga in R-kod i dokument
+- Lägga in R-kod i markdown-dokument
 - Ersätter R-kod med resultatet
 - Dynamiska rapporter
 - [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)

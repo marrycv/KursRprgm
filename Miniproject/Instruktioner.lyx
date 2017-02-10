@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass article
 \use_default_options true
 \begin_modules
@@ -12,16 +14,16 @@ knitr
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -77,8 +79,8 @@ Miniprojekt: Programmering i R
 \end_layout
 
 \begin_layout Standard
-Som en del av kursen i R programmering ska en analys av befintliga data
- göras med Rmarkdown genomföras.
+Som en del av kursen i R programmering ska en analys av data göras med Rmarkdown
+ genomföras.
  Miniprojektet är uppdelat i två delar.
  Den första delen handlar om att läsa in och bearbeta data från externa
  datakällor och beskriva dessa data.
@@ -96,6 +98,21 @@ För båda delarna gäller att:
 
 \begin_layout Itemize
 R-markdown ska användas.
+ En mall kan ni hitta 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Miniproject/TemplateMiniprojekt.Rmd"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
 \end_layout
 
 \begin_layout Itemize
@@ -108,7 +125,7 @@ PDF
 .Rmd
 \series default
 -fil.
- 
+ Det är ok att skapa en HTML som ni sedan sparar/skriver ut som PDF.
 \end_layout
 
 \begin_layout Itemize
@@ -119,8 +136,21 @@ externa datakällor
 .
  Vill ni använda ett eget material får ni lägga upp det öppet på github,
  dropbox, google docs eller dylikt och läsa in det därifrån i R.
- Syftet är att rapporten ska vara helt reproducerbar och kunna skapas på
- godtycklig dator.
+ Syftet är att rapporten ska vara helt reproducerbar och kunna återskapas
+ på godtycklig dator.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inget output från R console ska visas i dokumentet.
+
+\series default
+ Antingen skapar ni tabeller (med 
+\family typewriter
+kable()
+\family default
+) eller grafer.
 \end_layout
 
 \begin_layout Itemize
@@ -150,7 +180,7 @@ gruppnummer
 \end_layout
 
 \begin_layout Section
-Deskriptiv analys
+Del I: Deskriptiv analys
 \end_layout
 
 \begin_layout Standard
@@ -187,8 +217,8 @@ Två datamaterial (data.frames) ska innehålla data på kommunnivå (d.s.v.
  utöver kommunnamn.
  Ni väljer själv vilka variabler som ska ingå och vilken område data ska
  komma ifrån.
- Tanken är att i nästa del göra en enklare sambandsanalys mellan dessa variabler
- i nästa del av miniprojektet.
+ Tanken är att i nästa del av miniprojektetgöra en enklare sambandsanalys
+ mellan dessa variabler.
 \end_layout
 
 \begin_layout Paragraph
@@ -205,11 +235,21 @@ tidserie
 \series bold
 månadsnivå
 \series default
- och innehålla data från minst 3 år (36 månder).
- Här ska ni alltså hitta en variabel som observerats under minst 36 tidpunkter,
+ och innehålla data från minst 5 år (60 månder).
+ Här ska ni alltså hitta en variabel som observerats under minst 60 tidpunkter,
  men fler går bra.
  Data ska alltså innehålla två kolumner, en med variabeln som vi är intresserade
  av och en med tidpunkterna.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Obs!
+\series default
+ Tidsperioden ska vara fix, d.v.s ex.
+ jan 2005 - jan 2012.
 \end_layout
 
 \begin_layout Subsection
@@ -238,7 +278,7 @@ Följande saker ska ni göra med data med basgrafiken i R:
 \end_layout
 
 \begin_layout Enumerate
-Ni ska minst ha ett histogram eller barplot per variabel i kommunamaterialet
+Ni ska minst ha ett histogram eller barplot per variabel i kommun-materialen
 \end_layout
 
 \begin_layout Enumerate
@@ -246,7 +286,28 @@ En tidsseriegraf/linjediagram för tidseriematerialet
 \end_layout
 
 \begin_layout Enumerate
-En tabell
+En 
+\begin_inset Quotes eld
+\end_inset
+
+riktig
+\begin_inset Quotes erd
+\end_inset
+
+ tabell, inte bara R output.
+ (
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+kable()
+\family default
+ i paketet 
+\family typewriter
+knitr
+\family default
+)
 \end_layout
 
 \begin_layout Standard
@@ -279,6 +340,10 @@ riktiga
 \family typewriter
 kable()
 \family default
+ i paketet 
+\family typewriter
+knitr
+\family default
 ), inte utskrifter av R-kod.
 \end_layout
 
@@ -290,16 +355,16 @@ kable()
 \end_layout
 
 \begin_layout Section
-Analys
+Del II: Analys
 \end_layout
 
 \begin_layout Standard
-I den första delen av minprojektet har ni valt ut och beskrivit tre datamaterial.
+I den första delen av minprojektet har ni valt ut och beskrivit två datamaterial.
  Nu ska vi fortsätta detta arbete med analyser av materialen.
  Ni som grupp kommer att ha en del frihet i hur ni utför datanalysen som
  beskrivs nedan.
- Det ni ska göra är att bearbeta data vidare, några enkla analyser, lite
- olika grafer i 
+ Det ni ska göra är att bearbeta data, några enkla analyser, lite olika
+ grafer i 
 \family typewriter
 ggplot2
 \family default
@@ -388,30 +453,59 @@ Följande saker ska ni göra med data:
 \end_layout
 
 \begin_layout Enumerate
-Producera minst en scatterplot mellan två variabler.
+Producera minst en scatterplot i 
+\family typewriter
+ggplot2
+\family default
+ mellan två variabler.
+ Beskriv i text vad ni drar för slutsats.
 \end_layout
 
 \begin_layout Enumerate
-Producera minst en scatterplot/histogram/stapeldiagram som är grupperat
- på en annan variabel i minst två grupper.
+Producera minst ett histogram i 
+\family typewriter
+ggplot2
+\family default
+.
+ Beskriv i text vad ni drar för slutsats.
 \end_layout
 
 \begin_layout Enumerate
-Göra minst ett hypotestest, där ni ställer upp en nollhypotes och sen testar
+Producera minst en barplot, om ni bara har kontinuerliga funktioner kan
+ ni använda 
+\family typewriter
+cut()
+\family default
+.
+ Beskriv i text vad ni drar för slutsats.
+\end_layout
+
+\begin_layout Enumerate
+Gör minst ett hypotestest, där ni ställer upp en nollhypotes och sen testar
  om ni kan förkasta den.
- Beroende på hur er data ser ut så kan det vara ett t-test, test av andelar
- eller ett chitvå-test/fishers test.
- I rapporten ska ni skriva upp både nollhypotesen och mothypotesen, ange
- även p-värdet.
+ Beroende på hur er data ser ut så kan det vara ett t-test eller ett 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+-test.
+ Har ni inte några kategoriska variabler kan ni använda funktionen 
+\family typewriter
+cut()
+\family default
+.
+ Beskriv i text vad ni drar för slutsats.
 \end_layout
 
 \begin_layout Enumerate
-Om data är numerisk (ex.
- frekvenser) så ska ni beräkna korrelationer mellan alla sådana variabler.
+Beräkna korrelationer mellan två variabler och beskriv hur ni tolkar resultatet.
 \end_layout
 
 \begin_layout Enumerate
-Beräkna två olika linjära regressionsmodeller.
+Beräkna två olika linjära regressionsmodeller med funktionen 
+\family typewriter
+lm()
+\family default
+.
  Ni väljer en responsvariabel (
 \begin_inset Formula $y$
 \end_inset
@@ -428,7 +522,7 @@ Beräkna två olika linjära regressionsmodeller.
 \begin_inset Formula $X_{1}$
 \end_inset
 
-och 
+ och 
 \begin_inset Formula $X_{2},$
 \end_inset
 
@@ -443,16 +537,30 @@ och
 .
  Det är okej att använda frekvensdata i regressionmodellerna .
  Följande saker ska vara med från modellerna:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
 Scatterplot mellan föklarande variabel och responsvariabel, tillsammans
- med skattad regressionlinje.
+ med skattad regressionlinje i 
+\family typewriter
+ggplot2
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
-Histogram över residualerna (felen)
+Histogram över residualerna (felen) 
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+resid()
 \end_layout
 
 \begin_layout Enumerate
@@ -461,22 +569,32 @@ Hurvida lutningen på regressionslinjen är signifikant skild från noll, dvs
 \begin_inset Formula $\beta_{1}$
 \end_inset
 
-i de olika modellern är mindre är 0.05.
+ i de olika modellern är mindre är 0.05.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Ni ska ha med minst en Sverigekarta där ni plottar någon beskrivande statistik
- för en variabel över kommunerna.
- Ni behöver ladda ner 
-\begin_inset Quotes eld
+I beskrivningen ska ni beskriva er regressionsmodell med LaTeX, ex: 
+\begin_inset Formula $y=\beta_{0}+\beta_{1}*X_{1}$
 \end_inset
 
-Kommun_SCB.zip
-\begin_inset Quotes erd
+.
+ 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Här"
+target "http://www.hostmath.com/"
+
 \end_inset
 
- och packa upp den för att få tillgång till en karta på kommunnivå.
+
+\series default
+\color inherit
+ finns en LaTeX editor för att skapa matematiska uttryck.
+ Beskriv i text vad ni drar för slutsats från de två modellerna.
 \end_layout
 
 \begin_layout Subsubsection
@@ -502,11 +620,18 @@ X
 \end_layout
 
 \begin_layout Enumerate
-Beräkna månadsmedelvärden, spara dessa i 
+Beräkna medelvärden per månad och spara dessa i 
 \family typewriter
-monthMeans
+month_means
 \family default
 .
+ 
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+aggregate()
 \end_layout
 
 \begin_layout Enumerate
@@ -519,13 +644,16 @@ summary()
 \end_layout
 
 \begin_layout Enumerate
-Subtrahera månadsmedelvärden från X, så ni tar bort säsongsvariationen i
- data.
+Subtrahera månadsmedelvärden från 
+\family typewriter
+X
+\family default
+, så ni tar bort säsongsvariationen i data.
  Månadsmedelvärdet för januari ska subtraheras från alla januarivärden i
  data, och likadant för de andra månaderna.
  Spara den nya tidserie som 
 \family typewriter
-newX
+new_X
 \family default
 .
 \end_layout
@@ -533,44 +661,40 @@ newX
 \begin_layout Enumerate
 Gör en linjeplot mellan 
 \family typewriter
-newX
+new_X
 \family default
- och tid.
+ och tid i 
+\family typewriter
+ggplot2
+\family default
+.
+ Lägg också till 
+\family typewriter
+X
+\family default
+ i samma graf som jämförelse.
+\end_layout
+
+\begin_layout Enumerate
+Använd er funktion 
+\family typewriter
+my_moving_average()
+\family default
+ från tidigare labb och beräkna 
+\family typewriter
+moving_average_X
+\family default
+.
+ Lägg till variabel i samma graf som ovan.
+ Totalt ska grafen ha tre linjer i olika färger.
+ Det ska framgå i en legend eller i texten vilken färg som är vilken linje.
  
 \end_layout
 
 \begin_layout Enumerate
-Skatta en linjär regressionsmodell mellan 
-\family typewriter
-newX
-\family default
- och dess tidsindex.
- Rapportera följande:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Scatterplot (punkter) mellan föklarande variabel och responsvariabel, tillsamman
-s med skattad regressionlinje.
-\end_layout
-
-\begin_layout Enumerate
-Histogram över residualerna (felen)
-\end_layout
-
-\begin_layout Enumerate
-Hurvida lutningen på regressionslinjen är signifikant skild från noll, dvs
- om p-värdet för 
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
-i de olika modellern är mindre är 0.05.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
 Verkar det finnas någon trend i data? Dvs ökar/minskar data med tiden, eller
  är data konstant över tid.
+ Dra er slutsats och skriv ned den i dokumentet.
 \end_layout
 
 \end_body

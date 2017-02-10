@@ -224,7 +224,7 @@ set.seed(20140730)
 sample(x=text, size=4, replace=TRUE)
 ```
 
-R-Markdown och knitr
+R-Markdown, Notebooks och knitr
 ========================================================
 type: section
 
@@ -256,6 +256,13 @@ knitr
 - [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)
 - Inbyggt i R-Studio
 - För att skapa tabeller: ```kable()```
+
+R-Studio Notebooks
+========================================================
+
+- Är Rmd-filer
+- Kan köras interaktivt direkt i R-Studio
+- Nytt iom R-Studio 1.0
 
 Demo: Markdown och knitr
 ========================================================

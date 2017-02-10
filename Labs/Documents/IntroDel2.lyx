@@ -165,9 +165,25 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templat
 \end_layout
 
 \begin_layout Itemize
-Spara denna som labb[no]_grupp[no].R , t.ex.
- labb5_grupp01.R om det är laboration 5 och ni tillhör grupp 01.
+Spara denna som 
+\family typewriter
+labb[no]_grupp[no].R
+\family default
+ , t.ex.
+ 
+\family typewriter
+labb5_grupp01.R
+\family default
+ om det är laboration 5 och ni tillhör grupp 1.
  Ta inte med hakparenteser eller stora bokstäver i filnamnet.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Obs!
+\series default
  Denna fil ska laddas upp på LISAM och ska 
 \series bold
 inte
@@ -181,8 +197,15 @@ inga
 \series default
  andra variabler, funktionsanrop för att testa inlämningsuppgifterna eller
  anrop till markmyassignment-funktioner.
- Om ni ska lämna i kompletteringar på del 2, döp då dessa till labb5_grupp01._kom
-p1.R om det är första kompletteringstillfället.
+ 
+\end_layout
+
+\begin_layout Itemize
+Om ni ska lämna i kompletteringar på del 2, döp då dessa till 
+\family typewriter
+labb5_grupp01._komp1.R
+\family default
+ om det är första kompletteringstillfället.
  Se 
 \begin_inset CommandInset href
 LatexCommand href

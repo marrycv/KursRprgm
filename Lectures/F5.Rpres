@@ -73,7 +73,7 @@ R-programmering - del II:
 ========================================================
 
 - Labbarna görs nu i par
-- Se grupper på Lisam
+- Skapa grupper på Lisam
 - Parprogrammering:
   - Turas om att sitta vid tagentbordet
   - Den som inte kodar är engagerad i koden och problemet 
@@ -81,11 +81,9 @@ R-programmering - del II:
   - Viktigt att kommentera koden: ROxygen, inline 
 
 
-Laboration D3 och D4
+Laboration D4
 ========================================================
-- Labb 3 rättad.
-- Frågor?
-- Tänk på mjuk deadline på söndag kväll!
+- Frågor
 
 
 Programmeringsparadigm och R
@@ -95,22 +93,22 @@ type: section
 
 Programmeringsparadigm
 ========================================================
-- Det finns många [programmeringsspråk](https://en.wikipedia.org/wiki/Programming_language), som har olika funktion och syfte. 
-- [Programmeringsparadigm](https://en.wikipedia.org/wiki/Programming_paradigm) är ett sätt att klassificera programmeringsspråk beroende på hur de organiseras och struktureras.
-- Programmeringsspråk har [ett eller flera](https://en.wikipedia.org/wiki/Comparison_of_programming_languages) paradigm
+- Det finns många [programmeringsspråk](https://en.wikipedia.org/wiki/Programming_language)
+- [Programmeringsparadigm](https://en.wikipedia.org/wiki/Programming_paradigm) är ett sätt att klassificera programmeringsspråk
+
 - Utmärkande för R är:
   - [Funktionell programmering (FP)](https://en.wikipedia.org/wiki/Functional_programming)
   - [Objektorienterad programmering (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
 Funktionell programmering
 ========================================================
-- Fokuserar på "higer-order/first class functions": Vilka kan ta funktioner som argument och returnera dem som resultat.
-- Funktioner utan sidoeffekter: Det som händer i den lokala funktionsmiljön stannar där -> Detta gör funktioner lättre att förstå (tänk matematiska funktioner)
+- Fokuserar på "higer-order/first class functions"
+- Funktioner utan sidoeffekter (tänk matematiska funktioner)
   - En funktions output beror bara på värdena på inargumenten
 - Exempel:
-  - Common Lisp
-  - Erlang
   - R
+  - Scala
+  - C
   
 
 Funktionell programmering
@@ -121,7 +119,7 @@ Funktionell programmering
 - För fördjupning i R och FP se [här](http://adv-r.had.co.nz/Functional-programming.html).
 
 
-Objektorientering i R
+Objektorientering (OO) i R
 ========================================================
 incremental: true
 
@@ -131,7 +129,7 @@ incremental: true
 
 - OO utgår från klasser
   - Klass är en mall som används för att skapa objekt
-  - Kopplar samman data/kod med beteende(metoder)
+  - Kopplar samman data/kod med beteende (metoder)
   - Objekt är en specifik realisering av en klass, ex: person (klass) och josef (objekt)
   - Objekt skapas med en ```konstruktor``` 
 
@@ -160,7 +158,7 @@ Olika typer av klasser i R:
 - S4 (formellt): element väljs ut med ```@```
 - reference class
 
-Generiska funktioner
+Generiska funktioner (S3)
 ========================================================
 incremental: true
 

@@ -1,4 +1,4 @@
-
+# Skapa en klass i R
 
 my_object1<-list(name="Ali",age=42,company="liu")
 my_object1
@@ -10,7 +10,7 @@ my_object1$name
 my_object1$age
 
 print.employee<-function(x){
-  print(paste("Name:",x$name,"Age:",x$age,"Company:",x$company))
+  cat(paste("Name:",x$name,"Age:",x$age,"Company:",x$company))
 }
 methods(print)
 print(my_object1)
@@ -20,7 +20,7 @@ class(my_object2)<-c("statistician","employee")
 class(my_object2)
 
 print.statistician<-function(x){
-  print(paste(x$name,"is a statistician!"))
+  cat(paste(x$name,"is a statistician!"))
 }
 
 summary.statistician<-function(x){
@@ -52,6 +52,11 @@ age(my_object2)
 # skapa ny generisk funktion 
 f <- function(x) UseMethod("f")
 ?UseMethod
+
+
+
+
+
 
 library(lubridate)
 

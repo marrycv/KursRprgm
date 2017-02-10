@@ -639,7 +639,7 @@ Använd funktionen
 \family typewriter
 summary()
 \family default
- för att fram beskrivande statistik för varje år (det ska vara minst tre
+ för att fram beskrivande statistik för varje år (det ska vara minst fem
  år i data)
 \end_layout
 

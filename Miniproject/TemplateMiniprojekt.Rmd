@@ -1,0 +1,43 @@
+---
+title: "Miniprojekt 732G33"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+*Författare:* Kalle Karlsson och Kajsa Kavat.
+
+*LiU-id:* kalka99 och kajka99
+
+*Grupp:* 3
+
+# Del 1: Deskriptiv analys
+
+```{r, echo=FALSE}
+# Lite kommentarer och beräkningar som inte syns sedan
+a <- 1 + 5
+```
+
+
+```{r, echo=TRUE}
+# Detta syns
+1 + 5
+```
+
+
+Exempel på att skapa en graf:
+
+```{r, echo=FALSE}
+data(cars)
+plot(cars)
+```
+
+Exempel på att skapa en tabell:
+
+```{r, echo=FALSE}
+library(knitr)
+kable(head(cars))
+```
+
+# Del 2: Analys
+

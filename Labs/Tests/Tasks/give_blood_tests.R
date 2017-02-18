@@ -11,7 +11,7 @@ error_info <- function(parameters, funcName){
   index<-sapply(X=parameters,FUN=is.null)
   parameters[index]<-"NULL"
   parameters<-lapply(X=parameters,FUN=as.character)
-  x<-paste("Problem i ",funcName,"() när den anropas med: ",paste(paste(names(parameters),"=",parameters[names(parameters)],sep=""),collapse="  "),sep="")
+  x<-paste("Problem with ",funcName,"() when called with: ",paste(paste(names(parameters),"=",parameters[names(parameters)],sep=""),collapse="  "),sep="")
   return(x)
 }
 
@@ -64,12 +64,12 @@ test_that("Assignment: give_blood()", {
 #                         "year=2014 month=Jun day=24 weekday=Tisdag",
 #                         "year=2014 month=Jun day=23 weekday=M\u00E5ndag")
       
-  # övergripande om funktionen:
+  # General:
   expect_that(exists("give_blood"), is_true(),
               info = "Fel: give_blood() saknas.")
   expect_that(give_blood, is_a("function"),
               info = "Fel: give_blood ska vara en funktion.")
-  expect_self_contained(object = give_blood,
+  expect_function_self_contained(object = give_blood,
                         "Fel: Funktionen har fria variabler")
   expect_that(all(names(formals(give_blood)) %in% c("lasttime","holiday","sex","type_of_travel")), condition=is_true(),
               info = "Fel: Argumenten har felaktiga namn.")

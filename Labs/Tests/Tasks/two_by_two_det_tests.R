@@ -6,7 +6,7 @@ test_that("two_by_two_det()", {
               info = "Fel: two_by_two_det() saknas.")
   expect_that(two_by_two_det, is_a("function"),
               info = "Fel: two_by_two_det är inte en funktion.")
-  expect_self_contained(object = two_by_two_det,
+  expect_function_self_contained(object = two_by_two_det,
                         "Fel: Funktionen innehåller fria variabler")
   expect_that(all(names(formals(two_by_two_det)) %in% c("x")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")

@@ -13,7 +13,7 @@ test_that("Assignment: my_ols()", {
               info = "Fel: my_ols() saknas.")
   expect_that(my_ols, is_a("function"),
               info = "Fel: my_ols ska vara en funktion.")
-  expect_self_contained(object = my_ols,
+  expect_function_self_contained(object = my_ols,
                         "Fel: Funktionen har fria variabler")
   expect_that(all(names(formals(my_ols)) %in% c("X","y")), condition=is_true(),
               info = "Fel: Argumenten har felaktiga namn.")

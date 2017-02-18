@@ -2,6 +2,9 @@
 context("messy_swe_pop_handler()")
 
 test_that("messy_swe_pop_handler()", {  
+  
+  library(dplyr)
+  library(tidyr)
 
   expect_that(exists("messy_swe_pop_handler"), is_true(),
               info = "Fel: messy_swe_pop_handler() is missing")

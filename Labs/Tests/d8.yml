@@ -1,7 +1,7 @@
 # Assignment D8
 name  : D8
 description : "Statistisk programmering med R: Lab 8"
-reporter : student
+reporter : summary
 tasks:
   diagonalize_matrix:
     url: 

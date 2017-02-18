@@ -1,7 +1,7 @@
 # Assignment D7
 name  : D7
 description : "Statistisk programmering med R: Lab 7"
-reporter : student
+reporter : summary
 tasks:
   my_grouped_test:
     url: 

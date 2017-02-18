@@ -5396,7 +5396,7 @@ reference "eq:var-linj"
 .
  Funktionen ska heta 
 \family typewriter
-V_discrete(density_matrix=matrix(c(1,1),ncol = 2),trans=c(1,0)).
+V_discrete(density_matrix = matrix(c(1, 1), ncol = 2), trans = 1).
 
 \family default
  Notera argumentnamn och defaultvärden.

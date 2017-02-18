@@ -8,7 +8,7 @@ test_that("Assignment: diagonalize_matrix", {
               info = "Fel: diagonalize_matrix() saknas.")
   expect_that(diagonalize_matrix, is_a("function"),
               info = "Fel: diagonalize_matrix ska vara en funktion.")
-  expect_self_contained(object = diagonalize_matrix,
+  expect_function_self_contained(object = diagonalize_matrix,
                         "Fel: Funktionen har fria variabler")
   expect_that(all(names(formals(diagonalize_matrix)) %in% c("X")), condition=is_true(),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")

@@ -3565,43 +3565,8 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
-\backslash
-
-\backslash
-Users
-\backslash
-
-\backslash
-joswi05
-\backslash
-
-\backslash
-Dropbox
-\backslash
-
-\backslash
-Josef
-\backslash
-
-\backslash
-732G33_VT2016
-\backslash
-
-\backslash
-KursRprgmTeacher
-\backslash
-
-\backslash
-Labs
-\backslash
-
-\backslash
-exercise_solutions
-\backslash
-
-\backslash
-"
+solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Underv
+isning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
@@ -3669,6 +3634,116 @@ lab_path <-
 \begin_layout Plain Layout
 
 suppressWarnings(set_assignment(lab_path))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+appartment()
+\end_layout
+
+\begin_layout Standard
+Skapa en konstruktor som skapar ett lägenhetsobjekt med funktionen 
+\family typewriter
+appartment()
+\family default
+.
+ Funktionen ska ha två argument rooms och m2 som anger hur många rum och
+ hur stor (i 
+\begin_inset Formula $m^{2}$
+\end_inset
+
+) lägenheten är.
+ Objektet ska vara av klassen 
+\family typewriter
+appartment
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Funktionen ska sedan implementera den generiska funktionen 
+\family typewriter
+print()
+\family default
+ för klassen appartment.
+ Används 
+\family typewriter
+print()
+\family default
+ på en enrumslägenhet ska följande skrivas ut:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+A [m2] square meter studio.
+\end_layout
+
+\begin_layout Standard
+Om fler rum anges ska 
+\family typewriter
+print()
+\family default
+ skriva ut
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+A [m2] square meter [rooms]-room appartment.
+\end_layout
+
+\begin_layout Standard
+Funktionen ska också kontrollera att 
+\family typewriter
+m2
+\family default
+ och 
+\family typewriter
+rooms
+\family default
+ är strikt större än 0 och returnera ett fel om det inträffar.
+ Ni kan välja felmeddelande själva.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+a <- appartment(1, 25)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+appartment(3, 81)
+\end_layout
+
+\begin_layout Plain Layout
+
+appartment(0, 81)
 \end_layout
 
 \begin_layout Plain Layout

@@ -42,14 +42,14 @@ Linköpings universitet
 Dagens föreläsning:
 ========================================================
 - inför tentamen
-- ggplot2
-- spatiala data
-- miniprojekt
+- texthantering
+- pipes
+- dplyr
+- tidyr
 
-Laboration D6 och D7
+Interaktiv återkoppling
 ========================================================
-- D6 snart rättad.
-- Frågor? Kommentarer?
+incremental: true
 
 Inför tentamen
 ========================================================
@@ -57,256 +57,155 @@ Inför tentamen
 - Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
 - Hjälpmedel: 
   - Den inbyggda hjälpen i R (ej internet)
-  - Referenskort:
-      - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
-      -  ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
-      - RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+  - Samtliga "fusklappar" som finns på Github
       
 Inför tentamen
 ========================================================
-- Tenta, referenskort och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
+- Tenta, "fusklappar" och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
 - Vid tentan kommer ni få ett specifikt användarnamn och lösenord som ni använder för att logga in.
 - OBS: använd `ej` vanliga liuid och lösenord!
 - Tentan är anonym
 - Se [här](https://github.com/STIMALiU/ComputerLabs/raw/master/ComputerExams/DocStudent.pdf) för allmänna instruktioner för datortentor i PC-pularna. 
 
-ggplot2
+
+
+Texthantering i R
 ========================================================
 type: section
 
-ggplot2
+Arbeta med strängar
 ========================================================
-- Baserad på ”Grammar of Gaphics” av Leland Wilkinson
-- Skapad av Hadley Wickham
-- Alternativ till basgrafiken
-- [http://ggplot2.org](http://ggplot2.org)
-- Har egenskapar från basgrafiken men skiljer sig
-- Utgår alltid från en ```data.frame```
+- Sträng (eng. string): en samling bokstäver (characters)
+- Centralt är regular expressions (regex)
+- Identifiera/matcha text eller delar av text (tänk sökfunktion)
+- regex går även att använda i sökfunktionen i R-Studio (och andra program)
+- Med ```pattern``` syftas regular expressions i R
 
-ggplot2
+Arbeta med strängar II
 ========================================================
-"Grammatik för grafik"
-- Abstraktioner av grafiska idéer. Jmf med ordklasser/satsdelar i språk
-- Ger ett teoretiskt fundament för hur grafik kan skapas
-- Fördjupning: http://ggplot2.org/book/ 
+- I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text 
+  - ex. `paste()`, `substr()`, `nchar()`
+- Men vi använder framförallt paketet ```stringr```
+- ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
 
-ggplot2
-========================================================
 
-> ”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
 
-Från "ggplot2 book" av Hadley Wickham 
-
-ggplot2
-========================================================
-incremental: true
-
-- Bygger upp en graf av flera delar
-  - ```data``` (data.frame)
-  - ```geom```s
-  - ```aes```s
-
-geom
+Arbeta med strängar II
 ========================================================
 
-- Vilken geometrisk representation ska användas
+- ```readLines(con=,encoding=)``` kan användas för att läsa in en text. Varje rad i texten blir då ett element i en vektor. 
 
-```geom``` | Beskrivning | 
+- Icke-engelska symboler/tecken text kräver [encoding](http://en.wikipedia.org/wiki/Character_encoding) (ex. för å,ä och ö). 
+- Vi ändrar med  ```encoding = "latin1"``` i ```readLines()```.
+- Vanligast är `latin1` och `UTF8`
+
+Paketet stringr
+========================================================
+- En vektoriserad wrapper för de förinstallerade funktionerna 
+-  Samtliga funktioner börjar med ```str_```
+- Se [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
+
+Funktioner
+========================================================
+type: sub-section
+
+Grundläggande strängfunktioner
+========================================================
+
+stringr | base | Användning
+--- | ----- | ---- | 
+`str_sub()` | `substr()` | substring,  välja ut en del av en sträng
+`str_c()` | `paste()` | slår ihop strängelement
+`str_split()` |`strsplit()` | dela upp en sträng i flera element
+`str_length()` | `nchar()` | beräknar antalet tecken
+`str_trim()` | - | tar bort mellanslag (före/efter textelement)
+`str_pad()` | - | lägger till mellanslag (före/efter textelement)
+
+Pattern matching
+========================================================
+type: sub-section
+
+regular expression (regexp)
+========================================================
+- Hitta specifika delar av en sträng som uppfyller ett villkor
+- Byggs upp av:
+  - literals: "vanliga bokstäver och siffror"
+  - metacharacters: (metatecken) sätter upp speciella regler för matchning
+- Se RP:s [[video]](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
+  - Regular Expressions
+  - Introduction to the Baltimore Homicide Data
+  - Regular Expressions in R
+
+regular expression: metacharacters
+========================================================
+Tecken| Betydelse
 ----- | ---- | 
-```geom_point``` | Scatterplot |
-```geom_line``` | Line graph |
-```geom_bar``` | Barplot |
-```geom_boxplot``` | Boxplot |
-```geom_histogram``` | Histogram |
+. | samtliga tecken (exkl. det “tomma” tecknet “”)  
+^ | det "tomma" tecknet i början av en text
+$ | det "tomma" tecknet i slutet text
+* | föregående tecken 0 eller fler gånger
++ | föregående tecken 1 eller fler gånger
+? | föregående tecken är valfritt
+{n,m} | föregående tecken $n$ eller max $m$
+[] | teckenlista (character list)
+$|$ | ELLER
+() | Gruppering
+\ | Används för att identifiera metatecken/specialtecken
 
-aes
+regular expression: teckenklass
 ========================================================
-- Kopplar färg, form och utseende till data
+- Med [ ] skapas en lista över tänkbara tecken, en s.k. teckenklass (eng. character class)
+- Används för att identifiera en mängd av tecken
+- Inom [ ] har bara följande meta-tecken en särskild betydelse:
 
-```aes``` | Beskrivning | 
------ | ---- | 
-```x``` | x-axel |
-```y``` | y-axel |
-```size``` | storlek |
-```col``` | färg |
-```shape``` | form |
+Tecken| Betydelse| Exempel
+----- | ---- | ----|
+- | tecken | A-Z a-z 0-9 
+^ | ICKE | ^ 0-9 
+\ | specialtecken | \t\n
 
-aes och geoms
+regular expression: teckenklass
 ========================================================
-- Finns även speciella aestetics för viss geoms
+Vanliga fördefinierade klasser är... (kolla ```?regexp```)
+- [:digit:]  Nummer
+- [:lower:]  gemener
+- [:upper:]  VERSALER
+- [:punct:]  tecken, ej bokstäver eller siffror 
+- [:space:]  mellanslag, tab, ny rad m.m.
 
-```geom``` | ```aes``` | 
------ | ---- |
-```geom_points``` | point shape, point size |
-```geom_line``` | line type, line size |
-```geom_bar``` |   y min, y max, fill color, outline color |
-
-Exempel
+regular expression: länkar
 ========================================================
-```{r, echo=FALSE}
-library(ggplot2)
-data(Nile)
-Nile <- as.data.frame(Nile) 
-colnames(Nile) <- "level"
-Nile$years <- 1871:1970
-Nile$period <- "- 1900" 
-Nile$period[Nile$years >= 1900] <- "1900 - 1945"
-Nile$period[Nile$years > 1945] <- "1945 + " 
-Nile$period <- as.factor(Nile$period)
-```
-```{r, echo=TRUE}
-ggplot(data=Nile) + aes(x=years, y=level) + geom_point()
-```
-
-Exempel
-========================================================
-```{r, echo=TRUE}
-ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
-```
-
-Exempel
-========================================================
-```{r, echo=TRUE}
-p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line(aes(type=period)) + geom_point(aes(shape=period))
-p
-```
-
-Exempel: Teman
-========================================================
-```{r, echo=TRUE}
-p + theme_bw()
-```
-
-Exempel: Teman
-========================================================
-```{r, echo=TRUE}
-p + theme_classic()
-```
-
-Exempel: Teman
-========================================================
-```{r, echo=TRUE}
-p + theme_grey()
-```
+- Sida för att testa regular expression: [regexpal.com](http://regexpal.com)
+- Från [wikipedia](http://sv.wikipedia.org/wiki/Regulj%C3%A4ra_uttryck)
 
 
-ggplot2
-========================================================
- - ```qplot()```: Liknar ```plot()``` från basgrafiken.
- - Bra för snabba grafer.
- - Se Roger Pengs video för en [introduktion](https://www.youtube.com/watch?v=HeqHMM4ziXA)
- - För mer kontroll använd  ```ggplot() ```
-
-
-ggplot2 och cowplot
+Pattern matchingfunktioner i R 
 ========================================================
 
-Paneler/subplots:
-  - Samma typ av plot: factets
-  - Olika plottar: paketet ```cowplot```, se [här](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) för intro
-  - Utgå från funktionen ```plot_gird()```. Se [här](https://cran.rstudio.com/web/packages/cowplot/vignettes/plot_grid.html) för exempel. 
+- ```pattern``` är ett regular expression
+
+stringr | base | Användning
+--- | ----- | ---- | 
+`str_detect()` | `grepl()` | identifierar pattern, returnerar en logisk vektor
+`str_locate()` | `gregexpr()` | identifierar pattern, returnerar positionen i texten
+`str_replace()` | `gsub()` | identifierar pattern, och ersätter detta med ny text
+`str_extract_all` | - | Plocka ut alla strängar som uppfyller `pattern`
 
 
+- För exempel på några av dessa funktioner kolla på Roger Pengs [[video]](http://www.youtube.com/watch?v=q8SzNKib5-4)
 
-Spatiala data
-========================================================
-type: section
 
-Spatiala data
-========================================================
-
-> Also known as geospatial data or geographic information it is the data or information that identifies the geographic location of features and boundaries on Earth
-
-- Geografiska informationssystem (GIS)
-- Tvådimensionella data
-- Kartor
-- Spatial analys kommer senare
-- Speciella datastrukturer
-- Projektioner
-
-Projektioner
+regular expression: exempel
 ========================================================
 
-- Vårt problem: Jorden är rund
-- Behöver använda projektioner: från 3 till 2 dimensioner
-- Alla projektioner ger felaktigheter
-- Lägre skala ger mindre projektionsfel
-- Exempel finns [[här]](http://www.lantmateriet.se/Kartor-och-geografisk-information/GPS-och-geodetisk-matning/Om-geodesi/Kartprojektioner/Kartprojektionens-grunder/)
-
-Skapa kartor
-========================================================
-- Många karttjänster finns att använda gratis
-  - Google Maps
-  - Open Street map
-- För att skapa kartor används ```ggmap()```
-- Anger en koordinat och zoom
-- Bygger på longitud och latitud
-
-Skapa kartor
-========================================================
 ```{r}
-library(ggmap)
-qmap("Linkoping", zoom=15)
+library(stringr)
+a <- c("hej","hela","vatten")
+str_detect(pattern="he", string = a)
+str_detect(pattern="a", string = a)
+str_locate(pattern="he", string = a)
+str_extract_all(pattern = ".a", string = a)
 ```
 
-Visualisera data på karta
-========================================================
-- Kräver att vi har samma koordinatsystem (latitud och longitud)
-- ```geocode()``` kan användas för att skapa kooridinater från adresser
-
-```{r, eval=FALSE}
-linkpg_map <- qmap("Linkoping", color="bw", zoom=15) 
-df <- 
-  data.frame(
-    lon = jitter(rep(15.62137, 50), amount = .01), 
-    lat = jitter(rep(58.41081, 50), amount = .01),
-    event = sample(c("Komet", "Olycka", "Polis"), size = 50, replace = TRUE)) 
-linkpg_map +   
-  geom_point(aes(x = lon, y = lat, color=event), data = df)
-```
-
-Visualisera data på karta: resultat
-========================================================
-
-```{r, echo=FALSE,fig.height=10,fig.width=10}
-linkpg_map <- qmap("Linkoping", color="bw", zoom=15)
-geocode("Linkoping")
-df <- 
-  data.frame(
-    lon = jitter(rep(15.62137, 50), amount = .01), 
-    lat = jitter(rep(58.41081, 50), amount = .01),
-    event = sample(c("Kometnedslag", "Olycka", "Polis"), size = 50, replace = TRUE)) 
-linkpg_map +   
-  geom_point(aes(x = lon, y = lat, color=event), data = df)
-```
-
-
-shapefiler
-========================================================
-
-- Geografiska data
-  - Punkter
-  - Polygoner
-- Ett standardformat är shape-filer
-- Shapefil för Sveriges län och kommuner finns [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/Labs/DataFiles)
-
-
-Kombinera shapefiler och kartor
-========================================================
-- Kräver paketet ```maptools```
-
-```{r, eval=FALSE}
-library(maptools)
-swe_municip <- readShapePoly("Kommun_SCB/Kommun_SCB_07.shp") 
-```
-
-- Skapar ett ```sp``` objekt vi kan arbeta vidare med
-
-
-Miniprojekt del 2
-========================================================
-- Enklare statistika analyser
-- All grafik med ggplot2
-- Enkel kartstatistik
 
 

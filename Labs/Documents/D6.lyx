@@ -3649,24 +3649,31 @@ suppressWarnings(set_assignment(lab_path))
 \begin_layout Section
 
 \family typewriter
-appartment()
+apartment()
 \end_layout
 
 \begin_layout Standard
 Skapa en konstruktor som skapar ett lägenhetsobjekt med funktionen 
 \family typewriter
-appartment()
+apartment()
 \family default
 .
- Funktionen ska ha två argument rooms och m2 som anger hur många rum och
- hur stor (i 
+ Funktionen ska ha två argument 
+\family typewriter
+rooms
+\family default
+ och 
+\family typewriter
+m2
+\family default
+ som anger hur många rum och hur stor (i 
 \begin_inset Formula $m^{2}$
 \end_inset
 
 ) lägenheten är.
  Objektet ska vara av klassen 
 \family typewriter
-appartment
+apartment
 \family default
 .
 \end_layout
@@ -3701,7 +3708,7 @@ print()
 \begin_layout Standard
 
 \family typewriter
-A [m2] square meter [rooms]-room appartment.
+A [m2] square meter [rooms]-room apartment.
 \end_layout
 
 \begin_layout Standard
@@ -3728,7 +3735,7 @@ status open
 
 \begin_layout Plain Layout
 
-a <- appartment(1, 25)
+a <- apartment(1, 25)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3738,12 +3745,12 @@ print(a)
 
 \begin_layout Plain Layout
 
-appartment(3, 81)
+apartment(3, 81)
 \end_layout
 
 \begin_layout Plain Layout
 
-appartment(0, 81)
+apartment(0, 81)
 \end_layout
 
 \begin_layout Plain Layout

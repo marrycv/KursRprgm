@@ -84,17 +84,17 @@ test_that("Assignment: my_moving_average()", {
   expect_false(body_contain(object = my_moving_average,expected = "forecast"),
                info = "Fel: Funktioner ur paketet forecast används i funktionen.")
   
-  expect_false(body_contain(object = my_moving_average,expected = "rollmean"),
+  expect_false(body_contain(object = my_moving_average,expected = "rollmean\\("),
                info = "Fel: Funktionen rollmean() används i funktionen.")
   expect_false(body_contain(object = my_moving_average,expected = "zoo"),
                info = "Fel: Funktioner ur paketet zoo används i funktionen.")
   
-  expect_false(body_contain(object = my_moving_average,expected = "SMA"),
+  expect_false(body_contain(object = my_moving_average,expected = "SMA\\("),
                info = "Fel: Funktionen SMA() används i funktionen.")
   expect_false(body_contain(object = my_moving_average,expected = "TTR"),
                info = "Fel: Funktioner ur paketet TTR används i funktionen.")
   
-  expect_false(body_contain(object = my_moving_average,expected = "sma"),
+  expect_false(body_contain(object = my_moving_average,expected = "sma\\("),
                info = "Fel: Funktionen sma() används i funktionen.")
   expect_false(body_contain(object = my_moving_average,expected = "smooth"),
                info = "Fel: Funktioner ur paketet smooth används i funktionen.")

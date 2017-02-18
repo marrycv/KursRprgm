@@ -1,7 +1,7 @@
 # Assignment D2
 name  : D2
 description : "Statistisk programmering med R: Lab 2"
-reporter : student
+reporter : summary
 tasks:
   leap_year:
     url: 

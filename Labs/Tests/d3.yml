@@ -1,7 +1,7 @@
 # Assignment D3
 name  : D3
 description : "Statistisk programmering med R: Lab 3"
-reporter : student
+reporter : summary
 tasks:
   bmi:
     url: 

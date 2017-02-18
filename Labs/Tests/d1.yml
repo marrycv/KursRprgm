@@ -1,7 +1,7 @@
 # Assignment D1
 name  : D1
 description : "Statistisk programmering med R: Lab 1"
-reporter : student
+reporter : summary
 tasks:
   three_elements:
     url: 

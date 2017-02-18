@@ -34,166 +34,157 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 7: Texthantering, statistik, simulering och regression
-### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
 
 Föreläsning 7: Innehåll 
 ========================================================
-- Uppföljning tidigare laborationer
-- Texthantering och stringr, regular expression 
+- Interaktiv återkoppling
+- ggplot2
 - Statistik, Linjär regression
+- Miniprojektet
 
-Laboration D5
+Interaktiv återkoppling
 ========================================================
 incremental: true
 
-- Rättad
-
-Laboration D6
-========================================================
-
-Frågor?
-
-Texthantering i R
+ggplot2
 ========================================================
 type: section
 
-Arbeta med strängar
+ggplot2
 ========================================================
-- Sträng (eng. string): en samling bokstäver (characters)
-- Centralt är regular expressions (regex)
-- Identifiera/matcha text eller delar av text (tänk sökfunktion)
-- regex går även att använda i sökfunktionen i R-Studio (och andra program)
-- Med ```pattern``` syftas regular expressions i R
+- Baserad på ”Grammar of Gaphics” av Leland Wilkinson
+- Skapad av Hadley Wickham
+- Alternativ till basgrafiken
+- [http://ggplot2.org](http://ggplot2.org)
+- Har egenskapar från basgrafiken men skiljer sig
+- Utgår alltid från en ```data.frame```
 
-Arbeta med strängar II
+ggplot2
 ========================================================
-- I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text 
-  - ex. `paste()`, `substr()`, `nchar()`
-- Men vi använder framförallt paketet ```stringr```
-- ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
+"Grammatik för grafik"
+- Abstraktioner av grafiska idéer. Jmf med ordklasser/satsdelar i språk
+- Ger ett teoretiskt fundament för hur grafik kan skapas
+- Fördjupning: http://ggplot2.org/book/ 
 
-
-
-Arbeta med strängar II
-========================================================
-
-- ```readLines(con=,encoding=)``` kan användas för att läsa in en text. Varje rad i texten blir då ett element i en vektor. 
-
-- Icke-engelska symboler/tecken text kräver [encoding](http://en.wikipedia.org/wiki/Character_encoding) (ex. för å,ä och ö). 
-- Vi ändrar med  ```encoding = "latin1"``` i ```readLines()```.
-- Vanligast är `latin1` och `UTF8`
-
-Paketet stringr
-========================================================
-- En vektoriserad wrapper för de förinstallerade funktionerna 
--  Samtliga funktioner börjar med ```str_```
-- Se [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
-
-Funktioner
-========================================================
-type: sub-section
-
-Grundläggande strängfunktioner
+ggplot2
 ========================================================
 
-stringr | base | Användning
---- | ----- | ---- | 
-`str_sub()` | `substr()` | substring,  välja ut en del av en sträng
-`str_c()` | `paste()` | slår ihop strängelement
-`str_split()` |`strsplit()` | dela upp en sträng i flera element
-`str_length()` | `nchar()` | beräknar antalet tecken
-`str_trim()` | - | tar bort mellanslag (före/efter textelement)
-`str_pad()` | - | lägger till mellanslag (före/efter textelement)
+> ”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
 
-Pattern matching
-========================================================
-type: sub-section
+Från "ggplot2 book" av Hadley Wickham 
 
-regular expression (regexp)
+ggplot2
 ========================================================
-- Hitta specifika delar av en sträng som uppfyller ett villkor
-- Byggs upp av:
-  - literals: "vanliga bokstäver och siffror"
-  - metacharacters: (metatecken) sätter upp speciella regler för matchning
-- Se RP:s [[video]](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
-  - Regular Expressions
-  - Introduction to the Baltimore Homicide Data
-  - Regular Expressions in R
+incremental: true
 
-regular expression: metacharacters
+- Bygger upp en graf av flera delar
+  - ```data``` (data.frame)
+  - ```geom```s
+  - ```aes```s
+
+geom
 ========================================================
-Tecken| Betydelse
+
+- Vilken geometrisk representation ska användas
+
+```geom``` | Beskrivning | 
 ----- | ---- | 
-. | samtliga tecken (exkl. det “tomma” tecknet “”)  
-^ | det "tomma" tecknet i början av en text
-$ | det "tomma" tecknet i slutet text
-* | föregående tecken 0 eller fler gånger
-+ | föregående tecken 1 eller fler gånger
-? | föregående tecken är valfritt
-{n,m} | föregående tecken $n$ eller max $m$
-[] | teckenlista (character list)
-$|$ | ELLER
-() | Gruppering
-\ | Används för att identifiera metatecken/specialtecken
+```geom_point``` | Scatterplot |
+```geom_line``` | Line graph |
+```geom_bar``` | Barplot |
+```geom_boxplot``` | Boxplot |
+```geom_histogram``` | Histogram |
 
-regular expression: teckenklass
+aes
 ========================================================
-- Med [ ] skapas en lista över tänkbara tecken, en s.k. teckenklass (eng. character class)
-- Används för att identifiera en mängd av tecken
-- Inom [ ] har bara följande meta-tecken en särskild betydelse:
+- Kopplar färg, form och utseende till data
 
-Tecken| Betydelse| Exempel
------ | ---- | ----|
-- | tecken | A-Z a-z 0-9 
-^ | ICKE | ^ 0-9 
-\ | specialtecken | \t\n
+```aes``` | Beskrivning | 
+----- | ---- | 
+```x``` | x-axel |
+```y``` | y-axel |
+```size``` | storlek |
+```col``` | färg |
+```shape``` | form |
 
-regular expression: teckenklass
+aes och geoms
 ========================================================
-Vanliga fördefinierade klasser är... (kolla ```?regexp```)
-- [:digit:]  Nummer
-- [:lower:]  gemener
-- [:upper:]  VERSALER
-- [:punct:]  tecken, ej bokstäver eller siffror 
-- [:space:]  mellanslag, tab, ny rad m.m.
+- Finns även speciella aestetics för viss geoms
 
-regular expression: länkar
+```geom``` | ```aes``` | 
+----- | ---- |
+```geom_points``` | point shape, point size |
+```geom_line``` | line type, line size |
+```geom_bar``` |   y min, y max, fill color, outline color |
+
+Exempel
 ========================================================
-- Sida för att testa regular expression: [regexpal.com](http://regexpal.com)
-- Från [wikipedia](http://sv.wikipedia.org/wiki/Regulj%C3%A4ra_uttryck)
-
-
-Pattern matchingfunktioner i R 
-========================================================
-
-- ```pattern``` är ett regular expression
-
-stringr | base | Användning
---- | ----- | ---- | 
-`str_detect()` | `grepl()` | identifierar pattern, returnerar en logisk vektor
-`str_locate()` | `gregexpr()` | identifierar pattern, returnerar positionen i texten
-`str_replace()` | `gsub()` | identifierar pattern, och ersätter detta med ny text
-`str_extract_all` | - | Plocka ut alla strängar som uppfyller `pattern`
-
-
-- För exempel på några av dessa funktioner kolla på Roger Pengs [[video]](http://www.youtube.com/watch?v=q8SzNKib5-4)
-
-
-regular expression: exempel
-========================================================
-
-```{r}
-library(stringr)
-a <- c("hej","hela","vatten")
-str_detect(pattern="he", string = a)
-str_detect(pattern="a", string = a)
-str_locate(pattern="he", string = a)
-str_extract_all(pattern = ".a", string = a)
+```{r, echo=FALSE}
+library(ggplot2)
+data(Nile)
+Nile <- as.data.frame(Nile) 
+colnames(Nile) <- "level"
+Nile$years <- 1871:1970
+Nile$period <- "- 1900" 
+Nile$period[Nile$years >= 1900] <- "1900 - 1945"
+Nile$period[Nile$years > 1945] <- "1945 + " 
+Nile$period <- as.factor(Nile$period)
+```
+```{r, echo=TRUE}
+ggplot(data=Nile) + aes(x=years, y=level) + geom_point()
 ```
 
+Exempel
+========================================================
+```{r, echo=TRUE}
+ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
+```
+
+Exempel
+========================================================
+```{r, echo=TRUE}
+p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line(aes(type=period)) + geom_point(aes(shape=period))
+p
+```
+
+Exempel: Teman
+========================================================
+```{r, echo=TRUE}
+p + theme_bw()
+```
+
+Exempel: Teman
+========================================================
+```{r, echo=TRUE}
+p + theme_classic()
+```
+
+Exempel: Teman
+========================================================
+```{r, echo=TRUE}
+p + theme_grey()
+```
+
+
+ggplot2
+========================================================
+ - ```qplot()```: Liknar ```plot()``` från basgrafiken.
+ - Bra för snabba grafer.
+ - Se Roger Pengs video för en [introduktion](https://www.youtube.com/watch?v=HeqHMM4ziXA)
+ - För mer kontroll använd  ```ggplot() ```
+
+
+ggplot2 och cowplot
+========================================================
+
+Paneler/subplots:
+  - Samma typ av plot: factets
+  - Olika plottar: paketet ```cowplot```, se [här](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) för intro
+  - Utgå från funktionen ```plot_gird()```. Se [här](https://cran.rstudio.com/web/packages/cowplot/vignettes/plot_grid.html) för exempel. 
 
 
 Statistik, Linjär regression
@@ -313,4 +304,11 @@ Använda modellen
   - ```resid()```
   - ```predict()```
 
+
+
+Miniprojekt del 2
+========================================================
+- Enklare statistika analyser
+- All grafik med ggplot2
+- Enkel kartstatistik
 

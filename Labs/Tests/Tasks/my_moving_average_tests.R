@@ -79,7 +79,7 @@ test_that("Assignment: my_moving_average()", {
   expect_false(body_contain(object = my_moving_average,expected = "filter"),
                info = "Fel: Funktionen filter() används i funktionen.")
   
-  expect_false(body_contain(object = my_moving_average,expected = "ma("),
+  expect_false(body_contain(object = my_moving_average,expected = "ma\\("),
                info = "Fel: Funktionen ma() används i funktionen.")
   expect_false(body_contain(object = my_moving_average,expected = "forecast"),
                info = "Fel: Funktioner ur paketet forecast används i funktionen.")

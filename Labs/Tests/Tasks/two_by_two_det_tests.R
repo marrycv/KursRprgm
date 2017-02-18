@@ -28,8 +28,5 @@ test_that("two_by_two_det()", {
   expect_function_code(object = two_by_two_det, expected = "return\\(", 
                        info = "Fel: return() saknas i funktionen.")
   
-  res <- markmyassignment:::function_code("det")(two_by_two_det)
-  expect_that(res$passed, is_false(), "Fel: Funktionen det() används i funktionen.")
-  
   
 })

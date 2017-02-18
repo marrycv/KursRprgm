@@ -33,7 +33,7 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 5: Objektorientering, datum och linjär algebra
+## Föreläsning 6: Objektorientering, datum och linjär algebra
 ### [Josef Wilzén](mailto:josefwilzen@liu.se)
 
 Avdelningen för statistik,
@@ -44,46 +44,12 @@ Linköpings universitet
 Dagens föreläsning:
 ========================================================
 
-- Praktisk information om del II.
+- Interaktiv återkoppling
 - Programmeringsparadigm
   - Funktionell programmering
   - Objektorientering
 - Datum och tid med ```lubridate```
 - Linjär algebra i R
-
-Del II i kursen
-========================================================
-type: section
-
-R-programmering - del II
-========================================================
-
-- Del 1: Grunderna i programmering
-- Del 2: Tillämpningar:
-  - Grafik
-  - Statistik och analys
-  - Externa data
-  - Datum
-  - Texthantering och regular expression 
-  - Linjär algebra
-  - knitr och markdown
-
-
-R-programmering - del II:
-========================================================
-
-- Labbarna görs nu i par
-- Skapa grupper på Lisam
-- Parprogrammering:
-  - Turas om att sitta vid tagentbordet
-  - Den som inte kodar är engagerad i koden och problemet 
-  - Byter person var 30:e minut
-  - Viktigt att kommentera koden: ROxygen, inline 
-
-
-Laboration D4
-========================================================
-- Frågor
 
 
 Programmeringsparadigm och R
@@ -156,7 +122,7 @@ Olika typer av klasser i R:
 - basklasser
 - S3 (informellt): "lista med klassattribut" -> Den här kursen
 - S4 (formellt): element väljs ut med ```@```
-- reference class
+- reference classes
 
 Generiska funktioner (S3)
 ========================================================
@@ -173,7 +139,7 @@ Metoder
 ========================================================
 incremental: true
 
-- En funktion för en specifik klass (och generisk funktion)
+- En funktion för en specifik klass
 - Metoderna utgår från generisk funktion
 - Alla metoder för en generisk funktion: ```methods()```
 - Defaultmetod med  ```mean.default()```

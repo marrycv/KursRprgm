@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass report
 \begin_preamble
 \usepackage{fancyhdr}%The first page setting
@@ -32,16 +34,16 @@ knitr
 \language_package auto
 \inputencoding auto
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -101,7 +103,7 @@ Datorlaboration 8
 \end_layout
 
 \begin_layout Author
-Josef Wilzén och Måns Magnusson
+Måns Magnusson och Josef Wilzén
 \end_layout
 
 \begin_layout Standard
@@ -184,1606 +186,96 @@ Datorlaboration
 \end_layout
 
 \begin_layout Chapter
-Introduktion till 
+Texthantering och regular expression i R med 
 \family typewriter
-ggplot2
-\end_layout
-
-\begin_layout Standard
-Paketet 
-\family typewriter
-ggplot2
+stringr
 \family default
- skiljer sig från den grundläggande grafikfunktionaliteten som finns implementer
-at i R.
- Paketet bygger på vad som brukar kallas 
-\begin_inset Quotes eld
-\end_inset
-
-The grammar of graphics
-\begin_inset Quotes erd
-\end_inset
-
- (därav 
-\family typewriter
-gg
-\family default
- i 
-\family typewriter
-ggplot2
-\family default
-) och är ett försök till ett formellt språk för att uttrycka hur en visualiserin
-g ska se ut.
- Mer teori bakom denna gramatik går att finna i 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "wilkinson2006grammar,wilkinson2012grammar"
-
-\end_inset
-
- och är grunden bakom exempelvis SPSS grafiksystem.
- Genom att ha en grundläggande förståelse för denna grammatik kan vi enkelt
- och snabbt skapa mycket komplicerade visualiseringar.
-\end_layout
-
-\begin_layout Standard
-I R:s basgrafiksystem kunde man se grafikfunktionaliteten lite som ett papper
- vi ritar på.
- Vi ritar initialt upp vår graf och kan sedan lägga till/rita 
-\begin_inset Quotes eld
-\end_inset
-
-ovanpå
-\begin_inset Quotes erd
-\end_inset
-
- det befintliga pappret.
  
-\family typewriter
-ggplot
-\family default
- är annorlunda.
- Med 
-\family typewriter
-ggplot
-\family default
- skapar vi ett grafikobjekt och vi kan lägga till bit för bit av grafen
- för att när vi sedan är klar med vår graf visualisera den.
- Det gör det enklare att bygga upp komplicerade grafer utan att behöva använda
- särskilt mycket kod.
 \end_layout
 
 \begin_layout Standard
+Gör följande delar i 
+\shape italic
+Handling and Processing Strings in R
+\shape default
+ av Gaston Sanchez.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 
 \series bold
-\color blue
-\begin_inset CommandInset href
-LatexCommand href
-name "Här"
-target "http://shiny.stat.ubc.ca/r-graph-catalog/"
-
+Kap
+\begin_inset space ~
 \end_inset
 
-
+2
 \series default
-\color inherit
- finns en bra katalog över de flesta graferna i 
-\family typewriter
-ggplot2
-\family default
-.
+ Hela
 \end_layout
 
-\begin_layout Section
-Grunden i 
-\family typewriter
-ggplot2
-\end_layout
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 
-\begin_layout Standard
-Till skillnad från basgrafiken utgår ggplot 
 \series bold
-alltid
+Kap
+\begin_inset space ~
+\end_inset
+
+3
 \series default
- från en 
-\family typewriter
-data.frame
-\family default
-.
- Baserat på denna data.frame skapas sedan grafen med två huvudsakliga komponenter
-: 
+ 3.1, 3.3
 \end_layout
 
-\begin_layout Itemize
-
-\family typewriter
-aes
-\family default
- (aestetic) som handlar om utseendet på grafen, färger, former m.m.
-\end_layout
-
-\begin_layout Itemize
-
-\family typewriter
-geom
-\family default
- (geometrics) som beskriver vilken typ av graf vi vill ha (bar, line, points)
-\end_layout
-
-\begin_layout Standard
-Vi lägger sedan till dessa komponenter till vår graf och 
-\family typewriter
-data.frame
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-När det gäller de olika geometriska argumenten, d.v.s.
- de olika typer av grafer som går att skapa, finns det ett mycket stor antal
- vi kan använda oss av.
- Några exempel är:
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-geom
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
 
 \series bold
-Beskrivning
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_point
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Scatterplot
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_line
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Line graph
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_bar
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Barplot
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_boxplot
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Boxplot
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_histogram
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Histogram
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
+Kap
+\begin_inset space ~
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\align center
-Exakt hur dessa geometriska figurer ska se ut styrs sedan med 
-\family typewriter
-aes
-\family default
-.
- Nedan finns några exempel:
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-aes
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Beskrivning
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-x
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-x-axel
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-y
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-y-axel
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-size
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-storlek
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-col
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-färg
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-shape
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-form
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-De enskilda geometriska figurerna kan i sin tur ha ett antal olika aestetics.
- Nedan finns lite exempel.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-\series bold
-geom
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Specifika aestetics
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_points
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-point 
-\family typewriter
-shape
-\family default
-, point 
-\family typewriter
-size
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_line
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-linetype
-\family default
-, line 
-\family typewriter
-size
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-geom_bar
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-y 
-\family typewriter
-min
-\family default
-, y 
-\family typewriter
-max
-\family default
-, 
-\family typewriter
-fill
-\family default
- color, 
-\family typewriter
-outline
-\family default
- color
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Med dessa verktyg har vi en grund för att bygga upp ett mycket stort antal
- visualiseringar.
-\end_layout
-
-\begin_layout Subsection
-Skapa en ggplot (linje eller scatter)
-\end_layout
-
-\begin_layout Enumerate
-Vi börjar med att läsa in the datamaterialet 
-\family typewriter
-Nile
-\family default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(ggplot2)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-data(Nile) 
-\end_layout
-
-\begin_layout Plain Layout
-
-Nile <- data.frame(level=as.vector(Nile))  
-\end_layout
-
-\begin_layout Plain Layout
-
-Nile$years <- 1871:1970
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-För att skapa en 
-\family typewriter
-ggplot
-\family default
- börjar vi med att skapa grunden för plotten med funktionen 
-\family typewriter
-ggplot()
-\family default
-.
- Nedan är ett exempel på att skapa en 
-\family typewriter
-ggplot
-\family default
- med 
-\family typewriter
-Nile
-\family default
-, sedan lägger vi till att 
-\family typewriter
-x
-\family default
- ska utgöras av variabeln 
-\family typewriter
-years
-\family default
- och 
-\family typewriter
-level
-\family default
-.
- Sedan lägger vi till att plotten ska utgöras av punkter.
- Vi sparar grafen som variabeln 
-\family typewriter
-p
-\family default
-.
- För att skapa grafen tittar vi bara på 
-\family typewriter
-p
-\family default
-:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, fig.height=3, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_point()
-\end_layout
-
-\begin_layout Plain Layout
-
-p
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi ändra till en linjegraf (vilket känns bättre) här byter vi bara
- ut geometrin:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi lägga till både punkter och linjer i samma graf kan vi bara ta 
-\family typewriter
-p
-\family default
- och lägga till punkter.
- Här blir det tydligt hur vi i 
-\family typewriter
-ggplot
-\family default
- lägger till lager på lager och sedan producerar en visualisering:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- p + geom_point()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-På samma sätt kan vi också lägga till rubriker och axelettiketter:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- p + xlab("Years") + ylab("Water level") + ggtitle("Nile series")
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Enklare modifikationer av ett 
-\family typewriter
-ggplot
-\family default
--objekt
-\end_layout
-
-\begin_layout Enumerate
-Vill vi ändra färg och form på olika delar i en graf behöver vi ange exakt
- var dessa förändringar ska ske.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line(color="red",
- size=3)+ 
-\end_layout
-
-\begin_layout Plain Layout
-
-geom_point(color="blue", size=4)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Om vi nu vill förtydliga vissa delar av grafen med olika färger eller använder
- vi 
-\family typewriter
-aes
-\family default
- i den del av grafen vi vill ändra.
- Först ska vi skapa en ny faktorvariabel vi vill visualisera.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-Nile$period <- "- 1900" 
-\end_layout
-
-\begin_layout Plain Layout
-
-Nile$period[Nile$years >= 1900] <- "1900 - 1945"
-\end_layout
-
-\begin_layout Plain Layout
-
-Nile$period[Nile$years > 1945] <- "1945 + " 
-\end_layout
-
-\begin_layout Plain Layout
-
-Nile$period <- as.factor(Nile$period)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi nu exempelvis lyfta in visualiseringen i linjerna måste vi lägga
- 
-\family typewriter
-aes
-\family default
- där.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line(aes(color=period))
- + geom_point()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi istället modifiera punkterna lägger vi till det i geom_point().
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line() + geom_point(aes(co
-lor=period))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi lägga det i hela grafen kan vi lägga till färgen i den huvudsakliga
- styrningen av aestetics i grafen.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line()
- + geom_point()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Baserat på graferna ovan pröva att göra följande förändringar:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Ändra typ av linje i grafen [
-\series bold
-Tips!
+4
 \series default
- 
-\family typewriter
-linetype
-\family default
-]
+ 4.2.1 - 4.2.3
 \end_layout
 
-\begin_layout Enumerate
-Ändra typ av punkter i grafen [
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
 \series bold
-Tips!
+Kap
+\begin_inset space ~
+\end_inset
+
+5
 \series default
- 
-\family typewriter
-shape
-\family default
-]
+ 5 - 5.2.2, 5.2.6, 5.3.1-5.3.2
 \end_layout
 
-\begin_layout Enumerate
-Gör punkterna transparaenta [
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
 \series bold
-Tips!
+Kap
+\begin_inset space ~
+\end_inset
+
+6
 \series default
- 
-\family typewriter
-alpha
-\family default
-]
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-Barplot, histogram och boxplot
+ 6-6.1.3, 6.2.2, 6.4 - 6.4.1, 6.4.3, 6.4.5, 6.4.7, 6.4.9 - 6.4.10
 \end_layout
 
 \begin_layout Standard
-För att pröva dessa diagram använder vi oss av datamaterialet mtcars.
- Vi börjar med att läsa in datamaterialet mtcars.
- För att få mer information om detta datamaterial, använd 
-\family typewriter
-?mtcars
-\family default
-.
- Vi gör också om:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-data(mtcars)
-\end_layout
-
-\begin_layout Plain Layout
-
-mtcars$cyl <- as.factor(mtcars$cyl)
-\end_layout
-
-\begin_layout Plain Layout
-
-mtcars$gear <- as.factor(mtcars$gear)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Till skillnad från basgrafiken använder vi inte olika funktioner för olika
- plottar utan vi använder bara olika 
-\family typewriter
-geoms
-\family default
-.
- 
-\end_layout
-
-\begin_layout Enumerate
-Vill vi exempelvis skapa ett stapeldiagram anger vi bara en axel och ett
- annat geom, men i övrigt är det inge större skillnad mot en linjegraf:
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=cyl) + geom_bar()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan också enkelt lägga till funktionen 
-\family typewriter
-coord_flip()
-\family default
- för att skapa ett liggande stapelidagram istälet för ett stående.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p + coord_flip()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Skillnaden ligger i att det finns lite andra aestetics för stapeldiagram
- än för övriga diagram som 
-\family typewriter
-fill
-\family default
-.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=cyl) + geom_bar(fill="darkblue", colour="red")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-För att skapa stapeldiagram med flera grupper behöver vi dels lägga till
- en till variabel som indikerar att vi vill ha ex.
- olika färger för olika grupper samt ange hur dessa diagram ska se ut.
- Pröva exemplen nedan:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=cyl, fill=gear) + geom_bar(position="stack")
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=cyl, fill=gear) + geom_bar(position="dodge")
-\end_layout
-
-\begin_layout Plain Layout
-
-p + scale_fill_discrete(name="Testa
-\backslash
-nDetta")
-\end_layout
-
-\begin_layout Plain Layout
-
-p + scale_fill_manual(values=c("black", "blue", "red"))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Histogram
-\end_layout
-
-\begin_layout Enumerate
-Den egentliga skillnaden mellan ett stapeldiagram och ett histogram är bara
- huruvida variabeln är kontinuerlig eller inte.
- Detta gör att för att skapa ett histogram gör vi på exakt samma sätt, men
- vi använder oss av en kontinuerlig variabel:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=mpg) + geom_bar(fill="darkblue", colour="red")
-\end_layout
-
-\begin_layout Plain Layout
-
-p
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Sättet ovan är ett sätt att skapa ett histogram.
- Vi kan också använda den specialgjorda geometriska funktionen 
-\family typewriter
-geom_histogram()
-\family default
- om vi vill kunna hantera histogram enklare.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=mpg)
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- p + geom_histogram(fill="darkblue", colour="red",binwidth=10)
-\end_layout
-
-\begin_layout Plain Layout
-
-p
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Boxplot
-\end_layout
-
-\begin_layout Enumerate
-Boxplottar är egentligen en kombination av kontinuerliga variabler.
- Precis som tidigare inleder vi skapa en 
-\family typewriter
-ggplot
-\family default
- med ett datamaterial och definierar vilka variabler vi vill använda.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=mtcars) + aes(x=cyl, y=mpg) + geom_boxplot()
-\end_layout
-
-\begin_layout Plain Layout
-
-p
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi sedan göra förändringar kan vi lägga till det till och från.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p + coord_flip() + xlab("X") + ggtitle("Hejsan")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Grafiska teman/profiler 
-\end_layout
-
-\begin_layout Standard
-En av de stora fördelarna med att ggplot skiljer ut själva plotten från
- utseendet är att det är enkelt att skapa strukturer för olika delar av
- en graf som vi vill använda flera gånger.
- En av de bästa exemplen på detta är teman i 
-\family typewriter
-ggplot
-\family default
-.
- Ett tema är en uppsättning med inställningar för en grafisk profil som
- vi vill använda i 
-\family typewriter
-ggplot2
-\family default
-.
- 
-\end_layout
-
-\begin_layout Standard
-Den stora fördelen är att har vi väl skapat ett tema (vilket kan ta lite
- tid) kan temat läggas till mycket enkelt till samtliga grafer.
- Detta underlättar kopplingen mellan exempelvis grafiska profiler och de
- grafer som produceras, vilket gör att 
-\family typewriter
-ggplot2
-\family default
- är mycket populärt i företag och organisationer.
- Ett exempel på rapport som använder 
-\family typewriter
-ggplot2
-\family default
- genomgående är Pensionsmyndighetens 
-\begin_inset CommandInset href
-LatexCommand href
-name "[Orange rapport]"
-target "http://secure.pensionsmyndigheten.se/20895.html"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Enumerate
-Med 
-\family typewriter
-ggplot2
-\family default
- kommer en del teman förinstallerade och precis som allt annat i R är det
- enkelt att bara lägga till den grafiska profilen efter att vi skapat en
- graf.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=2.5, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- ggplot(data=Nile) + aes(x=years, y=level) + geom_line() + geom_point()
-\end_layout
-
-\begin_layout Plain Layout
-
-p
-\end_layout
-
-\begin_layout Plain Layout
-
-p <- p + theme_bw()
-\end_layout
-
-\begin_layout Plain Layout
-
-p
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Pröva på liknande sätt följande teman: 
-\family typewriter
-theme_grey()
-\family default
-, 
-\family typewriter
-theme_classic()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Ett tema i 
-\family typewriter
-ggplot2
-\family default
- är bara en funktion, så det är enkelt att titta på hur temat ser ut och
- sedan utgå från ett befintligt tema för att anpassa det till det utseende
- vi själva vill ha.
- Sedan kan detta tema enkelt spridas till alla som arbetar med visualisering
- med 
-\family typewriter
-ggplot
-\family default
-.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-theme_bw
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Att ändra den grafiska profilen innebär då bara att ändra denna temafunktion
- (även om det kan innebära en del jobb).
-\end_layout
-
-\begin_layout Enumerate
-Det finns också ett separat R-paket med ett antal vanliga teman kallat 
-\family typewriter
-ggthemes
-\family default
-.
- De olika teman som är installerade i 
-\family typewriter
-ggtheme
-\family default
-s framgår 
+Boken finns fritt tillgänglig 
 \series bold
 \color blue
 
 \begin_inset CommandInset href
 LatexCommand href
 name "[här]"
-target "https://github.com/jrnold/ggthemes"
+target "http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf"
 
 \end_inset
 
@@ -1791,2108 +283,27 @@ target "https://github.com/jrnold/ggthemes"
 \series default
 \color inherit
 .
-\end_layout
-
-\begin_layout Enumerate
-Med dessa går det enkelt att skapa olika färgsättningar för samma graf.
- I 
-\family typewriter
-ggtheme
-\family default
-s-paketet finns också färgpaletter som passar bra för personer som är färgblinda.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=2.5, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(ggthemes)
-\end_layout
-
-\begin_layout Plain Layout
-
-p + theme_excel()
-\end_layout
-
-\begin_layout Plain Layout
-
-p + theme_economist()
-\end_layout
-
-\begin_layout Plain Layout
-
-p + theme_tufte()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Chapter
-Introduktion till spatiala data och visualisering
+dplyr, tidyr och piping
 \end_layout
 
 \begin_layout Standard
-Spatiala data , geografiska data eller geotaggad data är data som innehåller
- information om lokalitet eller plats.
- Det är en datastruktur som blir allt mer vanligt i och med att allt mer
- data digitaliseras.
- Det kan vara data om positioner (från exempelvis mobiltelefoner eller twitterme
-ddelanden), det kan vara kartor för att skapa geografiska referenser till
- exempelvis data på kommunal nivå och det kan vara eller det kan vara spatial
- visualisering där exempelvis områden med större brottslighet visualiseras.
+dplyr och tidyr
 \end_layout
 
 \begin_layout Standard
-Samlingsnamnet för denna typ av analyser är spatiala data eller spatial
- analys.
- En mycket bra hemsida med fördjupningar finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://spatial.ly/r/"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
+Introducera piping.
 \end_layout
 
 \begin_layout Standard
-Tidigare har denna typ av analys och databearbetning varit reserverade för
- personer med särskilt kunnande i geografiska informationsystem eller GIS,
- men på senare tid har R seglat upp som en allt större konkurren när det
- gäller spatial visualisering och analys.
+ftp://cran.r-project.org/pub/R/web/packages/tidyr/vignettes/tidy-data.html
 \end_layout
 
 \begin_layout Standard
-I detta avsnitt kommer vi göra en kortare djupdykning i detta fält.
- Djupdykningen kommer vara långt ifrån fullständig, men ge en känsla för
- att det ofta inte behöver vara särskilt svårt att skapa kartvisualiseringar.
-\end_layout
-
-\begin_layout Section
-Förberedelser
-\end_layout
-
-\begin_layout Subsection
-Rpaket
-\end_layout
-
-\begin_layout Standard
-Som ett första steg behöver vi installera en hel del paket som kan hantera
- och arbeta med spatiala datastrukturer.
- Vi kommer därför gå igenom den mest grundläggande funktionaliteten i följande
- R-paket: 
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Paket
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Innehåll
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-maptools
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Verktyg för att använda och läsa in spatiala data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-rgeos
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Kopplingar från R till GEOS (
-\series bold
-G
-\series default
-eometry 
-\series bold
-e
-\series default
-ngine 
-\series bold
-o
-\series default
-pen 
-\series bold
-s
-\series default
-ource)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-rgdal
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Verktyg för att konvertera mellan projektioner
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-ggmap
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Spatial visualisering med google maps och opens street map.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family typewriter
-sp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Klasser och metoder för spatiala datastrukturer
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-När det gäller paketen rgeos och rgdal bygger dessa paket dessutom på andra
- implementationer i språk som Java och C++.
- Det kan göra det något mer krångligt att installera dessa paket i vissa
- fall.
- För att installera dessa paket på Mac OS kan jag rekommendera 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[denna]"
-target "http://spatialanalysis.co.uk/2010/11/installing-rgdal-on-mac-os-x/"
-
-\end_inset
-
-
-\series default
-\color inherit
- och 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[denna]"
-target "http://tlocoh.r-forge.r-project.org/mac_rgeos_rgdal.html"
-
-\end_inset
-
-
-\series default
-\color inherit
- guide för installation.
-\end_layout
-
-\begin_layout Subsection
-Data
-\end_layout
-
-\begin_layout Standard
-I denna laboration behöver vi också ladda ned den data vi ska använda oss
- av.
- Detta är exempel på svenska data över sveriges kommunindelning i form av
- shape-fil.
- Vi laddar ned dessa shapefiler med paketet 
-\family typewriter
-downloader
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(downloader)
-\end_layout
-
-\begin_layout Plain Layout
-
-# Download and read data 
-\end_layout
-
-\begin_layout Plain Layout
-
-kommuner_remote <- "https://raw.github.com/MansMeg/KursSvyMeth/master/Labs/DataFil
-es/Kommun_SCB.zip"
-\end_layout
-
-\begin_layout Plain Layout
-
-kommuner_local <- "Kommun_SCB.zip"
-\end_layout
-
-\begin_layout Plain Layout
-
-download(kommuner_remote, destfile = kommuner_local)
-\end_layout
-
-\begin_layout Plain Layout
-
-unzip(kommuner_local)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Läsa in shape-filer och spatiala datastrukturer 
-\end_layout
-
-\begin_layout Standard
-För att skapa kartor behöver vi en så kallad shapefil.
- Dessa innehåller geografisk data i vektoriserat format vilket vi kan läsa
- in och modifiera i R.
- Vektoriserade geografiska data innebär att vår data representeras som punkter,
- vektorer eller polygoner.
- Mer information om shapefiler finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://en.wikipedia.org/wiki/Shapefile"
-
-\end_inset
-
-
-\series default
-\color inherit
- och om vektoriserad GIS-information finns 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://sv.wikipedia.org/wiki/Geografiskt_informationssystem#RasterGIS_och_vektorGIS"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Standard
-Shapefiler som är aktuella för just era problem beror på detaljeringsgrad,
- men församlingsgränser eller kommunindelningsgränser av intresse finns
- på de flesta kommuner och länsstyrelser.
- Ofta finns informationen att tillgå gratis som shapefiler.
- Exempelvis tillhandahåller valmyndigheten samtliga valdistrikt i form av
- en shapefil.
- 
-\end_layout
-
-\begin_layout Enumerate
-Läs in shapefilen med hjälp av 
-\family typewriter
-readShapePoly()
-\family default
- på följande sätt i R.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(rgdal)
-\end_layout
-
-\begin_layout Plain Layout
-
-library(rgeos)
-\end_layout
-
-\begin_layout Plain Layout
-
-library(maptools)
-\end_layout
-
-\begin_layout Plain Layout
-
-swe_municip <- readShapePoly("Kommun_SCB/Kommun_SCB_07.shp") 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi har nu läst in shapefilen i R.
- Vi kan få en snabb beskrivning av våra geografiska data med 
-\family typewriter
-summary()
-\family default
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-class(swe_municip)
-\end_layout
-
-\begin_layout Plain Layout
-
-summary(swe_municip)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Som ett första steg kan vi också skapa en snabb grafisk plot baserat på
- vårt spatiala objekt.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(swe_municip)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nu har vi läst in och studerat vår första shapefil!
-\end_layout
-
-\begin_layout Subsection
-Statistik på karta
-\end_layout
-
-\begin_layout Standard
-Nästa steg är att integrera statistik med vår karta, för att på detta sätt
- visualisera kommunala data.
- Med Koden nedan laddar jag ned kommunala data från SCB (antalet mjölkkor
- per kommun) och städar datat något.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(pxweb)
-\end_layout
-
-\begin_layout Plain Layout
-
-my_data <-    
-\end_layout
-
-\begin_layout Plain Layout
-
-  get_pxweb_data(url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/JO/JO0103/Husdjur
-K",
-\end_layout
-
-\begin_layout Plain Layout
-
-                 dims = list(Region = c('*'),
-\end_layout
-
-\begin_layout Plain Layout
-
-                 Djurslag = c('05'),
-\end_layout
-
-\begin_layout Plain Layout
-
-                 ContentsCode = c('JO0103K2'),
-\end_layout
-
-\begin_layout Plain Layout
-
-                 Tid = c('2007')),
-\end_layout
-
-\begin_layout Plain Layout
-
-  clean = TRUE) 
-\end_layout
-
-\begin_layout Plain Layout
-
-my_data <- my_data[, c(1,5)] 
-\end_layout
-
-\begin_layout Plain Layout
-
-my_data[, 1] <- substr(as.character(my_data$region),1,4) 
-\end_layout
-
-\begin_layout Plain Layout
-
-my_data[is.na(my_data[, 2]), 2] <- 0  
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-När det gäller spatiala data finns vårt dataset (kopplade till varje polygon
- - i detta fall kommun) som en egen 
-\family typewriter
-data.frame
-\family default
- i vårt spatiala objekt.
- Vi kan komma åt datat med @ på följande sätt:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-head(swe_municip@data)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Denna 
-\family typewriter
-data.frame
-\family default
- kan vi hantera precis som vanliga 
-\family typewriter
-data.frame
-\family default
-s.
- Vill vi lägga på data använder vi därför 
-\family typewriter
-merge()
-\family default
- och lägger till våra data om kor till respektive kommun.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-swe_municip@data <- merge(swe_municip@data, my_data, by.x="KNKOD", by.y="region")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nu har vi lagt till våra estimat och kan använda 
-\family typewriter
-spplot()
-\family default
- för att skapa en karta baserad på vår statistik.
- Pröva följande kod.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=5, fig.width=3, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-spplot(swe_municip, "values")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Kombinera polygoner till större geografiska områden.
-\end_layout
-
-\begin_layout Standard
-Nu har vi arbetat med svenska kommuner.
- Vill vi arbeta med län går detta att göra genom att läsa in en separat
- shapefil för län.
- Vi kan dock kombinera polygoner till större områden direkt i R.
- I detta fall är det län, men det går att kombinera områden på ett godtyckligt
- sätt.
-\end_layout
-
-\begin_layout Enumerate
-Vi börjar att skapa en variabel som heter 
-\family typewriter
-LN
-\family default
- som indikerar vilket län respektive kommun ligger i.
- Tack vara kommunkoderna är det möjligt att se detta direkt.
- De två första positionerna anger län.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<echo=FALSE, fig.height=4, fig.width=4, fig.align='center', eval=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-swe_municip@data$LN <- substr(swe_municip@data$KNKOD,1,2)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nästa steg blir att slå samman de kommunala polygonerna för att bilda länspolygo
-ner.
- För detta använder vi 
-\family typewriter
-unionSpatialPolygons()
-\family default
-.
- I detta fall verkar det som några kommuner hamnat i fel län.
- Detta beror på att länskoden för vissa kommuner blivit är felaktig.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-swe_county <- unionSpatialPolygons(SpP = swe_municip,IDs = swe_municip@data$LN)
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan sedan studera resultatet med 
-\family typewriter
-plot()
-\family default
- och 
-\family typewriter
-summary()
-\family default
-.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(swe_county) 
-\end_layout
-
-\begin_layout Plain Layout
-
-summary(swe_county)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-När vi lägger ihop olika polygoner försvinner vårt datamaterial i vårt spatiala
- objekt.
- För att lägga till nya data behöver vi därför göra detta 
-\begin_inset Quotes eld
-\end_inset
-
-manuellt
-\begin_inset Quotes erd
-\end_inset
-
-.
- Vi börjar med att aggregera upp våra data till länsnivå.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-aggr_data <- aggregate(x=swe_municip@data$values, by=list(swe_municip@data$LN),F
-UN=sum)  
-\end_layout
-
-\begin_layout Plain Layout
-
-names(aggr_data) <- c("LN", "kossor")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nästa steg är att lägga till dessa nya aggregerade data till vårt nya spatiala
- objekt.
- För att detta ska gå måste rad-id i vår data.frame stämma överens med polygon-id
- i det spatiala objektet.
- Därför börjar vi med att lägga till radnamn och därefter använder vi 
-\family typewriter
-SpatialPolygonsDataFrame()
-\family default
- för att kombinera data på länsnivå.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-rownames(aggr_data) <- aggr_data$LN 
-\end_layout
-
-\begin_layout Plain Layout
-
-swe_county <- SpatialPolygonsDataFrame(Sr=swe_county, data=aggr_data)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nu kan vi återigen skapa en karta med lite större områden där antalet kor
- framgår mer tydligt.
- (Men på grund av kommunkodsproblem så har några kommuner hamnat fel.)
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-spplot(swe_county, "kossor")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Skapa delmängder av spatiala objekt
-\end_layout
-
-\begin_layout Standard
-Som ett sista steg ska vi plocka ut endast delar av en karta för att skapa
- kartor över mindre delområden.
- Detta blir extra intressant när vi visualisera data på kartor.
- Vi utgår än en gång från våra kommuner som spatialt objekt.
- 
-\end_layout
-
-\begin_layout Enumerate
-Vi ska nu istället plocka ut en delmängd av dessa kommuner.
- Än en gång använder vi länskoderna vi skapat.
- För att plocka ut ett visst antal kommuner gör vi precis som för att indexera
- rader i en data.frame i R.
- För att välja ut länet 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family typewriter
-01
-\family default
-
-\begin_inset Quotes erd
-\end_inset
-
- (Stockholms län) används följande kod.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-spatial_sthlm <- swe_municip[swe_municip@data[['LN']]=="01",] 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan nu studera dels hur vårt spatiala objekt ser ut med 
-\family typewriter
-plot()
-\family default
- samt få en bild av var kossorna bor i Stockholms län med 
-\family typewriter
-spplot()
-\family default
-.
-\end_layout
-
-\begin_layout Subsection
-* Extraproblem: Statistik över Östergötland
-\end_layout
-
-\begin_layout Standard
-Vi ska nu skapa en karta över Östergötland för en godtycklig statistisk
- storhet.
- Ta reda på vilken länskod Östergötland har.
- Gå in på SCB och hämta ned data på kommunnivå för Östergötlands län.
- Du kan välja vilken statistik du vill (ex.
- valresultat finns på kommunal nivå) och skapa en karta över denna variabel
- för Östergötland.
- 
-\end_layout
-
-\begin_layout Standard
-För att snabbt ladda ned data till R kan du använda paketet 
-\family typewriter
-pxweb
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(pxweb)
-\end_layout
-
-\begin_layout Plain Layout
-
-my_data <- interactive_pxweb(api="scb", lang="sv")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Skapa kartor med 
-\family typewriter
-ggmap
-\end_layout
-
-\begin_layout Standard
-Vi har hittils arbetat med shapefiler som innehåller spatiala data.
- Inte sällan vill vi också sätta våra spatiala data i relation till kartor.
- Särskilt om vi har data som är geotaggade, d.v.s.
- innehåller koordinater är det av intresse att visualisera dessa på en karta.
- För att använda kartor i R är det enklaste att använda oss av de kartor
- som finns öppet tillgängliga på webben, som Google Maps, Open Street Map
- m.fl.
- Med paketet 
-\family typewriter
-ggmap
-\family default
- kan vi enkelt läsa in en godtycklig kvadratisk karta.
-\end_layout
-
-\begin_layout Enumerate
-Vi börjar med att läsa in paketet ggmap och skapar en första karta över
- Linköping på följande sätt.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(ggmap)
-\end_layout
-
-\begin_layout Plain Layout
-
-qmap("Linkoping")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Som framgår ovan så får vi dels upp en karta över Linköping (på en relativt
- hög upplösning) och dels information om att vi använt Google Maps samt
- information om vilka villkor som gäller för användadet av kartan.
- Framöver kommer denna extra information döljas.
- Vill vi zomma in eller ut använder vi argumentet 
-\family typewriter
-zoom
-\family default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-qmap("Linkoping", zoom=14)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-suppressMessages(qmap("Linkoping", zoom=14))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan också använda Google Maps för att för att få ut koordinater för enskilda
- platser med 
-\family typewriter
-geocode()
-\family default
-.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_uni <- unlist(geocode("Linkopings Universitet"))
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_uni
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-suppressMessages(linkpg_uni <- unlist(geocode("Linkopings Universitet")))
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_uni
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Då 
-\family typewriter
-qmap()
-\family default
- använder sig av koordinater kan vi också ange koordinater för att skapa
- kartor.
- Med argumentet maptype van vi välja mellan google maps kartor 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family typewriter
-roadmap
-\family default
-
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family typewriter
-satellite
-\family default
-
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family typewriter
-hybrid
-\family default
-
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family typewriter
-terrain
-\family default
-
-\begin_inset Quotes erd
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-qmap(location=linkpg_uni, zoom=14, maptype="roadmap")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-suppressMessages(qmap(location=linkpg_uni, zoom=14, maptype="roadmap"))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan också välja svartvita kartor med argumentet color.
- Precis som i 
-\family typewriter
-ggplot2
-\family default
- kan vi spara våra kartobjekt för att skriva ut dem senare.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-karta <- qmap(linkpg_uni, zoom = 14, maptype="satellite", color="bw")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-<<echo=FALSE, eval=TRUE, fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-karta <- suppressMessages(qmap(linkpg_uni, zoom = 14, maptype="satellite",
- color="bw"))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Det finns fyra olika kartsystem som går att använda från 
-\family typewriter
-ggmap
-\family default
-.
- Vill vi använda något annat kartsystem använder vi 
-\family typewriter
-source
-\family default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-qmap(linkpg_uni, zoom = 14, source = "stamen", maptype = "toner")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nu har vi skapat kartor i R.
- Nästa steg är att kombinera kartor och spatiala data.
-\end_layout
-
-\begin_layout Section
-Visualisera geotaggad data på karta
-\end_layout
-
-\begin_layout Standard
-Att visualisera data på kartor följer i princip samma grundstruktur för
- att visualisera data med två kontinuerliga variabler (longitud och latitud).
- Detta framgår tydligt om vi använder följande kod.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center', eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-ggmap(linkpg_uni, extent = "normal", zoom=12)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Med följande kod slumpas ett antal datapunkter ut kring Linköping.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-set.seed(1984)
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_map <- qmap("Linkoping", color="bw", zoom =12) 
-\end_layout
-
-\begin_layout Plain Layout
-
-df <- 
-\end_layout
-
-\begin_layout Plain Layout
-
-  data.frame(
-\end_layout
-
-\begin_layout Plain Layout
-
-    lon = jitter(rep(15.6, 50), amount = .15), 
-\end_layout
-
-\begin_layout Plain Layout
-
-    lat = jitter(rep(58.4, 50), amount = .152),
-\end_layout
-
-\begin_layout Plain Layout
-
-    event = sample(c("Kometnedslag", "Olycka", "Polis"), size = 50, replace
- = TRUE) 
-\end_layout
-
-\begin_layout Plain Layout
-
-) 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-<<echo=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-set.seed(1984)
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_map <- qmap("Linkoping", color="bw", zoom=12) 
-\end_layout
-
-\begin_layout Plain Layout
-
-df <- 
-\end_layout
-
-\begin_layout Plain Layout
-
-  data.frame(
-\end_layout
-
-\begin_layout Plain Layout
-
-    lon = jitter(rep(15.6, 50), amount = .05), 
-\end_layout
-
-\begin_layout Plain Layout
-
-    lat = jitter(rep(58.4, 50), amount = .052),
-\end_layout
-
-\begin_layout Plain Layout
-
-    event = sample(c("Kometnedslag", "Olycka", "Polis"), size = 50, replace
- = TRUE) 
-\end_layout
-
-\begin_layout Plain Layout
-
-) 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan använda samtliga funktioner i 
-\family typewriter
-ggplot2
-\family default
-.
- Nedan är motsvarigheten till en scatterplot.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_map +   
-\end_layout
-
-\begin_layout Plain Layout
-
-  geom_point(aes(x = lon, y = lat), data = df)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi visualisera olika kategorier kan vi använde 
-\family typewriter
-aes
-\family default
-tetics i 
-\family typewriter
-ggplot2
-\family default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_map +   
-\end_layout
-
-\begin_layout Plain Layout
-
-  geom_point(aes(x = lon, y = lat, colour = event, size = event),      
-         data = df)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi visualisera frekvenser efter två kontinuerliga variabler finns dels
- 
-\family typewriter
-stat_bin2d
-\family default
- och 
-\family typewriter
-stat_density2d
-\family default
- tillgängligt i 
-\family typewriter
-ggplot2
-\family default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_map +   
-\end_layout
-
-\begin_layout Plain Layout
-
-  stat_bin2d(aes(x = lon, y = lat),
-\end_layout
-
-\begin_layout Plain Layout
-
-             size = .5, bins = 20, alpha = 0.4, data = df)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-<<fig.height=4, fig.width=4, fig.align='center'>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_map +   
-\end_layout
-
-\begin_layout Plain Layout
-
-  stat_density2d(aes(x = lon, y = lat), 
-\end_layout
-
-\begin_layout Plain Layout
-
-                 alpha = 0.2, size = 1, 
-\end_layout
-
-\begin_layout Plain Layout
-
-                 data = df, geom = "polygon")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Kombinera spatiala data med olika projektioner/geografiska referenssystem
-\end_layout
-
-\begin_layout Standard
-När vi har många olika typer av data vi vill kombinera på samma karta måste
- de ha samma projektion och samma kooridinatsystem.
- En bra och kort introduktion till kartprojektioner hittar du 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "[här]"
-target "http://www.lantmateriet.se/Kartor-och-geografisk-information/GPS-och-geodetisk-matning/Om-geodesi/Kartprojektioner/Kartprojektionens-grunder/"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
- 
-\end_layout
-
-\begin_layout Standard
-Alla data vi vill kombinera behöver vi känna till vilket geografiskt referenssys
-tem som används.
- Exempelvis Google Maps använder sig av formatet EPSG 4326 (vilket vi kallar
- longitud och latitud).
- För att kolla upp vilket EPSG-nummer ett format kan vi använda 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "http://spatialreference.org/"
-target "http://spatialreference.org/"
-
-\end_inset
-
-
-\series default
-\color inherit
-.
-\end_layout
-
-\begin_layout Standard
-Vi ska nu pröva att visualisera våra kommungränser vi läst in i shapefilen
- ovan på Google Maps.
-\end_layout
-
-\begin_layout Enumerate
-Det första steget vi måste ta är att vi måste konvertera våra kommunkartor
- till EPSG 4326 för att visualisera dem med Google Maps.
- Vi börjar med att tillskriva vår shapefil det EPSG-format filen har.
- (Filen använder SWEREF 99 TM - slå upp det på 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "http://spatialreference.org/"
-target "http://spatialreference.org/"
-
-\end_inset
-
-
-\series default
-\color inherit
- så framgår EPSG-koden).
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-proj4string(swe_municip) <- CRS("+init=epsg:3006")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi har nu tillskrivit vårt spatiala objekt ett geografiskt referenssystem.
- Nästa steg är att konvertera den till longitud och latitud.
- För att konvertera mellan geografiska referenssystem behövs rgdal-paketet.
- Vi vet att EPSG-koden för detta är 4326 och använder 
-\family typewriter
-spTransform()
-\family default
- för att göra konverteringen på följande sätt.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-library(rgdal)
-\end_layout
-
-\begin_layout Plain Layout
-
-swe_municip_4326 <- spTransform(swe_municip, CRS("+init=epsg:4326"))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Nu har vi konverterat vår shapefil till rätt format och kan visualisera
- våra data på en karta.
- För att 
-\family typewriter
-ggplot2
-\family default
- ska kunna läsa ett spatialt polygonobjekt behöver vi först göra om det
- spatala objektet till en 
-\family typewriter
-data.frame
-\family default
- som ggplot kan använda med
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-data <- fortify(swe_municip_4326) 
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_large <- qmap("Linkoping", zoom = 6, maptype = "terrain")
-\end_layout
-
-\begin_layout Plain Layout
-
-linkpg_large +    
-\end_layout
-
-\begin_layout Plain Layout
-
-  geom_polygon(aes(x = long, y = lat, group = group), data = data,
-\end_layout
-
-\begin_layout Plain Layout
-
-               colour = "white", fill = "blue", alpha = .2, size = .3)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-På detta sätt kan vi visualiser de flesta spatiala datatyper på ett enkelt
- och snabbt sätt.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ifx
-\backslash
-undefined
-\backslash
-MAINBIB
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "References"
-options "plain"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-fi
-\end_layout
-
-\end_inset
-
-
+https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html (dock
+ ej Other data sources)
 \end_layout
 
 \begin_layout Standard
@@ -3973,7 +384,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"C:
+#solution_path<-"C:
 \backslash
 
 \backslash
@@ -4018,13 +429,36 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
+solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Underv
+isning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 solution_files <- dir(solution_path)
 \end_layout
 
 \begin_layout Plain Layout
 
-for(sol_file in solution_files) source(file = paste0(solution_path, sol_file),
- echo = FALSE)
+for(sol_file in solution_files) {
+\end_layout
+
+\begin_layout Plain Layout
+
+source(file = paste0(solution_path, sol_file), echo = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4077,6 +511,1036 @@ lab_path <-
 \begin_layout Plain Layout
 
 suppressWarnings(set_assignment(lab_path))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+messy_swe_pop()
+\end_layout
+
+\begin_layout Standard
+Nu ska vi arbeta med och hantera lite större datamaterial.
+ Vid laboratoration 5 använde ni paketet pxweb för att hämta ned befolkningsstat
+istik från SCB.
+ Vi ska nu hämta ned all befolkningsstatistik, på den mest detaljerade nivån
+ från SCB.
+ Kör följande kod och ladda ned data.
+ Det kommer ta ett antal minuter att ladda ned.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+swe_pop_data <- 
+\end_layout
+
+\begin_layout Plain Layout
+
+  get_pxweb_data(
+\end_layout
+
+\begin_layout Plain Layout
+
+    url = "http://api.scb.se/OV0104/v1/doris/sv/ssd/BE/BE0101/BE0101A/BefolkningNy
+", 
+\end_layout
+
+\begin_layout Plain Layout
+
+    dims = list(
+\end_layout
+
+\begin_layout Plain Layout
+
+      Region = c('*'), 
+\end_layout
+
+\begin_layout Plain Layout
+
+      Civilstand = c('*'),
+\end_layout
+
+\begin_layout Plain Layout
+
+      Alder = c('*'),
+\end_layout
+
+\begin_layout Plain Layout
+
+      Kon = c('*'),
+\end_layout
+
+\begin_layout Plain Layout
+
+      ContentsCode = c('BE0101N1'),
+\end_layout
+
+\begin_layout Plain Layout
+
+      Tid = c('*')), 
+\end_layout
+
+\begin_layout Plain Layout
+
+  clean = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notera att clean är satt till 
+\family typewriter
+FALSE
+\family default
+.
+ Detta är det orginalformat SCB har materialet i, vilket är ett messy format.
+ Fördelen med detta format är att det tar mindre utrymme, vilket gör att
+ det går att ladda ned snabbare.
+\end_layout
+
+\begin_layout Standard
+Skapa nu en funktion du kalla 
+\family typewriter
+messy_swe_pop_handler()
+\family default
+ som tar den 
+\family typewriter
+data.frame
+\family default
+ du laddat ovan, gör om den till ett 
+\family typewriter
+tidy
+\family default
+ format.
+ Sedan ska funktionen aggregera upp variablerna civilstånd och kön och returnera
+ en data men i 
+\family typewriter
+dplyr
+\family default
+-formatet 
+\family typewriter
+tbl_df
+\family default
+ eller tibble.
+ Notera att ni kan få ett annat antal rader (beroende på när SCB:s senaste
+ statistik släpps).
+ Men ni bör få samma värden för år 1968 nedan.
+ Ni behöver dock översätta variabelnamnen.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tips!
+\series default
+ Börja med ett mindre dataset (ex.
+ bara år 1968) först.
+ Det tar ett antal sekunder att göra dessa berarbetningar på det stora datamater
+ialet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+messy_swe_pop_handler(messy = swe_pop_data)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Source: local data frame [1,527,552 x 4] Groups: region, year [?]
+\end_layout
+
+\begin_layout Plain Layout
+
+     region  year     age population
+\end_layout
+
+\begin_layout Plain Layout
+
+      <chr> <chr>   <chr>  <int> 
+\end_layout
+
+\begin_layout Plain Layout
+
+1  00 Riket  1968    0 år 110889 
+\end_layout
+
+\begin_layout Plain Layout
+
+2  00 Riket  1968    1 år 120179 
+\end_layout
+
+\begin_layout Plain Layout
+
+3  00 Riket  1968   10 år 104883 
+\end_layout
+
+\begin_layout Plain Layout
+
+4  00 Riket  1968 100+ år    105 
+\end_layout
+
+\begin_layout Plain Layout
+
+5  00 Riket  1968   11 år 106466 
+\end_layout
+
+\begin_layout Plain Layout
+
+6  00 Riket  1968   12 år 107469 
+\end_layout
+
+\begin_layout Plain Layout
+
+7  00 Riket  1968   13 år 106731 
+\end_layout
+
+\begin_layout Plain Layout
+
+8  00 Riket  1968   14 år 104580 
+\end_layout
+
+\begin_layout Plain Layout
+
+9  00 Riket  1968   15 år 109081 
+\end_layout
+
+\begin_layout Plain Layout
+
+10 00 Riket  1968   16 år 109148 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ...
+ with 1,527,542 more rows
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Du ska använda 
+\family typewriter
+dplyr
+\family default
+ och 
+\family typewriter
+tidyr
+\family default
+ för att lösa uppgiften.
+ Detta innebär att 
+\family typewriter
+for
+\family default
+, 
+\family typewriter
+while
+\family default
+ och 
+\family typewriter
+repeat
+\family default
+-loopar är inte tillåtna.
+ Inte heller 
+\family typewriter
+aggregate()
+\family default
+-funktionen eller någon av 
+\family typewriter
+apply
+\family default
+-funktionerna.
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+wordcount()
+\end_layout
+
+\begin_layout Standard
+Nu är uppgiften att skapa en funktion som ska kunna räkna hur många gånger
+ olika ord förekommer i texten.
+ Funktionen ska heta 
+\family typewriter
+wordcount()
+\family default
+ och ha argumentet 
+\family typewriter
+text
+\family default
+ som ska vara en 
+\family typewriter
+character
+\family default
+-vektor.
+ Funktionen ska ta en text (i form av en text vektor) och returnera en 
+\family typewriter
+data.frame
+\family default
+ med två variabler 
+\family typewriter
+word
+\family default
+ (textvariabel) och 
+\family typewriter
+freq
+\family default
+ (integervariabel).
+ 
+\end_layout
+
+\begin_layout Standard
+I variabeln 
+\family typewriter
+word
+\family default
+ ska respektive ord ingå, men med små bokstäver, och i variabeln 
+\family typewriter
+freq
+\family default
+ ska frekvensen av orden framgå.
+ Den 
+\family typewriter
+data.frame
+\family default
+ som returneras ska vara sorterad efter variabeln 
+\family typewriter
+word
+\family default
+.
+ Funktionen ska också skriva ut meningen 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+The most common word is '[ord]' and it occured [antal] times.
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ med 
+\family typewriter
+message()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+table()
+\end_layout
+
+\begin_layout Standard
+Nedan är ett förslag på hur ni kan implementera funktionen.
+\end_layout
+
+\begin_layout Enumerate
+Läs in paktet i 
+\family typewriter
+stringr
+\family default
+ i den aktuella R-sessionen.
+ OBS: ej installera paktet.
+\end_layout
+
+\begin_layout Enumerate
+Börja med att sätta ihop de olika textelementen till en textsträng, men
+ denna gång använd mellanslag som avskiljare istället för 
+\family typewriter
+
+\backslash
+n
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Ta bort punkter och kommatecken i textsträngen.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Gör om alla ord till endast gemener.
+\end_layout
+
+\begin_layout Enumerate
+Dela upp teckensträngen med 
+\family typewriter
+str_split()
+\family default
+ för att få ut respektive ord.
+ [
+\series bold
+Tips!
+\series default
+ Tänk på att du får ut en lista med denna funktion, inte en vektor.
+ 
+\family typewriter
+unlist()
+\family default
+ kan då vara till hjälp.]
+\end_layout
+
+\begin_layout Enumerate
+Räkna respektive ord och skapa en data.frame med respektive ord i kolumn
+ 1 och antalet förekomster av detta ord i kolumn 2.
+ Döp kolumn 1 till 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+word
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, och kolumn 2 till 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+freq
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Sortera datasetet efter 
+\family typewriter
+word
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+str_c()
+\family default
+ och 
+\family typewriter
+message()
+\family default
+ för att baserat på datsetet ovan skriva ut följande mening 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+The most common word is '[ord]' and it occured [antal] times.
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Returnera din 
+\family typewriter
+data.frame
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Kolla om testfallen nedan fungerar:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Laddar ned testdata
+\end_layout
+
+\begin_layout Plain Layout
+
+library(downloader) 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_remote <-
+\end_layout
+
+\begin_layout Plain Layout
+
+  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/tran
+strom.txt" 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_local <- paste0(getwd(), "/transtrom.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+download(url = transtrommer_remote, destfile = transtrommer_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Test
+\end_layout
+
+\begin_layout Plain Layout
+
+text<-readLines("transtrom.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+worddata<-wordcount(text=text)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+head(worddata)
+\end_layout
+
+\begin_layout Plain Layout
+
+head(worddata[order(worddata[,2], decreasing=TRUE),])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+head(wordcount(text=rep("a",10)))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+henify()
+\end_layout
+
+\begin_layout Standard
+Med hjälp av funktionerna i 
+\family typewriter
+stringr
+\family default
+ ska ni skriva en funktion som ska byta ut 
+\begin_inset Quotes eld
+\end_inset
+
+han
+\begin_inset Quotes erd
+\end_inset
+
+ och 
+\begin_inset Quotes eld
+\end_inset
+
+hon
+\begin_inset Quotes erd
+\end_inset
+
+ i en text mot 
+\begin_inset Quotes eld
+\end_inset
+
+hen
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Detta kan göras med hjälp av regular expressions.
+ Det ska gå att göra denna operation med endast ett regular expression (om
+ vi ignorerar versaler i hen).
+ Det är dock inte ett måste att implementera detta med bara en rad kod.
+\end_layout
+
+\begin_layout Standard
+Funktionen ska heta 
+\family typewriter
+henify(text)
+\end_layout
+
+\begin_layout Itemize
+argumentet 
+\family typewriter
+text
+\family default
+ ska antingen ange sökvägen till den textfil som ska användas som då slutar
+ på 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+.txt
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ eller vara en teckenvektor innehållande en text.
+\end_layout
+
+\begin_layout Standard
+Arbetsordning:
+\end_layout
+
+\begin_layout Enumerate
+Läs in paktet i stringr i den aktuella R-sessionen.
+ OBS: ej installera paktet.
+\end_layout
+
+\begin_layout Enumerate
+Iakttag följade fall:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Om 
+\family typewriter
+text
+\family default
+ är en sökväg till en fil så ska filen med texten läsas in som och sparas
+ i en character-vektor.
+ Detta kan du kolla med om de fyra sista teckenen är 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+.txt
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+str_sub()
+\family default
+, 
+\family typewriter
+readLines()
+\family default
+.
+ Glöm inte att 
+\family typewriter
+.
+
+\family default
+ är ett metatecken.
+\end_layout
+
+\begin_layout Enumerate
+Om första elementet i text inte slutar på 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+.txt
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ så ska text användas som en textvektor i resten av funktionen.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Använd nu 
+\family typewriter
+str_replace_all()
+\family default
+ för att ersätta Han/han och Hon/hon med Hen/hen.
+ Här behöver ni använda regular expressions.
+ Iakttag följande:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tänk på att han/hon ska kunna börja med stor eller liten bokstav.
+\end_layout
+
+\begin_layout Itemize
+Han/hon kan komma först i strängen, någonstans i mitten, eller sist.
+\end_layout
+
+\begin_layout Itemize
+Vi ska inte välja ord där han/hon är en del av ordet, tex 
+\begin_inset Quotes eld
+\end_inset
+
+storhandla
+\begin_inset Quotes erd
+\end_inset
+
+ ska inte bli 
+\begin_inset Quotes eld
+\end_inset
+
+storhendla
+\begin_inset Quotes erd
+\end_inset
+
+ eller att 
+\begin_inset Quotes eld
+\end_inset
+
+hona
+\begin_inset Quotes erd
+\end_inset
+
+ ska blir 
+\begin_inset Quotes eld
+\end_inset
+
+hena
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Returnera den ändrade texten.
+\end_layout
+
+\begin_layout Standard
+Kolla om testfallen nedan fungerar:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(downloader) 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_remote <-
+\end_layout
+
+\begin_layout Plain Layout
+
+  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/tran
+strom2.txt" 
+\end_layout
+
+\begin_layout Plain Layout
+
+transtrommer_local <- paste0(getwd(), "/transtrom2.txt") 
+\end_layout
+
+\begin_layout Plain Layout
+
+download(url = transtrommer_remote, destfile = transtrommer_local)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# test 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+henify(text="transtrom2.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# test 2:
+\end_layout
+
+\begin_layout Plain Layout
+
+txt1<-c("Hon, hankar handskar, han", "handlar du honorarer?","honartad hona
+ han.")
+\end_layout
+
+\begin_layout Plain Layout
+
+txt1
+\end_layout
+
+\begin_layout Plain Layout
+
+henify(txt1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\family typewriter
+diagonalize_matrix()
+\end_layout
+
+\begin_layout Standard
+Vi ska skapa en funktion, 
+\family typewriter
+diagonalize_matrix(),
+\family default
+ som kan diagonalisera en godtycklig matris.
+ Argumentet ska vara 
+\family typewriter
+X
+\family default
+.
+ Funktionen ska först testa om matrisen är diagonaliserbar, d.v.s.
+ om matrisens egenvektorer är linjärt oberoende (d.v.s.
+ determinanten av egenvektorerna är skild från 0).
+ Av numeriska skäl kan detta vara svårt att uppfylla.
+ I denna uppgift ska därför determinanten avrundas till 10 decimaler för
+ att testa om matrisen är diagonaliserbar.
+\end_layout
+
+\begin_layout Standard
+Hur man diagonaliserar en matris framgår 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "http://en.wikipedia.org/wiki/Diagonalizable_matrix#How_to_diagonalize_a_matrix"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ Funktionen ska returnera en lista med de namngivna elementen 
+\family typewriter
+P
+\family default
+, 
+\family typewriter
+D
+\family default
+ och 
+\family typewriter
+Pinv
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Är matrisen inte diagonaliserbar ska funktionen avbrytas med meddelandet
+ 
+\family typewriter
+
+\begin_inset Quotes sld
+\end_inset
+
+Matrix not diagonizable.
+\family default
+
+\begin_inset Quotes srd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Tips!
+\series default
+ 
+\family typewriter
+eigen()
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(1:4,ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+diagonalize_matrix(X = A)
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(c(0,1,0,0),ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+diagonalize_matrix(X = A)
+\end_layout
+
+\begin_layout Plain Layout
+
+A <- matrix(c(4,1,-2,1),ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+diagonalize_matrix(X = A)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4156,50 +1620,18 @@ r i Sverige”).
 \end_layout
 
 \begin_layout Standard
-Syftet med denna uppgifter att skapa flera mindre funktioner och sedan kombinera
- ihop dessa funktioner till en större mer komplex funktion.
-\end_layout
-
-\begin_layout Standard
-Det vi vill ha i slutändan är en funktion som tar en vektor med personnummer
- på olika format.
- Funktionen ska sedan returnera ett dataset med den information som finns
- i personnummret (med undantag för födelselän).
- Vi tar det dock i flera steg, med flera olika funktioner som utför olika
- steg.
+Vi tar det dock i flera steg, med olika funktioner som utför olika steg.
  De stegen vi kommer göra är: 
 \end_layout
 
 \begin_layout Enumerate
-Skapa en funktion för att konvertera personnummer till ett standardformat
- som vi kan arbeta med vidare.
+Skapa en funktion för att kontrollera kontrollsiffran i ett (godtyckligt)
+ personnummer.
 \end_layout
 
 \begin_layout Enumerate
-Skapa en funktion för att kontrollera kontrollsiffran i ett personnummer.
-\end_layout
-
-\begin_layout Enumerate
-Skapa en funktion för att kontrollera om personnummret är ett samordningsnummer.
-\end_layout
-
-\begin_layout Enumerate
-Skapa en funktion för att ta fram uppgift om kön från ett personnummer.
-\end_layout
-
-\begin_layout Enumerate
-Kontrollera/skapa ett datum att beräkna ålder från.
-\end_layout
-
-\begin_layout Enumerate
-Skapa en funktion för att ta fram uppgifter om ålder från ett personnummer
- och ett givet datum.
-\end_layout
-
-\begin_layout Enumerate
-Skapa en funktion som sätter samman funktionerna ovan till en funktion,
- som tar en vektor av personnummer som input och returnerar ett dataset
- med personnummer och övrig information.
+Skapa en funktion för att ta fram uppgift om kön från ett (godtyckligt)
+ personnummer.
 \end_layout
 
 \begin_layout Standard
@@ -4217,130 +1649,16 @@ Sys.Date()
 \family default
 .
  Kolla upp dessa funktioner innan du sätter igång.
+ Denna funktionalitet för personnummer finns redan för svenska personnummer
+ i paketet 
+\family typewriter
+sweidnumbr
+\family default
+, detta paket får inte användas.
 \end_layout
 
 \begin_layout Subsection
-Uppgift 1: 
-\family typewriter
-pnr_format()
-\end_layout
-
-\begin_layout Standard
-Personnummer förekommer i många olika format i vanliga dataanalyser.
- De format funktionen ska kunna hantera är 
-\family typewriter
-ÅÅMMDD-NNNK
-\family default
-, 
-\family typewriter
-ÅÅMMDDNNNK
-\family default
- och 
-\family typewriter
-ÅÅÅÅMMDDNNNK
-\family default
-.
- Vi hoppar över personnummer på formen 
-\family typewriter
-ÅÅMMDD+NNNK
-\family default
-.
- Detta innebär att vi antar att alla personnummer är yngre än 100 år gamla.
- I R kan dessutom personnummer förekomma både som numeriska variabler faktorvari
-abler och som textvariabler.
- Vår funktion ska klara samtliga dessa fall.
-\end_layout
-
-\begin_layout Standard
-Funktionen ska heta 
-\family typewriter
-pnr_format()
-\family default
- med argumentet 
-\family typewriter
-pnr
-\family default
- och ska kunna ta ett personnummer på ett godtyckligt format och returnera
- personnummret som ett textelement med följande format: 
-\family typewriter
-ÅÅÅÅMMDDNNNK
-\end_layout
-
-\begin_layout Standard
-Ett förslag på de steg som kan ingå är:
-\end_layout
-
-\begin_layout Enumerate
-Konvertera numeriska och faktorvariabler till text.
-\end_layout
-
-\begin_layout Enumerate
-Använd en villkorssats för att hantera de tre olika formaten ovan [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-str_length()/nchar()
-\family default
-]
-\end_layout
-
-\begin_layout Standard
-Här är textexempel på hur funktionen ska fungera:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "640823-3234" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_format(pnr) 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- 1311310324
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_format(pnr) 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "198112189876" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_format(pnr) 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Uppgift 2: 
+Uppgift12: 
 \family typewriter
 pnr_ctrl()
 \end_layout
@@ -4366,17 +1684,11 @@ target "http://sv.wikipedia.org/wiki/Luhn-algoritmen"
 .
  Vi ska skapa en funktion som använder Luhn-algoritmen för att testa om
  ett personnummer är korrekt eller inte.
- Fördelen nu är att vi vet exakt på vilket format personnummren kommer att
- vara eftersom vi kommer använda funktionen 
+ Utgå från att personnummren kommer på formatet 
 \family typewriter
-pnr_format()
+ÅÅÅÅMMDDNNNK
 \family default
- innan vi anropar 
-\family typewriter
-pnr_ctrl()
-\family default
-.
- 
+ som en textvektor.
 \end_layout
 
 \begin_layout Standard
@@ -4434,12 +1746,8 @@ vektor av 0:or 1:or och 2:or på det sätt som beräkningen specificeras av
 \series bold
 Obs!
 \series default
- Skatteverkets beräkning görs inte på hela personnummret som returnerades
- av 
-\family typewriter
-pnrFormat()
-\family default
-, de delar som inte ska räknas kan sättas till 0 i beräkningsvektorn.
+ Skatteverkets beräkning görs inte på hela personnummret, de delar som inte
+ ska räknas kan sättas till 0 i beräkningsvektorn.
 \end_layout
 
 \begin_layout Enumerate
@@ -4537,7 +1845,7 @@ pnr_ctrl(pnr)
 \end_layout
 
 \begin_layout Subsection
-Uppgift 3: 
+Uppgift 2: 
 \family typewriter
 pnr_sex()
 \end_layout
@@ -4634,719 +1942,6 @@ pnr_sex(pnr)
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Uppgift 4: 
-\family typewriter
-pnr_samordn()
-\end_layout
-
-\begin_layout Standard
-Vissa personer som inte är svenska medborgare kan få ett svenskt samordningsnumm
-er som fungerar på samma sätt som personnummer.
- Då får man ett så kallad samordningsnummer.
- Den enda skillnaden är att att talet 60 har lagts till personnummrets födelseda
-tum (d.v.s.
- 
-\family typewriter
-DD
-\family default
- i 
-\family typewriter
-ÅÅÅÅMMDD
-\family default
-).
- 
-\end_layout
-
-\begin_layout Standard
-Exempelvis en person som är född 19640823 får följande första siffror i
- personnumret: 19640883.
-\end_layout
-
-\begin_layout Standard
-Skapa en funktion du kallar 
-\family typewriter
-pnr_samordn()
-\family default
- med argumentet 
-\family typewriter
-pnr
-\family default
- som tar ett personnummer på formatet genererat av funktionen 
-\family typewriter
-pnr_format()
-\family default
- och returnerar 
-\family typewriter
-TRUE
-\family default
- om det är ett samordningsnummer och 
-\family typewriter
-FALSE
-\family default
- annars.
-\end_layout
-
-\begin_layout Standard
-Ett förslag på hur funktionen kan implementeras är följande:
-\end_layout
-
-\begin_layout Enumerate
-Plocka ut födelsedatumet ur personnummret.
-\end_layout
-
-\begin_layout Enumerate
-Konvertera datumet till ett numeriskt värde och pröva om detta värde är
- större än 60.
-\end_layout
-
-\begin_layout Standard
-Här är testexempel på hur funktionen ska fungera:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "196408233234" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_samordn(pnr)
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "198112789876" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_samordn(pnr)
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "198112189876" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_samordn(pnr)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Uppgift 5: 
-\family typewriter
-pnr_date()
-\end_layout
-
-\begin_layout Standard
-Vi ska i denna funktion skapa ett datum för att senare beräkna åldern för
- olika individer.
- Skapa en funktion du kallar 
-\family typewriter
-pnr_date()
-\family default
- som tar argumentet 
-\family typewriter
-pnr
-\family default
- och 
-\family typewriter
-date
-\family default
-.
- Argumentet 
-\family typewriter
-date
-\family default
- ska ha följande textformat: 
-\family typewriter
-ÅÅÅÅ-MM-DD
-\family default
- och som default ska 
-\family typewriter
-NA
-\family default
- anges.
- Om datumet inte är på detta format ska funktionen stoppas med 
-\family typewriter
-stop()
-\family default
- och returnera följande felmeddelande:
-\end_layout
-
-\begin_layout Quote
-
-\family typewriter
-Incorrect date format: Correct format should be YYYY-MM-DD.
-\end_layout
-
-\begin_layout Standard
-Om inget datum anges av användaren ska den 31 december under föregående
- år returneras som datum.
- Tips: 
-\begin_inset CommandInset href
-LatexCommand href
-name "lubridate"
-target "www.jstatsoft.org/v40/i03/paper"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ett förslag på hur funktionen kan implementeras är följande:
-\end_layout
-
-\begin_layout Enumerate
-Ange ett defaultvärde för argumentet date som inte är aktuellt, ex.
- 
-\family typewriter
-NA
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Om date har defaultvärdet, sätt datumvärdet den 31 december föregående år.
- [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-is.na()
-\family default
-, 
-\family typewriter
-Sys.Date()
-\family default
- och 
-\family typewriter
-paste()
-\family default
-] 
-\end_layout
-
-\begin_layout Enumerate
-Testa om datumformatet är korrekt.
- Gör följande kontroller [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-all()
-\family default
-]:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Testa först om 
-\family typewriter
-date
-\family default
- är av typ 
-\family typewriter
-character
-\end_layout
-
-\begin_layout Enumerate
-Är 
-\family typewriter
-ÅÅÅÅ
-\family default
-, 
-\family typewriter
-MM
-\family default
- och 
-\family typewriter
-DD
-\family default
- siffror.
- Detta kan kontrolleras genom att konvertera till numeriskt värde.
- Är det då inte siffror blir värdet 
-\family typewriter
-NA
-\family default
-.
- [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-is.na()
-\family default
-]
-\end_layout
-
-\begin_layout Enumerate
-Är 
-\family typewriter
-MM
-\family default
- större än 0 och mindre än 13.
-\end_layout
-
-\begin_layout Enumerate
-Är 
-\family typewriter
-DD
-\family default
- större än 0 och mindre än 32.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Om datumformatet är är inkorrekt stoppa funktionen och returnera felmeddelandet
- ovan.
-\end_layout
-
-\begin_layout Enumerate
-Annars, returnera datumet på korrekt format.
-\end_layout
-
-\begin_layout Standard
-Här är testexempel på hur funktionen ska fungera:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_date("2010-10-10")
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_date()
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_date("Hejbaberiba")
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_date(TRUE) 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_date(1)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Uppgift 6: 
-\family typewriter
-pnr_age()
-\end_layout
-
-\begin_layout Standard
-Sist ska vi baserat på dels ett personnummer och dels ett datum beräkna
- åldern för personen vid detta datum.
- Skapa en funktion du kallar 
-\family typewriter
-pnr_age()
-\family default
- tar argumentet 
-\family typewriter
-pnr
-\family default
- och argumentet 
-\family typewriter
-date
-\family default
-.
- Argumentet date ska ha följande textformat: 
-\family typewriter
-ÅÅÅÅ-MM-DD
-\family default
-.
- Du kan utgå från att formatet är på detta sätt då 
-\family typewriter
-pnrDate()
-\family default
- kommer anropas innan denna funktion.
-\end_layout
-
-\begin_layout Standard
-Ett förslag på hur funktionen kan implementeras är följande:
-\end_layout
-
-\begin_layout Enumerate
-Räkna ut skillnaden i hela år mellan datumets årtal personnummrets årtal.
- D.v.s hur gammal personen är den 31 december.
-\begin_inset Newline newline
-\end_inset
-
-
-\series bold
-Tips! 
-\series default
-Funktioner från 
-\family typewriter
-lubridate
-\family default
-, 
-\family typewriter
-as.Date()
-\family default
- och 
-\family typewriter
-as.character()
-\family default
- och 
-\family typewriter
-as.numeric()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Pröva om månad och dag är större (senare) för 
-\family typewriter
-pnr
-\family default
- än för 
-\family typewriter
-date
-\family default
-.
- Om så är fallet dra av ett år från årtalsberäkningen ovan (personen har
- ännu inte fyllt år) och returnera åldern vid det givna datumet.
-\end_layout
-
-\begin_layout Enumerate
-Alt: Använd lämpliga funktioner från 
-\family typewriter
-lubridate
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-Här är testexempel på hur funktionen ska fungera:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "196408233234" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_age(pnr, date = "2010-10-10")
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- "198112189876" 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_age(pnr, date = "2014-12-31")
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Uppgift 7: 
-\family typewriter
-pnr_info()
-\end_layout
-
-\begin_layout Standard
-Nu har vi skapat ett antal funktioner för att beräkna olika delar av personnummr
-et.
- Funktionen ska heta 
-\family typewriter
-pnr_info()
-\family default
- och ta argumentet 
-\family typewriter
-pnr
-\family default
- samt 
-\family typewriter
-...
-
-\family default
- .
- Nu ska vi sätta ihop dessa funktioner till en enda funktion som baserat
- på en vektor av personnummer returnerar en 
-\family typewriter
-data.frame
-\family default
- följande variabler:
-\end_layout
-
-\begin_layout Enumerate
-
-\family typewriter
-pnr
-\family default
-: personnummret i textformat, 
-\end_layout
-
-\begin_layout Enumerate
-
-\family typewriter
-correct
-\family default
-: information om personnummret är korrekt,
-\end_layout
-
-\begin_layout Enumerate
-
-\family typewriter
-samordn
-\family default
-: om personnummret är ett samordningsnummer 
-\end_layout
-
-\begin_layout Enumerate
-
-\family typewriter
-sex
-\family default
-: kön och 
-\end_layout
-
-\begin_layout Enumerate
-
-\family typewriter
-age
-\family default
-: ålder i år 
-\end_layout
-
-\begin_layout Standard
-Det ska också vara möjligt att skicka vidare datum till funktionen 
-\family typewriter
-pnr_date()
-\family default
-, men om inget skickas med ska defaultvärdet i 
-\family typewriter
-pnr_date()
-\family default
- användas.
- 
-\end_layout
-
-\begin_layout Standard
-Funktionen ska dessutom generera följande meddelande med 
-\family typewriter
-message()
-\family default
-:
-\end_layout
-
-\begin_layout Quote
-
-\family typewriter
-The age has been calculated at [DATUM].
-\end_layout
-
-\begin_layout Standard
-Ett förslag på hur funktionen kan implementeras är följande:
-\end_layout
-
-\begin_layout Enumerate
-Kontrollera/skapa ett korrekt datum för att beräkna ålder med 
-\family typewriter
-pnr_date()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Formatera om alla personnummer i inputvektorn till standardformatet med
- 
-\family typewriter
-pnr_format()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Räkna ut vilka personnummer som är korrekta personnummer med 
-\family typewriter
-pnr_ctrl()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Använd 
-\family typewriter
-pnr_samordn()
-\family default
- för att skapa en vektor över vilka personnummer som är samordningsnummer.
-\end_layout
-
-\begin_layout Enumerate
-Använd 
-\family typewriter
-pnr_sex()
-\family default
- för att räkna ut könet för respektive personnummer.
-\end_layout
-
-\begin_layout Enumerate
-Dra av 6 från första siffran i födelsedatumet för de personnummer som är
- samordningsnummer.
- Du kan antingen göra detta direkt i 
-\family typewriter
-pnr_info()
-\family default
- eller skapa en till egen funktion som gör just detta.
- Syftet med detta är att inte samordningsnummer ska ställa till problem
- när vi räknar ut åldern med 
-\family typewriter
-pnr_age()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Använd 
-\family typewriter
-pnr_age()
-\family default
- för att beräkna åldern för respektive personnummer.
-\end_layout
-
-\begin_layout Enumerate
-Skriv ut meddelandet ovan med 
-\family typewriter
-message()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Sätt samman dessa resultat till den 
-\family typewriter
-data.frame
-\family default
- som ska returneras.
-\end_layout
-
-\begin_layout Standard
-Här är testexempel på hur funktionen ska fungera:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE, echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr <- c("196408233234", "640883-3234","198112189876","700308-1242")
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_info(pnr) 
-\end_layout
-
-\begin_layout Plain Layout
-
-pnr_info(pnr, date = "2000-06-01") 
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Miniprojektet del II
-\end_layout
-
-\begin_layout Standard
-Den sista delen av denna laboration är att genomföra miniprojektet del II.
- Se kurshemsidan för detaljer.
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Nu är du klar! 
 \end_layout
 
 \end_body

@@ -41,7 +41,7 @@ Linköpings universitet
 
 Föreläsning 4: Innehåll 
 ========================================================
-- Interaktiv del ~ 45 min
+- Interaktiv återkoppling
 - Mer om funktioner
 - Bra och effektiv programmering
 - ```*apply```-funktioner
@@ -59,15 +59,14 @@ Interaktiv del
 Uppföljning av labb 3
 ========================================================
  - Vid inlämning:
-  - Spara er fil som labb1_josad732.R om det är labb 1. 
+  - Spara er fil som labb1_manma97.R om det är labb 1. 
   - Denna fil ska laddas upp på LISAM och ska inte innehålla något annat än de aktuella funktionerna, namn- och ID-variabler och ev kommentarer. 
-   - Tips: kommentera bort tester mm innan inlämning. ```ctrl+shif+c``` kommenterar/avkommenterar flera rader samtidigt.
+   - Tips: kommentera bort tester mm innan inlämning. ```ctrl+shift+c``` kommenterar/avkommenterar flera rader samtidigt.
   
-
 
 Inför del 2 av kursen
 ========================================================
-- Labbar ska göras i par. 
+- Labbar ska göras i par (eller ensam)
 - På Slack finns en länk till ett dokument där ni ska fylla i er.
 - Ni blidar grupper själva.
 
@@ -108,7 +107,7 @@ incremental: true
 - Funktioner har tre delar: 
   - argument
   - funktionskropp
-  - lokal miljö/föräldramiljö
+  - lokal miljö och föräldramiljö
 
 
 Exempel
@@ -270,34 +269,6 @@ Funktioner i funktioner
   - Skicka information inom funktioner
 
 
-Skicka information inom funktioner
-========================================================
-- Kan göras genom att "skicka vidare" argument hela vägen
-- Detta görs med "ellipsis" - symbolen ```...```
-- Detta läggs in som ett argument i funktionen, ex. ```min_fun <- function(...)```
-- ```...``` används där argumenten ska användas i funktionen
-- Argument efter ```...``` måste namnges
-
-```{r}
-min_mean <- function(...){ 
-  print(mean(...))
-}
-min_mean(c(1,3,NA,5), na.rm = TRUE)
-```
-
-Skicka information inom funktioner
-========================================================
-Ibland behövs mer flexibilitet än vad ```...``` ger då kan ```do.call()``` användas. 
- Argument:
-- ```what=``` en funktion som ska anropas
-- ```args=``` en lista med argument till funktionen  i ```what```
-```{r}
-x<-c(NA,1,2,453,32,1,NA)
-mylist<-list(x=x,na.rm=TRUE)
-do.call(what = mean,args = mylist)
-```
-
-
 God (vetenskaplig) programmering
 ========================================================
 type: section
@@ -345,7 +316,7 @@ incremental: true
 - Versionshantera ALLT som inte skapas av koden (överkurs)
   - Data, rapporter, (kurser i [R programmering](https://github.com/STIMALiU/KursRprgm))
 - Det finns enkel versionshantering i Dropbox och Google drive
-- Om du inte versionshanterar: Spara ofta, vid större kodprojekt spara en ny fil vid större förändnirngar. 
+
 
 4. Upprepa aldrig din (eller andras) kod (DRY - principle)
 ========================================================
@@ -391,32 +362,6 @@ incremental: true
 - Använd issue-trackers (överkurs)
 
 
-högnivå-funktioner
-========================================================
-type: section
-
-*apply-functioner
-========================================================
-- "High level functions"
-- Ett (snabbare) alternativ till loopar
-- Internt i R: loop i C-kod
-- Funtioner:
-  - ```lapply()``` : loopar över element i en lista
-  - ```tapply()``` : loopar över ett index (ex. ```aggregate()```)
-  - ```apply()```  : loopar över marginaler (ex. ```colSums()```)
-  - det finns fler... se [här](http://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/)
-
-Exempel på lapply()
-========================================================
-```lapply()``` har tre argument:
-- ```X``` listan vi vill loopa över
-- ```FUN``` funktionen att aplicera
-- ```...``` argument till funktionen
-```{r}
-myList <- list(x = 1:10, y = c(NA,12:20))
-str(lapply(X=myList, FUN=mean, na.rm=TRUE))
-```
-
 Mäta körtid i R
 ========================================================
 - Ibland vill vi mäta hur lång tid kod tar att köra: ```system.time()```
@@ -424,47 +369,6 @@ Mäta körtid i R
 system.time(expr=mean(rep(c(1,2),1000000)))
 ```
 
-ROxygen
-========================================================
-type: section
-
-Dokumentera med ROxygen
-========================================================
-- [ROxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) är standard för dokumentation
-- Samma som JavaDoc
-- Skapar automatiskt [```.Rd```](https://cran.r-project.org/doc/manuals/R-exts.html#Rd-format) i paket
-- Använder ```#'```
-
-Dokumentera med ROxygen
-========================================================
-
-ROxygendel | Innehåll
-------------- | -------------
-```@title```  | Anger titel för dokumentet
-```@description```  | En beskrivning vad funktionen gör
-```@details```  | Detaljer om funktionen
-```@param```  | Argument till funktionen
-```@return```  | Vad funktionen returnerar
-```@references```  | Eventuella referenser av intresse
-```@seealso```  | Andra funktioner som kan vara aktuella
-```@examples```  | Exempel på hur funktionen kan användas
-
-Exempel
-========================================================
-```{r}
-#' @title f
-#' @description
-#' En funktion som kvadrerar argumenten i x och y och summerar dem. 
-#' @param x
-#' Den numeriska variabel x som ska kvadreras
-#' @param y
-#' Den numeriska variabel y som ska kvadreras
-#'
-#' @return
-#' Funktionen returnerar en numerisk vektor
-#'
-f <- function(x, y) x^2 + y^2
-```
 
 R-paket
 ========================================================
@@ -533,14 +437,16 @@ Installera paket
 incremental: true
 
 CRAN:
+
 ```{r, eval=FALSE}
-install.packages("lubridate")
+install.packages('lubridate')
 ```
 
 GitHub:
 ```{r, eval=FALSE}
-devtools::install_github(repo="sweSCB", username="rOpenGov")
+devtools::install_github(repo="pxweb", username="rOpenGov")
 ```
+
 
 Läsa in paket
 ========================================================
@@ -549,4 +455,73 @@ Läsa in paket
 library(lubridate)
 ```
 
+
+ROxygen
+========================================================
+type: section
+
+Dokumentera med ROxygen
+========================================================
+- [ROxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) är standard för dokumentation
+- Samma som JavaDoc
+- Skapar automatiskt [```.Rd```](https://cran.r-project.org/doc/manuals/R-exts.html#Rd-format) i paket
+- Använder ```#'```
+
+Dokumentera med ROxygen
+========================================================
+
+ROxygendel | Innehåll
+------------- | -------------
+```@title```  | Anger titel för dokumentet
+```@description```  | En beskrivning vad funktionen gör
+```@details```  | Detaljer om funktionen
+```@param```  | Argument till funktionen
+```@return```  | Vad funktionen returnerar
+```@references```  | Eventuella referenser av intresse
+```@seealso```  | Andra funktioner som kan vara aktuella
+```@examples```  | Exempel på hur funktionen kan användas
+
+Exempel
+========================================================
+```{r}
+#' @title f
+#' @description
+#' En funktion som kvadrerar argumenten i x och y och summerar dem. 
+#' @param x
+#' Den numeriska variabel x som ska kvadreras
+#' @param y
+#' Den numeriska variabel y som ska kvadreras
+#'
+#' @return
+#' Funktionen returnerar en numerisk vektor
+#'
+f <- function(x, y) x^2 + y^2
+```
+
+
+högnivå-funktioner
+========================================================
+type: section
+
+*apply-functioner
+========================================================
+- "High level functions"
+- Ett (snabbare) alternativ till loopar
+- Internt i R: loop i C-kod
+- Funtioner:
+  - ```lapply()``` : loopar över element i en lista
+  - ```tapply()``` : loopar över ett index (ex. ```aggregate()```)
+  - ```apply()```  : loopar över marginaler (ex. ```colSums()```)
+  - det finns fler... se [här](http://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/)
+
+Exempel på lapply()
+========================================================
+```lapply()``` har tre argument:
+- ```X``` listan vi vill loopa över
+- ```FUN``` funktionen att aplicera
+- ```...``` argument till funktionen
+```{r}
+myList <- list(x = 1:10, y = c(NA,12:20))
+str(lapply(X=myList, FUN=mean, na.rm=TRUE))
+```
 

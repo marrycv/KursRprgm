@@ -250,6 +250,14 @@ Obs!
 \series default
  Tidsperioden ska vara fix, d.v.s ex.
  jan 2005 - jan 2012.
+ Detta innebär att ni måste ange ett fixt tidsintervall när ni laddar ner
+ data med 
+\family typewriter
+pxweb
+\family default
+.
+ Om ni laddar ner data en månad senare ska ni erhålla samma data med samma
+ kod.
 \end_layout
 
 \begin_layout Subsection
@@ -639,7 +647,7 @@ Använd funktionen
 \family typewriter
 summary()
 \family default
- för att fram beskrivande statistik för varje år (det ska vara minst tre
+ för att fram beskrivande statistik för varje år (det ska vara minst fem
  år i data)
 \end_layout
 

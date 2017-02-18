@@ -4,9 +4,9 @@ context("apartment()")
 test_that("apartment()", {  
 
   expect_that(exists("apartment"), is_true(),
-              info = "Fel: apartment() saknas.")
-  expect_that(appartment, is_a("function"),
-              info = "Fel: apartment är inte en funktion.")
+              info = "Fel: apartment() is missing")
+  expect_that(apartment, is_a("function"),
+              info = "Fel: apartment is not a function.")
   expect_equal(names(formals(apartment)), expected =  c("rooms","m2") ,
               info = "Fel: Funktionen ska ha argumenten rooms och m2.")
 

@@ -219,6 +219,38 @@ I laborationen finns det extrauppgifter markerade med *.
  Dessa kan hoppas över.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Tips!
+\series default
+ Använd 
+\begin_inset Quotes eld
+\end_inset
+
+fusklapparna
+\begin_inset Quotes erd
+\end_inset
+
+ som finns 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://github.com/STIMALiU/KursRprgm/tree/master/Cheetsheats"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+ Dessa kommer ni också få ha med på tentan.
+ För block 1-4 är rstudio-IDE-cheatsheet och base-r särskilt intressanta.
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset line
 LatexCommand rule

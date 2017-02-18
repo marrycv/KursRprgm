@@ -3,9 +3,9 @@ name  : D8
 description : "Statistisk programmering med R: Lab 8"
 reporter : summary
 tasks:
-  diagonalize_matrix:
+  messy_swe_pop_handler:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/diagonalize_matrix_tests.R  
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/messy_swe_pop_handler_tests.R
   wordcount:
     url: 
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/wordcount_tests.R
@@ -15,9 +15,6 @@ tasks:
   pnr_sex:
     url: 
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_sex_tests.R
-  pnr_format:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_format_tests.R
   pnr_ctrl:
     url: 
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_ctrl_tests.R

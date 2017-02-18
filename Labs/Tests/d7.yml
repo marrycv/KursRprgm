@@ -3,6 +3,9 @@ name  : D7
 description : "Statistisk programmering med R: Lab 7"
 reporter : summary
 tasks:
+  diagonalize_matrix:
+    url: 
+      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/diagonalize_matrix_tests.R  
   my_grouped_test:
     url: 
       - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_grouped_test_tests.R

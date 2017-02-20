@@ -4363,12 +4363,18 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
-ercise_solutions/"
+# solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/
+exercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Underv
+isning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout

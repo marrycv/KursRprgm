@@ -2,7 +2,7 @@
 
 my_object1<-list(name="Ali",age=42,company="liu")
 my_object1
-class(my_object1)<-"employee"
+class(my_object1) <- "employee"
 class(my_object1)
 
 
@@ -34,7 +34,9 @@ print(my_object2)
 summary(my_object1)
 summary(my_object2)
 
-age <- function(x) UseMethod("age")
+age <- function(x) {
+  UseMethod("age")
+}
 age.default<-function(x) "No method available!"
 
 age.employee<-function(x){
@@ -45,16 +47,16 @@ age(1:2)
 age(iris)
 age(my_object1)
 age(my_object2)
+str(my_object1)
+str(lm)
 
+# Skapa konstruktorfunktion
 
-# skap S3 klass i ett steg:
-?structure
-# skapa ny generisk funktion 
-f <- function(x) UseMethod("f")
-?UseMethod
-
-
-
+employee <- function(name, age){
+  obj<-list(name=name,age=age,company=company)
+  class(obj) <- "employee"
+  obj
+}
 
 
 

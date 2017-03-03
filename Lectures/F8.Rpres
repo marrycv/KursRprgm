@@ -42,10 +42,8 @@ Linköpings universitet
 Dagens föreläsning:
 ========================================================
 - inför tentamen
-- texthantering
-- pipes
-- dplyr
-- tidyr
+- Texthantering
+- Modern databearbetning med dplyr, tidyr och piping
 
 Interaktiv återkoppling
 ========================================================
@@ -54,7 +52,7 @@ incremental: true
 Inför tentamen
 ========================================================
 - Tenta i datorsal 08.00-12.00
-- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams), det finns lösnngar till dessa
+- Tentan kommer likna de gamla tentorna, som ni hittar [[här]](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams), det finns lösningar till dessa
 - Hjälpmedel: 
   - Den inbyggda hjälpen i R (ej internet)
   - Samtliga "fusklappar" som finns på Github
@@ -207,5 +205,72 @@ str_locate(pattern="he", string = a)
 str_extract_all(pattern = ".a", string = a)
 ```
 
+
+
+Modern databearbetning 
+========================================================
+type: section
+
+Varför tala om detta?
+========================================================
+- Datamängder blir bara större och större
+- Smart hantering minskar arbetsbördan
+- Smart hantering gör bearbetning snabb
+- Skriv kod för människor med pipes
+
+
+piping
+========================================================
+
+z <- a %>% 
+  fun1(b) %>% 
+  fun3()
+
+är detsamma som
+
+y <- fun(a, b) 
+z <- fun3(x)
+
+
+tidy data
+========================================================
+
+messy data -> tidy data -> analys
+
+
+tidyr
+========================================================
+
+- Paket i R för att konvertera 'messy data' till 'tidy' data
+- Effektivt programmerat
+  - Minnesmässigt
+  - Beräkningsmässigt
+- Kommer bespara er mycket tid
+
+tidyr exempel
+========================================================
+
+
+
+
+dplyr
+========================================================
+
+- Paket i R för att hantera stora datamängder
+- En liten uppsättning s.k. verb för datahantering
+- Optimerad C++ kod för snabb och minneseffektiv hantering
+- Går att koppla till databaser och Spark
+
+
+dplyr verb
+========================================================
+
+Tabell över verb
+
+
+dplyr exempel
+========================================================
+
+Exempel på dplyr
 
 

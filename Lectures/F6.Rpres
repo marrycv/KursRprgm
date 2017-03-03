@@ -34,7 +34,7 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 6: Objektorientering, datum och linjär algebra
-### [Josef Wilzén](mailto:josefwilzen@liu.se)
+### [Måns Magnusson](mailto:josefwilzen@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
@@ -63,25 +63,19 @@ Programmeringsparadigm
 - [Programmeringsparadigm](https://en.wikipedia.org/wiki/Programming_paradigm) är ett sätt att klassificera programmeringsspråk
 
 - Utmärkande för R är:
-  - [Funktionell programmering (FP)](https://en.wikipedia.org/wiki/Functional_programming)
+  - [Funktionell programmering](https://en.wikipedia.org/wiki/Functional_programming)
   - [Objektorienterad programmering (OOP)](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
 Funktionell programmering
 ========================================================
-- Fokuserar på "higer-order/first class functions"
 - Funktioner utan sidoeffekter (tänk matematiska funktioner)
   - En funktions output beror bara på värdena på inargumenten
 - Exempel:
   - R
   - Scala
   - C
-  
-
-Funktionell programmering
-========================================================
-- R är är i grunden ett funktionellt spårk
-- R har "first class functions"
-- Funktioner kan manipuleras som andra objekt, sparas i listor mm
+- R har "first class functions":
+  - Funktioner kan manipuleras som andra objekt, sparas i listor mm
 - För fördjupning i R och FP se [här](http://adv-r.had.co.nz/Functional-programming.html).
 
 
@@ -94,8 +88,8 @@ incremental: true
 > "Allt som existerar är ett objekt, allt som händer är ett funktionsanrop"  (John Chambers)
 
 - OO utgår från klasser
-  - Klass är en mall som används för att skapa objekt
-  - Kopplar samman data/kod med beteende (metoder)
+  - Klass är en "mall" som används för att skapa objekt
+  - Kopplar samman objekt med funktioner (metoder)
   - Objekt är en specifik realisering av en klass, ex: person (klass) och josef (objekt)
   - Objekt skapas med en ```konstruktor``` 
 
@@ -104,15 +98,16 @@ Objektorientering i R
 incremental: true
 - Alla objekt i R har en klass
   - ```matrix```, ```data.frame```, ```lm```
+- Vi kan undersöka ett objekts klass med ```class()```  
 - Variabeltyper är "atomära" klasser
-- Dessa klasser har en ```konstruktor``` (en funktion med samma namn)
-- Vi kan undersöka ett objekts klass med ```class()```
+- Klasser har (oftast) en ```konstruktor``` (en funktion med samma namn)
+
 
 Objektorientering i R
 ========================================================
 - Viktiga koncept:
   - [Inkapsling](https://en.wikipedia.org/wiki/Encapsulation_%28computer_programming%29) (Encapsulation): Gömma och ordna relaterad data
-  - [Polymorfism](https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29) (Polymorphism): generiska funktioner
+  - [Polymorfism](https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29) (Polymorphism): Generiska funktioner som hanterar olika objekt (ex. ```plot()```)
   - [Arv](https://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29) (Inheritance): Underlättar specialisering av data och metoder, via underklasser
 
 Objektorientering i R
@@ -128,7 +123,7 @@ Generiska funktioner (S3)
 ========================================================
 incremental: true
 
-- OO i R utgår från generiska funktioner.
+- OO i R utgår från generiska funktioner (polymorfism).
 - Generisk = allmänn
 - Gör olika saker beroende på objektets klass 
 - Ex. ```plot()```, ```mean()```, ```summary()```, ```names()```
@@ -172,7 +167,7 @@ incremental: true
   - Relativ tid, längden beror på när de inträffar (ex. år, månad)
   - Exakt tid (ex. sekunder, minuter, timmar, dagar, veckor) 
 - Enklare funktioner följer med ```base```
-- En introduktion finns i Roger Pengs [[video]](http://www.youtube.com/watch?v=JFovWLPHI24)
+- En introduktion finns i Roger Pengs [video](http://www.youtube.com/watch?v=JFovWLPHI24)
 
 Datum och tid i base
 ========================================================
@@ -187,15 +182,15 @@ lubridate
 ========================================================
 - Paket för enkel och effektiv datumhantering
 - Sammansatt av "lubricant" och "date"
-- Introduktion: [[Dates and Times Made Easy with lubridate]](http://www.jstatsoft.org/v40/i03/paper) (kurslitteratur)
+- Introduktion: [Dates and Times Made Easy with lubridate](http://www.jstatsoft.org/v40/i03/paper) (kurslitteratur)
 
 
 Paketet lubridate
 ======================================================== 
 Tre huvudsakliga delar:
   1. Läsa in datum (från text) - parsing
-  2. Ändra inlästa datum
-  3. Göra beräkningar med datum  
+  2. Ändra inlästa datum 
+  3. Göra beräkningar med datum 
   
 Exempel
 ========================================================  
@@ -310,6 +305,7 @@ Period: exempel
 ```{r}
 my_interval / months(1)
 my_interval %/% years(1)
+my_interval %% years(1)
 as.period(my_interval)
 ```
 
@@ -319,19 +315,12 @@ Att räkna med tid
 Vi lägger till /drar bort en duration eller period till/från ett datum.
 
 ```{r,}
-course_start <- ymd("2015-01-19")
+course_start <- ymd("2016-01-22")
 course_start + weeks(8)
 course_start + months(1)
 course_start + ddays(30)
 ```
 
-
-Avrunda datum
-========================================================
-
-- ```round_date(x,unit=)```
-- ```floor_date(x=,unit=)```
-- ```ceiling_date(x=,unit=)```
 
 Linjär algebra
 ========================================================
@@ -342,7 +331,7 @@ Linjär algebra: Matriser
 - Matris är två-dimensionella tabeller.
 - Skapas en 2x3 matris från en vektor ```my_vector```: ```matrix(my_vector,2,3)```
 - ```matrix()``` fyller matrisen kolumnvis
-- ```matrix(myVector,2,3, byrow=TRUE)``` fyller radvis.
+- ```matrix(myVector, 2, 3, byrow=TRUE)``` fyller radvis.
 
 Linjär algebra
 ========================================================
@@ -350,13 +339,13 @@ Linjär algebra
 - Invertera matris $X^{-1}$ : ```solve(X)```
 - Matrismultiplikation $\mathbf{A}\cdot\mathbf{B}$ eller $\mathbf{AB}$ : ```A%*%B```
   - Kan bara göras med klassen ```matrix```, ej vektorer
-  - Undvika att en matris blir en vektor med ```X[,1,drop=FASLE]```
+  - Undvika att en matris blir en vektor med ```X[,1,drop=FALSE]```
 - Diagonalmatris: ```diag(c(1,3,5))```
 - Enhetsmatrisen $\mathbf{I}$ : ```diag(3)```
 
 Linjär algebra
 ========================================================
-- [[Egenvärden och egenvektorer]](http://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum): ```eigen(X)```
+- [Egenvärden och egenvektorer](http://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum): ```eigen(X)```
   - Returnerar en lista med egenvärden och egenvektorer
 - Summera rader eller kolumner: ```rowSums(X)``` och ```colSums(X)```
 - Kombinera matriser: ```rbind(X,Y)``` eller ```cbind(X,Y)```

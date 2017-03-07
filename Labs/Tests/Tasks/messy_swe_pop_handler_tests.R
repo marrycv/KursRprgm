@@ -7,27 +7,26 @@ test_that("messy_swe_pop_handler()", {
   library(tidyr)
 
   expect_that(exists("messy_swe_pop_handler"), is_true(),
-              info = "Fel: messy_swe_pop_handler() is missing")
+              info = "messy_swe_pop_handler() is missing")
   expect_that(messy_swe_pop_handler, is_a("function"),
-              info = "Fel: apartment is not a function.")
+              info = "messy_swe_pop_handler is not a function.")
   expect_equal(names(formals(messy_swe_pop_handler)), expected =  c("messy") ,
-              info = "Fel: Funktionen ska ha argumenten rooms och m2.")
+              info = "messy_swe_pop_handler do not have argument 'messy'.")
 
-  
   test1 <- data.frame(region= c("00 Riket", "00 Riket", "00 Riket"),
-                     civilstånd = c("ogifta", "ogifta", "ogifta"),
-                     ålder = c("0 år", "1 år", "0 år"),
-                     kön = c("män", "män", "kvinnor"),
-                     `Folkmängd 1968` = c(56777, 62722, 62390),
-                     `Folkmängd 1969` = c(55295, 59391, 61812))
+                     civilstand = c("ogifta", "ogifta", "ogifta"),
+                     alder = c("0 år", "1 år", "0 år"),
+                     kon = c("män", "män", "kvinnor"),
+                     year1968 = c(56777, 62722, 62390),
+                     year1969 = c(55295, 59391, 61812))
   
   
   test2 <- data.frame(region= c("00 Riket", "01 Annat Lan", "01 Annat Lan"),
-                     civilstånd = c("ogifta", "ogifta", "ogifta"),
-                     ålder = c("0 år", "0 år", "0 år"),
-                     kön = c("män", "män", "kvinnor"),
-                     `Folkmängd 1968` = c(12992, 62722, 62390),
-                     `Folkmängd 1969` = c(55295, 12231, 12312))
+                      civilstand = c("ogifta", "ogifta", "ogifta"),
+                      alder = c("0 år", "0 år", "0 år"),
+                      kon = c("män", "män", "kvinnor"),
+                      year1968 = c(12992, 62722, 62390),
+                      year1969 = c(55295, 12231, 12312))
   
   expect_silent(messy_swe_pop_handler(test1))
   expect_silent(messy_swe_pop_handler(test2))

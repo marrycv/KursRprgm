@@ -9,6 +9,8 @@ test_that("fast_swe_pop()", {
               info = "Fel: fast_swe_pop är inte en funktion.")
   expect_that(is.null(formals(fast_swe_pop)), condition=is_true(),
               info = "Fel: Funktionen ska sakna argument.")
+  expect_function_self_contained(object = fast_swe_pop, "Fel: Funktionen innehåller fria variabler")
+  
   res <- fast_swe_pop()
   expect_true(class(res)=="data.frame", 
               info="Fel: Funktionen returnerar inte en data.frame.")

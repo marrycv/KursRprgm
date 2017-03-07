@@ -429,7 +429,7 @@ Gå igenom och reproducera koden i följande
 \begin_inset CommandInset href
 LatexCommand href
 name "introduktionstext"
-target "ftp://cran.r-project.org/pub/R/web/packages/tidyr/vignettes/tidy-data.html"
+target "https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"
 
 \end_inset
 
@@ -494,7 +494,7 @@ Gå igenom och reproducera koden i följande
 \begin_inset CommandInset href
 LatexCommand href
 name "introduktionstext"
-target "https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html "
+target "https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html"
 
 \end_inset
 

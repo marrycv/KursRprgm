@@ -126,8 +126,41 @@ PDF
 \series default
 -fil.
  Det är ok att skapa en HTML som ni sedan sparar/skriver ut som PDF.
+ Filerna ska kallas: 
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+[liu id 1]_[liu id 2]_part[del av miniprojektet]_miniproject.pdf
+\family default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Exempel på inlämning av miniprojekt del 1 är följande två filer: 
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+joswi71_manma97_part1_miniproject.Rmd
+\family default
+ och
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+joswi71_manma97_part1_miniproject.pdf
+\family default
+.
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 Samtliga material ska laddas in i R från webben som 
 \series bold

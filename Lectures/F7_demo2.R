@@ -8,6 +8,7 @@
 #----------------------------------------------------------------------------
 library(ggplot2)
 ?ggplot()
+ggplot()
 
 data(diamonds)
 data(longley)
@@ -20,13 +21,14 @@ data(longley)
 ?ggplot
 # qplot():
 qplot(x=)
-qplot(displ,hwy,data=mpg)
-qplot(displ,hwy,data=mpg, facets=.~drv)
+qplot(x = displ,y = hwy,data=mpg,xlim=c(0,15),main="hej")
+qplot(x = displ,y = hwy,data=mpg, facets=.~drv,)
 
 
-
-g<-ggplot(mpg,aes(displ,hwy))
-
+mpg
+g<-ggplot(data = mpg,aes(x = displ,y = hwy))
+g2<-g+geom_point()
+print(g2)
 
 g<-ggplot(mpg,mapping=aes(displ,hwy))
 print(g)
@@ -43,6 +45,7 @@ g+geom_point()+geom_smooth(method="lm")
 g+geom_point()+geom_smooth(method="lm")
 
 g+geom_point()+facet_grid(.~drv)
+g+geom_point()+facet_grid(drv~.)
 
 g+geom_point()+geom_smooth(method="lm")+facet_grid(.~drv)
 
@@ -79,8 +82,12 @@ g+geom_point(aes(color=drv),size=6,alpha=0.5)+labs(title="mpg data")+ labs(x="x 
 
 
 # tema black and white
-g+geom_point(color="green",size=4,alpha=0.5)+geom_smooth(method="lm") +theme_bw()
-g+geom_point(color="green",size=4,alpha=0.5)+geom_smooth(method="lm") +theme_dark(base_family="")
+g+geom_point(color="green",size=4,alpha=0.5)+
+  geom_smooth(method="lm") +theme_bw()
+
+
+g+geom_point(color="green",size=4,alpha=0.5)+
+  geom_smooth(method="lm") +theme_dark(base_family="")
 
 
 # gr?nser f?r axlarna:
@@ -135,6 +142,7 @@ x<-lm(formula = Volume~Girth,data = trees)
 class(x)
 print(x)
 x
+plot(x)
 summary(x)
 anova(x)
 plot(x)

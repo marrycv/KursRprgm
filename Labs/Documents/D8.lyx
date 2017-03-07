@@ -140,6 +140,15 @@ options(digits = 5)
 
 \begin_layout Plain Layout
 
+library(pxweb)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -738,8 +747,11 @@ messy_swe_pop()
 
 \begin_layout Standard
 Nu ska vi arbeta med och hantera lite större datamaterial.
- Vid laboratoration 5 använde ni paketet pxweb för att hämta ned befolkningsstat
-istik från SCB.
+ Vid laboratoration 5 använde ni paketet 
+\family typewriter
+pxweb
+\family default
+ för att hämta ned befolkningsstatistik från SCB.
  Vi ska nu hämta ned all befolkningsstatistik, på den mest detaljerade nivån
  från SCB.
  Kör följande kod och ladda ned data.
@@ -822,12 +834,24 @@ swe_pop_data <-
 \end_layout
 
 \begin_layout Standard
-Notera att clean är satt till 
+Notera att 
+\family typewriter
+clean
+\family default
+ är satt till 
 \family typewriter
 FALSE
 \family default
 .
- Detta är det orginalformat SCB har materialet i, vilket är ett messy format.
+ Detta är det orginalformat SCB har materialet i, vilket är ett 
+\begin_inset Quotes sld
+\end_inset
+
+messy
+\begin_inset Quotes srd
+\end_inset
+
+ format.
  Fördelen med detta format är att det tar mindre utrymme, vilket gör att
  det går att ladda ned snabbare.
 \end_layout
@@ -847,7 +871,7 @@ tidy
 \family default
  format.
  Sedan ska funktionen aggregera upp variablerna civilstånd och kön och returnera
- en data men i 
+ ett dataset men i 
 \family typewriter
 dplyr
 \family default
@@ -855,11 +879,68 @@ dplyr
 \family typewriter
 tbl_df
 \family default
- eller tibble.
+ eller 
+\family typewriter
+tibble
+\family default
+.
  Notera att ni kan få ett annat antal rader (beroende på när SCB:s senaste
  statistik släpps).
  Men ni bör få samma värden för år 1968 nedan.
- Ni behöver dock översätta variabelnamnen.
+ Ni behöver dock översätta variabelnamnen direkt.
+ Nedan finns en mall för funktionen som ersätter variabelnamnen automatiskt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+messy_swe_pop_handler <- function(messy){ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  years <- paste0("year", 1968:(1968 + ncol(messy) - 5))   
+\end_layout
+
+\begin_layout Plain Layout
+
+  names(messy) <- c("region", "status", "age", "sex", years)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  # Put your code here
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

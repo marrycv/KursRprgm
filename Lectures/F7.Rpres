@@ -33,11 +33,12 @@
 Programmering i R
 ========================================================
 transition: rotate
-## Föreläsning 7: Texthantering, statistik, simulering och regression
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
-
-Avdelningen för statistik,
+## Föreläsning 7: Grafik, Linjär regression, statistik
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+STIMA, 
 Linköpings universitet
+
+*Uppdaterad `r Sys.time()`*
 
 Föreläsning 7: Innehåll 
 ========================================================
@@ -48,7 +49,8 @@ Föreläsning 7: Innehåll
 
 Interaktiv återkoppling
 ========================================================
-incremental: true
+
+Se separat fil.
 
 ggplot2
 ========================================================
@@ -70,21 +72,27 @@ ggplot2
 - Ger ett teoretiskt fundament för hur grafik kan skapas
 - Fördjupning: http://ggplot2.org/book/ 
 
-ggplot2
-========================================================
-
-> ”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
-
-Från "ggplot2 book" av Hadley Wickham 
 
 ggplot2
 ========================================================
 incremental: true
 
 - Bygger upp en graf av flera delar
-  - ```data``` (data.frame)
-  - ```geom```s
-  - ```aes```s
+  - ```data```: en data.frame med all data
+  - ```geom```: geometriska objekt
+  - ```aes```: aesthteic mappings (färger, former)
+  - ```facets```: skapar subplottar baserat på villkor
+  - ```scales```: skalor för aesthteic mappings
+  - ```coordinate system```
+- ggplot2 bygger upp en plot med olika lager, när plotten är klar så visas plotten genom att anropa ```print()```
+  
+
+ggplot2
+========================================================
+
+> ”In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system.”
+
+Från "ggplot2 book" av Hadley Wickham 
 
 geom
 ========================================================
@@ -186,6 +194,8 @@ Paneler/subplots:
   - Olika plottar: paketet ```cowplot```, se [här](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) för intro
   - Utgå från funktionen ```plot_gird()```. Se [här](https://cran.rstudio.com/web/packages/cowplot/vignettes/plot_grid.html) för exempel. 
 
+ggplot2 i R: Demo
+========================================================
 
 Statistik, Linjär regression
 ========================================================
@@ -310,5 +320,5 @@ Miniprojekt del 2
 ========================================================
 - Enklare statistika analyser
 - All grafik med ggplot2
-- Enkel kartstatistik
+
 

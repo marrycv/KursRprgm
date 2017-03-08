@@ -4037,7 +4037,8 @@ Gör följande med
 \family typewriter
 HUS
 \family default
-
+.
+ Använd ggplot2 för att skapa figurerna.
 \begin_inset Separator latexpar
 \end_inset
 
@@ -4104,13 +4105,45 @@ Plotta ett histogram för
 \family typewriter
 Försäljningspris
 \family default
- med 
-\family typewriter
-breaks=40
-\family default
 , (bonusfråga: ser fördelningen symmetrisk ut?)
 \end_layout
 
+\begin_layout Enumerate
+Gör en scatter plot mellan 
+\family typewriter
+Försäljningspris
+\family default
+ och 
+\family typewriter
+Bostadsyta
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Låt färgen på punkterna bero på värdet på 
+\family typewriter
+Antal.sovrum
+\end_layout
+
+\begin_layout Enumerate
+Låt färgen på punkterna bero på värdet på 
+\family typewriter
+Luftkonditionering
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+facet_grid()
+\family default
+ för att skapa subplots som beror på värdet på 
+\family typewriter
+Luftkonditionering.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Beräkna ett tvåsidigt konfidensintervall (KI) med 
 \begin_inset Formula $\alpha=0.05$
@@ -4571,10 +4604,51 @@ X
  Av numeriska skäl kan detta vara svårt att uppfylla.
  I denna uppgift ska därför determinanten avrundas till 10 decimaler för
  att testa om matrisen är diagonaliserbar.
+ 
+\series bold
+Tips:
+\series default
+ 
+\family typewriter
+det()
+\family default
+.
 \end_layout
 
 \begin_layout Standard
-Hur man diagonaliserar en matris framgår 
+En kvadratisk matris 
+\begin_inset Formula $A$
+\end_inset
+
+ kan diagonaliseras genom följande beräkning:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{-1}AP=D
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Där 
+\begin_inset Formula $P$
+\end_inset
+
+ är en matris som innehåller egenvektorerna till 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $D$
+\end_inset
+
+ är den diagonaliserade matrisen.
+ Läs även 
 \series bold
 \color blue
 

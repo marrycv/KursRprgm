@@ -41,9 +41,9 @@ Linköpings universitet
 
 Dagens föreläsning:
 ========================================================
-- inför tentamen
+- Inför tentamen
 - Texthantering
-- Modern databearbetning med dplyr, tidyr och piping
+- Databearbetning med dplyr, tidyr och piping
 
 Interaktiv återkoppling
 ========================================================
@@ -61,7 +61,7 @@ Inför tentamen
 ========================================================
 - Tenta, "fusklappar" och eventualla dataset kommer ni att få tillgång till elektroniskt (ta inte med några papper)
 - Vid tentan kommer ni få ett specifikt användarnamn och lösenord som ni använder för att logga in.
-- OBS: använd `ej` vanliga liuid och lösenord!
+- **OBS**: använd `ej` vanliga liuid och lösenord!
 - Tentan är anonym
 - Se [här](https://github.com/STIMALiU/ComputerLabs/raw/master/ComputerExams/DocStudent.pdf) för allmänna instruktioner för datortentor i PC-pularna. 
 
@@ -76,7 +76,6 @@ Arbeta med strängar
 - Sträng (eng. string): en samling bokstäver (characters)
 - Centralt är regular expressions (regex)
 - Identifiera/matcha text eller delar av text (tänk sökfunktion)
-- regex går även att använda i sökfunktionen i R-Studio (och andra program)
 - Med ```pattern``` syftas regular expressions i R
 
 Arbeta med strängar II
@@ -84,8 +83,8 @@ Arbeta med strängar II
 - I R finns ett antal förinstallerade funktioner (i paketet base) för att hantera text 
   - ex. `paste()`, `substr()`, `nchar()`
 - Men vi använder framförallt paketet ```stringr```
-- ```stringr``` är en s.k. “wrapper” för de förinstallerade funktionerna
-
+  - Enklare
+  - Enhetligt
 
 
 Arbeta med strängar II
@@ -95,13 +94,13 @@ Arbeta med strängar II
 
 - Icke-engelska symboler/tecken text kräver [encoding](http://en.wikipedia.org/wiki/Character_encoding) (ex. för å,ä och ö). 
 - Vi ändrar med  ```encoding = "latin1"``` i ```readLines()```.
-- Vanligast är `latin1` och `UTF8`
+- Vanligast är `latin1` och `UTF8` (men Windows can ha egna encodings)
 
 Paketet stringr
 ========================================================
-- En vektoriserad wrapper för de förinstallerade funktionerna 
--  Samtliga funktioner börjar med ```str_```
-- Se [[artikeln]](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
+- Ett paket med vektoriserade funktioner 
+  - Samtliga funktioner börjar med ```str_```
+- Se [artikeln](http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf) för detaljer om stringr
 
 Funktioner
 ========================================================
@@ -129,7 +128,7 @@ regular expression (regexp)
 - Byggs upp av:
   - literals: "vanliga bokstäver och siffror"
   - metacharacters: (metatecken) sätter upp speciella regler för matchning
-- Se RP:s [[video]](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
+- Se RP:s [video](http://www.youtube.com/user/rdpeng/videos?view=0&flow=grid):
   - Regular Expressions
   - Introduction to the Baltimore Homicide Data
   - Regular Expressions in R
@@ -159,7 +158,7 @@ regular expression: teckenklass
 Tecken| Betydelse| Exempel
 ----- | ---- | ----|
 - | tecken | A-Z a-z 0-9 
-^ | ICKE | ^ 0-9 
+^ | ICKE | ^0-9 
 \ | specialtecken | \t\n
 
 regular expression: teckenklass
@@ -190,22 +189,12 @@ stringr | base | Användning
 `str_extract_all` | - | Plocka ut alla strängar som uppfyller `pattern`
 
 
-- För exempel på några av dessa funktioner kolla på Roger Pengs [[video]](http://www.youtube.com/watch?v=q8SzNKib5-4)
+- För exempel på några av dessa funktioner kolla på Roger Pengs [video](http://www.youtube.com/watch?v=q8SzNKib5-4)
 
 
-regular expression: exempel
+regular expression: demo
 ========================================================
-
-```{r}
-library(stringr)
-a <- c("hej","hela","vatten")
-str_detect(pattern="he", string = a)
-str_detect(pattern="a", string = a)
-str_locate(pattern="he", string = a)
-str_extract_all(pattern = ".a", string = a)
-```
-
-
+type: section
 
 Modern databearbetning 
 ========================================================
@@ -216,27 +205,40 @@ Varför tala om detta?
 - Datamängder blir bara större och större
 - Smart hantering minskar arbetsbördan
 - Smart hantering gör bearbetning snabb
-- Skriv kod för människor med pipes
+- Skriv kod för människor (med pipes)
 
 
 piping
 ========================================================
 
+```
 z <- a %>% 
   fun1(b) %>% 
   fun3()
+```
 
 är detsamma som
 
-y <- fun(a, b) 
+```
+x <- fun(a, b) 
 z <- fun3(x)
+```
 
 
 tidy data
 ========================================================
 
-messy data -> tidy data -> analys
+```
+messy data %>% 
+  tidy data %>% 
+  analys
+```
 
+tidyr: Tidy data
+========================================================
+
+- Varje kolumn en variabel
+- Varje rad en observation
 
 tidyr
 ========================================================
@@ -247,30 +249,38 @@ tidyr
   - Beräkningsmässigt
 - Kommer bespara er mycket tid
 
-tidyr exempel
+
+tidyr exempel: demo
 ========================================================
-
-
+type: section
 
 
 dplyr
 ========================================================
 
 - Paket i R för att hantera stora datamängder
-- En liten uppsättning s.k. verb för datahantering
+- En liten uppsättning s.k. verb (funktioner) för datahantering
 - Optimerad C++ kod för snabb och minneseffektiv hantering
 - Går att koppla till databaser och Spark
+- Lägger på klassen `tbl_df` till `data.frame`
 
 
 dplyr verb
 ========================================================
 
-Tabell över verb
+verb | beskrivning
+--- | ----- |  
+`select()` | välj kolumn
+`filter()` | filtrera rader
+`arrange()` | arrangera rader
+`mutate()` | skapa nya kolumner
+`summarise()` | aggregera rader över grupp
+`group_by()` | gruppera för "split-apply-combine"/aggregera 
+`join` | kombindera olika dataset
 
-
-dplyr exempel
+dplyr exempel: demo
 ========================================================
+type: section
 
-Exempel på dplyr
 
 

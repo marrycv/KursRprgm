@@ -1,0 +1,160 @@
+---
+title: "Week 8 Questions"
+author: "Mans Magnusson"
+date: '2017-03-13'
+output: html_notebook
+---
+
+## Allmänna frågor
+
+Är det möjligt träna en modell för att kategorisera data? 
+
+**Svar:** Japp, det kommer senare (logistisk regression)
+
+Finns det några krav på hur man kodar när man skriver tentamen? T.ex kommer det stå att man ska använda sig av en While-loop eller kan man skriva en manuell loop?
+
+**Svar:** Det frmagår av tentan. Se gamla tentor på hemsidan för exempel.
+
+Hur/varför/när används funktionen `set.seed`?
+
+**Svar:** För att styra slumptal vid simulering så man kan upprepa samma slumptal.
+
+```{r}
+set.seed(4711)
+rnorm(5)
+set.seed(4711)
+rnorm(5)
+rnorm(5)
+```
+
+Vad använder man paketet repmis till?  
+
+**Svar:** Det används för att läsa in data direkt från webben. Men det är lite förlegat idag.
+
+I ena labben fick vi problem med fria variabler när vi använde en `do.call()` funktion, hur kommer det sig?
+
+**Svar:** Det är svårt att säga. Fria variabler har inte med `do.call()` att göra utan för att veta måste man se hela funktionen.
+
+I en matris kan man använda diag() för att hitta ned nedåtgående diagonalen från [1,1] till [n,n], finns det någon motsvarande funktion för att hitta den uppåtgående diagonalen från [n,1] till [1,n]?
+
+**Svar:** Det finns inte en funktion som gör detta utan då behöver man lösa det själv genom att först rotera matrisen.
+
+```{r}
+rotate <- function(x) t(apply(x, 2, rev))
+x <- matrix(1:9, 3)
+x
+rotate(x)
+diag(rotate(x))
+```
+
+Vilka koder finns det för olika fördelningar? t.ex hyp, geometriska etc.
+
+**Svar:** En bra översyn finns i "Distributions task view": https://cran.r-project.org/web/views/Distributions.html
+
+
+## markdown
+Miniprojekt 2 <- markdown, där man skriver koderna, hur får man fram "de grå" rutorna på bästa sätt?
+
+**Svar:** Klicka på insert-rutan i R-Studio.
+
+Markdown: Insert (Python, Rcpp, SQL, Stan) vad har de för betydelse? 
+
+**Svar:** Det är olika programmeringsspråk. Se ex:
+
+```{python}
+x = [1,2,3]
+print(x)
+```
+
+
+## ggplot2
+
+Hur kan man skrive inn matematiske symboler inn i ggplot 2?  Hur kan man få in matematiska symboler i ggplot2?
+
+**Svar:** Japp, det finns en bra genomgång [här](https://github.com/tidyverse/ggplot2/wiki/Plotmath)
+
+
+I ett punktdiagram kan man välja ut vissa punkter och sätta en egen färg på dom?
+
+**Svar:** Japp, såhär:
+```{r}
+data("diamonds")
+diamonds
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point()
+ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) + geom_point()
+```
+
+Finns det andra vettiga paket att göra plots i? Eller är det ggplot2 som gäller?
+
+**Svar:** Basepaketet är ett alternativ som går snabbare.
+
+När man använder ggplot, finns det några olika sätt att skriva kod, ibland skrivs som
+```{r}
+ggplot(data = mtcars, aes(x = mpg)) + geom_bar()
+```
+
+ibland skrivs som
+
+```{r}
+ggplot(data = mtcars) + aes(x = mpg) + geom_bar()
+```
+
+Så undrar jag om det finns anledningar att skriva koderna på olika sätt?
+
+**Svar:** Längst ned i hjälpen för ```aes()```:
+```{r}
+# Aesthetics supplied to ggplot() are used as defaults for every layer
+# you can override them, or supply different aesthetics for each layer
+```
+
+
+
+Vad är skillnad mellan "scale_color_manual" och "scale_fill_manual"?
+
+**Svar:** Olika geoms har olika aestetics. Se ex. i geom_points och geom_bar.
+
+```{r}
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(shape = 21, colour = "black", fill = "white", size = 5, stroke = 5)
+```
+
+## Linjär regression
+
+Kan du gå på linear regression? Hur göra man det? Kan du göra en exempel av det?
+
+Hur man skapa regressionsmodeller? Hur man tolka resultat från en linjär regression?
+
+Vid 3.2 Analysera resultatet från en linjär regression. Jag är inte med på vad som spottas ut i consolen, känns som det skulle behövas mer kod och exempel till 3.2.1 Använda parametrar och resultat för vidare analys. 
+
+3.3 Tester och diagnostik
+"Pröva att baserat på dessa tester att anpassa den modell för variabeln prestige som du själv tror
+mest på. Vad är dina slutsatser?"  Låter mer som en fråga jag borde ställa.
+
+
+## Svar:
+
+En linjär regressionsmodell är en statistisk modell för samband.
+
+$y = \beta x + \epsilon$
+
+Vi vet $x$ och $y$ men vill skatta bästa $\beta$. Det kan vi göra i R på följande sätt:
+
+```{r}
+data("iris")
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) + geom_point()
+```
+
+```{r}
+
+mod <- lm(data = iris, Petal.Length ~ Sepal.Length)
+mod
+summary(mod)
+
+
+```
+
+```{r}
+data("iris")
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) + geom_point() + geom_abline(slope = 1.85, intercept = -7.10, col = "red")
+
+```

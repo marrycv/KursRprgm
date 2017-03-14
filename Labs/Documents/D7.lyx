@@ -219,7 +219,7 @@ g ska se ut.
  Mer teori bakom denna gramatik går att finna i 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "wilkinson2006grammar,wilkinson2012grammar"
+key "wilkinson2006grammar,wilkinson2012grammar,wickham2010layered"
 
 \end_inset
 
@@ -269,7 +269,19 @@ target "http://shiny.stat.ubc.ca/r-graph-catalog/"
 
 \series default
 \color inherit
- finns en bra katalog över de flesta graferna i 
+ och 
+\series bold
+
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "http://www.r-graph-gallery.com/portfolio/ggplot2-package/"
+
+\end_inset
+
+
+\series default
+ finns bra kataloger över de flesta graferna i 
 \family typewriter
 ggplot2
 \family default
@@ -1658,7 +1670,7 @@ ggplot2
 \begin_inset CommandInset href
 LatexCommand href
 name "[Orange rapport]"
-target "http://secure.pensionsmyndigheten.se/20895.html"
+target "https://www.pensionsmyndigheten.se/om-pensionsmyndigheten/vart-uppdrag-och-organisation/arsredovisningar"
 
 \end_inset
 
@@ -2094,11 +2106,11 @@ table(iris$Petal.Length.Cat, iris$Species)
 \end_layout
 
 \begin_layout Enumerate
-Vill vi använda flera kategoriska variabler med 
+När vi vill använda flera kategoriska variabler är 
 \family typewriter
 ftable()
 \family default
-:
+ lämpligt:
 \begin_inset Newline newline
 \end_inset
 
@@ -2564,208 +2576,6 @@ Species
 \family typewriter
 small
 \family default
-.För att beräkna kovarians och korrelation används 
-\family typewriter
-cov()
-\family default
- och 
-\family typewriter
-cor()
-\family default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-cor(iris$Petal.Length, iris$Petal.Width) 
-\end_layout
-
-\begin_layout Plain Layout
-
-cov(iris$Petal.Length, iris$Petal.Width)library(markmyassignment)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vi kan också enkelt skapa kovarians- och korrelationsmatriser på samma sätt:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-cor(iris[,1:4])
-\end_layout
-
-\begin_layout Plain Layout
-
-cov(iris[,1:4])
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Vill vi göra ett enkelt hypotestest för korrelationen använder vi 
-\family typewriter
-cor.test()
-\family default
-:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-cor.test(iris$Petal.Length, iris$Petal.Width)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Beskrivande statistik
-\end_layout
-
-\begin_layout Enumerate
-Hitta det hösta och minsta värdet i 
-\family typewriter
-iris
-\family default
- (för alla variabler).
- Ta reda på vilken rad dessa värden finns på med relationsoperatorn == och
- 
-\family typewriter
-which.max()
-\family default
-.
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Beräkna medelvärden för alla kolumnerna med 
-\family typewriter
-colMeans()
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Beräkna nu kvartiler för 
-\family typewriter
-Petal.Width
-\family default
- med funktionen 
-\family typewriter
-quantiles()
-\family default
-.
- Beräkna den 1 och 99 procentiga percentilen? [
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-?quantile]
-\end_layout
-
-\begin_layout Enumerate
-Beräkna nu kvartiler för samtliga variabler.
-\end_layout
-
-\begin_layout Enumerate
-Testa nu att använda funktionen 
-\family typewriter
-summary()
-\family default
- på 
-\family typewriter
-Petal.Width
-\family default
- först och sedan på hela datasetet.
- Vad får du för resultat?
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Skapa en logisk vektor som anger om en variabeln 
-\family typewriter
-Petal.Width
-\family default
- är större än 2.
- Spara denna variabel som 
-\family typewriter
-small
-\family default
- på följande sätt.
-\end_layout
-
-\begin_layout Enumerate
-Använd 
-\family typewriter
-table()
-\family default
- för att se vilka arter (variabeln 
-\family typewriter
-Species
-\family default
-) som är 
-\family typewriter
-small
-\family default
 .
 \end_layout
 
@@ -2912,7 +2722,7 @@ Tips!
 \series default
  
 \family typewriter
-plot()
+ggplot()
 \family default
 ]
 \end_layout
@@ -3035,9 +2845,9 @@ Anpassa en regressionsmodell
 \begin_layout Standard
 Den vanliga regressionmodellen bygger på modellen
 \begin_inset Formula 
-\[
-y_{i}=\beta_{0}+\beta_{1}x_{1}+...+\beta_{p}x_{p}+\epsilon_{i}
-\]
+\begin{equation}
+y_{i}=\beta_{0}+\beta_{1}x_{1}+...+\beta_{p}x_{p}+\epsilon_{i}\label{eq:lm eq}
+\end{equation}
 
 \end_inset
 
@@ -3347,8 +3157,18 @@ minModell3 <- lm(prestige ~ income + women + education, data=Prestige)
 
 \begin_layout Enumerate
 Vi kan på detta sätt enkelt lägga till ett stort antal variabler.
- Som standard så inkluderas alltid en intercept i modellen, vill vi ta bort
- denna använder lägger vi till 
+ Som standard så inkluderas alltid en intercept (
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ i 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lm eq"
+
+\end_inset
+
+) i modellen, vill vi ta bort denna använder lägger vi till 
 \family typewriter
 -1
 \family default
@@ -3428,8 +3248,15 @@ minModell5 <- lm(prestige ~ income + type, data=Prestige)
 \end_layout
 
 \begin_layout Enumerate
-Till sist kan det vara så att vi vill lägga till interaktionseffekter i
- modellen.
+Till sist kan det vara så att vi vill lägga till 
+\begin_inset CommandInset href
+LatexCommand href
+name "interaktionseffekter"
+target "https://en.wikipedia.org/wiki/Interaction_(statistics)"
+
+\end_inset
+
+ i modellen.
  Detta görs enkelt med 
 \family typewriter
 :
@@ -3639,8 +3466,15 @@ print()
 \end_layout
 
 \begin_layout Enumerate
-På ett liknande sätt kan vi snabbt få ut alla residualer (om vi vill studera
- dessa) med funktionen 
+På ett liknande sätt kan vi snabbt få ut alla 
+\begin_inset CommandInset href
+LatexCommand href
+name "residualer"
+target "https://en.wikipedia.org/wiki/Errors_and_residuals"
+
+\end_inset
+
+ (om vi vill studera dessa) med funktionen 
 \family typewriter
 resid()
 \family default
@@ -3653,6 +3487,10 @@ Tips!
  
 \family typewriter
 hist()
+\family default
+,
+\family typewriter
+geom_histogram()
 \family default
 ]
 \end_layout
@@ -4199,7 +4037,8 @@ Gör följande med
 \family typewriter
 HUS
 \family default
-
+.
+ Använd ggplot2 för att skapa figurerna.
 \begin_inset Separator latexpar
 \end_inset
 
@@ -4266,13 +4105,45 @@ Plotta ett histogram för
 \family typewriter
 Försäljningspris
 \family default
- med 
-\family typewriter
-breaks=40
-\family default
 , (bonusfråga: ser fördelningen symmetrisk ut?)
 \end_layout
 
+\begin_layout Enumerate
+Gör en scatter plot mellan 
+\family typewriter
+Försäljningspris
+\family default
+ och 
+\family typewriter
+Bostadsyta
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Låt färgen på punkterna bero på värdet på 
+\family typewriter
+Antal.sovrum
+\end_layout
+
+\begin_layout Enumerate
+Låt färgen på punkterna bero på värdet på 
+\family typewriter
+Luftkonditionering
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+facet_grid()
+\family default
+ för att skapa subplots som beror på värdet på 
+\family typewriter
+Luftkonditionering.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Beräkna ett tvåsidigt konfidensintervall (KI) med 
 \begin_inset Formula $\alpha=0.05$
@@ -4623,12 +4494,14 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Underv
-isning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+#solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Under
+visning/Statistisk programmering i #R/KursRprgmTeacher/Labs/exercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
 
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
@@ -4731,10 +4604,51 @@ X
  Av numeriska skäl kan detta vara svårt att uppfylla.
  I denna uppgift ska därför determinanten avrundas till 10 decimaler för
  att testa om matrisen är diagonaliserbar.
+ 
+\series bold
+Tips:
+\series default
+ 
+\family typewriter
+det()
+\family default
+.
 \end_layout
 
 \begin_layout Standard
-Hur man diagonaliserar en matris framgår 
+En kvadratisk matris 
+\begin_inset Formula $A$
+\end_inset
+
+ kan diagonaliseras genom följande beräkning:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{-1}AP=D
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Där 
+\begin_inset Formula $P$
+\end_inset
+
+ är en matris som innehåller egenvektorerna till 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $D$
+\end_inset
+
+ är den diagonaliserade matrisen.
+ Läs även 
 \series bold
 \color blue
 
@@ -4933,7 +4847,9 @@ data_vector
 \family typewriter
 my_groups
 \family default
- - är en factor/character-vektor som grupperar dataVector
+ - är en factor/character-vektor som grupperar 
+\family typewriter
+data_vector
 \end_layout
 
 \begin_layout Itemize
@@ -5177,6 +5093,17 @@ Den sista delen av denna laboration är att genomföra miniprojektet del II.
 
 \shape italic
 Nu är du klar! 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "References"
+options "plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

@@ -7,15 +7,47 @@
 
 context("give_blood()")
 
-error_info <- function(parameters, funcName){
-  index<-sapply(X=parameters,FUN=is.null)
-  parameters[index]<-"NULL"
-  parameters<-lapply(X=parameters,FUN=as.character)
-  x<-paste("Problem with ",funcName,"() when called with: ",paste(paste(names(parameters),"=",parameters[names(parameters)],sep=""),collapse="  "),sep="")
-  return(x)
-}
+
 
 test_that("Assignment: give_blood()", {
+  error_info <- function(parameters, funcName){
+    index<-sapply(X=parameters,FUN=is.null)
+    parameters[index]<-"NULL"
+    parameters<-lapply(X=parameters,FUN=as.character)
+    x<-paste("Problem with ",funcName,"() when called with: ",paste(paste(names(parameters),"=",parameters[names(parameters)],sep=""),collapse="  "),sep="")
+    return(x)
+  }
+  
+  test_object_name<-function(target,true_names=NULL){
+    if(is.function(target)){
+      temp_name<-names(formals(target))
+    }else if(is.list(target)){
+      temp_name<-names(target)
+    }else{
+      stop("target has non valid class!")
+    }
+    
+    if(is.null(true_names)){
+      if(is.null(temp_name)){
+        return(TRUE)
+      }else{
+        return(FALSE)
+      }
+    }else if(is.character(true_names)&length(true_names)>=1){
+      no_names<-length(true_names)
+      no_match<-vector("logical",no_names)
+      if(length(temp_name)!=length(true_names)){
+        return(FALSE)
+      }
+      for(i in 1:no_names){
+        no_match[i]<-any(temp_name%in%true_names[i])
+      }
+      return(all(no_match))
+    }else{
+      stop("true_names has non valid class!") 
+    } 
+  }
+  
   # Create test suite
   library(lubridate)
   test_list <- list(
@@ -65,22 +97,50 @@ test_that("Assignment: give_blood()", {
 #                         "year=2014 month=Jun day=23 weekday=M\u00E5ndag")
       
   # General:
-  expect_that(exists("give_blood"), is_true(),
+  expect_true(exists("give_blood"),
               info = "Fel: give_blood() saknas.")
-  expect_that(give_blood, is_a("function"),
+  expect_true(is.function(give_blood),
               info = "Fel: give_blood ska vara en funktion.")
   expect_function_self_contained(object = give_blood,
                         "Fel: Funktionen har fria variabler")
-  expect_that(all(names(formals(give_blood)) %in% c("lasttime","holiday","sex","type_of_travel")), condition=is_true(),
+  
+  
+  expect_true(test_object_name(target = give_blood,true_names = c("lasttime","holiday","sex","type_of_travel")),
               info = "Fel: Argumenten har felaktiga namn.")
-  expect_that(do.call(what=give_blood,args=test_list[[1]]), is_a("character"),
+  
+  expect_true(is.character(do.call(what=give_blood,args=test_list[[1]])),
               info = "Fel: Funktionen returnerar inte en text-vektor")
   expect_function_code(object = give_blood, expected = "return\\(", 
                        info = "Fel: return() saknas i funktionen.")
   
+  expect_true(tolower(do.call(give_blood, test_list[[1]])) == tolower(test_results_swe[1]) | 
+                tolower(do.call(give_blood, test_list[[1]])) == tolower(test_results_eng[1]),
+              info = error_info(parameters=test_list[[1]],funcName="give_blood"))
+  
+  expect_true(tolower(do.call(give_blood, test_list[[2]])) == tolower(test_results_swe[2]) | 
+                tolower(do.call(give_blood, test_list[[2]])) == tolower(test_results_eng[2]),
+              info = error_info(parameters=test_list[[2]],funcName="give_blood"))
+  
+  expect_true(tolower(do.call(give_blood, test_list[[3]])) == tolower(test_results_swe[3]) | 
+                tolower(do.call(give_blood, test_list[[3]])) == tolower(test_results_eng[3]),
+              info = error_info(parameters=test_list[[3]],funcName="give_blood"))
+  
+  expect_true(tolower(do.call(give_blood, test_list[[4]])) == tolower(test_results_swe[4]) | 
+                tolower(do.call(give_blood, test_list[[4]])) == tolower(test_results_eng[4]),
+              info = error_info(parameters=test_list[[4]],funcName="give_blood"))
+  
+  expect_true(tolower(do.call(give_blood, test_list[[5]])) == tolower(test_results_swe[5]) | 
+                tolower(do.call(give_blood, test_list[[5]])) == tolower(test_results_eng[5]),
+              info = error_info(parameters=test_list[[5]],funcName="give_blood"))
+  
+  expect_true(tolower(do.call(give_blood, test_list[[6]])) == tolower(test_results_swe[6]) | 
+                tolower(do.call(give_blood, test_list[[6]])) == tolower(test_results_eng[6]),
+              info = error_info(parameters=test_list[[6]],funcName="give_blood"))
+  
+  
   # testfall: i <-1
-  for(i in seq_along(test_list)){ 
-    expect_that(tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results_swe[i]) | tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results_eng[i]), is_true(),
-                info = error_info(parameters=test_list[[i]],funcName="give_blood"))
-  } 
+  # for(i in seq_along(test_list)){ 
+  #   expect_true(tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results_swe[i]) | tolower(do.call(give_blood, test_list[[i]])) == tolower(test_results_eng[i]),
+  #               info = error_info(parameters=test_list[[i]],funcName="give_blood"))
+  # } 
 })

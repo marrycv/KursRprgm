@@ -1,0 +1,95 @@
+---
+title: "Week 8 Questions"
+author: "Mans Magnusson"
+date: '2017-03-13'
+output:
+  html_document: default
+  html_notebook: default
+---
+
+## Allmänna frågor
+
+Hur får man VG i kursen? Måste man har båda G och VG på alla labbar och tenta eller måste man ha bara VG i tenta att få den?
+
+**Svar:** För att få VG måste VG erhållas på tentan. Labbarna ger bara G eller U i betyg.
+
+I och med att vi inte kommer ha något internet på tentan, kommer ”fusklapparna” finnas på skrivbordet för varje student då eller hur kommer vi få tillgång tillgång till dom om vi inte kommer ha något internet?
+
+**Svar:** Fusklapparna kommer finnas tillgängliga i en mapp som heter "Templates" på datorn vid tentan. 
+
+Hur mycket olika API´s finns det att tillgå? och vilka områden finns täckta? har sett SCB, olika aktier, men finns det annan statistik att hitta tex sport statistik osv?
+
+**Svar:** Här finns ett antal API: https://github.com/rOpenGov Annars sök på nätet.
+
+
+## Strängar
+
+
+
+```{r}
+#Vad är skillnaden på  "\\<"someword"\\>" och "\\bsomesomeword\\b"?
+```
+
+**Svar:** "\" är en escape-character, som gör det möjligt att skriva specialtecken i strängar.
+
+```{r}
+library(stringr)
+# Hur används funktionen \\d ?
+# I regexp så väljer \\d ut siffror.
+x <- "line 4322: He is now 25 years old, and weights 130lbs"
+str_locate(string = x,pattern = "\\d+")
+```
+Se även här http://www.endmemo.com/program/R/gregexpr.php
+
+
+Det är svårt att komma ihåg alla funktioner i metacharacters, t.ex. POSIX character class, finns det några pattern som användas oftare?
+
+**Svar:**
+
+
+Fråga om "substring":
+tex: vi skapar en character vector
+```{r,eval=TRUE,echo=TRUE}
+
+testtext <- c("more", "emotions", "are", "better", "than", "less")
+substring(text = testtext, first = 1:3)
+#Men jag förstår inte varför blir såna. Vad fick vi när vi skriva 1:3 i substring?
+
+
+```
+
+**Svar** substring() väljer ut delar av en sträng. "first=" anger första teckenpostionen. Om first är en vektor så används recycling om first är kortare än "text=". Här börja med första tecknet för första elementet, börja med andra tecknet för andra elementet osv.
+
+
+
+## Tidyr:
+
+Jag skulle gärna ha lite mer test-kod gällande tidyr()  paketet. De exempel man hittar är ofta väldigt omfattande vilket kan göra det svårt att se vad som händer.
+T.ex. gather() i tidyr(). Kan man flytta rader till kolumner?
+
+**Svar:** 
+
+Varför fungerar tidyr så mycket snabbare (på en djupare nivå) och varför implicerar inte R det i sin standard layout eftersom det går så mycket snabbare? Är det för att undvika stress på hårdvaran?
+
+**Svar:** 
+Generell förklaring till att R är långsamt finns här: http://adv-r.had.co.nz/Performance.html#implementation-performance
+
+
+På vilket sätt är messy-data bättre än tidy-data? Jag vet attt messy är bättre när man skall skicka datan över webben, varför är detta fallet?
+
+**Svar:** Det kan spara minne med messy-data, se funktionen messy_swe_pop() i labb 8 som exempel.
+ 
+ 
+## Dplyr
+
+Fråga: Hur används pipingoperatorn %>%?
+
+**Svar:** pipingoperatorn %>% för att 
+
+dplyr paketet är svårt att greppas, kan förklara några funktioner som användas oftare i detaljer?
+
+**Svar:**
+
+Finns det någon nackdel att använda dplyr på små dataset?
+
+**Svar:**

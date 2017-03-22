@@ -1,36 +1,43 @@
 ---
-title: "Week 8 Questions"
-author: "Mans Magnusson"
-date: '2017-03-13'
+title: "Frågor vecka 8"
+author: "Josef Wilzén"
+date: '2017-03-22'
 output:
   html_document: default
-  html_notebook: default
 ---
 
 ## Allmänna frågor
 
-Hur får man VG i kursen? Måste man har båda G och VG på alla labbar och tenta eller måste man ha bara VG i tenta att få den?
+#### Hur får man VG i kursen? Måste man har båda G och VG på alla labbar och tenta eller måste man ha bara VG i tenta att få den?
 
 **Svar:** För att få VG måste VG erhållas på tentan. Labbarna ger bara G eller U i betyg.
 
-I och med att vi inte kommer ha något internet på tentan, kommer ”fusklapparna” finnas på skrivbordet för varje student då eller hur kommer vi få tillgång tillgång till dom om vi inte kommer ha något internet?
 
-**Svar:** Fusklapparna kommer finnas tillgängliga i en mapp som heter "Templates" på datorn vid tentan. 
+#### I och med att vi inte kommer ha något internet på tentan, kommer ”fusklapparna” finnas på skrivbordet för varje student då eller hur kommer vi få tillgång tillgång till dom om vi inte kommer ha något internet?
 
-Hur mycket olika API´s finns det att tillgå? och vilka områden finns täckta? har sett SCB, olika aktier, men finns det annan statistik att hitta tex sport statistik osv?
+**Svar:** Fusklapparna kommer finnas tillgängliga i en mapp som heter "Templates" på datorn vid tentan. Se här för mer info im datortentor: 
+
+
+#### Hur mycket olika API´s finns det att tillgå? och vilka områden finns täckta? har sett SCB, olika aktier, men finns det annan statistik att hitta tex sport statistik osv?
 
 **Svar:** Här finns ett antal API: https://github.com/rOpenGov Annars sök på nätet.
 
 
+
 ## Strängar
-
-
 
 ```{r}
 #Vad är skillnaden på  "\\<"someword"\\>" och "\\bsomesomeword\\b"?
 ```
 
-**Svar:** "\" är en escape-character, som gör det möjligt att skriva specialtecken i strängar.
+**Svar:** Från dok: "The symbols \< and \> match the empty string at the beginning and end of a word. The symbol \b matches the empty string at either edge of a word, and \B matches the empty string provided it is not at an edge of a word. "
+
+Se även nedan för mer info:
+http://www.regular-expressions.info/wordboundaries.html
+http://stackoverflow.com/questions/17906003/detecting-word-boundary-with-regex-in-data-frame-in-r
+http://stackoverflow.com/questions/7227976/using-grep-in-r-to-find-strings-as-whole-words-but-not-strings-as-part-of-words 
+
+
 
 ```{r}
 library(stringr)
@@ -42,13 +49,8 @@ str_locate(string = x,pattern = "\\d+")
 Se även här http://www.endmemo.com/program/R/gregexpr.php
 
 
-Det är svårt att komma ihåg alla funktioner i metacharacters, t.ex. POSIX character class, finns det några pattern som användas oftare?
 
-**Svar:**
-
-
-Fråga om "substring":
-tex: vi skapar en character vector
+#### Fråga om "substring": tex: vi skapar en character vector
 ```{r,eval=TRUE,echo=TRUE}
 
 testtext <- c("more", "emotions", "are", "better", "than", "less")
@@ -58,38 +60,143 @@ substring(text = testtext, first = 1:3)
 
 ```
 
-**Svar** substring() väljer ut delar av en sträng. "first=" anger första teckenpostionen. Om first är en vektor så används recycling om first är kortare än "text=". Här börja med första tecknet för första elementet, börja med andra tecknet för andra elementet osv.
+**Svar** substring() väljer ut delar av en sträng. "first=" anger första teckenpostionen. Om first är en vektor som är kortare än "text="så används recycling. Detta ex: substring() börjar med med första tecknet för första elementet, substring() börjar med andra tecknet för andra elementet osv.
 
 
 
 ## Tidyr:
 
-Jag skulle gärna ha lite mer test-kod gällande tidyr()  paketet. De exempel man hittar är ofta väldigt omfattande vilket kan göra det svårt att se vad som händer.
-T.ex. gather() i tidyr(). Kan man flytta rader till kolumner?
+#### Jag skulle gärna ha lite mer test-kod gällande tidyr()  paketet. De exempel man hittar är ofta väldigt omfattande vilket kan göra det svårt att se vad som händer. T.ex. gather() i tidyr(). Kan man flytta rader till kolumner?
 
 **Svar:** 
+```{r,eval=TRUE,echo=TRUE}
+#----------------------------------------------------------------------------
+# Tidy R
+# Taget från: https://blog.rstudio.org/2014/07/22/introducing-tidyr/
+#----------------------------------------------------------------------------
+library(tidyr)
+library(dplyr)
 
-Varför fungerar tidyr så mycket snabbare (på en djupare nivå) och varför implicerar inte R det i sin standard layout eftersom det går så mycket snabbare? Är det för att undvika stress på hårdvaran?
+# Multiple observations per row
+messy <- data.frame(
+  name = c("Wilbur", "Petunia", "Gregory"),
+  a = c(67, 80, 64),
+  b = c(56, 90, 50)
+)
 
-**Svar:** 
+tidy <- gather(data = messy, key = drug, value = heartrate, a:b)
+tidy
+
+# Make multiple observations per row again
+spread(tidy, key = drug, value = heartrate)
+
+# Multiple variables in same columns
+set.seed(10)
+messy <- data.frame(
+  id = 1:4,
+  trt = sample(rep(c('control', 'treatment'), each = 2)),
+  work.T1 = runif(4),
+  home.T1 = runif(4),
+  work.T2 = runif(4),
+  home.T2 = runif(4)
+)
+
+tidier <- gather(data = messy, key = key, value = time, -id, -trt)
+tidier
+# Can use stringr or...
+tidy <- separate(tidier, key, into = c("location", "time"), sep = "\\.") 
+tidy
+```
+
+
+ 
+#### Varför fungerar tidyr så mycket snabbare (på en djupare nivå) och varför implicerar inte R det i sin standard layout eftersom det går så mycket snabbare? Är det för att undvika stress på hårdvaran?
+
+**Svar:** Nej. Mjukvara stressar sällan hårdvara. Två skäl. R är 20 år gammalt, tidyr bara ngt år. Det tar tid för nya funktioner att komma in. Ju äldre R blir desto svårare har nya saker att komma med.
+
+I base R vill man också bara ha "the bare minimum" som ALLTID behövs. Tidyr behövs bara för att tvätta data på detta format. Annars skulle det bara ligga och stöka till det bland Rs funktioner.
 Generell förklaring till att R är långsamt finns här: http://adv-r.had.co.nz/Performance.html#implementation-performance
 
 
-På vilket sätt är messy-data bättre än tidy-data? Jag vet attt messy är bättre när man skall skicka datan över webben, varför är detta fallet?
+#### På vilket sätt är messy-data bättre än tidy-data? Jag vet attt messy är bättre när man skall skicka datan över webben, varför är detta fallet?
 
 **Svar:** Det kan spara minne med messy-data, se funktionen messy_swe_pop() i labb 8 som exempel.
  
  
 ## Dplyr
 
-Fråga: Hur används pipingoperatorn %>%?
+#### Fråga: Hur används pipingoperatorn %>%?
 
-**Svar:** pipingoperatorn %>% för att 
+**Svar:** kör ?"%>%" 
+pipingoperatorn %>% används för att förenkala hantering av data.
+se här: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+z <- a %>% 
+  fun1(b) %>% 
+  fun3()
 
-dplyr paketet är svårt att greppas, kan förklara några funktioner som användas oftare i detaljer?
+är detsamma som
+
+x <- fun(a, b) 
+z <- fun3(x)
+
+
+#### dplyr paketet är svårt att greppas, kan förklara några funktioner som användas oftare i detaljer?
 
 **Svar:**
+```{r,eval=TRUE,echo=TRUE}
 
-Finns det någon nackdel att använda dplyr på små dataset?
 
-**Svar:**
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+# dplyr
+# Taget från: https://blog.rstudio.org/2014/07/22/introducing-tidyr/
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+
+#install.packages("nycflights13")
+library(dplyr)
+library(nycflights13)
+
+data(flights)
+class(flights)
+
+# Select: välja kolumner
+select(.data = flights, day, year, dep_delay)
+
+# Filter: välja rader
+filter(flights, day == 1 & dep_delay > 60)
+
+# Arrange: sortera data
+arrange(flights, desc(dep_delay))
+system.time(
+arrange(flights, dep_delay)
+)
+
+system.time(
+flights[order(flights$dep_delay, decreasing = TRUE),]
+)
+
+# Mutate: transformera variabler (skapa nya av gamla)
+flights <- 
+  mutate(flights,
+         gain = arr_delay - dep_delay,
+         speed = distance / air_time * 60)
+select(flights, gain, speed)
+
+# Summarise
+summarise(flights,delay = mean(dep_delay, na.rm = TRUE))
+
+# Group by
+daily <- group_by(flights, year, month, day)
+per_day   <- summarise(daily, flights = n(), delay = mean(dep_delay, na.rm = TRUE))
+
+# Join
+# There are different joins for different purposes, see ?join
+flights2 <- left_join(flights, per_day)
+select(flights2, dep_delay, delay)
+
+
+```
+#### Finns det någon nackdel att använda dplyr på små dataset?
+
+**Svar:** Man måste läsa in paketet dplyr, det är den enda nackdelen. Det kan vara onödigt ex. om man bygger ett R paket där dplyr inte annars behövs. Men många är mer bekväma med dplyr än "vanliga" R och kör bara med dplyr.

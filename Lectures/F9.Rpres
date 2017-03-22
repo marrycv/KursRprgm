@@ -36,34 +36,22 @@ transition: rotate
 ## Föreläsning 9: Repetition
 ### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 
-Avdelningen för statistik,
-Linköpings universitet
+Stima,Linköpings universitet
+
+*Uppdaterad `r Sys.time()`*
 
 Dagens föreläsning:
 ========================================================
 - inför tentamen
-- labb 7 och 8
 - R i andra kurser
 - Gammal tenta
-
-Labb 7
-========================================================
-- D7 rättad.
-- Frågor? Kommentarer?
-
-Labb 8
-========================================================
-- Frågor? Kommentarer?
+- Frågor
 
 Kompletteringar av labbar
 ========================================================
 - Deadline för kompletteringar finns [kurshemsidan](http://www.ida.liu.se/~732G33/info/courseinfo.sv.shtml)
 - Ev underkända labbar kommer att markeras med `kompletteras` under ordinarie inlämning på Lisam. 
 - Kompletteringar lämnas då in på samma labb som är underkänd. OBS: missa inte deadline!
-- Namn:
-  - Labb 1-4: labb1_josad732_komp2.R om det är komplettering 2.
-  - Labb 5-8: labb5_grupp20_komp2.R om det är komplettering 2.
-
 
 Inför tentamen
 ========================================================
@@ -76,9 +64,7 @@ Inför tentamen
 - Hjälpmedel: 
   - Den inbyggda hjälpen i R (ej internet)
 - Referenskort:
-  - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
-  - ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
-  - RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+  - se [här](https://github.com/STIMALiU/KursRprgm/tree/master/Cheetsheats)
 
 Inför tentamen
 ========================================================
@@ -91,11 +77,12 @@ Inför tentamen
 R i andra kurser
 ========================================================
 Årskurs 2:
-- Surveymetodik med uppsats
+- Surveymetodik 
+- B-uppsats
 - Databaser: design och programmering
 
 Årskurs 3:
-- Statistisk teori I
+- Statistisk teori
 - Statistisk analys av komplexa data
 - Data-Mining
 
@@ -106,10 +93,10 @@ Ex:
 - Kandidatuppsats
 - Multivariata metoder
 
-Generella frågor
-========================================================
-Frågor på något i kursen?
 
 Gammal tenta
 ========================================================
-Tentan "exam20150609.pdf", finns [här](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams)
+Tentan "732G33_exam_20160615.pdf", finns [här](https://github.com/STIMALiU/KursRprgm/tree/master/OldExams/20160615)
+
+Frågor
+========================================================

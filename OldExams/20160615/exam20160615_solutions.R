@@ -13,11 +13,11 @@
 # a)
 
 x<-10
-y<-exp(x-3)*x^(3-log(x))
+y<-exp(x-3)*x^(3-log(x,base = exp(1)))
 y
 
 # b
-my_list<-vector("list",5)
+my_list<-vector(mode = "list",5)
 my_list<-list(NULL,NULL,NULL,NULL,NULL)
 my_list
 
@@ -25,15 +25,16 @@ my_list
 data.frame(num=10:1,logi=rep(c(TRUE,FALSE),5),char=letters[1:10])
 
 # d)
-array(data = 20:9,dim = c(3,4,2),dimnames = list(c("x1","x2","x3"),c("y1","y2","y3","y4"),c("z1","z2")))
+array(data = 20:9,dim = c(3,4,2),
+      dimnames = list(c("x1","x2","x3"),c("y1","y2","y3","y4"),c("z1","z2")))
 
 #--------------------------------------------------------------------------------------
 # 2
 #--------------------------------------------------------------------------------------
 # a)
-for (i in 1:2){   
+for(i in 1:2){   
   print(paste("yttre index",i))   
-  for (j in 1:4){     
+  for(j in 1:4){     
     print(paste("inre index",j))  
   } 
 } 
@@ -58,16 +59,20 @@ library(lubridate)
 path<-"/home/josef/Dropbox/Josef/732G33_VT2016/KursRprgmTeacher/Exams/"
 setwd(path)
 IDE<-readLines("R_IDE.txt")
-IDE
+IDE[1:3]
 
 # b)
 my_text<-str_extract(string = IDE,pattern = "^[A-Za-z ]+")
 my_text
+
 # c)
 a<-ymd("1992-12-02") 
 b<-ymd("2016-06-15")
 all_days<-seq(a,b,1)
-sum(weekdays(all_days)=="tisdag")
+# lubridate: (ska användas i denna uppgift)
+sum(wday(all_days)==3)
+# base:
+#sum(weekdays(all_days)=="tisdag")
 
 # d)
 
@@ -83,11 +88,14 @@ my_formula<-function(x){
 
 data("trees")
 a1<-lm(Volume~Girth,data=trees)
+a1$coefficients
+names(a1$coefficients)
 my_formula(a1)
 a2<-lm(Volume~Girth+Height,data=trees)
 my_formula(a2)
 data("iris")
 a3<-lm(Sepal.Length~Sepal.Width+Petal.Length+Petal.Width,data=iris)
+a3
 my_formula(a3)
 
 #--------------------------------------------------------------------------------------

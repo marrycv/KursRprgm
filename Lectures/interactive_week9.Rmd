@@ -15,7 +15,7 @@ output:
 
 #### I och med att vi inte kommer ha något internet på tentan, kommer ”fusklapparna” finnas på skrivbordet för varje student då eller hur kommer vi få tillgång tillgång till dom om vi inte kommer ha något internet?
 
-**Svar:** Fusklapparna kommer finnas tillgängliga i en mapp som heter "Templates" på datorn vid tentan. Se här för mer info im datortentor: 
+**Svar:** Fusklapparna kommer finnas tillgängliga i en mapp som heter "Templates" på datorn vid tentan. Se här för mer info om datortentor: https://github.com/STIMALiU/ComputerLabs/blob/master/ComputerExams/DocStudent.pdf
 
 
 #### Hur mycket olika API´s finns det att tillgå? och vilka områden finns täckta? har sett SCB, olika aktier, men finns det annan statistik att hitta tex sport statistik osv?

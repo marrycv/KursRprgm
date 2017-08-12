@@ -48,8 +48,31 @@ robot<-readLines(con = "/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher
 
 # b)
 robot
+# kort lösning:
 a<-str_split(string = robot,pattern = "[ ,.()]")
 index<-sapply(lapply(a,str_length),max)>=14
+robot[index]
+
+# längre lösning:
+# dela upp alla element så att varje ord blir ett eget element
+# dessa tecken används för att dela upp ord i den aktuella texten: " ,.()"
+a<-str_split(string = robot,pattern = "[ ,.()]")
+class(a)  # lista!
+# lapply applicerar en funktion på varje element i en lista. ?lapply
+# ?str_length -> ger längen av alla ord för alla element i en veckor
+# a är en lista där varje element är en vektor (med olika längd). 
+# Så kombinationen av lapply och str_length ger en lista, där varje element är en numerisk vektor 
+b<-lapply(a,str_length)
+b
+# nu måste orden som är för korta sorteras bort!
+# skapa en index-vektor: det räcker med att att minst ett ord per rad har mer än 14 tecken 
+# ?sapply, sapply är som lapply men resultatet är en vektor
+c1<-sapply(lapply(a,str_length),max)
+c1 # antal tecken i det längsta ordet i varje element i robot!
+# skapa index:
+index<-c1>=14
+index
+# välja ut rätt rader:
 robot[index]
 
 # c)

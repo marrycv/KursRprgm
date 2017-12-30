@@ -1,14 +1,10 @@
 # Assignment D7
 name  : D7
 description : "Statistisk programmering med R: Lab 7"
-reporter : summary
 tasks:
   diagonalize_matrix:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/diagonalize_matrix_tests.R  
+    url: Tasks/diagonalize_matrix_tests.R  
   my_grouped_test:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_grouped_test_tests.R
+    url: Tasks/my_grouped_test_tests.R
 mandatory:
-  url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2.R
+  url: mandatory_part2.R

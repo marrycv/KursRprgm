@@ -1,23 +1,16 @@
 # Assignment D4
 name  : D4
 description : "Statistisk programmering med R: Lab 4"
-reporter : summary
 tasks:
   hilbert_matrix:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/hilbert_matrix_tests.R
+    url: Tasks/hilbert_matrix_tests.R
   toeplitz_matrix:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/toeplitz_matrix_tests.R
+    url: Tasks/toeplitz_matrix_tests.R
   E_discrete:
-    url:
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/E_discrete_tests.R
+    url: Tasks/E_discrete_tests.R
   V_discrete:
-    url:
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/V_discrete_tests.R
+    url: V_discrete_tests.R
   moment_func:
-    url:
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/moment_func_tests.R
+    url: Tasks/moment_func_tests.R
 mandatory:
-  url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R
+  url: mandatory.R

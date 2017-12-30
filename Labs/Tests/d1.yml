@@ -1,26 +1,25 @@
 # Assignment D1
 name  : D1
 description : "Statistisk programmering med R: Lab 1"
-reporter : summary
 tasks:
   three_elements:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/three_elements_tests.R
+      - Tasks/three_elements_tests.R
   mult_first_last:
     url:
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/mult_first_last_tests.R
+      - Tasks/mult_first_last_tests.R
   orth_scalar_prod:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/orth_scalar_prod_tests.R
+      - Tasks/orth_scalar_prod_tests.R
   lukes_father:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/lukes_father_tests.R
+      - Tasks/lukes_father_tests.R
   approx_e:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/approx_e_tests.R
+      - Tasks/approx_e_tests.R
   logical_equality:
     url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/logical_equality_tests.R
+      - Tasks/logical_equality_tests.R
 mandatory:
   url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory.R
+    - mandatory.R

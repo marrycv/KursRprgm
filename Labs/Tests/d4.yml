@@ -9,7 +9,7 @@ tasks:
   E_discrete:
     url: Tasks/E_discrete_tests.R
   V_discrete:
-    url: V_discrete_tests.R
+    url: Tasks/V_discrete_tests.R
   moment_func:
     url: Tasks/moment_func_tests.R
 mandatory:

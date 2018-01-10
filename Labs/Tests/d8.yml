@@ -1,23 +1,16 @@
 # Assignment D8
 name  : D8
 description : "Statistisk programmering med R: Lab 8"
-reporter : summary
 tasks:
   messy_swe_pop_handler:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/messy_swe_pop_handler_tests.R
+    url: Tasks/messy_swe_pop_handler_tests.R
   wordcount:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/wordcount_tests.R
+    url: Tasks/wordcount_tests.R
   henify:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/henify_tests.R
+    url: Tasks/henify_tests.R
   pnr_sex:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_sex_tests.R
+    url: Tasks/pnr_sex_tests.R
   pnr_ctrl:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/pnr_ctrl_tests.R
+    url: Tasks/pnr_ctrl_tests.R
 mandatory:
-  url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2.R
+  url: mandatory_part2.R

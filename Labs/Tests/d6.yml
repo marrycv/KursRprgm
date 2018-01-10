@@ -1,20 +1,14 @@
 # Assignment D6
 name  : D6
 description : "Statistisk programmering med R: Lab 6"
-reporter : summary
 tasks:
   apartment:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/apartment_tests.R
+    url: Tasks/apartment_tests.R
   two_by_two_det:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/two_by_two_det_tests.R
+    url: Tasks/two_by_two_det_tests.R
   give_blood:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/give_blood_tests.R
+    url: Tasks/give_blood_tests.R
   my_ols:
-    url: 
-      - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/Tasks/my_ols_tests.R
+    url: Tasks/my_ols_tests.R
 mandatory:
-  url:
-    - https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/mandatory_part2.R
+  url: mandatory_part2.R

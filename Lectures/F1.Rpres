@@ -1,4 +1,4 @@
-K<style type="text/css">
+<style type="text/css">
 
 .indent {
   padding-left: 2em !important;
@@ -33,12 +33,12 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 1: Introduktion
-### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 STIMA, 
 Linköpings universitet  
 
 
-*Uppdaterad `r Sys.time()`*
+*`r Sys.Date()`*
 
 Föreläsning 1: Innehåll 
 ========================================================
@@ -64,7 +64,7 @@ Lärare
 - Måns Magnussson
 
 ### Labbassar:
-- Linn Mattsson, Georgia Mushe, Faton Rekathati, Joakim Bäcklund och Konrad Nelson
+- Ander Globstrok Dalen, Faton Rekathati
 
 Kursens mål
 ========================================================
@@ -74,21 +74,9 @@ Information om kursen finns i **[kursplanen](http://kdb-5.liu.se/liu/fil/kp_deta
 
 - Mål 0. Bli bekväma med datorer
 - Mål 1. Tänka som en programmerare. Ställa upp problemet rätt. Struktur.
-- Mål 2. Skriva en (mindre) programkod.
+- Mål 2. Skriva programkod.
 - Mål 3. Bli bekväma med R. Förstå hur du kan använda R i ditt framtida statistiska arbete.
 - Mål 4. Ha kul!
-
-
-Flipped Learning
-========================================================
-Kursen kommer innehålla inslag av flipped learning. För mer info se [här](https://github.com/STIMALiU/KursRprgm/blob/master/Other/flipped_learning_josef_wilzen.pdf) och [här](https://en.wikipedia.org/wiki/Flipped_classroom)
-
-"Flipped Learning is a pedagogical approach in which direct instruction
-moves from the group learning space to the individual learning space, and
-the resulting group space is transformed into a dynamic, interactive learning
-environment where the educator guides students as they apply concepts and
-engage creatively in the subject matter."
-http://flippedlearning.org/
 
 
 Kursens delar
@@ -96,33 +84,15 @@ Kursens delar
 incremental: true
 ### Kursen består av två delar:
 - *Del 1:* Grundläggande programering
-- *Del 2:* Tillämpningar
+- *Del 2:* Tillämpningar (statistik och grafik)
   
 ### Varje vecka (block):
 
-- En *interaktiv* föreläsning (med uppföljning av förra veckan)
-- En ~~obligatorisk~~ datorlaboration och en ~~obligatorisk~~ fråga
+- En föreläsning
+- En ~~obligatorisk~~ datorlaboration
 - 4 timmar lärarledd laboration + **många timmar eget arbete**
 - Inlämning: 
-  - Fråga: **varje fredag kl. 18.00** via LISAM
   - Labbar: **varje onsdag kl. 18.00** via LISAM
-  
-Kursens delar
-========================================================
-incremental: true
-- Fråga:
-  - Varje vecka ska ni konstruera en fråga baserat på veckans innehåll.
-  - Ni väljer själva vilken fråga ni vill ställa, men den ska vara relevant i er inlärning
-  - T.ex. saker som är svåra att förstå, viktiga koncept etc
-  
-Kursens delar
-========================================================
-incremental: true
-- Interaktiv föreläsning:
-  - Den första delan av föreläsningen varje vecka kommer att ha en interaktiv del (ca 30 min)
-  - Innehållet på den interaktiva delen kommer bero på vilka frågor som har lämnats in.
-  - Det "vanliga" innehållet på föreläsningen kommer att gås igenom i mån av tid
-
 
 Del 1: Grundläggande programering
 ========================================================
@@ -141,7 +111,7 @@ incremental: false
 - Fyra föreläsningar
 - Fyra labbar
 - Labbarna görs genom **parprogrammering**
-- **Miniprojekt** i två delar
+- **Miniprojekt** i två delar (del av labb 6 och labb 8)
 
 
 Kursens viktigaste moment: 
@@ -155,10 +125,11 @@ Praktisk information
 ========================================================
 
 ## Kurslogistik 
+
 Hemsidan innehåller bland annat schema, föreläsningar m.m. och finns [[här]](http://www.ida.liu.se/~732G33/). Kursen har också en github-sida [[här]](https://github.com/STIMALiU/KursRprgm)
 
 [LISAM](http://lisam.liu.se/): används för inlämning av labbar, frågor och kompletteringar.   
-[Slack](https://slack.com/): används för kommunikation, ni kommer få en inbjudan. Andra labbpasset varje kursvecka -> frågor på Slack
+[Discord](https://discordapp.com/): används för kommunikation
 
 Kurskod: **732G33**
 
@@ -192,19 +163,20 @@ Hjälp till RStudio [[ladda ned]](http://www.rstudio.com/wp-content/uploads/2016
 Examination
 ========================================================
 - Datorlabbar, 8 st
-- Inskickade frågor, 8 st
 - Datortentamen i datorsal
-  + *Hjälpmedel:* R reference card v.2 (digitalt) + ett par till reference cards
+  + *Hjälpmedel:* R reference card v.2 (digitalt) + ett par till reference cards 
+     (exakt vad ni får använda finns på hemsidan i en zip-fil)
 
 Datorlaborationer
 ========================================================
 - Börja direkt!
 - Är ~~obligatoriska~~.
-- ~ 15 h arbete
+- ~ 15 h arbete/v
 - Laborationsmall finns på hemsidan, kolla [här](https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R)
 - Labbarna lämnas in via [LISAM](http://lisam.liu.se/) och autorättas
   - R-paketet ```markmyassignment```
-- Filer på kurshemsidan
+  - ~~labbarna måste bli godkända av markmyassignment~~
+- Filer finns på kurshemsidan
 - 100 % rätt för godkänt
 - Vissa labbuppgifter är inspirerade av linjär algebra
 
@@ -213,17 +185,19 @@ Datorlaborationer
 - Registrera er på kursen för att få tillgång till kursrummet på LISAM
 - Arbetstakt:
   - kursveckorna går tisdag till tisdag
-  - Kursen går på halvfart ~ 20 h/vecka, varav ca 15 till labbar
-  - Hård deadline: onsdag kl 18.00 veckan efter, dvs 1 feb för labb 1.
+  - Kursen går på halvfart ~ 20 h/vecka, varav ca 15 h/vecka till labbar
+  - Hård deadline: onsdag kl 18.00 veckan efter.
 - Kompletteringar:
-  - Labb 1-4: komplettering strax efter halva kursen
+  - Labb 1-4: komplettering strax efter halva kursen (se LISAM)
   - Komplettering i samband med tentan och omtentor
+    - Detta är hårda deadlines!
 
 markmyassignment
 ========================================================
 
 - Paket för direkt återkoppling på labbar
 - Underlätta lärandet
+  - Inlärningstekniker: Stoppers, -> movers <-, tinkerers.
 - **Kom gärna med synpunkter!**
 
 ```{r, eval=FALSE}
@@ -231,6 +205,8 @@ set_assignment()
 show_tasks()
 mark_my_assignment()
 ```
+
+DEMO!
 
 Datorn, programering och R
 ========================================================
@@ -343,6 +319,7 @@ Exempel:
 ```{r, eval=TRUE}
 testScore <- c(7,15,20,23,1.2)
 testScore[3]
+testScore[c(1,4)]
 ```
 
 Vektoraritmetik
@@ -365,9 +342,9 @@ Att söka hjälp
 incremental: true
 - Hjälpen i R 
 - Google, Google, Google
-- Stack overflow / R help
-- Sök på engelska
-- Sök / studera på felmeddelandet från R
+- Stack overflow
+- ~~Sök på engelska~~
+- Sök / studera (slutet) på felmeddelandet från R
 ```{r,echo=FALSE,eval=TRUE}
 cat("Error in eval(expr, envir, enclos) : object 'x' not found")
 ```
@@ -416,10 +393,11 @@ incremental: true
 - "Allt som existerar är objekt, allt som sker är funktioner"
 - Tar noll eller flera **argument** 
 - Flera funktioner samlas i R-paket
-- Många och små funktioner är det bästa!
+- Många och små funktioner är det bästa! 
+  - Gör en sak och gör det bra!
 - Kod som vi vill använda flera gånger
 - Svårare att felsöka än vanlig kod.
-- Grunden för bra och säker kod. Modularisering. Testbarhet.
+- Grunden för bra och säker kod. Modularisering. Testbarhet (läs markmyassignemnt).
 
 
 Introduktion till funktioner
@@ -482,16 +460,22 @@ ls()
 Att tänka på med funktioner
 ========================================================
 
-- Funktionen måste "köras" innan den fungerar
+- Funktionen måste "köras/läsas in" innan den fungerar
 - ```return()``` avslutar funktionen
-- Skriv i flera delar
-  - Börja med kod som fungerar
-  - Lyft in i funktionen
+- ~~Skriv funktionen i flera delar~~
+  - Börja med kod som fungerar (men med funktionens argument)
+  - Lyft in koden i funktionen
   - Pröva funktionen
 
 Demo: Introduktion till funktioner
 ========================================================
 type: section
+
+
+Demo: Introduktion till ```markmyassignment```
+========================================================
+type: section
+
 
 
 Logik
@@ -588,3 +572,4 @@ minVektor[minBool]
 Demo: Logik
 ========================================================
 type: section
+

@@ -2305,7 +2305,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<echo=FALSE, eval=FALSE>>=
+<<echo=TRUE, eval=TRUE, fig.height = 3>>=
 \end_layout
 
 \begin_layout Plain Layout

@@ -11,9 +11,12 @@ my_vector[1]
 num_vec <- c(1, 1, 2)
 my_vector[num_vec]
 
+my_vector[length(my_vector)]
 
 my_num <- 1:10
 my_num
+
+length(my_num)
 
 ## Variabeltyper
 typeof(my_vector)
@@ -25,14 +28,24 @@ typeof(my_num)
 # Funktionens innehåll: 
 # Skriv en funktion, f, som tar ett värde med argumentet z, och kvadrerar det:
 
-# - Börja med kod som fungerar (men med funktionens argument)
+f <- function(z){
 
+  return(z_squared)
+}
+
+# - Börja med kod som fungerar (men med funktionens argument)
+z <- 3
+z_squared <- z^2
 
 # - Lyft in koden i funktionen
+f <- function(z){
+  z_squared <- z^2
+  return(z_squared)
+}
 
 
 # - Pröva att funktionen fungerar som den ska
-
+f(12)
 
 
 
@@ -56,6 +69,7 @@ library("markmyassignment")
 ## Ställ in uppgift
 assignment_path <- 
   file.path(system.file(package = "markmyassignment"), "extdata", "example_assignment01.yml")
+
 set_assignment(assignment_path)
 
 
@@ -96,4 +110,10 @@ x[y & !z]
 # Datorlabb 1 ----
 # Uppgift 1: Three elements
 
+lab_path <-
+  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d1.yml"
 
+set_assignment(lab_path)
+Namn <- "Mans"
+LiuId <- "manma97"
+mark_my_assignment(tasks = "three_elements")

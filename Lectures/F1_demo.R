@@ -7,6 +7,9 @@ my variable <- "Calle"
 
 my_vector <- c("Calle", "Blomqvist")
 my_vector
+my_vector[1]
+num_vec <- c(1, 1, 2)
+my_vector[num_vec]
 
 
 my_num <- 1:10
@@ -18,13 +21,18 @@ typeof(my_num)
 
 
 # functions ----
+
 # Funktionens innehåll: 
-# Skriv en funktion som tar ett värde och kvadrerar det:
+# Skriv en funktion, f, som tar ett värde med argumentet z, och kvadrerar det:
+
 # - Börja med kod som fungerar (men med funktionens argument)
 
-# - Lyft in i funktionen
+
+# - Lyft in koden i funktionen
+
 
 # - Pröva att funktionen fungerar som den ska
+
 
 
 
@@ -35,7 +43,7 @@ f <- function(x, y){
 }
 x <- 5
 y <- 5
-f(2,2)
+f(2, 2)
 
 
 # markmyassignment ----
@@ -72,5 +80,20 @@ mark_my_assignment()
 
 
 # Logik ----
+
+minVektor <- c(12, 1, 2, 7)
+minBool <- c(TRUE, FALSE, FALSE, TRUE)
+minVektor[minBool]
+
+
+x <- 1:10
+y <- x != 5
+z <- x > 2
+x[y & !z]
+
+
+
+# Datorlabb 1 ----
+# Uppgift 1: Three elements
 
 

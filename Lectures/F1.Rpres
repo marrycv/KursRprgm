@@ -485,12 +485,15 @@ type: section
 Kort om logik
 ========================================================
 incremental: true
-- Logiska värden återkommer ofta 
-- De logiska värdena: ```TRUE, FALSE, NA```
-- Skapas på två sätt:
+- Logik vanligt i programmering
+  + Kallas ibland *booleans*
+  + Används i if-else
+  + I R: Användas för indexering (välja ut rader/kolumner)
+- I R: De logiska värdena: ```TRUE, FALSE, NA```
+- I R:Skapas på två sätt:
   + Som vanliga vektorer
   + Med relationsoperatorer
-- Kan användas för indexering
+
 
 Kort om logik II
 ========================================================
@@ -525,7 +528,7 @@ incremental: true
 |  | ```FALSE``` | ```TRUE``` | ```TRUE``` | ```FALSE``` | ```TRUE``` |
 |  | ```FALSE``` | ```FALSE``` | ```TRUE``` | ```FALSE``` | ```FALSE``` |
 
-- Kan kombineras för komplicerade uttryck: 
+- Kan kombineras för mer komplicerade uttryck: 
 
 ```{r}
 (FALSE & !TRUE) | FALSE
@@ -570,6 +573,11 @@ minVektor[minBool]
 ```
 
 Demo: Logik
+========================================================
+type: section
+
+
+Demo: Datorlaborationen/markmyassignment
 ========================================================
 type: section
 

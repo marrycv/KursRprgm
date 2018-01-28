@@ -54,7 +54,7 @@ Interaktiv del
 ========================================================
 type: section
 
-Några generella frågor på kursen:
+Lösningar?
 ========================================================
 Finns det exakt en lösning till uppgifterna?
 - övningsuppgifter: enkla uppgifter kan ha en lösning, men många har olika lösnignar
@@ -74,13 +74,18 @@ Markmyassignmnet:
 ========================================================
 Om alla tester är avklarade på labb 2:
 
-══ Results ══════════════════════════════════════════════════════════════
+══ Results ═════════════════════════════════
+
 Duration: 0.3 s
 
 OK:       50
+
 Failed:   0
+
 Warnings: 0
+
 Skipped:  0
+
 Yay! All done!
 
 Markmyassignmnet:
@@ -129,6 +134,7 @@ vektor <- c(5,2,4,3,-1)
 sort(vektor)
 order(vektor, decreasing = FALSE)
 ```
+- Alla vektorer har en index-vektor
 
 Faktorvariabel (vektor)
 ========================================================
@@ -178,7 +184,7 @@ incremental: true
 - Ett objekt som andra 
 - Olika kolumner kan ha olika datatyper
 - Indexering av variabler kan göras med variabelnamn ```["min_var"]```
-- Specialfall av listor
+- Specialfall av listor (mer om det snart)
 - Indexering av rader och kolumner med ```[ , ]```
 
 
@@ -265,7 +271,7 @@ Byta variabelnamn
 incremental: true
 
 - Variabelnamn är en textvektor
-- Bör inte innehålla mellanrum
+- Bör inte innehålla mellanrum, inga å, ä, ö
 ```{r}
 colnames(iris)
 colnames(iris)[1] <- "Oj_EnVariabel"

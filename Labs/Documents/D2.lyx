@@ -5750,6 +5750,328 @@ alltJagHar.RData
  Vilka objekt har du laddat in i R?
 \end_layout
 
+\begin_layout Section
+
+\family typewriter
+.
+\family default
+rds-filer
+\end_layout
+
+\begin_layout Standard
+Ett alternativ till .Rdata-filer är rds-filer.
+ Det är R dataformat och bygger på en komprimering av materialet.
+ rds-filer kan bara innehålla 
+\family typewriter
+\series bold
+ett
+\family default
+\series default
+ R-objekt (tex data.frame).
+ Detta kan lösas genom att lägga flera R-objekt i en lista.
+ Fördelen med rds-filer är att när de läses in i R så kan de sparas i ett
+ godtycklig variabel.
+ Detta kan inte Rdata-filer som har ett 
+\begin_inset Quotes sld
+\end_inset
+
+fixt
+\begin_inset Quotes srd
+\end_inset
+
+ namn när de läses in.
+ I stora och komplexa funktioner kan det vara mycket användbart att jobba
+ med rds-filer.
+ 
+\end_layout
+
+\begin_layout Standard
+För att arbeta med .rds-filer använder vi oss av 
+\family typewriter
+saveRDS()
+\family default
+ och 
+\family typewriter
+readRDS()
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Pröva att spara datasetet 
+\family typewriter
+apple
+\family default
+ i 
+\series bold
+R
+\series default
+-format som 
+\family typewriter
+Apple.rds
+\family default
+ i din working directory.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+saveRDS(apple,file="Apple.rds")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+För att spara både 
+\family typewriter
+apple
+\family default
+ och 
+\family typewriter
+google 
+\family default
+i samma fil med namnet behöver vi lägga dem i en lista:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+data_list<-list(apple=apple,google=google)
+\end_layout
+
+\begin_layout Plain Layout
+
+saveRDS(data_list,file="storebror.rds")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+dir()
+\family default
+ för att se att filerna har sparats korrekt i ditt workspace.
+\end_layout
+
+\begin_layout Enumerate
+Använd 
+\family typewriter
+ls()
+\family default
+ to för att se vilka variabler som finns i R:s 
+\begin_inset Quotes eld
+\end_inset
+
+workspace
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Rensa det du har i ditt workspace med 
+\family typewriter
+rm(list=ls())
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Ladda filen 
+\family typewriter
+apple.rds
+\family default
+ med funktionen 
+\family typewriter
+readRDS()
+\family default
+, döp objektet till 
+\family typewriter
+apple_new
+\family default
+.
+ Vilka objekt har du laddat in i R?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+apple_new<-readRDS(data_list,file="apple.rds")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ladda filen 
+\family typewriter
+apple.rds
+\family default
+ med funktionen 
+\family typewriter
+readRDS()
+\family default
+, döp objektet till 
+\family typewriter
+a
+\family default
+bc.
+ Testa om 
+\family typewriter
+abc
+\family default
+ och 
+\family typewriter
+apple_new
+\family default
+ har samma innehåll:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+all.equal(apple_new,abc)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Rensa ditt Global enviroment igen med 
+\family typewriter
+rm()
+\family default
+.
+ Ladda filen 
+\family typewriter
+storebror.rds
+\family default
+ med funktionen 
+\family typewriter
+readRDS()
+\family default
+, döp objektet till 
+\family typewriter
+data_list
+\family default
+.
+ Vilka objekt har du laddat in i R? Plocka ut de olika dataseten ur listan
+ och spara dem som egna variabler.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+apple2<-data_list$apple
+\end_layout
+
+\begin_layout Plain Layout
+
+google2<-data_list$google
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Rensa ditt Global enviroment igen med 
+\family typewriter
+rm()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Vad är skillnaden mellan Rdata-filer och rds-filer? Formulera svarat i egna
+ ord och skriv ner det.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset

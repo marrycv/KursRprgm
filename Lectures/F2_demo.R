@@ -10,7 +10,7 @@ lab_path <-
 set_assignment(lab_path)
 show_tasks()
 LiuId<-"josad732"
-Namn<-"josef"
+Namn<-"josef wilzén"
 three_elements<-function(){
   x<-c(1,2,3)
   return(x)

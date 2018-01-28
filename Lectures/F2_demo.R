@@ -1,3 +1,24 @@
+
+
+#------------------------------------------------------------------------------------------
+# markmyassignment
+#------------------------------------------------------------------------------------------
+
+library(markmyassignment)
+lab_path <-
+  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d1.yml"
+set_assignment(lab_path)
+show_tasks()
+LiuId<-"josad732"
+Namn<-"josef"
+three_elements<-function(){
+  x<-c(1,2,3)
+  return(x)
+}
+
+mark_my_assignment("three_elements")
+
+
 # -------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------
 # Demo: Matriser, data.frame och listor 

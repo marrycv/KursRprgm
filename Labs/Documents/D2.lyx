@@ -5848,7 +5848,7 @@ Josef
 \backslash
 
 \backslash
-732G33_VT2017
+732G33_VT2018
 \backslash
 
 \backslash
@@ -5869,7 +5869,7 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/ex
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgmTeacher/Labs/ex
 ercise_solutions/"
 \end_layout
 
@@ -5895,7 +5895,7 @@ Josef
 \backslash
 
 \backslash
-732G33_VT2017
+732G33_VT2018
 \backslash
 
 \backslash
@@ -5993,6 +5993,110 @@ set_assignment(lab_path)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Bli bekväm med Discord
+\end_layout
+
+\begin_layout Standard
+Du ska nu logga in på Discord och göra följande:
+\end_layout
+
+\begin_layout Enumerate
+Gå till Statistik och Datanalysservern.
+\end_layout
+
+\begin_layout Enumerate
+Se till att du har rätt roll, antingen 
+\begin_inset Quotes sld
+\end_inset
+
+year one
+\begin_inset Quotes srd
+\end_inset
+
+ eller 
+\begin_inset Quotes sld
+\end_inset
+
+independent
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Se kanalen #roller för instruktion.
+\end_layout
+
+\begin_layout Enumerate
+Gå till kategorin 
+\begin_inset Quotes sld
+\end_inset
+
+732G33
+\begin_inset Quotes srd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hitta kanalen #sayhello och skriv ett meddelande som innehåller följande:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ditt liu-ID och ditt för- och efternamn.
+\end_layout
+
+\begin_layout Enumerate
+En kort R-kod (1-5 rader) med nått som du har lärt dig under vecka 1 eller
+ 2.
+ För att få en bra formattering på koden, ska ni innan och efter koden ska
+ ni skriva tre accent-symboler ```.
+ Om koden innehåller radbrytningar eller 
+\begin_inset CommandInset href
+LatexCommand href
+name "indentering"
+target "https://sv.wikipedia.org/wiki/Indrag_(text)"
+
+\end_inset
+
+, använd då använd ctrl+shift+v.
+ för att klistra in koden.
+ Se exempel nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+```
+\end_layout
+
+\begin_layout Plain Layout
+
+print("hello world")
+\end_layout
+
+\begin_layout Plain Layout
+
+```
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+När du har gjort steg 4.
+ så är du godkänd på denna uppgift.
+ 
 \end_layout
 
 \begin_layout Section
@@ -6490,13 +6594,13 @@ status open
 
 \begin_layout Plain Layout
 
-apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/Ap
+apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgm/Labs/DataFiles/Ap
 pleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout
 
-google_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/g
+google_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgm/Labs/DataFiles/g
 oogle2.csv"
 \end_layout
 
@@ -6658,7 +6762,7 @@ Josef
 \backslash
 
 \backslash
-732G33_VT2017
+732G33_VT2018
 \backslash
 
 \backslash
@@ -6699,7 +6803,7 @@ Josef
 \backslash
 
 \backslash
-732G33_VT2017
+732G33_VT2018
 \backslash
 
 \backslash
@@ -6720,13 +6824,13 @@ google2.csv"
 
 \begin_layout Plain Layout
 
-apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/Ap
+apple_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgm/Labs/DataFiles/Ap
 pleTest.csv"
 \end_layout
 
 \begin_layout Plain Layout
 
-google_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgm/Labs/DataFiles/g
+google_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgm/Labs/DataFiles/g
 oogle2.csv"
 \end_layout
 

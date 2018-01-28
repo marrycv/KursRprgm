@@ -397,6 +397,7 @@ Input (I)
 För att läsa in data finns:
 - ```.csv``` och ```.txt```-filer: ```read.table()```,```read.csv()```, ```read.csv2()```
 - ```.Rdata```-filer: ```load()```
+- ```.rds```-filer: ```readRDS()```
 
 
 Output (O) 
@@ -404,6 +405,7 @@ Output (O)
 För att spara data från R till hårddisken finns (bland annat):
 - ```.csv``` - filer: ```write.table()```,```write.csv()```, ```write.csv2()```
 - ```.Rdata``` - filer: ```save()```
+- ```.rds``` - filer: ```saveRDS()```
 
 Andra datakällor
 ========================================================

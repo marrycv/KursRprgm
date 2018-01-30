@@ -6375,7 +6375,24 @@ ditt liu-ID och ditt för- och efternamn.
 En kort R-kod (1-5 rader) med nått som du har lärt dig under vecka 1 eller
  2.
  För att få en bra formattering på koden, ska ni innan och efter koden ska
- ni skriva tre accent-symboler ```.
+ ni skriva tre accent-symboler 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\end_inset
+
+.
  Om koden innehåller radbrytningar eller 
 \begin_inset CommandInset href
 LatexCommand href
@@ -6396,7 +6413,13 @@ status open
 
 \begin_layout Plain Layout
 
-```
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
 \end_layout
 
 \begin_layout Plain Layout
@@ -6406,7 +6429,13 @@ print("hello world")
 
 \begin_layout Plain Layout
 
-```
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
 \end_layout
 
 \end_inset

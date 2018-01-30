@@ -95,7 +95,7 @@ data()
 data(iris)
 ?head
 
-head(iris)
+head(iris,n=3)
 tail(iris)
 dim(iris)
 iris
@@ -245,14 +245,6 @@ dir()
 path<-file.choose()
 print(path)
 
-a1<-c("a","b","a","a","c","c","b","b","b","a","a","a")
-a2<-1:12
-a3<-as.vector(exp(scale(1:12)))
-data1<-data.frame(a1=a1,a2=a2,a3=a3)
-write.table(x = data1,file = "/home/josef/Dropbox/Josef/732G33_VT2018/temp/data1.txt",sep = ";",dec=",")
-
-?read.table
-dir()
 x1<-read.table(file = "data1.txt",header = TRUE,sep = ";",dec = ",")
 x1
 str(x1)

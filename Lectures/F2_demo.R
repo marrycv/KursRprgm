@@ -249,7 +249,7 @@ x1<-read.table(file = "data1.txt",header = TRUE,sep = ";",dec = ",")
 x1
 str(x1)
 typeof(x1[,1])
-x2<-read.table(file = "data1.txt",header = TRUE,sep = ";",dec = ".",stringsAsFactors = FALSE)
+x2<-read.table(file = "data1.txt",header = TRUE,sep = ";",dec = ",",stringsAsFactors = FALSE)
 typeof(x2[,1])
 str(x2)
 typeof(x2[,1])
@@ -272,6 +272,7 @@ write.table(x = iris[1:20,],file = "myIris2.txt",sep = "\t",dec = ",",row.names 
 write.csv(x = iris[1:20,],file = "myIris3.csv",row.names=FALSE)
 
 myIris<-iris[15:30,2:3]
+
 save(myIris,file = "myIris.RData")
 saveRDS(object = myIris,file = "myIris.rds")
 

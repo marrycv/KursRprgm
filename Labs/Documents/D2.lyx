@@ -5942,7 +5942,7 @@ status open
 
 \begin_layout Plain Layout
 
-apple_new<-readRDS(data_list,file="apple.rds")
+apple_new<-readRDS(file="apple.rds")
 \end_layout
 
 \begin_layout Plain Layout
@@ -6405,8 +6405,7 @@ target "https://sv.wikipedia.org/wiki/Indrag_(text)"
 
 \end_inset
 
-, använd då använd ctrl+shift+v.
- för att klistra in koden.
+, använd då ctrl+shift+v för att klistra in koden.
  Se exempel nedan:
 \begin_inset Newline newline
 \end_inset

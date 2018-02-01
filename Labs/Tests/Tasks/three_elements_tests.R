@@ -2,16 +2,14 @@
 
 context("three_elements()")
 
-
-test_that("Kontroll av three_elements.", {
+test_that("three_elements()", {
   expect_true(exists("three_elements"), 
               info = "Fel: three_elements() saknas.")
-  expect_true(is.function(three_elements),
-              info = "Fel: three_elements ar inte en funktion.")
-  #expect_function_self_contained(object = three_elements,
-  #                               "Fel: Funktionen innehåller fria variabler")
-  expect_true(is.numeric(three_elements()),
-              info = "Fel: Funktionen returnerar inte en numerisk vektor.")
+  checkmate::expect_function(three_elements, nargs = 0)
+  
+
+  checkmate::expect_numeric(three_elements())
+  expect_silent(three_elements())
   expect_equal(length(three_elements()), 3,
               info = "Fel: Funktionen returnerar inte en vektor av längd 3.")
   expect_true(log(3) %in% three_elements(), 

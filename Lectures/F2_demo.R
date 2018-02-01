@@ -1,3 +1,24 @@
+
+
+#------------------------------------------------------------------------------------------
+# markmyassignment
+#------------------------------------------------------------------------------------------
+
+library(markmyassignment)
+lab_path <-
+  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d1.yml"
+set_assignment(lab_path)
+show_tasks()
+LiuId<-"josad732"
+Namn<-"josef wilzén"
+three_elements<-function(){
+  x<-c(1,2,3)
+  return(x)
+}
+
+mark_my_assignment("three_elements")
+
+
 # -------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------
 # Demo: Matriser, data.frame och listor 
@@ -74,7 +95,7 @@ data()
 data(iris)
 ?head
 
-head(iris)
+head(iris,n=3)
 tail(iris)
 dim(iris)
 iris
@@ -214,39 +235,31 @@ aggregate(x = iris[,-5],by=list(iris$Species),FUN = sd)
 ?getwd
 getwd()
 dir()
-setwd(dir = "/home/josef/Dropbox/Josef/732G33_VT2017/temp")
+setwd(dir = "/home/josef/Dropbox/Josef/732G33_VT2018/temp")
 dir()
 
 # -------------------------------------------------------------------------------------------
 # input:
 # -------------------------------------------------------------------------------------------
 
-file.choose()
+path<-file.choose()
+print(path)
 
-#
-?read.table
-dir()
-file.choose()
-x1<-read.table(file = "data1.txt",header = TRUE,sep = ",",dec = ".")
+x1<-read.table(file = "data1.txt",header = TRUE,sep = ";",dec = ",")
 x1
 str(x1)
-typeof(x1[,4])
-x2<-read.table(file = "data1.txt",header = TRUE,sep = ",",dec = ".",stringsAsFactors = FALSE)
-typeof(x2[,4])
+typeof(x1[,1])
+x2<-read.table(file = "data1.txt",header = TRUE,sep = ";",dec = ",",stringsAsFactors = FALSE)
+typeof(x2[,1])
 str(x2)
-typeof(x2[,4])
-
-x2<-read.table(file = "data2.txt",header = FALSE,sep = ";",dec = ",")
-x2
-typeof(x2[,4])
-str(x2)
-typeof(x2[,4])
+typeof(x2[,1])
 
 
-read.csv(file = "data1.txt")
-read.csv2(file = "data2.txt")
+?read.csv()
+?read.csv2()
 
-load(file = "mydata.RData")
+load(file = "testdata.Rdata")
+new_data<-readRDS(file = "testdata.rds")
 
 
 
@@ -259,7 +272,8 @@ write.table(x = iris[1:20,],file = "myIris2.txt",sep = "\t",dec = ",",row.names 
 write.csv(x = iris[1:20,],file = "myIris3.csv",row.names=FALSE)
 
 myIris<-iris[15:30,2:3]
-save(myIris,file = "myIris.RData")
 
+save(myIris,file = "myIris.RData")
+saveRDS(object = myIris,file = "myIris.rds")
 
 

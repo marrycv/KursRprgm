@@ -42,7 +42,7 @@ Linköpings universitet
 
 Föreläsning 2: Innehåll 
 ========================================================
-- Interaktiv del ~ 30 min
+- Interaktiv del
 - Datastrukturer
   - Matriser
   - Data.frame
@@ -54,18 +54,7 @@ Interaktiv del
 ========================================================
 type: section
 
-Några generella frågor på kursen:
-========================================================
-Tillåtna hjälpmedel på tentan:
-Hjälpmedel: 
-  - Den inbyggda hjälpen i R (ej internet)
-  - Referenskort:
-    - R reference card v.2 av Matt Baggot, [[här]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
-    - ggplot2: [[här]](http://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf)
-    - RStudio: [[här]](http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
-    - Ev. något mer referenskort
-
-Några generella frågor på kursen:
+Lösningar?
 ========================================================
 Finns det exakt en lösning till uppgifterna?
 - övningsuppgifter: enkla uppgifter kan ha en lösning, men många har olika lösnignar
@@ -74,7 +63,7 @@ Finns det exakt en lösning till uppgifterna?
   - Ni har rätt mycket frihet vilken kod ni skriver inuti funktioner: 
   
 ```{r,eval=FALSE}
-function(){
+my_func<-function(){
   "olika lösningar"
 }
 
@@ -83,41 +72,25 @@ function(){
 
 Markmyassignmnet:
 ========================================================
-Om alla tester är avklarade på labb1:
+Om alla tester är avklarade på labb 2:
 
-mark_my_assignment()  
-Labbinformation: ......  
-approx_e(): .........  
-logical_equality(): ..........  
-lukes_father(): .......  
-mult_first_last(): .........  
-orth_scalar_prod(): .........  
-three_elements(): ........  
+══ Results ═════════════════════════════════
 
-DONE ==================================================
-Good work!  
-(eller "You're a coding rockstar!", "Yay! All done!", etc)
+Duration: 0.3 s
+
+OK:       50
+
+Failed:   0
+
+Warnings: 0
+
+Skipped:  0
+
+Yay! All done!
 
 Markmyassignmnet:
 ========================================================
 demo...
-
-Hantera strängar och return()
-========================================================
-- return()
-- paste()
-- print()
-- cat()  
-
-Kolla hjälpen, testa sen.
-
-Läs [här](http://stackoverflow.com/questions/31843662/what-is-the-difference-between-cat-and-print) och [här](http://stackoverflow.com/questions/12775085/the-difference-between-concatenating-character-strings-with-paste-vs-cat)
-
-Blandade frågor
-========================================================
-Demo...
-
-
 
 
 Datastrukturer
@@ -161,6 +134,7 @@ vektor <- c(5,2,4,3,-1)
 sort(vektor)
 order(vektor, decreasing = FALSE)
 ```
+- Alla vektorer har en index-vektor
 
 Faktorvariabel (vektor)
 ========================================================
@@ -210,7 +184,7 @@ incremental: true
 - Ett objekt som andra 
 - Olika kolumner kan ha olika datatyper
 - Indexering av variabler kan göras med variabelnamn ```["min_var"]```
-- Specialfall av listor
+- Specialfall av listor (mer om det snart)
 - Indexering av rader och kolumner med ```[ , ]```
 
 
@@ -297,7 +271,7 @@ Byta variabelnamn
 incremental: true
 
 - Variabelnamn är en textvektor
-- Bör inte innehålla mellanrum
+- Bör inte innehålla mellanrum, inga å, ä, ö
 ```{r}
 colnames(iris)
 colnames(iris)[1] <- "Oj_EnVariabel"
@@ -423,6 +397,7 @@ Input (I)
 För att läsa in data finns:
 - ```.csv``` och ```.txt```-filer: ```read.table()```,```read.csv()```, ```read.csv2()```
 - ```.Rdata```-filer: ```load()```
+- ```.rds```-filer: ```readRDS()```
 
 
 Output (O) 
@@ -430,6 +405,7 @@ Output (O)
 För att spara data från R till hårddisken finns (bland annat):
 - ```.csv``` - filer: ```write.table()```,```write.csv()```, ```write.csv2()```
 - ```.Rdata``` - filer: ```save()```
+- ```.rds``` - filer: ```saveRDS()```
 
 Andra datakällor
 ========================================================

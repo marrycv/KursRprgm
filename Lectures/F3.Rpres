@@ -33,15 +33,14 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 3: Programkontroll
-### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 STIMA, 
 Linköpings universitet
 
-*Uppdaterad `r Sys.time()`*
+*Uppdaterad `r Sys.Date()`*
 
 Föreläsning 3: Innehåll 
 ========================================================
-- Interaktiv del ~ 45 min
 - Programkontroll
   - Villkorssatser
   - Loopar
@@ -49,13 +48,15 @@ Föreläsning 3: Innehåll
   message, warning, stop
 - Intro debugging
 
-Interaktiv del
-========================================================
-type: section
 
-Interaktiv del
+Allmänt
 ========================================================
-Se kod...
+- Några frågor så här långt?
+
+
+Tentamen
+========================================================
+- Extraproblem i labbarna -> Tentan
 
 Programkontroll
 ========================================================
@@ -67,7 +68,7 @@ incremental: true
 
 - Att kontrollera körning av program / funktioner
 - Det finns olika kontroller vi kan vilja göra, exempelvis:
-  - köra / (åter)använda en annan del av koden
+  - köra / (åter) använda en annan del av koden
   - villkorsstyra kod 
   - köra kod 0 eller fler gånger
   - köra kod till dess ett villkor är uppfyllt
@@ -82,10 +83,15 @@ Villkorssatser - Syntax
 incremental: true
 
 ```{r, eval=FALSE}
-if ( Villkor ) { Kod om Villkor == TRUE }
+if ( Villkor ) { 
+  Kod om Villkor == TRUE 
+}
 ```
+
 - Om Villkor är en logisk vektor prövas bara det **första** elementet
+
 -  [Pseudokod](https://en.wikipedia.org/wiki/Pseudocode):
+
 ```{r, eval=FALSE}
 if ( Villkor ) {
   Kod om Villkor == TRUE 
@@ -105,46 +111,6 @@ if ( Villkor 1 ) {
   Kod om Villkor 1 och 2 == FALSE 
 }
 ```
-
-Villkorssatser - Syntax forts.
-========================================================
-- Om det är många ```else if``` kan ```switch``` vara smidigare:
-```{r, eval=FALSE}
-switch(type,
-        villkor1 = {
-          "kod för villkor1"
-          },
-        villkor2 = {
-          "kod för villkor2"
-          },
-        villkor3 = {
-          "kod för villkor3"
-          },
-       {
-         "Om type != villkor1, villkor2 eller villkor3"
-       }
-)
-
-```
-
-Villkorssatser - Syntax forts.
-========================================================
-
-
-```{r, eval=TRUE}
-elak_dator <- "skynet" 
-switch(elak_dator, 
-  # Kod om elak_dator = "hal"
-  hal = { print(2001) },     
-  # Kod om elak_dator = "skynet"
-  skynet = {
-    # Det går att skriva flera rader
-    print(1997)},
-  # Om inget alternativ ovan
-  { print(2000) }
-)
-```
-
 
 
 Villkorssatser - Exempel
@@ -176,15 +142,6 @@ if ( prgm == "R" ) {
 }
 ```
 
-Villkorssatser
-========================================================
-Funktionen ```ifelse()``` är en [vektoriserad](https://en.wikipedia.org/wiki/Array_programming) variant av if-else. 
-
-Syntax:
-
- - ```test=``` ett logiskt test
- - ```yes=``` värden att returnera om test är sann
- - ```no=``` värden att returnera om test är falsk
 
 Demo: Villkorssatser
 ========================================================
@@ -211,15 +168,16 @@ for ( elem in vektor ) {
   # elem är ett element i vektorn  
 }
 ```
+
 - Vilken vektor eller lista som helst kan användas
-- Viktigt koncept: loopens index "elem" kan påverka koden innanför "{...}" 
+- Viktigt koncept: loopens index "elem" är det ENDA som ändra i Loopen (innanför "{...}")
 
 Loopar (for-loop): Exempel
 ========================================================
 type: prompt
 incremental: true
 ```{r, eval=TRUE}
-vektor <- c("Oleg", "Lo", "Lotta")
+vektor <- c("Oleg", "Annika", "Lotta")
 for ( element in vektor ) { 
   print(element) 
 }
@@ -250,6 +208,7 @@ for ( index in 1:length(vektor) ) {
 Demo: for-loopar
 ========================================================
 type: sub-section
+
 
 Nästlade loopar (nested loops)
 ========================================================

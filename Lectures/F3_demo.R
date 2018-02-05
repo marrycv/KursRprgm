@@ -10,26 +10,31 @@
 # -------------------------------------------------------------------------------------------
 
 
-if(2<4) print("ja!!!")
+if(2 < 4) print("Ja!")
 
-if(2>4) print("ja!!!")
+if(2 > 4) print("Nej!")
 
-x<-10
-x<-40
-if(x<=20){
+x <- 10
+x <- 40
+if(x <= 20){
   print("litet x")
-} else{
+} else {
   print("stort x")
 }
 
+# Detta är ett exempel på kontroll av argument
+x <- 1:2
+if(x >= 1) print("hej")
+x <- "R"
 
-# detta är ett exempel på kontroll av argument
-x<-1:2
-if(x>=1) print("hej")
+f(x = c(1,2,3))
+f(x = "R")
+f(x = TRUE)
 
-f<-function(x){
+
+f <- function(x){
   if(is.numeric(x)){
-    my_mean<-mean(x)
+    my_mean <- mean(x)
     print(my_mean)
   } else{
     print("x is not numeric")
@@ -42,45 +47,35 @@ mean("abc")
 # Egen version av sign()
 ?sign
 my_sign<-function(x){
-  if(x>0){
-    return(1)
-  } else if(x==0){
-    return(0)
-  } else{
-    return(-1)
+  if(is.numeric(x)){
+    if(x > 0){
+      return(1)
+    } else if(x == 0){
+      return(0)
+    } else {
+      return(-1)
+    }
+  } else {
+    print(x)
   }
 }
-my_sign(10)
-my_sign(-210.53)
+my_sign(x = 10)
+my_sign(x = -210.53)
 my_sign(0)
+my_sign(x = "R")
 
 
-# switch:
-centre <- function(x, type) {
-  switch(type,
-         mean = mean(x),
-         median = median(x),
-         trimmed = mean(x, trim = .1))
-}
-x <- c(21,42,21,125,675,31,19,342,2,38,42)
-centre(x, "mean")
-centre(x, "median")
-centre(x, "trimmed")
-
-x<-8:11
-?ifelse
-ifelse(test = x>10,yes = "ja",no = "nej")
-
-
+vec <- c("I", "love", "R", "and", "Python")
+seq_along(vec)
 
 # -------------------------------------------------------------------------------------------
 # for-loopar
 # -------------------------------------------------------------------------------------------
-1e10
+
 # beror av loop-index "i"
-length(1:10)
-for(i in 1:1e7){
-  print(i)
+vector <- -2:2
+for(i in vector){
+  print(my_sign( -10 ))
 }
 
 # beror inte av loop-index "i"
@@ -91,19 +86,27 @@ for(i in 1:5){
 
 loop_vekt<-1:10
 res<-rep(0,length(loop_vekt))
-x<-0
+x <- 0
 for(i in loop_vekt){
-  x<-x+i
-  res[i]<-x
+  x <- x + i
+  res[i] <- x
   print(x)
 }
-res
+
+
+sum(vec)
+vec <- 10:15
+sum_0 <- 0
+for(i in seq_along(vec)){
+  sum_0 <- sum_0 + vec[i]
+}
+
 
 for(j in 1:5){
   print(j)
-  if(j%%2==0){
+  if(j %% 2 == 0){
     print("jämnt")
-  } else{
+  } else {
     print("udda")
   }
 }
@@ -115,6 +118,7 @@ for(j in 1:5){
 
 A <- matrix(c(3,6,9,2), nrow = 2)
 A
+i <- 1
 for ( i in 1:2 ) {
   for ( j in 1:2 ) {
     print(A[i,j])
@@ -123,50 +127,59 @@ for ( i in 1:2 ) {
 
 for ( i in 1:2 ) {
   for ( j in 1:2 ) {
-    print(paste("rad:",i,"kolumn:",j,"värde=",A[i,j]))
+    print(paste("rad:", i, "kolumn:", j, "värde=",A[i,j]))
   }
 }
 
 
 for ( i in 1:2 ) {
   for ( j in 1:2 ) {
-    print(paste("rad:",j,"kolumn:",i,"värde=",A[j,i]))
+    print(paste("rad:", j, "kolumn:", i, "värde=",A[j,i]))
   }
 }
 
+mult_mat <- matrix(0, nrow = 10, ncol = 10)
+for ( i in 1:10 ) {
+  for ( j in 1:10 ) {
+    mult_mat[i,j] <- i*j
+  }
+}
 
+i <- 1
+j <- 2
 
 # -------------------------------------------------------------------------------------------
 # kontrollstrukturer för loopar
 # -------------------------------------------------------------------------------------------
 
-?next
-?break
+?next # iteration in loop 
+?break # out of inner loop
 
 
 
-for(i in 3:12){
-  if(i%%3!=0){
+for(i in 1:12){
+  if(i %% 3 != 0){
     next
   }
   print(i)
 }
+i <- 3
 
-
-for(i in 3:12){
-  print("Deta händer före if-sats")
-  if(i%%3!=0){
+for(i in 1:12){
+  cat("Detta händer före if-sats:", i, "\n")
+  if(i %% 3 == 0){
     break
   }
-  print(i)
+  cat("Detta händer efter if-sats:", i, "\n")
 }
+i <- 3
 
-for(i in 3:12){
-  print("Deta händer före if-sats")
-  if(i%%3!=0){
+for(i in 1:12){
+  cat("Deta händer före if-sats:", i, "\n")
+  if(i%%3 == 0){
     stop("avbryt!")
   }
-  print(i)
+  cat("Deta händer efter if-sats:", i, "\n")
 }
 
 
@@ -177,14 +190,16 @@ for(i in 3:12){
 # -------------------------------------------------------------------------------------------
 
 
-y<-10
-x<-5
-while(x>0){
+y <- 10
+x <- 5
+while(x > 0){
   print(y/x)
-  x<-x-1
+  x <- x-1
 }
 
-while(x<=5){
+# Varning för eviga loopar!
+x <- 1
+while(x <= 5){
   print(y/x)
   x<-x-1
 }
@@ -195,15 +210,15 @@ dim(iris)
 head(iris)
 
 
-cond<-TRUE
-index<-1
+cond <- TRUE
+index <- 1
 while(cond){
   temp<-iris[,index]
   if(is.numeric(temp)){
     print(median(temp))
-    index<-index+1
+    index <- index+1
   } else{
-    cond<-FALSE
+    cond <- FALSE
   }
 }
 

@@ -18,7 +18,7 @@ test_that("Assignment: my_moving_average()", {
   expect_function_arguments(my_moving_average, expected = c("x","n"),
               info = "Fel: Argumenten i funktionen har felaktiga namn.")
   
-  checkmate::expect_number(my_moving_average(x=y, n=2),
+  checkmate::expect_numeric(my_moving_average(x=y, n=2),
               info = "Fel: Funktionen returnerar inte en numerisk vector.")
   
   expect_silent(my_moving_average(x=y, n=2))

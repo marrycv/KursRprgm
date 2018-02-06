@@ -17,8 +17,8 @@ test_that("Assignment: babylon()", {
   checkmate::expect_list(babylon(x=2, init=1.5, tol=0.01),
                          info = "Fel: Funktionen returnerar inte en lista.")
   
-  expect_silent(temp_list <- babylon(x=2, init=1.5, tol=0.01))
-  checkmate::expect_names(temp_list, permutation.of = c("iter", "rot"))
+  expect_silent(babylon_output <- babylon(x=2, init=1.5, tol=0.01))
+  checkmate::expect_names(names(babylon_output), permutation.of = c("iter", "rot"))
   
   expect_equal(babylon(x=2, init=1.5, tol=0.01)$rot, 1.414216, tolerance = .01,
               info = "Fel: Approximationen är felaktig för x = 2, init = 1.5 och tol = 0.01.")

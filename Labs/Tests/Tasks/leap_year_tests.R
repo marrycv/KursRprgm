@@ -47,8 +47,13 @@ test_that("leap_year()", {
   expect_function_self_contained(object = leap_year,
                         "Fel: Funktionen innehåller fria variabler")
   
-  expect_true(test_object_name(target = leap_year,true_names = c("years")),
-              info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  expect_function_arguments(target = leap_year,true_names = c("years"),
+  info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  
+  expect_silent(leap_year)
+  
+  # expect_true(test_object_name(target = leap_year,true_names = c("years")),
+  #             info = "Fel: Argumenten i funktionen har felaktiga namn.")
   expect_true(is.data.frame(leap_year(years=test_years)), 
               info="Fel: Funktionen leap_year() returnerar inte en data.frame")
   expect_true(all(dim(leap_year(years=test_years))==c(length(test_years),2)), 

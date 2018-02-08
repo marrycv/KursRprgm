@@ -50,9 +50,10 @@ test_that("fast_stock_analysis()", {
   expect_function_self_contained(object = fast_stock_analysis,
                         "Fel: Funktionen innehåller fria variabler")
   
-  
-  expect_true(test_object_name(target = fast_stock_analysis,true_names = c("file_path","period_length")),
-              info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  expect_function_arguments(fast_stock_analysis,expected = c("file_path","period_length"),
+                            info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  # expect_true(test_object_name(target = fast_stock_analysis,true_names = c("file_path","period_length")),
+  #             info = "Fel: Argumenten i funktionen har felaktiga namn.")
   
   expect_true(is.list(fast_stock_analysis(file_path=testFile, period_length=5)), 
               info="Fel: Funktionen returnerar inte en lista")

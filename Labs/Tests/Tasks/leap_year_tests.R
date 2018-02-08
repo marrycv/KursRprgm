@@ -47,7 +47,7 @@ test_that("leap_year()", {
   expect_function_self_contained(object = leap_year,
                         "Fel: Funktionen innehåller fria variabler")
   
-  expect_function_arguments(target = leap_year,true_names = c("years"),
+  expect_function_arguments(object = leap_year, expected = c("years"),
   info = "Fel: Argumenten i funktionen har felaktiga namn.")
   
   expect_silent(leap_year)

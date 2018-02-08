@@ -12,7 +12,7 @@ test_that("matrix_trace", {
   expect_true(is.function(matrix_trace),
               info = "Fel: matrix_trace är inte en funktion.")
   
-  expect_function_arguments(object = matrix_trace,true_names = c("X"),
+  expect_function_arguments(object = matrix_trace,expected = c("X"),
                             info = "Fel: Argumenten i funktionen har felaktiga namn.")
 
   expect_function_self_contained(object = matrix_trace,

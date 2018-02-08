@@ -72,7 +72,11 @@ test_that("fast_stock_analysis()", {
                info="Fel: Elementet 'medel_slutpris' är fel, för AppleTest.csv och period_length=5")
   expect_equal(myList1$slutpris_upp, FALSE, 
                info="Fel: Elementet 'slutpris_upp' är fel, för AppleTest.csv och period_length=5")
-  expect_true(all(myList1$datum %in% c("2012-01-24", "2012-01-18")), 
+  datum_test<-myList1$datum %in% c("2012-01-24", "2012-01-18")
+  if(length(datum_test)==0){
+    datum_test<-FALSE
+  }
+  expect_true(all(datum_test), 
               info="Fel: Elementet 'datum' är fel, för AppleTest.csv och period_length=5")
   
   #expect_equal(myList1$datum, c("2012-01-24", "2012-01-18"), 

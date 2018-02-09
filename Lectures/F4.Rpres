@@ -54,21 +54,22 @@ type: section
 
 Interaktiv del
 ========================================================
-(*kommer snart*)
+kahoot!
   
-Uppföljning av labb 3
+Labbar
 ========================================================
- - Vid inlämning:
-  - Spara er fil som labb1_manma97.R om det är labb 1. 
-  - Denna fil ska laddas upp på LISAM och ska inte innehålla något annat än de aktuella funktionerna, namn- och ID-variabler och ev kommentarer. 
-   - Tips: kommentera bort tester mm innan inlämning. ```ctrl+shift+c``` kommenterar/avkommenterar flera rader samtidigt.
+ - Viktigt att göra övningsuppgifterna innan inlämningsuppfiterna.
+ - Utnyttja labbtiden, kom förberedd
+ - En tenta-uppgifterna kommer vara direkt inspirerad av extraproblemen
+ - Tips: kommentera bort tester/kod mm innan inlämning. ```ctrl+shift+c``` kommenterar/avkommenterar flera rader samtidigt.
+ - För att se fler komandon i RStudio tryck ```alt+shift+k```
   
 
 Inför del 2 av kursen
 ========================================================
 - Labbar ska göras i par (eller ensam)
-- På Slack finns en länk till ett dokument där ni ska fylla i er.
-- Ni blidar grupper själva.
+- På Discord finns en länk till ett dokument där ni ska fylla i er.
+- Ni blidar grupper själva. 
 
 Mer om funktioner
 ========================================================
@@ -430,6 +431,7 @@ incremental: true
   5. Kontrollräkna centrala funktioner
 
 - För att komma igång med nya paket: vignetter
+- På [cran task view](https://cran.r-project.org/web/views/) finns många paket ordnade efter ämne
 
 
 Installera paket

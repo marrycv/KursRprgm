@@ -300,7 +300,7 @@ install.packages("lubridate")
 
 \begin_layout Plain Layout
 
-# eller om du ska installera något paket i PC-pularna: 
+# eller om du ska installera något paket i SU-salarna: 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4240,141 +4240,12 @@ status open
 
 \begin_layout Plain Layout
 
-#solution_path<-"C:
-\backslash
-
-\backslash
-Users
-\backslash
-
-\backslash
-Florence
-\backslash
-
-\backslash
-Dropbox
-\backslash
-
-\backslash
-Josef
-\backslash
-
-\backslash
-732G33_VT2016
-\backslash
-
-\backslash
-KursRprgmTeacher
-\backslash
-
-\backslash
-Labs
-\backslash
-
-\backslash
-exercise_solutions
-\backslash
-
-\backslash
-"
 \end_layout
 
 \begin_layout Plain Layout
 
-#solution_path<-"C:
-\backslash
-
-\backslash
-Users
-\backslash
-
-\backslash
-joswi05
-\backslash
-
-\backslash
-Dropbox
-\backslash
-
-\backslash
-Josef
-\backslash
-
-\backslash
-732G33_VT2016
-\backslash
-
-\backslash
-KursRprgmTeacher
-\backslash
-
-\backslash
-Labs
-\backslash
-
-\backslash
-exercise_solutions
-\backslash
-
-\backslash
-"
-\end_layout
-
-\begin_layout Plain Layout
-
-#solution_path<-"C:
-\backslash
-
-\backslash
-Users
-\backslash
-
-\backslash
-Wollstonecraft
-\backslash
-
-\backslash
-Dropbox
-\backslash
-
-\backslash
-Josef
-\backslash
-
-\backslash
-732G33_VT2017
-\backslash
-
-\backslash
-KursRprgmTeacher
-\backslash
-
-\backslash
-Labs
-\backslash
-
-\backslash
-exercise_solutions
-\backslash
-
-\backslash
-"
-\end_layout
-
-\begin_layout Plain Layout
-
-# solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/
-exercise_solutions/"
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Underv
-isning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
@@ -4472,7 +4343,7 @@ För mer information om Hilbertmatriser finns
 
 \begin_inset CommandInset href
 LatexCommand href
-name "[här]"
+name "här"
 target "http://en.wikipedia.org/wiki/Hilbert_matrix"
 
 \end_inset
@@ -4636,7 +4507,7 @@ toeplitz_matrix()
 
 \begin_inset CommandInset href
 LatexCommand href
-name "[här]"
+name "här"
 target "http://en.wikipedia.org/wiki/Toeplitz_matrix"
 
 \end_inset
@@ -5802,7 +5673,7 @@ moment
 
 
 \family typewriter
-No function supplied!
+no function supplied!
 \family default
 
 \begin_inset Quotes srd

@@ -2,35 +2,6 @@ context("moment_func()")
 
 test_that("moment_func()", {
   
-  test_object_name<-function(target,true_names=NULL){
-    if(is.function(target)){
-      temp_name<-names(formals(target))
-    }else if(is.list(target)){
-      temp_name<-names(target)
-    }else{
-      stop("target has non valid class!")
-    }
-    
-    if(is.null(true_names)){
-      if(is.null(temp_name)){
-        return(TRUE)
-      }else{
-        return(FALSE)
-      }
-    }else if(is.character(true_names)&length(true_names)>=1){
-      no_names<-length(true_names)
-      no_match<-vector("logical",no_names)
-      if(length(temp_name)!=length(true_names)){
-        return(FALSE)
-      }
-      for(i in 1:no_names){
-        no_match[i]<-any(temp_name%in%true_names[i])
-      }
-      return(all(no_match))
-    }else{
-      stop("true_names has non valid class!") 
-    } 
-  }
   body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
   package_loaded<-function(object){any(grepl(object, search()))}
   
@@ -68,10 +39,9 @@ test_that("moment_func()", {
   expect_function_self_contained(object = moment_func,
                         "Fel: Funktionen innehåller fria variabler")
   
-  
-  
-  expect_true(test_object_name(target = moment_func,true_names = c("densities", "moment")),
-              info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  expect_function_arguments(object = moment_func,expected = c("densities", "moment"),
+                            info = "Fel: Argumenten i funktionen har felaktiga namn." )
+
   expect_function_code(object = moment_func, expected = "return", 
                        info = "Fel: return() saknas i funktionen.")
   
@@ -112,4 +82,5 @@ test_that("moment_func()", {
   expect_equal(moment_func(densities = test_list5,moment = V_discrete),list(density1=0.29,density2=1.16,density3=2.61),
                info="Fel: funktionen returnerar inte rätt värde med densities = test_list5, moment = V_discrete")
   
+  expect_silent(moment_func(densities = test_list1,moment = E_discrete))
 })

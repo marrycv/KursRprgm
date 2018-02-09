@@ -3,35 +3,6 @@ context("toeplitz_matrix()")
 
 test_that("toeplitz_matrix()", {  
   
-  test_object_name<-function(target,true_names=NULL){
-    if(is.function(target)){
-      temp_name<-names(formals(target))
-    }else if(is.list(target)){
-      temp_name<-names(target)
-    }else{
-      stop("target has non valid class!")
-    }
-    
-    if(is.null(true_names)){
-      if(is.null(temp_name)){
-        return(TRUE)
-      }else{
-        return(FALSE)
-      }
-    }else if(is.character(true_names)&length(true_names)>=1){
-      no_names<-length(true_names)
-      no_match<-vector("logical",no_names)
-      if(length(temp_name)!=length(true_names)){
-        return(FALSE)
-      }
-      for(i in 1:no_names){
-        no_match[i]<-any(temp_name%in%true_names[i])
-      }
-      return(all(no_match))
-    }else{
-      stop("true_names has non valid class!") 
-    } 
-  }
   body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
   package_loaded<-function(object){any(grepl(object, search()))}
   
@@ -47,9 +18,10 @@ test_that("toeplitz_matrix()", {
   expect_function_self_contained(object = toeplitz_matrix,
                         "Fel: Funktionen innehåller fria variabler")
    
+  expect_function_arguments(object = toeplitz_matrix,expected = c("x"),
+                            info = "Fel: Argumenten i funktionen har felaktiga namn.")
   
-  expect_true(test_object_name(target = toeplitz_matrix,true_names = c("x")),
-              info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  
   
   expect_error(toeplitz_matrix(1:4),
                info="Fel: Funktionen avbryter/stoppar inte om x har jämt antal element.")
@@ -108,5 +80,6 @@ test_that("toeplitz_matrix()", {
   expect_false(body_contain(object = toeplitz_matrix,expected = "pracma"),
                info = "Fel: Funktioner ur paketet pracma används i funktionen.")
   
+  expect_silent(object = toeplitz_matrix(x=c(1,2,3)))
   
 })

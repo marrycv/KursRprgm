@@ -2,35 +2,6 @@ context("E_discrete()")
 
 test_that("E_discrete()", {
   
-  test_object_name<-function(target,true_names=NULL){
-    if(is.function(target)){
-      temp_name<-names(formals(target))
-    }else if(is.list(target)){
-      temp_name<-names(target)
-    }else{
-      stop("target has non valid class!")
-    }
-    
-    if(is.null(true_names)){
-      if(is.null(temp_name)){
-        return(TRUE)
-      }else{
-        return(FALSE)
-      }
-    }else if(is.character(true_names)&length(true_names)>=1){
-      no_names<-length(true_names)
-      no_match<-vector("logical",no_names)
-      if(length(temp_name)!=length(true_names)){
-        return(FALSE)
-      }
-      for(i in 1:no_names){
-        no_match[i]<-any(temp_name%in%true_names[i])
-      }
-      return(all(no_match))
-    }else{
-      stop("true_names has non valid class!") 
-    } 
-  }
   body_contain<-function(object,expected) {any(grepl(x = as.character(body(object)), pattern = expected))}
   package_loaded<-function(object){any(grepl(object, search()))}
   
@@ -53,8 +24,8 @@ test_that("E_discrete()", {
                         "Fel: Funktionen innehåller fria variabler")
   
   
-  expect_true(test_object_name(target = E_discrete,true_names = c("density_matrix", "trans")),
-              info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  expect_function_arguments(object = E_discrete,expected = c("density_matrix", "trans"),
+                            info = "Fel: Argumenten i funktionen har felaktiga namn." )
   
   
   expect_function_code(object = E_discrete, expected = "return", 
@@ -91,6 +62,8 @@ test_that("E_discrete()", {
   expect_true(is.numeric(E_discrete()), 
               info="Fel: Funktionen returnerar inte en numerisk vector")
   
+
+  
   expect_equal(E_discrete(),c(1),
                info="Fel: funktionen returnerar inte rätt värde vid E_discrete()")
   
@@ -119,5 +92,5 @@ test_that("E_discrete()", {
   expect_equal(E_discrete(density_matrix = y_mat,trans = c(0,5)),c(5),
                info="Fel: funktionen returnerar inte rätt värde med density_matrix = y_mat,trans = c(0,5)")
 
-  
+  expect_silent(object = E_discrete())
 })

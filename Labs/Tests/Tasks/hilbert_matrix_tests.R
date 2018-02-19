@@ -42,30 +42,30 @@ test_that("hilbert_matrix()", {
                        info = "Fel: return() saknas i funktionen.")
   
   
-  expect_false(body_contain(object = hilbert_matrix,expected = "Hilbert"),
+  expect_false(body_contain(object = hilbert_matrix,expected = "Hilbert\\s*\\(.*\\)$"),
                info = "Fel: Funktionen Hilbert() används i funktionen.")
-  
-  expect_false(body_contain(object = hilbert_matrix,expected = "hilbert.matrix"),
+
+  expect_false(body_contain(object = hilbert_matrix,expected = "hilbert.matrix\\s*\\(.*\\)$"),
                info = "Fel: Funktionen hilbert.matrix() används i funktionen.")
-  
-  expect_false(body_contain(object = hilbert_matrix,expected = "hilb"),
+
+  expect_false(body_contain(object = hilbert_matrix,expected = "hilb\\s*\\(.*\\)$"),
                info = "Fel: Funktionen hilb() används i funktionen.")
-  
+
   expect_false(body_contain(object = hilbert_matrix,expected = "Matrix"),
                info = "Fel: Funktioner ur paketet Matrix används i funktionen.")
-  
+
   expect_false(body_contain(object = hilbert_matrix,expected = "matrixcalc"),
                info = "Fel: Funktioner ur paketet matrixcalc används i funktionen.")
-  
+
   expect_false(body_contain(object = hilbert_matrix,expected = "pracma"),
                info = "Fel: Funktioner ur paketet pracma används i funktionen.")
-  
+
   expect_false(body_contain(object = hilbert_matrix,expected = "pbdDMAT"),
                info = "Fel: Funktioner ur paketet pbdDMAT används i funktionen.")
-  
-  expect_false(body_contain(object = hilbert_matrix,expected = "hilbert"),
+
+  expect_false(body_contain(object = hilbert_matrix,expected = "hilbert\\s*\\(.*\\)$"),
                info = "Fel: Funktionen/namnet/texten hilbert får inte används i funktionen.")
-  
+
   # lägg in test för Hilbert (Matrix)hilbert.matrix (matrixcalc), hilb (pracma), Hilbert (pbdDMAT)
   
   # lägg till test för return()!

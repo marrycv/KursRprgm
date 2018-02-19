@@ -49,6 +49,11 @@ Föreläsning 5: Innehåll
 - Externa data och pxweb
 
 
+Labb 3
+========================================================
+type: section
+
+
 Del II i kursen
 ========================================================
 type: section
@@ -87,6 +92,7 @@ Info [här](https://github.com/STIMALiU/KursRprgm/blob/master/Miniproject/Instru
   - Tidsseriedata
 - Presentera med basgrafik, knitr och markdown
 - Ska kunna vara reproducerbart
+- Lämna in **PDF OCH .Rmd**
 
 
 Basgrafik
@@ -99,7 +105,7 @@ Basgrafik
 - Grafiken är en av styrkorna med R
 - Olika paket: ```ggplot2```, ```lattice``` m.m.
 - Hög nivå (funktioner, ```plot```)
-- Låg nivå (bygga upp steg för steg)
+- Låg nivå (bygga upp en plot steg för steg)
 - Används ofta för att snabbt visualisera
 
 Enkel grafik: plot()
@@ -113,7 +119,7 @@ Exempel: plot()
 ========================================================  
 ```{r,}
 data(iris)
-plot(x=iris$Sepal.Length, y=iris$Petal.Length, main="Iris")
+plot(x = iris$Sepal.Length, y = iris$Petal.Length, main = "Iris")
 ```
 
   
@@ -168,8 +174,8 @@ Lägg till "lager på lager":
 Lågnivågrafik
 ========================================================
 
-- Går att bygga upp vad vi vill
-- Dock är ggplot2 "smidigare"
+- Går att bygga upp vad vi vil.l
+- Dock är ggplot2 **MYCKET** "smidigare"
 
 
 Slumptal och simulering
@@ -203,10 +209,10 @@ Slumptal och simulering: Exempel
 incremental: true
 
 ```{r}
-rnorm(n=5, mean=10, sd=1)
-set.seed(20140730)
-rnorm(n=5, mean=10, sd=1)
-set.seed(20140730)
+rnorm(n = 5, mean = 10, sd = 1)
+set.seed(20180218)
+rnorm(n = 5, mean = 10, sd = 1)
+set.seed(20180218)
 rnorm(n=5, mean=10, sd=1)
 ```
 
@@ -217,52 +223,61 @@ incremental: true
 
 ```{r}
 text <- c("Linköpings", "Universitet")
-set.seed(20140730)
+set.seed(20180218)
 sample(x=text, size=4, replace=TRUE)
 sample(x=text, size=4, replace=TRUE)
-set.seed(20140730)
+set.seed(20180218)
 sample(x=text, size=4, replace=TRUE)
 ```
+
+Demo: Slumptal
+========================================================
+type: section
+
 
 R-Markdown, Notebooks och knitr
 ========================================================
 type: section
 
-R-Markdown och knitr
+R-Markdown, Notebooks och knitr
 ========================================================
 
+- Kombinera text, kod och grafik i en fil.
 - Förenkla för era laborationer i andra kurser
 - Del av R-Studio
 - Två delar:
   - Markdown (för text)
   - knitR (för R-kod)
 - Kan skapa PDF, Word och/eller HTML (och presentationer)
-- Grunden i "litarate programming"
+
 
 Markdown
 ========================================================
 - Markupspråk (som HTML)
-- Snabbt och enkelt 
+- Ersätter ofta HTML
+- Enkelt 
 - Kan hantera matematik (med LaTeX)
 - Integrerat med R-Studio
-  - Kan behöva installera LaTeX för PDF
+  - Kan behöva installera LaTeX för att skapa PDF
 
 
 knitr
 ========================================================
-- Lägga in R-kod i markdown-dokument
-- Ersätter R-kod med resultatet
-- Dynamiska rapporter
-- [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)
-- Inbyggt i R-Studio
+
+- Kör R-kod och ersätter med resultatet
+- "Stickar ihop" text och kod
+- "Dynamiska rapporter"
 - För att skapa tabeller: ```kable()```
+- Kan hantera R och Python (och ev. SAS)
+
 
 R-Studio Notebooks
 ========================================================
 
 - Är Rmd-filer
 - Kan köras interaktivt direkt i R-Studio
-- Nytt iom R-Studio 1.0
+- Inspiration från Jypyter Notebooks
+
 
 Demo: Markdown och knitr
 ========================================================

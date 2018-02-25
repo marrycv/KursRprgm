@@ -34,17 +34,17 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 6: Objektorientering, datum och linjär algebra
-### [Måns Magnusson](mailto:josefwilzen@liu.se)
+### [Josef Wilzén](mailto:josefwilzen@liu.se)
 
 Avdelningen för statistik,
 Linköpings universitet
 
+*Uppdaterad `r Sys.time()`*
 
 
 Dagens föreläsning:
 ========================================================
 
-- Interaktiv återkoppling
 - Programmeringsparadigm
   - Funktionell programmering
   - Objektorientering
@@ -71,11 +71,10 @@ Funktionell programmering
 - Funktioner utan sidoeffekter (tänk matematiska funktioner)
   - En funktions output beror bara på värdena på inargumenten
 - Exempel:
-  - R
-  - Scala
-  - C
+  - R, Scala, Erlang
 - R har "first class functions":
   - Funktioner kan manipuleras som andra objekt, sparas i listor mm
+- Anonyma funktioner: utan namn
 - För fördjupning i R och FP se [här](http://adv-r.had.co.nz/Functional-programming.html).
 
 
@@ -261,7 +260,7 @@ instant och interval
   - Viktiga funktioner: ```now()```, ```today()```, ```here()```
 - ```interval``` 
   - Tidsspannet mellan två ```instant```.
-  - ```new_interval(start,end)```
+  - ```interval(start,end)```
   
 instant och interval: exempel
 ========================================================
@@ -282,7 +281,7 @@ Duration
 - Absolut tid i sekunder
 - Börjar med ```d```
 - Konvertera interval med ```as.duration()```
-- Ex: ```new_duration()```,```dseconds()```, ```dhours()```, ```ddays()``` o.s.v.
+- Ex: ```duration()```,```dseconds()```, ```dhours()```, ```ddays()``` o.s.v.
 
 Duration: exempel
 ========================================================
@@ -303,9 +302,8 @@ Period
 Period: exempel
 ========================================================
 ```{r}
-my_interval / months(1)
+months(3) + days(2)
 my_interval %/% years(1)
-my_interval %% years(1)
 as.period(my_interval)
 ```
 
@@ -321,6 +319,9 @@ course_start + months(1)
 course_start + ddays(30)
 ```
 
+
+Datum och tid i R: Demo
+========================================================
 
 Linjär algebra
 ========================================================
@@ -341,7 +342,7 @@ Linjär algebra
   - Kan bara göras med klassen ```matrix```, ej vektorer
   - Undvika att en matris blir en vektor med ```X[,1,drop=FALSE]```
 - Diagonalmatris: ```diag(c(1,3,5))```
-- Enhetsmatrisen $\mathbf{I}$ : ```diag(3)```
+- Enhetsmatrisen  $\mathbf{I}$ : ```diag(3)```
 
 Linjär algebra
 ========================================================
@@ -357,6 +358,11 @@ Linjär algebra: Matrix
 - Matriserna i **Matrix** baseras på S4 klasser.
 - I **Matrix** är det skillnad på [glesa](https://sv.wikipedia.org/wiki/Gles_matris) och täta matriser.
 - Kolla på vingetterna [här](https://cran.r-project.org/web/packages/Matrix/index.html) för mer info.
+
+
+Linjär algebra i R: Demo
+========================================================
+
 
 Referenser
 ========================================================

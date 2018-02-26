@@ -12,7 +12,6 @@ my_object1
 class(my_object1) <- "employee"
 class(my_object1)
 
-
 my_object1$name
 my_object1$age
 
@@ -30,6 +29,10 @@ print.statistician<-function(x){
   cat(paste(x$name,"is a statistician!"))
 }
 
+print(my_object1)
+print(my_object2)
+print.employee(my_object2)
+
 summary.statistician<-function(x){
   print(paste("Favorited data:",x$data_name))
   temp<-summary(x$data)
@@ -41,16 +44,19 @@ print(my_object2)
 summary(my_object1)
 summary(my_object2)
 
+
+
 age <- function(x) {
   UseMethod("age")
 }
+
 age.default<-function(x) "No method available!"
 
 age.employee<-function(x){
   return(x$age)
 }
 
-age(1:2)
+age(x = 1:2)
 age(iris)
 age(my_object1)
 age(my_object2)
@@ -59,13 +65,16 @@ str(lm)
 
 # Skapa konstruktorfunktion
 
-employee <- function(name, age){
+employee <- function(name, age,company){
   obj<-list(name=name,age=age,company=company)
   class(obj) <- "employee"
   obj
 }
 
-
+x<-employee(name = "Josef",age = 30,company = "ksdlf")
+x
+class(x)
+matrix()
 #-------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------
 # Datum och tid

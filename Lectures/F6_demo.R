@@ -123,6 +123,8 @@ seq(as.Date("2010-1-1"), as.Date("2015-1-1"), by = "days")
 
 a<-matrix(1:100,20,5)
 b<-matrix(100:1,5,20)
+dim(a)
+dim(b)
 a
 b
 a%*%b
@@ -135,10 +137,13 @@ as.vector(d)
 b%*%d
 
 e<-b%*%a
+e
 e<-t(a)%*%a
 e<-matrix(c(1,2,3,4),2,2)
 e
-solve(e)
+e_inv<-solve(e)
+e%*%e_inv
+
 matrix(c(1,2,3,4),2,2,byrow = TRUE)
 diag(1:10)
 

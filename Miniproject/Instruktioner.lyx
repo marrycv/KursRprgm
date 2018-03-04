@@ -116,6 +116,10 @@ target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Miniproject/
 \end_layout
 
 \begin_layout Itemize
+Undvik att använda å,ä eller ö i variabelnamn i er R-kod.
+\end_layout
+
+\begin_layout Itemize
 Rapporterna ska lämnas in som både 
 \series bold
 PDF
@@ -176,7 +180,8 @@ externa datakällor
 \begin_layout Itemize
 
 \series bold
-Inget output från R console ska visas i dokumentet.
+Inget output från R console/varningar/meddelanden/felmeddelanden ska visas
+ i dokumentet.
 
 \series default
  Antingen skapar ni tabeller (med 
@@ -184,6 +189,19 @@ Inget output från R console ska visas i dokumentet.
 kable()
 \family default
 ) eller grafer.
+ T.ex.
+ kan ni ange 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+message=FALSE, warning=FALSE
+\end_layout
+
+\end_inset
+
+ i chunk options när ni skapar chunks med R-kod.
 \end_layout
 
 \begin_layout Itemize
@@ -212,6 +230,10 @@ gruppnummer
  ska framgå i början av rapporten.
 \end_layout
 
+\begin_layout Itemize
+Tänk på att kommentera er kod!
+\end_layout
+
 \begin_layout Section
 Del I: Deskriptiv analys
 \end_layout
@@ -222,12 +244,14 @@ Den första delen av miniprojektet är att samla in datamaterial och beskriva
 \end_layout
 
 \begin_layout Standard
-Till den miniprojektet behöver ni totalt 
+Till den miniprojektet behöver ni minst 
 \series bold
 tre
 \series default
  datamaterial, två som innehåller kommunala data och ett material som innehåller
  en tidsserie.
+ Det är okej att välja data på län nivå istället för kommun om ni vill.
+ Beskrivningen nedan utgår från kommunala data.
  
 \end_layout
 
@@ -236,22 +260,27 @@ Tänk på att välja material ni själva tycker är intressant!
 \end_layout
 
 \begin_layout Paragraph
-Kommunala data
+Kommunala/län data
 \end_layout
 
 \begin_layout Standard
-Två datamaterial (data.frames) ska innehålla data på kommunnivå (d.s.v.
- för alla 290 kommuner).
- Ett exempel skulle kunna vara antal invånare i varje kommun.
- Dataseten ska ha minst 
+Ni ska ladda ner kommunala data, där ni i slutändan har minst 4 variabler
+ på kommunnivå (d.s.v.
+ för alla 290 kommuner) Ett exempel skulle kunna vara antal arbetslösa i
+ varje kommun.
+ Spara er data i en eller flera data.frames.
+ Totalt ska dataseten ska ha minst 
 \series bold
-2 variabler
+4 variabler
 \series default
  utöver kommunnamn.
- Ni väljer själv vilka variabler som ska ingå och vilken område data ska
+ Ni väljer själv vilka variabler som ska ingå och vilka områden data ska
  komma ifrån.
- Tanken är att i nästa del av miniprojektetgöra en enklare sambandsanalys
- mellan dessa variabler.
+ Tanken är att i ska göra enklare analyser och grafer som baseras på dessa
+ variabler.
+ Ni rekommenderas att välja totalt antal invånare i kommun som en variabel,
+ då denna kommer att användas i del 2 av projektet.
+ 
 \end_layout
 
 \begin_layout Paragraph
@@ -400,6 +429,18 @@ Del II: Analys
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+OBS: Denna del kommer att uppateras snart!
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 I den första delen av minprojektet har ni valt ut och beskrivit två datamaterial.
  Nu ska vi fortsätta detta arbete med analyser av materialen.
  Ni som grupp kommer att ha en del frihet i hur ni utför datanalysen som
@@ -473,7 +514,7 @@ r variablerna från båda dataseten.
 merge()
 \family default
 .
- 
+ [
 \begin_inset CommandInset href
 LatexCommand href
 name "Här"
@@ -481,7 +522,7 @@ target "http://www.youtube.com/watch?v=rkmIASiE8iI"
 
 \end_inset
 
- finns en video för hur ni kan använda 
+] finns en video för hur ni kan använda 
 \family typewriter
 merge()
 \family default
@@ -542,100 +583,7 @@ Beräkna korrelationer mellan två variabler och beskriv hur ni tolkar resultate
 \end_layout
 
 \begin_layout Enumerate
-Beräkna två olika linjära regressionsmodeller med funktionen 
-\family typewriter
-lm()
-\family default
-.
- Ni väljer en responsvariabel (
-\begin_inset Formula $y$
-\end_inset
-
--variabel) ni tror kan bero/ha ett samband med de andra variablerna.
- Välj sedan ut två olika variabler som ni kan ha som förklarande variabler
- (
-\begin_inset Formula $x$
-\end_inset
-
--variabler).
- Skatta sedan två regressionsmodeller med de två olika förklarande variablerna
- i var sin regressionsmodell, dvs om era förklarande variabler heter 
-\begin_inset Formula $X_{1}$
-\end_inset
-
- och 
-\begin_inset Formula $X_{2},$
-\end_inset
-
- så blir modellerna: 
-\begin_inset Formula $y=\beta_{0}+\beta_{1}*X_{1}$
-\end_inset
-
- och 
-\begin_inset Formula $y=\beta_{0}+\beta_{1}*X_{2}$
-\end_inset
-
-.
- Det är okej att använda frekvensdata i regressionmodellerna .
- Följande saker ska vara med från modellerna:
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Scatterplot mellan föklarande variabel och responsvariabel, tillsammans
- med skattad regressionlinje i 
-\family typewriter
-ggplot2
-\family default
-.
-\end_layout
-
-\begin_layout Enumerate
-Histogram över residualerna (felen) 
-\series bold
-Tips!
-\series default
- 
-\family typewriter
-resid()
-\end_layout
-
-\begin_layout Enumerate
-Hurvida lutningen på regressionslinjen är signifikant skild från noll, dvs
- om p-värdet för 
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
- i de olika modellern är mindre är 0.05.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-I beskrivningen ska ni beskriva er regressionsmodell med LaTeX, ex: 
-\begin_inset Formula $y=\beta_{0}+\beta_{1}*X_{1}$
-\end_inset
-
-.
- 
-\series bold
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Här"
-target "http://www.hostmath.com/"
-
-\end_inset
-
-
-\series default
-\color inherit
- finns en LaTeX editor för att skapa matematiska uttryck.
- Beskriv i text vad ni drar för slutsats från de två modellerna.
+...
 \end_layout
 
 \begin_layout Subsubsection

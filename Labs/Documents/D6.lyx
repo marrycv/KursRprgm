@@ -203,7 +203,7 @@ target "http://sv.wikipedia.org/wiki/Objektorienterad_programmering"
 
 \series default
 \color inherit
-är ett programmeringsparadigm där data vävs ihop med programkod i objekt.
+ är ett programmeringsparadigm där data vävs ihop med programkod i objekt.
  Programkoden som är kopplad till ett särskilt objekt kallas metoder.
  Dessa metoder kan beskrivas som funktioner som bara fungerar för det aktuella
  objektet.
@@ -760,7 +760,7 @@ min_gen <- function(x) UseMethod("min_gen")
 \end_layout
 
 \begin_layout Enumerate
-Nästa steg blir att skapa enmetod för respektive klass.
+Nästa steg blir att skapa en metod för respektive klass.
 \begin_inset Newline newline
 \end_inset
 
@@ -887,7 +887,7 @@ kalle
 \begin_layout Enumerate
 \begin_inset CommandInset label
 LatexCommand label
-name "enu:Nu-ska-en"
+name "enu:Nu-ska-en-1"
 
 \end_inset
 
@@ -950,7 +950,7 @@ owner
 =) och som testar att villkoren i 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "enu:Nu-ska-en"
+reference "enu:Nu-ska-en-1"
 
 \end_inset
 
@@ -961,7 +961,7 @@ account:
 \begin_inset Newline newline
 \end_inset
 
- 
+
 \family default
 
 \begin_inset ERT
@@ -1065,8 +1065,15 @@ R har en hel del funktioner för att arbeta med matriser.
  Det som skiljer matriser från data.frames i R är att matriser endast kan
  ha en atomär klass/variabeltyp, d.v.s.
  logiska matriser, numeriska matriser och textmatriser.
- I denna del kommer vi att fokusera på numeriska matrsier och klassisk linjär
- algebra i R.
+ I denna del kommer vi att fokusera på numeriska matrsier och klassisk 
+\begin_inset CommandInset href
+LatexCommand href
+name "linjär algebra"
+target "https://en.wikipedia.org/wiki/Linear_algebra"
+
+\end_inset
+
+ i R.
 \end_layout
 
 \begin_layout Section
@@ -1333,7 +1340,15 @@ A
 \end_layout
 
 \begin_layout Enumerate
-På ett liknande sätt kan vi skapa en godtycklig enhetsmatris med 
+På ett liknande sätt kan vi skapa en godtycklig 
+\begin_inset CommandInset href
+LatexCommand href
+name "enhetsmatris"
+target "https://sv.wikipedia.org/wiki/Enhetsmatris"
+
+\end_inset
+
+ med 
 \family typewriter
 diag()
 \family default
@@ -1352,7 +1367,7 @@ status open
 
 \begin_layout Plain Layout
 
-A <- diag(2)
+A <- diag(4)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1731,7 +1746,14 @@ B - A
 \end_layout
 
 \begin_layout Enumerate
-Matrismultiplikation görs med 
+\begin_inset CommandInset href
+LatexCommand href
+name "Matrismultiplikation"
+target "https://sv.wikipedia.org/wiki/Matris#Matrismultiplikation"
+
+\end_inset
+
+ görs med 
 \family typewriter
 %*%
 \family default
@@ -1764,7 +1786,15 @@ A %*% B
 \end_layout
 
 \begin_layout Enumerate
-Vill vi transponera vår matris använder vi 
+Vill vi 
+\begin_inset CommandInset href
+LatexCommand href
+name "transponera"
+target "https://sv.wikipedia.org/wiki/Matris#Transponat"
+
+\end_inset
+
+ vår matris använder vi 
 \family typewriter
 t()
 \family default
@@ -1797,7 +1827,15 @@ t(B)
 \end_layout
 
 \begin_layout Enumerate
-För att beräkna inversen av en matris används 
+För att beräkna 
+\begin_inset CommandInset href
+LatexCommand href
+name "inversen"
+target "https://sv.wikipedia.org/wiki/Matris#Invers"
+
+\end_inset
+
+ av en matris används 
 \family typewriter
 solve()
 \family default
@@ -1830,7 +1868,104 @@ solve(B)
 \end_layout
 
 \begin_layout Enumerate
-Används matriserna 
+
+\family typewriter
+solve()
+\family default
+ kan även användas för att lösa linjära ekvationssystem.
+ Testa 
+\family typewriter
+?solve()
+\family default
+ Säg att vi vill lösa följande ekvationssystem:
+\begin_inset Formula 
+\[
+\begin{array}{c}
+-x_{1}-2x_{2}+x_{3}=1\\
+2x_{1}-2x_{2}+x_{3}=2\\
+2x_{1}-x_{2}-x_{3}=3
+\end{array}
+\]
+
+\end_inset
+
+Eller uttryck med matriser:
+\begin_inset Formula 
+\[
+\begin{array}{c}
+B=\left(\begin{array}{ccc}
+-1 & -2 & 1\\
+2 & -2 & 1\\
+2 & 1 & -1
+\end{array}\right)\quad b=\left(\begin{array}{c}
+1\\
+2\\
+3
+\end{array}\right)\quad x=\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\right)\\
+Bx=b
+\end{array}
+\]
+
+\end_inset
+
+För att räkna ut vilket värde som 
+\begin_inset Formula $x$
+\end_inset
+
+ har kan solve användas enligt nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+print(B)
+\end_layout
+
+\begin_layout Plain Layout
+
+b<-c(1,2,3)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+x<-solve(a=B,b=b)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Använd matriserna 
 \series bold
 A
 \series default
@@ -3079,7 +3214,7 @@ status open
 
 \begin_layout Plain Layout
 
-duration(myInterval)
+as.duration(myInterval)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3150,15 +3285,11 @@ myTime
 
 \end_deeper
 \begin_layout Enumerate
-Eftersom alla tidsintervall i duration är konstanta måste år och månader
- ges ett fixt antal dagar.
+Eftersom alla tidsintervall i duration är konstanta måste år ges ett fixt
+ antal dagar.
  Räkna ut hur många dagar en 
 \family typewriter
 dyears(1)
-\family default
- och en 
-\family typewriter
-dmonths(1)
 \family default
  är.
 \end_layout
@@ -3565,8 +3696,18 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Underv
-isning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+#solution_path<-"/Users/mansmagnusson/Dropbox (Personlig)/Doktorandstudier/Under
+visning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -3750,7 +3891,27 @@ apartment(3, 81)
 
 \begin_layout Plain Layout
 
+b<-apartment(5, 104)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(b)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(b)
+\end_layout
+
+\begin_layout Plain Layout
+
 apartment(0, 81)
+\end_layout
+
+\begin_layout Plain Layout
+
+apartment(2, 0)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3849,7 +4010,22 @@ A <- matrix(1:4,ncol=2)
 
 \begin_layout Plain Layout
 
+B <- matrix(c(1,-2,10,2),ncol=2)
+\end_layout
+
+\begin_layout Plain Layout
+
 two_by_two_det(x=A)
+\end_layout
+
+\begin_layout Plain Layout
+
+b<-two_by_two_det(x=B)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(b)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3913,8 +4089,8 @@ give_blood()
 \family typewriter
 lasttime
 \family default
-: ett datum som anger senaste gången bolodgivaren gav blod, default ska
- vara idag.
+: ett datum som anger senaste gången blodgivaren gav blod, default ska vara
+ idag.
  tips: today()
 \end_layout
 
@@ -4418,7 +4594,7 @@ target "http://sv.wikipedia.org/wiki/Multipel_linj%C3%A4r_regression"
 
 \series default
 .
- Detta kallas ibland för en designlmatris.
+ Detta kallas ibland för en designmatris.
 \end_layout
 
 \begin_layout Standard

@@ -2,14 +2,14 @@
 context("two_by_two_det()")
 
 test_that("two_by_two_det()", {  
-  expect_that(exists("two_by_two_det"), is_true(),
+  expect_true(exists("two_by_two_det"),
               info = "Fel: two_by_two_det() saknas.")
-  expect_that(two_by_two_det, is_a("function"),
-              info = "Fel: two_by_two_det är inte en funktion.")
-  expect_function_self_contained(object = two_by_two_det,
-                        "Fel: Funktionen innehåller fria variabler")
-  expect_that(all(names(formals(two_by_two_det)) %in% c("x")), condition=is_true(),
-              info = "Fel: Argumenten i funktionen har felaktiga namn.")
+  checkmate::expect_function(two_by_two_det, nargs = 1)
+
+  expect_function_self_contained(object = two_by_two_det)
+  
+  expect_function_arguments(two_by_two_det, c("x"))
+  
   expect_error(two_by_two_det("test"),
                info="Fel: Funktionen avbryter/stoppar inte om x inte är en matris.")
   expect_error(two_by_two_det("test"),"Not an object of class matrix.",

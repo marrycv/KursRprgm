@@ -3,14 +3,12 @@ context("apartment()")
 
 test_that("apartment()", {  
 
-  expect_that(exists("apartment"), is_true(),
+  expect_true(exists("apartment"),
               info = "Fel: apartment() is missing")
-  expect_that(apartment, is_a("function"),
-              info = "Fel: apartment is not a function.")
-  expect_equal(names(formals(apartment)), expected =  c("rooms","m2") ,
-              info = "Fel: Funktionen ska ha argumenten rooms och m2.")
+  checkmate::expect_function(apartment, nargs = 2)
+  expect_function_arguments(apartment, c("rooms", "m2"))
 
-  expect_true(class(apartment(1,29))=="apartment", 
+  expect_class(x = apartment(1,29), classes = "apartment",
               info="Fel: Funktionen returnerar inte ett apartment-objekt.")
   
   expect_output(print(apartment(1,29)), regexp = "studio") 

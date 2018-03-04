@@ -4,23 +4,19 @@ context("sum_of_random_dice()")
 
 test_that("Assignment: sum_of_random_dice()", {
   
-  # ladda in test-data:
-
   expect_true(exists("sum_of_random_dice"))
-  expect_is(sum_of_random_dice, "function")
-  expect_true(all(names(formals(sum_of_random_dice)) %in% c("K","lambda","my_seed")))
+  checkmate::expect_function(sum_of_random_dice, nargs = 3,
+                             info = "Fel: babylon är inte en funktion.")
+  expect_function_arguments(sum_of_random_dice, c("K","lambda","my_seed"))
   
-  res <- sum_of_random_dice(K=10,lambda=2,my_seed=4711)
-  expect_is(res, "data.frame", label = "sum_of_random_dice(K=10, lambda=2, my_seed=4711)")
+  expect_silent(res <- sum_of_random_dice(K=10,lambda=2,my_seed=4711))
+  expect_class(sum_of_random_dice(K=10, lambda=2, my_seed=4711), "data.frame")
 
-  expect_true(all(colnames(res) %in% c("value", "dice")), label = "colnames(res) %in% c('value', 'dice')")
-  expect_equal(nrow(res), 10, label = "nrow() of sum_of_random_dice(K=10, lambda=2, my_seed=4711)")
+  checkmate::assert_names(names(sum_of_random_dice(K=2, lambda=2, my_seed=4711)), permutation.of = c("value", "dice"))
+  expect_equal(nrow(sum_of_random_dice(K=3, lambda=2, my_seed=4711)), 3)
+  expect_equal(nrow(sum_of_random_dice(K=15,lambda=6,my_seed=4711)), 15)
 
-  res <- sum_of_random_dice(K=15,lambda=6,my_seed=4711)
-  expect_equal(nrow(res), 15, label = "nrow() of sum_of_random_dice(K=15, lambda=2, my_seed=4711)")
-
-  res <- sum_of_random_dice(K=3000,lambda=6)
-  #res <- sum_of_random_dice(K=2000,lambda=6)
+  expect_silent(res <- sum_of_random_dice(K=3000, lambda=6))
   res_mean_value_K3000_lambda6 <- round(mean(res[,1]),2)
   res_sd_value_K3000_lambda6 <- round(sd(res[,1]),2)
   res_mean_dice_K3000_lambda6 <- round(mean(res[,2]),2)

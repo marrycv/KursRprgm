@@ -180,7 +180,7 @@ externa datakällor
 \begin_layout Itemize
 
 \series bold
-Inget output från R console/varningar/meddelanden/felmeddelanden ska visas
+Inga output från R console/varningar/meddelanden/felmeddelanden ska visas
  i dokumentet.
 
 \series default
@@ -429,18 +429,6 @@ Del II: Analys
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-OBS: Denna del kommer att uppateras snart!
-\series default
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 I den första delen av minprojektet har ni valt ut och beskrivit två datamaterial.
  Nu ska vi fortsätta detta arbete med analyser av materialen.
  Ni som grupp kommer att ha en del frihet i hur ni utför datanalysen som
@@ -494,6 +482,13 @@ kable()
 ), inte utskrifter i R-kod.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Inga output från R console/varningar/meddelanden/felmeddelanden ska visas
+ i dokumentet.
+\end_layout
+
 \begin_layout Subsubsection
 Dataanalys av kommundata
 \end_layout
@@ -505,8 +500,8 @@ name "enu:Slå-samman-dataseten"
 
 \end_inset
 
-Slå samman de två dataseten med kommundata så det blir ett dataset som innehålle
-r variablerna från båda dataseten.
+Slå samman de era dataset med kommundata så det blir ett dataset som innehåller
+ variablerna från alla dataset.
  Om ni gör rätt här så ska ni få ett dataset med en variabel över kommun
  och minst 4 andra variabler.
  Detta kan göras på olika sätt, ett är att använda funktionen 
@@ -535,20 +530,24 @@ Följande saker ska ni göra med data:
 \end_layout
 
 \begin_layout Enumerate
-Producera minst en scatterplot i 
-\family typewriter
-ggplot2
-\family default
- mellan två variabler.
+Alla variabler som är relaterade till folkmängd på något sätt ska normaliseras
+ med hjälp av totalt antal invånare i varje kommun/län.
+ Detta eftersom det oftast är intressant att kolla på andelar istället för
+ absoluta antal.
+ T.ex.
+ andelen arbetslösa i en kommun istället för antalet arbetslösa.
+ Alla plottar ska använda de normaliserade variablerna.
+ I uppgift 5 och 6 får ni välja om ni vill ha de normaliserade eller ej
+ normaliserade variablerna.
+\end_layout
+
+\begin_layout Enumerate
+Producera minst en scatterplot mellan två variabler.
  Beskriv i text vad ni drar för slutsats.
 \end_layout
 
 \begin_layout Enumerate
-Producera minst ett histogram i 
-\family typewriter
-ggplot2
-\family default
-.
+Producera minst ett histogram.
  Beskriv i text vad ni drar för slutsats.
 \end_layout
 
@@ -563,29 +562,89 @@ cut()
 \end_layout
 
 \begin_layout Enumerate
+Hypotestest:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
 Gör minst ett hypotestest, där ni ställer upp en nollhypotes och sen testar
  om ni kan förkasta den.
- Beroende på hur er data ser ut så kan det vara ett t-test eller ett 
+ Beroende på hur er data ser ut så kan det vara ett t-test, ett 
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
--test.
+-test eller test av andelar.
  Har ni inte några kategoriska variabler kan ni använda funktionen 
 \family typewriter
 cut()
 \family default
 .
+ Ni får själva välja vilken nollhypotes ni vill testa.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Skapa en kategorisk variabel baserat på totalt antal invånare: Utgå från
+ medianen, och låt alla kommuner/län som är mindre än (eller lika med) medianen
+ vara en grupp och låt låt alla kommuner/län som är större än medianen vara
+ en grupp.
+ Kalla denna kategoriska variabel för 
+\family typewriter
+pop_grupp
+\family default
+.
+ Detta ger er två grupper av observationer.
+ Gör nu minst ett statistiskt test där ni jämför de två grupperna.
+ Ni ska göra testet på någon annan variabel än totalt antal invånare.
+ Ett exempel kan vara att göra ett two-sample t-test där ni testar om medelvärde
+t för en variabel är olika mellan grupperna.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Beräkna korrelationer mellan minst två variabler och beskriv hur ni tolkar
+ resultatet.
+\end_layout
+
+\begin_layout Enumerate
+Mer plottar.
+ Ni ska nu skapa två till plottar som beror på variabeln 
+\family typewriter
+pop_grupp
+\family default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Gör en scatterplot/histogram/barplot där färgen på observationerna ska bero
+ på variabeln 
+\family typewriter
+pop_grupp
+\family default
+.
+ T.ex.
+ om ni gör en scatterplot så har alla punkterna olika färger beroende på
+ vilken grupp de tillhör.
  Beskriv i text vad ni drar för slutsats.
 \end_layout
 
 \begin_layout Enumerate
-Beräkna korrelationer mellan två variabler och beskriv hur ni tolkar resultatet.
+Gör en scatterplot/histogram/barplot som är uppdelad i två plottar med 
+\family typewriter
+facet_grid()
+\family default
+.
+ Uppdelningen ska bero på variabeln 
+\family typewriter
+pop_grupp
+\family default
+.
+ Beskriv i text vad ni drar för slutsats.
 \end_layout
 
-\begin_layout Enumerate
-...
-\end_layout
-
+\end_deeper
 \begin_layout Subsubsection
 Dataanalys av tidseriedata
 \end_layout
@@ -593,7 +652,7 @@ Dataanalys av tidseriedata
 \begin_layout Standard
 Låt 
 \family typewriter
-X
+Y
 \family default
  vara er variabel i tidsseriematerialet.
  Utför nu följande:
@@ -602,10 +661,11 @@ X
 \begin_layout Enumerate
 Gör en linjeplot mellan 
 \family typewriter
-X
+Y
 \family default
  och er tidsvariabel.
  Skalan på x-axeln ska vara en lämplig tidsskala.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -614,6 +674,7 @@ Beräkna medelvärden per månad och spara dessa i
 month_means
 \family default
 .
+ Presentera dessa i en tabell och skriv en kort kommentar.
  
 \series bold
 Tips!
@@ -629,28 +690,67 @@ Använd funktionen
 summary()
 \family default
  för att fram beskrivande statistik för varje år (det ska vara minst fem
- år i data)
+ år i data).
+ Presentera statistiken i en tabell och skriv en kort kommentar.
 \end_layout
 
 \begin_layout Enumerate
 Subtrahera månadsmedelvärden från 
 \family typewriter
-X
+Y
 \family default
 , så ni tar bort säsongsvariationen i data.
  Månadsmedelvärdet för januari ska subtraheras från alla januarivärden i
  data, och likadant för de andra månaderna.
  Spara den nya tidserie som 
 \family typewriter
-new_X
+new_
 \family default
-.
+Y.
+ Addera medelvärdet för 
+\family typewriter
+Y
+\family default
+ till 
+\family typewriter
+new_
+\family default
+Y för att ge 
+\family typewriter
+new_
+\family default
+Y rätt skala.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Y_new<-Y_new+mean(Y)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
 Gör en linjeplot mellan 
 \family typewriter
-new_X
+new_Y
 \family default
  och tid i 
 \family typewriter
@@ -659,7 +759,7 @@ ggplot2
 .
  Lägg också till 
 \family typewriter
-X
+Y
 \family default
  i samma graf som jämförelse.
 \end_layout
@@ -671,7 +771,7 @@ my_moving_average()
 \family default
  från tidigare labb och beräkna 
 \family typewriter
-moving_average_X
+moving_average_Y
 \family default
 .
  Lägg till variabel i samma graf som ovan.

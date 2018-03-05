@@ -6,11 +6,11 @@ tasks:
     url: Tasks/messy_swe_pop_handler_tests.R
   wordcount:
     url: Tasks/wordcount_tests.R
-  henify:
-    url: Tasks/henify_tests.R
   pnr_sex:
     url: Tasks/pnr_sex_tests.R
   pnr_ctrl:
     url: Tasks/pnr_ctrl_tests.R
+  pnr_ctrl:
+    url: Tasks/minimum_editing_distance_tests.R    
 mandatory:
   url: mandatory_part2.R

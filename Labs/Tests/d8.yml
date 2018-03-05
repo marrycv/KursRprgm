@@ -10,7 +10,7 @@ tasks:
     url: Tasks/pnr_sex_tests.R
   pnr_ctrl:
     url: Tasks/pnr_ctrl_tests.R
-  pnr_ctrl:
+  minimum_editing_distance:
     url: Tasks/minimum_editing_distance_tests.R    
 mandatory:
   url: mandatory_part2.R

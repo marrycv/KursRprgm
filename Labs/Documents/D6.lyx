@@ -4405,6 +4405,16 @@ Sys.setlocale("LC_TIME", "English")
 
 \begin_layout Plain Layout
 
+# eller 
+\end_layout
+
+\begin_layout Plain Layout
+
+Sys.setlocale("LC_TIME", "C")
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -4433,6 +4443,7 @@ library(lubridate)
 
 \begin_layout Plain Layout
 
+Sys.setlocale("LC_TIME", "C")
 \end_layout
 
 \begin_layout Plain Layout

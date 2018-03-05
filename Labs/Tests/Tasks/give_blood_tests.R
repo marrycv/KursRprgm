@@ -17,6 +17,8 @@ test_that("Assignment: give_blood()", {
     x<-paste("Problem with ",funcName,"() when called with: ",paste(paste(names(parameters),"=",parameters[names(parameters)],sep=""),collapse="  "),sep="")
     return(x)
   }
+  # set locale:
+  #Sys.setlocale("LC_TIME", "C")
   
   # test_object_name<-function(target,true_names=NULL){
   #   if(is.function(target)){

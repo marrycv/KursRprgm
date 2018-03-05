@@ -18,35 +18,35 @@ test_that("Assignment: give_blood()", {
     return(x)
   }
   
-  test_object_name<-function(target,true_names=NULL){
-    if(is.function(target)){
-      temp_name<-names(formals(target))
-    }else if(is.list(target)){
-      temp_name<-names(target)
-    }else{
-      stop("target has non valid class!")
-    }
-    
-    if(is.null(true_names)){
-      if(is.null(temp_name)){
-        return(TRUE)
-      }else{
-        return(FALSE)
-      }
-    }else if(is.character(true_names)&length(true_names)>=1){
-      no_names<-length(true_names)
-      no_match<-vector("logical",no_names)
-      if(length(temp_name)!=length(true_names)){
-        return(FALSE)
-      }
-      for(i in 1:no_names){
-        no_match[i]<-any(temp_name%in%true_names[i])
-      }
-      return(all(no_match))
-    }else{
-      stop("true_names has non valid class!") 
-    } 
-  }
+  # test_object_name<-function(target,true_names=NULL){
+  #   if(is.function(target)){
+  #     temp_name<-names(formals(target))
+  #   }else if(is.list(target)){
+  #     temp_name<-names(target)
+  #   }else{
+  #     stop("target has non valid class!")
+  #   }
+  #   
+  #   if(is.null(true_names)){
+  #     if(is.null(temp_name)){
+  #       return(TRUE)
+  #     }else{
+  #       return(FALSE)
+  #     }
+  #   }else if(is.character(true_names)&length(true_names)>=1){
+  #     no_names<-length(true_names)
+  #     no_match<-vector("logical",no_names)
+  #     if(length(temp_name)!=length(true_names)){
+  #       return(FALSE)
+  #     }
+  #     for(i in 1:no_names){
+  #       no_match[i]<-any(temp_name%in%true_names[i])
+  #     }
+  #     return(all(no_match))
+  #   }else{
+  #     stop("true_names has non valid class!") 
+  #   } 
+  # }
   
   # Create test suite
   library(lubridate)
@@ -105,8 +105,11 @@ test_that("Assignment: give_blood()", {
                         "Fel: Funktionen har fria variabler")
   
   
-  expect_true(test_object_name(target = give_blood,true_names = c("lasttime","holiday","sex","type_of_travel")),
-              info = "Fel: Argumenten har felaktiga namn.")
+  #expect_true(test_object_name(target = give_blood,true_names = c("lasttime","holiday","sex","type_of_travel")),
+  #            info = "Fel: Argumenten har felaktiga namn.")
+  
+  expect_function_arguments(object = give_blood,expected = c("lasttime","holiday","sex","type_of_travel"),
+                            info = "Fel: Argumenten har felaktiga namn.")
   
   expect_true(is.character(do.call(what=give_blood,args=test_list[[1]])),
               info = "Fel: Funktionen returnerar inte en text-vektor")
@@ -137,6 +140,7 @@ test_that("Assignment: give_blood()", {
                 tolower(do.call(give_blood, test_list[[6]])) == tolower(test_results_eng[6]),
               info = error_info(parameters=test_list[[6]],funcName="give_blood"))
   
+  expect_silent(object = do.call(give_blood, test_list[[1]]))
   
   # testfall: i <-1
   # for(i in seq_along(test_list)){ 

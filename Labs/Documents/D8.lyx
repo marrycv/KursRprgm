@@ -73,6 +73,11 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\branch removed
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -1399,6 +1404,10 @@ head(wordcount(text=rep("a",10)))
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Branch removed
+status open
+
 \begin_layout Section
 
 \family typewriter
@@ -1705,6 +1714,277 @@ henify(txt1)
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Minsta editeringsavstånd
+\end_layout
+
+\begin_layout Standard
+En viktig uppgift i texthantering på datorer är att mäta avstånd mellan
+ olika textsträngar.
+ Vanliga användningsområden är stavningskontroller och optical character
+ recognition (OCR).
+ 
+\end_layout
+
+\begin_layout Standard
+Ett vanligt mått på avståndet mellan två strängar är Levenshtein-avståndet,
+ ibland kallat 
+\begin_inset Quotes sld
+\end_inset
+
+minimum editing distance
+\begin_inset Quotes srd
+\end_inset
+
+ eller minsta editeringsavstånd.
+ Enkelt uttryckt beskriver detta mått hur många tecken vi måste lägga till,
+ ta bort eller ändra för att gå från den ena strängen till den andra.
+ En introduktion till 
+\begin_inset Quotes sld
+\end_inset
+
+Levenshtein distance
+\begin_inset Quotes srd
+\end_inset
+
+ finns på Wikipedia 
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://en.wikipedia.org/wiki/Levenshtein_distance"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Exempel:
+\end_layout
+
+\begin_layout Standard
+Levenshtein-avståndet mellan 
+\begin_inset Quotes sld
+\end_inset
+
+hoppa
+\begin_inset Quotes srd
+\end_inset
+
+ och 
+\begin_inset Quotes sld
+\end_inset
+
+jobbar
+\begin_inset Quotes srd
+\end_inset
+
+ är fyra, då vi behöver ta följande fyra steg:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+h
+\series default
+oppa 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\series bold
+j
+\series default
+oppa
+\end_layout
+
+\begin_layout Enumerate
+jo
+\series bold
+p
+\series default
+pa 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ jo
+\series bold
+b
+\series default
+pa
+\end_layout
+
+\begin_layout Enumerate
+job
+\series bold
+p
+\series default
+a 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ job
+\series bold
+b
+\series default
+a
+\end_layout
+
+\begin_layout Enumerate
+jobba 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ jobba
+\series bold
+r
+\end_layout
+
+\begin_layout Subsection*
+Wagner-Fishers algoritm:
+\end_layout
+
+\begin_layout Standard
+Wagner-Fishers algoritm är en metod för att räkna ut Levenshtein-avståndet
+ från två godtyckliga textsträngar.
+ En introduktion till algoritmen samt pseudokod finns på Wikipedia 
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm"
+
+\end_inset
+
+.
+ 
+\series bold
+Tips!
+\series default
+ Läs igenom denna sida och förstå algoritmen innan du börjar.
+ Det finns massa olika implementationer av denna algoritm i andra språk
+ än R.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "[Här]"
+target "https://gist.github.com/marcinwyszynski/541969df59d02f039945"
+
+\end_inset
+
+ finns en implementation i språket Go och 
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://gist.github.com/kylebgorman/1081951/9b38b7743a3cb5167ab2c6608ac8eea7fc629dca"
+
+\end_inset
+
+ finns en i Python, de skiljer sig lite från pseudokoden, men kan vara alternati
+v kod att titta på om man kör fast.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "[Här]"
+target "https://www.youtube.com/watch?v=Xxx0b7djCrs"
+
+\end_inset
+
+och 
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://www.youtube.com/watch?v=M3MQt9GJPW0"
+
+\end_inset
+
+ finns två olika video-material som förklarar algoritmen lite mer utförligt.
+\end_layout
+
+\begin_layout Standard
+Uppgiften är att implementera en funktion kallad 
+\family typewriter
+minimum_editing_distance(x, y)
+\family default
+ som tar två stycken strängar, 
+\family typewriter
+x
+\family default
+ och 
+\family typewriter
+y
+\family default
+ och räknar ut Lewenstein-avståndet mellan dessa två strängar.
+ Funktionen ska avbryta om 
+\family typewriter
+x
+\family default
+ och 
+\family typewriter
+y
+\family default
+ inte är textsträngar.
+ Här är ett testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance("jobbar", "hoppa")
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance("kitten", "sitting")
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance(" ", "R!")
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance("Josef Wilzen", "Mans Magnusson")
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance("programmering", "statistik")
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance("matematik", "statistik")
+\end_layout
+
+\begin_layout Plain Layout
+
+minimum_editing_distance("programmering", "matematik")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Svenska personnummer
 \end_layout
@@ -1807,6 +2087,69 @@ Sys.Date()
 sweidnumbr
 \family default
 , detta paket får inte användas.
+\end_layout
+
+\begin_layout Standard
+Här är ett testexempel på hur funktionen ska fungera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=TRUE, echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "196408233234" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr_ctrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "190101010101" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr_ctrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "198112189876" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr_ctrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr <- "190303030303" 
+\end_layout
+
+\begin_layout Plain Layout
+
+pnr_ctrl(pnr)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

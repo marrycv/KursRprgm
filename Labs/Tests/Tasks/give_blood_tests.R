@@ -84,17 +84,17 @@ test_that("Assignment: give_blood()", {
                     "year=2014 month=Jun day=24 weekday=Tuesday",
                     "year=2014 month=Jun day=23 weekday=Monday")
   test_results_swe <- c("year=2014 month=jun day=24 weekday=Tisdag",
-                    "year=2014 month=maj day=26 weekday=M\u00E5ndag",
-                    "year=2014 month=okt day=27 weekday=M\u00E5ndag",
-                    "year=2014 month=okt day=27 weekday=M\u00E5ndag",
+                    "year=2014 month=maj day=26 weekday=Måndag",
+                    "year=2014 month=okt day=27 weekday=Måndag",
+                    "year=2014 month=okt day=27 weekday=Måndag",
                     "year=2014 month=jun day=24 weekday=Tisdag",
-                    "year=2014 month=jun day=23 weekday=M\u00E5ndag")
+                    "year=2014 month=jun day=23 weekday=Måndag")
 # test_results_swe <- c("year=2014 month=Jun day=24 weekday=Tisdag",
-#                        "year=2014 month=May day=26 weekday=M\u00E5ndag",
-#                        "year=2014 month=Oct day=27 weekday=M\u00E5ndag",
-#                         "year=2014 month=Oct day=27 weekday=M\u00E5ndag",
+#                        "year=2014 month=May day=26 weekday=Måndag",
+#                        "year=2014 month=Oct day=27 weekday=Måndag",
+#                         "year=2014 month=Oct day=27 weekday=Måndag",
 #                         "year=2014 month=Jun day=24 weekday=Tisdag",
-#                         "year=2014 month=Jun day=23 weekday=M\u00E5ndag")
+#                         "year=2014 month=Jun day=23 weekday=Måndag")
       
   # General:
   expect_true(exists("give_blood"),

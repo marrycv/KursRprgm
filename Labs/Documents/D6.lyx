@@ -4424,6 +4424,80 @@ Sys.setlocale("LC_TIME", "C")
 \end_layout
 
 \begin_layout Standard
+Om ni har svårt att ändra språk (locale) så finns följande tips:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# månad: 
+\end_layout
+
+\begin_layout Plain Layout
+
+library(lubridate) x <- ymd("2012-03-28") 
+\end_layout
+
+\begin_layout Plain Layout
+
+print(month(x))
+\end_layout
+
+\begin_layout Plain Layout
+
+print(month.name)
+\end_layout
+
+\begin_layout Plain Layout
+
+y<-substr(x = month.name[month(x)],start = 1,stop = 3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+print(y) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# veckodag: 
+\end_layout
+
+\begin_layout Plain Layout
+
+week_name <- c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+ "Saturday")
+\end_layout
+
+\begin_layout Plain Layout
+
+print(wday(x)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+week_name[wday(x)]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Kolla om funktionen uppfyller testfallen nedan:
 \end_layout
 

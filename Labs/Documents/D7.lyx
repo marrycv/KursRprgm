@@ -4600,7 +4600,7 @@ X
 .
  Funktionen ska först testa om matrisen är diagonaliserbar, d.v.s.
  om matrisens egenvektorer är linjärt oberoende (d.v.s.
- determinanten av egenvektorerna är skild från 0).
+ determinanten av matrisen är skild från 0).
  Av numeriska skäl kan detta vara svårt att uppfylla.
  I denna uppgift ska därför determinanten avrundas till 10 decimaler för
  att testa om matrisen är diagonaliserbar.

@@ -23,8 +23,8 @@ test_that("Assignment: wordcount()", {
               info = "Fel: wordcount är inte en funktion.")
   expect_that(all(names(formals(wordcount)) %in% c("text")), condition=is_true(),
               info = "Fel: Namnen på argumenten i funktionen är fel.")
-  expect_function_self_contained(object = wordcount,
-                        "Fel: Funktionen har fria variabler")
+#  expect_function_self_contained(object = wordcount,
+#                        "Fel: Funktionen har fria variabler")
   expect_that(suppressMessages(wordcount(text=text1)), is_a("data.frame"),
               info = "Fel: Funktionen returnerar inte en data.frame")
   

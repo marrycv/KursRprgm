@@ -36,8 +36,10 @@ transition: rotate
 ## Föreläsning 8: Texthantering, tidyr och dplyr
 ### [Mans Magnusson](mailto:mans.magnusson@liu.se)
 
-Avdelningen för statistik,
+STIMA,
 Linköpings universitet
+
+*`r Sys.Date()`*
 
 Dagens föreläsning:
 ========================================================

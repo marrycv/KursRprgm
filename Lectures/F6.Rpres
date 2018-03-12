@@ -39,7 +39,7 @@ transition: rotate
 Avdelningen för statistik,
 Linköpings universitet
 
-*Uppdaterad `r Sys.time()`*
+*`r Sys.Date()`*
 
 
 Dagens föreläsning:

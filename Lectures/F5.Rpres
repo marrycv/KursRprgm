@@ -39,6 +39,7 @@ transition: rotate
 Avdelningen för statistik,
 Linköpings universitet
 
+*`r Sys.Date()`*
 
 Föreläsning 5: Innehåll 
 ========================================================

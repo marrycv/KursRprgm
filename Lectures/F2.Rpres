@@ -38,7 +38,7 @@ STIMA,
 Linköpings universitet
 
 
-*Uppdaterad `r Sys.time()`*
+*`r Sys.Date()`*
 
 Föreläsning 2: Innehåll 
 ========================================================

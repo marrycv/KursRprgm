@@ -5,8 +5,11 @@ test_that("apartment()", {
 
   expect_true(exists("apartment"),
               info = "Fel: apartment() is missing")
+  expect_true(exists("print.apartment"),
+              info = "Fel: print.apartment() is missing")
   checkmate::expect_function(apartment, nargs = 2)
   expect_function_arguments(apartment, c("rooms", "m2"))
+  
 
   expect_class(x = apartment(1,29), classes = "apartment",
               info="Fel: Funktionen returnerar inte ett apartment-objekt.")

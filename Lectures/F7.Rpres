@@ -38,7 +38,7 @@ transition: rotate
 STIMA, 
 Linköpings universitet
 
-*Uppdaterad `r Sys.time()`*
+*`r Sys.Date()`*
 
 Föreläsning 7: Innehåll 
 ========================================================

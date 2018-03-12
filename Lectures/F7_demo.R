@@ -16,40 +16,39 @@ data(longley)
 
 
 # testa ggplot:
+data(mpg)
+?mpg
 
 ?ggplot
-# qplot():
-qplot(x=)
-qplot(displ,hwy,data=mpg)
-qplot(displ,hwy,data=mpg, facets=.~drv)
+
+# Quick plot:
+qplot(mpg$displ, mpg$hwy)
+qplot(displ, hwy, data=mpg, facets=.~drv)
 
 
+# How to do this the correct way
 
-g<-ggplot(mpg,aes(displ,hwy))
+p <- ggplot(data = mpg, aes(x = displ, y = hwy)) + geom_point()
+p + geom_point()
+# or
+p <- ggplot(data = mpg) + aes(x = displ,y = hwy) + geom_point()
+p
 
+str(p)
+summary(p)
+class(p)
 
-g<-ggplot(mpg,mapping=aes(displ,hwy))
-print(g)
-str(g)
-summary(g)
-class(g)
+p + geom_smooth()
+p + geom_smooth(method="lm")
 
-p<-g+geom_point()
-print(p)
+p + facet_grid(.~drv)
 
-g+geom_point()+geom_smooth()
-g+geom_point()+geom_smooth(method="lm")
+p + geom_smooth(method="lm") + facet_grid(.~drv)
 
-g+geom_point()+geom_smooth(method="lm")
-
-g+geom_point()+facet_grid(.~drv)
-
-g+geom_point()+geom_smooth(method="lm")+facet_grid(.~drv)
-
-g+geom_point()+geom_smooth(method="loess")+facet_grid(.~drv)
+p + geom_smooth(method="loess") + facet_grid(.~drv)
 
 # För lite data
-g+geom_point()+geom_smooth(method="lm")+facet_grid(fl~drv)
+p + facet_grid(fl~drv)
 
 
 
@@ -58,61 +57,92 @@ names(mpg)
 ?mpg
 
 
-# använda "konstanta" färger:
-g+geom_point(color="steelblue")+geom_smooth(method="lm")
-g+geom_point(color="green",size=4,alpha=0.5)+geom_smooth(method="lm")
+# Använda andra aestetics:
+ggplot(data = mpg, aes(displ,hwy)) + 
+  geom_point(color="steelblue") +
+  geom_smooth(method="lm")
+
+ggplot(data = mpg, aes(displ,hwy)) + 
+  geom_point(color="green", size=4, alpha=0.5) +
+  geom_smooth(method="lm")
+
+
+# Använda färg och form som aestetic
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point(aes(color=drv))
+
+ggplot(data = mpg, aes(displ,hwy)) + 
+  geom_point(aes(shape=drv, color=drv)) + 
+  xlab("Displacement") + 
+  ylab("Highway miles")
+
+
+# Styra x labels och y labels
+
+
+# Linjegrafer
+library(ggplot2)
+data(Nile)
+Nile <- as.data.frame(Nile) 
+colnames(Nile) <- "level"
+Nile$years <- 1871:1970
+Nile$period <- "- 1900" 
+Nile$period[Nile$years >= 1900] <- "1900 - 1928"
+Nile$period[Nile$years >= 1929] <- "1929 - 1946"
+Nile$period[Nile$years > 1946] <- "1946 + " 
+Nile$period <- as.factor(Nile$period)
+
+
+ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
+
+ggplot(data=Nile) + aes(x=years, y=level) + geom_line(aes(color = period)) + scale_color_colorblind()
+
+ggplot(data=Nile) + aes(x=years, y=level, color = period) + geom_line(aes(linetype = period))
+
+
+# Teman
+ggplot(data=Nile) + 
+  aes(x=years, y=level, color = period) + 
+  geom_line(aes(linetype = period)) + 
+  theme_bw()
+
+ggplot(data=Nile) + 
+  aes(x=years, y=level, color = period) + 
+  geom_line(aes(linetype = period)) + 
+  theme_dark()
+
+install.packages("ggthemes")
+library(ggthemes)
+
+ggplot(data=Nile) + 
+  aes(x=years, y=level, color = period) + 
+  geom_line(aes(linetype = period)) + 
+  theme_economist()
+
+ggplot(data=Nile) + 
+  aes(x=years, y=level, color = period) + 
+  geom_line(aes(linetype = period)) + 
+  theme_excel()
 
 
 
-# anv?nda variabla f?rger:
-g+geom_point(aes(color=drv),size=6,alpha=0.5)+geom_smooth(method="lm")
-
-g+geom_point(color="green",size=4,alpha=0.5)+geom_smooth(method="lm")
-
-# ?ndra mer p? plotten...
-g+geom_point(aes(color=drv),size=6,alpha=0.5)+labs(title="mpg data")+ labs(x="x variable is displ")
-
-g+geom_point(aes(color=drv),size=6,alpha=0.5)+labs(title="mpg data")+ labs(x="x variable is displ")
-
-g+geom_point(aes(color=drv),size=6,alpha=0.5)+labs(title="mpg data")+ labs(x="x variable is displ")+
-  geom_smooth(size=2,linetype=5,method="loess", se=FALSE)
-
-
-# tema black and white
-g+geom_point(color="green",size=4,alpha=0.5)+geom_smooth(method="lm") +theme_bw()
-g+geom_point(color="green",size=4,alpha=0.5)+geom_smooth(method="lm") +theme_dark(base_family="")
-
-
-# gr?nser f?r axlarna:
-testData<-data.frame(x=1:100,y=rnorm(100))
-testData[42,2]<-75 # outlier
-plot(testData[,1],testData[,2],type="l",ylim=c(-3,3))
-
-b<-ggplot(testData,aes(x=x,y=y))
-b+geom_line()
-
-b+geom_line()
-# tar bort data som ligger utanf?r gr?nsen
-b+geom_line() +ylim(-3,3)
-# indkluderar data som ligger ?tanf?r gr?nsen
-b+geom_line()+ coord_cartesian(ylim=c(-3,3))
-
-
-
-# longley data:
+# Longley data:
 
 data(longley)
-d<-ggplot(data=longley,aes(Year,GNP.deflator,Year, GNP))
-e<-ggplot(data=longley,aes(Year, GNP))
-e+geom_line()
+ggplot(data=longley) + aes(Year, GNP.deflator) + geom_line()
 
 
 # ggplot och histgram:
 data(chickwts)
-a<-ggplot(data=chickwts,aes(x=weight))
-a+geom_bar()+facet_grid(.~feed)
-a+geom_histogram(binwidth = 10)
-a+geom_histogram(binwidth = 30)+facet_grid(.~feed)
+a <- ggplot(data=chickwts, aes(x=weight))
+a <- a + geom_bar()
+a <- a + facet_grid(.~feed)
+a
+
+a <- ggplot(data=chickwts, aes(x=weight))
+a <- a + geom_histogram(binwidth = 10)
+a <- a + facet_grid(.~feed)
+a
 
 
 #----------------------------------------------------------------------------
@@ -127,11 +157,11 @@ class(trees)
 plot(trees)
 cov(trees)
 cor(trees)
-cor.test(trees$Girth,trees$Volume)
+cor.test(trees$Girth, trees$Height)
 
 
-
-x<-lm(formula = Volume~Girth,data = trees)
+# Run linear model
+x <- lm(formula = Volume ~ Girth, data = trees)
 class(x)
 print(x)
 x
@@ -139,14 +169,19 @@ summary(x)
 anova(x)
 plot(x)
 
-str(x)
+x <- lm(formula = Volume ~ -1 + Girth, data = trees)
 
 coef(x)
 predict(x)
-plot(trees$Girth,predict(x))
+resid(x)
 
-x<-lm(formula = Volume~.,data = trees)
-x<-lm(formula = Volume~Girth+Height,data = trees)
+ggplot(data = data.frame(Volume = trees$Volume,  Girth = trees$Girth)) + 
+  aes(x = Volume, y = Girth) +
+  geom_point()
+
+x <- lm(formula = Volume ~ ., data = trees)
+
+x <- lm(formula = Volume ~ Girth + Height, data = trees)
 print(x)
 x
 summary(x)

@@ -34,7 +34,7 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 7: Grafik, Linjär regression, statistik
-### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+### [Mans Magnusson](mailto:mans.magnusson@liu.se)
 STIMA, 
 Linköpings universitet
 
@@ -42,15 +42,10 @@ Linköpings universitet
 
 Föreläsning 7: Innehåll 
 ========================================================
-- Interaktiv återkoppling
 - ggplot2
 - Statistik, Linjär regression
 - Miniprojektet
-
-Interaktiv återkoppling
-========================================================
-
-Se separat fil.
+- Frågor
 
 ggplot2
 ========================================================
@@ -63,7 +58,7 @@ ggplot2
 - Alternativ till basgrafiken
 - [http://ggplot2.org](http://ggplot2.org)
 - Har egenskapar från basgrafiken men skiljer sig
-- Utgår alltid från en ```data.frame```
+- Utgår alltid från en ```data.frame``` (i tidy format)
 
 ggplot2
 ========================================================
@@ -116,12 +111,12 @@ aes
 ```x``` | x-axel |
 ```y``` | y-axel |
 ```size``` | storlek |
-```col``` | färg |
+```color``` | färg |
 ```shape``` | form |
 
 aes och geoms
 ========================================================
-- Finns även speciella aestetics för viss geoms
+- Finns även speciella aestetics för vissa geoms
 
 ```geom``` | ```aes``` | 
 ----- | ---- |
@@ -155,9 +150,33 @@ ggplot(data=Nile) + aes(x=years, y=level) + geom_line()
 Exempel
 ========================================================
 ```{r, echo=TRUE}
-p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line(aes(type=period)) + geom_point(aes(shape=period))
+p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) +  geom_point(aes(shape=period))
 p
 ```
+
+Exempel
+========================================================
+```{r, echo=TRUE}
+p <- ggplot(data=Nile) + aes(x=years, y=level, color=period) + geom_line(aes(type=period)) + geom_point()
+p
+```
+
+
+Exempel
+========================================================
+```{r, echo=TRUE}
+p <- ggplot(data=Nile) + aes(x=years, y=level) + facet_grid(period~.) + geom_line()
+p
+```
+
+
+Exempel
+========================================================
+```{r, echo=TRUE}
+p <- ggplot(data=Nile) + aes(x=years, y=level) + facet_grid(~period) + geom_line()
+p
+```
+
 
 Exempel: Teman
 ========================================================
@@ -186,20 +205,13 @@ ggplot2
  - För mer kontroll använd  ```ggplot() ```
 
 
-ggplot2 och cowplot
-========================================================
-
-Paneler/subplots:
-  - Samma typ av plot: factets
-  - Olika plottar: paketet ```cowplot```, se [här](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) för intro
-  - Utgå från funktionen ```plot_gird()```. Se [här](https://cran.rstudio.com/web/packages/cowplot/vignettes/plot_grid.html) för exempel. 
-
 ggplot2 i R: Demo
 ========================================================
 
 Statistik, Linjär regression
 ========================================================
 type: section
+
 
 Enklare statistiska tester
 ========================================================
@@ -212,30 +224,22 @@ Enklare statistiska tester
   - ```cor()``` och ```cov()``` och testas med
   - ```cor.test()```
 
-Array
+Exempel: t-test
 ========================================================
-- vector 1D, matrix 2D
-- ```array``` är en generell multidimensionell tabell för data. Tänk en matris med mer än 2 dimensioner.
-- ```array(data =, dim = , dimnames =)```
-- ```as.array(x)```, ```is.array(x)```
-- ```apply()``` kan användas för att applicera en funktion över vissa dimensioner i en array
-- Har så många index som dimensioner, tex en 3D array: ```A[x,y,z]```
-
-Array
-========================================================
-```{r}
-
-x<-array(1:16,dim = c(2,4,2))
-x
+```{r, echo=TRUE}
+chickwts <- chickwts[chickwts$feed %in%  c("horsebean", "sunflower"), ]
+ggplot(data = chickwts) + aes(x = weight) + geom_histogram() + facet_grid(feed~.)
 ```
 
-Array
+Exempel: t-test
 ========================================================
-```{r}
-apply(x,MARGIN = c(1,2),mean)
-apply(x,MARGIN = c(3),mean)
-x[1:2,3:4,2]  # indexering
+```{r, echo=TRUE}
+data("chickwts")
+horsebean <- chickwts$weight[chickwts$feed == "horsebean"]
+sunflower <- chickwts$weight[chickwts$feed == "sunflower"]
+t.test(horsebean, sunflower)
 ```
+
 
 
 Linjär regression
@@ -245,7 +249,7 @@ incremental: true
 - R skiljer sig från andra statistikprogram
 - Objektorienteringen i R
 - Grunden är formelobjektet ```y ~ x1 + x2```
-  Används på flera håll i R.
+  Används på flera håll i R (ex. facet-grid89ss88989.
 - Att arbeta med modeller i R innebär fyra delar/steg:
   1. Anpassa/träna vår modell och spara som ett objekt
   2. Analysera/studera resultatet

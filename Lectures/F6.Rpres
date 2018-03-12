@@ -36,7 +36,7 @@ transition: rotate
 ## Föreläsning 6: Objektorientering, datum och linjär algebra
 ### [Josef Wilzén](mailto:josefwilzen@liu.se)
 
-Avdelningen för statistik,
+STIMA,
 Linköpings universitet
 
 *`r Sys.Date()`*

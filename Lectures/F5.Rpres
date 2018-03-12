@@ -36,7 +36,7 @@ transition: rotate
 ## Föreläsning 5: Basgrafik, knitr, markdown och externa data
 ### [Måns Magnusson](mailto:mans.magnusson@liu.se)
 
-Avdelningen för statistik,
+STIMA,
 Linköpings universitet
 
 *`r Sys.Date()`*

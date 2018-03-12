@@ -11,10 +11,14 @@ test_that("apartment()", {
   expect_class(x = apartment(1,29), classes = "apartment",
               info="Fel: Funktionen returnerar inte ett apartment-objekt.")
   
-  expect_output(print(apartment(1,29)), regexp = "studio") 
-  expect_output(print(apartment(1,29)), regexp = "29") 
+  expect_output(print(apartment(1,29)), regexp = "studio",
+                info="Fel: print-metoden för fallet apartment(1,29) fungerar inte") 
+  expect_output(print(apartment(1,29)), regexp = "29",
+                info="Fel: print-metoden för fallet apartment(1,29) fungerar inte") 
   
-  expect_output(print(apartment(3,88)), regexp = "apartment") 
-  expect_output(print(apartment(3,88)), regexp = "88") 
+  expect_output(print(apartment(3,88)), regexp = "apartment",
+                info="Fel: print-metoden för fallet apartment(3,88) fungerar inte") 
+  expect_output(print(apartment(3,88)), regexp = "88",
+                info="Fel: print-metoden för fallet apartment(3,88) fungerar inte") 
 
 })

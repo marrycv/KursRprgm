@@ -3812,19 +3812,43 @@ m2
 \end_inset
 
 ) lägenheten är.
- Objektet ska vara av klassen 
+ Denna information ska sparas i en lista.
+ Objektet som returneras ska vara av klassen 
 \family typewriter
 apartment
 \family default
 .
+ Funktionen ska också kontrollera att 
+\family typewriter
+m2
+\family default
+ och 
+\family typewriter
+rooms
+\family default
+ är strikt större än 0 och returnera ett fel om det inträffar.
+ Ni kan välja felmeddelande själva.
 \end_layout
 
 \begin_layout Standard
-Funktionen ska sedan implementera den generiska funktionen 
+Implementera sedan en specifik metod för klassen 
+\family typewriter
+apartment
+\family default
+ till generiska funktionen 
 \family typewriter
 print()
 \family default
- för klassen appartment.
+.
+ Ni ska alltså skapa funktionen 
+\family typewriter
+print
+\family default
+.
+\family typewriter
+apartment()
+\family default
+.
  Används 
 \family typewriter
 print()
@@ -3853,19 +3877,6 @@ A [m2] square meter [rooms]-room apartment.
 \end_layout
 
 \begin_layout Standard
-Funktionen ska också kontrollera att 
-\family typewriter
-m2
-\family default
- och 
-\family typewriter
-rooms
-\family default
- är strikt större än 0 och returnera ett fel om det inträffar.
- Ni kan välja felmeddelande själva.
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -3876,12 +3887,40 @@ status open
 
 \begin_layout Plain Layout
 
+is.function(print.apartment)
+\end_layout
+
+\begin_layout Plain Layout
+
 a <- apartment(1, 25)
 \end_layout
 
 \begin_layout Plain Layout
 
 print(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+print.apartment(a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+a[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+a[[2]]
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -3911,7 +3950,7 @@ apartment(0, 81)
 
 \begin_layout Plain Layout
 
-apartment(2, 0)
+d<-apartment(2, 0)
 \end_layout
 
 \begin_layout Plain Layout

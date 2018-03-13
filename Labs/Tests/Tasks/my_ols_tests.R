@@ -19,8 +19,10 @@ test_that("Assignment: my_ols()", {
               info = "Fel: Funktionen returnerar inte en my_ols-klass")
   expect_that(length(my_ols(X=data.frame(var1=c(1:5)), y=rep(1,5))) == 3, is_true(),
             info = "Fel: Funktionen returnerar inte en lista med tre element")
-  expect_that(all(names(my_ols(X=data.frame(var1=c(1:5)), y=rep(1,5))) %in% c("beta_hat", "sigma2_hat","e_hat")), is_true(),
-              info = "Fel: Funktionen returnerar inte en lista med korrekt elementnamn (beta_hat, sigma2_hat,e_hat).")
+  
+  expect_true(object = all(names(my_ols(X=data.frame(var1=c(1:5)), y=rep(1,5))) %in% c("beta_hat", "sigma2_hat","e_hat")),
+              info="Fel: Funktionen returnerar inte en lista med korrekt elementnamn (beta_hat, sigma2_hat, e_hat).")
+  
   expect_equal(rownames(my_ols(X=data.frame(var1=c(1:5)), y=rep(1,5))$beta_hat)[1], "(Intercept)", 
                info = "Fel: Beta1 har inte (rad)namnet '(Intercept)'")
 

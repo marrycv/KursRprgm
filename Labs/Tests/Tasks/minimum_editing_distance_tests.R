@@ -15,7 +15,10 @@ test_that("Assignment: minimum_editing_distance", {
   expect_error(minimum_editing_distance("sitting", 3))
   
   checkmate::expect_class(minimum_editing_distance("sitting", "kitten"), "numeric")
-
+  
+  expect_no_forbidden_function_code(minimum_editing_distance, forbidden = "adist",
+                                    info="Funktionen adist() är inte tillåten!")
+  
   expect_equal(minimum_editing_distance("jobbar", "hoppa"), 4)  
   expect_equal(minimum_editing_distance("sitting", "kitten"), 3)
   expect_equal(minimum_editing_distance(" ", "R!"), 2)

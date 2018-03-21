@@ -1,0 +1,180 @@
+SEA och AES
+
+
+      För studenter
+
+
+*Som student känns det tryggt att känna till hur en datortentamen går
+till i förväg. Här ger vi svar på de vanligaste frågorna. Hittar du inte
+svar på din fråga här ska du vända dig till personalen i din kurs.*
+
+
+    Lokal och salsplacering
+
+Då du har en datortenta på IDA anges lokal "SU-salar på IDA". Du ska då
+gå till SU17. Där blir du anvisad en sal av tentamenspersonal. Oftast väljer du själv
+plats i salen, men om du blir anvisad en viss plats är det den som
+gäller. Vanliga tentamensregler gäller. Ytterkläder och väskor ska inte
+finnas vid skrivplatsen utan placeras på anvisad plats. Elektroniska
+enheter ska vara helt avstängda och placeras i jacka eller väska (ej vi
+skrivplatsen). Grundläggande instruktioner för inloggning står
+uppskriven på tavlan i salen.
+
+
+    Inloggning
+
+Inloggning sker i tre steg, sessionsval, inloggning på datorn, och
+inloggning på din tentamen:
+
+ 1. Innan du loggar in, välj "Exam System" i sessionsmenyn på
+    inloggningssidan.
+ 2. Logga in med ditt liu-id och ditt *privata lösenord*.
+ 3. Följ instruktionerna på skärmen. När engångslösenord efterfrågas
+    sitter du kvar och väntar på att tentamenspersonal kommer till dig.
+
+Vid problem ska du söka hjälp av tentamenspersonal. Några enklare
+problem kan du lösa själv:
+
+  * Inloggning på datorn använder ditt eget privata lösenord, inte
+    engångslösenord.
+  * Om ett lösenord inte fungerar, kontrollera CAPS-LOCK.
+  * Tryck num-lock för att kunna mata in siffror på numeriska tangentbordet.
+  * Ditt personnummer ska anges med 4-siffrigt årtal.
+
+När du är korrekt inloggad kommer du till den vanliga fönstermiljön,
+fast med en grön bakgrund.
+
+
+    Studentklient
+
+På de flesta tentamina kommer ett program som kallas Studenklient att
+starta automatiskt. Den ska du låta vara öppen och kontrollera ibland.
+Du använder den enligt instruktioner från din examinator. På vissa
+tentamina kan du ställa frågor via klienten, medan du på andra tentamina
+använder den enbart för att skicka in dina lösningar.
+
+
+    Skärminställning för dubbla skärmar
+
+Några datorsalar erbjuder dubbla skärmar. Som standard är skärmarna
+inställda att visa samma bild. Du kan ändra detta i kontrollpanelen:
+
+  * Klicka på startmenyn "Exam menu"
+  * Välj "Kontrollpanel"
+  * Välj "Displays" i hårdvarusektionen (högst upp till vänster)
+  * Avmarkera kryssrutan "Samma bild på alla skärmar"
+  * Genomför ändringen genom att klicka "Apply"
+  * Bekräfta med "Behåll denna konfiguration"
+  * Om muspekaren nu går att dra åt höger från vänstra skärmen över
+    skarven till högra skärmen och tillbaka så är det bra. Om det inte
+    går kan du i figuren över kyssrutan dra runt ikonerna för skärmarna
+    så de visas i omvänd ordning (OBS! Dra inte i de fysiska skärmarna,
+    då går larmet!). Du måste på nytt bekräfta inställningen.
+
+
+    Givna filer
+
+Du hittar tentamen och övriga filer du kan behöva till uppgifterna i
+mappen |given_files|. Denna mapp är skrivskyddad, liksom filerna i den.
+Filerna är även oåtkomliga för läsning fram till tentamen startar. Om du
+använder ett grafiskt program att visa innehållet i mappen måste du
+stänga det och klicka upp det igen för att programmet ska upptäcka att
+filernas accesskod ändrats. Behöver du ändra i någon av de givna filerna
+måste du först kopiera filen till din arbetsmapp |/home/student_tilde|.
+
+
+    Egna givna filer
+
+Om din examinator tillåter att du har tillgång till egna filer du själv
+förberett innan tentamen så återfinns dessa i mappen |my_given_files|.
+Även dessa filer är skrivskyddade, så vill du ändra något måste du själv
+kopiera till din arbetsmapp.
+
+
+    Spara filer i arbetsmappen
+
+Din arbetsmapp (skrivbordet) är |/home/student_tilde|. Det är där du ska
+spara allt du gör under tentamen. Du får om du vill skapa nya mappar
+där, så som vissa IDE'er som Eclipse gör.
+
+
+    Internetåtkomst
+
+Internet är som regel avstängt under tentamen. Dock kan din examinator
+välja att ge dig access till valda sidor, ofta referensmanualen till
+programbibliotek, eller tilläggsmoduler. Om du har tillgång till en
+webbsida så finns ett alternativ i startmenyn för att starta Chromium
+med rätt inställningar för att komma till webbsidan i fråga. Startar du
+Chromium på annat sätt måste du själv mata in rätt URL.
+
+
+    Frågor angående uppgifter
+
+Om du har frågor rörande uppgifter ska du vända dig till kurspersonal,
+som du kan tillkalla via tentamensvakten. Du kan även jobba med andra
+uppgifter tills kurspersonal besöker salen. Om din examinator bemannar
+Studentklienten ska du i första hand ställa dina frågor via den. Räck
+upp handen om du inte fått svar inom rimlig tid.
+
+
+    Tekniska problem
+
+Om du får problem med din dator eller någon mjukvara, och det inte går
+att lösa via Studentklienten ska du räcka upp handen. Vakten tillkallar
+personal som kan hjälpa dig. Vid allvarliga problem kan vakten hjälpa
+dig byta dator om du så önskar. Allt ditt sparade arbete kommer
+automatiskt flyttas till den nya datorn.
+
+
+    Inlämning digitalt
+
+Lösningar som du vill lämna in för bedömning ska du skicka in via
+Studentklienten. Välj "Skicka in uppgift", välj vilken uppgift, och
+bläddra fram de filer du vill skicka in. Du kan bara bifoga filer.
+Eventuella meddelanden måste du lägga som en kommentar i dina filer. När
+du skickat in bör du omedelbar få en bekräftelse "begäran mottagen". Då
+är din inlämning registrerad. Oavsett om du lämnar in eller inte sparas
+alla filer du lämnar på kontot. Skulle du glömma skicka in så går det
+alltså ändå få fram dina filer efter tentamen.
+
+
+    Anonym inlämning på papper
+
+Vid inlämning av lösningar på papper ska du ange KlientID som AID. Ditt
+KlientID (aka SC-nummer) hittar du i Studentklienten uppe till vänster.
+Det räcker att du anger siffrorna om det är ont om plats. Detta gör att
+din inlämning blir anonym för de som bedömer uppgifterna.
+
+
+    Utloggning
+
+När du känner dig klar är det bara att logga ut via startmenyn. För
+säkerhets skull är det bra om du först stänger de program du har startat
+och sparar alla öppna filer. Lämna inte datorn förrän den vanliga
+inloggningsskärmen syns. Om datorn verkar fastnat vid utloggning,
+meddela tentamenspersonal när du går. Din filer har ändå sparats.
+
+
+    Få ut filerna efter tentamen
+
+Om du vill ha tillgång till filerna du arbetade med under tentamen samt
+hur dina lösningar bedömdes ska du kontakta kurspersonal (examinator).
+
+
+Sidansvarig: Klas Arvidsson
+<mailto:klas.arvidsson@liu.se?subject=http://www.ida.liu.se/~examadm/rutiner/student/index.sv.shtml>
+Senast uppdaterad: 2017-12-22
+
+
+*Institutionen för datavetenskap
+
+*
+Linköpings universitet
+581 83 LINKÖPING
+Tel: 013-28 10 00
+
+Kontakta IDA <http://www.ida.liu.se/department/contact/index.sv.shtml> |
+Kartor <http://www.ida.liu.se/department/location/index.sv.shtml>
+
+Om webbplatsen <http://www.liu.se/om-webb?l=sv>
+

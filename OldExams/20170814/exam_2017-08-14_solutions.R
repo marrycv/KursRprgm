@@ -1,5 +1,5 @@
 
-
+#------------------------------------------------------
 # 1
 # a)
 
@@ -9,27 +9,40 @@ b<-2
 (factorial(x = a)-b^a)^-0.1
 
 # b)
+data(OrchardSprays)
 my_df<-OrchardSprays
-index<-seq(1,dim(my_df)[1],2)
+dim(my_df)[1]
+
+index<-seq(from = 1,to = dim(my_df)[1],by = 2)
+
 my_df<-my_df[index,1:2]
 head(my_df)
 tail(my_df)
 
 # c)
-rep(letters,100)
+letters
 
+my_text<-rep(letters,1000)
+my_text
 
 # d)
 
+x_vect<-rep(c(1,2,3,2,1),each=3)
 
-A<-matrix(rep(c(1,2,3,2,1),each=3),nrow = 5,ncol = 3,byrow = TRUE)
+A<-matrix(data = x_vect,nrow = 5,ncol = 3,byrow = TRUE)
 rownames(A)<-c("w","a","r","y","f")
 A
 
-# 2)
+x_vect2<-rep(c(1,2,3,2,1),times=3)
+matrix(data = c(1,2,3,2,1),nrow = 5,ncol = 3,byrow = FALSE)
 
-for(i in 1:5){
-  vec1<-rep("xyz",6-i)
+
+
+# 2)
+# a)
+
+for(i in 1:7){
+  vec1<-rep("xyz",8-i)
   print(vec1)
   vec2<-rep("abc",i)
   print(vec2)
@@ -37,6 +50,11 @@ for(i in 1:5){
 
 
 # b)
+
+# för att förstå den kumulativa summan kör:
+?cumsum
+cbind(1:10,cumsum(1:10))
+
 
 i<-1
 s<-0
@@ -89,6 +107,31 @@ floor(interval(start = date1,end = date4)/months(1))
 # 4 )
 
 # a)
+
+my_curve<-function(x,a=3){
+  
+  no_obs<-length(x)
+  loop_vect<-1:no_obs
+  
+  y<-rep(0,no_obs)  
+  for(i in loop_vect){
+    if(x[i]<=-2){ # fall 1: x<=-2
+      y[i]<-4  
+    }else if(-2<x[i]&x[i]<1){ # fall 2: -2<x<1
+      y[i]<-x[i]^2
+    }else{ # fall 3: 1<=x
+      y[i]<-6-a*x[i]
+    }
+  }
+  return(y)
+}
+
+my_curve(x = c(-10,-20,-2,-1.5))
+my_curve(x = c(-2,0,0.99,1))
+my_curve(x = c(-1,0,1,2,4.5),a = 5)
+curve(expr = my_curve,from = -3,to = 3)
+
+
 
 my_curve<-function(x,a=3){
   return(ifelse(x<=-2,4,ifelse(-2<x&x<1,x^2,(6-a*x))))

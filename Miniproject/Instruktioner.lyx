@@ -79,8 +79,7 @@ Miniprojekt: Programmering i R
 \end_layout
 
 \begin_layout Standard
-Som en del av kursen i R programmering ska en analys av data göras med Rmarkdown
- genomföras.
+Som en del av kursen i R-programmering ska en analys av data göras med Rmarkdown.
  Miniprojektet är uppdelat i två delar.
  Den första delen handlar om att läsa in och bearbeta data från externa
  datakällor och beskriva dessa data.

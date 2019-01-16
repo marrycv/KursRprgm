@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,11 +39,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -85,7 +88,10 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -205,6 +211,7 @@ R är det programmeringsspråk vi kommer att använda i dessa laborationer.
 LatexCommand href
 name "IDE"
 target "http://sv.wikipedia.org/wiki/Integrerad_utvecklingsmilj%C3%B6"
+literal "false"
 
 \end_inset
 
@@ -456,6 +463,7 @@ Självklart finns alla tänkbara matematiska funktioner som kvadratroten,
 LatexCommand href
 name "modulus"
 target "http://en.wikipedia.org/wiki/Modulo_operation"
+literal "false"
 
 \end_inset
 
@@ -1928,6 +1936,7 @@ Global enviroment
 LatexCommand href
 name "RAM"
 target "http://sv.wikipedia.org/wiki/Random_Access_Memory"
+literal "false"
 
 \end_inset
 
@@ -2290,7 +2299,7 @@ print()
 \family default
  används framförallt för att visa enskilda variabler.
  Det är den funktionen som används (internt) av R när vi bara skriver ett
- variabelnamn direkt i konsollen.
+ variabelnamn direkt i konsolen.
 \end_layout
 
 \begin_layout Standard
@@ -2298,11 +2307,11 @@ print()
 \family typewriter
 cat()
 \family default
- används om vi vill ha mer kontroll på utskrifterna till konsollen.
+ används om vi vill ha mer kontroll på utskrifterna till konsolen.
 \end_layout
 
 \begin_layout Enumerate
-Pröva att skriva ut värden till konsollen med 
+Pröva att skriva ut värden till konsolen med 
 \family typewriter
 print()
 \family default
@@ -2610,7 +2619,7 @@ Gör följande beräkningar
 
 \end_deeper
 \begin_layout Enumerate
-Skriv ut följande texter till konsollen med 
+Skriv ut följande texter till konsolen med 
 \family typewriter
 cat()
 \family default
@@ -2655,7 +2664,7 @@ n", pi - exp(1), sep="")
 \end_layout
 
 \begin_layout Enumerate
-Skriv ut följande texter till konsollen som skriver ut olika saker beroende
+Skriv ut följande texter till konsolen som skriver ut olika saker beroende
  på vilken variabeltyp 
 \family typewriter
 x
@@ -3766,6 +3775,11 @@ median(myy)
 \begin_layout Plain Layout
 
 sum(myx)
+\end_layout
+
+\begin_layout Plain Layout
+
+prod(myx)
 \end_layout
 
 \begin_layout Plain Layout
@@ -5041,6 +5055,7 @@ Mer information finns i
 LatexCommand href
 name "referenskortet"
 target "https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf"
+literal "false"
 
 \end_inset
 
@@ -7031,6 +7046,7 @@ Ladda nu ner laborationsmallen, som finns
 LatexCommand href
 name "här"
 target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R"
+literal "false"
 
 \end_inset
 
@@ -7278,6 +7294,7 @@ Mer information om skalärprodukten finns
 LatexCommand href
 name "här"
 target "http://sv.wikipedia.org/wiki/Skal%C3%A4rprodukt"
+literal "false"
 
 \end_inset
 
@@ -7396,6 +7413,11 @@ lukes_father(namn = "Luke")
 
 \begin_layout Plain Layout
 
+lukes_father(namn = "Leia")
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -7412,7 +7434,12 @@ approx_e()
 
 \begin_layout Standard
 Talet 
-\begin_inset Formula $e$
+\begin_inset CommandInset href
+LatexCommand href
+name "e "
+target "https://sv.wikipedia.org/wiki/E_(tal)"
+literal "false"
+
 \end_inset
 
  kan beskrivas som följande oändliga serie:
@@ -7427,7 +7454,21 @@ e=\sum_{n=0}^{\infty}\frac{1}{n!}
 \end_layout
 
 \begin_layout Standard
-Denna serie gör att talet 
+Där 
+\begin_inset Formula $!$
+\end_inset
+
+ är 
+\begin_inset CommandInset href
+LatexCommand href
+name "fakultet"
+target "https://sv.wikipedia.org/wiki/Fakultet_(matematik)"
+literal "false"
+
+\end_inset
+
+.
+ Denna serie gör att talet 
 \begin_inset Formula $e$
 \end_inset
 
@@ -7751,6 +7792,7 @@ Mer information om logiskt lika med finns
 LatexCommand href
 name "[här]"
 target "http://en.wikipedia.org/wiki/Logical_equality"
+literal "false"
 
 \end_inset
 
@@ -7797,9 +7839,14 @@ logical_equality(A = FALSE, B = FALSE)
 \end_layout
 
 \begin_layout Standard
+Tänk på att filen endast ska innehålla de obligatoriska funktionerna nedan
+ och inget annat.
+\end_layout
+
+\begin_layout Standard
 
 \shape italic
-Grattis! Nu är du klar! 
+Grattis! Nu är du klar!
 \end_layout
 
 \end_body

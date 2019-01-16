@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -19,11 +19,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -53,6 +55,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -61,7 +64,10 @@ knitr
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -133,6 +139,7 @@ markmyassignment
 LatexCommand href
 name "här"
 target "https://cran.r-project.org/web/packages/markmyassignment/vignettes/markmyassignment.html"
+literal "false"
 
 \end_inset
 
@@ -283,6 +290,7 @@ Det går även att komma åt vignetten
 LatexCommand href
 name "här"
 target "https://cran.r-project.org/web/packages/markmyassignment/vignettes/markmyassignment.html"
+literal "false"
 
 \end_inset
 

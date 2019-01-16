@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -16,11 +16,13 @@
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -50,6 +52,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -58,7 +61,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -154,6 +160,7 @@ Utgå från laborationsfilen, som går att ladda ned
 LatexCommand href
 name "här"
 target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R"
+literal "false"
 
 \end_inset
 
@@ -211,6 +218,7 @@ labb5_grupp01._komp1.R
 LatexCommand href
 name "kurshemsidan"
 target "https://www.ida.liu.se/~732G33/info/courseinfo.sv.shtml"
+literal "false"
 
 \end_inset
 
@@ -249,6 +257,7 @@ Deadline för laboration framgår på
 LatexCommand href
 name "LISAM"
 target "lisam.liu.se"
+literal "false"
 
 \end_inset
 
@@ -276,6 +285,7 @@ fusklapparna
 LatexCommand href
 name "här"
 target "https://github.com/STIMALiU/KursRprgm/tree/master/Cheetsheats"
+literal "false"
 
 \end_inset
 

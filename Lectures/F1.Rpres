@@ -33,15 +33,15 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 1: Introduktion
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
-STIMA, 
-Linköpings universitet  
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
+STIMA, Linköpings universitet  
 
 
 *`r Sys.Date()`*
 
 Föreläsning 1: Innehåll 
 ========================================================
+incremental: true
 - Kursens upplägg och praktisk information
 - R, R-Studio och vetenskaplig programmering
 - Introduktion till programering i R
@@ -61,10 +61,9 @@ Lärare
 ========================================================
 ### Föreläsare:
 - Josef Wilzén
-- Måns Magnussson
 
 ### Labbassar:
-- Ander Globstrok Dalen, Faton Rekathati
+- Georgia Mushe, Jacob Nilsson, Jakob Lindén, Otto Moen, Patrick Jonsson
 
 Kursens mål
 ========================================================
@@ -84,7 +83,7 @@ Kursens delar
 incremental: true
 ### Kursen består av två delar:
 - *Del 1:* Grundläggande programering
-- *Del 2:* Tillämpningar (statistik och grafik)
+- *Del 2:* Tillämpningar relaterade till statistik, grafik och datahantering
   
 ### Varje vecka (block):
 
@@ -103,7 +102,7 @@ incremental: false
 - Fyra labbar
 - Labbarna görs **en och en**
 
-Del 2: Analys, datumhantering, strängar/regexp, paket och grafik
+Del 2: Tillämpningar
 ========================================================
 incremental: false
 
@@ -111,7 +110,7 @@ incremental: false
 - Fyra föreläsningar
 - Fyra labbar
 - Labbarna görs genom **parprogrammering**
-- **Miniprojekt** i två delar (del av labb 6 och labb 8)
+- **Miniprojekt** i två delar (del av labb 5 och labb 7)
 
 
 Kursens viktigaste moment: 
@@ -128,10 +127,10 @@ Praktisk information
 
 Hemsidan innehåller bland annat schema, föreläsningar m.m. och finns [[här]](http://www.ida.liu.se/~732G33/). Kursen har också en github-sida [[här]](https://github.com/STIMALiU/KursRprgm)
 
-[LISAM](http://lisam.liu.se/): används för inlämning av labbar, frågor och kompletteringar.   
+[LISAM](http://lisam.liu.se/): används för inlämning av labbar och kompletteringar.   
 [Discord](https://discordapp.com/): används för kommunikation
 
-Kurskod: **732G33**
+Kurskod: **732G33**, **732G83**
 
 ## Programvara
 För denna kurs krävs [R](http://www.r-project.org/) och [R-Studio](http://www.rstudio.com/).
@@ -154,6 +153,7 @@ Kurslitteratur II:
 ## Videoföreläsningar
 - Google Developers (GD) videomaterial [[här]](http://www.youtube.com/watch?v=iffR3fWv4xw&list=PLyYlLs02rgBYRWBzYpoHz7m2SE8mEZ68w)
 - Roger Pengs föreläsningar (RP) [[här]](http://www.youtube.com/user/rdpeng/videos)
+- Finns även andra på kurshemsidan
 
 ## Reference cards:
 Ett par sidor med viktiga funktioner i R. [[ladda ned]](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)
@@ -167,8 +167,8 @@ Examination
 ========================================================
 - Datorlabbar, 8 st
 - Datortentamen i datorsal
-  + *Hjälpmedel:* R reference card v.2 (digitalt) + ett par till reference cards 
-     (exakt vad ni får använda finns på hemsidan i en zip-fil)
+  + *Hjälpmedel:* R reference card v.2 (digitalt) + några till reference cards 
+     (exakt vad ni får använda finns på hemsidan) Dessa erhålls digitalt på tentan.
 
 Datorlaborationer
 ========================================================
@@ -187,8 +187,9 @@ Datorlaborationer
 ========================================================
 - Registrera er på kursen för att få tillgång till kursrummet på LISAM
 - Arbetstakt:
-  - kursveckorna går tisdag till tisdag
-  - Kursen går på halvfart ~ 20 h/vecka, varav ca 15 h/vecka till labbar
+  - kursveckorna går måndag till måndag
+  - Kursen går på halvfart ~ 20 h/vecka, ca 15 h/vecka till labbar
+  - Mjuk deadline: söndag kväll
   - Hård deadline: onsdag kl 18.00 veckan efter.
 - Kompletteringar:
   - Labb 1-4: komplettering strax efter halva kursen (se LISAM)
@@ -314,9 +315,8 @@ type: section
 Variabler (objekt) och vektorer i R
 ====================================
 - "spara" värden
-- Vektorer är 1+ element av samma typ (ex. heltal).  
-- Jmf. linjär algebra.
-- Skapas (enklast) med ```c()``` 
+- Vektorer är 1+ element av samma typ (ex. heltal). jmf. linjär algebra. 
+- Skapas (enklast) med ```c()```  
 - Indexering/slicing med ```[ ]```
 Exempel:
 ```{r, eval=TRUE}
@@ -351,7 +351,7 @@ incremental: true
 ```{r,echo=FALSE,eval=TRUE}
 cat("Error in eval(expr, envir, enclos) : object 'x' not found")
 ```
-- Mer information i RP:s video "How to get Help"
+- Mer information i RP:s video ["How to get Help"](https://www.youtube.com/watch?v=ZFaWxxzouCY)
 
 Demo: Variabler och vektorer
 ====================================

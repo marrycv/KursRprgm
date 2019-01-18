@@ -201,7 +201,6 @@ markmyassignment
 
 - Paket för direkt återkoppling på labbar
 - Underlätta lärandet
-  - Inlärningstekniker: Stoppers, -> movers <-, tinkerers.
 - **Kom gärna med synpunkter!**
 
 ```{r, eval=FALSE}
@@ -210,7 +209,7 @@ show_tasks()
 mark_my_assignment()
 ```
 
-DEMO!
+
 
 Datorn, programering och R
 ========================================================
@@ -407,7 +406,7 @@ Introduktion till funktioner
 ========================================================
 
 <p align="center">
-  <img src="https://figures.boundless.com/14595/raw/function-machine2.svg" alt="Function"/>
+  <img src="/home/josef/Dropbox/Josef/732G33_VT2019/KursRprgm/Lectures/images/Function_machine2.svg" alt="Function"/>
 </p>
 
 

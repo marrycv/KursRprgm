@@ -1,9 +1,29 @@
+#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
 # Demo-kod: Lecture 1
+#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
 
-# variables ----
+
+
+# hur använder jag RStudio?
+
+# i RStudio kör en rad (eller markerad kod) genom att trycka ctrl+enter
+# för mer genvägar tryck: alt+shift+k
+
+# mer hjälp: http://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf
+
+#-----------------------------------------------------------------------------------------------------------------------
+# variables 
+#-----------------------------------------------------------------------------------------------------------------------
+
+
 
 my_variable <- "Calle"
+myVariable <- "Calle"
 my variable <- "Calle"
+
+
 
 my_vector <- c("Calle", "Blomqvist")
 my_vector
@@ -23,7 +43,9 @@ typeof(my_vector)
 typeof(my_num)
 
 
-# functions ----
+#-----------------------------------------------------------------------------------------------------------------------
+# functions 
+#-----------------------------------------------------------------------------------------------------------------------
 
 # Funktionens innehåll: 
 # Skriv en funktion, f, som tar ett värde med argumentet z, och kvadrerar det:
@@ -45,9 +67,12 @@ f <- function(z){
 
 
 # - Pröva att funktionen fungerar som den ska
+f(3)
 f(12)
 
 
+# kolla vad som finns inuti:
+f
 
 # Lokal miljö
 f <- function(x, y){
@@ -59,7 +84,10 @@ y <- 5
 f(2, 2)
 
 
-# markmyassignment ----
+#-----------------------------------------------------------------------------------------------------------------------
+# markmyassignment 
+#-----------------------------------------------------------------------------------------------------------------------
+
 ## Installation
 install.packages("markmyassignment")
 
@@ -79,21 +107,36 @@ my_name <- "Mans Magnusson"
 
 ## task1: Create a vector with the values pi and e
 task1 <- c(2 * pi, exp(1)) # Wrong
+
+
+mark_my_assignment("task1")
+
+
 task1 <- c(pi, exp(1)) # Correct
+
+mark_my_assignment("task1")
 
 ## task2: Create a function that return the sum of the first and last element
 task2 <- function(vector){
   vector[2] + vector[length(vector)] # Wrong
 }
 
+mark_my_assignment("task2")
+
 task2 <- function(vector){
   vector[1] + vector[length(vector)] # Correct
 }
 
+mark_my_assignment("task2")
+
+# rätta alla uppgifter samtidigt:
+
 mark_my_assignment()
 
 
-# Logik ----
+#-----------------------------------------------------------------------------------------------------------------------
+# Logik 
+#-----------------------------------------------------------------------------------------------------------------------
 
 minVektor <- c(12, 1, 2, 7)
 minBool <- c(TRUE, FALSE, FALSE, TRUE)
@@ -106,6 +149,10 @@ z <- x > 2
 x[y & !z]
 
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+# markmyassignment: lab 1 ex
+#-----------------------------------------------------------------------------------------------------------------------
 
 # Datorlabb 1 ----
 # Uppgift 1: Three elements

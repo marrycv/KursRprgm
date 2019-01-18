@@ -25,6 +25,9 @@ uppgift1 <- function(mitt_argument){
   # Skriv din funktion här
 }
 
+# OBS: kommentera bort all kod som inte är de obligatoriska variablerna ovan eller 
+# funktionerna som defineras i inlämningsuppgifterna!
+
 
 # Använda markmyassignment
 # library(markmyassignment)

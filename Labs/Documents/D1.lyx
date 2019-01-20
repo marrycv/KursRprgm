@@ -6844,6 +6844,137 @@ c
  och returnerar de två kvadratrötterna.
 \end_layout
 
+\begin_layout Chapter
+Discord
+\end_layout
+
+\begin_layout Section
+Bli bekväm med Discord
+\end_layout
+
+\begin_layout Standard
+Du ska nu logga in på Discord och göra följande:
+\end_layout
+
+\begin_layout Enumerate
+Gå till Statistik och Datanalysservern.
+\end_layout
+
+\begin_layout Enumerate
+Se till att du har rätt roll, antingen 
+\begin_inset Quotes sld
+\end_inset
+
+year one
+\begin_inset Quotes srd
+\end_inset
+
+ eller 
+\begin_inset Quotes sld
+\end_inset
+
+independent
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Se kanalen #roller för instruktion.
+\end_layout
+
+\begin_layout Enumerate
+Gå till kategorin 
+\begin_inset Quotes sld
+\end_inset
+
+732G33
+\begin_inset Quotes srd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hitta kanalen #sayhello och skriv ett meddelande som innehåller följande:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+En kort R-kod (1-5 rader) med nått som du har lärt dig under vecka 1.
+ För att få en bra formattering på koden, ska ni innan och efter koden ska
+ ni skriva tre accent-symboler 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\end_inset
+
+.
+ Om koden innehåller radbrytningar eller 
+\begin_inset CommandInset href
+LatexCommand href
+name "indentering"
+target "https://sv.wikipedia.org/wiki/Indrag_(text)"
+literal "false"
+
+\end_inset
+
+, använd då ctrl+shift+v för att klistra in koden.
+ Se exempel nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\begin_layout Plain Layout
+
+print("hello world")
+\end_layout
+
+\begin_layout Plain Layout
+
+print("abc 123")
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset

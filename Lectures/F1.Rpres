@@ -215,10 +215,6 @@ Datorn, programering och R
 ========================================================
 type: section
 
-Datorns delar
-========================================================
-
-![Datorns delar](https://upload.wikimedia.org/wikipedia/commons/1/13/Personal_computer%2C_exploded_4.svg)
 
 R och datorn
 ========================================================
@@ -234,7 +230,7 @@ Vad är programering?
 incremental: true
 - Instruera en dator att utföra uppgifter
 - Mjukvaruutveckling / vetenskaplig programmering
-- Lågnivåspråk / Högnivåspråk 
+- Maskinkod / Lågnivåspråk / Högnivåspråk 
 - Kompilerande / Intepreterande språk
 
 Varför programera?
@@ -469,16 +465,9 @@ Att tänka på med funktioner
   - Lyft in koden i funktionen
   - Pröva funktionen
 
-Demo: Introduktion till funktioner
+Demo: Introduktion till funktioner och markmyassignment
 ========================================================
 type: section
-
-
-Demo: Introduktion till ```markmyassignment```
-========================================================
-type: section
-
-
 
 Logik
 ========================================================

@@ -31,6 +31,8 @@ my_vector[1]
 num_vec <- c(1, 1, 2)
 my_vector[num_vec]
 
+length(my_variable)
+
 my_vector[length(my_vector)]
 
 my_num <- 1:10
@@ -82,7 +84,7 @@ f <- function(x, y){
 x <- 5
 y <- 5
 f(2, 2)
-
+res
 
 #-----------------------------------------------------------------------------------------------------------------------
 # markmyassignment 
@@ -92,7 +94,7 @@ f(2, 2)
 install.packages("markmyassignment")
 
 ## Använd paketet
-library("markmyassignment")
+library(markmyassignment)
 
 ## Ställ in uppgift
 assignment_path <- 

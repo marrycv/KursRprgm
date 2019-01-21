@@ -398,14 +398,6 @@ incremental: true
 - Grunden för bra och säker kod. Modularisering. Testbarhet (läs markmyassignemnt).
 
 
-Introduktion till funktioner
-========================================================
-
-<p align="center">
-  <img src="/home/josef/Dropbox/Josef/732G33_VT2019/KursRprgm/Lectures/images/Function_machine2.svg" alt="Function"/>
-</p>
-
-
 Funktioners struktur
 ========================================================
 En funktion i R består (ofta) av:
@@ -481,6 +473,7 @@ incremental: true
   + Används i if-else
   + I R: Användas för indexering (välja ut rader/kolumner)
 - I R: De logiska värdena: ```TRUE, FALSE, NA```
+  (```NA``` betyder saknade värden och används i olika sammanhang)
 - I R:Skapas på två sätt:
   + Som vanliga vektorer
   + Med relationsoperatorer

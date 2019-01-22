@@ -42,7 +42,7 @@ Linköpings universitet
 
 Föreläsning 2: Innehåll 
 ========================================================
-- Interaktiv del
+- Quiz!
 - Datastrukturer
   - Matriser
   - Data.frame
@@ -50,9 +50,18 @@ Föreläsning 2: Innehåll
 - Grundläggande databearbetning
 - Input och output (I/O) i R
 
-Interaktiv del
+Quiz
 ========================================================
 type: section
+
+Quiz: kahoot
+========================================================
+
+- Repetition av vecka 1
+- Gå till https://kahoot.it/
+- Ange gamepin på din enhet
+- Välj smeknamn
+
 
 Lösningar?
 ========================================================
@@ -74,11 +83,10 @@ Markmyassignmnet:
 ========================================================
 Om alla tester är avklarade på labb 2:
 
-══ Results ═════════════════════════════════
+══ Results ═════════════════════════════════════
+Duration: 0.8 s
 
-Duration: 0.3 s
-
-OK:       50
+OK:       58
 
 Failed:   0
 
@@ -86,7 +94,8 @@ Warnings: 0
 
 Skipped:  0
 
-Yay! All done!
+You're a coding rockstar!
+
 
 Markmyassignmnet:
 ========================================================
@@ -112,7 +121,7 @@ type: sub-section
 
 Vektorer
 ========================================================
-- Element av **samma** typ
+- Element av samma [typ](https://www.ida.liu.se/~732G33/lectures/F1.html#/32)
 - En dimension
 - Indexering med ```[ ]```
 
@@ -201,7 +210,7 @@ minData
 ```
 
 
-Läsa in interna data.frames 
+Läsa in interna data (data.frames)
 ========================================================
 - Inkluderade datamaterial i R
 - Finns i paketet ```datasets```

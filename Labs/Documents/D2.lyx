@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,11 +39,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -85,7 +88,10 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -784,6 +790,21 @@ all(X > 0)
 
 \begin_layout Plain Layout
 
+# testa även:
+\end_layout
+
+\begin_layout Plain Layout
+
+any(X > 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+# och ?any
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -1105,7 +1126,7 @@ min_matris[min_matris <= 4]
 \end_layout
 
 \begin_layout Enumerate
-Notera att om ni bara kör koden i 2.
+Notera att om ni bara kör koden i 3.
  så returneras en vektor, som innehåller alla element som uppfyller kravet
  för det logiska testet 
 \family typewriter
@@ -1460,7 +1481,7 @@ data.frame
 \family typewriter
 data.frame
 \family default
- kan ha vektorer av olika typ (ex.
+ kan ha variabler (kolumner) av olika typ (ex.
  text, numeriska, logiska m.m.).
  
 \end_layout
@@ -1654,11 +1675,13 @@ iris
 \end_layout
 
 \begin_layout Enumerate
-För att se vilka 
+För att se vilka olika datamaterial som är förinstallerade med R kan vi
+ andvända koden nedan.
+ Notera att visa datameterial är 
 \family typewriter
 data.frame
 \family default
-s som är förinstallerade med R kan vi andvända följande kod:
+s och vissa är andra typer av objekt.
 \begin_inset Newline newline
 \end_inset
 
@@ -1702,6 +1725,7 @@ Pröva att läsa in en annan
 data.frame
 \family default
  som verkar intressant och titta på data.
+ Ta reda på vad variablerna betyder.
 \end_layout
 
 \begin_layout Enumerate
@@ -1831,7 +1855,7 @@ nrow()
 
 \end_deeper
 \begin_layout Enumerate
-Upprepa uppgift 8., men för ett annat dataset som finns i R.
+Upprepa uppgift 8, men för ett annat dataset som finns i R.
 \end_layout
 
 \begin_layout Section
@@ -1841,7 +1865,11 @@ data.frame
 \end_layout
 
 \begin_layout Standard
-Det är sällan så att vi är intresserade av en hel data.frame.
+Det är sällan så att vi är intresserade av en hel 
+\family typewriter
+data.frame
+\family default
+.
  Istället är det enskilda variabler vi är intresserade av att analysera
  och använda i olika analyssammanhang.
  I R görs detta genom att vi väljer ut en enskild variabel (som då blir
@@ -1859,7 +1887,11 @@ plocka ut
 \begin_inset Quotes erd
 \end_inset
 
- en variabel från en data.frame kan vi göra på flera sätt:
+ en variabel från en 
+\family typewriter
+data.frame
+\family default
+ kan vi göra på flera sätt:
 \end_layout
 
 \begin_layout Standard
@@ -2057,7 +2089,16 @@ mean()
 \end_layout
 
 \begin_layout Enumerate
-Vad är decentilerna för 
+Vad är 
+\begin_inset CommandInset href
+LatexCommand href
+name "decentilerna"
+target "https://en.wikipedia.org/wiki/Decile"
+literal "false"
+
+\end_inset
+
+ för 
 \family typewriter
 Petal.Width
 \family default
@@ -2082,6 +2123,22 @@ Vilka är de tre första värdena i
 Sepal.Width
 \family default
 ?
+\end_layout
+
+\begin_layout Enumerate
+Räknad ut variansen för 
+\family typewriter
+Sepal.Length,
+\family default
+ men bara för de observationer där värdena på 
+\family typewriter
+Petal.Length
+\family default
+ är större än medelvärdet för 
+\family typewriter
+Petal.Length
+\family default
+.
 \end_layout
 
 \end_deeper
@@ -2133,7 +2190,7 @@ iris$newVariable <- iris$Petal.Width / iris$Petal.Length
 \end_layout
 
 \begin_layout Enumerate
-Skapa en nya variabler till 
+Skapa nya variabler till 
 \family typewriter
 iris
 \family default
@@ -2297,6 +2354,35 @@ För att ta bort en variabel tillskriver vi variabeln värdet
 \family typewriter
 NULL
 \family default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Här"
+target "https://www.r-bloggers.com/r-null-values-null-na-nan-inf/"
+literal "false"
+
+\end_inset
+
+ och 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://www.r-bloggers.com/r-na-vs-null/"
+literal "false"
+
+\end_inset
+
+ kan du läsa mer om 
+\family typewriter
+NULL
+\end_layout
+
+\end_inset
+
 .
  Detta innebär att variabeln raderas.
  Pröva att ta bort de variabler du skapat tidigare.
@@ -2521,8 +2607,21 @@ character
 Faktorvariabler har två syften, dels att spara minne (heltal tar betydligt
  mycket mindre utrymme i minnet än textvektorer) och dels kan dessa variabler
  användas direkt i analysfunktioner som ex.
- linjär regression och då hanteras de korrekt (med dummyvariabler).
- Det gör att det ofta kan vara värdefullt att konvertera klassvariabler
+ linjär regression och då hanteras de korrekt (med dummyvariabler)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Linjär regression är vanlig statistisk modell för att anlysera data med
+ flera variabler.
+ Dummyvariabler är ett sätt att hantera kategoriska variabler
+\end_layout
+
+\end_inset
+
+.
+ Ett annat exempel är olika typer av grupperade analyser.
+ Det gör att det ibland kan vara värdefullt att konvertera textvariabler
  till faktorvariabler.
 \end_layout
 
@@ -2569,7 +2668,7 @@ Hur ser en skillnad på en textvektor och en faktorvariabel ovan?
 \end_layout
 
 \begin_layout Enumerate
-Skapa en faktorvariabel som ser ut på följande sätt som du kallar 
+Skapa en faktorvariabel som ser ut på följande sätt som du anropar 
 \family typewriter
 minFaktor
 \family default
@@ -2876,6 +2975,7 @@ Faktorvariabler motsvarar
 LatexCommand href
 name "nominala"
 target "https://sv.wikipedia.org/wiki/M%C3%A4tskala"
+literal "false"
 
 \end_inset
 
@@ -3264,6 +3364,10 @@ Tips!
 \family typewriter
 length()
 \family default
+,
+\family typewriter
+ dim()
+\family default
 ]
 \end_layout
 
@@ -3503,7 +3607,7 @@ data.frame
 s, matriser, vektorer på olika sätt.
  Många gånger är själva databearbetningarna som tar tid att göra innan vi
  kan påbörja de analyser vi är intresserade av.
- Följande manipulationer hör till de vi vanligen kan tänkas vilja göra.
+ Följande manipulationer vanliga.
 \begin_inset Separator latexpar
 \end_inset
 
@@ -3561,7 +3665,7 @@ Kombinerar
 \family typewriter
 data.frame
 \family default
-s radvis.
+s/matriser radvis.
 \end_layout
 
 \end_inset
@@ -3587,7 +3691,7 @@ Kombinerar
 \family typewriter
 data.frame
 \family default
-s kolumnvis.
+s/matriser kolumnvis.
 \end_layout
 
 \end_inset
@@ -3613,7 +3717,7 @@ Kombinerar två
 \family typewriter
 data.frame
 \family default
-s med en ID-variabel
+s med ID-variabler
 \end_layout
 
 \end_inset
@@ -3635,7 +3739,7 @@ aggregate()
 \begin_inset Text
 
 \begin_layout Plain Layout
-Aggregerar uppgifter efter ID-variabel
+Aggregerar variabler efter en ID-variabel
 \end_layout
 
 \end_inset
@@ -3870,6 +3974,11 @@ status open
 \begin_layout Plain Layout
 
 example("merge", echo = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+# testa att köra ?example
 \end_layout
 
 \begin_layout Plain Layout
@@ -4193,6 +4302,14 @@ myAggr4 <- aggregate(x=iris$Sepal.Length, by=list(iris$Species), FUN=mean_median
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Skapa en egen funktion som du använder i 
+\family typewriter
+aggregate()
+\family default
+.
 \end_layout
 
 \begin_layout Section
@@ -4602,6 +4719,11 @@ summary()
 length()
 \family default
 .
+ Testa även med 
+\family typewriter
+str()
+\family default
+.
  Vad är den stora skillnaden dem emellan?
 \end_layout
 
@@ -4997,7 +5119,7 @@ fuel
 
 \begin_deeper
 \begin_layout Enumerate
-Spara bilarnas namn som en textvektor.
+Spara bilarnas namn som en textvektor och lägg dem som ett element i listan.
  Kalla listelementet 
 \family typewriter
 namn
@@ -5091,9 +5213,11 @@ mean(mtcars$wt[mtcars$am==1])
 \end_layout
 
 \begin_layout Enumerate
-Ta bort elementet 
+Ta bort från elementet 
 \family typewriter
-meanMPG.
+meanMPG 
+\family default
+listan.
 \end_layout
 
 \end_deeper
@@ -5132,8 +5256,17 @@ working directory
 \end_inset
 
  på datorn.
+ working directory är alltså den mapp på datorn som R jobbar i för tillfället.
  Nedan är mitt working directory.
- Tänk på att en sökväg bara är ett textelement.
+ Tänk på att en sökväg (
+\begin_inset Quotes sld
+\end_inset
+
+path
+\begin_inset Quotes srd
+\end_inset
+
+) bara är ett textelement.
 \begin_inset Newline newline
 \end_inset
 
@@ -5269,7 +5402,8 @@ Tips:
 \backslash
 
 \family default
- i en sökväg - det gäller bara er som har en dator med Windows]
+ i en sökväg.
+ Det sistämnda gäller bara er som har en dator med Windows]
 \end_layout
 
 \begin_layout Enumerate
@@ -5302,6 +5436,11 @@ getwd()
  för att se att sökvägen har ändrats.
 \end_layout
 
+\begin_layout Enumerate
+Hitta filhanteraren i RStudio och se vilka filer som ligger i några olika
+ mappar.
+\end_layout
+
 \begin_layout Section
 
 \family typewriter
@@ -5324,12 +5463,33 @@ Som en första steg ska vi pröva att importera csv-filer och txt-filer.
 LatexCommand href
 name "[här]"
 target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/Apple.txt"
+literal "false"
 
 \end_inset
 
 
 \series default
 \color inherit
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Många av de datamaterial som vi arbetar med under kursen ligger 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://github.com/STIMALiU/KursRprgm/tree/master/Labs/DataFiles"
+literal "false"
+
+\end_inset
+
+.
+ Klicka på filnamnet och tryck sen på knappen Raw.
+\end_layout
+
+\end_inset
+
 .
  Vi ska också pröva att läsa in 
 \family typewriter
@@ -5343,6 +5503,7 @@ google.csv
 LatexCommand href
 name "[här]"
 target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/DataFiles/google.csv"
+literal "false"
 
 \end_inset
 
@@ -5480,7 +5641,9 @@ read.csv2()
 read.table()
 \family default
 .
- Vilken funktion fungerar för den aktuella csv-filen?
+ Vilken funktion fungerar för den aktuella csv-filen? Läs i dokumentation
+ hur du gör för att kontrollera om kategoriska variabler ska vara av typen
+ character eller factor.
 \end_layout
 
 \begin_layout Enumerate
@@ -6072,6 +6235,133 @@ Vad är skillnaden mellan Rdata-filer och rds-filer? Formulera svarat i egna
  ord och skriv ner det.
 \end_layout
 
+\begin_layout Chapter
+Bli bekväm med Discord
+\end_layout
+
+\begin_layout Section
+Bli bekväm med Discord
+\end_layout
+
+\begin_layout Standard
+Du ska nu logga in på Discord och göra följande:
+\end_layout
+
+\begin_layout Enumerate
+Gå till Statistik och Datanalysservern.
+\end_layout
+
+\begin_layout Enumerate
+Se till att du har rätt roll, antingen 
+\begin_inset Quotes sld
+\end_inset
+
+year one
+\begin_inset Quotes srd
+\end_inset
+
+ eller 
+\begin_inset Quotes sld
+\end_inset
+
+independent
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Se kanalen #roller för instruktion.
+\end_layout
+
+\begin_layout Enumerate
+Gå till kategorin 
+\begin_inset Quotes sld
+\end_inset
+
+732G33
+\begin_inset Quotes srd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hitta kanalen #sayhello och skriv ett meddelande som innehåller följande:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+En kort R-kod (1-5 rader) med nått som du har lärt dig under vecka 1 eller
+ 2.
+ För att få en bra formattering på koden, ska ni innan och efter koden ska
+ ni skriva tre accent-symboler 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\end_inset
+
+.
+ Om koden innehåller radbrytningar eller 
+\begin_inset CommandInset href
+LatexCommand href
+name "indentering"
+target "https://sv.wikipedia.org/wiki/Indrag_(text)"
+literal "false"
+
+\end_inset
+
+, använd då ctrl+shift+v för att klistra in koden.
+ Se exempel nedan:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\begin_layout Plain Layout
+
+print("hello world")
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+`{}
+\backslash
+`{}
+\backslash
+`{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -6322,138 +6612,6 @@ set_assignment(lab_path)
 \end_layout
 
 \begin_layout Section
-Bli bekväm med Discord
-\end_layout
-
-\begin_layout Standard
-Du ska nu logga in på Discord och göra följande:
-\end_layout
-
-\begin_layout Enumerate
-Gå till Statistik och Datanalysservern.
-\end_layout
-
-\begin_layout Enumerate
-Se till att du har rätt roll, antingen 
-\begin_inset Quotes sld
-\end_inset
-
-year one
-\begin_inset Quotes srd
-\end_inset
-
- eller 
-\begin_inset Quotes sld
-\end_inset
-
-independent
-\begin_inset Quotes srd
-\end_inset
-
-.
- Se kanalen #roller för instruktion.
-\end_layout
-
-\begin_layout Enumerate
-Gå till kategorin 
-\begin_inset Quotes sld
-\end_inset
-
-732G33
-\begin_inset Quotes srd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Hitta kanalen #sayhello och skriv ett meddelande som innehåller följande:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-ditt liu-ID och ditt för- och efternamn.
-\end_layout
-
-\begin_layout Enumerate
-En kort R-kod (1-5 rader) med nått som du har lärt dig under vecka 1 eller
- 2.
- För att få en bra formattering på koden, ska ni innan och efter koden ska
- ni skriva tre accent-symboler 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-`{}
-\backslash
-`{}
-\backslash
-`{}
-\end_layout
-
-\end_inset
-
-.
- Om koden innehåller radbrytningar eller 
-\begin_inset CommandInset href
-LatexCommand href
-name "indentering"
-target "https://sv.wikipedia.org/wiki/Indrag_(text)"
-
-\end_inset
-
-, använd då ctrl+shift+v för att klistra in koden.
- Se exempel nedan:
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-`{}
-\backslash
-`{}
-\backslash
-`{}
-\end_layout
-
-\begin_layout Plain Layout
-
-print("hello world")
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-`{}
-\backslash
-`{}
-\backslash
-`{}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-När du har gjort steg 4.
- så är du godkänd på denna uppgift.
- 
-\end_layout
-
-\begin_layout Section
 
 \family typewriter
 leap_year()
@@ -6561,12 +6719,12 @@ status open
 
 \begin_layout Plain Layout
 
-my_test_years <- c("1900", "1984", "1997", "2000", "2001") 
+my_test_years1 <- c("1900", "1984", "1997", "2000", "2001") 
 \end_layout
 
 \begin_layout Plain Layout
 
-my_result <- leap_year(years = my_test_years) 
+my_result <- leap_year(years = my_test_years1) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -6577,6 +6735,32 @@ str(my_result)
 \begin_layout Plain Layout
 
 my_result 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_test_years2 <- c("1988","2000","1986","1901", "2012",  "2016",
+\begin_inset Quotes srd
+\end_inset
+
+1200
+\begin_inset Quotes srd
+\end_inset
+
+,
+\begin_inset Quotes srd
+\end_inset
+
+1300
+\begin_inset Quotes srd
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+leap_year(years = my_test_years2) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -6600,7 +6784,7 @@ Diagonalmatriser och spåret av en matris (kallad
 \series bold
 trace
 \series default
- på engelska) är viktigt inom den linjära algebran.
+ på engelska) som är viktigt inom den linjära algebran.
  Mer information finns 
 \series bold
 \color blue
@@ -6609,6 +6793,7 @@ trace
 LatexCommand href
 name "här"
 target "http://en.wikipedia.org/wiki/Trace_(linear_algebra)"
+literal "false"
 
 \end_inset
 
@@ -6709,6 +6894,33 @@ B <- matrix(1:9, nrow=3)
 \begin_layout Plain Layout
 
 matrix_trace(X = B)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+C <- matrix(9:-6, nrow=4)
+\end_layout
+
+\begin_layout Plain Layout
+
+C_trace<-matrix_trace(X = C)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+C_trace
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -6917,6 +7129,7 @@ google2.csv
 LatexCommand href
 name "här"
 target "https://github.com/STIMALiU/KursRprgm/tree/master/Labs/DataFiles"
+literal "false"
 
 \end_inset
 
@@ -7256,6 +7469,16 @@ str(myList4)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Tänk på att filen du lämnar in endast ska innehålla de obligatoriska variablerna
+ och funktionerna i inlämningsuppgifterna och 
+\series bold
+inget
+\series default
+ annat.
+ Var noga med att ge filen korrekt namn innan du lämnar in den.
 \end_layout
 
 \begin_layout Standard

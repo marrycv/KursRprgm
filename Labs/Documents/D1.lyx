@@ -7970,8 +7970,13 @@ logical_equality(A = FALSE, B = FALSE)
 \end_layout
 
 \begin_layout Standard
-Tänk på att filen endast ska innehålla de obligatoriska funktionerna nedan
- och inget annat.
+Tänk på att filen du lämnar in endast ska innehålla de obligatoriska variablerna
+ och funktionerna i inlämningsuppgifterna och 
+\series bold
+inget
+\series default
+ annat.
+ Var noga med att ge filen korrekt namn innan du lämnar in den.
 \end_layout
 
 \begin_layout Standard

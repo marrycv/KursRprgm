@@ -81,6 +81,39 @@ knitr
 \begin_body
 
 \begin_layout Subsection*
+Inlämning
+\end_layout
+
+\begin_layout Standard
+Utgå från laborationsmallen, som går att ladda ned 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Templates/lab_template.R"
+literal "false"
+
+\end_inset
+
+, när du gör inlämningsuppgifterna.
+ Spara denna som labb[no]_[liuID].R , t.ex.
+ labb1_josad732.R om det är laboration 1.
+ Ta inte med hakparenteser i filnamnet.
+ Denna fil ska laddas upp på LISAM och ska 
+\series bold
+inte
+\series default
+ innehålla något annat än de aktuella funktionerna, namn- och ID-variabler
+ och ev.
+ kommentarer.
+ Alltså 
+\series bold
+inga
+\series default
+ andra variabler, funktionsanrop för att testa inlämningsuppgifterna eller
+ anrop till markmyassignment-funktioner.
+\end_layout
+
+\begin_layout Subsection*
 Tips!
 \end_layout
 

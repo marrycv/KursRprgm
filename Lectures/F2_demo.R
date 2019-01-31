@@ -5,10 +5,13 @@
 #------------------------------------------------------------------------------------------
 
 library(markmyassignment)
-lab_path <-
-  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d1.yml"
+
+lab_path <-  "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Labs/Tests/d1.yml"
+
 set_assignment(lab_path)
 show_tasks()
+
+
 LiuId<-"josad732"
 Namn<-"josef wilzén"
 three_elements<-function(){
@@ -18,6 +21,7 @@ three_elements<-function(){
 
 mark_my_assignment("three_elements")
 
+mark_my_assignment()
 
 # -------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------
@@ -31,7 +35,7 @@ mark_my_assignment("three_elements")
 # -------------------------------------------------------------------------------------------
 A1<-matrix(data = c(1,42,323,11,434,54,34,23,2),nrow = 3,ncol = 3)
 A1
-
+?matrix
 # ändra namn:
 colnames(A1)
 colnames(A1)<-c("x","y","z")
@@ -51,8 +55,11 @@ A1[,1,drop=FALSE]
 
 a1<-A1[1,]
 a2<-A1[1,,drop=FALSE]
+a1
 a2
+dim(A1)
 dim(a2)
+dim(a1)
 is.vector(a1)
 is.matrix(a2)
 
@@ -67,6 +74,16 @@ dim(A1[,1])
 
 length(A1[,1])
 dim(A1[,1,drop=FALSE])
+
+x[length(x)]
+
+d<-dim(A1)
+d
+d[1]
+dim(A1)[1]
+
+A1[dim(A1)[1],dim(A1)[2]]
+
 
 A2<-matrix(c("a","b","c","d","e","f","g","h"),4,2)
 A2
@@ -95,7 +112,7 @@ data()
 data(iris)
 ?head
 
-head(iris,n=3)
+head(iris,n=10)
 tail(iris)
 dim(iris)
 iris
@@ -214,7 +231,8 @@ y
 merge(x = x,y = y,by = "id")
 
 
-
+data(iris)
+?iris
 iris[1:10,]
 aggregate(x = iris$Sepal.Length,by=list(iris$Species),FUN = mean)
 aggregate(x = iris[,-5],by=list(iris$Species),FUN = mean)
@@ -275,5 +293,27 @@ myIris<-iris[15:30,2:3]
 
 save(myIris,file = "myIris.RData")
 saveRDS(object = myIris,file = "myIris.rds")
+
+
+
+
+# -------------------------------------------------------------------------------------------
+# mer om funktioner:
+# -------------------------------------------------------------------------------------------
+
+f<-function(x){
+  z<-10
+  y<-x*z
+  return(y)
+}
+
+f
+f(x = 3)
+
+z
+
+# skillnad på () och []?
+
+
 
 

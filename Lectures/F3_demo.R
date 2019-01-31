@@ -9,11 +9,13 @@
 # Villkorssatser
 # -------------------------------------------------------------------------------------------
 
-
+# använda if-sats
 if(2 < 4) print("Ja!")
 
 if(2 > 4) print("Nej!")
 
+
+# if-esle:
 x <- 10
 x <- 40
 if(x <= 20){
@@ -44,7 +46,7 @@ f(x = 1:340)
 f(x = "abc")
 mean("abc")
 
-# Egen version av sign()
+# Egen version av sign(), testa ?sign
 ?sign
 my_sign<-function(x){
   if(is.numeric(x)){

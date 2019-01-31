@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,11 +39,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \branch my_moving_average
 \selected 1
 \filename_suffix 0
@@ -90,7 +93,10 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -624,7 +630,12 @@ else if
 \family typewriter
 else
 \family default
- - sats med flera nivåer:
+ - sats med flera nivåer.
+ Testa med olika värden på 
+\family typewriter
+x
+\family default
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -1172,10 +1183,6 @@ Tips!
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-* Extraproblem
-\end_layout
-
 \begin_layout Enumerate
 Skriv en 
 \family typewriter
@@ -1868,7 +1875,7 @@ for (element in myList){
 
 \begin_layout Plain Layout
 
-	if(typeof(element) != "integer"){ next() }
+	if(typeof(element) != "numeric"){ next() }
 \end_layout
 
 \begin_layout Plain Layout
@@ -2050,6 +2057,22 @@ I love R!
  10 gånger
 \end_layout
 
+\begin_layout Enumerate
+Skriver ut summan av talen 
+\begin_inset Formula $1,\ldots,N$
+\end_inset
+
+ är 
+\begin_inset Formula $N$
+\end_inset
+
+ är loop-index, men ska avbryta om summan överstiger 
+\begin_inset Formula $3080$
+\end_inset
+
+.
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 En sista typ av loop som kan användas är 
@@ -2159,6 +2182,22 @@ I love R!
 \end_inset
 
  20 gånger
+\end_layout
+
+\begin_layout Enumerate
+Skriver ut summan av talen 
+\begin_inset Formula $1,\ldots,N$
+\end_inset
+
+ är 
+\begin_inset Formula $N$
+\end_inset
+
+ är loop-index, men ska avbryta om summan överstiger 
+\begin_inset Formula $3080$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
@@ -3347,6 +3386,19 @@ Se till att du förstår funktionen
 %in%
 \family default
 .
+ Kör tex 
+\family typewriter
+?
+\begin_inset Quotes srd
+\end_inset
+
+%in%
+\begin_inset Quotes srd
+\end_inset
+
+
+\family default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -3419,6 +3471,38 @@ Jämför med
 isIn
 \family default
  fungerar som den ska.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+* Extraproblem
+\series default
+: Gör om funktionen 
+\family typewriter
+isIn()
+\family default
+ i uppgift 6) på följande sätt:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Genom att använda en nästlad for-loop, testa att funktionen fungerar genom
+ att jämföra med 
+\family typewriter
+%in%
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Genom att använda en nästlad while-loop, testa att funktionen fungerar genom
+ att jämföra med 
+\family typewriter
+%in%
+\family default
+.
 \end_layout
 
 \end_deeper
@@ -3623,13 +3707,13 @@ exercise_solutions
 
 \begin_layout Plain Layout
 
-# solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2017/KursRprgmTeacher/Labs/
-exercise_solutions/"
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2019/KursRprgmTeacher/Labs/ex
+ercise_solutions/"
 \end_layout
 
 \begin_layout Plain Layout
 
-solution_path<- "../KursRprgmTeacher/Labs/exercise_solutions/" 
+#solution_path<- "../KursRprgmTeacher/Labs/exercise_solutions/" 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3639,7 +3723,7 @@ solution_files <- dir(solution_path)
 
 \begin_layout Plain Layout
 
-print(solution_files)
+#print(solution_files)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3765,6 +3849,7 @@ body_height
 LatexCommand href
 name "BMI"
 target "https://en.wikipedia.org/wiki/Body_mass_index"
+literal "false"
 
 \end_inset
 
@@ -3838,6 +3923,11 @@ status open
 
 \begin_layout Plain Layout
 
+bmi(body_weight = 63, body_height = 1.68)
+\end_layout
+
+\begin_layout Plain Layout
+
 bmi(body_weight = 95, body_height = 1.98)
 \end_layout
 
@@ -3893,6 +3983,7 @@ En central del inom den linjära algebran är
 LatexCommand href
 name "matrismultiplikation"
 target "https://sv.wikipedia.org/wiki/Matris#Matrismultiplikation"
+literal "false"
 
 \end_inset
 
@@ -3958,6 +4049,7 @@ Säg att vi vill beräkna
 LatexCommand href
 name "skalärprodukten"
 target "https://sv.wikipedia.org/wiki/Skal%C3%A4rprodukt"
+literal "false"
 
 \end_inset
 
@@ -4035,7 +4127,7 @@ Pröva om dimensionerna av matris
 
 \series default
  innebär att de kan multipliceras med varandra, stoppa annars funktionen
- och returnera felmeddelandet.
+ och returnera felmeddelandet (se nedan).
 \end_layout
 
 \begin_layout Enumerate
@@ -4140,6 +4232,7 @@ En algoritm för att approximera kvadratroten ur ett tal är den så kallade
 LatexCommand href
 name "babyloniska metoden"
 target "https://sv.wikipedia.org/wiki/Kvadratrot#Ber.C3.A4kningsmetoder"
+literal "false"
 
 \end_inset
 
@@ -4203,6 +4296,7 @@ Obs!
 LatexCommand href
 name "[här]"
 target "http://sv.wikipedia.org/wiki/Absolutbelopp"
+literal "false"
 
 \end_inset
 
@@ -4446,6 +4540,7 @@ sqrt(15)
 
 \begin_layout Standard
 \begin_inset Branch my_moving_average
+inverted 0
 status open
 
 \begin_layout Section
@@ -4460,6 +4555,7 @@ I denna uppgift ska vi skapa en funktion som beräknar
 LatexCommand href
 name "glidande medelvärden"
 target "https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average"
+literal "false"
 
 \end_inset
 
@@ -4883,8 +4979,48 @@ lines(x = ma_index2,y = ma_air2,col="blue")  # lägger till glidande medelvärde
 
 \begin_layout Standard
 
+\series bold
+Kom ihåg:
+\series default
+ Om era funktioner inte fungerar som de ska testa debuggging! Använd 
+\family typewriter
+print
+\family default
+, 
+\family typewriter
+cat
+\family default
+ eller 
+\family typewriter
+message
+\family default
+ för att skriva ut relevanta värden.
+ Använd 
+\family typewriter
+browser
+\family default
+/
+\family typewriter
+debug
+\family default
+ för att stega igenom funktionerna.
+ Glöm inte att ta bort debuggingkoden innan du lämnar in labben.
+\end_layout
+
+\begin_layout Standard
+Tänk på att filen du lämnar in endast ska innehålla de obligatoriska variablerna
+ och funktionerna i inlämningsuppgifterna och 
+\series bold
+inget
+\series default
+ annat.
+ Var noga med att ge filen korrekt namn innan du lämnar in den.
+\end_layout
+
+\begin_layout Standard
+
 \shape italic
-Grattis! Nu är du klar! 
+Grattis! Nu är du klar!
 \end_layout
 
 \end_body

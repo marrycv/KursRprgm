@@ -33,7 +33,7 @@ Programering i R
 ========================================================
 transition: rotate
 ## Föreläsning 3: Programkontroll
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 STIMA, 
 Linköpings universitet
 
@@ -53,10 +53,6 @@ Allmänt
 ========================================================
 - Några frågor så här långt?
 
-
-Tentamen
-========================================================
-- Extraproblem i labbarna -> Tentan
 
 Programkontroll
 ========================================================
@@ -170,7 +166,7 @@ for ( elem in vektor ) {
 ```
 
 - Vilken vektor eller lista som helst kan användas
-- Viktigt koncept: loopens index "elem" är det ENDA som ändra i Loopen (innanför "{...}")
+- Viktigt koncept: loopens index "elem" är det ENDA som ändras i Loopen (innanför "{...}")
 
 Loopar (for-loop): Exempel
 ========================================================

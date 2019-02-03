@@ -166,7 +166,7 @@ for ( elem in vektor ) {
 ```
 
 - Vilken vektor eller lista som helst kan användas
-- Viktigt koncept: loopens index "elem" är det ENDA som ändras i Loopen (innanför "{...}")
+- Viktigt koncept: loopens index "elem" är det ENDA som ändras i loopen (innanför "{...}")
 
 Loopar (for-loop): Exempel
 ========================================================
@@ -208,7 +208,7 @@ type: sub-section
 
 Nästlade loopar (nested loops)
 ========================================================
-- Om vi vill loopa i flera dimensioner
+- Om vi vill loopa i flera dimensioner/nivåer
 - Delas upp i "Inre" och "yttre" loop
 
 ```{r, eval=TRUE}
@@ -280,7 +280,7 @@ for ( i in 1:3 ) {
 cat("Error: Mitt fel!")
 ```
 
-Demo: nästlade for-loopar och kontrollstrukturer för loopar
+Demo: kontrollstrukturer för loopar
 ========================================================
 type: sub-section
 
@@ -326,6 +326,7 @@ Varningsmeddelanden
 - ```stop()``` avbryter funktioner/loopar och meddelar ett fel
 - Skapa en varning, som inte avbryter: ```warning()```
 - Varningar sparas och skrivs ut sist
+- ```warnings()```: skriva ut tidigare varningar
 
 ```{r,eval=FALSE}
 for (i in 1:2){

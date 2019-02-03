@@ -24,24 +24,31 @@ if(x <= 20){
   print("stort x")
 }
 
-# Detta är ett exempel på kontroll av argument
+
+# vad händer nedan?
 x <- 1:2
 if(x >= 1) print("hej")
-x <- "R"
-
-f(x = c(1,2,3))
-f(x = "R")
-f(x = TRUE)
 
 
+
+# Detta är ett exempel på kontroll av argument
 f <- function(x){
+  
   if(is.numeric(x)){
     my_mean <- mean(x)
     print(my_mean)
+    
   } else{
     print("x is not numeric")
+    
   }
 }
+
+a<-c(1,2,3,10,87)
+f(x = a)
+f(x = "R")
+f(x = TRUE)
+
 f(x = 1:340)
 f(x = "abc")
 mean("abc")
@@ -65,10 +72,10 @@ my_sign(x = 10)
 my_sign(x = -210.53)
 my_sign(0)
 my_sign(x = "R")
+my_sign(x = TRUE)
 
 
-vec <- c("I", "love", "R", "and", "Python")
-seq_along(vec)
+
 
 # -------------------------------------------------------------------------------------------
 # for-loopar
@@ -76,6 +83,9 @@ seq_along(vec)
 
 # beror av loop-index "i"
 vector <- -2:2
+vector
+
+# beror inte av loop-index "i"
 for(i in vector){
   print(my_sign( -10 ))
 }
@@ -83,6 +93,11 @@ for(i in vector){
 # beror inte av loop-index "i"
 for(i in 1:5){
   print("hello")
+}
+
+vector
+for(i in vector){
+  print(my_sign( i ))
 }
 
 
@@ -94,15 +109,22 @@ for(i in loop_vekt){
   res[i] <- x
   print(x)
 }
+res
+sum(loop_vekt)
 
 
-sum(vec)
+
+vec <- c("I", "love", "R", "and", "Python")
+seq_along(vec)
+
 vec <- 10:15
+sum(vec)
+
 sum_0 <- 0
 for(i in seq_along(vec)){
   sum_0 <- sum_0 + vec[i]
 }
-
+sum_0
 
 for(j in 1:5){
   print(j)
@@ -112,6 +134,7 @@ for(j in 1:5){
     print("udda")
   }
 }
+
 
 
 # -------------------------------------------------------------------------------------------
@@ -127,28 +150,34 @@ for ( i in 1:2 ) {
   }
 }
 
+# över rader först och kolumner sen:
 for ( i in 1:2 ) {
   for ( j in 1:2 ) {
     print(paste("rad:", i, "kolumn:", j, "värde=",A[i,j]))
   }
 }
 
-
+# över kolumner först och rader sen
 for ( i in 1:2 ) {
   for ( j in 1:2 ) {
     print(paste("rad:", j, "kolumn:", i, "värde=",A[j,i]))
   }
 }
 
+# multiplicera heltal:
 mult_mat <- matrix(0, nrow = 10, ncol = 10)
+mult_mat
 for ( i in 1:10 ) {
   for ( j in 1:10 ) {
     mult_mat[i,j] <- i*j
   }
 }
+mult_mat
+index<-lower.tri(mult_mat,diag = FALSE)
+mult_mat[index]<-0
+mult_mat
 
-i <- 1
-j <- 2
+
 
 # -------------------------------------------------------------------------------------------
 # kontrollstrukturer för loopar
@@ -165,7 +194,7 @@ for(i in 1:12){
   }
   print(i)
 }
-i <- 3
+
 
 for(i in 1:12){
   cat("Detta händer före if-sats:", i, "\n")
@@ -174,7 +203,7 @@ for(i in 1:12){
   }
   cat("Detta händer efter if-sats:", i, "\n")
 }
-i <- 3
+
 
 for(i in 1:12){
   cat("Deta händer före if-sats:", i, "\n")
@@ -190,7 +219,6 @@ for(i in 1:12){
 # -------------------------------------------------------------------------------------------
 # while-loopar
 # -------------------------------------------------------------------------------------------
-
 
 y <- 10
 x <- 5
@@ -209,8 +237,7 @@ while(x <= 5){
 
 # iris data:
 dim(iris)
-head(iris)
-
+head(iris,n = 3)
 
 cond <- TRUE
 index <- 1
@@ -220,6 +247,7 @@ while(cond){
     print(median(temp))
     index <- index+1
   } else{
+    print("not numeric!")
     cond <- FALSE
   }
 }
@@ -243,19 +271,24 @@ my_mean<-function(x){
   return(mean(x))
 }
 
-my_mean(x = 1:8)
-my_mean(x=c(TRUE,FALSE,FALSE))
-
+a<-my_mean(x = 1:8)
+a
+b<-my_mean(x=c(TRUE,FALSE,FALSE))
+b
 
 my_mean<-function(x){
   print(typeof(x))
-  return(mean(x))
+  val1<-mean(x)
+  val2<-var(x)
+  y<-list(mean=val1,var=val2)
+  return(y)
 }
 my_mean(x = 1:8)
 my_mean(x=c(TRUE,FALSE,FALSE))
 
-# browser och debug
 
+# -------------------------------------------------------------------------------------------
+# browser och debug
 
 debug(my_mean)
 my_mean(x = 1:8)
@@ -276,7 +309,11 @@ h<-function(x){
 }
 
 h(1:4)
+
 my_val<-h(2:5)
+my_val
+my_val<-h(1:340)
+my_val
 
 h<-function(x){
   x_mean<-mean(x)

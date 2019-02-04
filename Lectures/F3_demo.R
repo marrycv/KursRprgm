@@ -10,6 +10,12 @@
 # -------------------------------------------------------------------------------------------
 
 # använda if-sats
+
+if(TRUE) print("Ja!")
+if(FALSE) print("Ja!")
+
+2 < 4
+
 if(2 < 4) print("Ja!")
 
 if(2 > 4) print("Nej!")
@@ -57,6 +63,7 @@ mean("abc")
 ?sign
 my_sign<-function(x){
   if(is.numeric(x)){
+    
     if(x > 0){
       return(1)
     } else if(x == 0){
@@ -64,9 +71,11 @@ my_sign<-function(x){
     } else {
       return(-1)
     }
+    
   } else {
     print(x)
   }
+  
 }
 my_sign(x = 10)
 my_sign(x = -210.53)
@@ -74,6 +83,8 @@ my_sign(0)
 my_sign(x = "R")
 my_sign(x = TRUE)
 
+a<-my_sign(0)
+a
 
 
 
@@ -91,7 +102,7 @@ for(i in vector){
 }
 
 # beror inte av loop-index "i"
-for(i in 1:5){
+for(i in 1:3){
   print("hello")
 }
 
@@ -164,6 +175,10 @@ for ( i in 1:2 ) {
   }
 }
 
+j<-2
+i<-1
+print(paste("rad:", j, "kolumn:", i, "värde=",A[j,i]))
+
 # multiplicera heltal:
 mult_mat <- matrix(0, nrow = 10, ncol = 10)
 mult_mat
@@ -185,7 +200,6 @@ mult_mat
 
 ?next # iteration in loop 
 ?break # out of inner loop
-
 
 
 for(i in 1:12){
@@ -226,6 +240,7 @@ while(x > 0){
   print(y/x)
   x <- x-1
 }
+x
 
 # Varning för eviga loopar!
 x <- 1
@@ -287,6 +302,9 @@ my_mean(x = 1:8)
 my_mean(x=c(TRUE,FALSE,FALSE))
 
 
+
+
+
 # -------------------------------------------------------------------------------------------
 # browser och debug
 
@@ -294,6 +312,16 @@ debug(my_mean)
 my_mean(x = 1:8)
 my_mean(x=c(TRUE,FALSE,FALSE))
 undebug(my_mean)
+
+my_mean<-function(x){
+  print(typeof(x))
+  val1<-mean(x)
+  #browser()
+  val2<-var(x)
+  y<-list(mean=val1,var=val2)
+  return(y)
+}
+
 
 
 h<-function(x){

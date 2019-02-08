@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,11 +39,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -85,7 +88,10 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -209,6 +215,7 @@ Paket är något som skiljer R från andra statistikprogram är att den mesta
 LatexCommand href
 name "modularisering"
 target "https://en.wikipedia.org/wiki/Modular_programming"
+literal "false"
 
 \end_inset
 
@@ -241,6 +248,7 @@ Alla paket har olika versioner och generellt följer de kriterierna för
 LatexCommand href
 name "semantisk versionshantering"
 target "http://semver.org/"
+literal "false"
 
 \end_inset
 
@@ -257,6 +265,7 @@ Först måste vi installera ett paket.
 LatexCommand href
 name "CRAN"
 target "https://cran.r-project.org/"
+literal "false"
 
 \end_inset
 
@@ -324,6 +333,38 @@ install.packages("lubridate",lib="sökväg till en mapp i din hemkatalog")
 \end_layout
 
 \begin_layout Enumerate
+I SU-salarna så är de paket som behövs på kursen installerade i en modul.
+ Om ni kör kommandot nedan i en terminal så kommer ni få tillgång till R,
+ RStudio samt de R-paket som behövs i kursen.
+ Öppna en terminal genom att trycka ctrl+alt+T
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+module load courses/732G33
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
 För att se vilka paket som är installerade så körs:
 \begin_inset Newline newline
 \end_inset
@@ -373,6 +414,7 @@ En annan server där det finns mycket paket är på
 LatexCommand href
 name "github"
 target "https://github.com/"
+literal "false"
 
 \end_inset
 
@@ -611,6 +653,7 @@ För en fördjupning om funktioner rekommenderas
 LatexCommand href
 name "kapitlet om funktioner"
 target "http://adv-r.had.co.nz/Functions.html"
+literal "false"
 
 \end_inset
 
@@ -1164,6 +1207,7 @@ Det finns ett undantag från dessa regler och det gäller primitiva funktioner.
 LatexCommand href
 name "C-kod"
 target "https://en.wikipedia.org/wiki/C_(programming_language)"
+literal "false"
 
 \end_inset
 
@@ -1631,6 +1675,7 @@ Ibland kan det vara så att vi vill ge en hel funktion som ett argument till
 LatexCommand href
 name "integrera"
 target "https://sv.wikipedia.org/wiki/Integral"
+literal "false"
 
 \end_inset
 
@@ -1639,6 +1684,7 @@ target "https://sv.wikipedia.org/wiki/Integral"
 LatexCommand href
 name "numeriskt"
 target "https://sv.wikipedia.org/wiki/Numerisk_integrering"
+literal "false"
 
 \end_inset
 
@@ -1754,6 +1800,7 @@ Vi kan också skicka med argument till den funktion vi skickar med.
 LatexCommand href
 name "exponentialfördelad variabel"
 target "https://en.wikipedia.org/wiki/Exponential_distribution"
+literal "false"
 
 \end_inset
 
@@ -3590,6 +3637,7 @@ help()
 LatexCommand href
 name "här"
 target "https://sv.wikipedia.org/wiki/Latex_(typs%C3%A4ttningssystem)"
+literal "false"
 
 \end_inset
 
@@ -3604,6 +3652,7 @@ Vill vi dokumentera våra funktioner utan att skapa egna paket använder vi
 LatexCommand href
 name "ROxygen"
 target "http://roxygen.org/roxygen.pdf"
+literal "false"
 
 \end_inset
 
@@ -3954,6 +4003,7 @@ Funktionen med tillhörande dokumentation finns
 LatexCommand href
 name "[här]"
 target "https://github.com/rOpenGov/pxweb/blob/master/R/interactive_pxweb.R"
+literal "false"
 
 \end_inset
 
@@ -4011,6 +4061,7 @@ Kolla på de olika stilguiderna:
 LatexCommand href
 name "Hadley Wickhams"
 target "http://adv-r.had.co.nz/Style.html"
+literal "false"
 
 \end_inset
 
@@ -4022,6 +4073,7 @@ target "http://adv-r.had.co.nz/Style.html"
 LatexCommand href
 name "Googles"
 target "http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"
+literal "false"
 
 \end_inset
 
@@ -4345,6 +4397,7 @@ För mer information om Hilbertmatriser finns
 LatexCommand href
 name "här"
 target "http://en.wikipedia.org/wiki/Hilbert_matrix"
+literal "false"
 
 \end_inset
 
@@ -4509,6 +4562,7 @@ toeplitz_matrix()
 LatexCommand href
 name "här"
 target "http://en.wikipedia.org/wiki/Toeplitz_matrix"
+literal "false"
 
 \end_inset
 
@@ -4901,6 +4955,7 @@ Det teoretiska
 LatexCommand href
 name "väntevärdet"
 target "https://sv.wikipedia.org/wiki/V%C3%A4ntev%C3%A4rde"
+literal "false"
 
 \end_inset
 
@@ -5180,6 +5235,7 @@ Det teoretiska
 LatexCommand href
 name "variansen"
 target "https://sv.wikipedia.org/wiki/Varians"
+literal "false"
 
 \end_inset
 
@@ -5506,6 +5562,7 @@ moment_func(densities,moment=NULL)
 LatexCommand href
 name "moment"
 target "https://sv.wikipedia.org/wiki/Moment_%28matematik%29"
+literal "false"
 
 \end_inset
 

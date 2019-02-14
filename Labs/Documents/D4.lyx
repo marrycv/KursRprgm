@@ -451,7 +451,7 @@ install.packages("devtools")
 
 \begin_layout Plain Layout
 
-devtools::install_github("pxweb","rOpenGov") 
+devtools::install_github('ropengov/pxweb')
 \end_layout
 
 \begin_layout Plain Layout

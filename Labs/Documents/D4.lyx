@@ -4727,6 +4727,31 @@ D_{-2} & D_{-1} & D_{0}
 \end_layout
 
 \begin_layout Standard
+Ett annat exempel är 
+\begin_inset Formula $x=\left(\begin{array}{ccccccc}
+D_{0} & D_{+1} & D_{+2} & D_{+3} & D_{-1} & D_{-2} & D_{-3}\end{array}\right)$
+\end_inset
+
+ som ger matrisen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{cccc}
+D_{0} & D_{+1} & D_{+2} & D_{+3}\\
+D_{-1} & D_{0} & D_{+1} & D_{+2}\\
+D_{-2} & D_{-1} & D_{0} & D_{+1}\\
+D_{-3} & D_{-2} & D_{-1} & D_{0}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Nu ska ni skapa en funktion som ska ta en godtycklig vektor 
 \family typewriter
 x

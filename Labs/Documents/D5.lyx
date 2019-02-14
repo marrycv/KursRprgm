@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,11 +39,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -85,7 +88,10 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -202,6 +208,7 @@ ggplot2
 \begin_inset CommandInset citation
 LatexCommand cite
 key "tufte1983visual"
+literal "true"
 
 \end_inset
 
@@ -306,6 +313,7 @@ Cirkeldiagram är ofta populärt, men bör generellt sett undvikas (se ex.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "tufte1983visual"
+literal "true"
 
 \end_inset
 
@@ -319,6 +327,7 @@ key "tufte1983visual"
 LatexCommand href
 name "[här]"
 target "http://www.stevefenton.co.uk/Content/Pie-Charts-Are-Bad/"
+literal "false"
 
 \end_inset
 
@@ -475,6 +484,7 @@ col
 LatexCommand href
 name "[här]"
 target "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"
+literal "false"
 
 \end_inset
 
@@ -952,6 +962,7 @@ plot()
 LatexCommand href
 name "generisk funktion"
 target "https://en.wikipedia.org/wiki/Generic_function"
+literal "false"
 
 \end_inset
 
@@ -2736,6 +2747,7 @@ R markdown består av två delar.
 LatexCommand href
 name "markup-språket"
 target "http://en.wikipedia.org/wiki/Markup_language"
+literal "false"
 
 \end_inset
 
@@ -2771,6 +2783,7 @@ Det finns ett bra referensdokument
 LatexCommand href
 name "[här]"
 target "https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf"
+literal "false"
 
 \end_inset
 
@@ -2793,6 +2806,7 @@ fusklapp
 LatexCommand href
 name "[här]"
 target "https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"
+literal "false"
 
 \end_inset
 
@@ -2817,6 +2831,7 @@ Under senare tid har reproducerbarhet när det gäller statistiska analyser
 LatexCommand href
 name "[här]"
 target "http://reproducibleresearch.net/"
+literal "false"
 
 \end_inset
 
@@ -3251,6 +3266,7 @@ Mer exempel på formatering finns i referensbladet för R markdown
 LatexCommand href
 name "[här]"
 target "http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf"
+literal "false"
 
 \end_inset
 
@@ -3274,6 +3290,7 @@ Ofta vill vi beskriva våra beräkningar med matematiska ekvationer.
 LatexCommand href
 name "[minihandbok]"
 target "http://en.wikibooks.org/wiki/LaTeX/Mathematics"
+literal "false"
 
 \end_inset
 
@@ -3519,6 +3536,7 @@ chunks
 LatexCommand href
 name "[här]"
 target "https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf"
+literal "false"
 
 \end_inset
 
@@ -4033,6 +4051,7 @@ rdrop2
 LatexCommand href
 name "här"
 target "https://github.com/karthik/rdrop2"
+literal "false"
 
 \end_inset
 
@@ -4121,6 +4140,7 @@ Github
 LatexCommand href
 name "github"
 target "https://github.com/"
+literal "false"
 
 \end_inset
 
@@ -4141,6 +4161,7 @@ Kör nedanstående exempel för att läsa in filen polls från github.
 LatexCommand href
 name "[här]"
 target "https://github.com/MansMeg/SwedishPolls"
+literal "false"
 
 \end_inset
 
@@ -4205,6 +4226,7 @@ Google docs eller google drive är en molntjänst för kalkylblad i molnet.
 LatexCommand href
 name "Här"
 target "https://docs.google.com/spreadsheets/d/16uE3bb_7rHt_g4zOBXAVHM40N3YqRIXLPQwsE1yenAQ/pubhtml"
+literal "false"
 
 \end_inset
 
@@ -5604,6 +5626,7 @@ En de av denna laboration är att genomföra miniprojektet del I.
 LatexCommand href
 name "kurshemsidan"
 target "https://www.ida.liu.se/~732G33/info/courseinfo.sv.shtml"
+literal "false"
 
 \end_inset
 

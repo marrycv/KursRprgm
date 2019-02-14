@@ -122,7 +122,7 @@ programmerar
 \series default
 .
  Navigatörens ansvar är att ha ett helhetsperspektiv över koden.
- Byt position var 30:e minut.
+ Byt position var 20:e minut.
  Båda ska vara engagerade i koden.
 \end_layout
 
@@ -133,8 +133,11 @@ Det är tillåtet att diskutera med andra grupper, men att plagiera eller
 inte tillåtet
 \series default
 .
- Det är alltså inte tillåtet att titta på andra gruppers lösningar på inlämnings
-uppgifterna.
+ Det är alltså 
+\series bold
+inte
+\series default
+ tillåtet att titta på andra gruppers lösningar på inlämningsuppgifterna.
 \end_layout
 
 \begin_layout Itemize

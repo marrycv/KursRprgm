@@ -526,7 +526,9 @@ Vi kan självklart styra ännu mer i utformningen av cirkeldiagrammen.
 ?pie
 \family default
 .
- Men som sagt undvik cirkeldiagram i största möjliga mån.
+ 
+\series bold
+Men som sagt undvik cirkeldiagram i största möjliga mån.
 \end_layout
 
 \begin_layout Subsection
@@ -779,7 +781,7 @@ status open
 
 \begin_layout Plain Layout
 
-barplot(counts, main="Car Distribution by Gears and VS",
+barplot(carTable, main="Car Distribution by Gears and VS",
 \end_layout
 
 \begin_layout Plain Layout
@@ -924,6 +926,82 @@ dens <- density(iris$Sepal.Length)
 \begin_layout Plain Layout
 
 plot(dens)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vi kan styra om vi vill ha en absolut eller en relativ skala på histogrammet.
+ Testa koden nedan.
+ Hur skiljer sig y-axeln i de båda graferna? Vilket är defaultvärde för
+ argumentet 
+\family typewriter
+freq
+\family default
+? (tips: kolla i dokumentationen)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(iris$Sepal.Length, breaks=40, col="red",freq = TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(iris$Sepal.Length, breaks=40, col="red",freq = FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Det går att kombinera ett histogram med en täthetskurva.
+ Testa koden nedan, vad händer?
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(iris$Sepal.Length, breaks=15, col="red",freq = FALSE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(dens)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1122,6 +1200,11 @@ Vi kan också ändra hur punkterna ser ut och använda andra symboler.
  För att använda en punkttyp används argumentet pch.
  Med koden nedan kan vi snabbt se alla olika typer av punkter som finns
  i baspaketet.
+ Se även dokumentation för funktionen 
+\family typewriter
+points()
+\family default
+
 \begin_inset Newline newline
 \end_inset
 
@@ -1154,7 +1237,15 @@ Linjediagram
 \end_layout
 
 \begin_layout Enumerate
-Nilens vattennivåer är en tidsserie snarare än ett vanligt samband.
+Nilens vattennivåer är en tidsserie snarare än ett 
+\begin_inset Quotes sld
+\end_inset
+
+vanligt
+\begin_inset Quotes srd
+\end_inset
+
+ samband.
  För tidsserier vill vi ofta ha linjegrafer istället för enskilda punkter.
  För att ändra till en linjegraf anger vi bara 
 \family typewriter
@@ -1309,6 +1400,16 @@ lwd=3
  Vad innebär detta? Testa att köra 
 \family typewriter
 ?par
+\family default
+ Läs under rubrikerna 
+\family typewriter
+lwd
+\family default
+ och 
+\family typewriter
+lty
+\family default
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1356,7 +1457,16 @@ Sepal.Length~Species
 \family default
  är ett exempel på formel-objekt.
  Formel-objekt används i olika sammanhang i R, men ett vanligt exempel är
- när linjär regerssion ska skattas med funktionen 
+ när linjär regerssion
+\begin_inset CommandInset href
+LatexCommand href
+name "linjär regerssion"
+target "https://sv.wikipedia.org/wiki/Regressionsanalys"
+literal "false"
+
+\end_inset
+
+ ska skattas med funktionen 
 \family typewriter
 lm()
 \family default
@@ -1787,6 +1897,29 @@ working directory
 \end_inset
 
 .
+ Leta reda på mappen som är ditt working directory och öppna jpeg-filen
+ i ett bildvisningsprogram.
+\end_layout
+
+\begin_layout Enumerate
+Upprepa nu uppgift 1, men spara filen i en annan mapp än i ditt working
+ directory.
+ Detta görs genom att ändra argumentet 
+\family typewriter
+filename
+\family default
+ till en sökväg (path) som slutar på det faktiska filnamnet (i det här fallet
+ 
+\begin_inset Quotes sld
+\end_inset
+
+minJPEG.jpeg
+\begin_inset Quotes srd
+\end_inset
+
+).
+ Sökvägen anges på samma sätt som när filer ska läsas från eller sparas
+ på hårddisken.
 \end_layout
 
 \begin_layout Enumerate
@@ -1826,6 +1959,7 @@ dev.copy2pdf(file="MinNilenPlot.pdf")
 
 \begin_layout Enumerate
 Pröva nu att själv skriva ut en av dina figurer ovan i PNG- och TIFF-format.
+ Se till att spara dem i en annan mapp än ditt working directory.
 \end_layout
 
 \begin_layout Section
@@ -1996,14 +2130,79 @@ Slumptal och simulering
 \end_layout
 
 \begin_layout Section
-Täthetsfunktioner
+Täthetsfunktioner mm
 \end_layout
 
 \begin_layout Standard
-En central del inom statistik och analys handlar är simulering.
- Det ett stortantal fördelningar vi kan simulera och för vilka vi har täthetsfun
-ktion (pdf), den kulmulativa fördelningsfunktionen (cdf) och den inversa
- kulmulativa fördelningsfunktionen.
+En central del inom statistik och analys handlar om simulering och att hantera
+ olika 
+\begin_inset CommandInset href
+LatexCommand href
+name "sannolikhetsfördelningar"
+target "https://sv.wikipedia.org/wiki/Sannolikhetsf%C3%B6rdelning"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Kolla även här
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://www.ludu.co/course/sanstat/stokastiska-variabler2"
+literal "false"
+
+\end_inset
+
+ eller här
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://www.ludu.co/course/sanstat/funktioner1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Det finns ett stort antal sannolikhetsfördelningar vi kan simulera ifrån/beräkn
+a.
+ Dessa har en 
+\begin_inset CommandInset href
+LatexCommand href
+name "täthetsfunktion"
+target "https://sv.wikipedia.org/wiki/T%C3%A4thetsfunktion"
+literal "false"
+
+\end_inset
+
+ (pdf), en 
+\begin_inset CommandInset href
+LatexCommand href
+name "kulmulativ fördelningsfunktion"
+target "https://sv.wikipedia.org/wiki/Kumulativ_f%C3%B6rdelningsfunktion"
+literal "false"
+
+\end_inset
+
+ (cdf) och en 
+\begin_inset CommandInset href
+LatexCommand href
+name "invers kumulativ fördelningsfunktion"
+target "https://en.wikipedia.org/wiki/Quantile_function"
+literal "false"
+
+\end_inset
+
+ (q som i quantile).
  De flesta fördelningar har fyra varianter:
 \begin_inset Newline newline
 \end_inset
@@ -2414,6 +2613,134 @@ hist()
  till några olika värden.
 \end_layout
 
+\begin_layout Enumerate
+Utgå från den normalfördelade variabeln 
+\begin_inset Formula $X\sim N\left(\mu=20,\sigma=4\right)$
+\end_inset
+
+ (
+\begin_inset Formula $\sigma$
+\end_inset
+
+ är standardavvikelsen)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Beräkna sannolikheten att variablen antar värdet 
+\begin_inset Formula $x\le25$
+\end_inset
+
+, Tips: 
+\family typewriter
+pnorm()
+\end_layout
+
+\begin_layout Enumerate
+Beräkna sannolikheten att variablen antar värdet 
+\begin_inset Formula $x\ge25$
+\end_inset
+
+, Tips: argumentet 
+\family typewriter
+lower.tail
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Säg att vi vill ta reda på vilket 
+\begin_inset Formula $x$
+\end_inset
+
+ som som motsvarar en kumulativ sannolikhet på 
+\begin_inset Formula $0.75$
+\end_inset
+
+ (arean under täthetskurvan från vänster till 
+\begin_inset Formula $x$
+\end_inset
+
+).
+ Detta kan göras med funktionen 
+\family typewriter
+qnorm()
+\family default
+.
+ Kolla i dokumentation hur du ska använda 
+\family typewriter
+qnorm()
+\family default
+ för att beräkna värdet på 
+\begin_inset Formula $x$
+\end_inset
+
+ som ger en kumulativ sannolikhet på 
+\begin_inset Formula $0.75$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Utgå från den normalfördelade variabeln 
+\begin_inset Formula $X\sim N\left(\mu=0,\sigma=1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Beräkna värdet på 
+\begin_inset Formula $x$
+\end_inset
+
+ som ger kumulativ sannolikhet på 
+\begin_inset Formula $0.025$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Beräkna värdet på 
+\begin_inset Formula $x$
+\end_inset
+
+ som ger kumulativ sannolikhet på 
+\begin_inset Formula $0.5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Beräkna värdet på 
+\begin_inset Formula $x$
+\end_inset
+
+ som ger kumulativ sannolikhet på 
+\begin_inset Formula $0.975$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Beräkna värdet på 
+\begin_inset Formula $x$
+\end_inset
+
+ som ger kumulativ sannolikhet på 
+\begin_inset Formula $0.995$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Section
 
 \family typewriter
@@ -2495,7 +2822,7 @@ Vi kan på samma sätt dra slumpmässiga element från andra vektorer (exempelvi
 \family typewriter
 namn
 \family default
-, som ska innehålla namnen för minst tre personer som strängar.
+, som ska innehålla namnen för minst tre personer som textsträngar.
  Två personer behövs för att laga mat och två för att diska.
  Välj slumpmässigt vilka som ska göra de olika uppgifterna.
  Samma person ska kunna bli vald för båda uppgifterna.
@@ -2521,7 +2848,8 @@ Upprepa uppgiften ovan två gånger, blir resultatet det samma? Upprepa två
 \family typewriter
 set.seed(1234)
 \family default
- innan varje gång.Får du nu samma resultat?
+ innan varje gång.
+ Får du nu samma resultat?
 \end_layout
 
 \begin_layout Enumerate
@@ -2532,6 +2860,59 @@ prob
  så att de olika personer har olika sannolikhet att bli vald samt att du
  har sannolikheten 0 att bli vald.
  ;)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# ex på prob:
+\end_layout
+
+\begin_layout Plain Layout
+
+# kör flera gånger, vilka värden kommer med i urvalet?
+\end_layout
+
+\begin_layout Plain Layout
+
+sample(x=1:4, size=2, replace=FALSE,prob=c(0.8,0.1,0.05,0.05))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# med återläggning och många slumpdragningar:
+\end_layout
+
+\begin_layout Plain Layout
+
+y<-sample(x=1:4, size=2000, replace=TRUE,prob=c(0.8,0.1,0.05,0.05))
+\end_layout
+
+\begin_layout Plain Layout
+
+table(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2731,7 +3112,15 @@ Introduktion till R markdown och knitr
 \begin_layout Standard
 R markdown och knitr är ett system för att skapa dynamiska rapporter med
  R, vilket innebär att vi väver ihop R-kod, data och text i ett och samma
- dokument.
+ dokument., detta kallas 
+\begin_inset Quotes sld
+\end_inset
+
+Literate programming
+\begin_inset Quotes srd
+\end_inset
+
+.
  Med knitr och markdown kan vi skapa reproducerbara analyser med full spårbarhet
  hur beräkning, databearbetningar och grafik skapats.
  Vår slutprodukt kan bli rapporter i Word, PDF eller HTML.
@@ -2760,6 +3149,18 @@ literal "false"
  vi stickar ihop R med, i detta fall, markdown.
  knitr kan dock användas med andra ordbehandlare som \SpecialChar LaTeX
  och \SpecialChar LyX
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Alla dokumment med laborationsinstruktioner i kursen har skapats med en
+ kombination av \SpecialChar LyX
+ och knitr
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 
@@ -2768,7 +3169,15 @@ Det som händer när vi
 \series bold
 rendrerar
 \series default
- en Rmd fil är att knitr går igenom dokumentet, kör all R-kod och stoppar
+ (=
+\begin_inset Quotes srd
+\end_inset
+
+kör
+\begin_inset Quotes srd
+\end_inset
+
+) en Rmd fil är att knitr går igenom dokumentet, kör all R-kod och stoppar
  tillbaka svaret från R i markdownformat.
  När detta är gjort skapas ett word-, HTML- eller pdf-dokument från markdownfile
 n.
@@ -2820,7 +3229,7 @@ literal "false"
 Under senare tid har reproducerbarhet när det gäller statistiska analyser
  kommit att bli allt mer centralt.
  Reproducerbarhet innebär att ett experiment eller forskningsresultat ska
- kunna återupprepas - reproduceras - av andra forskare.
+ kunna återupprepas - reproduceras - av andra forskare eller analytiker.
  Idag innebär ofta reproducerbarheten att det finns krav på att hela analyser,
  med både text, data och kod ska kunna reproduceras av andra forskare.
  Mer information om reproducerbar forskning finns 
@@ -3592,8 +4001,9 @@ a
 \end_layout
 
 \begin_layout Enumerate
-Om koden ovan körs kommer både R-koden att synas och resultatet.
- Vill vi inte vis R-koden anger vi bara 
+Om koden ovan körs kommer både R-koden att synas och resultatet som koden
+ generar.
+ Vill vi inte visa R-koden anger vi bara 
 \family typewriter
 echo=FALSE
 \family default
@@ -4561,7 +4971,7 @@ n och spara ned detta som ett datamaterial i R.
  Vi befinner oss nu i den översta menyn.
  Ange 
 \family typewriter
-1
+2
 \family default
  för att gå vidare till menyn för statistik om arbetsmarknad: 
 \begin_inset Newline newline
@@ -4778,7 +5188,7 @@ a
 \end_layout
 
 \begin_layout Enumerate
-Välj nu ut tidsperioden 2010K1 till senaste kvartalet hos SCB.
+Välj nu ut tidsperioden 2010K1 till 2015K4.
 \end_layout
 
 \end_deeper
@@ -4922,6 +5332,135 @@ Vi vill nu ladda ned data för alla tidpunkter.
 '*'
 \family default
  och ladda ned datat på nytt.
+\end_layout
+
+\begin_layout Section
+Namnstatistik 2018
+\end_layout
+
+\begin_layout Standard
+Använd pxweb för att ta reda på vilka namn som var vanliga att ge till nyfödda
+ barn 2018.
+ Målet är att hitta de 5 vanligaste flicknamnen och de 5 vanligste pojknamnen
+ som gavs till nyfödda barn 2018.
+\end_layout
+
+\begin_layout Section
+Partistorlek i valet till kommunfullmäktige 2018
+\end_layout
+
+\begin_layout Standard
+Målet är nu att undersöka hur stora olika partier blev i kommunfullmäktige
+ i valet 2018.
+ Ni ska använda datamaterialet 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes sld
+\end_inset
+
+
+\family typewriter
+[ME0104T1] Kommunfullmäktigval - valresultat efter region och parti mm.
+ Antal och andelar.
+ Valår 1973 - 2018
+\family default
+
+\begin_inset Quotes srd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Detta datameterial finns under 
+\begin_inset Quotes sld
+\end_inset
+
+
+\family typewriter
+[ME] Demokrati
+\family default
+
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Målet är att hitta vilken kommun där varje parti blev som störst i kommunfullmä
+ktige jämfört med alla kommuner i Sverige.
+ Om ni tittar på ett parti, tex Socialdemokraterna, då vill ni ta reda på
+ vilken kommun där de fick högst andel röster (jämfört med alla kommuner)
+ i valet till kommunfullmäktige 2018.
+ Sen ska ni upprepa detta för Moderaterna, Sverigedemokraterna och alla
+ andra partier som sitter i riksdagen.
+ I slutändan så ska ni få fram 8 kommuner, en för varje parti.
+ Ni vill alltså svara på frågorna: 
+\begin_inset Quotes sld
+\end_inset
+
+Vilken var Socialdemokraternas starkaste kommun i valet till kommunfullmäktige?
+\begin_inset Quotes srd
+\end_inset
+
+, 
+\begin_inset Quotes sld
+\end_inset
+
+Vilken var Moderateras starkaste kommun i valet till kommunfullmäktige?
+\begin_inset Quotes srd
+\end_inset
+
+, osv.
+\end_layout
+
+\begin_layout Standard
+Tips på lösningsförslag:
+\end_layout
+
+\begin_layout Itemize
+Ladda ner det datamaterialet från SCB med pxweb.
+ Välj andelar och år 2018.
+ Spara som en data.frame.
+\end_layout
+
+\begin_layout Itemize
+Välj ut alla rader som motsvarar ett parti och spara som en ny variabel.
+ Undvik att ta med 
+\begin_inset Quotes sld
+\end_inset
+
+Riket
+\begin_inset Quotes srd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Sortera med avseende på andelar och spara namnet på den kommun som hade
+ högst andel.
+ Tips: 
+\family typewriter
+order()
+\end_layout
+
+\begin_layout Itemize
+Upprepa sedan för alla de 8 riksdagspartierna.
+\end_layout
+
+\begin_layout Itemize
+Spara sedan ert resultat i en data.frame med tre kolumner: en med parti,
+ en med kommun och en med andel röster.
+\end_layout
+
+\begin_layout Section
+* Extraproblem: Partistorlek i valet till kommunfullmäktige 2014
+\end_layout
+
+\begin_layout Standard
+Upprepa uppgiften ovan, men för valet 2014.
+ Jämför sedan resultatet mellan 2014 och 2018.
 \end_layout
 
 \begin_layout Section

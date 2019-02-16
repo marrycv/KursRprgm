@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -19,11 +19,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -53,6 +55,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -61,7 +64,10 @@ knitr
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -79,7 +85,7 @@ Miniprojekt: Programmering i R
 \end_layout
 
 \begin_layout Standard
-Som en del av kursen i R-programmering ska en analys av data göras med Rmarkdown.
+Som en del av kursen i R-programmering ska ni göra en rapport i Rmarkdown.
  Miniprojektet är uppdelat i två delar.
  Den första delen handlar om att läsa in och bearbeta data från externa
  datakällor och beskriva dessa data.
@@ -105,6 +111,7 @@ R-markdown ska användas.
 LatexCommand href
 name "här"
 target "https://raw.githubusercontent.com/STIMALiU/KursRprgm/master/Miniproject/TemplateMiniprojekt.Rmd"
+literal "false"
 
 \end_inset
 
@@ -243,13 +250,9 @@ Den första delen av miniprojektet är att samla in datamaterial och beskriva
 \end_layout
 
 \begin_layout Standard
-Till den miniprojektet behöver ni minst 
-\series bold
-tre
-\series default
- datamaterial, två som innehåller kommunala data och ett material som innehåller
- en tidsserie.
- Det är okej att välja data på län nivå istället för kommun om ni vill.
+Till miniprojektet behöver två olika typer av datamaterial, ett material
+ med kommunala data och ett material som innehåller en tidsserie.
+ Det är okej att välja data på lännivå istället för kommun om ni vill.
  Beskrivningen nedan utgår från kommunala data.
  
 \end_layout
@@ -259,7 +262,7 @@ Tänk på att välja material ni själva tycker är intressant!
 \end_layout
 
 \begin_layout Paragraph
-Kommunala/län data
+Kommunala data
 \end_layout
 
 \begin_layout Standard
@@ -268,7 +271,11 @@ Ni ska ladda ner kommunala data, där ni i slutändan har minst 4 variabler
  för alla 290 kommuner) Ett exempel skulle kunna vara antal arbetslösa i
  varje kommun.
  Spara er data i en eller flera data.frames.
- Totalt ska dataseten ska ha minst 
+ Totalt ska dataseten ska ha 
+\series bold
+minst
+\series default
+ 
 \series bold
 4 variabler
 \series default
@@ -296,7 +303,11 @@ tidserie
 \series bold
 månadsnivå
 \series default
- och innehålla data från minst 5 år (60 månder).
+ och innehålla data från 
+\series bold
+minst 5 år
+\series default
+ (60 månder).
  Här ska ni alltså hitta en variabel som observerats under minst 60 tidpunkter,
  men fler går bra.
  Data ska alltså innehålla två kolumner, en med variabeln som vi är intresserade
@@ -319,6 +330,23 @@ pxweb
 .
  Om ni laddar ner data en månad senare ska ni erhålla samma data med samma
  kod.
+ Om ni laddar ner data från SCB/pxweb så ska ni 
+\series bold
+inte
+\series default
+ ange 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+*
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ på tiden.
 \end_layout
 
 \begin_layout Subsection
@@ -343,19 +371,21 @@ alla
 \end_layout
 
 \begin_layout Standard
-Följande saker ska ni göra med data med basgrafiken i R:
+Rapporten ska var ordnad och strukturerad, med lämpliga rubriker.
+ Ni ska alltså ha med:
 \end_layout
 
-\begin_layout Enumerate
-Ni ska minst ha ett histogram eller barplot per variabel i kommun-materialen
+\begin_layout Itemize
+Kort inledning
 \end_layout
 
-\begin_layout Enumerate
-En tidsseriegraf/linjediagram för tidseriematerialet
+\begin_layout Itemize
+Beskrivning av alla era variabler och eventuella transformationer av dessa.
 \end_layout
 
-\begin_layout Enumerate
-En 
+\begin_layout Itemize
+Beskrivande statistik av alla variabler och en kort tolkning av statistiken.
+ Ni ska ha med minst en 
 \begin_inset Quotes eld
 \end_inset
 
@@ -363,7 +393,8 @@ riktig
 \begin_inset Quotes erd
 \end_inset
 
- tabell, inte bara R output.
+ markdowntabell (inte bara R output i konsolen) med statistik.
+ Ta inte med rådata i en tabell.
  (
 \series bold
 Tips!
@@ -379,6 +410,24 @@ knitr
 )
 \end_layout
 
+\begin_layout Itemize
+De plottar som beskrivs nedan.
+\end_layout
+
+\begin_layout Standard
+Följande saker ska ni göra med data med basgrafiken i R:
+\end_layout
+
+\begin_layout Enumerate
+Ni ska minst ha ett histogram eller barplot per variabel i kommun-materialen.
+ Skriv en kort kommentar till varje plot.
+\end_layout
+
+\begin_layout Enumerate
+En tidsseriegraf/linjediagram för tidseriematerialet.
+ Skriv en kort kommentar till grafen.
+\end_layout
+
 \begin_layout Standard
 Lämna in rapporten både som en fullt reproducerbar 
 \series bold
@@ -389,6 +438,7 @@ Rmd
 PDF
 \series default
  i LISAM.
+ Tänk på följande:
 \end_layout
 
 \begin_layout Itemize
@@ -416,6 +466,13 @@ knitr
 ), inte utskrifter av R-kod.
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Inga output från R console/varningar/meddelanden/felmeddelanden ska visas
+ i dokumentet.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -424,21 +481,18 @@ knitr
 \end_layout
 
 \begin_layout Section
-Del II: Analys
+Del II: Analys (Under uppdatering)
 \end_layout
 
 \begin_layout Standard
-I den första delen av minprojektet har ni valt ut och beskrivit två datamaterial.
+I den första delen av minprojektet har ni valt ut och beskrivit olika variabler.
  Nu ska vi fortsätta detta arbete med analyser av materialen.
  Ni som grupp kommer att ha en del frihet i hur ni utför datanalysen som
  beskrivs nedan.
- Det ni ska göra är att bearbeta data, några enkla analyser, lite olika
- grafer i 
+ Det ni ska göra är att bearbeta data, några enkla analyser och olika grafer
+ i 
 \family typewriter
-ggplot2
-\family default
- och en linjär regression.
- 
+ggplot2.
 \end_layout
 
 \begin_layout Subsection
@@ -513,6 +567,7 @@ merge()
 LatexCommand href
 name "Här"
 target "http://www.youtube.com/watch?v=rkmIASiE8iI"
+literal "false"
 
 \end_inset
 

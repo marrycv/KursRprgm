@@ -34,7 +34,7 @@ Programmering i R
 ========================================================
 transition: rotate
 ## Föreläsning 5: Basgrafik, knitr, markdown och externa data
-### [Måns Magnusson](mailto:mans.magnusson@liu.se)
+### [Josef Wilzén](mailto:josef.wilzen@liu.se)
 
 STIMA,
 Linköpings universitet
@@ -60,14 +60,21 @@ Halvkursutvärdering
 
 
 
-Labb 3
-========================================================
-type: section
-
 
 Del II i kursen
 ========================================================
 type: section
+
+
+R-programmering - del II
+=======================================================
+- Del 1: Grunderna i programmering
+  - Variabler, tilldelning
+  - Datastrukturer
+  - Kontrollstrukturer
+  - Funktioner
+  - Debugging
+- Del 2: Tillämpningar
 
 R-programmering - del II
 ========================================================
@@ -87,12 +94,12 @@ R-programmering - del II:
 ========================================================
 
 - Labbarna görs nu i par
-- Skapa grupper på Lisam
 - Parprogrammering:
   - Turas om att sitta vid tagentbordet
   - Den som inte kodar är engagerad i koden och problemet 
-  - Byter person var 30:e minut
-  - Viktigt att kommentera koden: ROxygen, inline 
+  - Byter person var 20:e minut
+  - Viktigt att kommentera koden: ROxygen, inline
+  - **Båda** är delaktiga i programmeringen
 
 
 Miniprojektet
@@ -103,7 +110,7 @@ Info [här](https://github.com/STIMALiU/KursRprgm/blob/master/Miniproject/Instru
   - Tidsseriedata
 - Presentera med basgrafik, knitr och markdown
 - Ska kunna vara reproducerbart
-- Lämna in **PDF OCH .Rmd**
+- Lämna in **PDF** OCH **.Rmd**
 
 
 Basgrafik
@@ -179,13 +186,13 @@ Lågnivågrafik
 Lägg till "lager på lager":
 - ```points(x, y, ...)``` lägger till punkter
 - ```lines(x, y) lägger``` till linjer
-- ```abline(a, b,h,v, ...)``` lägger till räta linjer
+- ```abline(a, b, h, v, ...)``` lägger till räta linjer
 - ```legend(x, y, legend, ...)``` lägger till en förklaringsruta
 
 Lågnivågrafik
 ========================================================
 
-- Går att bygga upp vad vi vil.l
+- Går att bygga upp många olika sorters plottar
 - Dock är ggplot2 **MYCKET** "smidigare"
 
 
@@ -236,8 +243,6 @@ incremental: true
 text <- c("Linköpings", "Universitet")
 set.seed(20180218)
 sample(x=text, size=4, replace=TRUE)
-sample(x=text, size=4, replace=TRUE)
-set.seed(20180218)
 sample(x=text, size=4, replace=TRUE)
 ```
 

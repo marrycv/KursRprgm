@@ -40,6 +40,8 @@ sample(x=text, size=4, replace=TRUE)
 # 3. 
 # Markdown file + Notebook
 
+# öppna en markdown fil
+
 
 
 # -------------------------------------------------------------------------------------------
@@ -58,7 +60,7 @@ x <-
                              Period = c('*')),
                  clean = TRUE)
 
-
+x
 
 
 # Ladda ned husdjur

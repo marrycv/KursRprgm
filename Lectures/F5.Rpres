@@ -49,6 +49,13 @@ Föreläsning 5: Innehåll
 - knitr och markdown
 - Externa data och pxweb
 
+
+Datortentan
+========================================================
+
+- Glöm inte att anmäla er till tentan!
+- Endast anmälda studenter får skriva
+
 Halvkursutvärdering
 ========================================================
 - I rasten
@@ -87,7 +94,7 @@ R-programmering - del II
   - Datum
   - Texthantering och regular expression 
   - Linjär algebra
-  - knitr och markdown
+  - knitr, markdown, Literate programming
 
 
 R-programmering - del II:
@@ -293,6 +300,7 @@ R-Studio Notebooks
 - Är Rmd-filer
 - Kan köras interaktivt direkt i R-Studio
 - Inspiration från Jypyter Notebooks
+- Skillnad mellan Markdown och Notebooks, läs  [här](https://stackoverflow.com/questions/43820483/difference-between-r-markdown-and-r-notebook)
 
 
 Demo: Markdown och knitr

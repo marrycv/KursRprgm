@@ -89,6 +89,12 @@ pexp(q = 2,rate = 0.1)
 install.packages("pxweb")
 library(pxweb)
 
+# -------------------------------------------------------------------------------------------
+# det finns två gränsnitt till pxweb
+# -------------------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------
+# de gamla funktionerna
 my_data <- interactive_pxweb()
 
 
@@ -145,3 +151,15 @@ hist(y, probability = TRUE)
 # Hämta data från ett givet api 
 my_data2 <- interactive_pxweb(api = 'api.scb.se', version = 'v1', lang = 'sv')
 
+
+# -------------------------------------------------------------------------------------------
+# de nya funktionerna
+
+# se här för mer detaljer:
+# https://cran.r-project.org/web/packages/pxweb/vignettes/pxweb.html
+
+
+mitt_data<-pxweb_interactive()
+
+# ladda ner data med
+# pxweb_get()

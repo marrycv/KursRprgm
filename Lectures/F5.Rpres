@@ -365,9 +365,14 @@ install.packages("pxweb")
 library(pxweb)
 ```
 ```{r, eval=FALSE}
+# gamla
 mitt_data <- interactive_pxweb()
 mitt_data <- interactive_pxweb(api = "scb", language = "sv")
+# nya
+mitt_data<-pxweb_interactive()
 ```
+
+Se även denna [vignette](https://cran.r-project.org/web/packages/pxweb/vignettes/pxweb.html)
 
 Demo: pxweb
 ========================================================

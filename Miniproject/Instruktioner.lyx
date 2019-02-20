@@ -254,7 +254,72 @@ Till miniprojektet behöver två olika typer av datamaterial, ett material
  med kommunala data och ett material som innehåller en tidsserie.
  Det är okej att välja data på lännivå istället för kommun om ni vill.
  Beskrivningen nedan utgår från kommunala data.
- 
+ I miniprojekt får ni använda det gamla eller det nya
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Se 
+\begin_inset CommandInset href
+LatexCommand href
+name "här"
+target "https://cran.r-project.org/web/packages/pxweb/vignettes/pxweb.html"
+literal "false"
+
+\end_inset
+
+ för mer info.
+\end_layout
+
+\end_inset
+
+ gränssnittet till 
+\family typewriter
+pxweb
+\family default
+, så länge ni har kod som fungerar och ni lyckas skapa reproducerbara rapporter.
+ Om ni vill dölja varningar kan ni använda
+\end_layout
+
+\begin_layout Standard
+
+\lang swedish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressWarnings(   
+\end_layout
+
+\begin_layout Plain Layout
+
+	mitt_data <- get_pxweb_data(url = "en sökväg",
+\end_layout
+
+\begin_layout Plain Layout
+
+	dims = list("lista med lämpliga element"),clean = TRUE)   
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

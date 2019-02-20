@@ -4872,7 +4872,16 @@ vignette(topic="pxweb")
 \end_layout
 
 \begin_layout Section
-Navigera i SCB:s API
+Navigera i SCB:s API (gamla gränssnittet)
+\end_layout
+
+\begin_layout Standard
+Det finns två olika sätt (gränssnitt) att komma åt data med 
+\family typewriter
+pxweb
+\family default
+.
+ Här beskrivs det gamla, se nedan för det nya.
 \end_layout
 
 \begin_layout Standard
@@ -5286,7 +5295,7 @@ Tid = c('2005K2', '2005K3', '2005K4', '2006K1', '2006K2', '2006K3', '2006K4',
 Titta på det material du laddat ned.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Ladda ned data från SCB direkt med kod 
 \end_layout
 
@@ -5332,6 +5341,107 @@ Vi vill nu ladda ned data för alla tidpunkter.
 '*'
 \family default
  och ladda ned datat på nytt.
+\end_layout
+
+\begin_layout Section
+Det nya gränssnittet
+\end_layout
+
+\begin_layout Standard
+Med det nya gränssnittet så laddas data ner interaktivt med:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mitt_data <- pxweb_interactive()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+För att få in data direkt används funktionen
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pxweb_get()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Kolla i denna 
+\begin_inset CommandInset href
+LatexCommand href
+name "vignette"
+target "https://cran.r-project.org/web/packages/pxweb/vignettes/pxweb.html"
+literal "false"
+
+\end_inset
+
+ för detaljer kring de nya funktionerna.
+\end_layout
+
+\begin_layout Standard
+Det gamla gränssnittet generar varningar, som kan döljas med:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressWarnings(a<-interactive_pxweb())
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -5672,7 +5782,12 @@ pxweb
 \family default
 , laddar ned befolkningsstatistik och summerar upp befolkningen i Sverige
  för varje år.
- 
+ Så länge som ni klarar testerna så får ni använda det gamla eller nya gränssnit
+tet till 
+\family typewriter
+pxweb
+\family default
+.
 \end_layout
 
 \begin_layout Standard
@@ -6170,6 +6285,13 @@ literal "false"
 \end_inset
 
  för detaljer.
+ I miniprojekt får ni använda det gamla eller det nya gränssnittet till
+ 
+\family typewriter
+pxweb
+\family default
+, så länge ni har kod som fungerar och ni lyckas skapa reproducerbara rapporter.
+ OBS: inga varningar ska synas i er färdiga rapport!
 \end_layout
 
 \end_body

@@ -45,6 +45,7 @@ Linköpings universitet
 Dagens föreläsning:
 ========================================================
 
+- Kahoot!
 - Programmeringsparadigm
   - Funktionell programmering
   - Objektorientering
@@ -115,7 +116,8 @@ incremental: true
 Olika typer av klasser i R:
 - basklasser
 - S3 (informellt): "lista med klassattribut" -> Den här kursen
-- S4 (formellt): element väljs ut med ```@```
+- S4 (formellt): element väljs ut med ```@```, 
+    - ex paketet ```Matrix```
 - reference classes
 
 Generiska funktioner (S3)
@@ -143,10 +145,11 @@ incremental: true
 
 Objektorientering i R: länkar
 ========================================================
-- [Länk 1](http://brainimaging.waisman.wisc.edu/~perlman/R/A1%20Introduction%20to%20object-oriented%20programming.pdf)
+- [Länk 1](https://www.cyclismo.org/tutorial/R/s3Classes.html)
 - [Länk 2](http://www.stat.berkeley.edu/~statcur/WorkshopBC/Presentations/AdvancedProgramming/OOP2x2.pdf): Läs om S3
 - [Fördjupning 1](http://adv-r.had.co.nz/OO-essentials.html)
 - [Fördjupning 2](https://cran.r-project.org/doc/contrib/Genolini-S4tutorialV0-5en.pdf)
+- [Fördjupning 3](https://www.cyclismo.org/tutorial/R/s4Classes.html)
 
 Objektorientering i R: Demo
 ========================================================
@@ -338,6 +341,7 @@ Linjär algebra
 ========================================================
 - Transponat $\mathbf{X}'$ eller $\mathbf{X}^{T}$ : ```t(X)```
 - Invertera matris $X^{-1}$ : ```solve(X)```
+- Lösa ekvationssystem $Ax=b$: ```solve(a=A,b=b)```
 - Matrismultiplikation $\mathbf{A}\cdot\mathbf{B}$ eller $\mathbf{AB}$ : ```A%*%B```
   - Kan bara göras med klassen ```matrix```, ej vektorer
   - Undvika att en matris blir en vektor med ```X[,1,drop=FALSE]```

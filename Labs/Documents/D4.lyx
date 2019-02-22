@@ -4944,6 +4944,11 @@ toeplitz_matrix(c(1,0,2,0,3,0,4,0,5))
 
 \begin_layout Plain Layout
 
+toeplitz_matrix(x = c("D0","D+1","D+2","D+3","D-1","D-2","D-3"))
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 

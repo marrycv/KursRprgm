@@ -13,8 +13,22 @@ test_that("Obligatoriska object", {
   expect_is(LiuId, "character", info = "Variabeln 'LiuId' ska vara en textvariabel.")
   expect_true(nchar(LiuId[1]) > 0, info = "Ange era LiuId.")
   
+  
+  expect_true(all(strsplit(substr(LiuId,start = 1,stop = 5),split = "")[[1]]%in%letters) , 
+              info = "De fem första tecknen i LiuId ska vara små bokstäver.")
+  expect_true(all(strsplit(substr(LiuId,start = 6,stop = 8),split = "")[[1]]%in%0:9) , 
+              info = "De tre sista tecknen i LiuId ska vara siffor.")
+  
+  
   expect_is(Grupp, "character", info = "Variabeln 'Grupp' ska vara en textvariabel.")
-  expect_true(nchar(Grupp) > 0, info = "Ange er grupp. Tex grupp01 om ni tillhör grupp 01.")
+  expect_true(nchar(Grupp) > 0, info = "Ange er grupp. Tex grupp01 om ni tillhör grupp01.")
+  
+  expect_true(all(strsplit(substr(Grupp,start = 1,stop = 5),split = "")[[1]]%in%letters) , 
+              info = "De fem första tecknen i Grupp ska vara små bokstäver.")
+  
+  expect_true(all(strsplit(substr(LiuId,start = 6,stop = 8),split = "")[[1]]%in%0:9) , 
+              info = "De två sista tecknen i Grupp ska vara siffor.")
+  
   
 })
 

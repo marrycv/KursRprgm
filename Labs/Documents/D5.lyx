@@ -5687,7 +5687,7 @@ visning/Statistisk programmering i R/KursRprgmTeacher/Labs/exercise_solutions/"
 
 \begin_layout Plain Layout
 
-solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2018/KursRprgmTeacher/Labs/ex
+solution_path<-"/home/josef/Dropbox/Josef/732G33_VT2019/KursRprgmTeacher/Labs/ex
 ercise_solutions/"
 \end_layout
 
@@ -5788,6 +5788,31 @@ tet till
 pxweb
 \family default
 .
+ Tips! om ni använder det gamla gränssnittet, kör:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<eval=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressWarnings(a<-get_pxweb_data(...kod...))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5806,7 +5831,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE,echo=TRUE>>=
+<<eval=TRUE,echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -5835,51 +5860,12 @@ status open
 
 \begin_layout Plain Layout
 
-<<eval=FALSE,echo=TRUE>>=
+<<eval=TRUE,echo=TRUE>>=
 \end_layout
 
 \begin_layout Plain Layout
 
 head(pop)
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-   year population 
-\end_layout
-
-\begin_layout Plain Layout
-
- 1 1968    7931193 
-\end_layout
-
-\begin_layout Plain Layout
-
- 2 1969    8004270 
-\end_layout
-
-\begin_layout Plain Layout
-
- 3 1970    8081142 
-\end_layout
-
-\begin_layout Plain Layout
-
- 4 1971    8115165 
-\end_layout
-
-\begin_layout Plain Layout
-
- 5 1972    8129129 
-\end_layout
-
-\begin_layout Plain Layout
-
- 6 1973    8144428
 \end_layout
 
 \begin_layout Plain Layout
@@ -5897,37 +5883,7 @@ tail(pop)
 
 \begin_layout Plain Layout
 
-   year population 
-\end_layout
-
-\begin_layout Plain Layout
-
-43 2010    9415570 
-\end_layout
-
-\begin_layout Plain Layout
-
-44 2011    9482855 
-\end_layout
-
-\begin_layout Plain Layout
-
-45 2012    9555893 
-\end_layout
-
-\begin_layout Plain Layout
-
-46 2013    9644864 
-\end_layout
-
-\begin_layout Plain Layout
-
-47 2014    9747355
-\end_layout
-
-\begin_layout Plain Layout
-
-48 2015    9851017
+str(pop)
 \end_layout
 
 \begin_layout Plain Layout

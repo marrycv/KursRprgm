@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,11 +39,13 @@ knitr
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ knitr
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -85,7 +88,10 @@ knitr
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -197,6 +203,7 @@ Introduktion till objektorienterad programmering
 LatexCommand href
 name "Objektorienterad programmering"
 target "http://sv.wikipedia.org/wiki/Objektorienterad_programmering"
+literal "false"
 
 \end_inset
 
@@ -215,6 +222,7 @@ target "http://sv.wikipedia.org/wiki/Objektorienterad_programmering"
 LatexCommand href
 name "procedurellt programmeringsparadigm"
 target "http://sv.wikipedia.org/wiki/Procedurell_programmering"
+literal "false"
 
 \end_inset
 
@@ -288,6 +296,7 @@ enterade systemen i R) rekommenderas
 LatexCommand href
 name "[Advanced R]"
 target "http://adv-r.had.co.nz/OO-essentials.html"
+literal "false"
 
 \end_inset
 
@@ -312,7 +321,7 @@ class()
 \end_layout
 
 \begin_layout Enumerate
-Använd förljande kod för att skapa objekt och undersöka dess klasser.
+Använd följande kod för att skapa objekt och undersöka dess klasser.
 \begin_inset Newline newline
 \end_inset
 
@@ -1070,6 +1079,7 @@ R har en hel del funktioner för att arbeta med matriser.
 LatexCommand href
 name "linjär algebra"
 target "https://en.wikipedia.org/wiki/Linear_algebra"
+literal "false"
 
 \end_inset
 
@@ -1345,6 +1355,7 @@ På ett liknande sätt kan vi skapa en godtycklig
 LatexCommand href
 name "enhetsmatris"
 target "https://sv.wikipedia.org/wiki/Enhetsmatris"
+literal "false"
 
 \end_inset
 
@@ -1750,6 +1761,7 @@ B - A
 LatexCommand href
 name "Matrismultiplikation"
 target "https://sv.wikipedia.org/wiki/Matris#Matrismultiplikation"
+literal "false"
 
 \end_inset
 
@@ -1791,6 +1803,7 @@ Vill vi
 LatexCommand href
 name "transponera"
 target "https://sv.wikipedia.org/wiki/Matris#Transponat"
+literal "false"
 
 \end_inset
 
@@ -1832,6 +1845,7 @@ För att beräkna
 LatexCommand href
 name "inversen"
 target "https://sv.wikipedia.org/wiki/Matris#Invers"
+literal "false"
 
 \end_inset
 
@@ -2175,6 +2189,7 @@ eigen()
 LatexCommand href
 name "egenvärden och egenvektorer"
 target "https://sv.wikipedia.org/wiki/Egenv%C3%A4rde,_egenvektor_och_egenrum"
+literal "false"
 
 \end_inset
 
@@ -3457,6 +3472,7 @@ Skapa fyra vektorer: En som är en instant, en som är av typen interval,
 LatexCommand href
 name "artikeln"
 target "http://www.jstatsoft.org/v40/i03/paper"
+literal "false"
 
 \end_inset
 
@@ -3563,6 +3579,7 @@ Kolla i
 LatexCommand href
 name "artikeln"
 target "http://www.jstatsoft.org/v40/i03/paper"
+literal "false"
 
 \end_inset
 
@@ -3975,6 +3992,7 @@ Skriv en funktion som beräknar
 LatexCommand href
 name "determinanten"
 target "https://sv.wikipedia.org/wiki/Determinant"
+literal "false"
 
 \end_inset
 
@@ -4110,6 +4128,7 @@ För blodgivare finns vissa regler för när hen får ge blod.
 LatexCommand href
 name "Här"
 target "http://geblod.nu/bli-blodgivare/kan-du-ge-blod/"
+literal "false"
 
 \end_inset
 
@@ -4669,12 +4688,26 @@ I denna uppgift ska ni skriva en funktionen som kan skatta en
 LatexCommand href
 name "linjär regressionsmodell"
 target "https://en.wikipedia.org/wiki/Linear_regression"
+literal "false"
 
 \end_inset
 
 .
- Vi kommer att prata mer om linjär regression längre fram och gå igenom
- de inbyggda funktionerna för linjär regression i R.
+ Linjär regression är en vanlig statistik modell som modellerar linjära
+ samband mellan en beroende variabel (
+\begin_inset Formula $y)$
+\end_inset
+
+ och en eller flera oberoende variabler (
+\begin_inset Formula $x_{1},x_{2},x_{3},\ldots$
+\end_inset
+
+).
+ Det finns en inbyggd funktion i R för linjär regression, 
+\family typewriter
+lm()
+\family default
+, men den är inte tillåten i denna uppgift.
  Men nu ska ni 
 \begin_inset Quotes eld
 \end_inset
@@ -4684,7 +4717,10 @@ skatta modellen för hand
 \end_inset
 
  med hjälp av matrisalgebra och minsta kvadrat-metoden.
- Linjär regression handlar om att undersöka om en beroende variabel 
+\end_layout
+
+\begin_layout Standard
+Linjär regression handlar om att undersöka om en beroende variabel 
 \begin_inset Formula $y$
 \end_inset
 
@@ -4693,6 +4729,7 @@ skatta modellen för hand
 LatexCommand href
 name "en"
 target "http://sv.wikipedia.org/wiki/Regressionsanalys"
+literal "false"
 
 \end_inset
 
@@ -4701,6 +4738,7 @@ target "http://sv.wikipedia.org/wiki/Regressionsanalys"
 LatexCommand href
 name "flera"
 target "http://sv.wikipedia.org/wiki/Multipel_linj%C3%A4r_regression"
+literal "false"
 
 \end_inset
 
@@ -4734,7 +4772,7 @@ y=\beta_{0}+\beta_{1}*x_{1}+\epsilon
 \end_inset
 
 där 
-\begin_inset Formula $\epsilon\sim N(0,\hat{\sigma}_{\epsilon}^{2})$
+\begin_inset Formula $\epsilon\sim N(0,\sigma_{\epsilon}^{2})$
 \end_inset
 
 .
@@ -4755,7 +4793,7 @@ y=\beta_{0}+\beta_{1}*x_{1}+\beta_{2}*x_{2}+\beta_{2}*x_{2}+\epsilon
 \end_inset
 
 där 
-\begin_inset Formula $\epsilon\sim N(0,\hat{\sigma}_{\epsilon}^{2})$
+\begin_inset Formula $\epsilon\sim N(0,\sigma_{\epsilon}^{2})$
 \end_inset
 
 .
@@ -4768,6 +4806,47 @@ Om vi ska skatta en linjär regression så innebär det att vi ska hitta de
 \end_inset
 
  i någon mening, och det är uppgiften i labben.
+ När vi skattat parametrarna från data använder vi beteckningen 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ och 
+\begin_inset Formula $\hat{\sigma}_{\epsilon}^{2}$
+\end_inset
+
+.
+ När vi har skattningarna på parametrarna så kan vi beräkna anpassade värden
+ 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{y}=\hat{\beta}_{0}+\hat{\beta}_{1}*x_{1}+\hat{\beta}_{2}*x_{2}+\hat{\beta}_{2}*x_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Residualerna defineras som:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{\epsilon}=y-\hat{y}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4796,14 +4875,15 @@ y
 
 \begin_layout Standard
 Funktionen ska returnerna en lista som innehåller 
-\begin_inset Formula $\beta$
+\begin_inset Formula $\hat{\beta}$
 \end_inset
 
 , 
 \begin_inset Formula $\hat{\sigma}_{\epsilon}^{2}$
 \end_inset
 
- samt residualerna.OBS: ni får inte använda funktionen 
+ samt residualerna.
+ OBS: ni får inte använda funktionen 
 \family typewriter
 lm()
 \family default

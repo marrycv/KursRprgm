@@ -3983,141 +3983,6 @@ d<-apartment(2, 0)
 \begin_layout Section
 
 \family typewriter
-two_by_two_det()
-\end_layout
-
-\begin_layout Standard
-Skriv en funktion som beräknar 
-\begin_inset CommandInset href
-LatexCommand href
-name "determinanten"
-target "https://sv.wikipedia.org/wiki/Determinant"
-literal "false"
-
-\end_inset
-
- för en godtycklig 
-\begin_inset Formula $2\times2$
-\end_inset
-
- matris.
- Funktionen ska ha argumentet 
-\family typewriter
-x
-\family default
-.
- Om det inte är ett objekt av klassen matrix som anges som argument ska
- funktionen avbryta och skriva ut 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-Not an object of class matrix.
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
-.
- Används en matris som inte är av dimension 
-\begin_inset Formula $2\times2$
-\end_inset
-
- ska funktionen avbrytas och skriva ut 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-Matrix not of size 2*2.
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Obs!
-\series default
- Funktionen 
-\family typewriter
-det()
-\family default
- är inte tillåten.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<eval=TRUE,echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-A <- matrix(1:4,ncol=2)
-\end_layout
-
-\begin_layout Plain Layout
-
-B <- matrix(c(1,-2,10,2),ncol=2)
-\end_layout
-
-\begin_layout Plain Layout
-
-two_by_two_det(x=A)
-\end_layout
-
-\begin_layout Plain Layout
-
-b<-two_by_two_det(x=B)
-\end_layout
-
-\begin_layout Plain Layout
-
-print(b)
-\end_layout
-
-\begin_layout Plain Layout
-
-H <- hilbert_matrix(2,2)
-\end_layout
-
-\begin_layout Plain Layout
-
-two_by_two_det(H)
-\end_layout
-
-\begin_layout Plain Layout
-
-two_by_two_det(1:3)
-\end_layout
-
-\begin_layout Plain Layout
-
-two_by_two_det(hilbert_matrix(3,3))
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-
-\family typewriter
 give_blood()
 \end_layout
 
@@ -4787,7 +4652,7 @@ Vilket kan beskrivas som räta linjens ekvation i ett x-y-planet.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-y=\beta_{0}+\beta_{1}*x_{1}+\beta_{2}*x_{2}+\beta_{2}*x_{2}+\epsilon
+y=\beta_{0}+\beta_{1}*x_{1}+\beta_{2}*x_{2}+\beta_{3}*x_{3}+\epsilon
 \]
 
 \end_inset
@@ -4815,7 +4680,7 @@ Om vi ska skatta en linjär regression så innebär det att vi ska hitta de
 \end_inset
 
 .
- När vi har skattningarna på parametrarna så kan vi beräkna anpassade värden
+ När vi har skattningarna på parametrarna så kan vi beräkna förväntade värden
  
 \begin_inset Formula $\hat{y}$
 \end_inset
@@ -4826,7 +4691,7 @@ Om vi ska skatta en linjär regression så innebär det att vi ska hitta de
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\hat{y}=\hat{\beta}_{0}+\hat{\beta}_{1}*x_{1}+\hat{\beta}_{2}*x_{2}+\hat{\beta}_{2}*x_{2}
+\hat{y}=\hat{\beta}_{0}+\hat{\beta}_{1}*x_{1}+\hat{\beta}_{2}*x_{2}+\hat{\beta}_{2}*x_{2}+\hat{\beta}_{3}*x_{3}
 \]
 
 \end_inset
@@ -4925,7 +4790,11 @@ Nedan följer lösningsordningen, men som exempel används datasetet attitude
 \end_layout
 
 \begin_layout Standard
-Utgå från datamaterialet attitude och läs in det i R på följande sätt.
+Utgå från datamaterialet 
+\family typewriter
+attitude
+\family default
+ och läs in det i R på följande sätt.
 \end_layout
 
 \begin_layout Standard
@@ -4968,7 +4837,7 @@ Följande linjära regressionsmodell
 
 kan skattas genom direkt matrisalgebra.
  Genomför följande steg för att göra denna beräkning.
- Implementera sedan detta som en funktion.
+ Implementera sedan detta som en funktion generell funktion.
 \begin_inset Separator latexpar
 \end_inset
 
@@ -5144,10 +5013,6 @@ Transponera (
 \family typewriter
 X
 \family default
- ge den namnet 
-\family typewriter
-XT
-\family default
 .
 \end_layout
 
@@ -5156,10 +5021,6 @@ Beräkna matrismultiplikationen
 \begin_inset Formula $\mathbf{X}^{T}\mathbf{X}$
 \end_inset
 
- och ge den namnet 
-\family typewriter
-XTX
-\family default
 .
 \end_layout
 
@@ -5168,9 +5029,7 @@ Beräkna
 \begin_inset Formula $(\mathbf{X}^{T}\mathbf{X})^{-1}$
 \end_inset
 
- och namnge resultatet 
-\family typewriter
-XTXInv
+
 \end_layout
 
 \begin_layout Enumerate
@@ -5216,11 +5075,7 @@ Beräkna det förväntade värdet (prediktionen)
 
 \end_inset
 
- och döp vektorn till 
-\family typewriter
-y_hat
-\family default
-.
+
 \end_layout
 
 \begin_layout Enumerate
@@ -5303,7 +5158,9 @@ sigma2_hat
 \end_layout
 
 \begin_layout Enumerate
-Spara 
+Om du gjort (a) - (k) ovan, och allt fungerar, skapa nu en funktion som
+ gör dessa beräkningar.
+ Spara 
 \family typewriter
 beta_hat
 \family default
@@ -5379,6 +5236,19 @@ inherits(my_ols(X,y), "my_ols")
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+class(my_ols(X,y))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 my_ols(X,y)[1:2]
 \end_layout
 
@@ -5398,7 +5268,75 @@ data(trees)
 
 \begin_layout Plain Layout
 
-my_ols(X=trees[,1:2],y=trees[,3])[1:2] 
+trees_ols<-my_ols(X=trees[,1:2],y=trees[,3]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+trees_ols[1:2]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(trees_ols[[3]])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A<-my_ols(X,y)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+names(A)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+X2 <- attitude[,2,drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+B<-my_ols(X=X2,y=y)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+str(A)
+\end_layout
+
+\begin_layout Plain Layout
+
+str(B)
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

@@ -15,7 +15,8 @@ Namn <- ""
 # På del 2 i kursen, när ni arbetar i par, skriv då ID på formen:  LiuId <- c("adalo456", "aliwa123")
 LiuId  <- ""
 
-# På del 2 i kursen, när ni arbetar i par, ange även grupptillhörighet enligt: Grupp<-"grupp01", om ni tillhör grupp 01
+# På del 2 i kursen, när ni arbetar i par, ange även grupptillhörighet enligt: 
+# Grupp<-"grupp01", om ni tillhör grupp01
 Grupp<-""
 
 

@@ -45,7 +45,7 @@ summary(my_object1)
 summary(my_object2)
 
 
-
+# skapa en generisk funktion:
 age <- function(x) {
   UseMethod("age")
 }
@@ -61,21 +61,19 @@ age(iris)
 age(my_object1)
 age(my_object2)
 str(my_object1)
-str(lm)
+
 
 # Skapa konstruktorfunktion
 
 employee <- function(name, age,company){
   obj<-list(name=name,age=age,company=company)
   class(obj) <- "employee"
-  obj
+  return(obj)
 }
 
-x<-employee(name = "Josef",age = 30,company = "ksdlf")
+x<-employee(name = "Josef",age = 30,company = "abc")
 x
 class(x)
-matrix()
-
 
 
 
@@ -88,6 +86,10 @@ matrix()
 library(lubridate)
 
 a<-interval(ymd("2015-01-01"),ymd("2015-01-06"))
+a
+class(a)
+str(a)
+
 a/days(1)
 a/ddays(1)
 
@@ -108,14 +110,20 @@ b2@day
 b2
 month(b2)
 month(b2)<-6
+b2
 
 class(a)
 str(a)
 
+# vad är by= i de olika fallen?
 seq(as.Date("2010-1-1"), as.Date("2015-1-1"), by = "years")
+
 seq(as.Date("2010-1-1"), as.Date("2015-1-1"), by = "months")
+
 seq(as.Date("2010-1-1"), as.Date("2015-1-1"), by = "weeks")
+
 seq(as.Date("2010-1-1"), as.Date("2015-1-1"), by = "3 weeks")
+
 seq(as.Date("2010-1-1"), as.Date("2015-1-1"), by = "days")
 
 
@@ -146,6 +154,7 @@ e<-t(a)%*%a
 e<-matrix(c(1,2,3,4),2,2)
 e
 e_inv<-solve(e)
+e_inv
 e%*%e_inv
 
 matrix(c(1,2,3,4),2,2,byrow = TRUE)

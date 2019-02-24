@@ -75,6 +75,7 @@ Funktionell programmering
   - R, Scala, Erlang
 - R har "first class functions":
   - Funktioner kan manipuleras som andra objekt, sparas i listor mm
+  - Ex. ```apply()```-funktionerna
 - Anonyma funktioner: utan namn
 - För fördjupning i R och FP se [här](http://adv-r.had.co.nz/Functional-programming.html).
 
@@ -260,7 +261,7 @@ instant och interval
 - ```instant```
   - En specifikt tillfälle i tiden
   - Ex. "2004-02-21 kl 12.33"
-  - Viktiga funktioner: ```now()```, ```today()```, ```here()```
+  - Viktiga funktioner: ```now()```, ```today()```
 - ```interval``` 
   - Tidsspannet mellan två ```instant```.
   - ```interval(start,end)```
@@ -316,7 +317,7 @@ Att räkna med tid
 Vi lägger till /drar bort en duration eller period till/från ett datum.
 
 ```{r,}
-course_start <- ymd("2016-01-22")
+course_start <- ymd("2019-01-21")
 course_start + weeks(8)
 course_start + months(1)
 course_start + ddays(30)

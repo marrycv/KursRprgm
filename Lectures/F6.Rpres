@@ -46,11 +46,29 @@ Dagens föreläsning:
 ========================================================
 
 - Kahoot!
+- Info
 - Programmeringsparadigm
   - Funktionell programmering
   - Objektorientering
 - Datum och tid med ```lubridate```
 - Linjär algebra i R
+
+Info:
+========================================================
+- Glöm inte att anmäla er till datortentan!
+- Endast anmälda studenter får skriva
+  - Anmälan öppnas: 2019-02-27
+  - Anmälan stänger: 2019-03-19
+- Labben flyttad till em imorgon
+- Mittkursutvärdering
+
+Quiz
+========================================================
+kahoot!
+ - Quiz, snabba svar ger mer poäng
+ - Ta fram en enhet med webbläsare
+ - Gå till: https://kahoot.it/
+ - Slå in koden som visas
 
 
 Programmeringsparadigm och R

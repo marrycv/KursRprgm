@@ -57,7 +57,7 @@ age.employee<-function(x){
 }
 
 age(x = 1:2)
-age(iris)
+age(x = iris)
 age(my_object1)
 age(my_object2)
 str(my_object1)
@@ -87,6 +87,7 @@ library(lubridate)
 
 a<-interval(ymd("2015-01-01"),ymd("2015-01-06"))
 a
+print(a)
 class(a)
 str(a)
 
@@ -106,7 +107,11 @@ class(b2)
 b2
 str(b2)
 day(b2)
+
 b2@day
+b2@year
+
+year(b2)
 b2
 month(b2)
 month(b2)<-6
